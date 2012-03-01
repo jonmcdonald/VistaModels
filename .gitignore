@@ -1,0 +1,12 @@
+*.[oa]
+Project
+work
+vista_work
+sim
+papoulis_project
+*~
+*.d
+*.x
+*.swp
+visualhl.ini
+vista.ini
