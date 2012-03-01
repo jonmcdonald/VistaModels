@@ -1,0 +1,39 @@
+
+clock         = 1 NS
+generic_clock = 1 NS
+
+tlm_timing_model = AT
+
+# Parameters for top.driver1 and top.driver2
+top.driver1.DriverFunction = simple
+top.driver2.DriverFunction = simple
+top.driver3.DriverFunction = off
+SizeDist = constant 4
+AddrDist = constant 0
+WaitDist = constant 10
+NumberPackets = 20
+
+slave_a_pipeline_length = 3
+
+top.stream1.ProcessD = 4
+top.stream2.ProcessD = 4
+top.stream3.ProcessD = 4
+top.stream4.ProcessD = 4
+
+top.streamThread1.ProcessD = 4
+top.streamThread2.ProcessD = 4
+top.streamThread3.ProcessD = 4
+top.streamThread4.ProcessD = 4
+
+top.streamTrans1.ProcessD = 4
+top.streamTrans2.ProcessD = 4
+top.streamTrans3.ProcessD = 4
+top.streamTrans4.ProcessD = 4
+
+
+# NumPack    AT:CB  AT:Thread	LT:CB	LT:Thread	GenOnly
+# 100,000    27		37	0.9	1.7		5.5 @ AT
+# 1,000,000 			8.5	16.6		2.3 @ LT
+#
+# Both on run.x = 65, make batch = 100 for 100,000 packets
+#                  6.7              20      10,000
