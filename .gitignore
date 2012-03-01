@@ -12,3 +12,4 @@ visualhl.ini
 vista.ini
 *_model.*
 *_t.*
+*_pvt.h
