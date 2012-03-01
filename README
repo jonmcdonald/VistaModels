@@ -1,1 +1,5 @@
 This repository will contain Vista Architect model libraries and projects.
+To create a new area, make a directory then run vista under that directory.  Any data you create
+should stay under the created directory.  You should be able to point at libraries in
+other directories within this repository as well as make modifications to elements in those
+other directories.
