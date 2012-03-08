@@ -1,0 +1,23 @@
+
+clock         = 1 ns
+generic_clock = 1 ns
+
+tlm_timing_model = AT
+
+
+###########################
+# sink 
+###########################
+top.sink.latency_s1 = 1
+top.sink.latency_s1 = 50
+
+###########################
+# stream_fifo 
+###########################
+top.fifo0.fifo_debug                  = 0
+top.fifo0.num_transactions_buffered   = 1
+top.fifo0.drop_on_overflow            = 0
+top.fifo0.wait_din                    = 1
+top.fifo0.latency_din                 = 5
+top.fifo0.latency_process             = 7
+

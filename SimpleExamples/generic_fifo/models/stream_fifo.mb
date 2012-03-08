@@ -1,0 +1,61 @@
+# ============================ TLM Model File ============================
+# You can create tlm model by one of the following ways:
+#   - load this file using 'load_model' API function
+#   - compile this file using "Modeling->Load Model File" menu command.
+# ========================================================================
+
+# === ports ===
+add_port "din" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "dout" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "config" /TLM/protocols/generic slave 32 -bind_mode optional
+add_port "alert" /TLM/protocols/generic master 32 -bind_mode optional
+
+# === parameters ===
+add_parameter "latency_din" 1 uint32 {}
+add_parameter "wait_din" 0 uint32 {}
+add_parameter "latency_process" 2 uint32 {}
+add_parameter "num_transactions_buffered" 1 uint32 {}
+add_parameter "drop_on_overflow" 0 uint32 {}
+add_parameter "fifo_debug" 0 uint32 {}
+
+# === auto parameters ===
+set_auto_parameter_default "clock" {10 ns} time {}
+set_auto_parameter_default "generic_clock" clock time {}
+set_auto_parameter_default "nominal_voltage" 1 double {}
+set_auto_parameter_default "mb_debug" false boolean {true false}
+set_auto_parameter_default "verbose_parameters" true boolean {true false}
+set_auto_parameter_default "din_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "config_pipeline_length" 2 uint32 {}
+
+# === generics ===
+# usage: add_generic <generic_name> <value>
+# example: add_generic "OUT_ACTIVE_VALUE" false
+
+# === machine architecture ===
+declare_register config reg_control 0x0 {} -rw_access r/w -width 32
+declare_register config reg_status 0x4 {} -rw_access r/w -width 32
+set_sync_all 0
+add_delay_policy din wait_din -latency latency_din -sync 1 -power 0
+add_sequential_policy mbtp_internalTime1.write -cause mbtp_internalTime0.write -latency latency_internalTime -sync 0 -power 0
+set_nominal_clock 100
+declare_variable mbv_overflow -type int32
+declare_variable mbv_underflow -type int32
+declare_variable mbv_level -type int32
+declare_variable mbtp_internalTime0 -type int32
+declare_variable mbtp_internalTime1 -type int32
+declare_variable latency_internalTime -type int32
+
+# === generate options ===
+set_generate_kind "pvt" ;# should be one of: model|pv|pvt
+set_include_file ""
+set_external_pv_include ""
+set_pv_kind "template" ;# should be one of: template|external|learned
+set_timing_kind "policies" ;# should be one of: policies|learned
+set_power_kind "policies" ;# should be one of: policies|learned
+set_class_name_external_pv ""
+set_max_parameters_of_pv_constructor 5
+set_overwrite 0
+set_generate_ipxact 0
+set_ipxact_vendor Mentor.com
+set_ipxact_version 1.0
+
