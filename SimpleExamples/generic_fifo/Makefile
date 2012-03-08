@@ -175,6 +175,7 @@ MB_COMMAND = 'reload_tlm_library __MODELS__;                                    
 
 # Run model_builder (generates $(PAPOULIS_PROJECT) directory)
 mb $(PAPOULIS_PROJECT): 
+	echo $(VISTA_VERSION)
 	@#if [ -e include/custom_models.tcl ]; then \
 	#	vista_model_builder -c "source include/custom_models.tcl"; fi
 	@# Model Builder doesn't read vista.ini to get library map, do it manually...

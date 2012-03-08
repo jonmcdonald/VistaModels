@@ -4,6 +4,7 @@ work
 vista_work
 sim
 papoulis_project
+objdir
 *~
 *.d
 *.x
