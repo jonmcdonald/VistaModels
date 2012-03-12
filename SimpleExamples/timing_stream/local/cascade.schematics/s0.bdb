@@ -13,8 +13,8 @@
  } 
  page  { w 11000 h 11000 type vhdstd orient portr  } 
 grid 10 
- } #idit - save unit (named cascade while saving) on Tue Feb 28 04:40:56 2012
-#SW version: 2008.12 v4.1.1.beta2 build 1. Date: Jan 16 2012. License: 1.1 
+ } #idit - save unit (named cascade while saving) on Mon Mar 12 16:35:57 2012
+#SW version: 2008.12 v4.1.1.beta2 build 1. Date: Feb  1 2012. License: 1.1 
 version: 12 
 comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 107 -101 4 4 
 bcol 'Empty' pcol 'Black' } 
@@ -1340,7 +1340,7 @@ none @block -
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 507 -101 19 35 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 507 -101 4 4 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 509 -66 1 8 nil 
 driver 
@@ -1385,10 +1385,10 @@ angle 2700 bcol 'Pale Blue2' pcol 'Black' }
 text { 601 -78 1 driver3
  angle 2700
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 637 -15 57 17 
+gnrtxt textbox { rect { 637 -15 56 18 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 639 -12 1 8 nil 
-  "driver3"  
+  "driver3" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -1522,11 +1522,11 @@ none @block -
 @procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
 L { @nvis } !
 @prtas 2 -
-20 sigIdx
-0 slave_a
--
 23 sigIdx
 0 master_1
+-
+20 sigIdx
+0 slave_a
 2 
 { @pdecl { { @n slave_a @t - @bnd -
 @das -
@@ -2712,7 +2712,7 @@ s14
 @@VE@names@@ 33 @obj - streamThread1 36 @obj - streamThread2 36 @obj - streamThread3 36 @obj - streamThread4 36 @obj - stream1 36 @obj - stream2 36 @obj - stream3 36 @obj - stream4 36 @obj - streamTrans1 36 @obj - streamTrans2 36 @obj - streamTrans3 36 
 @obj - streamTrans4 36 @obj - driver1 36 @obj - driver2 36 @obj - driver3 36 @obj - sink1 36 @obj - sink2 36 @obj - sink3 36 @obj - s0 13 @obj - s1 13 @obj - s2 13 
 @obj - s10 13 @obj - s3 13 @obj - s11 13 @obj - s4 13 @obj - s12 13 @obj - s5 13 @obj - s13 13 @obj - s6 13 @obj - s14 13 @obj - s7 13 
-@obj - s8 13 @obj - s9 13 23 14 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 29 17 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 !
+@obj - s8 13 @obj - s9 13 23 17 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 35 21 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 !
 
 @@VE@obj_u@@ driver1 driver models 0 
 sink1 sink models 0 

@@ -52,6 +52,12 @@ $end
 $init("stream4"),
 stream4(0)
 $end
+$init("driver3"),
+driver3(0)
+$end
+$init("sink3"),
+sink3(0)
+$end
 $init("streamTrans2"),
 streamTrans2(0)
 $end
@@ -60,12 +66,6 @@ streamTrans3(0)
 $end
 $init("streamTrans4"),
 streamTrans4(0)
-$end
-$init("driver3"),
-driver3(0)
-$end
-$init("sink3"),
-sink3(0)
 $end
 $init("streamTrans1"),
 streamTrans1(0)
@@ -109,6 +109,12 @@ $end;
 $create_component("stream4");
 stream4 = new stream_pvt("stream4");
 $end;
+$create_component("driver3");
+driver3 = new driver_pvt("driver3");
+$end;
+$create_component("sink3");
+sink3 = new sink_pvt("sink3");
+$end;
 $create_component("streamTrans2");
 streamTrans2 = new streamTrans_pvt("streamTrans2");
 $end;
@@ -117,12 +123,6 @@ streamTrans3 = new streamTrans_pvt("streamTrans3");
 $end;
 $create_component("streamTrans4");
 streamTrans4 = new streamTrans_pvt("streamTrans4");
-$end;
-$create_component("driver3");
-driver3 = new driver_pvt("driver3");
-$end;
-$create_component("sink3");
-sink3 = new sink_pvt("sink3");
 $end;
 $create_component("streamTrans1");
 streamTrans1 = new streamTrans_pvt("streamTrans1");
@@ -212,6 +212,12 @@ $end;
 $destruct_component("stream4");
 delete stream4; stream4 = 0;
 $end;
+$destruct_component("driver3");
+delete driver3; driver3 = 0;
+$end;
+$destruct_component("sink3");
+delete sink3; sink3 = 0;
+$end;
 $destruct_component("streamTrans2");
 delete streamTrans2; streamTrans2 = 0;
 $end;
@@ -220,12 +226,6 @@ delete streamTrans3; streamTrans3 = 0;
 $end;
 $destruct_component("streamTrans4");
 delete streamTrans4; streamTrans4 = 0;
-$end;
-$destruct_component("driver3");
-delete driver3; driver3 = 0;
-$end;
-$destruct_component("sink3");
-delete sink3; sink3 = 0;
 $end;
 $destruct_component("streamTrans1");
 delete streamTrans1; streamTrans1 = 0;
@@ -270,6 +270,12 @@ $end;
 $component("stream4");
 stream_pvt *stream4;
 $end;
+$component("driver3");
+driver_pvt *driver3;
+$end;
+$component("sink3");
+sink_pvt *sink3;
+$end;
 $component("streamTrans2");
 streamTrans_pvt *streamTrans2;
 $end;
@@ -278,12 +284,6 @@ streamTrans_pvt *streamTrans3;
 $end;
 $component("streamTrans4");
 streamTrans_pvt *streamTrans4;
-$end;
-$component("driver3");
-driver_pvt *driver3;
-$end;
-$component("sink3");
-sink_pvt *sink3;
 $end;
 $component("streamTrans1");
 streamTrans_pvt *streamTrans1;

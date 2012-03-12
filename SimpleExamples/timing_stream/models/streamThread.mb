@@ -12,6 +12,8 @@ add_port "master_1" /TLM/protocols/generic master 32 -bind_mode mandatory
 add_parameter "ProcessD" 3 uint32 {}
 add_parameter "InputD" 2 uint32 {}
 add_parameter "Id" 1 uint32 {}
+add_parameter "InputFifoDepth" 1 uint32 {}
+add_parameter "PipelineStages" 1 uint32 {}
 
 # === auto parameters ===
 set_auto_parameter_default "clock" {10 ns} time {}
@@ -29,11 +31,15 @@ set_auto_parameter_default "slave_a_pipeline_length" 2 uint32 {}
 set_sync_all 0
 add_sequential_policy TP2.write -cause TP1.write -latency m_processd -sync 1 -power 0
 add_delay_policy slave_a 0 -latency InputD -sync 1 -power 0
+add_sequential_policy TP4.write -cause TP3.write -latency inputDelta -sync 1 -power 0
 set_nominal_clock 100
 declare_variable TP1 -type int32
 declare_variable TP2 -type int32
 declare_variable m_processd -type int32
 declare_variable processFactor -type int32
+declare_variable inputDelta -type int32
+declare_variable TP3 -type int32
+declare_variable TP4 -type int32
 
 # === generate options ===
 set_generate_kind "pvt" ;# should be one of: model|pv|pvt

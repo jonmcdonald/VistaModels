@@ -29,6 +29,7 @@
 
 #include "streamThread_model.h"
 #include "datastruct.h"
+#include <queue>
 
 using namespace tlm;
 
@@ -63,5 +64,6 @@ class streamThread_pv : public streamThread_pv_base {
   bool slave_a_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);   
 
   tlm::tlm_fifo< datastruct *> fifo;
+  queue<sc_time> pipeInTimeQ;
 };
 

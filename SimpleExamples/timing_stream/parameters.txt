@@ -5,13 +5,13 @@ generic_clock = 1 NS
 tlm_timing_model = AT
 
 # Parameters for top.driver1 and top.driver2
-top.driver1.DriverFunction = simple
-top.driver2.DriverFunction = simple
+top.driver1.DriverFunction = off
+top.driver2.DriverFunction = random
 top.driver3.DriverFunction = off
 SizeDist = constant 4
 AddrDist = constant 0
-WaitDist = constant 10
-NumberPackets = 20
+WaitDist = constant 5
+NumberPackets = 200
 
 slave_a_pipeline_length = 3
 
@@ -20,15 +20,30 @@ top.stream2.ProcessD = 4
 top.stream3.ProcessD = 4
 top.stream4.ProcessD = 4
 
-top.streamThread1.ProcessD = 4
-top.streamThread2.ProcessD = 4
-top.streamThread3.ProcessD = 4
-top.streamThread4.ProcessD = 4
+InputFifoDepth = 9
+PipelineStages = 9
+top.streamThread1.ProcessD = 100
+top.streamThread2.ProcessD = 100
+top.streamThread3.ProcessD = 100
+top.streamThread4.ProcessD = 100
 
 top.streamTrans1.ProcessD = 4
 top.streamTrans2.ProcessD = 4
 top.streamTrans3.ProcessD = 4
 top.streamTrans4.ProcessD = 4
+
+top.stream_fifo1.latency_din = 2
+top.stream_fifo2.latency_din = 2
+top.stream_fifo3.latency_din = 2
+top.stream_fifo4.latency_din = 2
+top.stream_fifo1.latency_process = 10
+top.stream_fifo2.latency_process = 10
+top.stream_fifo3.latency_process = 10
+top.stream_fifo4.latency_process = 10
+top.stream_fifo1.num_transactions_buffered = 1
+top.stream_fifo2.num_transactions_buffered = 1
+top.stream_fifo3.num_transactions_buffered = 1
+top.stream_fifo4.num_transactions_buffered = 1
 
 
 # NumPack    AT:CB  AT:Thread	LT:CB	LT:Thread	GenOnly

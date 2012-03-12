@@ -36,32 +36,32 @@ streamThread_pv::streamThread_pv(sc_module_name module_name)
 { 
   SC_THREAD(thread);
   processFactor = ProcessD;
+  fifo.nb_bound(InputFifoDepth+PipelineStages);
+  for (int i = 0; i < PipelineStages; i++) pipeInTimeQ.push(SC_ZERO_TIME);
 }    
 
 void streamThread_pv::thread() {
   datastruct *ds;
   int proc;
-  sc_time startProcT = SC_ZERO_TIME;
+  sc_time startProcT;
   
   for(;;) {
     ds = fifo.peek();
-
+    startProcT = pipeInTimeQ.front();
+    pipeInTimeQ.pop();
     startProcT = (startProcT > ds->startT) ? startProcT : ds->startT;
 
     proc = (startProcT/clock) - (sc_time_stamp()/clock);
     proc = (proc < -processFactor) ? -processFactor : proc;
 
     m_processd = processFactor + proc;
-    TP1 = 0;
-    TP2 = 0;
+    TP1 = (TP1 + 1) % 8; TP2 = (TP2 + 1) % 8;
 
     set_current_token(ds->currentToken);
     fifo.get();
-    startProcT = sc_time_stamp();
-    if (ds->read)
-      master_1_read(ds->address, ds->data, ds->size);
-    else
-      master_1_write(ds->address, ds->data, ds->size);
+    pipeInTimeQ.push(sc_time_stamp());
+
+    master_1_write(ds->address, ds->data, ds->size);
     
     free(ds->data);
     free(ds);
@@ -71,17 +71,7 @@ void streamThread_pv::thread() {
 // Read callback for slave_a port.
 // Returns true when successful.
 bool streamThread_pv::slave_a_callback_read(mb_address_type address, unsigned char* data, unsigned size) {
-
-  datastruct * ds = new datastruct;
-
-  ds->read = true;
-  ds->address = address;
-  ds->data = data;
-  ds->size = size;
-  ds->currentToken = get_current_token();
-
-  fifo.put(ds);
-  
+  cout << sc_time_stamp() << ":" << name() << ".slave_a_callback_read(). Error: Read not supported." << endl;
   return true;
 }
 
@@ -90,14 +80,16 @@ bool streamThread_pv::slave_a_callback_read(mb_address_type address, unsigned ch
 // Returns true when successful.
 bool streamThread_pv::slave_a_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
 
-
   datastruct * ds = new datastruct;
+  int receiveT;
+  bool putBlocked;
 
   if (address == Id) {
     processFactor = *((int *)data);
   } else {
     ds->throughput = size / getSystemCBaseModel()->get_port_width(slave_a_idx);
-    ds->startT = sc_time_stamp() + ((ds->throughput + InputD) * clock);
+    receiveT = (ds->throughput + InputD);
+    ds->startT = sc_time_stamp() + (receiveT * clock);
     ds->read = false;
     ds->address = address;
     ds->data = new unsigned char [size];
@@ -105,7 +97,14 @@ bool streamThread_pv::slave_a_callback_write(mb_address_type address, unsigned c
     ds->size = size;
     ds->currentToken = get_current_token();
 
+    inputDelta = receiveT;
+    putBlocked = !fifo.nb_can_put();
+
     fifo.put(ds);
+
+    if (putBlocked) {
+      ds->startT = sc_time_stamp() + (receiveT * clock);
+      TP3 = (TP3 + 1) % 8; TP4 = (TP4 + 1) % 8; }
   }
   
   return true;
