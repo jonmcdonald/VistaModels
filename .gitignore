@@ -14,3 +14,4 @@ vista.ini
 *_model.*
 *_t.*
 *_pvt.h
+*.merged
