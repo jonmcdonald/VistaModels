@@ -1,0 +1,1 @@
+{add_element OutOrder1 -kind component -pointer 1 -associated_unit models:OutOrder -class OutOrder_pvt} {add_bind OutOrder1->x mem1->slave {}} {add_bind OutOrder1->y mem2->slave {}} {add_element mem1 -kind component -pointer 1 -associated_unit models:mem -class mem_pvt} {add_element mem2 -kind component -pointer 1 -associated_unit models:mem -class mem_pvt}

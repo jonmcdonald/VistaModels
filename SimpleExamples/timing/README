@@ -1,0 +1,34 @@
+This directory has been initialized with startup files to streamline the initial Vista
+usage.  These files can be used for any initial Vista working area.  The files are not
+specific to any particuar directory path or model names. 
+
+The following items are included:
+
+Makefile	: Make targets for simplifying Vista usage.  Useful targets include:
+	"make"	: Create and load .mb files into papoulis_project directory if it does not exist
+		  Compile all .cpp files
+		  Build the vista project.
+	"make vista" : Build any out of date files and start vista simulation in Gui
+	"make batch" : Build out of date files and run simulation in Vista batch
+	"make clean" : Remove all binary and intermediate files
+
+vista.ini	: Initial ini file for Vista which loads the Project.v2p and libraries.
+Project.v2p	: Initial project definition.  This will work with the files created
+		  and compiled by the Makefile
+
+parameters.txt	: Initial parameters file.  Minimal contents
+sc_main.cpp	: Basic sc_main which instantiates one element "top" from "top.h"
+local		: Vista block diagram library containing one inital block, "top"
+		  which is instantiated by the sc_main.cpp
+
+emacs_vista	: Emacs initialization file which sets emacs to start in viper-mode.
+		  This is a vi emulation mode for those who like to work in vi.
+		  To use this file first type Alt-x in the emacs window under vista,
+		  answer the question you are prompted with, saving the answers.
+		  Then move the emacs_vista file to "$HOME/.emacs_vista". Now all editor
+		  windows under Vista will be started in vi mode.
+
+vista.preMakefile : Vista initialization makefile.  Move this file to "$HOME/.vista.preMakefile"
+		  It will be executed every time you build a project under Vista.  This
+		  is currently set to execute a Makefile in the users current working
+		  directory.  This works with the Makefile included in this directory.

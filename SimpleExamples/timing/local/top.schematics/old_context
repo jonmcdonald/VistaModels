@@ -1,0 +1,1 @@
+{add_element mem1 -kind component -pointer 1 -associated_unit models:mem -class mem_pvt} {add_element driver1 -kind component -pointer 1 -associated_unit models:driver -class driver_pvt} {add_bind driver1->d mem1->slave {}} {add_bind driver1->e mem2->slave {}} {add_element mem2 -kind component -pointer 1 -associated_unit models:mem -class mem_pvt}
