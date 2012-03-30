@@ -9,7 +9,7 @@ objdir
 *.d
 *.x
 *.swp
-visualhl.ini
+visualhl.ini*
 vista.ini
 *_model.*
 *_t.*
