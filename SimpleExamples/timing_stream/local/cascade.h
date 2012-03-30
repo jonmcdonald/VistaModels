@@ -7,7 +7,6 @@ $includes_begin;
 #include "../models/stream_model.h"
 #include "../models/streamThread_model.h"
 #include "../models/streamTrans_model.h"
-#include "../models/driver_nr_model.h"
 $includes_end;
 
 $module_begin("cascade");
