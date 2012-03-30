@@ -11,7 +11,7 @@ top.driver3.DriverFunction = off
 SizeDist = constant 4
 AddrDist = constant 0
 WaitDist = constant 5
-NumberPackets = 200
+NumberPackets = 20
 
 slave_a_pipeline_length = 3
 
@@ -20,8 +20,8 @@ top.stream2.ProcessD = 4
 top.stream3.ProcessD = 4
 top.stream4.ProcessD = 4
 
-InputFifoDepth = 9
-PipelineStages = 9
+InputFifoDepth = 4
+PipelineStages = 1
 top.streamThread1.ProcessD = 100
 top.streamThread2.ProcessD = 100
 top.streamThread3.ProcessD = 100
