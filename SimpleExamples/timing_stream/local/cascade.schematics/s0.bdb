@@ -13,7 +13,7 @@
  } 
  page  { w 11000 h 11000 type vhdstd orient portr  } 
 grid 10 
- } #idit - save unit (named cascade while saving) on Mon Mar 12 16:35:57 2012
+ } #idit - save unit (named cascade while saving) on Fri Mar 30 08:23:20 2012
 #SW version: 2008.12 v4.1.1.beta2 build 1. Date: Feb  1 2012. License: 1.1 
 version: 12 
 comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 107 -101 4 4 
