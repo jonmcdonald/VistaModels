@@ -1,0 +1,6 @@
+
+top_mb.sensori1.count = 5
+top_mb.sensori2.count = 5
+
+top_mb.sensori1.pDist = uniform 1 100 11
+top_mb.sensori2.pDist = uniform 30 70 9817

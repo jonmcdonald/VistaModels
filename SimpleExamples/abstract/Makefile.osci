@@ -1,0 +1,58 @@
+TARGET_ARCH = linux64
+SYSTEMC_HOME = /home/tools/osci/systemc-2.2.0
+TLM_HOME     = /home/tools/osci/systemc-2.2.0
+
+SYSTEMC_INC_DIR      = $(SYSTEMC_HOME)/include
+SYSTEMC_LIB_DIR      = $(SYSTEMC_HOME)/lib-$(TARGET_ARCH)
+TLM_INC_DIR          = $(TLM_HOME)/include/tlm
+
+CC     = g++ 
+OPT    = -O3
+DEBUG  = -g
+OTHER  = -Wall
+CFLAGS = $(DEBUG) $(OTHER)
+
+MODELS = models
+LOCAL  = local
+MODULE = run
+
+SRCS = $(wildcard *.cpp)
+OBJS = $(SRCS:.cpp=.o)
+
+VISTA_HOME = /home/tools/vista
+MB_HOME = $(VISTA_HOME)/papoulis
+MB_LIBDIR = $(MB_HOME)/$(TARGET_ARCH)/vista-gcc43-sc22
+
+INCDIR = -I. -Iinclude -I$(LOCAL) -I$(SYSTEMC_INC_DIR) -I$(TLM_INC_DIR)  \
+	 -I$(MB_HOME)/include
+
+LIBS   = \
+	 $(MB_LIBDIR)/esl.sc_sim.a \
+	 -L$(SYSTEMC_LIB_DIR) -lsystemc
+
+EXE    = $(MODULE).x
+
+.SUFFIXES: .cpp .cc .o .x .h
+
+$(EXE): $(OBJS)
+	$(CC) $(CFLAGS) $(INCDIR) -o $@ $(OBJS) $(LIBS) 2>&1 | c++filt
+
+.cpp.o:
+	$(CC) $(CFLAGS) $(INCDIR) -c $< -o $*.o
+	@$(CC) -MM $(CFLAGS) $(INCDIR) -c $< > $*.d
+	@sed -e 's|.*:|$*.o:|' -e 's|[  ]/[^    ]*| |' -e '/^[  ]*\\/d' < $*.d > $*.d.tmp
+	@mv $*.d.tmp $*.d
+
+.cc.o:
+	$(CC) $(CFLAGS) $(INCDIR) -c $< -o $*.o
+	@$(CC) -MM $(CFLAGS) $(INCDIR) -c $< > $*.d
+	@sed -e 's|.*:|$*.o:|' -e 's|[  ]/[^    ]*| |' -e '/^[  ]*\\/d' < $*.d > $*.d.tmp
+	@mv $*.d.tmp $*.d
+
+clean:
+	rm -rf vista_work Project Source Object sim papoulis_project work
+	find . -name "*~" -exec rm {} \;
+	find . -name "*.d" -exec rm {} \;
+	rm -f $(OBJS) $(EXE)
+
+-include $(OBJS:.o=.d)

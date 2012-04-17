@@ -1,0 +1,1062 @@
+03.00 00 04 
+@@VE@_body@@ 
+@@VE@names@@ 
+@@VE@obj_u@@ 
+@@VE@00000@@ 
+@^@VE_hdr_end@^@ 
+
+@@VE@_body@@  attrib {  globvis  {  blkunit  blk  {  prefix b  name 1  act 0  gen 0  prior 0  } 
+ sig  {  prefix s  name 1  act 1  } 
+ pin  {  prefix XXX  name 0  act 0  } 
+ comp  {  prefix c  name 1  gen 0  } 
+ tap  {  prefix T  name 0  act 0  } 
+ } 
+ page  { w 11000 h 11000 type vhdstd orient portr  } 
+grid 10 
+ } #idit - save unit (named top_mb while saving) on Tue Apr 17 18:15:35 2012
+#SW version: 2008.12 v4.1.1.beta2 build 1. Date: Apr  4 2012. License: 1.1 
+version: 12 
+ipxactvendor Mentor.com 
+ipxactversion 1.0 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 498 -294 47 18 
+bcol 'White' pcol 'Black' } 
+fmttext { 500 -291 1 8 nil 
+filterMM 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ vis }  { fiv  @kind 9 
+ } 
+groupobj { doset { rect { 480 -300 70 70 
+bcol 'Empty' pcol 'Black' } 
+ } 
+clshapes { closeShape { lines { line { 480 -300 550 -300 } 
+line { 550 -300 550 -230 } 
+line { 550 -230 480 -230 } 
+line { 480 -230 480 -300 } 
+} 
+arcs { } 
+bcol 'Pale Blue2'  } 
+ } 
+ } 
+ } 
+pinset { sympinel {  text { 487 -267 1 pIn
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 480 -260 } 
+ {  end  460 -260  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n pIn @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ pIn { DataType, CommandType } { sc_port<pull_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<pull_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 514 -268 1 pOut
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 550 -260 } 
+ {  end  570 -260  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n pOut @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ pOut { DataType, CommandType } { sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+ } 
+angle 0 bcol 'Pale Blue2' pcol 'Black' } 
+ } 
+text { 488 -253 1 compress
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+gnrtxt textbox { rect { 281 -105 71 18 
+bcol 'Empty' pcol 'Red' } 
+fmttext { 283 -102 1 8 nil 
+  "compress" 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ invis }  } 
+@conf
+- - @symname
+base @cmpattr
+@kwd @innm compress @arch - @usl - @hrnm filterMM local @dffs 0 0 @stt hier @gnras @cnt 0
+@templparamas @templparamcnt 0
+@portas @cnt 0
+@portlist 2 
+{ @port { @pdecl { { @n pIn @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ pIn { DataType, CommandType } { sc_port<pull_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<pull_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n pOut @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ pOut { DataType, CommandType } { sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } !
+@instype none @useCtor -1 @freeCtrorAruments 1 %Name%
+L { @nvis } !
+@prtas 2 -
+6 sigIdx
+0 pOut
+-
+9 sigIdx
+0 pIn
+2 
+{ @pdecl { { @n pIn @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ pIn { DataType, CommandType } { sc_port<pull_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<pull_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n pOut @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ pOut { DataType, CommandType } { sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+0 L { @nvis @ctorsn 1 } !
+@hastemplparam
+{ @cnt 0 } @transl 2 
+{ @pdecl { { @n pIn @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ pIn { DataType, CommandType } { sc_port<pull_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<pull_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n pOut @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ pOut { DataType, CommandType } { sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+0 L { @nvis @ctorsn 1 } !
+@transltemplparam { @cnt 0 } @instanceAs 1 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 206 -194 45 18 
+bcol 'White' pcol 'Black' } 
+fmttext { 208 -191 1 8 nil 
+filterSM 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ vis }  { fiv  @kind 9 
+ } 
+groupobj { doset { rect { 200 -200 60 80 
+bcol 'Empty' pcol 'Black' } 
+ } 
+clshapes { closeShape { lines { line { 200 -120 260 -120 } 
+line { 260 -120 260 -200 } 
+line { 260 -200 200 -200 } 
+line { 200 -200 200 -120 } 
+} 
+arcs { } 
+bcol 'Pale Blue2'  } 
+ } 
+ } 
+ } 
+pinset { sympinel {  invert FALSE visible TRUE typepin 0 pin { 200 -160 } 
+ {  end  180 -160  } 
+ } 
+@spattr {
+@plist 0 
+L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 0 @flags 73 }
+
+sympinel {  text { 246 -167 1 p
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 260 -160 } 
+ {  end  280 -160  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n p @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ p { DataType, CommandType } { sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+ } 
+angle 0 fliplr bcol 'Pale Blue2' pcol 'Black' } 
+ } 
+text { 205 -139 1 filter1
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+gnrtxt textbox { rect { 321 -295 48 18 
+bcol 'Empty' pcol 'Red' } 
+fmttext { 323 -292 1 8 nil 
+  "filter1" 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ invis }  } 
+@conf
+- - @symname
+base @cmpattr
+@kwd @innm filter1 @arch - @usl - @hrnm filterSM local @dffs 0 0 @stt hier @gnras @cnt 0
+@templparamas @templparamcnt 0
+@portas @cnt 0
+@portlist 1 
+{ @port { @pdecl { { @n p @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ p { DataType, CommandType } { sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } !
+@instype none @useCtor -1 @freeCtrorAruments 1 %Name%
+L { @nvis } !
+@prtas 1 -
+3 sigIdx
+0 p
+1 
+{ @pdecl { { @n p @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ p { DataType, CommandType } { sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+0 L { @nvis @ctorsn 1 } !
+@hastemplparam
+{ @cnt 0 } @transl 1 
+{ @pdecl { { @n p @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ p { DataType, CommandType } { sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+0 L { @nvis @ctorsn 1 } !
+@transltemplparam { @cnt 0 } @instanceAs 1 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 78 -194 41 18 
+bcol 'White' pcol 'Black' } 
+fmttext { 80 -191 1 8 nil 
+sensor 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ vis }  { fiv  @kind 9 
+ } 
+groupobj { doset { rect { 70 -200 60 80 
+bcol 'Empty' pcol 'Black' } 
+ } 
+clshapes { closeShape { lines { line { 130 -200 70 -200 } 
+line { 70 -200 70 -120 } 
+line { 70 -120 130 -120 } 
+line { 130 -120 130 -200 } 
+} 
+arcs { } 
+bcol 'Green'  } 
+ } 
+ } 
+ } 
+pinset { sympinel {  text { 116 -167 1 p
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 130 -160 } 
+ {  end  150 -160  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n p @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ p { DataType, CommandType } { sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+ } 
+angle 0 fliplr bcol 'Green' pcol 'Black' } 
+ } 
+text { 76 -143 1 sensori1
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+gnrtxt textbox { rect { 181 -365 65 18 
+bcol 'Empty' pcol 'Red' } 
+fmttext { 183 -362 1 8 nil 
+  "sensori1" 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ invis }  } 
+@conf
+- - @symname
+- @cmpattr
+@kwd @innm sensori1 @arch - @usl - @hrnm sensor local @dffs 0 0 @stt hier @gnras @cnt 0
+@templparamas @templparamcnt 0
+@portas @cnt 0
+@portlist 1 
+{ @port { @pdecl { { @n p @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ p { DataType, CommandType } { sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } !
+@instype none @useCtor -1 @freeCtrorAruments 1 %Name%
+L { @nvis } !
+@prtas 1 -
+1 sigIdx
+0 p
+1 
+{ @pdecl { { @n p @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ p { DataType, CommandType } { sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+0 L { @nvis @ctorsn 1 } !
+@hastemplparam
+{ @cnt 0 } @transl 1 
+{ @pdecl { { @n p @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ p { DataType, CommandType } { sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+0 L { @nvis @ctorsn 1 } !
+@transltemplparam { @cnt 0 } @instanceAs 1 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 636 -294 26 18 
+bcol 'Empty' pcol 'Black' } 
+fmttext { 638 -291 1 8 nil 
+sink 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ vis }  { fiv  @kind 9 
+ } 
+groupobj { doset { rect { 620 -300 60 80 
+bcol 'Empty' pcol 'Black' } 
+ } 
+clshapes { closeShape { lines { line { 680 -300 620 -300 } 
+line { 620 -300 620 -220 } 
+line { 620 -220 680 -220 } 
+line { 680 -220 680 -300 } 
+} 
+arcs { } 
+bcol 'Red'  } 
+ } 
+ } 
+ } 
+pinset { sympinel {  text { 627 -267 1 p
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 620 -260 } 
+ {  end  600 -260  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n p @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ p { DataType, CommandType } { push_if<DataType,CommandType> } - 0 } 
+@ischnl } @md export @iv -
+@sysInt push_if<DataType,CommandType>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+ } 
+angle 0 fliplr bcol 'Red' pcol 'Black' } 
+ } 
+text { 626 -244 1 downlink
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+gnrtxt textbox { rect { 351 -455 67 18 
+bcol 'Empty' pcol 'Red' } 
+fmttext { 353 -452 1 8 nil 
+  "downlink" 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ invis }  } 
+@conf
+- - @symname
+base @cmpattr
+@kwd @innm downlink @arch - @usl - @hrnm sink local @dffs 0 0 @stt hier @gnras @cnt 0
+@templparamas @templparamcnt 0
+@portas @cnt 0
+@portlist 1 
+{ @port { @pdecl { { @n p @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ p { DataType, CommandType } { push_if<DataType,CommandType> } - 0 } 
+@ischnl } @md export @iv -
+@sysInt push_if<DataType,CommandType>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } !
+@instype none @useCtor -1 @freeCtrorAruments 1 %Name%
+L { @nvis } !
+@prtas 1 -
+5 sigIdx
+0 p
+1 
+{ @pdecl { { @n p @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ p { DataType, CommandType } { push_if<DataType,CommandType> } - 0 } 
+@ischnl } @md export @iv -
+@sysInt push_if<DataType,CommandType>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+0 L { @nvis @ctorsn 1 } !
+@hastemplparam
+{ @cnt 0 } @transl 1 
+{ @pdecl { { @n p @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ p { DataType, CommandType } { push_if<DataType,CommandType> } - 0 } 
+@ischnl } @md export @iv -
+@sysInt push_if<DataType,CommandType>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+0 L { @nvis @ctorsn 1 } !
+@transltemplparam { @cnt 0 } @instanceAs 1 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 350 -284 43 18 
+bcol 'White' pcol 'Black' } 
+fmttext { 352 -281 1 8 nil 
+filterSS 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ vis }  { fiv  @kind 9 
+ } 
+groupobj { doset { rect { 340 -290 60 60 
+bcol 'Empty' pcol 'Black' } 
+ } 
+clshapes { closeShape { lines { line { 340 -290 400 -290 } 
+line { 400 -290 400 -230 } 
+line { 400 -230 340 -230 } 
+line { 340 -230 340 -290 } 
+} 
+arcs { } 
+bcol 'Yellow'  } 
+ } 
+ } 
+ } 
+pinset { sympinel {  text { 352 -268 1 i
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 340 -260 } 
+ {  end  320 -260  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n i @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ i { DataType, CommandType } { push_if<DataType,CommandType> } - 0 } 
+@ischnl } @md export @iv -
+@sysInt push_if<DataType,CommandType>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 386 -267 1 o
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 400 -260 } 
+ {  end  420 -260  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n o @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ o { DataType, CommandType } { pull_if<DataType,CommandType> } - 0 } 
+@ischnl } @md export @iv -
+@sysInt pull_if<DataType,CommandType>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+ } 
+angle 0 bcol 'Yellow' pcol 'Black' } 
+ } 
+text { 346 -250 1 multiplex
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+gnrtxt textbox { rect { 331 -265 67 18 
+bcol 'Empty' pcol 'Red' } 
+fmttext { 333 -262 1 8 nil 
+  "multiplex" 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ invis }  } 
+@conf
+- - @symname
+base @cmpattr
+@kwd @innm multiplex @arch - @usl - @hrnm filterSS local @dffs 0 0 @stt hier @gnras @cnt 0
+@templparamas @templparamcnt 0
+@portas @cnt 0
+@portlist 2 
+{ @port { @pdecl { { @n i @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ i { DataType, CommandType } { push_if<DataType,CommandType> } - 0 } 
+@ischnl } @md export @iv -
+@sysInt push_if<DataType,CommandType>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n o @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ o { DataType, CommandType } { pull_if<DataType,CommandType> } - 0 } 
+@ischnl } @md export @iv -
+@sysInt pull_if<DataType,CommandType>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } !
+@instype none @procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
+L { @nvis } !
+@prtas 2 -
+4 sigIdx
+0 i
+-
+8 sigIdx
+0 o
+2 
+{ @pdecl { { @n i @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ i { DataType, CommandType } { push_if<DataType,CommandType> } - 0 } 
+@ischnl } @md export @iv -
+@sysInt push_if<DataType,CommandType>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n o @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ o { DataType, CommandType } { pull_if<DataType,CommandType> } - 0 } 
+@ischnl } @md export @iv -
+@sysInt pull_if<DataType,CommandType>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+0 L { @nvis @ctorsn 1 } !
+@hastemplparam
+{ @cnt 0 } @transl 2 
+{ @pdecl { { @n i @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ i { DataType, CommandType } { push_if<DataType,CommandType> } - 0 } 
+@ischnl } @md export @iv -
+@sysInt push_if<DataType,CommandType>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n o @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ o { DataType, CommandType } { pull_if<DataType,CommandType> } - 0 } 
+@ischnl } @md export @iv -
+@sysInt pull_if<DataType,CommandType>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+0 L { @nvis @ctorsn 1 } !
+@transltemplparam { @cnt 0 } @instanceAs 1 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 206 -424 45 18 
+bcol 'White' pcol 'Black' } 
+fmttext { 208 -421 1 8 nil 
+filterSM 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ vis }  { fiv  @kind 9 
+ } 
+groupobj { doset { rect { 200 -430 60 80 
+bcol 'Empty' pcol 'Black' } 
+ } 
+clshapes { closeShape { lines { line { 200 -350 260 -350 } 
+line { 260 -350 260 -430 } 
+line { 260 -430 200 -430 } 
+line { 200 -430 200 -350 } 
+} 
+arcs { } 
+bcol 'Pale Blue2'  } 
+ } 
+ } 
+ } 
+pinset { sympinel {  invert FALSE visible TRUE typepin 0 pin { 200 -390 } 
+ {  end  180 -390  } 
+ } 
+@spattr {
+@plist 0 
+L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 0 @flags 73 }
+
+sympinel {  text { 246 -397 1 p
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 260 -390 } 
+ {  end  280 -390  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n p @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ p { DataType, CommandType } { sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+ } 
+angle 0 fliplr bcol 'Pale Blue2' pcol 'Black' } 
+ } 
+text { 212 -371 1 filter2
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+gnrtxt textbox { rect { 321 -295 48 18 
+bcol 'Empty' pcol 'Red' } 
+fmttext { 323 -292 1 8 nil 
+  "filter2" 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ invis }  } 
+@conf
+- - @symname
+base @cmpattr
+@kwd @innm filter2 @arch - @usl - @hrnm filterSM local @dffs 0 0 @stt hier @gnras @cnt 0
+@templparamas @templparamcnt 0
+@portas @cnt 0
+@portlist 1 
+{ @port { @pdecl { { @n p @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ p { DataType, CommandType } { sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } !
+@instype none @procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
+L { @nvis } !
+@prtas 1 -
+12 sigIdx
+0 p
+1 
+{ @pdecl { { @n p @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ p { DataType, CommandType } { sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+0 L { @nvis @ctorsn 1 } !
+@hastemplparam
+{ @cnt 0 } @transl 1 
+{ @pdecl { { @n p @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ p { DataType, CommandType } { sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+0 L { @nvis @ctorsn 1 } !
+@transltemplparam { @cnt 0 } @instanceAs 1 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 78 -424 41 18 
+bcol 'White' pcol 'Black' } 
+fmttext { 80 -421 1 8 nil 
+sensor 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ vis }  { fiv  @kind 9 
+ } 
+groupobj { doset { rect { 70 -430 60 80 
+bcol 'Empty' pcol 'Black' } 
+ } 
+clshapes { closeShape { lines { line { 130 -430 70 -430 } 
+line { 70 -430 70 -350 } 
+line { 70 -350 130 -350 } 
+line { 130 -350 130 -430 } 
+} 
+arcs { } 
+bcol 'Green'  } 
+ } 
+ } 
+ } 
+pinset { sympinel {  text { 116 -397 1 p
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 130 -390 } 
+ {  end  150 -390  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n p @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ p { DataType, CommandType } { sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+ } 
+angle 0 fliplr bcol 'Green' pcol 'Black' } 
+ } 
+text { 75 -374 1 sensori2
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+gnrtxt textbox { rect { 181 -365 65 18 
+bcol 'Empty' pcol 'Red' } 
+fmttext { 183 -362 1 8 nil 
+  "sensori2" 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ invis }  } 
+@conf
+- - @symname
+- @cmpattr
+@kwd @innm sensori2 @arch - @usl - @hrnm sensor local @dffs 0 0 @stt hier @gnras @cnt 0
+@templparamas @templparamcnt 0
+@portas @cnt 0
+@portlist 1 
+{ @port { @pdecl { { @n p @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ p { DataType, CommandType } { sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } !
+@instype none @procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
+L { @nvis } !
+@prtas 1 -
+11 sigIdx
+0 p
+1 
+{ @pdecl { { @n p @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ p { DataType, CommandType } { sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+0 L { @nvis @ctorsn 1 } !
+@hastemplparam
+{ @cnt 0 } @transl 1 
+{ @pdecl { { @n p @t DataType, CommandType @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch { @ p { DataType, CommandType } { sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND> } - 0 } 
+@ischnl } @md inout @iv -
+@sysInt sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+0 L { @nvis @ctorsn 1 } !
+@transltemplparam { @cnt 0 } @instanceAs 1 
+connector { dummy  286 -264  conattr {
+int trans (null) } -
+}
+ signal { F bind line90 { 0 4 2 150 -160  150 -160  180 -160 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 180 -160 } 
+ } 
+8 0 -1 -
+-
+
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 150 -160 } 
+ } 
+2 1 -1 -
+-
+
+
+ } 
+ SourceIdx 2 
+ DestIdx 1 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s0
+@newportclass
+{ -name- 
+sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+0 0 withTemplate 1 0 multiport 1 } 
+@dt DataType, CommandType
+@channeltype { -name- 
+sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+- 0 withTemplate 1 0 multiport 1 } 
+-
+0 
+signal { F bind line90 { 0 4 2 280 -160  290 -160  290 -260 bcol 'Empty' pcol 'Black' 
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 280 -160 } 
+ } 
+2 3 -1 -
+-
+
+
+ } 
+ SourceIdx 1 
+ DestIdx 7 
+ } 
+line90 { 0 4 2 290 -260  290 -260  320 -260 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 320 -260 } 
+ } 
+9 4 -1 -
+-
+@intrfclass
+{ -name- 
+push_if<DataType,CommandType>
+0 0 withTemplate 1 0 multiport 1 } 
+@initialization
+-
+0 
+
+ } 
+ SourceIdx 7 
+ DestIdx 4 
+ } 
+line90 { 0 4 2 280 -390  290 -390  290 -260 bcol 'Empty' pcol 'Black' 
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 280 -390 } 
+ } 
+2 12 -1 -
+-
+
+
+ } 
+ SourceIdx 5 
+ DestIdx 7 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s1
+@newportclass
+{ -name- 
+sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+0 0 withTemplate 1 0 multiport 1 } 
+@dt DataType, CommandType
+@channeltype { -name- 
+sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+- 0 withTemplate 1 0 multiport 1 } 
+-
+0 
+signal { F bind line90 { 0 4 2 570 -260  570 -260  600 -260 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 600 -260 } 
+ } 
+9 5 -1 -
+-
+@intrfclass
+{ -name- 
+push_if<DataType,CommandType>
+0 0 withTemplate 1 0 multiport 1 } 
+@initialization
+-
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 570 -260 } 
+ } 
+2 6 -1 -
+-
+
+
+ } 
+ SourceIdx 0 
+ DestIdx 3 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s3
+@newportclass
+{ -name- 
+sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+0 0 withTemplate 1 0 multiport 1 } 
+@dt DataType, CommandType
+@channeltype { -name- 
+sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+- 0 withTemplate 1 0 multiport 1 } 
+-
+0 
+signal { F bind line90 { 0 4 2 460 -260  460 -260  420 -260 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 420 -260 } 
+ } 
+9 8 -1 -
+-
+@intrfclass
+-
+@initialization
+-
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 460 -260 } 
+ } 
+2 9 -1 -
+-
+
+
+ } 
+ SourceIdx 0 
+ DestIdx 4 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s5
+@newportclass
+{ -name- 
+sc_port<pull_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+0 0 withTemplate 1 0 multiport 1 } 
+@dt DataType, CommandType
+@channeltype { -name- 
+sc_port<pull_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+- 0 withTemplate 1 0 multiport 1 } 
+-
+0 
+signal { F bind line90 { 0 4 2 150 -390  150 -390  180 -390 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 180 -390 } 
+ } 
+8 10 -1 -
+-
+
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 150 -390 } 
+ } 
+2 11 -1 -
+-
+
+
+ } 
+ SourceIdx 6 
+ DestIdx 5 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s6
+@newportclass
+{ -name- 
+sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+0 0 withTemplate 1 0 multiport 1 } 
+@dt DataType, CommandType
+@channeltype { -name- 
+sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+- 0 withTemplate 1 0 multiport 1 } 
+-
+0 
+!
+
+@@VE@names@@ 12 @obj - sensori1 36 @obj - sensori2 36 @obj - s0 13 @obj - s1 13 @obj - filter1 36 @obj - filter2 36 @obj - s3 13 @obj - s5 13 @obj - s6 13 @obj - downlink 36 @obj - multiplex 36 
+@obj - compress 36 23 7 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 12 10 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 !
+
+@@VE@obj_u@@ compress filterMM local 0 
+filter1 filterSM local 0 
+sensori1 sensor local 0 
+downlink sink local 0 
+multiplex filterSS local 0 
+filter2 filterSM local 0 
+sensori2 sensor local 0 
+!
