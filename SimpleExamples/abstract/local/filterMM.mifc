@@ -1,0 +1,7 @@
+# === Model Interface File ===
+# ============================
+
+class filterMM
+include ../../../../work/abstract/include/filterMM.h
+port -name pIn -class sc_port<pull_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>
+port -name pOut -class sc_port<push_if<DataType,CommandType>,1,SC_ONE_OR_MORE_BOUND>

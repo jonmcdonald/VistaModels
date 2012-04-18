@@ -40,6 +40,7 @@ void OutOrder_pv::thread() {
   unsigned int d = 1;
   TP = 0;
   x_write(0x0, d);
+  x_read(0x0, &d, 1);
   y_write(0x0, d);
 
   wait (10*clock);

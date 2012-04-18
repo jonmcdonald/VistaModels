@@ -1,0 +1,8 @@
+# === Model Interface File ===
+# ============================
+
+class target
+include ../../../../work/abstract/include/sink.h
+hierarchical_channel
+
+

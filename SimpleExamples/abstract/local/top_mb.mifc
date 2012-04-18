@@ -1,0 +1,6 @@
+# === Model Interface File ===
+# ============================
+
+class top_mb
+include ../../../../work/abstract/local/top_mb.h
+

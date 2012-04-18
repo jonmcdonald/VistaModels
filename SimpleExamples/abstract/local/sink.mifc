@@ -1,0 +1,6 @@
+# === Model Interface File ===
+# ============================
+
+class sink
+include ../../../../work/abstract/include/sink.h
+port -name p -kind export -class push_if<DataType,CommandType>

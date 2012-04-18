@@ -1,0 +1,7 @@
+# === Model Interface File ===
+# ============================
+
+class filterSS
+include ../../../../work/abstract/include/filterSS.h
+port -name i -kind export -class push_if<DataType,CommandType>
+port -name o -kind export -class pull_if<DataType,CommandType>

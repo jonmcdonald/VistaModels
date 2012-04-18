@@ -1,0 +1,21 @@
+#prepare::
+#	echo "*****  User local Makefile called  *****"
+#	$(PRJDIR)/runmake $(PRJDIR)
+#	make -C $(PRJDIR)
+
+
+prepare::
+	echo "*****  User local Makefile called  *****"
+	@+if [ -e $(PRJDIR)/Makefile ]; then eval MAKEFLAGS= && make -C $(PRJDIR) vistagui; fi
+	echo "*****  User local Makefile finished  *****"
+
+#MY_PREMAKEFILE = $(PRJDIR)/Makefile
+
+#MY_COMMAND = 
+#ifeq ($(wildcard $(MY_PREMAKEFILE)), $(MY_PREMAKEFILE))
+#MY_COMMAND = make -C $(PRJDIR)
+#endif
+
+#prepare::
+#	echo "*****  User local Makefile called  *****"
+#	+$(MY_COMMAND)

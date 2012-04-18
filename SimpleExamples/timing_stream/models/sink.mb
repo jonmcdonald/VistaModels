@@ -17,6 +17,9 @@ set_auto_parameter_default "generic_clock" clock time {}
 set_auto_parameter_default "nominal_voltage" 1 double {}
 set_auto_parameter_default "mb_debug" false boolean {true false}
 set_auto_parameter_default "verbose_parameters" true boolean {true false}
+set_auto_parameter_default "dmi_enabled" true boolean {true false}
+set_auto_parameter_default "warning_level" WARNING string {
+      "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
 set_auto_parameter_default "s_pipeline_length" 2 uint32 {}
 
 # === generics ===
@@ -27,7 +30,7 @@ set_auto_parameter_default "s_pipeline_length" 2 uint32 {}
 set_generate_kind "pvt" ;# should be one of: model|pv|pvt
 set_include_file ""
 set_external_pv_include ""
-set_pv_kind "template" ;# should be one of: template|external|learned
+set_pv_kind "template" ;# should be one of: template|external
 set_timing_kind "policies" ;# should be one of: policies|learned
 set_power_kind "policies" ;# should be one of: policies|learned
 set_class_name_external_pv ""

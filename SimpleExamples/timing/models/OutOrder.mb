@@ -25,7 +25,8 @@ set_auto_parameter_default "verbose_parameters" true boolean {true false}
 
 # === machine architecture ===
 set_sync_all 0
-add_sequential_policy x -cause TP.write -latency DX -sync 0 -power 0
+add_sequential_policy x.WRITE -cause TP.write -latency DX -sync 0 -power 0
+add_sequential_policy x.READ -cause TP.write -latency DY -sync 0 -power 0
 add_sequential_policy y -cause TP.write -latency DY -sync 0 -power 0
 set_nominal_clock 100
 declare_variable TP -type int32

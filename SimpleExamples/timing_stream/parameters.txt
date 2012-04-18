@@ -7,7 +7,7 @@ tlm_timing_model = AT
 # Parameters for top.driver1 and top.driver2
 top.driver1.DriverFunction = off
 top.driver2.DriverFunction = random
-top.driver3.DriverFunction = off
+top.driver3.DriverFunction = random
 SizeDist = constant 4
 AddrDist = constant 0
 WaitDist = constant 5
