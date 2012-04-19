@@ -15,3 +15,7 @@ vista.ini
 *_t.*
 *_pvt.h
 *.merged
+*.gcda
+*.gcno
+*.gcov
+gmon.out
