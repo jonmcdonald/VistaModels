@@ -1,0 +1,53 @@
+# ============================ TLM Model File ============================
+# You can create tlm model by one of the following ways:
+#   - load this file using 'load_model' API function
+#   - compile this file using "Modeling->Load Model File" menu command.
+# ========================================================================
+template "/TLM/Generic_Library/CPU"
+
+# === ports ===
+add_port "m0" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "m1" /TLM/protocols/generic master 32 -bind_mode mandatory
+
+# === parameters ===
+add_parameter "DWait" 1 uint32 {}
+add_parameter "DPeriod" 2 uint32 {}
+add_parameter "COUNT" 32 uint32 {}
+
+# === auto parameters ===
+set_auto_parameter_default "clock" 0 time {}
+set_auto_parameter_default "generic_clock" 0 time {}
+set_auto_parameter_default "nominal_voltage" 1 double {}
+set_auto_parameter_default "verbose_parameters" true boolean {true false}
+set_auto_parameter_default "dmi_enabled" true boolean {true false}
+set_auto_parameter_default "warning_level" WARNING string {
+      "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
+
+# === generics ===
+# usage: add_generic <generic_name> <value>
+# example: add_generic "OUT_ACTIVE_VALUE" false
+
+# === machine architecture ===
+set_sync_all 0
+add_sequential_policy P0Busy.write -cause m0.WRITE -latency DWait -sync 1 -power 1
+add_sequential_policy P1Busy.write -cause m1.WRITE -latency DWait -sync 1 -power 2
+set_leakage_power 2.1
+set_clock_tree_power 1.2
+set_nominal_clock 100
+declare_variable P0Busy -type int
+declare_variable P1Busy -type int
+
+# === generate options ===
+set_generate_kind "pvt" ;# should be one of: model|pv|pvt
+set_include_file ""
+set_external_pv_include ""
+set_pv_kind "template" ;# should be one of: template|external
+set_timing_kind "policies" ;# should be one of: policies|learned
+set_power_kind "policies" ;# should be one of: policies|learned
+set_class_name_external_pv ""
+set_max_parameters_of_pv_constructor 5
+set_overwrite 0
+set_generate_ipxact 0
+set_ipxact_vendor Mentor.com
+set_ipxact_version 1.0
+

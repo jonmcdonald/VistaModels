@@ -1,0 +1,1 @@
+{add_element c0 -kind component -pointer 1 -associated_unit Project_Project:SinkS_pvt -class SinkS_pvt} {add_element d_in -kind target_socket -class {tlm::tlm_target_socket< 32u,tlm::tlm_base_protocol_types >}} {add_bind d_in c0->d_in {}} {rename sc0 d_in {}}

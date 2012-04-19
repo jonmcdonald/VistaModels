@@ -89,7 +89,6 @@ bool streamThread_pv::slave_a_callback_write(mb_address_type address, unsigned c
   } else {
     ds->throughput = size / getSystemCBaseModel()->get_port_width(slave_a_idx);
     receiveT = (ds->throughput + InputD);
-    ds->startT = sc_time_stamp() + (receiveT * clock);
     ds->read = false;
     ds->address = address;
     ds->data = new unsigned char [size];
@@ -101,9 +100,9 @@ bool streamThread_pv::slave_a_callback_write(mb_address_type address, unsigned c
     putBlocked = !fifo.nb_can_put();
 
     fifo.put(ds);
+    ds->startT = sc_time_stamp() + (receiveT * clock);
 
     if (putBlocked) {
-      ds->startT = sc_time_stamp() + (receiveT * clock);
       TP3 = (TP3 + 1) % 8; TP4 = (TP4 + 1) % 8; }
   }
   

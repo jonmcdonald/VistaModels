@@ -1,0 +1,357 @@
+# //  QuestaSim-64 6.5f Jun 16 2010 Linux 2.6.32-29-generic
+# //
+# //  Copyright 1991-2010 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+# vsim -do {source /home/tools/Vista31rc/generic/tcl/v2/mti/vish/vish.tcl} -foreign {Vista_Mti_Init /home/tools/Vista31rc/systemc-mti6.5f-gcc412/lib-pic-linux64/libvista_runtime.so} sc_main 
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading /home/jon/work/fifo/work/_sc/linux_x86_64_gcc-4.1.2/systemc.so
+# Loading /home/jon/work/fifo/work.sc_main
+# sc_main/top/path0_i/pass2_P0/T policy : user defined
+# sc_main/top/path0_i/pass2_P0::parameters:
+# 	clock = 1 us
+# 	generic_clock = 1 us
+# 	nominal_voltage = 1
+# 	mb_debug = 0
+# 	verbose_parameters = 0x1
+# 	DProcess = 0xa
+# 	DWait = 0x1
+# 
+# sc_main/top/path0_i/fifo_P0/T policy : user defined
+# sc_main/top/path0_i/fifo_P0::parameters:
+# 	clock = 1 us
+# 	generic_clock = 1 us
+# 	nominal_voltage = 1
+# 	mb_debug = 0
+# 	verbose_parameters = 0x1
+# 	d_in_pipeline_length = 0x2
+# 	d_out_pipeline_length = 0x2
+# 	DDin = 0x2
+# 	DFFProcess = 0x2
+# 	DFFLoad = 0x2
+# 	FFSIZE = 0x8
+# 	DDout = 0x2
+# 
+# sc_main/top/path0_i/pass1_P0/T policy : user defined
+# sc_main/top/path0_i/pass1_P0::parameters:
+# 	clock = 1 us
+# 	generic_clock = 1 us
+# 	nominal_voltage = 1
+# 	mb_debug = 0
+# 	verbose_parameters = 0x1
+# 	d_in_pipeline_length = 0x2
+# 	DProcess = 0xa
+# 	DDin = 0x2
+# 
+# sc_main/top/load_i/T policy : user defined
+# sc_main/top/load_i::parameters:
+# 	clock = 1 us
+# 	generic_clock = 1 us
+# 	nominal_voltage = 1
+# 	verbose_parameters = 0x1
+# 	DWait = 0x1
+# 	DPeriod = 0xa
+# 	COUNT = 0x40
+# 
+# sc_main/top/path1_i/pass2_P0/T policy : user defined
+# sc_main/top/path1_i/pass2_P0::parameters:
+# 	clock = 1 us
+# 	generic_clock = 1 us
+# 	nominal_voltage = 1
+# 	mb_debug = 0
+# 	verbose_parameters = 0x1
+# 	DProcess = 0x5
+# 	DWait = 0x1
+# 
+# sc_main/top/path1_i/fifo_P0/T policy : user defined
+# sc_main/top/path1_i/fifo_P0::parameters:
+# 	clock = 1 us
+# 	generic_clock = 1 us
+# 	nominal_voltage = 1
+# 	mb_debug = 0
+# 	verbose_parameters = 0x1
+# 	d_in_pipeline_length = 0x2
+# 	d_out_pipeline_length = 0x2
+# 	DDin = 0x3
+# 	DFFProcess = 0x7
+# 	DFFLoad = 0x2
+# 	FFSIZE = 0x10
+# 	DDout = 0x3
+# 
+# sc_main/top/path1_i/pass1_P0/T policy : user defined
+# sc_main/top/path1_i/pass1_P0::parameters:
+# 	clock = 1 us
+# 	generic_clock = 1 us
+# 	nominal_voltage = 1
+# 	mb_debug = 0
+# 	verbose_parameters = 0x1
+# 	d_in_pipeline_length = 0x2
+# 	DProcess = 0x5
+# 	DDin = 0x2
+# 
+# sc_main/top/sink_P0/T policy : user defined
+# sc_main/top/sink_P0::parameters:
+# 	clock = 1 us
+# 	generic_clock = 1 us
+# 	nominal_voltage = 1
+# 	mb_debug = 0
+# 	verbose_parameters = 0x1
+# 	d_in_pipeline_length = 0x2
+# 	DDin = 0x7
+# 
+# sc_main/top/sink_P1/c0/T policy : user defined
+# sc_main/top/sink_P1/c0::parameters:
+# 	clock = 1 us
+# 	generic_clock = 1 us
+# 	nominal_voltage = 1
+# 	mb_debug = 0
+# 	verbose_parameters = 0x1
+# 	d_in_pipeline_length = 0x2
+# 	DDin = 0x7
+# 
+# Running timed
+# ** Warning: (vsim-4025) The port '/sc_main/top/sink_P1/c0/PV/d_in_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/sink_P1/c0/unvisible_d_in_entry' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/sink_P1/d_in_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/sink_P1/c0/d_in_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/sink_P0/PV/d_in_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/sink_P0/unvisible_d_in_entry' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/sink_P0/d_in_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path1_i/pass1_P0/PV/d_in_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path1_i/pass1_P0/PV/d_out' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path1_i/pass1_P0/unvisible_d_in_entry' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path1_i/pass1_P0/unvisible_d_out_entry_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path1_i/d_in_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path1_i/pass1_P0/d_in_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path1_i/pass1_P0/d_out' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path1_i/fifo_P0/PV/d_out_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path1_i/fifo_P0/PV/d_in_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path1_i/fifo_P0/unvisible_d_out_entry' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path1_i/fifo_P0/unvisible_d_in_entry' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path1_i/fifo_P0/d_out_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path1_i/fifo_P0/d_in_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path1_i/pass2_P0/PV/d_out' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path1_i/pass2_P0/PV/d_in' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path1_i/pass2_P0/unvisible_d_out_entry_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path1_i/pass2_P0/unvisible_d_in_entry_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path1_i/d_out' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path1_i/pass2_P0/d_out' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path1_i/pass2_P0/d_in' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/load_i/PV/m1' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/load_i/PV/m0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/load_i/unvisible_m1_entry_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/load_i/unvisible_m0_entry_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/load_i/m1' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/load_i/m0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path0_i/pass1_P0/PV/d_in_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path0_i/pass1_P0/PV/d_out' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path0_i/pass1_P0/unvisible_d_in_entry' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path0_i/pass1_P0/unvisible_d_out_entry_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path0_i/d_in_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path0_i/pass1_P0/d_in_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path0_i/pass1_P0/d_out' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path0_i/fifo_P0/PV/d_out_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path0_i/fifo_P0/PV/d_in_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path0_i/fifo_P0/unvisible_d_out_entry' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path0_i/fifo_P0/unvisible_d_in_entry' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path0_i/fifo_P0/d_out_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path0_i/fifo_P0/d_in_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path0_i/pass2_P0/PV/d_out' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path0_i/pass2_P0/PV/d_in' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path0_i/pass2_P0/unvisible_d_out_entry_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path0_i/pass2_P0/unvisible_d_in_entry_port_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path0_i/d_out' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path0_i/pass2_P0/d_out' is of an undebuggable type.
+# ** Warning: (vsim-4025) The port '/sc_main/top/path0_i/pass2_P0/d_in' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/sink_P1/c0/PV/d_in' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/sink_P1/c0/unvisible_d_in_entry_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/sink_P1/c0/d_in' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/sink_P1/d_in' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/sink_P0/PV/d_in' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/sink_P0/unvisible_d_in_entry_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/sink_P0/d_in' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path1_i/pass1_P0/PV/d_in' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path1_i/pass1_P0/PV/d_out_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path1_i/pass1_P0/unvisible_d_in_entry_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path1_i/pass1_P0/unvisible_d_out_entry' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path1_i/pass1_P0/d_in' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path1_i/pass1_P0/d_out_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path1_i/fifo_P0/PV/d_out' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path1_i/fifo_P0/PV/d_in' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path1_i/fifo_P0/unvisible_d_out_entry_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path1_i/fifo_P0/unvisible_d_in_entry_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path1_i/fifo_P0/d_out' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path1_i/fifo_P0/d_in' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path1_i/pass2_P0/PV/d_out_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path1_i/pass2_P0/PV/d_in_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path1_i/pass2_P0/unvisible_d_out_entry' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path1_i/pass2_P0/unvisible_d_in_entry' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path1_i/pass2_P0/d_out_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path1_i/pass2_P0/d_in_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path1_i/d_out_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path1_i/d_in' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/load_i/PV/m1_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/load_i/PV/m0_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/load_i/unvisible_m1_entry' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/load_i/unvisible_m0_entry' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/load_i/m1_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/load_i/m0_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path0_i/pass1_P0/PV/d_in' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path0_i/pass1_P0/PV/d_out_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path0_i/pass1_P0/unvisible_d_in_entry_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path0_i/pass1_P0/unvisible_d_out_entry' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path0_i/pass1_P0/d_in' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path0_i/pass1_P0/d_out_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path0_i/fifo_P0/PV/d_out' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path0_i/fifo_P0/PV/d_in' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path0_i/fifo_P0/unvisible_d_out_entry_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path0_i/fifo_P0/unvisible_d_in_entry_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path0_i/fifo_P0/d_out' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path0_i/fifo_P0/d_in' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path0_i/pass2_P0/PV/d_out_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path0_i/pass2_P0/PV/d_in_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path0_i/pass2_P0/unvisible_d_out_entry' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path0_i/pass2_P0/unvisible_d_in_entry' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path0_i/pass2_P0/d_out_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path0_i/pass2_P0/d_in_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path0_i/d_out_export_0' is of an undebuggable type.
+# ** Warning: (vsim-4025) The export '/sc_main/top/path0_i/d_in' is of an undebuggable type.
+# Loading /home/tools/Vista31rc/systemc-mti6.5f-gcc412/lib-pic-linux64/libvista_runtime.so
+# Vista SystemC MTI Runtime Kernel.
+# Built March 5, 2011. License version 2011.3.
+# Copyright (c) 2005-2011, Mentor Graphics Corporation.
+# source /home/tools/Vista31rc/generic/tcl/v2/mti/vish/vish.tcl 
+run -all
+# 0 s:sc_main/top/load_i/PV threadP0 sending data = 1
+# 10 us:sc_main/top/load_i/PV threadP0 sending data = 2
+# 20 us:sc_main/top/load_i/PV threadP0 sending data = 3
+# 24 us:sc_main/top/sink_P0/PV received data = 1
+# 30 us:sc_main/top/load_i/PV threadP0 sending data = 4
+# 40 us:sc_main/top/load_i/PV threadP1 sending data = 5
+# 46 us:sc_main/top/sink_P0/PV received data = 2
+# 50 us:sc_main/top/load_i/PV threadP0 sending data = 6
+# 59 us:sc_main/top/sink_P1/c0/PV received data = 5
+# 60 us:sc_main/top/load_i/PV threadP0 sending data = 7
+# 68 us:sc_main/top/sink_P0/PV received data = 4
+# 70 us:sc_main/top/load_i/PV threadP0 sending data = 8
+# 80 us:sc_main/top/load_i/PV threadP0 sending data = 9
+# 90 us:sc_main/top/load_i/PV threadP1 sending data = 10
+# 90 us:sc_main/top/sink_P0/PV received data = 5
+# 100 us:sc_main/top/load_i/PV threadP0 sending data = 11
+# 109 us:sc_main/top/sink_P1/c0/PV received data = 10
+# 110 us:sc_main/top/load_i/PV threadP0 sending data = 12
+# 112 us:sc_main/top/sink_P0/PV received data = 6
+# 120 us:sc_main/top/load_i/PV threadP0 sending data = 13
+# 130 us:sc_main/top/load_i/PV threadP1 sending data = 14
+# 134 us:sc_main/top/sink_P0/PV received data = 4
+# 140 us:sc_main/top/load_i/PV threadP0 sending data = 15
+# 149 us:sc_main/top/sink_P1/c0/PV received data = 4
+# 150 us:sc_main/top/load_i/PV threadP0 sending data = 16
+# 156 us:sc_main/top/sink_P0/PV received data = 8
+# 160 us:sc_main/top/load_i/PV threadP0 sending data = 17
+# 170 us:sc_main/top/load_i/PV threadP1 sending data = 18
+# 178 us:sc_main/top/sink_P0/PV received data = 9
+# 180 us:sc_main/top/load_i/PV threadP0 sending data = 19
+# 189 us:sc_main/top/sink_P1/c0/PV received data = 18
+# 190 us:sc_main/top/load_i/PV threadP0 sending data = 20
+# 200 us:sc_main/top/load_i/PV threadP0 sending data = 21
+# 200 us:sc_main/top/sink_P0/PV received data = 10
+# 210 us:sc_main/top/load_i/PV threadP0 sending data = 22
+# 220 us:sc_main/top/load_i/PV threadP1 sending data = 23
+# 222 us:sc_main/top/sink_P0/PV received data = 12
+# 230 us:sc_main/top/load_i/PV threadP0 sending data = 24
+# 239 us:sc_main/top/sink_P1/c0/PV received data = 23
+# 240 us:sc_main/top/load_i/PV threadP0 sending data = 25
+# 244 us:sc_main/top/sink_P0/PV received data = 4
+# 250 us:sc_main/top/load_i/PV threadP0 sending data = 26
+# 260 us:sc_main/top/load_i/PV threadP1 sending data = 27
+# 266 us:sc_main/top/sink_P0/PV received data = 15
+# 270 us:sc_main/top/load_i/PV threadP0 sending data = 28
+# 279 us:sc_main/top/sink_P1/c0/PV received data = 27
+# 280 us:sc_main/top/load_i/PV threadP1 sending data = 29
+# 288 us:sc_main/top/sink_P0/PV received data = 17
+# 290 us:sc_main/top/load_i/PV threadP0 sending data = 30
+# 300 us:sc_main/top/load_i/PV threadP1 sending data = 31
+# 300 us:sc_main/top/sink_P1/c0/PV received data = 29
+# 310 us:sc_main/top/load_i/PV threadP0 sending data = 32
+# 310 us:sc_main/top/sink_P0/PV received data = 18
+# 320 us:sc_main/top/load_i/PV threadP1 sending data = 33
+# 321 us:sc_main/top/sink_P1/c0/PV received data = 31
+# 330 us:sc_main/top/load_i/PV threadP0 sending data = 34
+# 332 us:sc_main/top/sink_P0/PV received data = 19
+# 340 us:sc_main/top/load_i/PV threadP1 sending data = 35
+# 342 us:sc_main/top/sink_P1/c0/PV received data = 33
+# 350 us:sc_main/top/load_i/PV threadP0 sending data = 36
+# 354 us:sc_main/top/sink_P0/PV received data = 10
+# 360 us:sc_main/top/load_i/PV threadP1 sending data = 37
+# 363 us:sc_main/top/sink_P1/c0/PV received data = 35
+# 370 us:sc_main/top/load_i/PV threadP0 sending data = 38
+# 376 us:sc_main/top/sink_P0/PV received data = 12
+# 380 us:sc_main/top/load_i/PV threadP1 sending data = 39
+# 384 us:sc_main/top/sink_P1/c0/PV received data = 37
+# 390 us:sc_main/top/load_i/PV threadP1 sending data = 40
+# 398 us:sc_main/top/sink_P0/PV received data = 24
+# 400 us:sc_main/top/load_i/PV threadP0 sending data = 41
+# 405 us:sc_main/top/sink_P1/c0/PV received data = 37
+# 410 us:sc_main/top/load_i/PV threadP1 sending data = 42
+# 420 us:sc_main/top/load_i/PV threadP0 sending data = 43
+# 420 us:sc_main/top/sink_P0/PV received data = 23
+# 426 us:sc_main/top/sink_P1/c0/PV received data = 40
+# 430 us:sc_main/top/load_i/PV threadP1 sending data = 44
+# 440 us:sc_main/top/load_i/PV threadP0 sending data = 45
+# 442 us:sc_main/top/sink_P0/PV received data = 25
+# 447 us:sc_main/top/sink_P1/c0/PV received data = 42
+# 450 us:sc_main/top/load_i/PV threadP1 sending data = 46
+# 460 us:sc_main/top/load_i/PV threadP0 sending data = 47
+# 464 us:sc_main/top/sink_P0/PV received data = 27
+# 468 us:sc_main/top/sink_P1/c0/PV received data = 44
+# 470 us:sc_main/top/load_i/PV threadP1 sending data = 48
+# 480 us:sc_main/top/load_i/PV threadP0 sending data = 49
+# 486 us:sc_main/top/sink_P0/PV received data = 29
+# 489 us:sc_main/top/sink_P1/c0/PV received data = 46
+# 490 us:sc_main/top/load_i/PV threadP1 sending data = 50
+# 500 us:sc_main/top/load_i/PV threadP1 sending data = 51
+# 508 us:sc_main/top/sink_P0/PV received data = 32
+# 510 us:sc_main/top/load_i/PV threadP0 sending data = 52
+# 510 us:sc_main/top/sink_P1/c0/PV received data = 48
+# 520 us:sc_main/top/load_i/PV threadP1 sending data = 53
+# 530 us:sc_main/top/load_i/PV threadP0 sending data = 54
+# 530 us:sc_main/top/sink_P0/PV received data = 34
+# 531 us:sc_main/top/sink_P1/c0/PV received data = 50
+# 540 us:sc_main/top/load_i/PV threadP1 sending data = 55
+# 550 us:sc_main/top/load_i/PV threadP0 sending data = 56
+# 552 us:sc_main/top/sink_P0/PV received data = 10
+# 552 us:sc_main/top/sink_P1/c0/PV received data = 51
+# 560 us:sc_main/top/load_i/PV threadP1 sending data = 57
+# 570 us:sc_main/top/load_i/PV threadP0 sending data = 58
+# 573 us:sc_main/top/sink_P1/c0/PV received data = 53
+# 574 us:sc_main/top/sink_P0/PV received data = 12
+# 580 us:sc_main/top/load_i/PV threadP1 sending data = 59
+# 590 us:sc_main/top/load_i/PV threadP0 sending data = 60
+# 594 us:sc_main/top/sink_P1/c0/PV received data = 55
+# 596 us:sc_main/top/sink_P0/PV received data = 40
+# 600 us:sc_main/top/load_i/PV threadP1 sending data = 61
+# 610 us:sc_main/top/load_i/PV threadP1 sending data = 62
+# 615 us:sc_main/top/sink_P1/c0/PV received data = 57
+# 618 us:sc_main/top/sink_P0/PV received data = 43
+# 620 us:sc_main/top/load_i/PV threadP0 sending data = 63
+# 630 us:sc_main/top/load_i/PV threadP1 sending data = 64
+# 636 us:sc_main/top/sink_P1/c0/PV received data = 59
+# 640 us:sc_main/top/sink_P0/PV received data = 45
+# 657 us:sc_main/top/sink_P1/c0/PV received data = 61
+# 662 us:sc_main/top/sink_P0/PV received data = 27
+# 678 us:sc_main/top/sink_P1/c0/PV received data = 62
+# 684 us:sc_main/top/sink_P0/PV received data = 47
+# 699 us:sc_main/top/sink_P1/c0/PV received data = 64
+# 706 us:sc_main/top/sink_P0/PV received data = 51
+# 728 us:sc_main/top/sink_P0/PV received data = 50
+# 750 us:sc_main/top/sink_P0/PV received data = 56
+# 772 us:sc_main/top/sink_P0/PV received data = 12
+# 794 us:sc_main/top/sink_P0/PV received data = 40
+# 816 us:sc_main/top/sink_P0/PV received data = 57
+# 838 us:sc_main/top/sink_P0/PV received data = 59

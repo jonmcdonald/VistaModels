@@ -1,0 +1,106 @@
+03.00 00 2B 
+@@VE@00000@@ 
+@@VE@names@@ 
+@@VE@00000@@ 
+@@VE@intfc@@ 
+@@VE@_sigs@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@__tps@@ 
+@@VE@_uses@@ 
+@@VE@00000@@ 
+@@VE@_gens@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@_cnst@@ 
+@@VE@alias@@ 
+@@VE@files@@ 
+@@VE@sbprg@@ 
+@@VE@attrs@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@u_chs@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@uni_w@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@cclss@@ 
+@@VE@_comp@@ 
+@@VE@hdrde@@ 
+@@VE@00000@@ 
+@@VE@_impl@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@c_usd@@ 
+@^@VE_hdr_end@^@ 
+
+@@VE@names@@ 0 23 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 !
+
+@@VE@intfc@@ 2 
+{ @pdecl { { @n d_out @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketInitiator @iv -
+@sysInt tlm::tlm_initiator_socket< 32u,tlm::tlm_base_protocol_types >
+@multiport 1 @isTemplate 1
+@initzConstruct %Name%
+} @gr DEF @idx -1 } { @pdecl { { @n d_in @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketTarget @iv -
+@sysInt tlm::tlm_target_socket< 32u,tlm::tlm_base_protocol_types >
+@multiport 1 @isTemplate 1
+@initzConstruct %Name%
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+
+@@VE@_sigs@@ 0 L { @nvis @ctorsn 1 } !
+
+@@VE@uni_w@@ 0 L { @nvis @ctorsn 1 } !
+
+@@VE@cclss@@ { @cnt 0 } 
+@@VE@_comp@@ { @cnt 0 } 
+@@VE@hdrde@@ -1 -17 @ufc @ufs @vis 1267956134 nil F @page 1 @ptxt 5 SC_MODULE(top) 
+{ 
+public: 
+ SC_CTOR(top); 
+}; // end_of_class 
+!
+
+@@VE@_impl@@ -1 -17 @ufc @ufs @vis 1267956134 nil F @page 1 @ptxt 4 top::top(sc_module_name name) 
+ :sc_module(name) 
+{ 
+} 
+!
+
+@@VE@__tps@@ { @txt -1 -17 @vis 0 nil F @page 1 @ptxt 0 } 
+@@VE@_uses@@ 0 L { @nvis } !
+
+@@VE@c_usd@@ 0 L { @nvis } !
+
+@@VE@_gens@@ 0 L { @nvis @ctorsn 1 } !
+
+@@VE@_cnst@@ 0 L { @nvis @ctorsn 1 } !
+
+@@VE@alias@@ 0 L { @nvis } !
+
+@@VE@files@@ 0 L { @nvis } !
+
+@@VE@sbprg@@ -1 -17 @vis 0 nil F @page 1 @ptxt 0 !
+
+@@VE@attrs@@ -1 -17 @ufc @ufs @vis 0 nil F @page 1 @ptxt 0 !
+
+@@VE@u_chs@@ 2 

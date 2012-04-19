@@ -1,0 +1,13 @@
+ver 04 
+{ 
+lang SystemC 
+dflt_n sink_h 
+sts NOCMP 
+vendor vista_ve 
+C_STANDARD c_system 
+time 1280949459 0 
+{ 
+obj BLKOBJECT sink_h s0 
+} 
+} 
+ve_gr_vrsn VE_MGC    4.1 

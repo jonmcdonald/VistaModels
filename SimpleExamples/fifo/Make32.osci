@@ -1,0 +1,73 @@
+TARGET_ARCH = linux32
+SYSTEMC_HOME = /home/tools/osci/systemc-2.2.0
+TLM_HOME     = /home/tools/osci/TLM-2009-07-15
+
+SYSTEMC_INC_DIR      = $(SYSTEMC_HOME)/include
+SYSTEMC_LIB_DIR      = $(SYSTEMC_HOME)/lib-$(TARGET_ARCH)
+TLM_INC_DIR          = $(TLM_HOME)/include/tlm
+
+CC     = g++
+OPT    = -O3
+DEBUG  = -g
+OTHER  = -Wall
+CFLAGS = -m32
+
+VISTA_HOME = /home/tools/vista
+MB_HOME = $(VISTA_HOME)/papoulis
+MB_LIBDIR = $(MB_HOME)/$(TARGET_ARCH)
+
+MODELS = models
+LOCAL  = local
+MODULE = run
+
+SRCS = $(wildcard *.cpp) src/fir_filter.cpp
+OBJS = $(SRCS:.cpp=.o)
+
+MBSRCS = $(wildcard $(MODELS)/*.cpp)
+MBOBJS = $(MBSRCS:.cpp=.o)
+MBARCHIVE = lib$(MODELS).a
+
+INCDIR = -I. -Iinclude -I$(LOCAL) -I$(SYSTEMC_INC_DIR) -I$(TLM_INC_DIR)  \
+	 -I$(MB_HOME)/include \
+	 -I$(VISTA_HOME)/generic/include
+
+LIBS   = $(EXTRA_LIBS) \
+	 $(MBARCHIVE) \
+	 -L$(MB_LIBDIR) -lst.esl.library \
+	 -L$(VISTA_HOME)/systemc-22-gcc434/lib-linux \
+	 -lsummit_sc.extensions.papoulis \
+	 $(MB_LIBDIR)/vista-gcc43-sc22/esl.sc_sim.a \
+	 $(SYSTEMC_LIB_DIR)/libsystemc.a
+
+LINKOPTS = -Wl,--rpath,$(MB_LIBDIR)
+
+
+EXE    = $(MODULE).x
+
+.SUFFIXES: .cpp .cc .o .x .h
+
+$(EXE): $(OBJS) $(MBARCHIVE)
+	$(CC) $(CFLAGS) $(INCDIR) -o $@ $(OBJS) $(LIBS) $(LINKOPTS) 2>&1 | c++filt
+
+$(MBARCHIVE): $(MBOBJS)
+	ar rcs $@ $(MBOBJS)
+
+.cpp.o:
+	$(CC) $(CFLAGS) $(INCDIR) -c $< -o $*.o
+	@$(CC) -MM $(CFLAGS) $(INCDIR) -c $< > $*.d
+	@sed -e 's|.*:|$*.o:|' -e 's|[  ]/[^    ]*| |' -e '/^[  ]*\\/d' < $*.d > $*.d.tmp
+	@mv $*.d.tmp $*.d
+
+.cc.o:
+	$(CC) $(CFLAGS) $(INCDIR) -c $< -o $*.o
+	@$(CC) -MM $(CFLAGS) $(INCDIR) -c $< > $*.d
+	@sed -e 's|.*:|$*.o:|' -e 's|[  ]/[^    ]*| |' -e '/^[  ]*\\/d' < $*.d > $*.d.tmp
+	@mv $*.d.tmp $*.d
+
+clean:
+	rm -rf vista_work Project Source Object sim papoulis_project work
+	find . -name "*~" -exec rm {} \;
+	find . -name "*.d" -exec rm {} \;
+	rm -f $(OBJS) $(EXE) $(MBOBJS) $(MBARCHIVE)
+
+-include $(OBJS:.o=.d)

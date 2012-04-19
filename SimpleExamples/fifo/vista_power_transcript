@@ -1,0 +1,24 @@
+add_template /TLM/Generic_Library/Custom/TSVreader {$HOME/include/custom_models/tsvreader}
+does_tlm_library_exist models
+create_tlm_library models models
+reload_tlm_library models
+save_model -g TLM/models/FifoSS
+save_model -g TLM/models/mem
+save_model -g TLM/models/Load2
+save_model -g TLM/models/pingpong
+save_model -g TLM/models/PassMM
+save_model -g TLM/models/SinkS
+save_model -g TLM/models/PassSM
+save_model -g TLM/models/PPong
+add_template /TLM/Generic_Library/Custom/TSVreader {$HOME/include/custom_models/tsvreader}
+does_tlm_library_exist models
+create_tlm_library models models
+reload_tlm_library models
+save_model -g TLM/models/FifoSS
+save_model -g TLM/models/mem
+save_model -g TLM/models/Load2
+save_model -g TLM/models/pingpong
+save_model -g TLM/models/PassMM
+save_model -g TLM/models/SinkS
+save_model -g TLM/models/PassSM
+save_model -g TLM/models/PPong

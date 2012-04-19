@@ -1,0 +1,88 @@
+ProjectName Project
+Files {
+	 Sources {
+		{$PRJDIR/models/CPU_model.cpp} 
+		{$PRJDIR/models/CPU_pv.cpp} 
+		{$PRJDIR/models/CPU_t.cpp} 
+		{$PRJDIR/models/FifoSS_model.cpp} 
+		{$PRJDIR/models/FifoSS_pv.cpp} 
+		{$PRJDIR/models/FifoSS_t.cpp} 
+		{$PRJDIR/models/PassMM_model.cpp} 
+		{$PRJDIR/models/PassMM_pv.cpp} 
+		{$PRJDIR/models/PassMM_t.cpp} 
+		{$PRJDIR/models/PassSM_model.cpp} 
+		{$PRJDIR/models/PassSM_model.cpp} 
+		{$PRJDIR/models/PassSM_pv.cpp} 
+		{$PRJDIR/models/PassSM_t.cpp} 
+		{$PRJDIR/models/SinkS_model.cpp} 
+		{$PRJDIR/models/SinkS_pv.cpp} 
+		{$PRJDIR/models/SinkS_t.cpp} 
+		{$PRJDIR/sc_main.cpp} 
+		{$PRJDIR/models/Load2_model.cpp} 
+		{$PRJDIR/models/Load2_pv.cpp} 
+		{$PRJDIR/models/Load2_t.cpp} 
+	 } 
+	 {Public Headers} {
+		{$PRJDIR/models/generic_protocol.h} 
+		{$PRJDIR/models/CPU_model.h} 
+		{$PRJDIR/models/CPU_t.h} 
+		{$PRJDIR/models/CPU_pv.h} 
+		{$PRJDIR/models/FifoSS_model.h} 
+		{$PRJDIR/models/FifoSS_t.h} 
+		{$PRJDIR/models/FifoSS_pv.h} 
+		{$PRJDIR/models/PassMM_t.h} 
+		{$PRJDIR/models/PassMM_pv.h} 
+		{$PRJDIR/models/PassMM_model.h} 
+		{$PRJDIR/models/PassSM_pv.h} 
+		{$PRJDIR/models/PassSM_t.h} 
+		{$PRJDIR/models/PassSM_model.h} 
+		{$PRJDIR/models/SinkS_pv.h} 
+		{$PRJDIR/models/SinkS_t.h} 
+		{$PRJDIR/models/SinkS_model.h} 
+		{$PRJDIR/models/Load2_model.h} 
+		{$PRJDIR/models/Load2_pv.h} 
+		{$PRJDIR/models/Load2_t.h} 
+	 } 
+	 Documentation {
+		{$PRJDIR/parameters.txt}
+	 } 
+	 Others {
+		{$PRJDIR/models/CPU.mb} 
+		{$PRJDIR/models/Load2.mb} 
+		{$PRJDIR/models/PassSM.mb} 
+		{$PRJDIR/models/PassMM.mb} 
+		{$PRJDIR/models/FifoSS.mb} 
+		{$PRJDIR/models/SinkS.mb} 
+		{$PRJDIR/traces.tcl} 
+	 } 
+	 {Linked Binaries} {
+	 } 
+	 {Other Binaries} {} 
+	 Schematics {
+		{$PRJDIR/local/simpletop.h}
+		{$PRJDIR/local/top.h}
+		{$PRJDIR/local/top2.h}
+		{$PRJDIR/local/top_h.h}
+		{$PRJDIR/local/proc.h}
+		{$PRJDIR/local/sink_h.h}
+	 } 
+}
+Designs {{$PRJDIR/sc_main.cpp}}
+Simulations {/home/jon/work/fifo/Project/sim /home/jon/work/fifo/Project//sim /home/jon/work/fifo/Source//sim}
+Folders {
+	 Sources {*.c *.cpp *.cc} 
+	 {Public Headers} *.h* 
+	 Documentation {*.txt *.doc} 
+	 Others * 
+	 {Linked Binaries} {*.o *.a *.so} 
+	 {Other Binaries} {*.exe .x} 
+}
+GeneralCompilationOptions -Wall
+AlwaysCompileInCPPMode 1
+LinkPackages {model_builder sdParameters tlm}
+ProjectLibraryType archive
+ProjectComponentsLibraryPath {$PRJDIR/$PRJFILE_BASENAME/interfaces}
+ProjectWorkingDirectory {$PRJDIR/$PRJFILE_BASENAME/build}
+HasTLMSupport 1
+CompiledWithTLMSupport 1
+IsUsePathVariables 1

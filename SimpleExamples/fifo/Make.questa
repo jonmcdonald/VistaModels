@@ -1,0 +1,58 @@
+TARGET_ARCH = linux64
+
+# set VISTA_GLOBAL_COMPILER_OPTIONS to pass additional Vista specific switches, i.e. -tsv
+CC     = sccom 
+OPT    = -O3
+DEBUG  = -g -DMB_DEBUG
+OTHER  = -Wall -verbose -DENABLE_DYNAMIC_PROCESSES \
+	 -DMTI_BIND_SC_MEMBER_FUNCTION -suppress 6102
+CFLAGS = $(DEBUG) $(OTHER)
+
+MODELS = models
+LOCAL  = local
+MODULE = run
+
+VISTA_HOME = /home/tools/vista
+MODEL_BUILDER_HOME = $(VISTA_HOME)/papoulis
+CATAPULT_HOME = /home/tools/catapult
+
+VPATH = work/_sc/linux_x86_64_gcc-4.1.2 models
+
+SRCS = $(wildcard $(MODELS)/*.cpp) $(wildcard *.cpp)
+OBJS = $(SRCS:.cpp=.o)
+
+SRCSB = $(notdir $(SRCS))
+OBJSB = $(notdir $(OBJS))
+
+INCDIR = -I. -Iinclude -I$(LOCAL) \
+	 -I$(MB_HOME)/include \
+
+LIBS   = $(EXTRA_LIBS)
+MBLIBS = $(MODEL_BUILDER_HOME)/$(TARGET_ARCH)/libst.esl.library.so \
+	 $(MODEL_BUILDER_HOME)/$(TARGET_ARCH)/vista-gcc41-mti65/esl.sc_sim.a
+EXE    = $(MODULE).x
+
+S ?= sim
+P ?= parameters.txt
+T ?= traces.tcl
+
+.SUFFIXES: .cpp .cc .o .x .h
+
+questa: work $(OBJSB)
+	$(CC) -link $(MBLIBS)
+	vsim sc_main
+
+.cpp.o:
+	$(CC) $(CFLAGS) $(INCDIR) -c $< 
+
+.cc.o:
+	$(CC) $(CFLAGS) $(INCDIR) -c $< 
+
+clean:
+	rm -rf vista_work Project Object sim papoulis_project work
+	find . -name "*~" -exec rm {} \;
+	find . -name "*.d" -exec rm {} \;
+	rm -f $(OBJS) $(EXE)
+
+work:
+	vlib work

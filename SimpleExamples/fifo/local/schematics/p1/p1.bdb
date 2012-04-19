@@ -1,0 +1,75 @@
+03.00 00 2B 
+@@VE@00000@@ 
+@@VE@names@@ 
+@@VE@00000@@ 
+@@VE@intfc@@ 
+@@VE@_sigs@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@_uses@@ 
+@@VE@00000@@ 
+@@VE@_gens@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@attrs@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@u_chs@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@hdrde@@ 
+@@VE@00000@@ 
+@@VE@_impl@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@c_usd@@ 
+@^@VE_hdr_end@^@ 
+
+@@VE@names@@ 0 23 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 !
+
+@@VE@intfc@@ 0 
+L { @bl -1 @el -1 @il -1 @nvis } !
+
+@@VE@_sigs@@ 0 L { @nvis @ctorsn 1 } !
+
+@@VE@hdrde@@ -1 -17 @ufc @ufs @vis 1267956134 nil F @page 1 @ptxt 5 SC_MODULE(top) 
+{ 
+public: 
+ SC_CTOR(top); 
+}; // end_of_class 
+!
+
+@@VE@_impl@@ -1 -17 @ufc @ufs @vis 1267956134 nil F @page 1 @ptxt 4 top::top(sc_module_name name) 
+ :sc_module(name) 
+{ 
+} 
+!
+
+@@VE@_uses@@ 0 L { @nvis } !
+
+@@VE@c_usd@@ 0 L { @nvis } !
+
+@@VE@_gens@@ 0 L { @nvis @ctorsn 1 } !
+
+@@VE@attrs@@ -1 -17 @ufc @ufs @vis 0 nil F @page 1 @ptxt 0 !
+
+@@VE@u_chs@@ 2 

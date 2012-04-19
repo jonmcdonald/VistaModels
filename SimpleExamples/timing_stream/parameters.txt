@@ -5,9 +5,9 @@ generic_clock = 1 NS
 tlm_timing_model = AT
 
 # Parameters for top.driver1 and top.driver2
-top.driver1.DriverFunction = off
+top.driver1.DriverFunction = random
 top.driver2.DriverFunction = random
-top.driver3.DriverFunction = random
+top.driver3.DriverFunction = off
 SizeDist = constant 4
 AddrDist = constant 0
 WaitDist = constant 5
@@ -15,17 +15,17 @@ NumberPackets = 20
 
 slave_a_pipeline_length = 3
 
-top.stream1.ProcessD = 4
-top.stream2.ProcessD = 4
-top.stream3.ProcessD = 4
-top.stream4.ProcessD = 4
+top.stream1.ProcessD = 40
+top.stream2.ProcessD = 40
+top.stream3.ProcessD = 40
+top.stream4.ProcessD = 40
 
-InputFifoDepth = 4
+InputFifoDepth = 1
 PipelineStages = 1
-top.streamThread1.ProcessD = 100
-top.streamThread2.ProcessD = 100
-top.streamThread3.ProcessD = 100
-top.streamThread4.ProcessD = 100
+top.streamThread1.ProcessD = 40
+top.streamThread2.ProcessD = 40
+top.streamThread3.ProcessD = 40
+top.streamThread4.ProcessD = 40
 
 top.streamTrans1.ProcessD = 4
 top.streamTrans2.ProcessD = 4
