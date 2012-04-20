@@ -15,10 +15,10 @@ NumberPackets = 20
 
 slave_a_pipeline_length = 3
 
-top.stream1.ProcessD = 40
-top.stream2.ProcessD = 40
-top.stream3.ProcessD = 40
-top.stream4.ProcessD = 40
+top.stream1.ProcessD = 4
+top.stream2.ProcessD = 4
+top.stream3.ProcessD = 4
+top.stream4.ProcessD = 4
 
 InputFifoDepth = 1
 PipelineStages = 1
