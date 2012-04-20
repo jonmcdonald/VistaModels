@@ -19,3 +19,4 @@ vista.ini
 *.gcno
 *.gcov
 gmon.out
+*.template
