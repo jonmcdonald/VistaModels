@@ -60,6 +60,10 @@ clean:
 	rm -rf vista_work Project Source Object sim papoulis_project work
 	find . -name "*~" -exec rm {} \;
 	find . -name "*.d" -exec rm {} \;
+	find . -name "*.gcno" -exec rm {} \;
+	find . -name "*.gcda" -exec rm {} \;
+	find . -name "*.gcov" -exec rm {} \;
+	rm -rf app.info index* vista_* gcov* gmon* transcript *.png
 	rm -f $(OBJS) $(MBOBJS) $(MBARCHIVE) $(EXE)
 
 vista: $(EXE) $T
@@ -100,5 +104,11 @@ papoulis_project:
 
 pa: $(EXE)
 	vista_analysis sim
+
+cov: $(EXE)
+	lcov -d . -z
+	vista_run run.x
+	lcov -d . -c -o app.info
+	genhtml app.info
 	
 -include $(DFILES)
