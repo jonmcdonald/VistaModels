@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="generic_fifo" />
+		<Option makefile_is_custom="1" />
+		<Option execution_dir="../" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="default">
+				<Option output="generic_fifo" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+		</Build>
+		<Unit filename="../models/cb_throuple.h" />
+		<Unit filename="../models/datastruct.h" />
+		<Unit filename="../models/driver_model.cpp" />
+		<Unit filename="../models/driver_model.h" />
+		<Unit filename="../models/driver_pv.cpp" />
+		<Unit filename="../models/driver_pv.h" />
+		<Unit filename="../models/driver_pvt.h" />
+		<Unit filename="../models/driver_t.cpp" />
+		<Unit filename="../models/driver_t.h" />
+		<Unit filename="../models/generic_protocol.h" />
+		<Unit filename="../models/print_utils.h" />
+		<Unit filename="../models/sink_model.cpp" />
+		<Unit filename="../models/sink_model.h" />
+		<Unit filename="../models/sink_pv.cpp" />
+		<Unit filename="../models/sink_pv.h" />
+		<Unit filename="../models/sink_pvt.h" />
+		<Unit filename="../models/sink_t.cpp" />
+		<Unit filename="../models/sink_t.h" />
+		<Unit filename="../models/stream_fifo_model.cpp" />
+		<Unit filename="../models/stream_fifo_model.h" />
+		<Unit filename="../models/stream_fifo_pv.cpp" />
+		<Unit filename="../models/stream_fifo_pv.h" />
+		<Unit filename="../models/stream_fifo_pvt.h" />
+		<Unit filename="../models/stream_fifo_t.cpp" />
+		<Unit filename="../models/stream_fifo_t.h" />
+		<Extensions>
+			<code_completion>
+				<search_path add="$(VISTA)/generic/preinclude/systemc22" />
+				<search_path add="$(VISTA)/systemc-22-gcc434/include" />
+				<search_path add="$(VISTA)/generic/tlm2.0.1" />
+				<search_path add="$(VISTA)/generic/tlm2.0.1/include/tlm" />
+				<search_path add="$(VISTA)/papoulis/install.release/include/mb_include" />
+				<search_path add="/home/markca/VistaModels/SimpleExamples/generic_fifo/diagrams" />
+				<search_path add="/home/markca/VistaModels/SimpleExamples/generic_fifo/models" />
+				<search_path add="$(VISTA)/generic/CPP/models_catalogue" />
+				<search_path add="$(VISTA)/papoulis/install.release/include" />
+				<search_path add="$(VISTA)/generic/include" />
+				<search_path add="$(VISTA)/generic" />
+				<search_path add="$(VISTA)/linux32/tools/include/c++/4.3.4" />
+				<search_path add="$(VISTA)/linux32/tools/include/c++/4.3.4/i686-pc-linux-gnu" />
+				<search_path add="$(VISTA)/linux32/tools/include" />
+				<search_path add="$(VISTA)/linux32/tools/fixincludes/lib/gcc/i686-pc-linux-gnu/4.3.4/include" />
+				<search_path add="$(VISTA)/linux32/tools/fixincludes/lib/gcc/i686-pc-linux-gnu/4.3.4/include-fixed" />
+				<search_path add="/usr/include" />
+				<search_path add="$(VISTA)/linux32/tools/include/c++/4.3.4/backward" />
+				<search_path add="$(VISTA)/linux32/tools/bin/../lib/gcc/i686-pc-linux-gnu/4.3.4/include" />
+				<search_path add="$(VISTA)/linux32/tools/bin/../lib/gcc/i686-pc-linux-gnu/4.3.4/include-fixed" />
+				<search_path add="/usr/local/include" />
+			</code_completion>
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
