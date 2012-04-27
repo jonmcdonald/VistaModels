@@ -45,6 +45,7 @@ endif
 ifeq ($(VISTA_ROOT),)
     # try to find Vista if its not set
     VISTA_ROOT         = $(patsubst %/bin/,%, $(dir $(shell which vista)))
+    export VISTA_ROOT
 endif
 ifeq ($(MODEL_BUILDER_HOME),)
     MODEL_BUILDER_HOME = $(VISTA_ROOT)/papoulis
@@ -138,6 +139,14 @@ clean:
 cleanall cleanAll clean_all:
 	rm -rf vista_work sim $(OBJDIR) $(PROJECT)
 	rm -f $(EXE) 
+
+##################################
+### Invoke IDE target
+##################################
+
+codeblocks: $(EXE)
+	echo ${VISTA_ROOT}
+	codeblocks codeblocks_ide/project.cbp 
 
 ##################################
 ### Run/Simulate targets
