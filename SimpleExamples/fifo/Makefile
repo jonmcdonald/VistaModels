@@ -14,6 +14,12 @@ Project = Project
 VISTA_HOME = $(dir $(dir $(shell which vista)))
 MODEL_BUILDER_HOME = $(VISTA_HOME)papoulis
 
+ifeq ($(VISTA_ROOT),)
+    # try to find Vista if its not set
+    VISTA_ROOT         = $(patsubst %/bin/,%, $(dir $(shell which vista)))
+    export VISTA_ROOT
+endif
+
 SRCS = $(wildcard *.cpp) src/fir_filter.cpp
 OBJS = $(SRCS:.cpp=.o)
 
@@ -65,6 +71,9 @@ clean:
 	find . -name "*.gcov" -exec rm {} \;
 	rm -rf app.info index* vista_* gcov* gmon* transcript *.png
 	rm -f $(OBJS) $(MBOBJS) $(MBARCHIVE) $(EXE)
+
+codeblocks: 
+	codeblocks codeblocks.cbp 
 
 vista: $(EXE) $T
 	vista -sc22 -trace-delta-cycles -tsv -memory-profiling \
