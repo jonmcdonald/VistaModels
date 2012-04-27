@@ -17,29 +17,14 @@
 		<Unit filename="diagrams/top.h" />
 		<Unit filename="models/cb_throuple.h" />
 		<Unit filename="models/datastruct.h" />
-		<Unit filename="models/driver_model.cpp" />
-		<Unit filename="models/driver_model.h" />
 		<Unit filename="models/driver_pv.cpp" />
 		<Unit filename="models/driver_pv.h" />
-		<Unit filename="models/driver_pvt.h" />
-		<Unit filename="models/driver_t.cpp" />
-		<Unit filename="models/driver_t.h" />
 		<Unit filename="models/generic_protocol.h" />
 		<Unit filename="models/print_utils.h" />
-		<Unit filename="models/sink_model.cpp" />
-		<Unit filename="models/sink_model.h" />
 		<Unit filename="models/sink_pv.cpp" />
 		<Unit filename="models/sink_pv.h" />
-		<Unit filename="models/sink_pvt.h" />
-		<Unit filename="models/sink_t.cpp" />
-		<Unit filename="models/sink_t.h" />
-		<Unit filename="models/stream_fifo_model.cpp" />
-		<Unit filename="models/stream_fifo_model.h" />
 		<Unit filename="models/stream_fifo_pv.cpp" />
 		<Unit filename="models/stream_fifo_pv.h" />
-		<Unit filename="models/stream_fifo_pvt.h" />
-		<Unit filename="models/stream_fifo_t.cpp" />
-		<Unit filename="models/stream_fifo_t.h" />
 		<Extensions>
 			<code_completion>
 				<search_path add="$(VISTA_ROOT)/generic/preinclude/systemc22" />
