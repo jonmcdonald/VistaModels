@@ -144,9 +144,8 @@ cleanall cleanAll clean_all:
 ### Invoke IDE target
 ##################################
 
-codeblocks: $(EXE)
-	echo ${VISTA_ROOT}
-	codeblocks codeblocks_ide/project.cbp 
+codeblocks: 
+	codeblocks codeblocks.cbp 
 
 ##################################
 ### Run/Simulate targets
