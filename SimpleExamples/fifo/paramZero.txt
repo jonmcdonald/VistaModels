@@ -1,0 +1,26 @@
+
+clock         = 1000
+generic_clock = 1000
+
+tlm_timing_model = LT
+
+top.Load2_0.DPeriod = 10
+top.Load2_0.COUNT = 0
+
+top.proc0.pass1_P0.DDin     = 2
+top.proc0.pass1_P0.DProcess = 2
+top.proc0.pass2_P0.DProcess = 4
+
+top.proc0.fifo_P0.DDin       = 2
+top.proc0.fifo_P0.DFFProcess = 7
+top.proc0.fifo_P0.DFFLoad    = 2
+top.proc0.fifo_P0.DDout      = 2
+top.proc0.fifo_P0.FFSIZE     = 1
+
+top.proc1.pass2_P1.DProcess = 5
+top.proc1.pass1_P0.DProcess = 20
+
+top.sink0.DDin = 7
+
+top.pingpong0.mBufSize = 8
+top.PPong0.mBufSize = 8
