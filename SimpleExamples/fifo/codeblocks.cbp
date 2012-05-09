@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="fifo" />
+		<Option makefile_is_custom="1" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="vista">
+				<Option output="fifo" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+		</Build>
+		<Unit filename="include/ac_int.h" />
+		<Unit filename="include/datastruct.h" />
+		<Unit filename="include/fir_filter.h" />
+		<Unit filename="local/mytest_pv.cpp" />
+		<Unit filename="local/mytest_pv.h" />
+		<Unit filename="local/proc.h" />
+		<Unit filename="local/simpletop.h" />
+		<Unit filename="local/test.h" />
+		<Unit filename="local/top.h" />
+		<Unit filename="local/top2.h" />
+		<Unit filename="local/top_h.h" />
+		<Unit filename="local/ttt_pv.cpp" />
+		<Unit filename="local/ttt_pv.h" />
+		<Unit filename="models/Const.h" />
+		<Unit filename="models/FifoSS_pv.cpp" />
+		<Unit filename="models/FifoSS_pv.h" />
+		<Unit filename="models/Load2_pv.cpp" />
+		<Unit filename="models/Load2_pv.h" />
+		<Unit filename="models/PPong_pv.cpp" />
+		<Unit filename="models/PPong_pv.h" />
+		<Unit filename="models/PassMM_pv.cpp" />
+		<Unit filename="models/PassMM_pv.h" />
+		<Unit filename="models/PassSM_pv.cpp" />
+		<Unit filename="models/PassSM_pv.h" />
+		<Unit filename="models/SinkS_pv.cpp" />
+		<Unit filename="models/SinkS_pv.h" />
+		<Unit filename="models/mem_pv.cpp" />
+		<Unit filename="models/mem_pv.h" />
+		<Unit filename="models/pingpong_pv.cpp" />
+		<Unit filename="models/pingpong_pv.h" />
+		<Unit filename="sc_main.cpp" />
+		<Unit filename="src/driver.cpp" />
+		<Unit filename="src/fir_filter.cpp" />
+		<Unit filename="src/scoreboard.cpp" />
+		<Extensions>
+			<code_completion>
+				<search_path add="$(VISTA_ROOT)/generic/preinclude/systemc22" />
+				<search_path add="$(VISTA_ROOT)/systemc-22-gcc434/include" />
+				<search_path add="$(VISTA_ROOT)/generic/tlm2.0.1" />
+				<search_path add="$(VISTA_ROOT)/generic/tlm2.0.1/include/tlm" />
+				<search_path add="$(VISTA_ROOT)/papoulis/install.release/include/mb_include" />
+				<search_path add="include" />
+				<search_path add="models" />
+				<search_path add="$(VISTA_ROOT)/generic/CPP/models_catalogue" />
+				<search_path add="$(VISTA_ROOT)/papoulis/install.release/include" />
+				<search_path add="$(VISTA_ROOT)/generic/include" />
+				<search_path add="$(VISTA_ROOT)/generic" />
+				<search_path add="$(VISTA_ROOT)/linux32/tools/include/c++/4.3.4" />
+				<search_path add="$(VISTA_ROOT)/linux32/tools/include/c++/4.3.4/i686-pc-linux-gnu" />
+				<search_path add="$(VISTA_ROOT)/linux32/tools/include" />
+				<search_path add="$(VISTA_ROOT)/linux32/tools/fixincludes/lib/gcc/i686-pc-linux-gnu/4.3.4/include" />
+				<search_path add="$(VISTA_ROOT)/linux32/tools/fixincludes/lib/gcc/i686-pc-linux-gnu/4.3.4/include-fixed" />
+				<search_path add="/usr/include" />
+				<search_path add="$(VISTA_ROOT)/linux32/tools/include/c++/4.3.4/backward" />
+				<search_path add="$(VISTA_ROOT)/linux32/tools/bin/../lib/gcc/i686-pc-linux-gnu/4.3.4/include" />
+				<search_path add="$(VISTA_ROOT)/linux32/tools/bin/../lib/gcc/i686-pc-linux-gnu/4.3.4/include-fixed" />
+				<search_path add="/usr/local/include" />
+			</code_completion>
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
