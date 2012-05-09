@@ -1,10 +1,12 @@
 TARGET_ARCH = linux
 
-CC     = vista_c++ -gcc43 -sc22 -tsv
-OPT    = -O3
-DEBUG  = -DMB_DEBUG -pg -fprofile-arcs -ftest-coverage
+CC     = vista_c++ -gcc43 -sc22
+OPT    = -O9 
+OPT    = 
+DEBUG  = -DMB_DEBUG -tsv -pg -fprofile-arcs -ftest-coverage
 OTHER  = -Wall +model_builder 
-CFLAGS = $(DEBUG) $(OTHER)
+OTHER  = +model_builder 
+CFLAGS = $(OPT) $(OTHER)
 
 MODELS = models
 LOCAL  = local
@@ -100,5 +102,11 @@ papoulis_project:
 
 pa: $(EXE)
 	vista_analysis sim
-	
+
+cov: $(EXE)
+	lcov -d . -z
+	vista_run run.x
+	lcov -d . -c -o app.info
+	genhtml app.info
+
 -include $(DFILES)

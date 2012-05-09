@@ -2,10 +2,11 @@
 clock         = 1000
 generic_clock = 1000
 
-tlm_timing_model = AT
+tlm_timing_model = LT
 
 top.Load2_0.DPeriod = 10
-top.Load2_0.COUNT = 100
+top.Load2_0.COUNT = 0
+top.Load2_0.COUNT = 200000
 
 top.proc0.pass1_P0.DDin     = 2
 top.proc0.pass1_P0.DProcess = 2

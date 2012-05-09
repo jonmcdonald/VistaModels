@@ -7,10 +7,10 @@ SYSTEMC_LIB_DIR      = $(SYSTEMC_HOME)/lib-$(TARGET_ARCH)
 TLM_INC_DIR          = $(TLM_HOME)/include/tlm
 
 CC     = g++
-OPT    = -O3
+OPT    = -O9
 DEBUG  = -g
 OTHER  = -Wall
-CFLAGS = 
+CFLAGS = $(DEBUG)
 
 VISTA_HOME = /home/tools/vista
 MB_HOME = $(VISTA_HOME)/papoulis
@@ -35,9 +35,10 @@ LIBS   = $(EXTRA_LIBS) \
 	 $(MBARCHIVE) \
 	 -L$(MB_LIBDIR) -lst.esl.library \
 	 -L$(VISTA_HOME)/systemc-22-gcc434/lib-linux64 \
-	 -lsummit_sc.extensions.papoulis \
 	 $(MB_LIBDIR)/vista-gcc43-sc22/esl.sc_sim.a \
 	 $(SYSTEMC_LIB_DIR)/libsystemc.a
+
+#	 -lsummit_sc.extensions.papoulis \
 
 LINKOPTS = -Wl,--rpath,$(MB_LIBDIR)
 
