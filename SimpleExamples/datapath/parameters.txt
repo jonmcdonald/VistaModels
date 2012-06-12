@@ -1,0 +1,6 @@
+
+clock         = 1 NS
+generic_clock = 1 NS
+
+tlm_timing_model = LT
+
