@@ -6,7 +6,7 @@ OPT    =
 DEBUG  = -DMB_DEBUG -tsv -pg -fprofile-arcs -ftest-coverage
 OTHER  = -Wall +model_builder 
 OTHER  = +model_builder 
-CFLAGS = $(OPT) $(OTHER)
+CFLAGS = $(DEBUG) $(OTHER)
 
 MODELS = models
 LOCAL  = local
@@ -85,8 +85,8 @@ vista: $(EXE) $T
 
 batch: $(EXE) $T
 	vista -sc22 -tsv -simscript $T -params $P -simdir $S \
-		-batch -exec $(EXE)
-#		-trace-all-sockets -batch -exec $(EXE)
+		-trace-all-sockets -batch -exec $(EXE)
+#		-batch -exec $(EXE)
 
 events: $S
 	vista_dump_events $S -kind initiator_socket -name $N > events2

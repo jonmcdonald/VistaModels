@@ -65,5 +65,6 @@ class streamThread_pv : public streamThread_pv_base {
 
   tlm::tlm_fifo< datastruct *> fifo;
   queue<sc_time> pipeInTimeQ;
+  mb::mb_event inputDoneEv;
 };
 

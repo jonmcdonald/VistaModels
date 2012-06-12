@@ -45,7 +45,7 @@ void Load2_pv::thread() {
   datastruct *dsptr;
 
   wait(SC_ZERO_TIME);
-
+for (int j=0; j<3; j++) {
   for(Count = 1; Count <= COUNT; Count++) {
     dsptr = new datastruct();
     dsptr->id = Count;
@@ -61,10 +61,12 @@ void Load2_pv::thread() {
         break ;
     }
 
-    dtime = dperiod * Count;
+    dtime = dperiod * ((COUNT*j) + ((j+1) * Count));
     if (dtime > sc_time_stamp())
       wait(dtime - sc_time_stamp()) ;
   }
+      wait(10, SC_US) ;
+}
 }
 
 void Load2_pv::threadP0() {

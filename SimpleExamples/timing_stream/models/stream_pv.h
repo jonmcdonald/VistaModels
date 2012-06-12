@@ -56,5 +56,7 @@ class stream_pv : public stream_pv_base {
   
   unsigned slave_a_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size);
   bool slave_a_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);   
+
+  mb::mb_event inputDoneEv;
 };
 
