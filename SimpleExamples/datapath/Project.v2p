@@ -16,6 +16,13 @@ Files {
 	 } 
 	 {Other Binaries} {} 
 	 Schematics {
+		{$PRJDIR/local/top.h}
+	 } 
+	 Models {
+		{$PRJDIR/models/process.mb}
+		{$PRJDIR/models/switch.mb}
+		{$PRJDIR/models/driver.mb}
+		{$PRJDIR/models/sink.mb}
 	 } 
 }
 Folders {
@@ -26,7 +33,7 @@ Folders {
 	 {Linked Binaries} {*.o *.a *.so} 
 	 {Other Binaries} {*.exe .x} 
 }
-PathVariables { }
+IncludePaths {{$PRJDIR/include}}
 GeneralCompilationOptions -Wall
 AlwaysCompileInCPPMode 1
 LinkPackages {model_builder sdParameters tlm}
