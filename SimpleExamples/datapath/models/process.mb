@@ -5,13 +5,12 @@
 # ========================================================================
 
 # === ports ===
-add_port "a" /TLM/protocols/generic slave 32 -bind_mode mandatory
-add_port "y" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "slave_1" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "master_1" /TLM/protocols/generic master 32 -bind_mode mandatory
 
 # === parameters ===
-add_parameter "ProcessD" 3 uint32 {}
-add_parameter "InputD" 2 uint32 {}
-add_parameter "Id" 1 uint32 {}
+add_parameter "ProcessDelay" 3 int32 {}
+add_parameter "InputDelay" 2 int32 {}
 add_parameter "InputFifoDepth" 1 uint32 {}
 add_parameter "PipelineStages" 1 uint32 {}
 
@@ -24,7 +23,7 @@ set_auto_parameter_default "verbose_parameters" true boolean {true false}
 set_auto_parameter_default "dmi_enabled" true boolean {true false}
 set_auto_parameter_default "warning_level" WARNING string {
       "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
-set_auto_parameter_default "a_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_1_pipeline_length" 2 uint32 {}
 
 # === generics ===
 # usage: add_generic <generic_name> <value>
@@ -32,15 +31,14 @@ set_auto_parameter_default "a_pipeline_length" 2 uint32 {}
 
 # === machine architecture ===
 set_sync_all 0
-add_sequential_policy TP2.write -cause TP1.write -latency m_processd -sync 1 -power 0
-add_delay_policy a 0 -latency InputD -sync 1 -power 0
-add_sequential_policy TP4.write -cause TP3.write -latency inputDelta -sync 1 -power 0
+add_sequential_policy TP2.write -cause TP1.write -latency ProcessDelta -sync 1 -power 0
+add_delay_policy slave_1 0 -latency InputDelay -sync 1 -power 0
+add_sequential_policy TP4.write -cause TP3.write -latency InputDelta -sync 1 -power 0
 set_nominal_clock 100
 declare_variable TP1 -type int32
 declare_variable TP2 -type int32
-declare_variable m_processd -type int32
-declare_variable processFactor -type int32
-declare_variable inputDelta -type int32
+declare_variable ProcessDelta -type int32
+declare_variable InputDelta -type int32
 declare_variable TP3 -type int32
 declare_variable TP4 -type int32
 

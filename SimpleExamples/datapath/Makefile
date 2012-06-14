@@ -65,6 +65,9 @@ clean:
 	find . -name "*.d" -exec rm {} \;
 	rm -f $(OBJS) $(MBOBJS) $(MBARCHIVE) $(EXE)
 
+codeblocks: 
+	codeblocks codeblocks.cbp 
+
 vista: $(EXE) $T
 	vista -sc22 -trace-delta-cycles -tsv -memory-profiling \
 		-event-debugging -with-cause -trace-all-sockets \

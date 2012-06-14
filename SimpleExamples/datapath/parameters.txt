@@ -2,5 +2,15 @@
 clock         = 1 NS
 generic_clock = 1 NS
 
-tlm_timing_model = LT
+tlm_timing_model = AT
 
+top.analysis.DriverFunction = simple
+top.fpga_source.DriverFunction = random
+
+top.switch1.InputFifoDepth = 2
+top.switch1.ProcessDelay = 0
+top.switch1.InputDelay = 0
+
+top.block1.InputFifoDepth = 2
+top.block1.ProcessDelay = 2
+top.block1.InputDelay = 5 

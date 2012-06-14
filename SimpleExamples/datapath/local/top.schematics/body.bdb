@@ -9,7 +9,7 @@
 @@VE@00000@@ 
 @@VE@_uses@@ 
 @@VE@00000@@ 
-@@VE@00000@@ 
+@@VE@_gens@@ 
 @@VE@00000@@ 
 @@VE@00000@@ 
 @@VE@00000@@ 
@@ -67,6 +67,8 @@ public:
 @@VE@_uses@@ 0 L { @nvis } !
 
 @@VE@c_usd@@ 0 L { @nvis } !
+
+@@VE@_gens@@ 0 L { @nvis @ctorsn 1 } !
 
 @@VE@attrs@@ -1 -17 @ufc @ufs @vis 0 nil F @page 1 @ptxt 0 !
 

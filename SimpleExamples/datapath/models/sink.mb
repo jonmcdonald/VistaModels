@@ -5,7 +5,7 @@
 # ========================================================================
 
 # === ports ===
-add_port "s" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "slave_1" /TLM/protocols/generic slave 32 -bind_mode mandatory
 
 # === parameters ===
 # usage: add_parameter <parameter_name> <default_value> <type:string|unsigned|int>
@@ -20,11 +20,14 @@ set_auto_parameter_default "verbose_parameters" true boolean {true false}
 set_auto_parameter_default "dmi_enabled" true boolean {true false}
 set_auto_parameter_default "warning_level" WARNING string {
       "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
-set_auto_parameter_default "s_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_1_pipeline_length" 2 uint32 {}
 
 # === generics ===
 # usage: add_generic <generic_name> <value>
 # example: add_generic "OUT_ACTIVE_VALUE" false
+
+# === machine architecture ===
+set_nominal_clock 100
 
 # === generate options ===
 set_generate_kind "pvt" ;# should be one of: model|pv|pvt
