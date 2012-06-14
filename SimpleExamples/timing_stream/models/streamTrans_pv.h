@@ -20,6 +20,7 @@
 //* 
 //* Model Builder version: 3.2.0RC
 //* Generated on: Feb. 27, 2012 10:41:18 AM, (user: jon)
+//* Automatically merged on: Jun. 12, 2012 08:36:49 AM, (user: jon)
 //*>
 
 
@@ -46,18 +47,18 @@ class streamTrans_pv : public streamTrans_pv_base {
  protected:
   ////////////////////////////////////////
   // target ports read callbacks
-  //////////////////////////////////////// 
+  ////////////////////////////////////////  
   bool slave_a_callback_read(mb_address_type address, unsigned char* data, unsigned size);
   
-  unsigned slave_a_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size); 
+  unsigned slave_a_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size);  
 
  protected:
   ////////////////////////////////////////
   // target ports write callbacks
-  //////////////////////////////////////// 
+  ////////////////////////////////////////  
   bool slave_a_callback_write(mb_address_type address, unsigned char* data, unsigned size);
   
-  unsigned slave_a_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size);
+  unsigned slave_a_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size);  
   bool slave_a_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);   
 
   virtual void slave_a_callback(tlm::tlm_base_protocol_types::tlm_payload_type& trans, sc_core::sc_time& t);

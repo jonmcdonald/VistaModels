@@ -20,6 +20,7 @@
 //* 
 //* Model Builder version: 3.2.0RC
 //* Generated on: Feb. 23, 2012 07:58:11 AM, (user: jon)
+//* Automatically merged on: Jun. 12, 2012 08:36:49 AM, (user: jon)
 //*>
 
 
@@ -43,18 +44,18 @@ class sink_pv : public sink_pv_base {
  protected:
   ////////////////////////////////////////
   // target ports read callbacks
-  //////////////////////////////////////// 
+  ////////////////////////////////////////  
   bool s_callback_read(mb_address_type address, unsigned char* data, unsigned size);
   
-  unsigned s_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size); 
+  unsigned s_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size);  
 
  protected:
   ////////////////////////////////////////
   // target ports write callbacks
-  //////////////////////////////////////// 
+  ////////////////////////////////////////  
   bool s_callback_write(mb_address_type address, unsigned char* data, unsigned size);
   
-  unsigned s_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size);
+  unsigned s_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size);  
   bool s_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);   
 };
 

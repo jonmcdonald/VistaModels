@@ -20,7 +20,9 @@
 //* 
 //* Model Builder version: 3.2.0RC
 //* Generated on: Feb. 23, 2012 08:28:55 AM, (user: jon)
+//* Automatically merged on: Jun. 12, 2012 08:36:49 AM, (user: jon)
 //*>
+
 
 
 #include "streamThread_pv.h"
@@ -75,7 +77,6 @@ bool streamThread_pv::slave_a_callback_read(mb_address_type address, unsigned ch
   return true;
 }
 
-
 // Write callback for slave_a port.
 // Returns true when successful.
 bool streamThread_pv::slave_a_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
@@ -107,16 +108,18 @@ bool streamThread_pv::slave_a_callback_write(mb_address_type address, unsigned c
   }
   
   return true;
-}
+} 
+
+
 
 
 unsigned streamThread_pv::slave_a_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size) {
   return 0;
-}
+} 
 
 unsigned streamThread_pv::slave_a_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size) {
   return 0;
-}
+} 
 
 bool streamThread_pv::slave_a_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData) {
   return false;

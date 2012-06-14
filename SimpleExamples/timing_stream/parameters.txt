@@ -25,7 +25,7 @@ PipelineStages = 1
 top.streamThread1.ProcessD = 4
 top.streamThread2.ProcessD = 4
 top.streamThread3.ProcessD = 4
-top.streamThread4.ProcessD = 4
+top.streamThread4.ProcessD = 40
 
 top.streamTrans1.ProcessD = 4
 top.streamTrans2.ProcessD = 4
