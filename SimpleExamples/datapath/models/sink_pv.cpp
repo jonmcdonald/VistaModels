@@ -1,4 +1,3 @@
-
 /**************************************************************/
 /*                                                            */
 /*      Copyright Mentor Graphics Corporation 2006 - 2012     */
@@ -32,23 +31,61 @@ using namespace std;
 
 //constructor
 sink_pv::sink_pv(sc_module_name module_name)
-  : sink_pv_base(module_name) {
+    : sink_pv_base(module_name)
+{
 }
 
+bool sink_pv::general_write(mb_address_type address, unsigned char* data, unsigned size,
+                            const char* extra)
+{
+    mb::mb_token_ptr tokenptr = get_current_token();
+    int *d = (int *) data;
 
-// Write callback for slave_1 port.
-// Returns true when successful.
-bool sink_pv::slave_1_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
-  mb::mb_token_ptr tokenptr = get_current_token();
-  int *d = (int *) data;
-
-  if(tokenptr && tokenptr->hasField("CreateTime"))
-  cout << sc_simulation_time() << ":" << name() << " receiving data = " << d[0] << " *** ";
-  cout << "Lifetime = " << sc_time_stamp() - tokenptr->getFieldAsTime("CreateTime") << endl;;
-
-
-  return true;
+    if(tokenptr && tokenptr->hasField("CreateTime")) {
+        cout << sc_simulation_time() << ":" << name() << " " << extra << " receiving data = " << d[0] << " *** ";
+        cout << "Lifetime = " << sc_time_stamp() - tokenptr->getFieldAsTime("CreateTime") << endl;;
+    }
+    return true;
 }
 
+bool sink_pv::slave_1_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size, "slave_1");
+}
+
+bool sink_pv::slave_2_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size, "slave_2");
+}
+
+bool sink_pv::slave_3_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size, "slave_3");
+}
+
+bool sink_pv::slave_4_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size, "slave_4");
+}
+
+bool sink_pv::slave_5_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size, "slave_5");
+}
+
+bool sink_pv::slave_6_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size, "slave_6");
+}
+
+bool sink_pv::slave_7_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size, "slave_7");
+}
+
+bool sink_pv::slave_8_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size, "slave_8");
+}
 
 

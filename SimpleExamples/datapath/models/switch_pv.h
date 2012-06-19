@@ -1,4 +1,3 @@
-
 /**************************************************************/
 /*                                                            */
 /*      Copyright Mentor Graphics Corporation 2006 - 2012     */
@@ -31,32 +30,65 @@
 using namespace tlm;
 
 //This class inherits from the switch_pv_base class
-class switch_pv : public switch_pv_base {
- public:
-  typedef esl::tlm_types::Address mb_address_type;
- public:
-  // Constructor
-  // Do not add parameters here.
-  // To add parameters - use the Model Builder form (under PV->Parameters tab)
-  SC_HAS_PROCESS(switch_pv);
-  switch_pv(sc_core::sc_module_name module_name);
+class switch_pv : public switch_pv_base
+{
+public:
+    typedef esl::tlm_types::Address mb_address_type;
+public:
+    // Constructor
+    // Do not add parameters here.
+    // To add parameters - use the Model Builder form (under PV->Parameters tab)
+    SC_HAS_PROCESS(switch_pv);
+    switch_pv(sc_core::sc_module_name module_name);
 
-  void thread1();
+    void general_thread(int index,
+                        bool (switch_pv_base::*writeMethod)(mb_address_type, unsigned char *, unsigned, unsigned),
+                        mb::mb_variable<int>& deltaVar,
+                        mb::mb_variable<int>& startVar,
+                        mb::mb_variable<int>& stopVar);
+    void thread1();
+    void thread2();
+    void thread3();
+    void thread4();
+    void thread5();
+    void thread6();
+    void thread7();
+    void thread8();
 
-  bool addToQueue(mb_address_type address,
-                  unsigned char* data,
-                  unsigned int size,
-                  int receiveT,
-                  tlm::tlm_fifo<datastruct *> & fifo);
+protected:
+    ////////////////////////////////////////
+    // target ports write callbacks
+    ////////////////////////////////////////
+bool general_write(mb_address_type address,
+                    unsigned char* data,
+                    unsigned int size,
+                    port_enum idx,
+                    tlm::tlm_fifo<datastruct *>& fifo,
+                    mb::mb_variable<int>& deltaVar,
+                    mb::mb_variable<int>& startVar,
+                    mb::mb_variable<int>& stopVar);
 
- protected:
-  ////////////////////////////////////////
-  // target ports write callbacks
-  ////////////////////////////////////////
-  bool slave_1a_callback_write(mb_address_type address, unsigned char* data, unsigned size);
-  bool slave_1b_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+    bool slave_1a_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+    bool slave_1b_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+    bool slave_2a_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+    bool slave_2b_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+    bool slave_3a_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+    bool slave_3b_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+    bool slave_4a_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+    bool slave_4b_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+    bool slave_5a_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+    bool slave_5b_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+    bool slave_6a_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+    bool slave_6b_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+    bool slave_7a_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+    bool slave_7b_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+    bool slave_8a_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+    bool slave_8b_callback_write(mb_address_type address, unsigned char* data, unsigned size);
 
-  tlm::tlm_fifo< datastruct *> fifo_1a;
-  tlm::tlm_fifo< datastruct *> fifo_1b;
+#define NumberOfPorts 8
+    tlm::tlm_fifo< datastruct *> fifo_a[NumberOfPorts];
+    tlm::tlm_fifo< datastruct *> fifo_b[NumberOfPorts];
+    queue<sc_time> pipeInTime_a[NumberOfPorts];
+    queue<sc_time> pipeInTime_b[NumberOfPorts];
 };
 

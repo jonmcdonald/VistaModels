@@ -14,50 +14,134 @@ public:
   top(::sc_core::sc_module_name name):
     ::sc_core::sc_module(name)
     $initialization_begin
-$init("fpga_source"),
-fpga_source(0)
+$init("process_1"),
+process_1(0)
 $end
-$init("block1"),
-block1(0)
+$init("sink_1"),
+sink_1(0)
 $end
-$init("out_serdes"),
-out_serdes(0)
+$init("switch_1"),
+switch_1(0)
 $end
-$init("analysis"),
-analysis(0)
+$init("driver_1"),
+driver_1(0)
 $end
-$init("switch1"),
-switch1(0)
+$init("driver_2"),
+driver_2(0)
 $end
     $initialization_end
 {
     $elaboration_begin;
-$create_component("fpga_source");
-fpga_source = new driver_pvt("fpga_source");
+$create_component("process_1");
+process_1 = new process_pvt("process_1");
 $end;
-$create_component("block1");
-block1 = new process_pvt("block1");
+$create_component("sink_1");
+sink_1 = new sink_pvt("sink_1");
 $end;
-$create_component("out_serdes");
-out_serdes = new sink_pvt("out_serdes");
+$create_component("switch_1");
+switch_1 = new switch_pvt("switch_1");
 $end;
-$create_component("analysis");
-analysis = new driver_pvt("analysis");
+$create_component("driver_1");
+driver_1 = new driver_pvt("driver_1");
 $end;
-$create_component("switch1");
-switch1 = new switch_pvt("switch1");
+$create_component("driver_2");
+driver_2 = new driver_pvt("driver_2");
 $end;
-$bind("block1->master_1","out_serdes->slave_1");
-vista_bind(block1->master_1, out_serdes->slave_1);
+$bind("driver_2->master_5","switch_1->slave_5b");
+vista_bind(driver_2->master_5, switch_1->slave_5b);
 $end;
-$bind("fpga_source->master_1","switch1->slave_1b");
-vista_bind(fpga_source->master_1, switch1->slave_1b);
+$bind("driver_2->master_3","switch_1->slave_3b");
+vista_bind(driver_2->master_3, switch_1->slave_3b);
 $end;
-$bind("analysis->master_1","switch1->slave_1a");
-vista_bind(analysis->master_1, switch1->slave_1a);
+$bind("driver_2->master_6","switch_1->slave_6b");
+vista_bind(driver_2->master_6, switch_1->slave_6b);
 $end;
-$bind("switch1->master_1","block1->slave_1");
-vista_bind(switch1->master_1, block1->slave_1);
+$bind("driver_2->master_4","switch_1->slave_4b");
+vista_bind(driver_2->master_4, switch_1->slave_4b);
+$end;
+$bind("driver_2->master_7","switch_1->slave_7b");
+vista_bind(driver_2->master_7, switch_1->slave_7b);
+$end;
+$bind("driver_2->master_8","switch_1->slave_8b");
+vista_bind(driver_2->master_8, switch_1->slave_8b);
+$end;
+$bind("process_1->master_3","sink_1->slave_3");
+vista_bind(process_1->master_3, sink_1->slave_3);
+$end;
+$bind("process_1->master_8","sink_1->slave_8");
+vista_bind(process_1->master_8, sink_1->slave_8);
+$end;
+$bind("switch_1->master_3","process_1->slave_3");
+vista_bind(switch_1->master_3, process_1->slave_3);
+$end;
+$bind("switch_1->master_6","process_1->slave_6");
+vista_bind(switch_1->master_6, process_1->slave_6);
+$end;
+$bind("process_1->master_1","sink_1->slave_1");
+vista_bind(process_1->master_1, sink_1->slave_1);
+$end;
+$bind("process_1->master_6","sink_1->slave_6");
+vista_bind(process_1->master_6, sink_1->slave_6);
+$end;
+$bind("switch_1->master_7","process_1->slave_7");
+vista_bind(switch_1->master_7, process_1->slave_7);
+$end;
+$bind("process_1->master_4","sink_1->slave_4");
+vista_bind(process_1->master_4, sink_1->slave_4);
+$end;
+$bind("switch_1->master_4","process_1->slave_4");
+vista_bind(switch_1->master_4, process_1->slave_4);
+$end;
+$bind("switch_1->master_1","process_1->slave_1");
+vista_bind(switch_1->master_1, process_1->slave_1);
+$end;
+$bind("driver_1->master_2","switch_1->slave_2a");
+vista_bind(driver_1->master_2, switch_1->slave_2a);
+$end;
+$bind("driver_1->master_3","switch_1->slave_3a");
+vista_bind(driver_1->master_3, switch_1->slave_3a);
+$end;
+$bind("process_1->master_7","sink_1->slave_7");
+vista_bind(process_1->master_7, sink_1->slave_7);
+$end;
+$bind("driver_1->master_1","switch_1->slave_1a");
+vista_bind(driver_1->master_1, switch_1->slave_1a);
+$end;
+$bind("driver_1->master_4","switch_1->slave_4a");
+vista_bind(driver_1->master_4, switch_1->slave_4a);
+$end;
+$bind("driver_1->master_7","switch_1->slave_7a");
+vista_bind(driver_1->master_7, switch_1->slave_7a);
+$end;
+$bind("driver_1->master_5","switch_1->slave_5a");
+vista_bind(driver_1->master_5, switch_1->slave_5a);
+$end;
+$bind("driver_1->master_8","switch_1->slave_8a");
+vista_bind(driver_1->master_8, switch_1->slave_8a);
+$end;
+$bind("process_1->master_2","sink_1->slave_2");
+vista_bind(process_1->master_2, sink_1->slave_2);
+$end;
+$bind("driver_1->master_6","switch_1->slave_6a");
+vista_bind(driver_1->master_6, switch_1->slave_6a);
+$end;
+$bind("switch_1->master_2","process_1->slave_2");
+vista_bind(switch_1->master_2, process_1->slave_2);
+$end;
+$bind("driver_2->master_1","switch_1->slave_1b");
+vista_bind(driver_2->master_1, switch_1->slave_1b);
+$end;
+$bind("process_1->master_5","sink_1->slave_5");
+vista_bind(process_1->master_5, sink_1->slave_5);
+$end;
+$bind("switch_1->master_8","process_1->slave_8");
+vista_bind(switch_1->master_8, process_1->slave_8);
+$end;
+$bind("driver_2->master_2","switch_1->slave_2b");
+vista_bind(driver_2->master_2, switch_1->slave_2b);
+$end;
+$bind("switch_1->master_5","process_1->slave_5");
+vista_bind(switch_1->master_5, process_1->slave_5);
 $end;
     $elaboration_end;
   $vlnv_assign_begin;
@@ -68,39 +152,39 @@ m_version = "";
   }
   ~top() {
     $destructor_begin;
-$destruct_component("fpga_source");
-delete fpga_source; fpga_source = 0;
+$destruct_component("process_1");
+delete process_1; process_1 = 0;
 $end;
-$destruct_component("block1");
-delete block1; block1 = 0;
+$destruct_component("sink_1");
+delete sink_1; sink_1 = 0;
 $end;
-$destruct_component("out_serdes");
-delete out_serdes; out_serdes = 0;
+$destruct_component("switch_1");
+delete switch_1; switch_1 = 0;
 $end;
-$destruct_component("analysis");
-delete analysis; analysis = 0;
+$destruct_component("driver_1");
+delete driver_1; driver_1 = 0;
 $end;
-$destruct_component("switch1");
-delete switch1; switch1 = 0;
+$destruct_component("driver_2");
+delete driver_2; driver_2 = 0;
 $end;
     $destructor_end;
   }
 public:
   $fields_begin;
-$component("fpga_source");
-driver_pvt *fpga_source;
+$component("process_1");
+process_pvt *process_1;
 $end;
-$component("block1");
-process_pvt *block1;
+$component("sink_1");
+sink_pvt *sink_1;
 $end;
-$component("out_serdes");
-sink_pvt *out_serdes;
+$component("switch_1");
+switch_pvt *switch_1;
 $end;
-$component("analysis");
-driver_pvt *analysis;
+$component("driver_1");
+driver_pvt *driver_1;
 $end;
-$component("switch1");
-switch_pvt *switch1;
+$component("driver_2");
+driver_pvt *driver_2;
 $end;
   $fields_end;
   $vlnv_decl_begin;

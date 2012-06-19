@@ -7,6 +7,13 @@ template "/TLM/Generic_Library/Driver"
 
 # === ports ===
 add_port "master_1" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "master_2" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "master_3" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "master_4" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "master_5" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "master_6" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "master_7" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "master_8" /TLM/protocols/generic master 32 -bind_mode mandatory
 
 # === parameters ===
 # usage: add_parameter <parameter_name> <default_value> <type:string|unsigned|int>

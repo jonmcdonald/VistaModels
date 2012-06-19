@@ -31,7 +31,6 @@ using namespace tlm;
 
 //This class inherits from the driver_pv_base class
 class driver_pv : public driver_pv_base {
-
  public:
   // Constructor
   // Do not add parameters here.
@@ -40,7 +39,8 @@ class driver_pv : public driver_pv_base {
   driver_pv(sc_module_name module_name);
   ~driver_pv();
 
-  bool master_1_write(mb_address_type address, unsigned int *data, unsigned size);
+  bool general_write(mb_address_type address, unsigned int *data, unsigned size, const char* extra,
+                     bool (driver_pv_base::*writeMethod)(mb_address_type, unsigned int *, unsigned, unsigned));
 
   void thread();
   void simple();

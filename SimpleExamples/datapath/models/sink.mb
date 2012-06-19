@@ -6,6 +6,13 @@
 
 # === ports ===
 add_port "slave_1" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "slave_2" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "slave_3" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "slave_4" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "slave_5" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "slave_6" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "slave_7" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "slave_8" /TLM/protocols/generic slave 32 -bind_mode mandatory
 
 # === parameters ===
 # usage: add_parameter <parameter_name> <default_value> <type:string|unsigned|int>
@@ -21,6 +28,13 @@ set_auto_parameter_default "dmi_enabled" true boolean {true false}
 set_auto_parameter_default "warning_level" WARNING string {
       "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
 set_auto_parameter_default "slave_1_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_2_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_3_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_4_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_5_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_6_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_7_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_8_pipeline_length" 2 uint32 {}
 
 # === generics ===
 # usage: add_generic <generic_name> <value>

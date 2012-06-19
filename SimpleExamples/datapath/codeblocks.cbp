@@ -7,8 +7,8 @@
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
-			<Target title="vista">
-				<Option output="fifo" prefix_auto="1" extension_auto="1" />
+			<Target title="batch">
+				<Option output="datapath" prefix_auto="1" extension_auto="1" />
 				<Option type="0" />
 				<Option compiler="gcc" />
 			</Target>
@@ -44,6 +44,7 @@
 		<Unit filename="models/switch_pvt.h" />
 		<Unit filename="models/switch_t.cpp" />
 		<Unit filename="models/switch_t.h" />
+		<Unit filename="parameters.txt" />
 		<Unit filename="sc_main.cpp" />
 		<Extensions>
 			<code_completion>

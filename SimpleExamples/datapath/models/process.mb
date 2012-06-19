@@ -7,6 +7,20 @@
 # === ports ===
 add_port "slave_1" /TLM/protocols/generic slave 32 -bind_mode mandatory
 add_port "master_1" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "slave_2" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "master_2" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "slave_3" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "master_3" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "slave_4" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "master_4" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "slave_5" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "master_5" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "slave_6" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "master_6" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "slave_7" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "master_7" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "slave_8" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "master_8" /TLM/protocols/generic master 32 -bind_mode mandatory
 
 # === parameters ===
 add_parameter "ProcessDelay" 3 int32 {}
@@ -24,6 +38,13 @@ set_auto_parameter_default "dmi_enabled" true boolean {true false}
 set_auto_parameter_default "warning_level" WARNING string {
       "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
 set_auto_parameter_default "slave_1_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_2_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_3_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_4_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_5_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_6_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_7_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_8_pipeline_length" 2 uint32 {}
 
 # === generics ===
 # usage: add_generic <generic_name> <value>
@@ -31,16 +52,79 @@ set_auto_parameter_default "slave_1_pipeline_length" 2 uint32 {}
 
 # === machine architecture ===
 set_sync_all 0
-add_sequential_policy TP2.write -cause TP1.write -latency ProcessDelta -sync 1 -power 0
+add_sequential_policy slave_1_PD_stop.write -cause slave_1_PD_start.write -latency slave_1_ProcessDelta -sync 1 -power 0
 add_delay_policy slave_1 0 -latency InputDelay -sync 1 -power 0
-add_sequential_policy TP4.write -cause TP3.write -latency InputDelta -sync 1 -power 0
+add_sequential_policy slave_1_ID_stop.write -cause slave_1_ID_start.write -latency slave_1_InputDelta -sync 1 -power 0
+add_sequential_policy slave_2_PD_stop.write -cause slave_2_PD_start.write -latency slave_2_ProcessDelta -sync 1 -power 0
+add_delay_policy slave_2 0 -latency InputDelay -sync 1 -power 0
+add_sequential_policy slave_2_ID_stop.write -cause slave_2_ID_start.write -latency slave_2_InputDelta -sync 1 -power 0
+add_sequential_policy slave_3_PD_stop.write -cause slave_3_PD_start.write -latency slave_3_ProcessDelta -sync 1 -power 0
+add_delay_policy slave_3 0 -latency InputDelay -sync 1 -power 0
+add_sequential_policy slave_3_ID_stop.write -cause slave_3_ID_start.write -latency slave_3_InputDelta -sync 1 -power 0
+add_sequential_policy slave_4_PD_stop.write -cause slave_4_PD_start.write -latency slave_4_ProcessDelta -sync 1 -power 0
+add_delay_policy slave_4 0 -latency InputDelay -sync 1 -power 0
+add_sequential_policy slave_4_ID_stop.write -cause slave_4_ID_start.write -latency slave_4_InputDelta -sync 1 -power 0
+add_sequential_policy slave_5_PD_stop.write -cause slave_5_PD_start.write -latency slave_5_ProcessDelta -sync 1 -power 0
+add_delay_policy slave_5 0 -latency InputDelay -sync 1 -power 0
+add_sequential_policy slave_5_ID_stop.write -cause slave_5_ID_start.write -latency slave_5_InputDelta -sync 1 -power 0
+add_sequential_policy slave_6_PD_stop.write -cause slave_6_PD_start.write -latency slave_6_ProcessDelta -sync 1 -power 0
+add_delay_policy slave_6 0 -latency InputDelay -sync 1 -power 0
+add_sequential_policy slave_6_ID_stop.write -cause slave_6_ID_start.write -latency slave_6_InputDelta -sync 1 -power 0
+add_sequential_policy slave_7_PD_stop.write -cause slave_7_PD_start.write -latency slave_7_ProcessDelta -sync 1 -power 0
+add_delay_policy slave_7 0 -latency InputDelay -sync 1 -power 0
+add_sequential_policy slave_7_ID_stop.write -cause slave_7_ID_start.write -latency slave_7_InputDelta -sync 1 -power 0
+add_sequential_policy slave_8_PD_stop.write -cause slave_8_PD_start.write -latency slave_8_ProcessDelta -sync 1 -power 0
+add_delay_policy slave_8 0 -latency InputDelay -sync 1 -power 0
+add_sequential_policy slave_8_ID_stop.write -cause slave_8_ID_start.write -latency slave_8_InputDelta -sync 1 -power 0
 set_nominal_clock 100
-declare_variable TP1 -type int32
-declare_variable TP2 -type int32
-declare_variable ProcessDelta -type int32
-declare_variable InputDelta -type int32
-declare_variable TP3 -type int32
-declare_variable TP4 -type int32
+declare_variable slave_1_PD_start -type int32
+declare_variable slave_1_PD_stop -type int32
+declare_variable slave_1_ProcessDelta -type int32
+declare_variable slave_1_InputDelta -type int32
+declare_variable slave_1_ID_start -type int32
+declare_variable slave_1_ID_stop -type int32
+declare_variable slave_2_PD_start -type int32
+declare_variable slave_2_PD_stop -type int32
+declare_variable slave_2_ProcessDelta -type int32
+declare_variable slave_2_InputDelta -type int32
+declare_variable slave_2_ID_start -type int32
+declare_variable slave_2_ID_stop -type int32
+declare_variable slave_3_PD_start -type int32
+declare_variable slave_3_PD_stop -type int32
+declare_variable slave_3_ProcessDelta -type int32
+declare_variable slave_3_InputDelta -type int32
+declare_variable slave_3_ID_start -type int32
+declare_variable slave_3_ID_stop -type int32
+declare_variable slave_4_PD_start -type int32
+declare_variable slave_4_PD_stop -type int32
+declare_variable slave_4_ProcessDelta -type int32
+declare_variable slave_4_InputDelta -type int32
+declare_variable slave_4_ID_start -type int32
+declare_variable slave_4_ID_stop -type int32
+declare_variable slave_5_PD_start -type int32
+declare_variable slave_5_PD_stop -type int32
+declare_variable slave_5_ProcessDelta -type int32
+declare_variable slave_5_InputDelta -type int32
+declare_variable slave_5_ID_start -type int32
+declare_variable slave_5_ID_stop -type int32
+declare_variable slave_6_PD_start -type int32
+declare_variable slave_6_PD_stop -type int32
+declare_variable slave_6_ProcessDelta -type int32
+declare_variable slave_6_InputDelta -type int32
+declare_variable slave_6_ID_start -type int32
+declare_variable slave_6_ID_stop -type int32
+declare_variable slave_7_PD_start -type int32
+declare_variable slave_7_PD_stop -type int32
+declare_variable slave_7_ProcessDelta -type int32
+declare_variable slave_7_InputDelta -type int32
+declare_variable slave_7_ID_start -type int32
+declare_variable slave_7_ID_stop -type int32
+declare_variable slave_8_PD_start -type int32
+declare_variable slave_8_PD_stop -type int32
+declare_variable slave_8_ProcessDelta -type int32
+declare_variable slave_8_InputDelta -type int32
+declare_variable slave_8_ID_start -type int32
+declare_variable slave_8_ID_stop -type int32
 
 # === generate options ===
 set_generate_kind "pvt" ;# should be one of: model|pv|pvt

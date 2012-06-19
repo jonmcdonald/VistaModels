@@ -30,43 +30,161 @@ using namespace sc_core;
 using namespace sc_dt;
 using namespace std;
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 //constructor
 switch_pv::switch_pv(sc_module_name module_name)
     : switch_pv_base(module_name)
 {
     SC_THREAD(thread1);
+    SC_THREAD(thread2);
+    SC_THREAD(thread3);
+    SC_THREAD(thread4);
+    SC_THREAD(thread5);
+    SC_THREAD(thread6);
+    SC_THREAD(thread7);
+    SC_THREAD(thread8);
 
-    fifo_1a.nb_bound(InputFifoDepth);
-    fifo_1b.nb_bound(InputFifoDepth);
+    for (unsigned int i = 0; i < NumberOfPorts; i++) {
+        fifo_a[i].nb_bound(InputFifoDepth + PipelineStages);
+        fifo_b[i].nb_bound(InputFifoDepth + PipelineStages);
+        for (unsigned int j = 0; j < PipelineStages; j++) {
+            pipeInTime_a[i].push(SC_ZERO_TIME);
+            pipeInTime_b[i].push(SC_ZERO_TIME);
+        }
+    }
 }
 
-// Write callback for slave_1a port.
-// Returns true when successful.
-bool switch_pv::slave_1a_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+void switch_pv::general_thread(int index,
+                               bool (switch_pv_base::*writeMethod)(mb_address_type, unsigned char *, unsigned, unsigned),
+                               mb::mb_variable<int>& deltaVar,
+                               mb::mb_variable<int>& startVar,
+                               mb::mb_variable<int>& stopVar)
 {
-    // Calculate the cycles until the input transaction will be complete
-    int throughput = size / getSystemCBaseModel()->get_port_width(slave_1a_idx);
-    int receiveT = throughput + InputDelay;
-    return addToQueue(address, data, size, receiveT, fifo_1a);
+    datastruct *ds, *dsA, *dsB;
+    int proc;
+    sc_time startProcT;
+    tlm::tlm_fifo<datastruct *> *fifo;
+    queue<sc_time> *pipeInTime;
+
+    for(;;) {
+        fifo = NULL;
+        pipeInTime = NULL;
+
+        while ( 1 ) {
+            dsA = NULL;
+            dsB = NULL;
+            if (!fifo_a[index].nb_peek(dsA)) {
+                if (!fifo_b[index].nb_peek(dsB)) {
+                    wait (fifo_a[index].ok_to_get() | fifo_b[index].ok_to_get());
+                } else {
+                    break;
+                }
+            } else {
+                fifo_b[index].nb_peek(dsB);
+                break;
+            }
+        }
+
+        if (dsB == NULL || ((dsA != NULL) && (dsA->startT <= dsB->startT)) ) {
+            ds = dsA;
+            fifo = &fifo_a[index];
+            pipeInTime = &pipeInTime_a[index];
+        } else {
+            ds = dsB;
+            fifo = &fifo_b[index];
+            pipeInTime = &pipeInTime_b[index];
+        }
+
+        // Calculate the time that we could start sending the transaction
+        startProcT = pipeInTime->front();
+        pipeInTime->pop();
+        startProcT = (startProcT > ds->startT) ? startProcT : ds->startT;
+
+        proc = (startProcT/clock) - (sc_time_stamp()/clock);
+        if(proc < -ProcessDelay) {
+            proc = -ProcessDelay;
+        }
+
+        // Timing policy: Sequential delay TP2.write -> TP1.write of deltaVar cycles
+        deltaVar = ProcessDelay + proc;
+        startVar = (startVar + 1) % 8;
+        stopVar = (stopVar + 1) % 8;
+
+        // Save the current token information for the upcoming transaction and clear it from the queue
+        set_current_token(ds->currentToken);
+        fifo->get();
+        // Save the time that we finished processing this transaction
+        pipeInTime->push(sc_time_stamp());
+
+        (this->*writeMethod)(ds->address, ds->data, ds->size, 0);
+
+        free(ds->data);
+        free(ds);
+    }
 }
 
-// Write callback for slave_1b port.
-// Returns true when successful.
-bool switch_pv::slave_1b_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+void switch_pv::thread1()
 {
-    // Calculate the cycles until the input transaction will be complete
-    int throughput = size / getSystemCBaseModel()->get_port_width(slave_1b_idx);
-    int receiveT = throughput + InputDelay;
-    return addToQueue(address, data, size, receiveT, fifo_1b);
+    general_thread(0, &switch_pv_base::master_1_write,
+                   slave_1_ProcessDelta, slave_1_PD_start, slave_1_PD_stop);
 }
 
-bool switch_pv::addToQueue(mb_address_type address,
-                           unsigned char* data,
-                           unsigned int size,
-                           int receiveT,
-                           tlm::tlm_fifo<datastruct *> & fifo)
+void switch_pv::thread2()
 {
-    // Save the transaction information in a local datastructure
+    general_thread(1, &switch_pv_base::master_2_write,
+                   slave_2_ProcessDelta, slave_2_PD_start, slave_2_PD_stop);
+}
+
+void switch_pv::thread3()
+{
+    general_thread(2, &switch_pv_base::master_3_write,
+                   slave_3_ProcessDelta, slave_3_PD_start, slave_3_PD_stop);
+}
+
+void switch_pv::thread4()
+{
+    general_thread(3, &switch_pv_base::master_4_write,
+                   slave_4_ProcessDelta, slave_4_PD_start, slave_4_PD_stop);
+}
+
+void switch_pv::thread5()
+{
+    general_thread(4, &switch_pv_base::master_5_write,
+                   slave_5_ProcessDelta, slave_5_PD_start, slave_5_PD_stop);
+}
+
+void switch_pv::thread6()
+{
+    general_thread(5, &switch_pv_base::master_6_write,
+                   slave_6_ProcessDelta, slave_6_PD_start, slave_6_PD_stop);
+}
+
+void switch_pv::thread7()
+{
+    general_thread(6, &switch_pv_base::master_7_write,
+                   slave_7_ProcessDelta, slave_7_PD_start, slave_7_PD_stop);
+}
+
+void switch_pv::thread8()
+{
+    general_thread(7, &switch_pv_base::master_8_write,
+                   slave_8_ProcessDelta, slave_8_PD_start, slave_8_PD_stop);
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+bool switch_pv::general_write(mb_address_type address,
+                              unsigned char* data,
+                              unsigned int size,
+                              port_enum idx,
+                              tlm::tlm_fifo<datastruct *> & fifo,
+                              mb::mb_variable<int>& deltaVar,
+                              mb::mb_variable<int>& startVar,
+                              mb::mb_variable<int>& stopVar)
+{
     datastruct* ds = new datastruct;
     ds->address = address;
     ds->data = new unsigned char [size];
@@ -74,73 +192,132 @@ bool switch_pv::addToQueue(mb_address_type address,
     ds->size = size;
     ds->currentToken = get_current_token();
 
-    InputDelta = receiveT;
-
     bool putBlocked = !fifo.nb_can_put();
     fifo.put(ds);
 
+    int throughput = size / getSystemCBaseModel()->get_port_width(idx);
+    int receiveT = throughput + InputDelay;
     ds->startT = sc_time_stamp() + (receiveT * clock);
 
     if (putBlocked) {
-        // Timing policy: Sequential delay TP4.write -> TP3.write of InputDelta cycles
-        TP3 = (TP3 + 1) % 8;
-        TP4 = (TP4 + 1) % 8;
+        deltaVar = receiveT;
+        startVar = (startVar + 1) % 8;
+        stopVar = (stopVar + 1) % 8;
     }
 
     return true;
 }
 
-void switch_pv::thread1()
+bool switch_pv::slave_1a_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
-    datastruct *ds, *dsA, *dsB;
-    int proc;
-    sc_time startProcT;
-    tlm::tlm_fifo<datastruct *> *fifo;
-
-    for(;;) {
-
-        while ( 1 ) {
-            dsA = NULL;
-            dsB = NULL;
-            if (!fifo_1a.nb_peek(dsA)) {
-                if (!fifo_1b.nb_peek(dsB)) {
-                    wait (fifo_1a.ok_to_get() | fifo_1b.ok_to_get());
-                } else {
-                    break;
-                }
-            } else {
-                fifo_1b.nb_peek(dsB);
-                break;
-            }
-        }
-
-        if (dsB == NULL || ((dsA != NULL) && (dsA->startT <= dsB->startT)) ) {
-            ds = dsA;
-            fifo = &fifo_1a;
-        } else {
-            ds = dsB;
-            fifo = &fifo_1b;
-        }
-
-        // Calculate the time that we could start sending the transaction
-        startProcT = ds->startT;
-
-        // Calculate the time to wait until we can start processing.  This can not be less than 0
-        proc = (startProcT/clock) - (sc_time_stamp()/clock);
-        proc = (proc < -ProcessDelay) ? -ProcessDelay : proc;
-        ProcessDelta = ProcessDelay + proc;
-
-        // Timing policy: Sequential delay TP2.write -> TP1.write of ProcessDelta cycles
-        TP1 = (TP1 + 1) % 8;
-        TP2 = (TP2 + 1) % 8;
-
-        // Save the current token information for the upcoming transaction and clear it from the queue
-        set_current_token(ds->currentToken);
-        fifo->get();
-
-        master_1_write(ds->address, ds->data, ds->size);
-
-        free(ds->data);
-        free(ds);
-    }
+    return general_write(address, data, size,
+                         slave_1a_idx, fifo_a[0],
+                         slave_1a_InputDelta, slave_1a_ID_start, slave_1a_ID_stop);
 }
+
+bool switch_pv::slave_1b_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size,
+                         slave_1b_idx, fifo_b[0],
+                         slave_1b_InputDelta, slave_1b_ID_start, slave_1b_ID_stop);
+}
+
+bool switch_pv::slave_2a_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size,
+                         slave_2a_idx, fifo_a[1],
+                         slave_2a_InputDelta, slave_2a_ID_start, slave_2a_ID_stop);
+}
+
+bool switch_pv::slave_2b_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size,
+                         slave_2b_idx, fifo_b[1],
+                         slave_2b_InputDelta, slave_2b_ID_start, slave_2b_ID_stop);
+}
+
+bool switch_pv::slave_3a_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size,
+                         slave_3a_idx, fifo_a[2],
+                         slave_3a_InputDelta, slave_3a_ID_start, slave_3a_ID_stop);
+}
+
+bool switch_pv::slave_3b_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size,
+                         slave_3b_idx, fifo_b[2],
+                         slave_3b_InputDelta, slave_3b_ID_start, slave_3b_ID_stop);
+}
+
+bool switch_pv::slave_4a_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size,
+                         slave_4a_idx, fifo_a[3],
+                         slave_4a_InputDelta, slave_4a_ID_start, slave_4a_ID_stop);
+}
+
+bool switch_pv::slave_4b_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size,
+                         slave_4b_idx, fifo_b[3],
+                         slave_4b_InputDelta, slave_4b_ID_start, slave_4b_ID_stop);
+}
+
+bool switch_pv::slave_5a_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size,
+                         slave_5a_idx, fifo_a[4],
+                         slave_5a_InputDelta, slave_5a_ID_start, slave_5a_ID_stop);
+}
+
+bool switch_pv::slave_5b_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size,
+                         slave_5b_idx, fifo_b[4],
+                         slave_5b_InputDelta, slave_5b_ID_start, slave_5b_ID_stop);
+}
+
+bool switch_pv::slave_6a_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size,
+                         slave_6a_idx, fifo_a[5],
+                         slave_6a_InputDelta, slave_6a_ID_start, slave_6a_ID_stop);
+}
+
+bool switch_pv::slave_6b_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size,
+                         slave_6b_idx, fifo_b[5],
+                         slave_6b_InputDelta, slave_6b_ID_start, slave_6b_ID_stop);
+}
+
+bool switch_pv::slave_7a_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size,
+                         slave_7a_idx, fifo_a[6],
+                         slave_7a_InputDelta, slave_7a_ID_start, slave_7a_ID_stop);
+}
+
+bool switch_pv::slave_7b_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size,
+                         slave_7b_idx, fifo_b[6],
+                         slave_7b_InputDelta, slave_7b_ID_start, slave_7b_ID_stop);
+}
+
+bool switch_pv::slave_8a_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size,
+                         slave_8a_idx, fifo_a[7],
+                         slave_8a_InputDelta, slave_8a_ID_start, slave_8a_ID_stop);
+}
+
+bool switch_pv::slave_8b_callback_write(mb_address_type address, unsigned char* data, unsigned size)
+{
+    return general_write(address, data, size,
+                         slave_8b_idx, fifo_b[7],
+                         slave_8b_InputDelta, slave_8b_ID_start, slave_8b_ID_stop);
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

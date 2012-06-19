@@ -40,8 +40,18 @@ class sink_pv : public sink_pv_base {
   SC_HAS_PROCESS(sink_pv);
   sink_pv(sc_core::sc_module_name module_name);
 
+  bool general_write(mb_address_type address, unsigned char* data, unsigned size,
+                     const char* extra);
+
  protected:
   // target ports write callbacks
   bool slave_1_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+  bool slave_2_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+  bool slave_3_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+  bool slave_4_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+  bool slave_5_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+  bool slave_6_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+  bool slave_7_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+  bool slave_8_callback_write(mb_address_type address, unsigned char* data, unsigned size);
 };
 
