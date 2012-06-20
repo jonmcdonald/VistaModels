@@ -26,14 +26,14 @@
 
 #pragma once
 
-#include "process_model.h"
+#include "split_model.h"
 #include "datastruct.h"
 #include <queue>
 
 using namespace tlm;
 
-//This class inherits from the process_pv_base class
-class process_pv : public process_pv_base
+//This class inherits from the split_pv_base class
+class split_pv : public split_pv_base
 {
 public:
     typedef esl::tlm_types::Address mb_address_type;
@@ -41,16 +41,16 @@ public:
     // Constructor
     // Do not add parameters here.
     // To add parameters - use the Model Builder form (under PV->Parameters tab)
-    SC_HAS_PROCESS(process_pv);
-    process_pv(sc_core::sc_module_name module_name);
+    SC_HAS_PROCESS(split_pv);
+    split_pv(sc_core::sc_module_name module_name);
 
     void general_thread(tlm::tlm_fifo<datastruct *> & fifo,
                         queue<sc_time> & pipeInTime,
-                        bool (process_pv_base::*writeMethod)(mb_address_type, unsigned char *, unsigned, unsigned),
+                        bool (split_pv_base::*writeMethod_a)(mb_address_type, unsigned char *, unsigned, unsigned),
+                        bool (split_pv_base::*writeMethod_b)(mb_address_type, unsigned char *, unsigned, unsigned),
                         mb::mb_variable<int>& deltaVar,
                         mb::mb_variable<int>& startVar,
-                        mb::mb_variable<int>& stopVar,
-                        const char* extra);
+                        mb::mb_variable<int>& stopVar);
     void thread1();
     void thread2();
     void thread3();

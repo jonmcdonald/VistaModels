@@ -13,36 +13,36 @@
  } 
  page  { w 11000 h 11000 type vhdstd orient portr  } 
 grid 10 
- } #idit - save unit (named top while saving) on Mon Jun 18 14:10:37 2012
+ } #idit - save unit (named top while saving) on Wed Jun 20 11:12:57 2012
 #SW version: 2008.12 v4.1.1.beta2 build 1. Date: May 23 2012. License: 1.1 
 version: 12 
 ipxactvendor Mentor.com 
 ipxactversion 1.0 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 670 -404 26 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 940 -664 26 18 
 bcol 'Empty' pcol 'Black' } 
-fmttext { 672 -401 1 8 nil 
+fmttext { 942 -661 1 8 nil 
 sink 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  vis }  { fiv  @kind 9 
  } 
-groupobj { doset { rect { 640 -410 80 200 
+groupobj { doset { rect { 910 -670 80 200 
 bcol 'Empty' pcol 'Black' } 
  } 
-clshapes { closeShape { lines { line { 640 -410 720 -410 } 
-line { 720 -410 720 -210 } 
-line { 720 -210 640 -210 } 
-line { 640 -210 640 -410 } 
+clshapes { closeShape { lines { line { 910 -670 990 -670 } 
+line { 990 -670 990 -470 } 
+line { 990 -470 910 -470 } 
+line { 910 -470 910 -670 } 
 } 
 arcs { } 
 bcol 'Lavender'  } 
  } 
  } 
  } 
-pinset { sympinel {  text { 647 -237 1 slave_1
+pinset { sympinel {  text { 917 -497 1 slave_1
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 640 -230 } 
- {  end  620 -230  } 
+invert FALSE visible TRUE typepin 0 pin { 910 -490 } 
+ {  end  890 -490  } 
  } 
 @spattr {
 @plist 1 
@@ -57,11 +57,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 647 -257 1 slave_2
+sympinel {  text { 917 -517 1 slave_2
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 640 -250 } 
- {  end  620 -250  } 
+invert FALSE visible TRUE typepin 0 pin { 910 -510 } 
+ {  end  890 -510  } 
  } 
 @spattr {
 @plist 1 
@@ -76,11 +76,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 647 -277 1 slave_3
+sympinel {  text { 917 -537 1 slave_3
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 640 -270 } 
- {  end  620 -270  } 
+invert FALSE visible TRUE typepin 0 pin { 910 -530 } 
+ {  end  890 -530  } 
  } 
 @spattr {
 @plist 1 
@@ -95,11 +95,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 647 -297 1 slave_4
+sympinel {  text { 917 -557 1 slave_4
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 640 -290 } 
- {  end  620 -290  } 
+invert FALSE visible TRUE typepin 0 pin { 910 -550 } 
+ {  end  890 -550  } 
  } 
 @spattr {
 @plist 1 
@@ -114,11 +114,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 647 -317 1 slave_5
+sympinel {  text { 917 -577 1 slave_5
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 640 -310 } 
- {  end  620 -310  } 
+invert FALSE visible TRUE typepin 0 pin { 910 -570 } 
+ {  end  890 -570  } 
  } 
 @spattr {
 @plist 1 
@@ -133,11 +133,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 647 -337 1 slave_6
+sympinel {  text { 917 -597 1 slave_6
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 640 -330 } 
- {  end  620 -330  } 
+invert FALSE visible TRUE typepin 0 pin { 910 -590 } 
+ {  end  890 -590  } 
  } 
 @spattr {
 @plist 1 
@@ -152,11 +152,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 647 -357 1 slave_7
+sympinel {  text { 917 -617 1 slave_7
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 640 -350 } 
- {  end  620 -350  } 
+invert FALSE visible TRUE typepin 0 pin { 910 -610 } 
+ {  end  890 -610  } 
  } 
 @spattr {
 @plist 1 
@@ -171,11 +171,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 647 -377 1 slave_8
+sympinel {  text { 917 -637 1 slave_8
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 640 -370 } 
- {  end  620 -370  } 
+invert FALSE visible TRUE typepin 0 pin { 910 -630 } 
+ {  end  890 -630  } 
  } 
 @spattr {
 @plist 1 
@@ -193,7 +193,7 @@ none @block -
  } 
 angle 0 bcol 'Pale Blue2' pcol 'Black' } 
  } 
-text { 662 -206 1 sink_1
+text { 932 -466 1 sink_1
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
 gnrtxt textbox { rect { 831 -395 54 18 
@@ -277,28 +277,28 @@ none @block -
 @procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
 L { @nvis } !
 @prtas 8 -
-62 sigIdx
+94 sigIdx
 0 slave_1
 -
-64 sigIdx
+96 sigIdx
 0 slave_2
 -
-66 sigIdx
+98 sigIdx
 0 slave_3
 -
-68 sigIdx
+100 sigIdx
 0 slave_4
 -
-70 sigIdx
+102 sigIdx
 0 slave_5
 -
-72 sigIdx
+104 sigIdx
 0 slave_6
 -
-74 sigIdx
+108 sigIdx
 0 slave_7
 -
-76 sigIdx
+110 sigIdx
 0 slave_8
 8 
 { @pdecl { { @n slave_1 @t - @bnd -
@@ -369,32 +369,32 @@ none @block -
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 316 -436 38 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 316 -616 38 18 
 bcol 'Empty' pcol 'Black' } 
-fmttext { 318 -433 1 8 nil 
+fmttext { 318 -613 1 8 nil 
 switch 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  vis }  { fiv  @kind 9 
  } 
-groupobj { doset { line { 0 1 4 230 -130  230 -470  360 -440  360 -160  230 -130 bcol 'Empty' pcol 'Black'  SourceIdx -1 
+groupobj { doset { line { 0 1 4 230 -310  230 -650  360 -620  360 -340  230 -310 bcol 'Empty' pcol 'Black'  SourceIdx -1 
  DestIdx -1 
  } 
  } 
-clshapes { closeShape { lines { line { 230 -470 360 -440 } 
-line { 360 -440 360 -160 } 
-line { 360 -160 230 -130 } 
-line { 230 -130 230 -470 } 
+clshapes { closeShape { lines { line { 230 -650 360 -620 } 
+line { 360 -620 360 -340 } 
+line { 360 -340 230 -310 } 
+line { 230 -310 230 -650 } 
 } 
 arcs { } 
 bcol 'Gold'  } 
  } 
  } 
  } 
-pinset { sympinel {  text { 302 -237 1 master_1
+pinset { sympinel {  text { 302 -417 1 master_1
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 360 -230 } 
- {  end  380 -230  } 
+invert FALSE visible TRUE typepin 0 pin { 360 -410 } 
+ {  end  380 -410  } 
  } 
 @spattr {
 @plist 1 
@@ -409,11 +409,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 237 -157 1 slave_1a
+sympinel {  text { 237 -337 1 slave_1a
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 230 -150 } 
- {  end  210 -150  } 
+invert FALSE visible TRUE typepin 0 pin { 230 -330 } 
+ {  end  210 -330  } 
  } 
 @spattr {
 @plist 1 
@@ -428,11 +428,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 237 -317 1 slave_1b
+sympinel {  text { 237 -497 1 slave_1b
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 230 -310 } 
- {  end  210 -310  } 
+invert FALSE visible TRUE typepin 0 pin { 230 -490 } 
+ {  end  210 -490  } 
  } 
 @spattr {
 @plist 1 
@@ -447,11 +447,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 237 -177 1 slave_2a
+sympinel {  text { 237 -357 1 slave_2a
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 230 -170 } 
- {  end  210 -170  } 
+invert FALSE visible TRUE typepin 0 pin { 230 -350 } 
+ {  end  210 -350  } 
  } 
 @spattr {
 @plist 1 
@@ -466,11 +466,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 237 -337 1 slave_2b
+sympinel {  text { 237 -517 1 slave_2b
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 230 -330 } 
- {  end  210 -330  } 
+invert FALSE visible TRUE typepin 0 pin { 230 -510 } 
+ {  end  210 -510  } 
  } 
 @spattr {
 @plist 1 
@@ -485,11 +485,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 302 -257 1 master_2
+sympinel {  text { 302 -437 1 master_2
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 360 -250 } 
- {  end  380 -250  } 
+invert FALSE visible TRUE typepin 0 pin { 360 -430 } 
+ {  end  380 -430  } 
  } 
 @spattr {
 @plist 1 
@@ -504,11 +504,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 237 -197 1 slave_3a
+sympinel {  text { 237 -377 1 slave_3a
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 230 -190 } 
- {  end  210 -190  } 
+invert FALSE visible TRUE typepin 0 pin { 230 -370 } 
+ {  end  210 -370  } 
  } 
 @spattr {
 @plist 1 
@@ -523,11 +523,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 237 -357 1 slave_3b
+sympinel {  text { 237 -537 1 slave_3b
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 230 -350 } 
- {  end  210 -350  } 
+invert FALSE visible TRUE typepin 0 pin { 230 -530 } 
+ {  end  210 -530  } 
  } 
 @spattr {
 @plist 1 
@@ -542,11 +542,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 302 -277 1 master_3
+sympinel {  text { 302 -457 1 master_3
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 360 -270 } 
- {  end  380 -270  } 
+invert FALSE visible TRUE typepin 0 pin { 360 -450 } 
+ {  end  380 -450  } 
  } 
 @spattr {
 @plist 1 
@@ -561,11 +561,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 237 -217 1 slave_4a
+sympinel {  text { 237 -397 1 slave_4a
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 230 -210 } 
- {  end  210 -210  } 
+invert FALSE visible TRUE typepin 0 pin { 230 -390 } 
+ {  end  210 -390  } 
  } 
 @spattr {
 @plist 1 
@@ -580,11 +580,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 237 -377 1 slave_4b
+sympinel {  text { 237 -557 1 slave_4b
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 230 -370 } 
- {  end  210 -370  } 
+invert FALSE visible TRUE typepin 0 pin { 230 -550 } 
+ {  end  210 -550  } 
  } 
 @spattr {
 @plist 1 
@@ -599,11 +599,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 302 -297 1 master_4
+sympinel {  text { 302 -477 1 master_4
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 360 -290 } 
- {  end  380 -290  } 
+invert FALSE visible TRUE typepin 0 pin { 360 -470 } 
+ {  end  380 -470  } 
  } 
 @spattr {
 @plist 1 
@@ -618,11 +618,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 237 -237 1 slave_5a
+sympinel {  text { 237 -417 1 slave_5a
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 230 -230 } 
- {  end  210 -230  } 
+invert FALSE visible TRUE typepin 0 pin { 230 -410 } 
+ {  end  210 -410  } 
  } 
 @spattr {
 @plist 1 
@@ -637,11 +637,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 237 -397 1 slave_5b
+sympinel {  text { 237 -577 1 slave_5b
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 230 -390 } 
- {  end  210 -390  } 
+invert FALSE visible TRUE typepin 0 pin { 230 -570 } 
+ {  end  210 -570  } 
  } 
 @spattr {
 @plist 1 
@@ -656,11 +656,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 302 -317 1 master_5
+sympinel {  text { 302 -497 1 master_5
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 360 -310 } 
- {  end  380 -310  } 
+invert FALSE visible TRUE typepin 0 pin { 360 -490 } 
+ {  end  380 -490  } 
  } 
 @spattr {
 @plist 1 
@@ -675,11 +675,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 237 -257 1 slave_6a
+sympinel {  text { 237 -437 1 slave_6a
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 230 -250 } 
- {  end  210 -250  } 
+invert FALSE visible TRUE typepin 0 pin { 230 -430 } 
+ {  end  210 -430  } 
  } 
 @spattr {
 @plist 1 
@@ -694,11 +694,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 237 -417 1 slave_6b
+sympinel {  text { 237 -597 1 slave_6b
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 230 -410 } 
- {  end  210 -410  } 
+invert FALSE visible TRUE typepin 0 pin { 230 -590 } 
+ {  end  210 -590  } 
  } 
 @spattr {
 @plist 1 
@@ -713,11 +713,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 302 -337 1 master_6
+sympinel {  text { 302 -517 1 master_6
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 360 -330 } 
- {  end  380 -330  } 
+invert FALSE visible TRUE typepin 0 pin { 360 -510 } 
+ {  end  380 -510  } 
  } 
 @spattr {
 @plist 1 
@@ -732,11 +732,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 237 -277 1 slave_7a
+sympinel {  text { 237 -457 1 slave_7a
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 230 -270 } 
- {  end  210 -270  } 
+invert FALSE visible TRUE typepin 0 pin { 230 -450 } 
+ {  end  210 -450  } 
  } 
 @spattr {
 @plist 1 
@@ -751,11 +751,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 237 -437 1 slave_7b
+sympinel {  text { 237 -617 1 slave_7b
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 230 -430 } 
- {  end  210 -430  } 
+invert FALSE visible TRUE typepin 0 pin { 230 -610 } 
+ {  end  210 -610  } 
  } 
 @spattr {
 @plist 1 
@@ -770,11 +770,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 302 -357 1 master_7
+sympinel {  text { 302 -537 1 master_7
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 360 -350 } 
- {  end  380 -350  } 
+invert FALSE visible TRUE typepin 0 pin { 360 -530 } 
+ {  end  380 -530  } 
  } 
 @spattr {
 @plist 1 
@@ -789,11 +789,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 237 -297 1 slave_8a
+sympinel {  text { 237 -477 1 slave_8a
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 230 -290 } 
- {  end  210 -290  } 
+invert FALSE visible TRUE typepin 0 pin { 230 -470 } 
+ {  end  210 -470  } 
  } 
 @spattr {
 @plist 1 
@@ -808,11 +808,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 237 -457 1 slave_8b
+sympinel {  text { 237 -637 1 slave_8b
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 230 -450 } 
- {  end  210 -450  } 
+invert FALSE visible TRUE typepin 0 pin { 230 -630 } 
+ {  end  210 -630  } 
  } 
 @spattr {
 @plist 1 
@@ -827,11 +827,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 302 -377 1 master_8
+sympinel {  text { 302 -557 1 master_8
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 360 -370 } 
- {  end  380 -370  } 
+invert FALSE visible TRUE typepin 0 pin { 360 -550 } 
+ {  end  380 -550  } 
  } 
 @spattr {
 @plist 1 
@@ -849,7 +849,7 @@ none @block -
  } 
 angle 0 bcol 'Pale Blue2' pcol 'Black' } 
  } 
-text { 271 -128 1 switch_1
+text { 271 -308 1 switch_1
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
 gnrtxt textbox { rect { 356 -265 66 18 
@@ -1061,30 +1061,6 @@ none @block -
 @procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
 L { @nvis } !
 @prtas 24 -
-14 sigIdx
-0 slave_8a
--
-16 sigIdx
-0 slave_7a
--
-18 sigIdx
-0 slave_6a
--
-20 sigIdx
-0 slave_5a
--
-22 sigIdx
-0 slave_4a
--
-24 sigIdx
-0 slave_3a
--
-26 sigIdx
-0 slave_2a
--
-28 sigIdx
-0 slave_1a
--
 30 sigIdx
 0 slave_1b
 -
@@ -1132,6 +1108,30 @@ L { @nvis } !
 -
 61 sigIdx
 0 master_8
+-
+135 sigIdx
+0 slave_1a
+-
+137 sigIdx
+0 slave_2a
+-
+139 sigIdx
+0 slave_3a
+-
+141 sigIdx
+0 slave_4a
+-
+143 sigIdx
+0 slave_5a
+-
+145 sigIdx
+0 slave_6a
+-
+147 sigIdx
+0 slave_7a
+-
+149 sigIdx
+0 slave_8a
 24 
 { @pdecl { { @n slave_1a @t - @bnd -
 @das -
@@ -1329,31 +1329,31 @@ none @block -
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 478 -400 47 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 478 -580 47 18 
 bcol 'Empty' pcol 'Black' } 
-fmttext { 480 -397 1 8 nil 
+fmttext { 480 -577 1 8 nil 
 process 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  vis }  { fiv  @kind 9 
  } 
-groupobj { doset { rect { 440 -210 120 -200 
+groupobj { doset { rect { 440 -390 120 -200 
 bcol 'Empty' pcol 'Black' } 
  } 
-clshapes { closeShape { lines { line { 440 -410 560 -410 } 
-line { 560 -410 560 -210 } 
-line { 560 -210 440 -210 } 
-line { 440 -210 440 -410 } 
+clshapes { closeShape { lines { line { 440 -590 560 -590 } 
+line { 560 -590 560 -390 } 
+line { 560 -390 440 -390 } 
+line { 440 -390 440 -590 } 
 } 
 arcs { } 
 bcol 'Sky Blue'  } 
  } 
  } 
  } 
-pinset { sympinel {  text { 502 -237 1 master_1
+pinset { sympinel {  text { 502 -417 1 master_1
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 560 -230 } 
- {  end  580 -230  } 
+invert FALSE visible TRUE typepin 0 pin { 560 -410 } 
+ {  end  580 -410  } 
  } 
 @spattr {
 @plist 1 
@@ -1368,11 +1368,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 447 -237 1 slave_1
+sympinel {  text { 447 -417 1 slave_1
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 440 -230 } 
- {  end  420 -230  } 
+invert FALSE visible TRUE typepin 0 pin { 440 -410 } 
+ {  end  420 -410  } 
  } 
 @spattr {
 @plist 1 
@@ -1387,11 +1387,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 447 -257 1 slave_2
+sympinel {  text { 447 -437 1 slave_2
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 440 -250 } 
- {  end  420 -250  } 
+invert FALSE visible TRUE typepin 0 pin { 440 -430 } 
+ {  end  420 -430  } 
  } 
 @spattr {
 @plist 1 
@@ -1406,11 +1406,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 502 -257 1 master_2
+sympinel {  text { 502 -437 1 master_2
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 560 -250 } 
- {  end  580 -250  } 
+invert FALSE visible TRUE typepin 0 pin { 560 -430 } 
+ {  end  580 -430  } 
  } 
 @spattr {
 @plist 1 
@@ -1425,11 +1425,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 447 -277 1 slave_3
+sympinel {  text { 447 -457 1 slave_3
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 440 -270 } 
- {  end  420 -270  } 
+invert FALSE visible TRUE typepin 0 pin { 440 -450 } 
+ {  end  420 -450  } 
  } 
 @spattr {
 @plist 1 
@@ -1444,11 +1444,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 502 -277 1 master_3
+sympinel {  text { 502 -457 1 master_3
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 560 -270 } 
- {  end  580 -270  } 
+invert FALSE visible TRUE typepin 0 pin { 560 -450 } 
+ {  end  580 -450  } 
  } 
 @spattr {
 @plist 1 
@@ -1463,11 +1463,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 447 -297 1 slave_4
+sympinel {  text { 447 -477 1 slave_4
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 440 -290 } 
- {  end  420 -290  } 
+invert FALSE visible TRUE typepin 0 pin { 440 -470 } 
+ {  end  420 -470  } 
  } 
 @spattr {
 @plist 1 
@@ -1482,11 +1482,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 502 -297 1 master_4
+sympinel {  text { 502 -477 1 master_4
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 560 -290 } 
- {  end  580 -290  } 
+invert FALSE visible TRUE typepin 0 pin { 560 -470 } 
+ {  end  580 -470  } 
  } 
 @spattr {
 @plist 1 
@@ -1501,11 +1501,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 447 -317 1 slave_5
+sympinel {  text { 447 -497 1 slave_5
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 440 -310 } 
- {  end  420 -310  } 
+invert FALSE visible TRUE typepin 0 pin { 440 -490 } 
+ {  end  420 -490  } 
  } 
 @spattr {
 @plist 1 
@@ -1520,11 +1520,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 502 -317 1 master_5
+sympinel {  text { 502 -497 1 master_5
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 560 -310 } 
- {  end  580 -310  } 
+invert FALSE visible TRUE typepin 0 pin { 560 -490 } 
+ {  end  580 -490  } 
  } 
 @spattr {
 @plist 1 
@@ -1539,11 +1539,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 447 -337 1 slave_6
+sympinel {  text { 447 -517 1 slave_6
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 440 -330 } 
- {  end  420 -330  } 
+invert FALSE visible TRUE typepin 0 pin { 440 -510 } 
+ {  end  420 -510  } 
  } 
 @spattr {
 @plist 1 
@@ -1558,11 +1558,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 502 -337 1 master_6
+sympinel {  text { 502 -517 1 master_6
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 560 -330 } 
- {  end  580 -330  } 
+invert FALSE visible TRUE typepin 0 pin { 560 -510 } 
+ {  end  580 -510  } 
  } 
 @spattr {
 @plist 1 
@@ -1577,11 +1577,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 447 -357 1 slave_7
+sympinel {  text { 447 -537 1 slave_7
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 440 -350 } 
- {  end  420 -350  } 
+invert FALSE visible TRUE typepin 0 pin { 440 -530 } 
+ {  end  420 -530  } 
  } 
 @spattr {
 @plist 1 
@@ -1596,11 +1596,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 502 -357 1 master_7
+sympinel {  text { 502 -537 1 master_7
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 560 -350 } 
- {  end  580 -350  } 
+invert FALSE visible TRUE typepin 0 pin { 560 -530 } 
+ {  end  580 -530  } 
  } 
 @spattr {
 @plist 1 
@@ -1615,11 +1615,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 447 -377 1 slave_8
+sympinel {  text { 447 -557 1 slave_8
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 440 -370 } 
- {  end  420 -370  } 
+invert FALSE visible TRUE typepin 0 pin { 440 -550 } 
+ {  end  420 -550  } 
  } 
 @spattr {
 @plist 1 
@@ -1634,11 +1634,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 502 -377 1 master_8
+sympinel {  text { 502 -557 1 master_8
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 560 -370 } 
- {  end  580 -370  } 
+invert FALSE visible TRUE typepin 0 pin { 560 -550 } 
+ {  end  580 -550  } 
  } 
 @spattr {
 @plist 1 
@@ -1656,7 +1656,7 @@ none @block -
  } 
 angle 0 bcol 'Pale Blue2' pcol 'Black' } 
  } 
-text { 470 -206 1 process_1
+text { 470 -386 1 process_1
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
 gnrtxt textbox { rect { 627 -195 75 18 
@@ -1828,28 +1828,28 @@ L { @nvis } !
 60 sigIdx
 0 slave_8
 -
-63 sigIdx
+79 sigIdx
 0 master_1
 -
-65 sigIdx
+81 sigIdx
 0 master_2
 -
-67 sigIdx
+83 sigIdx
 0 master_3
 -
-69 sigIdx
+85 sigIdx
 0 master_4
 -
-71 sigIdx
+87 sigIdx
 0 master_5
 -
-73 sigIdx
+89 sigIdx
 0 master_6
 -
-75 sigIdx
+91 sigIdx
 0 master_7
 -
-77 sigIdx
+93 sigIdx
 0 master_8
 16 
 { @pdecl { { @n slave_1 @t - @bnd -
@@ -1984,31 +1984,31 @@ none @block -
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 54 -234 35 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 44 -664 35 18 
 bcol 'Empty' pcol 'Black' } 
-fmttext { 56 -231 1 8 nil 
+fmttext { 46 -661 1 8 nil 
 driver 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  vis }  { fiv  @kind 9 
  } 
-groupobj { doset { rect { 30 -40 80 -200 
+groupobj { doset { rect { 20 -470 80 -200 
 bcol 'Empty' pcol 'Black' } 
  } 
-clshapes { closeShape { lines { line { 30 -240 110 -240 } 
-line { 110 -240 110 -40 } 
-line { 110 -40 30 -40 } 
-line { 30 -40 30 -240 } 
+clshapes { closeShape { lines { line { 20 -670 100 -670 } 
+line { 100 -670 100 -470 } 
+line { 100 -470 20 -470 } 
+line { 20 -470 20 -670 } 
 } 
 arcs { } 
 bcol 'Lavender'  } 
  } 
  } 
  } 
-pinset { sympinel {  text { 52 -67 1 master_1
+pinset { sympinel {  text { 42 -497 1 master_1
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 110 -60 } 
- {  end  130 -60  } 
+invert FALSE visible TRUE typepin 0 pin { 100 -490 } 
+ {  end  120 -490  } 
  } 
 @spattr {
 @plist 1 
@@ -2023,11 +2023,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 52 -87 1 master_2
+sympinel {  text { 42 -517 1 master_2
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 110 -80 } 
- {  end  130 -80  } 
+invert FALSE visible TRUE typepin 0 pin { 100 -510 } 
+ {  end  120 -510  } 
  } 
 @spattr {
 @plist 1 
@@ -2042,11 +2042,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 52 -107 1 master_3
+sympinel {  text { 42 -537 1 master_3
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 110 -100 } 
- {  end  130 -100  } 
+invert FALSE visible TRUE typepin 0 pin { 100 -530 } 
+ {  end  120 -530  } 
  } 
 @spattr {
 @plist 1 
@@ -2061,11 +2061,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 52 -127 1 master_4
+sympinel {  text { 42 -557 1 master_4
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 110 -120 } 
- {  end  130 -120  } 
+invert FALSE visible TRUE typepin 0 pin { 100 -550 } 
+ {  end  120 -550  } 
  } 
 @spattr {
 @plist 1 
@@ -2080,11 +2080,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 52 -147 1 master_5
+sympinel {  text { 42 -577 1 master_5
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 110 -140 } 
- {  end  130 -140  } 
+invert FALSE visible TRUE typepin 0 pin { 100 -570 } 
+ {  end  120 -570  } 
  } 
 @spattr {
 @plist 1 
@@ -2099,11 +2099,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 52 -167 1 master_6
+sympinel {  text { 42 -597 1 master_6
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 110 -160 } 
- {  end  130 -160  } 
+invert FALSE visible TRUE typepin 0 pin { 100 -590 } 
+ {  end  120 -590  } 
  } 
 @spattr {
 @plist 1 
@@ -2118,11 +2118,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 52 -187 1 master_7
+sympinel {  text { 42 -617 1 master_7
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 110 -180 } 
- {  end  130 -180  } 
+invert FALSE visible TRUE typepin 0 pin { 100 -610 } 
+ {  end  120 -610  } 
  } 
 @spattr {
 @plist 1 
@@ -2137,11 +2137,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 52 -207 1 master_8
+sympinel {  text { 42 -637 1 master_8
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 110 -200 } 
- {  end  130 -200  } 
+invert FALSE visible TRUE typepin 0 pin { 100 -630 } 
+ {  end  120 -630  } 
  } 
 @spattr {
 @plist 1 
@@ -2159,12 +2159,12 @@ none @block -
  } 
 angle 0 bcol 'Pale Blue2' pcol 'Black' } 
  } 
-text { 49 -37 1 driver_1
+text { 37 -464 1 driver_1
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 207 -5 63 18 
+gnrtxt textbox { rect { 217 -275 63 18 
 bcol 'Empty' pcol 'Red' } 
-fmttext { 209 -2 1 8 nil 
+fmttext { 219 -272 1 8 nil 
   "driver_1" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
@@ -2172,357 +2172,6 @@ angle 0 fn 0 0 0 2 5 0 0 0 0 }
 - - @symname
 driver_symbol @cmpattr
 @kwd @innm driver_1 @arch - @usl - @hrnm driver models @dffs 0 0 @stt hier @gnras @cnt 0
-@templparamas @templparamcnt 0
-@portas @cnt 0
-@portlist 8 
-{ @port { @pdecl { { @n master_1 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_2 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_3 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_4 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_5 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_6 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_7 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_8 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } @blist 0 } !
-@procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
-L { @nvis } !
-@prtas 8 -
-15 sigIdx
-0 master_8
--
-17 sigIdx
-0 master_7
--
-19 sigIdx
-0 master_6
--
-21 sigIdx
-0 master_5
--
-23 sigIdx
-0 master_4
--
-25 sigIdx
-0 master_3
--
-27 sigIdx
-0 master_2
--
-29 sigIdx
-0 master_1
-8 
-{ @pdecl { { @n master_1 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } { @pdecl { { @n master_2 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } { @pdecl { { @n master_3 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } { @pdecl { { @n master_4 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } { @pdecl { { @n master_5 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } { @pdecl { { @n master_6 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } { @pdecl { { @n master_7 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } { @pdecl { { @n master_8 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
-0 L { @nvis @ctorsn 1 } !
-@hastemplparam
-{ @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 54 -544 35 18 
-bcol 'Empty' pcol 'Black' } 
-fmttext { 56 -541 1 8 nil 
-driver 
-angle 0 fn 0 0 0 2 5 0 0 0 0 }
- vis }  { fiv  @kind 9 
- } 
-groupobj { doset { rect { 30 -350 80 -200 
-bcol 'Empty' pcol 'Black' } 
- } 
-clshapes { closeShape { lines { line { 30 -550 110 -550 } 
-line { 110 -550 110 -350 } 
-line { 110 -350 30 -350 } 
-line { 30 -350 30 -550 } 
-} 
-arcs { } 
-bcol 'Lavender'  } 
- } 
- } 
- } 
-pinset { sympinel {  text { 52 -377 1 master_1
- angle 0
-fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 110 -370 } 
- {  end  130 -370  } 
- } 
-@spattr {
-@plist 1 
-{ @pdecl { { @n master_1 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
-@blist 1 { @cnt 0 } @flags 73 }
-
-sympinel {  text { 52 -397 1 master_2
- angle 0
-fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 110 -390 } 
- {  end  130 -390  } 
- } 
-@spattr {
-@plist 1 
-{ @pdecl { { @n master_2 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
-@blist 1 { @cnt 0 } @flags 73 }
-
-sympinel {  text { 52 -417 1 master_3
- angle 0
-fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 110 -410 } 
- {  end  130 -410  } 
- } 
-@spattr {
-@plist 1 
-{ @pdecl { { @n master_3 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
-@blist 1 { @cnt 0 } @flags 73 }
-
-sympinel {  text { 52 -437 1 master_4
- angle 0
-fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 110 -430 } 
- {  end  130 -430  } 
- } 
-@spattr {
-@plist 1 
-{ @pdecl { { @n master_4 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
-@blist 1 { @cnt 0 } @flags 73 }
-
-sympinel {  text { 52 -457 1 master_5
- angle 0
-fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 110 -450 } 
- {  end  130 -450  } 
- } 
-@spattr {
-@plist 1 
-{ @pdecl { { @n master_5 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
-@blist 1 { @cnt 0 } @flags 73 }
-
-sympinel {  text { 52 -477 1 master_6
- angle 0
-fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 110 -470 } 
- {  end  130 -470  } 
- } 
-@spattr {
-@plist 1 
-{ @pdecl { { @n master_6 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
-@blist 1 { @cnt 0 } @flags 73 }
-
-sympinel {  text { 52 -497 1 master_7
- angle 0
-fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 110 -490 } 
- {  end  130 -490  } 
- } 
-@spattr {
-@plist 1 
-{ @pdecl { { @n master_7 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
-@blist 1 { @cnt 0 } @flags 73 }
-
-sympinel {  text { 52 -517 1 master_8
- angle 0
-fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 110 -510 } 
- {  end  130 -510  } 
- } 
-@spattr {
-@plist 1 
-{ @pdecl { { @n master_8 @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 1
-} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
-@blist 1 { @cnt 0 } @flags 73 }
-
- } 
-angle 0 bcol 'Pale Blue2' pcol 'Black' } 
- } 
-text { 47 -344 1 driver_2
- angle 0
-fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 217 -275 63 18 
-bcol 'Empty' pcol 'Red' } 
-fmttext { 219 -272 1 8 nil 
-  "driver_2" 
-angle 0 fn 0 0 0 2 5 0 0 0 0 }
- invis }  } 
-@conf
-- - @symname
-driver_symbol @cmpattr
-@kwd @innm driver_2 @arch - @usl - @hrnm driver models @dffs 0 0 @stt hier @gnras @cnt 0
 @templparamas @templparamcnt 0
 @portas @cnt 0
 @portlist 8 
@@ -2686,385 +2335,1624 @@ none @block -
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-signal { F bind line90 { 0 4 2 130 -200  130 -290  210 -290 bcol 'Empty' pcol 'Black' 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 667 -607 26 18 
+bcol 'Empty' pcol 'Black' } 
+fmttext { 669 -604 1 8 nil 
+split 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ vis }  { fiv  @kind 9 
+ } 
+groupobj { doset { line { 0 1 5 650 -340  650 -620  780 -650  780 -310  650 -340  660 -340 bcol 'Empty' pcol 'Black'  SourceIdx -1 
+ DestIdx -1 
+ } 
+ } 
+clshapes { closeShape { lines { line { 650 -620 780 -650 } 
+line { 780 -650 780 -310 } 
+line { 780 -310 650 -340 } 
+line { 650 -340 650 -620 } 
+} 
+arcs { } 
+bcol 'Gold'  } 
+ } 
+ } 
+ } 
+pinset { sympinel {  text { 715 -337 1 master_1a
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 780 -330 } 
+ {  end  800 -330  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_1a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 715 -497 1 master_1b
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 780 -490 } 
+ {  end  800 -490  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_1b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 715 -357 1 master_2a
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 780 -350 } 
+ {  end  800 -350  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_2a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 715 -517 1 master_2b
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 780 -510 } 
+ {  end  800 -510  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_2b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 715 -377 1 master_3a
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 780 -370 } 
+ {  end  800 -370  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_3a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 715 -537 1 master_3b
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 780 -530 } 
+ {  end  800 -530  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_3b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 715 -397 1 master_4a
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 780 -390 } 
+ {  end  800 -390  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_4a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 715 -557 1 master_4b
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 780 -550 } 
+ {  end  800 -550  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_4b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 715 -417 1 master_5a
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 780 -410 } 
+ {  end  800 -410  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_5a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 715 -577 1 master_5b
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 780 -570 } 
+ {  end  800 -570  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_5b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 715 -437 1 master_6a
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 780 -430 } 
+ {  end  800 -430  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_6a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 715 -597 1 master_6b
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 780 -590 } 
+ {  end  800 -590  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_6b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 715 -457 1 master_7a
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 780 -450 } 
+ {  end  800 -450  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_7a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 715 -617 1 master_7b
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 780 -610 } 
+ {  end  800 -610  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_7b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 715 -477 1 master_8a
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 780 -470 } 
+ {  end  800 -470  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_8a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 715 -637 1 master_8b
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 780 -630 } 
+ {  end  800 -630  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_8b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 657 -417 1 slave_1
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 650 -410 } 
+ {  end  630 -410  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n slave_1 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 657 -437 1 slave_2
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 650 -430 } 
+ {  end  630 -430  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n slave_2 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 657 -457 1 slave_3
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 650 -450 } 
+ {  end  630 -450  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n slave_3 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 657 -477 1 slave_4
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 650 -470 } 
+ {  end  630 -470  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n slave_4 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 657 -497 1 slave_5
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 650 -490 } 
+ {  end  630 -490  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n slave_5 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 657 -517 1 slave_6
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 650 -510 } 
+ {  end  630 -510  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n slave_6 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 657 -537 1 slave_7
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 650 -530 } 
+ {  end  630 -530  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n slave_7 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 657 -557 1 slave_8
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 650 -550 } 
+ {  end  630 -550  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n slave_8 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+ } 
+angle 0 bcol 'Pale Blue2' pcol 'Black' } 
+ } 
+text { 697 -308 1 split_1
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+gnrtxt textbox { rect { 902 -305 54 18 
+bcol 'Empty' pcol 'Red' } 
+fmttext { 904 -302 1 8 nil 
+  "split_1" 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ invis }  } 
+@conf
+- - @symname
+split_symbol @cmpattr
+@kwd @innm split_1 @arch - @usl - @hrnm split models @dffs 0 0 @stt hier @gnras @cnt 0
+@templparamas @templparamcnt 0
+@portas @cnt 0
+@portlist 24 
+{ @port { @pdecl { { @n master_1a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_1b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_2a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_2b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_3a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_3b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_4a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_4b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_5a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_5b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_6a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_6b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_7a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_7b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_8a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_8b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n slave_1 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n slave_2 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n slave_3 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n slave_4 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n slave_5 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n slave_6 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n slave_7 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n slave_8 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } !
+@procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
+L { @nvis } !
+@prtas 24 -
+78 sigIdx
+0 slave_1
+-
+80 sigIdx
+0 slave_2
+-
+82 sigIdx
+0 slave_3
+-
+84 sigIdx
+0 slave_4
+-
+86 sigIdx
+0 slave_5
+-
+88 sigIdx
+0 slave_6
+-
+90 sigIdx
+0 slave_7
+-
+92 sigIdx
+0 slave_8
+-
+95 sigIdx
+0 master_1b
+-
+97 sigIdx
+0 master_2b
+-
+99 sigIdx
+0 master_3b
+-
+101 sigIdx
+0 master_4b
+-
+103 sigIdx
+0 master_5b
+-
+105 sigIdx
+0 master_6b
+-
+109 sigIdx
+0 master_7b
+-
+111 sigIdx
+0 master_8b
+-
+113 sigIdx
+0 master_1a
+-
+117 sigIdx
+0 master_2a
+-
+119 sigIdx
+0 master_3a
+-
+121 sigIdx
+0 master_4a
+-
+123 sigIdx
+0 master_5a
+-
+125 sigIdx
+0 master_6a
+-
+127 sigIdx
+0 master_7a
+-
+133 sigIdx
+0 master_8a
+24 
+{ @pdecl { { @n slave_1 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_1a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_1b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n slave_2 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_2a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_2b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n slave_3 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_3a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_3b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n slave_4 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_4a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_4b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n slave_5 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_5a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_5b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n slave_6 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_6a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_6b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n slave_7 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_7a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_7b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n slave_8 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_8a @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_8b @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+0 L { @nvis @ctorsn 1 } !
+@hastemplparam
+{ @cnt 0 } @instanceAs 1 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 475 -71 47 18 
+bcol 'Empty' pcol 'Black' } 
+fmttext { 477 -68 1 8 nil 
+process 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ vis }  { fiv  @kind 9 
+ } 
+groupobj { doset { rect { 440 -240 120 200 
+bcol 'Empty' pcol 'Black' } 
+ } 
+clshapes { closeShape { lines { line { 560 -40 440 -40 } 
+line { 440 -40 440 -240 } 
+line { 440 -240 560 -240 } 
+line { 560 -240 560 -40 } 
+} 
+arcs { } 
+bcol 'Sky Blue'  } 
+ } 
+ } 
+ } 
+pinset { sympinel {  text { 447 -234 1 master_1
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 440 -220 } 
+ {  end  420 -220  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_1 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 510 -234 1 slave_1
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 560 -220 } 
+ {  end  580 -220  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n slave_1 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 510 -214 1 slave_2
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 560 -200 } 
+ {  end  580 -200  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n slave_2 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 447 -214 1 master_2
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 440 -200 } 
+ {  end  420 -200  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_2 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 510 -194 1 slave_3
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 560 -180 } 
+ {  end  580 -180  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n slave_3 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 447 -194 1 master_3
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 440 -180 } 
+ {  end  420 -180  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_3 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 510 -174 1 slave_4
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 560 -160 } 
+ {  end  580 -160  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n slave_4 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 447 -174 1 master_4
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 440 -160 } 
+ {  end  420 -160  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_4 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 510 -154 1 slave_5
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 560 -140 } 
+ {  end  580 -140  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n slave_5 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 447 -154 1 master_5
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 440 -140 } 
+ {  end  420 -140  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_5 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 510 -134 1 slave_6
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 560 -120 } 
+ {  end  580 -120  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n slave_6 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 447 -134 1 master_6
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 440 -120 } 
+ {  end  420 -120  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_6 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 510 -114 1 slave_7
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 560 -100 } 
+ {  end  580 -100  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n slave_7 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 447 -114 1 master_7
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 440 -100 } 
+ {  end  420 -100  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_7 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 510 -94 1 slave_8
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 560 -80 } 
+ {  end  580 -80  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n slave_8 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 447 -94 1 master_8
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 440 -80 } 
+ {  end  420 -80  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n master_8 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+ } 
+angle 0 fliplr flipbu bcol 'Pale Blue2' pcol 'Black' } 
+ } 
+text { 472 -38 1 process_2
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+gnrtxt textbox { rect { 477 -25 75 18 
+bcol 'Empty' pcol 'Red' } 
+fmttext { 479 -22 1 8 nil 
+  "process_2" 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ invis }  } 
+@conf
+- - @symname
+process_symbol @cmpattr
+@kwd @innm process_2 @arch - @usl - @hrnm process models @dffs 0 0 @stt hier @gnras @cnt 0
+@templparamas @templparamcnt 0
+@portas @cnt 0
+@portlist 16 
+{ @port { @pdecl { { @n master_1 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_2 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_3 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_4 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_5 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_6 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_7 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n master_8 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n slave_1 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n slave_2 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n slave_3 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n slave_4 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n slave_5 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n slave_6 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n slave_7 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n slave_8 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } @blist 0 } !
+@procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
+L { @nvis } !
+@prtas 16 -
+112 sigIdx
+0 slave_1
+-
+116 sigIdx
+0 slave_2
+-
+118 sigIdx
+0 slave_3
+-
+120 sigIdx
+0 slave_4
+-
+122 sigIdx
+0 slave_5
+-
+124 sigIdx
+0 slave_6
+-
+126 sigIdx
+0 slave_7
+-
+132 sigIdx
+0 slave_8
+-
+134 sigIdx
+0 master_1
+-
+136 sigIdx
+0 master_2
+-
+138 sigIdx
+0 master_3
+-
+140 sigIdx
+0 master_4
+-
+142 sigIdx
+0 master_5
+-
+144 sigIdx
+0 master_6
+-
+146 sigIdx
+0 master_7
+-
+148 sigIdx
+0 master_8
+16 
+{ @pdecl { { @n slave_1 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_1 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n slave_2 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_2 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n slave_3 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_3 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n slave_4 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_4 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n slave_5 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_5 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n slave_6 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_6 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n slave_7 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_7 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n slave_8 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } { @pdecl { { @n master_8 @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 1
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+0 L { @nvis @ctorsn 1 } !
+@hastemplparam
+{ @cnt 0 } @instanceAs 1 
+signal { F bind line90 { 0 4 2 120 -490  120 -490  210 -490 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 210 -290 } 
- } 
-10 14 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
-
- Secondpin {
-  blockpin {   nnvis  pnvis pin { 130 -200 } 
- } 
-11 15 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
- SourceIdx 3 
- DestIdx 1 
- } 
- } 
-@BIND
-@kwd
-@iv
--
-@strngth
-none @exprng
-none @dly
--
-@sidx
--1 @attr
-s7
-@newportclass
--
-@dt -
-@channeltype -
--
-0 
-signal { F bind line90 { 0 4 3 130 -180  140 -180  140 -270  210 -270 bcol 'Empty' pcol 'Black' 
- Firstpin {
-  blockpin {   nnvis  pnvis pin { 210 -270 } 
- } 
-10 16 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
-
- Secondpin {
-  blockpin {   nnvis  pnvis pin { 130 -180 } 
- } 
-11 17 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
- SourceIdx 3 
- DestIdx 1 
- } 
- } 
-@BIND
-@kwd
-@iv
--
-@strngth
-none @exprng
-none @dly
--
-@sidx
--1 @attr
-s8
-@newportclass
--
-@dt -
-@channeltype -
--
-0 
-signal { F bind line90 { 0 4 3 130 -160  150 -160  150 -250  210 -250 bcol 'Empty' pcol 'Black' 
- Firstpin {
-  blockpin {   nnvis  pnvis pin { 210 -250 } 
- } 
-10 18 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
-
- Secondpin {
-  blockpin {   nnvis  pnvis pin { 130 -160 } 
- } 
-11 19 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
- SourceIdx 3 
- DestIdx 1 
- } 
- } 
-@BIND
-@kwd
-@iv
--
-@strngth
-none @exprng
-none @dly
--
-@sidx
--1 @attr
-s9
-@newportclass
--
-@dt -
-@channeltype -
--
-0 
-signal { F bind line90 { 0 4 3 130 -140  160 -140  160 -230  210 -230 bcol 'Empty' pcol 'Black' 
- Firstpin {
-  blockpin {   nnvis  pnvis pin { 210 -230 } 
- } 
-10 20 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
-
- Secondpin {
-  blockpin {   nnvis  pnvis pin { 130 -140 } 
- } 
-11 21 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
- SourceIdx 3 
- DestIdx 1 
- } 
- } 
-@BIND
-@kwd
-@iv
--
-@strngth
-none @exprng
-none @dly
--
-@sidx
--1 @attr
-s10
-@newportclass
--
-@dt -
-@channeltype -
--
-0 
-signal { F bind line90 { 0 4 3 130 -120  170 -120  170 -210  210 -210 bcol 'Empty' pcol 'Black' 
- Firstpin {
-  blockpin {   nnvis  pnvis pin { 210 -210 } 
- } 
-10 22 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
-
- Secondpin {
-  blockpin {   nnvis  pnvis pin { 130 -120 } 
- } 
-11 23 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
- SourceIdx 3 
- DestIdx 1 
- } 
- } 
-@BIND
-@kwd
-@iv
--
-@strngth
-none @exprng
-none @dly
--
-@sidx
--1 @attr
-s11
-@newportclass
--
-@dt -
-@channeltype -
--
-0 
-signal { F bind line90 { 0 4 3 130 -100  180 -100  180 -190  210 -190 bcol 'Empty' pcol 'Black' 
- Firstpin {
-  blockpin {   nnvis  pnvis pin { 210 -190 } 
- } 
-10 24 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
-
- Secondpin {
-  blockpin {   nnvis  pnvis pin { 130 -100 } 
- } 
-11 25 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
- SourceIdx 3 
- DestIdx 1 
- } 
- } 
-@BIND
-@kwd
-@iv
--
-@strngth
-none @exprng
-none @dly
--
-@sidx
--1 @attr
-s12
-@newportclass
--
-@dt -
-@channeltype -
--
-0 
-signal { F bind line90 { 0 4 3 130 -80  190 -80  190 -170  210 -170 bcol 'Empty' pcol 'Black' 
- Firstpin {
-  blockpin {   nnvis  pnvis pin { 210 -170 } 
- } 
-10 26 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
-
- Secondpin {
-  blockpin {   nnvis  pnvis pin { 130 -80 } 
- } 
-11 27 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
- SourceIdx 3 
- DestIdx 1 
- } 
- } 
-@BIND
-@kwd
-@iv
--
-@strngth
-none @exprng
-none @dly
--
-@sidx
--1 @attr
-s13
-@newportclass
--
-@dt -
-@channeltype -
--
-0 
-signal { F bind line90 { 0 4 3 130 -60  200 -60  200 -150  210 -150 bcol 'Empty' pcol 'Black' 
- Firstpin {
-  blockpin {   nnvis  pnvis pin { 210 -150 } 
- } 
-10 28 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
-
- Secondpin {
-  blockpin {   nnvis  pnvis pin { 130 -60 } 
- } 
-11 29 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
- SourceIdx 3 
- DestIdx 1 
- } 
- } 
-@BIND
-@kwd
-@iv
--
-@strngth
-none @exprng
-none @dly
--
-@sidx
--1 @attr
-s14
-@newportclass
--
-@dt -
-@channeltype -
--
-0 
-signal { F bind line90 { 0 4 2 130 -370  130 -310  210 -310 bcol 'Empty' pcol 'Black' 
- Firstpin {
-  blockpin {   nnvis  pnvis pin { 210 -310 } 
+  blockpin {   nnvis  pnvis pin { 210 -490 } 
  } 
 10 30 -1 -
 -
@@ -3077,7 +3965,7 @@ signal { F bind line90 { 0 4 2 130 -370  130 -310  210 -310 bcol 'Empty' pcol 'B
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 130 -370 } 
+  blockpin {   nnvis  pnvis pin { 120 -490 } 
  } 
 11 31 -1 -
 -
@@ -3088,7 +3976,7 @@ signal { F bind line90 { 0 4 2 130 -370  130 -310  210 -310 bcol 'Empty' pcol 'B
 0 
 
  } 
- SourceIdx 4 
+ SourceIdx 3 
  DestIdx 1 
  } 
  } 
@@ -3109,9 +3997,9 @@ s15
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 3 130 -390  140 -390  140 -330  210 -330 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 120 -510  120 -510  210 -510 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 210 -330 } 
+  blockpin {   nnvis  pnvis pin { 210 -510 } 
  } 
 10 32 -1 -
 -
@@ -3124,7 +4012,7 @@ signal { F bind line90 { 0 4 3 130 -390  140 -390  140 -330  210 -330 bcol 'Empt
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 130 -390 } 
+  blockpin {   nnvis  pnvis pin { 120 -510 } 
  } 
 11 33 -1 -
 -
@@ -3135,7 +4023,7 @@ signal { F bind line90 { 0 4 3 130 -390  140 -390  140 -330  210 -330 bcol 'Empt
 0 
 
  } 
- SourceIdx 4 
+ SourceIdx 3 
  DestIdx 1 
  } 
  } 
@@ -3156,9 +4044,9 @@ s16
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 3 130 -410  150 -410  150 -350  210 -350 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 120 -530  120 -530  210 -530 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 210 -350 } 
+  blockpin {   nnvis  pnvis pin { 210 -530 } 
  } 
 10 34 -1 -
 -
@@ -3171,7 +4059,7 @@ signal { F bind line90 { 0 4 3 130 -410  150 -410  150 -350  210 -350 bcol 'Empt
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 130 -410 } 
+  blockpin {   nnvis  pnvis pin { 120 -530 } 
  } 
 11 35 -1 -
 -
@@ -3182,7 +4070,7 @@ signal { F bind line90 { 0 4 3 130 -410  150 -410  150 -350  210 -350 bcol 'Empt
 0 
 
  } 
- SourceIdx 4 
+ SourceIdx 3 
  DestIdx 1 
  } 
  } 
@@ -3203,9 +4091,9 @@ s17
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 3 130 -430  160 -430  160 -370  210 -370 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 120 -550  120 -550  210 -550 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 210 -370 } 
+  blockpin {   nnvis  pnvis pin { 210 -550 } 
  } 
 10 36 -1 -
 -
@@ -3218,7 +4106,7 @@ signal { F bind line90 { 0 4 3 130 -430  160 -430  160 -370  210 -370 bcol 'Empt
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 130 -430 } 
+  blockpin {   nnvis  pnvis pin { 120 -550 } 
  } 
 11 37 -1 -
 -
@@ -3229,7 +4117,7 @@ signal { F bind line90 { 0 4 3 130 -430  160 -430  160 -370  210 -370 bcol 'Empt
 0 
 
  } 
- SourceIdx 4 
+ SourceIdx 3 
  DestIdx 1 
  } 
  } 
@@ -3250,9 +4138,9 @@ s18
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 3 130 -450  170 -450  170 -390  210 -390 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 120 -570  120 -570  210 -570 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 210 -390 } 
+  blockpin {   nnvis  pnvis pin { 210 -570 } 
  } 
 10 38 -1 -
 -
@@ -3265,7 +4153,7 @@ signal { F bind line90 { 0 4 3 130 -450  170 -450  170 -390  210 -390 bcol 'Empt
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 130 -450 } 
+  blockpin {   nnvis  pnvis pin { 120 -570 } 
  } 
 11 39 -1 -
 -
@@ -3276,7 +4164,7 @@ signal { F bind line90 { 0 4 3 130 -450  170 -450  170 -390  210 -390 bcol 'Empt
 0 
 
  } 
- SourceIdx 4 
+ SourceIdx 3 
  DestIdx 1 
  } 
  } 
@@ -3297,9 +4185,9 @@ s19
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 3 130 -470  180 -470  180 -410  210 -410 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 120 -590  120 -590  210 -590 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 210 -410 } 
+  blockpin {   nnvis  pnvis pin { 210 -590 } 
  } 
 10 40 -1 -
 -
@@ -3312,7 +4200,7 @@ signal { F bind line90 { 0 4 3 130 -470  180 -470  180 -410  210 -410 bcol 'Empt
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 130 -470 } 
+  blockpin {   nnvis  pnvis pin { 120 -590 } 
  } 
 11 41 -1 -
 -
@@ -3323,7 +4211,7 @@ signal { F bind line90 { 0 4 3 130 -470  180 -470  180 -410  210 -410 bcol 'Empt
 0 
 
  } 
- SourceIdx 4 
+ SourceIdx 3 
  DestIdx 1 
  } 
  } 
@@ -3344,9 +4232,9 @@ s20
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 3 130 -490  190 -490  190 -430  210 -430 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 120 -610  120 -610  210 -610 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 210 -430 } 
+  blockpin {   nnvis  pnvis pin { 210 -610 } 
  } 
 10 42 -1 -
 -
@@ -3359,7 +4247,7 @@ signal { F bind line90 { 0 4 3 130 -490  190 -490  190 -430  210 -430 bcol 'Empt
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 130 -490 } 
+  blockpin {   nnvis  pnvis pin { 120 -610 } 
  } 
 11 43 -1 -
 -
@@ -3370,7 +4258,7 @@ signal { F bind line90 { 0 4 3 130 -490  190 -490  190 -430  210 -430 bcol 'Empt
 0 
 
  } 
- SourceIdx 4 
+ SourceIdx 3 
  DestIdx 1 
  } 
  } 
@@ -3391,9 +4279,9 @@ s21
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 3 130 -510  200 -510  200 -450  210 -450 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 120 -630  120 -630  210 -630 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 210 -450 } 
+  blockpin {   nnvis  pnvis pin { 210 -630 } 
  } 
 10 44 -1 -
 -
@@ -3406,7 +4294,7 @@ signal { F bind line90 { 0 4 3 130 -510  200 -510  200 -450  210 -450 bcol 'Empt
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 130 -510 } 
+  blockpin {   nnvis  pnvis pin { 120 -630 } 
  } 
 11 45 -1 -
 -
@@ -3417,7 +4305,7 @@ signal { F bind line90 { 0 4 3 130 -510  200 -510  200 -450  210 -450 bcol 'Empt
 0 
 
  } 
- SourceIdx 4 
+ SourceIdx 3 
  DestIdx 1 
  } 
  } 
@@ -3438,9 +4326,9 @@ s22
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 380 -230  380 -230  420 -230 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 380 -410  380 -410  420 -410 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 420 -230 } 
+  blockpin {   nnvis  pnvis pin { 420 -410 } 
  } 
 10 46 -1 -
 -
@@ -3453,7 +4341,7 @@ signal { F bind line90 { 0 4 2 380 -230  380 -230  420 -230 bcol 'Empty' pcol 'B
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 380 -230 } 
+  blockpin {   nnvis  pnvis pin { 380 -410 } 
  } 
 11 47 -1 -
 -
@@ -3485,9 +4373,9 @@ s23
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 380 -250  380 -250  420 -250 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 380 -430  380 -430  420 -430 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 420 -250 } 
+  blockpin {   nnvis  pnvis pin { 420 -430 } 
  } 
 10 48 -1 -
 -
@@ -3500,7 +4388,7 @@ signal { F bind line90 { 0 4 2 380 -250  380 -250  420 -250 bcol 'Empty' pcol 'B
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 380 -250 } 
+  blockpin {   nnvis  pnvis pin { 380 -430 } 
  } 
 11 49 -1 -
 -
@@ -3532,9 +4420,9 @@ s24
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 380 -270  380 -270  420 -270 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 380 -450  380 -450  420 -450 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 420 -270 } 
+  blockpin {   nnvis  pnvis pin { 420 -450 } 
  } 
 10 50 -1 -
 -
@@ -3547,7 +4435,7 @@ signal { F bind line90 { 0 4 2 380 -270  380 -270  420 -270 bcol 'Empty' pcol 'B
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 380 -270 } 
+  blockpin {   nnvis  pnvis pin { 380 -450 } 
  } 
 11 51 -1 -
 -
@@ -3579,9 +4467,9 @@ s25
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 380 -290  380 -290  420 -290 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 380 -470  380 -470  420 -470 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 420 -290 } 
+  blockpin {   nnvis  pnvis pin { 420 -470 } 
  } 
 10 52 -1 -
 -
@@ -3594,7 +4482,7 @@ signal { F bind line90 { 0 4 2 380 -290  380 -290  420 -290 bcol 'Empty' pcol 'B
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 380 -290 } 
+  blockpin {   nnvis  pnvis pin { 380 -470 } 
  } 
 11 53 -1 -
 -
@@ -3626,9 +4514,9 @@ s26
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 380 -310  380 -310  420 -310 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 380 -490  380 -490  420 -490 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 420 -310 } 
+  blockpin {   nnvis  pnvis pin { 420 -490 } 
  } 
 10 54 -1 -
 -
@@ -3641,7 +4529,7 @@ signal { F bind line90 { 0 4 2 380 -310  380 -310  420 -310 bcol 'Empty' pcol 'B
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 380 -310 } 
+  blockpin {   nnvis  pnvis pin { 380 -490 } 
  } 
 11 55 -1 -
 -
@@ -3673,9 +4561,9 @@ s27
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 380 -330  380 -330  420 -330 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 380 -510  380 -510  420 -510 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 420 -330 } 
+  blockpin {   nnvis  pnvis pin { 420 -510 } 
  } 
 10 56 -1 -
 -
@@ -3688,7 +4576,7 @@ signal { F bind line90 { 0 4 2 380 -330  380 -330  420 -330 bcol 'Empty' pcol 'B
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 380 -330 } 
+  blockpin {   nnvis  pnvis pin { 380 -510 } 
  } 
 11 57 -1 -
 -
@@ -3720,9 +4608,9 @@ s28
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 380 -350  380 -350  420 -350 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 380 -530  380 -530  420 -530 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 420 -350 } 
+  blockpin {   nnvis  pnvis pin { 420 -530 } 
  } 
 10 58 -1 -
 -
@@ -3735,7 +4623,7 @@ signal { F bind line90 { 0 4 2 380 -350  380 -350  420 -350 bcol 'Empty' pcol 'B
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 380 -350 } 
+  blockpin {   nnvis  pnvis pin { 380 -530 } 
  } 
 11 59 -1 -
 -
@@ -3767,9 +4655,9 @@ s29
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 380 -370  380 -370  420 -370 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 380 -550  380 -550  420 -550 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 420 -370 } 
+  blockpin {   nnvis  pnvis pin { 420 -550 } 
  } 
 10 60 -1 -
 -
@@ -3782,7 +4670,7 @@ signal { F bind line90 { 0 4 2 380 -370  380 -370  420 -370 bcol 'Empty' pcol 'B
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 380 -370 } 
+  blockpin {   nnvis  pnvis pin { 380 -550 } 
  } 
 11 61 -1 -
 -
@@ -3814,11 +4702,11 @@ s30
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 580 -230  580 -230  620 -230 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 580 -410  580 -410  630 -410 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 620 -230 } 
+  blockpin {   nnvis  pnvis pin { 630 -410 } 
  } 
-10 62 -1 -
+10 78 -1 -
 -
 @intrfclass
 -
@@ -3829,9 +4717,9 @@ signal { F bind line90 { 0 4 2 580 -230  580 -230  620 -230 bcol 'Empty' pcol 'B
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 580 -230 } 
+  blockpin {   nnvis  pnvis pin { 580 -410 } 
  } 
-11 63 -1 -
+11 79 -1 -
 -
 @intrfclass
 -
@@ -3841,7 +4729,7 @@ signal { F bind line90 { 0 4 2 580 -230  580 -230  620 -230 bcol 'Empty' pcol 'B
 
  } 
  SourceIdx 2 
- DestIdx 0 
+ DestIdx 4 
  } 
  } 
 @BIND
@@ -3854,18 +4742,18 @@ none @dly
 -
 @sidx
 -1 @attr
-s31
+s39
 @newportclass
 -
 @dt -
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 580 -250  580 -250  620 -250 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 580 -430  580 -430  630 -430 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 620 -250 } 
+  blockpin {   nnvis  pnvis pin { 630 -430 } 
  } 
-10 64 -1 -
+10 80 -1 -
 -
 @intrfclass
 -
@@ -3876,9 +4764,9 @@ signal { F bind line90 { 0 4 2 580 -250  580 -250  620 -250 bcol 'Empty' pcol 'B
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 580 -250 } 
+  blockpin {   nnvis  pnvis pin { 580 -430 } 
  } 
-11 65 -1 -
+11 81 -1 -
 -
 @intrfclass
 -
@@ -3888,7 +4776,7 @@ signal { F bind line90 { 0 4 2 580 -250  580 -250  620 -250 bcol 'Empty' pcol 'B
 
  } 
  SourceIdx 2 
- DestIdx 0 
+ DestIdx 4 
  } 
  } 
 @BIND
@@ -3901,18 +4789,18 @@ none @dly
 -
 @sidx
 -1 @attr
-s32
+s40
 @newportclass
 -
 @dt -
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 580 -270  580 -270  620 -270 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 580 -450  580 -450  630 -450 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 620 -270 } 
+  blockpin {   nnvis  pnvis pin { 630 -450 } 
  } 
-10 66 -1 -
+10 82 -1 -
 -
 @intrfclass
 -
@@ -3923,9 +4811,9 @@ signal { F bind line90 { 0 4 2 580 -270  580 -270  620 -270 bcol 'Empty' pcol 'B
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 580 -270 } 
+  blockpin {   nnvis  pnvis pin { 580 -450 } 
  } 
-11 67 -1 -
+11 83 -1 -
 -
 @intrfclass
 -
@@ -3935,7 +4823,7 @@ signal { F bind line90 { 0 4 2 580 -270  580 -270  620 -270 bcol 'Empty' pcol 'B
 
  } 
  SourceIdx 2 
- DestIdx 0 
+ DestIdx 4 
  } 
  } 
 @BIND
@@ -3948,18 +4836,18 @@ none @dly
 -
 @sidx
 -1 @attr
-s33
+s41
 @newportclass
 -
 @dt -
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 580 -290  580 -290  620 -290 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 580 -470  580 -470  630 -470 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 620 -290 } 
+  blockpin {   nnvis  pnvis pin { 630 -470 } 
  } 
-10 68 -1 -
+10 84 -1 -
 -
 @intrfclass
 -
@@ -3970,9 +4858,9 @@ signal { F bind line90 { 0 4 2 580 -290  580 -290  620 -290 bcol 'Empty' pcol 'B
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 580 -290 } 
+  blockpin {   nnvis  pnvis pin { 580 -470 } 
  } 
-11 69 -1 -
+11 85 -1 -
 -
 @intrfclass
 -
@@ -3982,7 +4870,7 @@ signal { F bind line90 { 0 4 2 580 -290  580 -290  620 -290 bcol 'Empty' pcol 'B
 
  } 
  SourceIdx 2 
- DestIdx 0 
+ DestIdx 4 
  } 
  } 
 @BIND
@@ -3995,18 +4883,18 @@ none @dly
 -
 @sidx
 -1 @attr
-s34
+s42
 @newportclass
 -
 @dt -
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 580 -310  580 -310  620 -310 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 580 -490  580 -490  630 -490 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 620 -310 } 
+  blockpin {   nnvis  pnvis pin { 630 -490 } 
  } 
-10 70 -1 -
+10 86 -1 -
 -
 @intrfclass
 -
@@ -4017,9 +4905,9 @@ signal { F bind line90 { 0 4 2 580 -310  580 -310  620 -310 bcol 'Empty' pcol 'B
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 580 -310 } 
+  blockpin {   nnvis  pnvis pin { 580 -490 } 
  } 
-11 71 -1 -
+11 87 -1 -
 -
 @intrfclass
 -
@@ -4029,7 +4917,7 @@ signal { F bind line90 { 0 4 2 580 -310  580 -310  620 -310 bcol 'Empty' pcol 'B
 
  } 
  SourceIdx 2 
- DestIdx 0 
+ DestIdx 4 
  } 
  } 
 @BIND
@@ -4042,18 +4930,18 @@ none @dly
 -
 @sidx
 -1 @attr
-s35
+s43
 @newportclass
 -
 @dt -
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 580 -330  580 -330  620 -330 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 580 -510  580 -510  630 -510 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 620 -330 } 
+  blockpin {   nnvis  pnvis pin { 630 -510 } 
  } 
-10 72 -1 -
+10 88 -1 -
 -
 @intrfclass
 -
@@ -4064,9 +4952,9 @@ signal { F bind line90 { 0 4 2 580 -330  580 -330  620 -330 bcol 'Empty' pcol 'B
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 580 -330 } 
+  blockpin {   nnvis  pnvis pin { 580 -510 } 
  } 
-11 73 -1 -
+11 89 -1 -
 -
 @intrfclass
 -
@@ -4076,7 +4964,7 @@ signal { F bind line90 { 0 4 2 580 -330  580 -330  620 -330 bcol 'Empty' pcol 'B
 
  } 
  SourceIdx 2 
- DestIdx 0 
+ DestIdx 4 
  } 
  } 
 @BIND
@@ -4089,18 +4977,18 @@ none @dly
 -
 @sidx
 -1 @attr
-s36
+s44
 @newportclass
 -
 @dt -
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 580 -350  580 -350  620 -350 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 580 -530  580 -530  630 -530 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 620 -350 } 
+  blockpin {   nnvis  pnvis pin { 630 -530 } 
  } 
-10 74 -1 -
+10 90 -1 -
 -
 @intrfclass
 -
@@ -4111,9 +4999,9 @@ signal { F bind line90 { 0 4 2 580 -350  580 -350  620 -350 bcol 'Empty' pcol 'B
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 580 -350 } 
+  blockpin {   nnvis  pnvis pin { 580 -530 } 
  } 
-11 75 -1 -
+11 91 -1 -
 -
 @intrfclass
 -
@@ -4123,7 +5011,7 @@ signal { F bind line90 { 0 4 2 580 -350  580 -350  620 -350 bcol 'Empty' pcol 'B
 
  } 
  SourceIdx 2 
- DestIdx 0 
+ DestIdx 4 
  } 
  } 
 @BIND
@@ -4136,18 +5024,18 @@ none @dly
 -
 @sidx
 -1 @attr
-s37
+s45
 @newportclass
 -
 @dt -
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 580 -370  580 -370  620 -370 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 580 -550  580 -550  630 -550 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 620 -370 } 
+  blockpin {   nnvis  pnvis pin { 630 -550 } 
  } 
-10 76 -1 -
+10 92 -1 -
 -
 @intrfclass
 -
@@ -4158,9 +5046,9 @@ signal { F bind line90 { 0 4 2 580 -370  580 -370  620 -370 bcol 'Empty' pcol 'B
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 580 -370 } 
+  blockpin {   nnvis  pnvis pin { 580 -550 } 
  } 
-11 77 -1 -
+11 93 -1 -
 -
 @intrfclass
 -
@@ -4170,6 +5058,53 @@ signal { F bind line90 { 0 4 2 580 -370  580 -370  620 -370 bcol 'Empty' pcol 'B
 
  } 
  SourceIdx 2 
+ DestIdx 4 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s46
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 2 800 -490  800 -490  890 -490 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 890 -490 } 
+ } 
+10 94 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 800 -490 } 
+ } 
+11 95 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 4 
  DestIdx 0 
  } 
  } 
@@ -4183,7 +5118,1088 @@ none @dly
 -
 @sidx
 -1 @attr
-s38
+s47
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 2 800 -510  800 -510  890 -510 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 890 -510 } 
+ } 
+10 96 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 800 -510 } 
+ } 
+11 97 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 4 
+ DestIdx 0 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s48
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 2 800 -530  800 -530  890 -530 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 890 -530 } 
+ } 
+10 98 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 800 -530 } 
+ } 
+11 99 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 4 
+ DestIdx 0 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s49
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 2 800 -550  800 -550  890 -550 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 890 -550 } 
+ } 
+10 100 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 800 -550 } 
+ } 
+11 101 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 4 
+ DestIdx 0 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s50
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 2 800 -570  800 -570  890 -570 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 890 -570 } 
+ } 
+10 102 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 800 -570 } 
+ } 
+11 103 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 4 
+ DestIdx 0 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s51
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 2 800 -590  800 -590  890 -590 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 890 -590 } 
+ } 
+10 104 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 800 -590 } 
+ } 
+11 105 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 4 
+ DestIdx 0 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s52
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 2 800 -610  800 -610  890 -610 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 890 -610 } 
+ } 
+10 108 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 800 -610 } 
+ } 
+11 109 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 4 
+ DestIdx 0 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s54
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 2 800 -630  800 -630  890 -630 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 890 -630 } 
+ } 
+10 110 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 800 -630 } 
+ } 
+11 111 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 4 
+ DestIdx 0 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s55
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 3 800 -330  810 -330  810 -220  580 -220 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 580 -220 } 
+ } 
+10 112 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 800 -330 } 
+ } 
+11 113 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 4 
+ DestIdx 5 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s56
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 3 800 -350  820 -350  820 -200  580 -200 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 580 -200 } 
+ } 
+10 116 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 800 -350 } 
+ } 
+11 117 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 4 
+ DestIdx 5 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s58
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 3 800 -370  830 -370  830 -180  580 -180 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 580 -180 } 
+ } 
+10 118 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 800 -370 } 
+ } 
+11 119 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 4 
+ DestIdx 5 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s59
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 3 800 -390  840 -390  840 -160  580 -160 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 580 -160 } 
+ } 
+10 120 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 800 -390 } 
+ } 
+11 121 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 4 
+ DestIdx 5 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s60
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 3 800 -410  850 -410  850 -140  580 -140 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 580 -140 } 
+ } 
+10 122 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 800 -410 } 
+ } 
+11 123 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 4 
+ DestIdx 5 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s61
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 3 800 -430  860 -430  860 -120  580 -120 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 580 -120 } 
+ } 
+10 124 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 800 -430 } 
+ } 
+11 125 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 4 
+ DestIdx 5 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s62
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 3 800 -450  870 -450  870 -100  580 -100 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 580 -100 } 
+ } 
+10 126 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 800 -450 } 
+ } 
+11 127 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 4 
+ DestIdx 5 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s63
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 3 800 -470  880 -470  880 -80  580 -80 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 580 -80 } 
+ } 
+10 132 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 800 -470 } 
+ } 
+11 133 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 4 
+ DestIdx 5 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s66
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 3 210 -330  200 -330  200 -220  420 -220 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 420 -220 } 
+ } 
+11 134 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 210 -330 } 
+ } 
+10 135 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 1 
+ DestIdx 5 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s67
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 3 210 -350  190 -350  190 -200  420 -200 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 420 -200 } 
+ } 
+11 136 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 210 -350 } 
+ } 
+10 137 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 1 
+ DestIdx 5 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s68
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 3 210 -370  180 -370  180 -180  420 -180 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 420 -180 } 
+ } 
+11 138 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 210 -370 } 
+ } 
+10 139 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 1 
+ DestIdx 5 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s69
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 3 210 -390  170 -390  170 -160  420 -160 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 420 -160 } 
+ } 
+11 140 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 210 -390 } 
+ } 
+10 141 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 1 
+ DestIdx 5 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s70
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 3 210 -410  160 -410  160 -140  420 -140 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 420 -140 } 
+ } 
+11 142 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 210 -410 } 
+ } 
+10 143 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 1 
+ DestIdx 5 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s71
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 3 210 -430  150 -430  150 -120  420 -120 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 420 -120 } 
+ } 
+11 144 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 210 -430 } 
+ } 
+10 145 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 1 
+ DestIdx 5 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s72
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 3 210 -450  140 -450  140 -100  420 -100 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 420 -100 } 
+ } 
+11 146 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 210 -450 } 
+ } 
+10 147 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 1 
+ DestIdx 5 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s73
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
+signal { F bind line90 { 0 4 3 210 -470  130 -470  130 -80  420 -80 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 420 -80 } 
+ } 
+11 148 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 210 -470 } 
+ } 
+10 149 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 1 
+ DestIdx 5 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+s74
 @newportclass
 -
 @dt -
@@ -4192,14 +6208,17 @@ s38
 0 
 !
 
-@@VE@names@@ 37 @obj - s30 13 @obj - s31 13 @obj - s32 13 @obj - driver_1 36 @obj - driver_2 36 @obj - s33 13 @obj - s34 13 @obj - s35 13 @obj - s36 13 @obj - s37 13 @obj - s38 13 
-@obj - sink_1 36 @obj - switch_1 36 @obj - process_1 36 @obj - s10 13 @obj - s11 13 @obj - s12 13 @obj - s13 13 @obj - s14 13 @obj - s7 13 @obj - s15 13 
-@obj - s8 13 @obj - s16 13 @obj - s9 13 @obj - s17 13 @obj - s18 13 @obj - s19 13 @obj - s20 13 @obj - s21 13 @obj - s22 13 @obj - s23 13 
-@obj - s24 13 @obj - s25 13 @obj - s26 13 @obj - s27 13 @obj - s28 13 @obj - s29 13 23 38 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 77 12 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 !
+@@VE@names@@ 54 @obj - s30 13 @obj - driver_1 36 @obj - s39 13 @obj - s40 13 @obj - s41 13 @obj - s42 13 @obj - s43 13 @obj - s44 13 @obj - s45 13 @obj - s46 13 @obj - s47 13 
+@obj - s48 13 @obj - s49 13 @obj - s50 13 @obj - s51 13 @obj - s52 13 @obj - sink_1 36 @obj - s54 13 @obj - s55 13 @obj - s56 13 @obj - s58 13 
+@obj - s59 13 @obj - s60 13 @obj - s61 13 @obj - s62 13 @obj - s63 13 @obj - switch_1 36 @obj - s66 13 @obj - s67 13 @obj - s68 13 @obj - s69 13 
+@obj - s70 13 @obj - s71 13 @obj - process_1 36 @obj - s72 13 @obj - process_2 36 @obj - s73 13 @obj - s74 13 @obj - s15 13 @obj - s16 13 @obj - s17 13 
+@obj - s18 13 @obj - s19 13 @obj - split_1 36 @obj - s20 13 @obj - s21 13 @obj - s22 13 @obj - s23 13 @obj - s24 13 @obj - s25 13 @obj - s26 13 
+@obj - s27 13 @obj - s28 13 @obj - s29 13 23 74 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 149 15 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 !
 
 @@VE@obj_u@@ sink_1 sink models 0 
 switch_1 switch models 0 
 process_1 process models 0 
 driver_1 driver models 0 
-driver_2 driver models 0 
+split_1 split models 0 
+process_2 process models 0 
 !

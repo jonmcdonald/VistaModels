@@ -23,6 +23,7 @@ Files {
 		{$PRJDIR/models/switch.mb}
 		{$PRJDIR/models/driver.mb}
 		{$PRJDIR/models/sink.mb}
+		{$PRJDIR/models/split.mb}
 	 } 
 }
 Folders {
@@ -43,3 +44,4 @@ ProjectWorkingDirectory {$PRJDIR/$PRJFILE_BASENAME/build}
 HasTLMSupport 1
 CompiledWithTLMSupport 1
 IsUsePathVariables 1
+PlatformName Project

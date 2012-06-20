@@ -59,14 +59,14 @@ protected:
     ////////////////////////////////////////
     // target ports write callbacks
     ////////////////////////////////////////
-bool general_write(mb_address_type address,
-                    unsigned char* data,
-                    unsigned int size,
-                    port_enum idx,
-                    tlm::tlm_fifo<datastruct *>& fifo,
-                    mb::mb_variable<int>& deltaVar,
-                    mb::mb_variable<int>& startVar,
-                    mb::mb_variable<int>& stopVar);
+    bool general_write(mb_address_type address,
+                       unsigned char* data,
+                       unsigned int size,
+                       port_enum idx,
+                       tlm::tlm_fifo<datastruct *>& fifo,
+                       mb::mb_variable<int>& deltaVar,
+                       mb::mb_variable<int>& startVar,
+                       mb::mb_variable<int>& stopVar);
 
     bool slave_1a_callback_write(mb_address_type address, unsigned char* data, unsigned size);
     bool slave_1b_callback_write(mb_address_type address, unsigned char* data, unsigned size);

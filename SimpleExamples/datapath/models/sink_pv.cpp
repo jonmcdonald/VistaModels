@@ -43,49 +43,49 @@ bool sink_pv::general_write(mb_address_type address, unsigned char* data, unsign
 
     if(tokenptr && tokenptr->hasField("CreateTime")) {
         cout << sc_simulation_time() << ":" << name() << " " << extra << " receiving data = " << d[0] << " *** ";
-        cout << "Lifetime = " << sc_time_stamp() - tokenptr->getFieldAsTime("CreateTime") << endl;;
+        cout << "Lifetime = " << sc_time_stamp() - tokenptr->getFieldAsTime("CreateTime") << endl;
     }
     return true;
 }
 
 bool sink_pv::slave_1_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
-    return general_write(address, data, size, "slave_1");
+    return general_write(address, data, size, "[1]");
 }
 
 bool sink_pv::slave_2_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
-    return general_write(address, data, size, "slave_2");
+    return general_write(address, data, size, "[2]");
 }
 
 bool sink_pv::slave_3_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
-    return general_write(address, data, size, "slave_3");
+    return general_write(address, data, size, "[3]");
 }
 
 bool sink_pv::slave_4_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
-    return general_write(address, data, size, "slave_4");
+    return general_write(address, data, size, "[4]");
 }
 
 bool sink_pv::slave_5_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
-    return general_write(address, data, size, "slave_5");
+    return general_write(address, data, size, "[5]");
 }
 
 bool sink_pv::slave_6_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
-    return general_write(address, data, size, "slave_6");
+    return general_write(address, data, size, "[6]");
 }
 
 bool sink_pv::slave_7_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
-    return general_write(address, data, size, "slave_7");
+    return general_write(address, data, size, "[7]");
 }
 
 bool sink_pv::slave_8_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
-    return general_write(address, data, size, "slave_8");
+    return general_write(address, data, size, "[8]");
 }
 
 

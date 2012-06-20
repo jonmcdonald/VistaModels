@@ -37,6 +37,13 @@
 		<Unit filename="models/sink_pvt.h" />
 		<Unit filename="models/sink_t.cpp" />
 		<Unit filename="models/sink_t.h" />
+		<Unit filename="models/split_model.cpp" />
+		<Unit filename="models/split_model.h" />
+		<Unit filename="models/split_pv.cpp" />
+		<Unit filename="models/split_pv.h" />
+		<Unit filename="models/split_pvt.h" />
+		<Unit filename="models/split_t.cpp" />
+		<Unit filename="models/split_t.h" />
 		<Unit filename="models/switch_model.cpp" />
 		<Unit filename="models/switch_model.h" />
 		<Unit filename="models/switch_pv.cpp" />

@@ -66,24 +66,24 @@ void driver_pv::simple()
     unsigned int d[11] = {101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111};
     wait(10*generic_clock);
 
-    general_write(0x0, &d[0], 1, "master_1", &driver_pv_base::master_1_write);
+    general_write(0x0, &d[0], 1, "[1]", &driver_pv_base::master_1_write);
     wait(4*generic_clock);
 
-    general_write(0x0, &d[1], 2, "master_2", &driver_pv_base::master_2_write);
+    general_write(0x0, &d[1], 2, "[2]", &driver_pv_base::master_2_write);
     wait(10*generic_clock);
 
-    general_write(0x0, &d[2], 4, "master_3", &driver_pv_base::master_3_write);
+    general_write(0x0, &d[2], 4, "[3]", &driver_pv_base::master_3_write);
     wait(10*generic_clock);
 
-    general_write(0x0, &d[3], 2, "master_4", &driver_pv_base::master_4_write);
-    general_write(0x0, &d[4], 6, "master_5", &driver_pv_base::master_5_write);
-    general_write(0x0, &d[5], 2, "master_6", &driver_pv_base::master_6_write);
+    general_write(0x0, &d[3], 2, "[4]", &driver_pv_base::master_4_write);
+    general_write(0x0, &d[4], 6, "[5]", &driver_pv_base::master_5_write);
+    general_write(0x0, &d[5], 2, "[6]", &driver_pv_base::master_6_write);
 
     wait(4*generic_clock);
-    general_write(0x0, &d[6], 1, "master_7", &driver_pv_base::master_7_write);
+    general_write(0x0, &d[6], 1, "[7]", &driver_pv_base::master_7_write);
 
     wait(9*generic_clock);
-    general_write(0x0, &d[7], 1, "master_8", &driver_pv_base::master_8_write);
+    general_write(0x0, &d[7], 1, "[8]", &driver_pv_base::master_8_write);
 }
 
 void driver_pv::random()
@@ -103,7 +103,7 @@ void driver_pv::random()
 
         d[0] = i+1;
 
-        general_write(a, d, s, "master_1", &driver_pv_base::master_1_write);
+        general_write(a, d, s, "[1]", &driver_pv_base::master_1_write);
 
         wait(waitdist->getNextInt() * clock);
     }

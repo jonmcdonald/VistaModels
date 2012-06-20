@@ -1,0 +1,151 @@
+# ============================ TLM Model File ============================
+# You can create tlm model by one of the following ways:
+#   - load this file using 'load_model' API function
+#   - compile this file using "Modeling->Load Model File" menu command.
+# ========================================================================
+
+# === ports ===
+add_port "slave_1" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "master_1a" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "master_1b" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "slave_2" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "master_2a" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "master_2b" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "slave_3" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "master_3a" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "master_3b" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "slave_4" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "master_4a" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "master_4b" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "slave_5" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "master_5a" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "master_5b" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "slave_6" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "master_6a" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "master_6b" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "slave_7" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "master_7a" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "master_7b" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "slave_8" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "master_8a" /TLM/protocols/generic master 32 -bind_mode mandatory
+add_port "master_8b" /TLM/protocols/generic master 32 -bind_mode mandatory
+
+# === parameters ===
+add_parameter "ProcessDelay" 3 int32 {}
+add_parameter "InputDelay" 2 int32 {}
+add_parameter "InputFifoDepth" 1 uint32 {}
+add_parameter "PipelineStages" 1 uint32 {}
+add_parameter "DecisionTime" 50ns time {}
+
+# === auto parameters ===
+set_auto_parameter_default "clock" {10 ns} time {}
+set_auto_parameter_default "generic_clock" clock time {}
+set_auto_parameter_default "nominal_voltage" 1 double {}
+set_auto_parameter_default "mb_debug" false boolean {true false}
+set_auto_parameter_default "verbose_parameters" true boolean {true false}
+set_auto_parameter_default "dmi_enabled" true boolean {true false}
+set_auto_parameter_default "warning_level" WARNING string {
+      "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
+set_auto_parameter_default "slave_1_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_2_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_3_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_4_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_5_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_6_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_7_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_8_pipeline_length" 2 uint32 {}
+
+# === generics ===
+# usage: add_generic <generic_name> <value>
+# example: add_generic "OUT_ACTIVE_VALUE" false
+
+# === machine architecture ===
+set_sync_all 0
+add_sequential_policy slave_1_PD_stop.write -cause slave_1_PD_start.write -latency slave_1_ProcessDelta -sync 1 -power 0
+add_delay_policy slave_1 0 -latency InputDelay -sync 1 -power 0
+add_sequential_policy slave_1_ID_stop.write -cause slave_1_ID_start.write -latency slave_1_InputDelta -sync 1 -power 0
+add_sequential_policy slave_2_PD_stop.write -cause slave_2_PD_start.write -latency slave_2_ProcessDelta -sync 1 -power 0
+add_delay_policy slave_2 0 -latency InputDelay -sync 1 -power 0
+add_sequential_policy slave_2_ID_stop.write -cause slave_2_ID_start.write -latency slave_2_InputDelta -sync 1 -power 0
+add_sequential_policy slave_3_PD_stop.write -cause slave_3_PD_start.write -latency slave_3_ProcessDelta -sync 1 -power 0
+add_delay_policy slave_3 0 -latency InputDelay -sync 1 -power 0
+add_sequential_policy slave_3_ID_stop.write -cause slave_3_ID_start.write -latency slave_3_InputDelta -sync 1 -power 0
+add_sequential_policy slave_4_PD_stop.write -cause slave_4_PD_start.write -latency slave_4_ProcessDelta -sync 1 -power 0
+add_delay_policy slave_4 0 -latency InputDelay -sync 1 -power 0
+add_sequential_policy slave_4_ID_stop.write -cause slave_4_ID_start.write -latency slave_4_InputDelta -sync 1 -power 0
+add_sequential_policy slave_5_PD_stop.write -cause slave_5_PD_start.write -latency slave_5_ProcessDelta -sync 1 -power 0
+add_delay_policy slave_5 0 -latency InputDelay -sync 1 -power 0
+add_sequential_policy slave_5_ID_stop.write -cause slave_5_ID_start.write -latency slave_5_InputDelta -sync 1 -power 0
+add_sequential_policy slave_6_PD_stop.write -cause slave_6_PD_start.write -latency slave_6_ProcessDelta -sync 1 -power 0
+add_delay_policy slave_6 0 -latency InputDelay -sync 1 -power 0
+add_sequential_policy slave_6_ID_stop.write -cause slave_6_ID_start.write -latency slave_6_InputDelta -sync 1 -power 0
+add_sequential_policy slave_7_PD_stop.write -cause slave_7_PD_start.write -latency slave_7_ProcessDelta -sync 1 -power 0
+add_delay_policy slave_7 0 -latency InputDelay -sync 1 -power 0
+add_sequential_policy slave_7_ID_stop.write -cause slave_7_ID_start.write -latency slave_7_InputDelta -sync 1 -power 0
+add_sequential_policy slave_8_PD_stop.write -cause slave_8_PD_start.write -latency slave_8_ProcessDelta -sync 1 -power 0
+add_delay_policy slave_8 0 -latency InputDelay -sync 1 -power 0
+add_sequential_policy slave_8_ID_stop.write -cause slave_8_ID_start.write -latency slave_8_InputDelta -sync 1 -power 0
+set_nominal_clock 100
+declare_variable slave_1_PD_start -type int32
+declare_variable slave_1_PD_stop -type int32
+declare_variable slave_1_ProcessDelta -type int32
+declare_variable slave_1_InputDelta -type int32
+declare_variable slave_1_ID_start -type int32
+declare_variable slave_1_ID_stop -type int32
+declare_variable slave_2_PD_start -type int32
+declare_variable slave_2_PD_stop -type int32
+declare_variable slave_2_ProcessDelta -type int32
+declare_variable slave_2_InputDelta -type int32
+declare_variable slave_2_ID_start -type int32
+declare_variable slave_2_ID_stop -type int32
+declare_variable slave_3_PD_start -type int32
+declare_variable slave_3_PD_stop -type int32
+declare_variable slave_3_ProcessDelta -type int32
+declare_variable slave_3_InputDelta -type int32
+declare_variable slave_3_ID_start -type int32
+declare_variable slave_3_ID_stop -type int32
+declare_variable slave_4_PD_start -type int32
+declare_variable slave_4_PD_stop -type int32
+declare_variable slave_4_ProcessDelta -type int32
+declare_variable slave_4_InputDelta -type int32
+declare_variable slave_4_ID_start -type int32
+declare_variable slave_4_ID_stop -type int32
+declare_variable slave_5_PD_start -type int32
+declare_variable slave_5_PD_stop -type int32
+declare_variable slave_5_ProcessDelta -type int32
+declare_variable slave_5_InputDelta -type int32
+declare_variable slave_5_ID_start -type int32
+declare_variable slave_5_ID_stop -type int32
+declare_variable slave_6_PD_start -type int32
+declare_variable slave_6_PD_stop -type int32
+declare_variable slave_6_ProcessDelta -type int32
+declare_variable slave_6_InputDelta -type int32
+declare_variable slave_6_ID_start -type int32
+declare_variable slave_6_ID_stop -type int32
+declare_variable slave_7_PD_start -type int32
+declare_variable slave_7_PD_stop -type int32
+declare_variable slave_7_ProcessDelta -type int32
+declare_variable slave_7_InputDelta -type int32
+declare_variable slave_7_ID_start -type int32
+declare_variable slave_7_ID_stop -type int32
+declare_variable slave_8_PD_start -type int32
+declare_variable slave_8_PD_stop -type int32
+declare_variable slave_8_ProcessDelta -type int32
+declare_variable slave_8_InputDelta -type int32
+declare_variable slave_8_ID_start -type int32
+declare_variable slave_8_ID_stop -type int32
+
+# === generate options ===
+set_generate_kind "pvt" ;# should be one of: model|pv|pvt
+set_include_file ""
+set_external_pv_include ""
+set_pv_kind "template" ;# should be one of: template|external
+set_timing_kind "policies" ;# should be one of: policies|learned
+set_power_kind "policies" ;# should be one of: policies|learned
+set_class_name_external_pv ""
+set_max_parameters_of_pv_constructor 5
+set_overwrite 0
+set_generate_ipxact 0
+set_ipxact_vendor Mentor.com
+set_ipxact_version 1.0
+
