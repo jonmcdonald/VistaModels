@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 			</Target>
 		</Build>
+		<Unit filename="driver1_data.txt" />
 		<Unit filename="include/datastruct.h" />
 		<Unit filename="local/top.h" />
 		<Unit filename="models/driver_model.cpp" />

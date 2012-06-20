@@ -24,31 +24,144 @@
 
 #include "driver_pv.h"
 
-//constructor
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+
+using namespace std;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 driver_pv::driver_pv(sc_module_name module_name)
     : driver_pv_base(module_name)
 {
-    SC_THREAD(thread);
+    SC_THREAD(thread1);
+    SC_THREAD(thread2);
+    SC_THREAD(thread3);
+    SC_THREAD(thread4);
+    SC_THREAD(thread5);
+    SC_THREAD(thread6);
+    SC_THREAD(thread7);
+    SC_THREAD(thread8);
 }
 
 driver_pv::~driver_pv()
 {
 }
 
-void driver_pv::thread()
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+void driver_pv::general_thread(string path,
+                               bool (driver_pv_base::*writeMethod)(mb_address_type, unsigned int *, unsigned, unsigned))
 {
-    if (strcmp(DriverFunction, "off") == 0);
-    //do nothing
-    else if (strcmp(DriverFunction, "simple") == 0)
-        simple();
-    else if (strcmp(DriverFunction, "random") == 0)
-        random();
-    else {
-        std::cout << this->name() << " thread(): Parameter DriverFunction = " << DriverFunction;
-        std::cout << ". This value is not defined, it will be ignored." << endl;
+    bool process = false;
+    string line, cmd;
+    ifstream myfile (DataFilePath);
+    if (myfile.is_open()) {
+        while ( myfile.good() ) {
+            getline (myfile,line);
+            if(line.length() < 4) continue;
+            cmd = line.substr(0, 4);
+            if(line.length() > 5) {
+                line = line.substr(5);
+            }
+
+            istringstream ss(line);
+            vector <string> record;
+
+            if(!cmd.compare("path")) {
+                if(!line.compare(path)) {
+                    process = true;
+                }
+            }
+            if(!cmd.compare("stop")) {
+                process = false;
+            }
+            if(process) {
+                if(!cmd.compare("wait")) {
+                    string s;
+                    if (!getline(ss, s, ',' )) break;
+                    stringstream conv;
+                    conv << s;
+                    int cycles;
+                    conv >> cycles;
+                    wait(cycles * generic_clock);
+                }
+                if(!cmd.compare("send")) {
+                    int value, size;
+                    string s;
+                    if (!getline(ss, s, ',' )) break;
+                    stringstream conv1;
+                    conv1 << s;
+                    conv1 >> value;
+                    if (!getline(ss, s, ',' )) break;
+                    stringstream conv2;
+                    conv2 << s;
+                    conv2 >> size;
+
+                    unsigned int *d = new unsigned int[size];
+                    for(int i = 0; i < size; i++) {
+                        d[i] = value;
+                    }
+                    string msg("[");
+                    msg += path;
+                    msg += "]";
+
+                    general_write(0x0, d, size, msg.c_str(), writeMethod);
+
+                    delete d;
+                }
+            }
+        }
+        myfile.close();
+    } else {
+        cout << "Unable to open file" << DataFilePath << endl;
     }
-    cout << sc_simulation_time() << ":" << name() << " ended thread" << endl;
+    cout << sc_simulation_time() << ":" << name() << " ended thread" << path << endl;
 }
+
+void driver_pv::thread1()
+{
+    general_thread("1", &driver_pv_base::master_1_write);
+}
+
+void driver_pv::thread2()
+{
+    general_thread("2", &driver_pv_base::master_2_write);
+}
+
+void driver_pv::thread3()
+{
+    general_thread("3", &driver_pv_base::master_3_write);
+}
+
+void driver_pv::thread4()
+{
+    general_thread("4", &driver_pv_base::master_4_write);
+}
+
+void driver_pv::thread5()
+{
+    general_thread("5", &driver_pv_base::master_5_write);
+}
+
+void driver_pv::thread6()
+{
+    general_thread("6", &driver_pv_base::master_6_write);
+}
+
+void driver_pv::thread7()
+{
+    general_thread("7", &driver_pv_base::master_7_write);
+}
+
+void driver_pv::thread8()
+{
+    general_thread("8", &driver_pv_base::master_8_write);
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 bool driver_pv::general_write(mb_address_type address, unsigned int *data, unsigned size, const char* extra,
                               bool (driver_pv_base::*writeMethod)(mb_address_type, unsigned int *, unsigned, unsigned))
@@ -61,50 +174,3 @@ bool driver_pv::general_write(mb_address_type address, unsigned int *data, unsig
     return (this->*writeMethod)(address, data, size, 0);
 }
 
-void driver_pv::simple()
-{
-    unsigned int d[11] = {101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111};
-    wait(10*generic_clock);
-
-    general_write(0x0, &d[0], 1, "[1]", &driver_pv_base::master_1_write);
-    wait(4*generic_clock);
-
-    general_write(0x0, &d[1], 2, "[2]", &driver_pv_base::master_2_write);
-    wait(10*generic_clock);
-
-    general_write(0x0, &d[2], 4, "[3]", &driver_pv_base::master_3_write);
-    wait(10*generic_clock);
-
-    general_write(0x0, &d[3], 2, "[4]", &driver_pv_base::master_4_write);
-    general_write(0x0, &d[4], 6, "[5]", &driver_pv_base::master_5_write);
-    general_write(0x0, &d[5], 2, "[6]", &driver_pv_base::master_6_write);
-
-    wait(4*generic_clock);
-    general_write(0x0, &d[6], 1, "[7]", &driver_pv_base::master_7_write);
-
-    wait(9*generic_clock);
-    general_write(0x0, &d[7], 1, "[8]", &driver_pv_base::master_8_write);
-}
-
-void driver_pv::random()
-{
-    mb_distribution *sizedist = mb_CreateDistribution(SizeDist);
-    mb_distribution *addrdist = mb_CreateDistribution(AddrDist);
-    mb_distribution *waitdist = mb_CreateDistribution(WaitDist);
-    unsigned int d[MaxPacketSize];
-    unsigned int s, a;
-
-    srand(5647);
-
-    for (unsigned i = 0; i < NumberPackets; i++) {
-        a = addrdist->getNextInt();
-        s = sizedist->getNextInt();
-        s = s % MaxPacketSize;
-
-        d[0] = i+1;
-
-        general_write(a, d, s, "[1]", &driver_pv_base::master_1_write);
-
-        wait(waitdist->getNextInt() * clock);
-    }
-}

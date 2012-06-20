@@ -92,7 +92,7 @@ void process_pv::general_thread(tlm::tlm_fifo<datastruct *> & fifo,
         pipeInTime.push(sc_time_stamp());
 
         int *d = (int *) ds->data;
-        cout << sc_simulation_time() << ":" << name() << " " << extra << " processing data = " << d[0] << " -> " << d[0]+100 << endl;
+        cout << sc_simulation_time() << ":" << name() << " " << extra << " processed data = " << d[0] << " -> " << d[0]+100 << endl;
         d[0] = d[0]+100;
 
         (this->*writeMethod)(ds->address, ds->data, ds->size, 0);

@@ -16,8 +16,7 @@ add_port "master_7" /TLM/protocols/generic master 32 -bind_mode mandatory
 add_port "master_8" /TLM/protocols/generic master 32 -bind_mode mandatory
 
 # === parameters ===
-# usage: add_parameter <parameter_name> <default_value> <type:string|unsigned|int>
-# example: add_parameter "parameter1" 12 unsigned
+add_parameter "DataFilePath" input.txt string {}
 
 # === auto parameters ===
 set_auto_parameter_default "clock" {10 ns} time {}

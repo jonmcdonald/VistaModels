@@ -42,7 +42,14 @@ class driver_pv : public driver_pv_base {
   bool general_write(mb_address_type address, unsigned int *data, unsigned size, const char* extra,
                      bool (driver_pv_base::*writeMethod)(mb_address_type, unsigned int *, unsigned, unsigned));
 
-  void thread();
-  void simple();
-  void random();
+  void general_thread(string path,
+                      bool (driver_pv_base::*writeMethod)(mb_address_type, unsigned int *, unsigned, unsigned));
+  void thread1();
+  void thread2();
+  void thread3();
+  void thread4();
+  void thread5();
+  void thread6();
+  void thread7();
+  void thread8();
 };
