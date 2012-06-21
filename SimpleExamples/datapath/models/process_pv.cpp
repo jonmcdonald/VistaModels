@@ -25,6 +25,8 @@
 #include "process_pv.h"
 #include <iostream>
 
+#include <vector>
+
 using namespace sc_core;
 using namespace sc_dt;
 using namespace std;
@@ -35,30 +37,58 @@ using namespace std;
 process_pv::process_pv(sc_module_name module_name)
     : process_pv_base(module_name)
 {
-    SC_THREAD(thread1);
-    SC_THREAD(thread2);
-    SC_THREAD(thread3);
-    SC_THREAD(thread4);
-    SC_THREAD(thread5);
-    SC_THREAD(thread6);
-    SC_THREAD(thread7);
-    SC_THREAD(thread8);
+    SC_THREAD(pipeline_thread);
+    SC_THREAD(process_thread);
 
     for (unsigned int i = 0; i < NumberOfPorts; i++) {
-        fifo[i].nb_bound(InputFifoDepth + PipelineStages);
-        for (unsigned int j = 0; j < PipelineStages; j++) pipeInTime[i].push(SC_ZERO_TIME);
+        fifo[i].nb_bound(InputFifoDepth);
     }
+
+    pipeline.nb_bound(PipelineStages);
+
+    for (unsigned int j = 0; j < PipelineStages; j++) pipeInTime.push(SC_ZERO_TIME);
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-void process_pv::general_thread(tlm::tlm_fifo<datastruct *> & fifo,
-                                queue<sc_time> & pipeInTime,
-                                bool (process_pv_base::*writeMethod)(mb_address_type, unsigned char *, unsigned, unsigned),
-                                mb::mb_variable<int>& deltaVar,
-                                mb::mb_variable<int>& startVar,
-                                mb::mb_variable<int>& stopVar,
-                                const char* extra)
+void process_pv::pipeline_thread()
+{
+    datastruct *ds;
+    vector<datastruct *> v;
+    for(;;) {
+        while ( 1 ) {
+            v.clear();
+            for (int i = 0; i < NumberOfPorts; i++) {
+                ds = NULL;
+                if(fifo[i].nb_peek(ds)) {
+                    if(ds) {
+                        v.push_back(ds);
+                    }
+                }
+            }
+            if(v.size()) {
+                break;
+            } else {
+                wait (fifo[0].ok_to_get() |
+                      fifo[1].ok_to_get() |
+                      fifo[2].ok_to_get() |
+                      fifo[3].ok_to_get() |
+                      fifo[4].ok_to_get() |
+                      fifo[5].ok_to_get() |
+                      fifo[6].ok_to_get() |
+                      fifo[7].ok_to_get());
+            }
+        }
+
+        for (vector<datastruct *>::iterator it = v.begin(); it != v.end(); it++) {
+            int *d = (int *) (*it)->data;
+            pipeline.put(fifo[(*it)->path - 1].get());
+        }
+
+    }
+}
+
+void process_pv::process_thread()
 {
     datastruct *ds;
     int proc;
@@ -66,7 +96,7 @@ void process_pv::general_thread(tlm::tlm_fifo<datastruct *> & fifo,
 
     for(;;) {
         // Get the next transaction to be processed.  Do not remove it from the queue
-        ds = fifo.peek();
+        ds = pipeline.peek();
 
         // Calculate the time that we could start processing the transaction, which is the
         // later of the time we received the input or the time the last element finished processing
@@ -76,78 +106,56 @@ void process_pv::general_thread(tlm::tlm_fifo<datastruct *> & fifo,
 
         // Calculate the time to wait until we can start processing.  This can not be less than 0
         proc = (startProcT/clock) - (sc_time_stamp()/clock);
+
         if(proc < -ProcessDelay) {
             proc = -ProcessDelay;
         }
-        deltaVar = ProcessDelay + proc;
+        ProcessDelta = ProcessDelay + proc;
 
         // Timing policy: Sequential delay TP2.write -> TP1.write of ProcessDelta cycles
-        startVar = (startVar + 1) % 8;
-        stopVar = (stopVar + 1) % 8;
+        ProcessDelay_start = (ProcessDelay_start + 1) % 8;
+        ProcessDelay_stop = (ProcessDelay_stop + 1) % 8;
 
         // Save the current token information for the upcoming transaction and clear it from the queue
         set_current_token(ds->currentToken);
-        fifo.get();
+        pipeline.get();
         // Save the time that we finished processing this transaction
         pipeInTime.push(sc_time_stamp());
 
         int *d = (int *) ds->data;
-        cout << sc_simulation_time() << ":" << name() << " " << extra << " processed data = " << d[0] << " -> " << d[0]+100 << endl;
+        cout << sc_simulation_time() << ":" << name() << " " << "[" << ds->path << "] processed data = " << d[0] << " -> " << d[0]+100 << endl;
         d[0] = d[0]+100;
 
-        (this->*writeMethod)(ds->address, ds->data, ds->size, 0);
+        switch(ds->path) {
+        case 1:
+            master_1_write(ds->address, ds->data, ds->size);
+            break;
+        case 2:
+            master_2_write(ds->address, ds->data, ds->size);
+            break;
+        case 3:
+            master_3_write(ds->address, ds->data, ds->size);
+            break;
+        case 4:
+            master_4_write(ds->address, ds->data, ds->size);
+            break;
+        case 5:
+            master_5_write(ds->address, ds->data, ds->size);
+            break;
+        case 6:
+            master_6_write(ds->address, ds->data, ds->size);
+            break;
+        case 7:
+            master_7_write(ds->address, ds->data, ds->size);
+            break;
+        case 8:
+            master_8_write(ds->address, ds->data, ds->size);
+            break;
+        }
 
         free(ds->data);
         free(ds);
     }
-}
-
-void process_pv::thread1()
-{
-    general_thread(fifo[0], pipeInTime[0], &process_pv_base::master_1_write,
-                   slave_1_ProcessDelta, slave_1_PD_start, slave_1_PD_stop, "[1]");
-}
-
-void process_pv::thread2()
-{
-    general_thread(fifo[1], pipeInTime[1], &process_pv_base::master_2_write,
-                   slave_2_ProcessDelta, slave_2_PD_start, slave_2_PD_stop, "[2]");
-}
-
-void process_pv::thread3()
-{
-    general_thread(fifo[2], pipeInTime[2], &process_pv_base::master_3_write,
-                   slave_3_ProcessDelta, slave_3_PD_start, slave_3_PD_stop, "[3]");
-}
-
-void process_pv::thread4()
-{
-    general_thread(fifo[3], pipeInTime[3], &process_pv_base::master_4_write,
-                   slave_4_ProcessDelta, slave_4_PD_start, slave_4_PD_stop, "[4]");
-}
-
-void process_pv::thread5()
-{
-    general_thread(fifo[4], pipeInTime[4], &process_pv_base::master_5_write,
-                   slave_5_ProcessDelta, slave_5_PD_start, slave_5_PD_stop, "[5]");
-}
-
-void process_pv::thread6()
-{
-    general_thread(fifo[5], pipeInTime[5], &process_pv_base::master_6_write,
-                   slave_6_ProcessDelta, slave_6_PD_start, slave_6_PD_stop, "[6]");
-}
-
-void process_pv::thread7()
-{
-    general_thread(fifo[6], pipeInTime[6], &process_pv_base::master_7_write,
-                   slave_7_ProcessDelta, slave_7_PD_start, slave_7_PD_stop, "[7]");
-}
-
-void process_pv::thread8()
-{
-    general_thread(fifo[7], pipeInTime[7], &process_pv_base::master_8_write,
-                   slave_8_ProcessDelta, slave_8_PD_start, slave_8_PD_stop, "[8]");
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -155,6 +163,7 @@ void process_pv::thread8()
 bool process_pv::general_write(mb_address_type address,
                                unsigned char* data,
                                unsigned int size,
+                               unsigned int path,
                                port_enum idx,
                                tlm::tlm_fifo<datastruct *> & fifo,
                                mb::mb_variable<int>& deltaVar,
@@ -162,6 +171,7 @@ bool process_pv::general_write(mb_address_type address,
                                mb::mb_variable<int>& stopVar)
 {
     datastruct* ds = new datastruct;
+    ds->path = path;
     ds->address = address;
     ds->data = new unsigned char [size];
     memcpy(ds->data, data, size);
@@ -186,58 +196,59 @@ bool process_pv::general_write(mb_address_type address,
 
 bool process_pv::slave_1_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
-    return general_write(address, data, size,
+    return general_write(address, data, size, 1,
                          slave_1_idx, fifo[0],
                          slave_1_InputDelta, slave_1_ID_start, slave_1_ID_stop);
 }
 
 bool process_pv::slave_2_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
-    return general_write(address, data, size,
+    return general_write(address, data, size, 2,
                          slave_2_idx, fifo[1],
                          slave_2_InputDelta, slave_2_ID_start, slave_2_ID_stop);
 }
 
 bool process_pv::slave_3_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
-    return general_write(address, data, size,
+    return general_write(address, data, size, 3,
                          slave_3_idx, fifo[2],
                          slave_3_InputDelta, slave_3_ID_start, slave_3_ID_stop);
 }
 
 bool process_pv::slave_4_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
-    return general_write(address, data, size,
+    return general_write(address, data, size, 4,
                          slave_4_idx, fifo[3],
                          slave_4_InputDelta, slave_4_ID_start, slave_4_ID_stop);
 }
 
 bool process_pv::slave_5_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
-    return general_write(address, data, size,
+    return general_write(address, data, size, 5,
                          slave_5_idx, fifo[4],
                          slave_5_InputDelta, slave_5_ID_start, slave_5_ID_stop);
 }
 
 bool process_pv::slave_6_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
-    return general_write(address, data, size,
+    return general_write(address, data, size, 6,
                          slave_6_idx, fifo[5],
                          slave_6_InputDelta, slave_6_ID_start, slave_6_ID_stop);
 }
 
 bool process_pv::slave_7_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
-    return general_write(address, data, size,
+    return general_write(address, data, size, 7,
                          slave_7_idx, fifo[6],
                          slave_7_InputDelta, slave_7_ID_start, slave_7_ID_stop);
 }
 
 bool process_pv::slave_8_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
-    return general_write(address, data, size,
+    return general_write(address, data, size, 8,
                          slave_8_idx, fifo[7],
                          slave_8_InputDelta, slave_8_ID_start, slave_8_ID_stop);
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+

@@ -44,27 +44,16 @@ public:
     SC_HAS_PROCESS(process_pv);
     process_pv(sc_core::sc_module_name module_name);
 
-    void general_thread(tlm::tlm_fifo<datastruct *> & fifo,
-                        queue<sc_time> & pipeInTime,
-                        bool (process_pv_base::*writeMethod)(mb_address_type, unsigned char *, unsigned, unsigned),
-                        mb::mb_variable<int>& deltaVar,
-                        mb::mb_variable<int>& startVar,
-                        mb::mb_variable<int>& stopVar,
-                        const char* extra);
-    void thread1();
-    void thread2();
-    void thread3();
-    void thread4();
-    void thread5();
-    void thread6();
-    void thread7();
-    void thread8();
+    void pipeline_thread();
+
+    void process_thread();
 
 protected:
     // target ports write callbacks
     bool general_write(mb_address_type address,
                        unsigned char* data,
                        unsigned int size,
+                       unsigned int path,
                        port_enum idx,
                        tlm::tlm_fifo<datastruct *> & fifo,
                        mb::mb_variable<int>& deltaVar,
@@ -82,6 +71,8 @@ protected:
 
 #define NumberOfPorts 8
     tlm::tlm_fifo< datastruct *> fifo[NumberOfPorts];
-    queue<sc_time> pipeInTime[NumberOfPorts];
+
+    tlm::tlm_fifo< datastruct *> pipeline;
+    queue<sc_time> pipeInTime;
 };
 

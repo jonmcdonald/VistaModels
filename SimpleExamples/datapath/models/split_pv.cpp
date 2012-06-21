@@ -91,8 +91,8 @@ void split_pv::general_thread(tlm::tlm_fifo<datastruct *> & fifo,
         // Save the time that we finished processing this transaction
         pipeInTime.push(sc_time_stamp());
 
-        // If the data has been in circulation for less than "DecisionTime" then send it around again...
-        if((sc_time_stamp() - ds->currentToken->getFieldAsTime("CreateTime")) < DecisionTime) {
+        int *d = (int *) ds->data;
+        if(d[0] < DecisionSize) {
             (this->*writeMethod_a)(ds->address, ds->data, ds->size, 0);
         } else {
             (this->*writeMethod_b)(ds->address, ds->data, ds->size, 0);

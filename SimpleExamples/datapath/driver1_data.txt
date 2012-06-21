@@ -22,6 +22,7 @@ wait 1
 stop
 
 path 5
+send 99, 100
 send 5, 20
 send 1, 1
 stop
@@ -48,5 +49,7 @@ stop
 path 8
 wait 2
 send 8, 5
+wait 200
+send 9, 1
 stop
 

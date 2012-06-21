@@ -8,23 +8,23 @@ top.driver_1.DriverFunction = datafile
 top.driver_1.DataFilePath = driver1_data.txt
 
 top.switch_1.PipelineStages = 1
-top.switch_1.InputFifoDepth = 2
-top.switch_1.ProcessDelay = 10
-top.switch_1.InputDelay = 1
+top.switch_1.InputFifoDepth = 1
+top.switch_1.ProcessDelay = 0
+top.switch_1.InputDelay = 0
 
-top.process_1.PipelineStages = 1
-top.process_1.InputFifoDepth = 2
-top.process_1.ProcessDelay = 20
-top.process_1.InputDelay = 1
+top.process_1.PipelineStages = 2
+top.process_1.InputFifoDepth = 1
+top.process_1.ProcessDelay = 10
+top.process_1.InputDelay = 0
 
 top.process_2.PipelineStages = 1
 top.process_2.InputFifoDepth = 2
-top.process_2.ProcessDelay = 30
-top.process_2.InputDelay = 1
+top.process_2.ProcessDelay = 5
+top.process_2.InputDelay = 0
 
 top.split_1.PipelineStages = 1
 top.split_1.InputFifoDepth = 2
-top.split_1.ProcessDelay = 10
-top.split_1.InputDelay = 2
-top.split_1.DecisionTime = 75ns
+top.split_1.ProcessDelay = 0
+top.split_1.InputDelay = 0
+top.split_1.DecisionSize = 0
 

@@ -1,0 +1,13 @@
+path 1
+send 1, 10
+send 2, 1
+send 3, 1
+send 4, 1
+stop
+
+path 2
+send 5, 1
+send 6, 1
+send 7, 1
+send 8, 1
+stop

@@ -1,0 +1,51 @@
+path 1
+send 10, 1
+send 11, 1
+send 12, 1
+send 13, 1
+send 14, 1
+send 15, 1
+send 16, 1
+send 17, 1
+send 18, 1
+send 19, 1
+stop
+
+path 2
+send 20, 1
+send 21, 1
+send 22, 1
+send 23, 1
+send 24, 1
+send 25, 1
+send 26, 1
+send 27, 1
+send 28, 1
+send 29, 1
+stop
+
+path 3
+send 30, 1
+send 31, 1
+send 32, 1
+send 33, 1
+send 34, 1
+send 35, 1
+send 36, 1
+send 37, 1
+send 38, 1
+send 39, 1
+stop
+
+path 4
+send 40, 1
+send 41, 1
+send 42, 1
+send 43, 1
+send 44, 1
+send 45, 1
+send 46, 1
+send 47, 1
+send 48, 1
+send 49, 1
+stop
