@@ -7,6 +7,7 @@ struct datastruct {
   unsigned int path;
   unsigned char *data;
   unsigned int size;
+  sc_time receiveT;
   sc_time startT;
   mb::mb_token_ptr currentToken;
 };

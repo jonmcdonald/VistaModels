@@ -35,7 +35,7 @@ add_parameter "ProcessDelay" 3 int32 {}
 add_parameter "InputDelay" 2 int32 {}
 add_parameter "InputFifoDepth" 1 uint32 {}
 add_parameter "PipelineStages" 1 uint32 {}
-add_parameter "DecisionSize" 100 uint32 {}
+add_parameter "DecisionSize" 100 int32 {}
 
 # === auto parameters ===
 set_auto_parameter_default "clock" {10 ns} time {}

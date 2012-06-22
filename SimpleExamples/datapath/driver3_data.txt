@@ -1,13 +1,56 @@
 path 1
-send 1, 10
-send 2, 1
-send 3, 1
-send 4, 1
+wait 1
+send 1, 1
+wait 15
+send 11, 1
 stop
 
 path 2
-send 5, 1
-send 6, 1
-send 7, 1
-send 8, 1
+wait 2
+send 2, 1
+wait 13
+send 12, 1
 stop
+
+path 3
+wait 3
+send 3, 1
+wait 11
+send 13, 1
+stop
+
+path 4
+wait 4
+send 4, 1
+wait 9
+send 14, 1
+stop
+
+path 5
+wait 5
+send 5, 1
+wait 7
+send 15, 1
+stop
+
+path 6
+wait 6
+send 6, 1
+wait 5
+send 16, 1
+stop
+
+path 7
+wait 7
+send 7, 1
+wait 3
+send 17, 1
+stop
+
+path 8
+wait 8
+send 8, 1
+wait 1
+send 18, 1
+stop
+

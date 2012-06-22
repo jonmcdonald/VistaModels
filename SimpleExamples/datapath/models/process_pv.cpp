@@ -51,6 +51,11 @@ process_pv::process_pv(sc_module_name module_name)
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+bool datastructSortOnTime(const datastruct* d1, const datastruct* d2)
+{
+  return d1->receiveT < d2->receiveT;
+}
+
 void process_pv::pipeline_thread()
 {
     datastruct *ds;
@@ -80,8 +85,10 @@ void process_pv::pipeline_thread()
             }
         }
 
+        // This sorts the data in the order of recieve time
+        sort(v.begin(), v.end(), datastructSortOnTime);
+
         for (vector<datastruct *>::iterator it = v.begin(); it != v.end(); it++) {
-            int *d = (int *) (*it)->data;
             pipeline.put(fifo[(*it)->path - 1].get());
         }
 
@@ -116,16 +123,21 @@ void process_pv::process_thread()
         ProcessDelay_start = (ProcessDelay_start + 1) % 8;
         ProcessDelay_stop = (ProcessDelay_stop + 1) % 8;
 
-        // Save the current token information for the upcoming transaction and clear it from the queue
+        // Save the current token information for the upcoming transaction
         set_current_token(ds->currentToken);
-        pipeline.get();
-        // Save the time that we finished processing this transaction
-        pipeInTime.push(sc_time_stamp());
 
+        // get the data from the pipeline
+        pipeline.get();
+
+        // process the data
         int *d = (int *) ds->data;
         cout << sc_simulation_time() << ":" << name() << " " << "[" << ds->path << "] processed data = " << d[0] << " -> " << d[0]+100 << endl;
         d[0] = d[0]+100;
 
+        // Save the time that we finished processing this transaction - should this be done after the write????
+        pipeInTime.push(sc_time_stamp());
+
+        // Send the data out on the correct path
         switch(ds->path) {
         case 1:
             master_1_write(ds->address, ds->data, ds->size);
@@ -153,6 +165,7 @@ void process_pv::process_thread()
             break;
         }
 
+        // freeup the memory we allocated
         free(ds->data);
         free(ds);
     }
@@ -178,11 +191,13 @@ bool process_pv::general_write(mb_address_type address,
     ds->size = size;
     ds->currentToken = get_current_token();
 
+    int throughput = size / getSystemCBaseModel()->get_port_width(idx);
+    int receiveT = throughput + InputDelay;
+    ds->receiveT = sc_time_stamp() + (receiveT * clock);
+
     bool putBlocked = !fifo.nb_can_put();
     fifo.put(ds);
 
-    int throughput = size / getSystemCBaseModel()->get_port_width(idx);
-    int receiveT = throughput + InputDelay;
     ds->startT = sc_time_stamp() + (receiveT * clock);
 
     if (putBlocked) {

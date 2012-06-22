@@ -88,7 +88,7 @@ void switch_pv::general_thread(int index,
             }
         }
 
-        if (dsB == NULL || ((dsA != NULL) && (dsA->startT <= dsB->startT)) ) {
+        if (dsB == NULL || ((dsA != NULL) && (dsA->receiveT <= dsB->receiveT)) ) {
             ds = dsA;
             fifo = &fifo_a[index];
             pipeInTime = &pipeInTime_a[index];
@@ -192,11 +192,13 @@ bool switch_pv::general_write(mb_address_type address,
     ds->size = size;
     ds->currentToken = get_current_token();
 
+    int throughput = size / getSystemCBaseModel()->get_port_width(idx);
+    int receiveT = throughput + InputDelay;
+    ds->receiveT = sc_time_stamp() + (receiveT * clock);
+
     bool putBlocked = !fifo.nb_can_put();
     fifo.put(ds);
 
-    int throughput = size / getSystemCBaseModel()->get_port_width(idx);
-    int receiveT = throughput + InputDelay;
     ds->startT = sc_time_stamp() + (receiveT * clock);
 
     if (putBlocked) {

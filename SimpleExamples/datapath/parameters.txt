@@ -12,7 +12,7 @@ top.switch_1.InputFifoDepth = 1
 top.switch_1.ProcessDelay = 0
 top.switch_1.InputDelay = 0
 
-top.process_1.PipelineStages = 2
+top.process_1.PipelineStages = 1
 top.process_1.InputFifoDepth = 1
 top.process_1.ProcessDelay = 10
 top.process_1.InputDelay = 0
@@ -26,5 +26,5 @@ top.split_1.PipelineStages = 1
 top.split_1.InputFifoDepth = 2
 top.split_1.ProcessDelay = 0
 top.split_1.InputDelay = 0
-top.split_1.DecisionSize = 0
+top.split_1.DecisionSize = 300
 

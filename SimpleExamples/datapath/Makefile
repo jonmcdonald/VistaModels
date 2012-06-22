@@ -17,6 +17,12 @@ Project = Project
 VISTA_HOME = $(dir $(dir $(shell which vista)))
 MODEL_BUILDER_HOME = $(VISTA_HOME)papoulis
 
+ifeq ($(VISTA_ROOT),)
+    # try to find Vista if its not set
+    VISTA_ROOT         = $(patsubst %/bin/,%, $(dir $(shell which vista)))
+    export VISTA_ROOT
+endif
+
 SRCS = $(wildcard *.cpp)
 OBJS = $(SRCS:.cpp=.o)
 
