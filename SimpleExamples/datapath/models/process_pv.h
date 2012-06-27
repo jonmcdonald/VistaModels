@@ -48,6 +48,15 @@ public:
 
     void process_thread();
 
+    void master_1_thread();
+    void master_2_thread();
+    void master_3_thread();
+    void master_4_thread();
+    void master_5_thread();
+    void master_6_thread();
+    void master_7_thread();
+    void master_8_thread();
+
 protected:
     // target ports write callbacks
     bool general_write(mb_address_type address,
@@ -70,7 +79,9 @@ protected:
     bool slave_8_callback_write(mb_address_type address, unsigned char* data, unsigned size);
 
 #define NumberOfPorts 8
-    tlm::tlm_fifo< datastruct *> fifo[NumberOfPorts];
+    tlm::tlm_fifo< datastruct *> slave_fifo[NumberOfPorts];
+
+    tlm::tlm_fifo< datastruct *> master_fifo[NumberOfPorts];
 
     tlm::tlm_fifo< datastruct *> pipeline;
     queue<sc_time> pipeInTime;

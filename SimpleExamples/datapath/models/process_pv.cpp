@@ -40,8 +40,19 @@ process_pv::process_pv(sc_module_name module_name)
     SC_THREAD(pipeline_thread);
     SC_THREAD(process_thread);
 
+    SC_THREAD(master_1_thread);
+    SC_THREAD(master_2_thread);
+    SC_THREAD(master_3_thread);
+    SC_THREAD(master_4_thread);
+    SC_THREAD(master_5_thread);
+    SC_THREAD(master_6_thread);
+    SC_THREAD(master_7_thread);
+    SC_THREAD(master_8_thread);
+
+
     for (unsigned int i = 0; i < NumberOfPorts; i++) {
-        fifo[i].nb_bound(InputFifoDepth);
+        slave_fifo[i].nb_bound(InputFifoDepth);
+        master_fifo[i].nb_bound(1);
     }
 
     pipeline.nb_bound(PipelineStages);
@@ -53,7 +64,7 @@ process_pv::process_pv(sc_module_name module_name)
 
 bool datastructSortOnTime(const datastruct* d1, const datastruct* d2)
 {
-  return d1->receiveT < d2->receiveT;
+    return d1->receiveT < d2->receiveT;
 }
 
 void process_pv::pipeline_thread()
@@ -65,7 +76,7 @@ void process_pv::pipeline_thread()
             v.clear();
             for (int i = 0; i < NumberOfPorts; i++) {
                 ds = NULL;
-                if(fifo[i].nb_peek(ds)) {
+                if(slave_fifo[i].nb_peek(ds)) {
                     if(ds) {
                         v.push_back(ds);
                     }
@@ -74,24 +85,38 @@ void process_pv::pipeline_thread()
             if(v.size()) {
                 break;
             } else {
-                wait (fifo[0].ok_to_get() |
-                      fifo[1].ok_to_get() |
-                      fifo[2].ok_to_get() |
-                      fifo[3].ok_to_get() |
-                      fifo[4].ok_to_get() |
-                      fifo[5].ok_to_get() |
-                      fifo[6].ok_to_get() |
-                      fifo[7].ok_to_get());
+                wait (slave_fifo[0].ok_to_get() |
+                      slave_fifo[1].ok_to_get() |
+                      slave_fifo[2].ok_to_get() |
+                      slave_fifo[3].ok_to_get() |
+                      slave_fifo[4].ok_to_get() |
+                      slave_fifo[5].ok_to_get() |
+                      slave_fifo[6].ok_to_get() |
+                      slave_fifo[7].ok_to_get());
             }
         }
 
         // This sorts the data in the order of recieve time
         sort(v.begin(), v.end(), datastructSortOnTime);
 
+        bool nothing_put = true;
         for (vector<datastruct *>::iterator it = v.begin(); it != v.end(); it++) {
-            pipeline.put(fifo[(*it)->path - 1].get());
+            int p(((*it)->path) - 1);
+            if(master_fifo[p].nb_can_put()) {
+                pipeline.put(slave_fifo[p].get());
+                nothing_put = false;
+            }
         }
-
+        if(nothing_put) {
+            wait (master_fifo[0].ok_to_put() |
+                  master_fifo[1].ok_to_put() |
+                  master_fifo[2].ok_to_put() |
+                  master_fifo[3].ok_to_put() |
+                  master_fifo[4].ok_to_put() |
+                  master_fifo[5].ok_to_put() |
+                  master_fifo[6].ok_to_put() |
+                  master_fifo[7].ok_to_put());
+        }
     }
 }
 
@@ -119,12 +144,9 @@ void process_pv::process_thread()
         }
         ProcessDelta = ProcessDelay + proc;
 
-        // Timing policy: Sequential delay TP2.write -> TP1.write of ProcessDelta cycles
+        // Timing policy: Sequential delay ProcessDelay_start.write -> ProcessDelay_stop.write of ProcessDelta cycles
         ProcessDelay_start = (ProcessDelay_start + 1) % 8;
         ProcessDelay_stop = (ProcessDelay_stop + 1) % 8;
-
-        // Save the current token information for the upcoming transaction
-        set_current_token(ds->currentToken);
 
         // get the data from the pipeline
         pipeline.get();
@@ -137,35 +159,104 @@ void process_pv::process_thread()
         // Save the time that we finished processing this transaction - should this be done after the write????
         pipeInTime.push(sc_time_stamp());
 
-        // Send the data out on the correct path
-        switch(ds->path) {
-        case 1:
-            master_1_write(ds->address, ds->data, ds->size);
-            break;
-        case 2:
-            master_2_write(ds->address, ds->data, ds->size);
-            break;
-        case 3:
-            master_3_write(ds->address, ds->data, ds->size);
-            break;
-        case 4:
-            master_4_write(ds->address, ds->data, ds->size);
-            break;
-        case 5:
-            master_5_write(ds->address, ds->data, ds->size);
-            break;
-        case 6:
-            master_6_write(ds->address, ds->data, ds->size);
-            break;
-        case 7:
-            master_7_write(ds->address, ds->data, ds->size);
-            break;
-        case 8:
-            master_8_write(ds->address, ds->data, ds->size);
-            break;
-        }
+        // Send the data out on the correct master fifo
+        master_fifo[ds->path - 1].put(ds);
+    }
+}
 
-        // freeup the memory we allocated
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+void process_pv::master_1_thread()
+{
+    datastruct *ds;
+    for(;;) {
+        ds = master_fifo[0].get();
+        set_current_token(ds->currentToken);
+        master_1_write(ds->address, ds->data, ds->size);
+        free(ds->data);
+        free(ds);
+    }
+}
+
+void process_pv::master_2_thread()
+{
+    datastruct *ds;
+    for(;;) {
+        ds = master_fifo[1].get();
+        set_current_token(ds->currentToken);
+        master_2_write(ds->address, ds->data, ds->size);
+        free(ds->data);
+        free(ds);
+    }
+}
+
+void process_pv::master_3_thread()
+{
+    datastruct *ds;
+    for(;;) {
+        ds = master_fifo[2].get();
+        set_current_token(ds->currentToken);
+        master_3_write(ds->address, ds->data, ds->size);
+        free(ds->data);
+        free(ds);
+    }
+}
+
+void process_pv::master_4_thread()
+{
+    datastruct *ds;
+    for(;;) {
+        ds = master_fifo[3].get();
+        set_current_token(ds->currentToken);
+        master_4_write(ds->address, ds->data, ds->size);
+        free(ds->data);
+        free(ds);
+    }
+}
+
+void process_pv::master_5_thread()
+{
+    datastruct *ds;
+    for(;;) {
+        ds = master_fifo[4].get();
+        set_current_token(ds->currentToken);
+        master_5_write(ds->address, ds->data, ds->size);
+        free(ds->data);
+        free(ds);
+    }
+}
+
+void process_pv::master_6_thread()
+{
+    datastruct *ds;
+    for(;;) {
+        ds = master_fifo[5].get();
+        set_current_token(ds->currentToken);
+        master_6_write(ds->address, ds->data, ds->size);
+        free(ds->data);
+        free(ds);
+    }
+}
+
+void process_pv::master_7_thread()
+{
+    datastruct *ds;
+    for(;;) {
+        ds = master_fifo[6].get();
+        set_current_token(ds->currentToken);
+        master_7_write(ds->address, ds->data, ds->size);
+        free(ds->data);
+        free(ds);
+    }
+}
+
+void process_pv::master_8_thread()
+{
+    datastruct *ds;
+    for(;;) {
+        ds = master_fifo[7].get();
+        set_current_token(ds->currentToken);
+        master_8_write(ds->address, ds->data, ds->size);
         free(ds->data);
         free(ds);
     }
@@ -212,56 +303,56 @@ bool process_pv::general_write(mb_address_type address,
 bool process_pv::slave_1_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
     return general_write(address, data, size, 1,
-                         slave_1_idx, fifo[0],
+                         slave_1_idx, slave_fifo[0],
                          slave_1_InputDelta, slave_1_ID_start, slave_1_ID_stop);
 }
 
 bool process_pv::slave_2_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
     return general_write(address, data, size, 2,
-                         slave_2_idx, fifo[1],
+                         slave_2_idx, slave_fifo[1],
                          slave_2_InputDelta, slave_2_ID_start, slave_2_ID_stop);
 }
 
 bool process_pv::slave_3_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
     return general_write(address, data, size, 3,
-                         slave_3_idx, fifo[2],
+                         slave_3_idx, slave_fifo[2],
                          slave_3_InputDelta, slave_3_ID_start, slave_3_ID_stop);
 }
 
 bool process_pv::slave_4_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
     return general_write(address, data, size, 4,
-                         slave_4_idx, fifo[3],
+                         slave_4_idx, slave_fifo[3],
                          slave_4_InputDelta, slave_4_ID_start, slave_4_ID_stop);
 }
 
 bool process_pv::slave_5_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
     return general_write(address, data, size, 5,
-                         slave_5_idx, fifo[4],
+                         slave_5_idx, slave_fifo[4],
                          slave_5_InputDelta, slave_5_ID_start, slave_5_ID_stop);
 }
 
 bool process_pv::slave_6_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
     return general_write(address, data, size, 6,
-                         slave_6_idx, fifo[5],
+                         slave_6_idx, slave_fifo[5],
                          slave_6_InputDelta, slave_6_ID_start, slave_6_ID_stop);
 }
 
 bool process_pv::slave_7_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
     return general_write(address, data, size, 7,
-                         slave_7_idx, fifo[6],
+                         slave_7_idx, slave_fifo[6],
                          slave_7_InputDelta, slave_7_ID_start, slave_7_ID_stop);
 }
 
 bool process_pv::slave_8_callback_write(mb_address_type address, unsigned char* data, unsigned size)
 {
     return general_write(address, data, size, 8,
-                         slave_8_idx, fifo[7],
+                         slave_8_idx, slave_fifo[7],
                          slave_8_InputDelta, slave_8_ID_start, slave_8_ID_stop);
 }
 
