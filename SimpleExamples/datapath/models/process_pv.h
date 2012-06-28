@@ -45,9 +45,10 @@ public:
     process_pv(sc_core::sc_module_name module_name);
 
     void pipeline_thread();
-
     void process_thread();
 
+    void general_master_thread(int path,
+                               bool (process_pv_base::*writeMethod)(mb_address_type, unsigned char *, unsigned, unsigned));
     void master_1_thread();
     void master_2_thread();
     void master_3_thread();
@@ -59,15 +60,15 @@ public:
 
 protected:
     // target ports write callbacks
-    bool general_write(mb_address_type address,
-                       unsigned char* data,
-                       unsigned int size,
-                       unsigned int path,
-                       port_enum idx,
-                       tlm::tlm_fifo<datastruct *> & fifo,
-                       mb::mb_variable<int>& deltaVar,
-                       mb::mb_variable<int>& startVar,
-                       mb::mb_variable<int>& stopVar);
+    bool general_slave_write(mb_address_type address,
+                             unsigned char* data,
+                             unsigned int size,
+                             unsigned int path,
+                             port_enum idx,
+                             tlm::tlm_fifo<datastruct *> & fifo,
+                             mb::mb_variable<int>& deltaVar,
+                             mb::mb_variable<int>& startVar,
+                             mb::mb_variable<int>& stopVar);
 
     bool slave_1_callback_write(mb_address_type address, unsigned char* data, unsigned size);
     bool slave_2_callback_write(mb_address_type address, unsigned char* data, unsigned size);
