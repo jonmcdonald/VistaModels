@@ -6,6 +6,8 @@ I used Questa 10.0d but had to obtain and build later versions of UVM (1.1c) and
 The Makefile is configured to build and run using pure Questa compiler and simulator, you
 will need to alter the paths to the tools and compiled UVMC library.
 
+You will need to open vista and generate the code for the three models before running make.
+
 The design contains a driver, bus, & ip block, you can look at the top schematic and model 
 code within Vista. 
 
