@@ -1,0 +1,40 @@
+ProjectName Project
+Files {
+	 Sources {
+		{$PRJDIR/sc_main.cpp}
+	 } 
+	 {Public Headers} {} 
+	 Models {
+		{$PRJDIR/models/cpu.mb}
+		{$PRJDIR/models/axi_bus.mb}
+		{$PRJDIR/models/ip.mb}
+	 } 
+	 Schematics {
+		{$PRJDIR/diagrams/top.h}
+	 } 
+	 Documentation {} 
+	 {Linked Binaries} {} 
+	 {Other Binaries} {} 
+}
+Designs {{$PRJDIR/sc_main.cpp}}
+Simulations /data/VistaModels/SimpleExamples/uvmc/Project/sim
+Folders {
+	 Sources {*.c *.cpp *.C *.cxx *.cc} 
+	 {Public Headers} {*.h *.hpp *.H *.hxx *.hh} 
+	 Models *.mb 
+	 Schematics {} 
+	 Documentation {*.txt *.TXT *.doc *.DOC *.pdf *.PDF *.html *.HTML *.htm *.HTM *.ps *.PS} 
+	 {Linked Binaries} {*.o *.a *.so} 
+	 {Other Binaries} {*.exe *.x} 
+}
+IncludePaths {/data/uvm/uvmc-2.2/src/connect/sc /tools/questa_10.0d/questasim/include}
+GeneralCompilationOptions -Wall
+AlwaysCompileInCPPMode 1
+LinkPackages model_builder
+ProjectLibraryType archive
+ProjectComponentsLibraryPath {$PRJDIR/$PRJFILE_BASENAME/interfaces}
+ProjectWorkingDirectory {$PRJDIR/$PRJFILE_BASENAME/build}
+HasTLMSupport 0
+CompiledWithTLMSupport 0
+IsUsePathVariables 1
+PlatformName Project
