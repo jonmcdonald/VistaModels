@@ -10,6 +10,10 @@ to elements in those other directories.
 
 A few useful git sequences:
 
+ - To set user name.  Needed to push changes, not to fetch.
+   > git config --global user.name "Your Name"
+   > git config --global user.email your_name@email.com
+
  - To add local changes to the repository
    First commit your local changes
    > git add *
