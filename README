@@ -6,3 +6,26 @@ to elements in those other directories.
    To get started with git using this repository execute:
 > git clone git@github.com:jonmcdonald/VistaModels.git
    Documentation on using git can be found at: http://www.git-scm.com/documentation
+   Note you will also have to load an ssh key into github (https://help.github.com/articles/generating-ssh-keys)
+
+A few useful git sequences:
+
+ - To add local changes to the repository
+   > git fetch origin
+   > git merge origin/master
+   > git push origin master
+
+ - To reset your git area to what is on the server.  This will delete any files you've added.
+   > git reset --hard HEAD
+   > git clean -f -d
+   > git pull
+   Note that git clean will accept a path and only clean that path.
+
+ - To add all of your new files and then update from the repository, taking the repository as the correct file.
+   You will loose any changes you have made that conflict with what is in the repository.
+   First commit your local changes
+   > git add *
+   > git commit -a -m "Comment for committed file set"
+   Next fetch from the repository and overwrite any local conflicts
+   > git fetch origin master
+   > git merge -s recursive -X theirs origin/master
