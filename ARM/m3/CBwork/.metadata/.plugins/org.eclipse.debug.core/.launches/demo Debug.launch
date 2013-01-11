@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.codesourcery.mentor.vista.gdb.target.launch">
+<booleanAttribute key="ConfigureVPHostManually" value="false"/>
+<booleanAttribute key="ConfigureVPPortManually" value="false"/>
+<booleanAttribute key="ShowUnAvailableVPCores" value="false"/>
+<booleanAttribute key="ShowVPDetails" value="true"/>
+<stringAttribute key="VPCore" value="Top.cpu_inst.PV.core"/>
+<stringAttribute key="VPCoreCpuType" value="cortex_m3"/>
+<stringAttribute key="VPCoreDesignPath" value="Top.cpu_inst.PV.core"/>
+<stringAttribute key="VPDesignName" value=""/>
+<stringAttribute key="VPDisplay" value=":0"/>
+<stringAttribute key="VPExecPath" value="/home/jon/work/arm/m3/arm.x"/>
+<stringAttribute key="VPPlatform" value=""/>
+<stringAttribute key="VPPlatformVersion" value=""/>
+<stringAttribute key="VPProjectName" value=""/>
+<stringAttribute key="VPSession" value=" arm/m3/arm.x"/>
+<stringAttribute key="VPSimulationDir" value=""/>
+<stringAttribute key="VPVendor" value=""/>
+<stringAttribute key="VPWorkingDir" value="/home/jon/work/arm/m3"/>
+<stringAttribute key="com.codesourcery.target.CONFIGURATION_LAYER_NAME" value="_Configuration_1357755472593_2"/>
+<stringAttribute key="org.eclipse.cdt.debug.mi.core.CSL_QEMU_PROCESSOR" value="any"/>
+<stringAttribute key="org.eclipse.cdt.debug.mi.core.DEBUG_NAME" value="arm-none-eabi-gdb"/>
+<stringAttribute key="org.eclipse.cdt.debug.mi.core.GDBSERVER" value="gdbserver"/>
+<booleanAttribute key="org.eclipse.cdt.debug.mi.core.GDBSERVER.EXPLICIT" value="true"/>
+<stringAttribute key="org.eclipse.cdt.debug.mi.core.GDB_INIT" value=".gdbinit"/>
+<stringAttribute key="org.eclipse.cdt.debug.mi.core.HOST" value="jm"/>
+<booleanAttribute key="org.eclipse.cdt.debug.mi.core.HOST.EXPLICIT" value="true"/>
+<booleanAttribute key="org.eclipse.cdt.debug.mi.core.LOAD_AUTOMATICALLY" value="true"/>
+<stringAttribute key="org.eclipse.cdt.debug.mi.core.PORT" value="1234"/>
+<stringAttribute key="org.eclipse.cdt.debug.mi.core.POST_CONNECT_COMMANDS" value=""/>
+<stringAttribute key="org.eclipse.cdt.debug.mi.core.PRE_CONNECT_COMMANDS" value=""/>
+<booleanAttribute key="org.eclipse.cdt.debug.mi.core.REMOTE_TCP" value="true"/>
+<booleanAttribute key="org.eclipse.cdt.debug.mi.core.ROM_RANGE_OVERRIDE" value="false"/>
+<listAttribute key="org.eclipse.cdt.debug.mi.core.ROM_SIZES">
+<listEntry value="0"/>
+</listAttribute>
+<listAttribute key="org.eclipse.cdt.debug.mi.core.ROM_START_ADDRESSES">
+<listEntry value="0"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.cdt.debug.mi.core.commandFactory" value="com.mentor.redsea.CommandFactory"/>
+<stringAttribute key="org.eclipse.cdt.debug.mi.core.protocol" value="mi"/>
+<booleanAttribute key="org.eclipse.cdt.debug.mi.core.verboseMode" value="false"/>
+<booleanAttribute key="org.eclipse.cdt.dsf.gdb.AUTO_SOLIB" value="true"/>
+<listAttribute key="org.eclipse.cdt.dsf.gdb.AUTO_SOLIB_LIST"/>
+<stringAttribute key="org.eclipse.cdt.dsf.gdb.DEBUG_NAME" value="arm-none-eabi-gdb"/>
+<stringAttribute key="org.eclipse.cdt.dsf.gdb.GDB_INIT" value=".gdbinit"/>
+<stringAttribute key="org.eclipse.cdt.dsf.gdb.HOST" value="jm"/>
+<stringAttribute key="org.eclipse.cdt.dsf.gdb.PORT" value="1234"/>
+<stringAttribute key="org.eclipse.cdt.dsf.gdb.POST_MORTEM_TYPE" value="CORE_FILE"/>
+<booleanAttribute key="org.eclipse.cdt.dsf.gdb.REMOTE_TCP" value="true"/>
+<booleanAttribute key="org.eclipse.cdt.dsf.gdb.REVERSE" value="false"/>
+<listAttribute key="org.eclipse.cdt.dsf.gdb.SOLIB_PATH"/>
+<booleanAttribute key="org.eclipse.cdt.dsf.gdb.UPDATE_THREADLIST_ON_SUSPEND" value="false"/>
+<booleanAttribute key="org.eclipse.cdt.dsf.gdb.USE_SOLIB_SYMBOLS_FOR_APP" value="false"/>
+<intAttribute key="org.eclipse.cdt.launch.ATTR_BUILD_BEFORE_LAUNCH_ATTR" value="2"/>
+<stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_ID" value="com.mentor.redsea.VPDebugger"/>
+<stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_START_MODE" value="run"/>
+<booleanAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_FIRST_INSTRUCTION" value="false"/>
+<booleanAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN" value="true"/>
+<stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN_SYMBOL" value="main"/>
+<booleanAttribute key="org.eclipse.cdt.launch.ENABLE_REGISTER_BOOKKEEPING" value="false"/>
+<booleanAttribute key="org.eclipse.cdt.launch.ENABLE_VARIABLE_BOOKKEEPING" value="false"/>
+<booleanAttribute key="org.eclipse.cdt.launch.FLASH_VERIFY" value="false"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug/demo"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="demo"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value=""/>
+<booleanAttribute key="org.eclipse.cdt.launch.use_terminal" value="true"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/demo"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.dsf.launch.MEMORY_BLOCKS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#10;&lt;memoryBlockExpressionList context=&quot;reserved-for-future-use&quot;/&gt;&#10;"/>
+<stringAttribute key="process_factory_id" value="org.eclipse.cdt.dsf.gdb.GdbProcessFactory"/>
+</launchConfiguration>
