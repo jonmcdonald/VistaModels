@@ -1,0 +1,47 @@
+ProjectName M3
+Files {
+	 Sources {
+		{$PRJDIR/main.cpp}
+	 } 
+	 {Public Headers} {
+		{$PRJDIR/Models/signal_protocol.h}
+		{$PRJDIR/Models/ahb_master_protocol.h}
+		{$PRJDIR/Models/ahb_slave_protocol.h}
+	 } 
+	 Schematics {
+		{$PRJDIR/blocks_lib/simple.h}
+	 } 
+	 Documentation {} 
+	 {Linked Binaries} {} 
+	 {Other Binaries} {} 
+	 Others {} 
+	 Models {
+		{$PRJDIR/Models/M3.mb}
+		{$PRJDIR/Models/mem.mb}
+		{$PRJDIR/Models/SuperFIFO.mb}
+		{$PRJDIR/Models/m3Bus.mb}
+		{$PRJDIR/Models/extIn.mb}
+		{$PRJDIR/Models/sink.mb}
+	 } 
+}
+Designs {{$PRJDIR/main.cpp}}
+Simulations /home/jon/work/arm/m3/M3/sim
+Folders {
+	 Sources {*.c *.cpp *.cc} 
+	 {Public Headers} *.h* 
+	 Schematics {} 
+	 Documentation {*.txt *.doc} 
+	 {Linked Binaries} {*.o *.a *.so} 
+	 {Other Binaries} {*.exe *.x} 
+	 Others * 
+}
+GeneralCompilationOptions {-Wall -DARM}
+AlwaysCompileInCPPMode 1
+LinkPackages {model_builder sdParameters tlm}
+ProjectLibraryType archive
+ProjectComponentsLibraryPath {$PRJDIR/$PRJFILE_BASENAME/interfaces}
+ProjectWorkingDirectory {$PRJDIR/$PRJFILE_BASENAME/build}
+HasTLMSupport 1
+CompiledWithTLMSupport 1
+IsUsePathVariables 1
+PlatformName Project_Vista_tutorial

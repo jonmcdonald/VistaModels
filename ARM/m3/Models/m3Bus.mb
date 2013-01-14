@@ -1,0 +1,102 @@
+# ============================ TLM Model File ============================
+# You can create tlm model by one of the following ways:
+#   - load this file using 'load_model' API function
+#   - compile this file using "Modeling->Load Model File" menu command.
+# ========================================================================
+template "/TLM/Generic_Library/Bus"
+
+# === ports ===
+add_port "m0" /TLM/protocols/ahb_master slave 32 -bind_mode optional
+add_port "m1" /TLM/protocols/ahb_master slave 32 -bind_mode optional
+add_port "m2" /TLM/protocols/ahb_master slave 32 -bind_mode optional
+add_port "m3" /TLM/protocols/ahb_master slave 32 -bind_mode optional
+add_port "s0" /TLM/protocols/ahb_slave master 32 -bind_mode optional
+add_port "s1" /TLM/protocols/ahb_slave master 32 -bind_mode optional
+add_port "s2" /TLM/protocols/ahb_slave master 32 -bind_mode optional
+add_port "s3" /TLM/protocols/ahb_slave master 32 -bind_mode optional
+
+# === parameters ===
+# usage: add_parameter <parameter_name> <default_value> <type:string|unsigned|int>
+# example: add_parameter "parameter1" 12 unsigned
+
+# === auto parameters ===
+set_auto_parameter_default "clock" {10 ns} time {}
+set_auto_parameter_default "ahb_slave_clock" clock time {}
+set_auto_parameter_default "ahb_master_clock" clock time {}
+set_auto_parameter_default "nominal_voltage" 1 double {}
+set_auto_parameter_default "verbose_parameters" true boolean {true false}
+set_auto_parameter_default "dmi_enabled" true boolean {true false}
+set_auto_parameter_default "warning_level" WARNING string {
+      "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
+set_auto_parameter_default "layers" {""} string {}
+set_auto_parameter_default "slave_sets" {""} string {}
+set_auto_parameter_default "m0_priority" 0 uint32 {}
+set_auto_parameter_default "m0_vmap" {""} string {}
+set_auto_parameter_default "m1_priority" 0 uint32 {}
+set_auto_parameter_default "m1_vmap" {""} string {}
+set_auto_parameter_default "m2_priority" 0 uint32 {}
+set_auto_parameter_default "m2_vmap" {""} string {}
+set_auto_parameter_default "m3_priority" 0 uint32 {}
+set_auto_parameter_default "m3_vmap" {""} string {}
+set_auto_parameter_default "s0_base_address" 0 uint64 {}
+set_auto_parameter_default "s0_size" 0 uint64 {}
+set_auto_parameter_default "s0_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "s0_additional_ranges" {""} string {}
+set_auto_parameter_default "s0_latency" 0 uint32 {}
+set_auto_parameter_default "s1_base_address" 0x40000000 uint64 {}
+set_auto_parameter_default "s1_size" 0x100 uint64 {}
+set_auto_parameter_default "s1_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "s1_additional_ranges" {""} string {}
+set_auto_parameter_default "s1_latency" 0 uint32 {}
+set_auto_parameter_default "s2_base_address" 0 uint64 {}
+set_auto_parameter_default "s2_size" 0 uint64 {}
+set_auto_parameter_default "s2_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "s2_additional_ranges" {""} string {}
+set_auto_parameter_default "s2_latency" 0 uint32 {}
+set_auto_parameter_default "s3_base_address" 0 uint64 {}
+set_auto_parameter_default "s3_size" 0 uint64 {}
+set_auto_parameter_default "s3_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "s3_additional_ranges" {""} string {}
+set_auto_parameter_default "s3_latency" 0 uint32 {}
+
+# === generics ===
+# usage: add_generic <generic_name> <value>
+# example: add_generic "OUT_ACTIVE_VALUE" false
+
+# === machine architecture ===
+set_sync_all 0
+add_delay_policy m0 0 -latency 0 -sync 1 -power 0
+add_pipeline_policy s0 m0 -latency s0_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy s1 m0 -latency s1_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy s2 m0 -latency s2_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy s3 m0 -latency s3_latency -buffer_size 0 -sync 1 -power 0
+add_delay_policy m1 0 -latency 0 -sync 1 -power 0
+add_pipeline_policy s0 m1 -latency s0_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy s1 m1 -latency s1_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy s2 m1 -latency s2_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy s3 m1 -latency s3_latency -buffer_size 0 -sync 1 -power 0
+add_delay_policy m2 0 -latency 0 -sync 1 -power 0
+add_pipeline_policy s0 m2 -latency s0_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy s1 m2 -latency s1_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy s2 m2 -latency s2_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy s3 m2 -latency s3_latency -buffer_size 0 -sync 1 -power 0
+add_delay_policy m3 0 -latency 0 -sync 1 -power 0
+add_pipeline_policy s0 m3 -latency s0_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy s1 m3 -latency s1_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy s2 m3 -latency s2_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy s3 m3 -latency s3_latency -buffer_size 0 -sync 1 -power 0
+
+# === generate options ===
+set_generate_kind "pvt" ;# should be one of: model|pv|pvt
+set_include_file ""
+set_external_pv_include ""
+set_pv_kind "template" ;# should be one of: template|external
+set_timing_kind "policies" ;# should be one of: policies|learned
+set_power_kind "policies" ;# should be one of: policies|learned
+set_class_name_external_pv ""
+set_max_parameters_of_pv_constructor 5
+set_overwrite 0
+set_generate_ipxact 0
+set_ipxact_vendor "Mentor.com"
+set_ipxact_version 1.0
+

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+export CB_ARM_EABI=/home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI
+
+${CB_ARM_EABI}/bin/sourcerygxx-ide -data CBwork
