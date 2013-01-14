@@ -5,7 +5,7 @@ OPT    =
 OPT    = -O9 
 DEBUG  = -DMB_DEBUG -tsv -pg -fprofile-arcs -ftest-coverage
 DEBUG  = -g -DMB_DEBUG -tsv
-OTHER  = -Wall +model_builder -DARM
+OTHER  = -Wall +model_builder +models_catalogue -DARM
 OTHER  = +model_builder
 CFLAGS = $(DEBUG) $(OTHER)
 
@@ -32,9 +32,9 @@ MBSRCS = $(wildcard $(MODELS)/*.cpp)
 MBOBJS = $(MBSRCS:.cpp=.o)
 MBARCHIVE = lib$(MODELS).a
 
-INCDIR = -I. -I./$(LOCAL) -I./$(MODELS) 
+INCDIR = -I. -I./$(LOCAL) -I./$(MODELS) -I$(VISTA_HOME)/generic/CPP/models_catalogue
 
-LIBS   = $(EXTRA_LIBS) -L. -l$(MODELS) 
+LIBS   = $(EXTRA_LIBS) -L. -l$(MODELS) $(VISTA_HOME)/precompiled-systemc/systemc-22-gcc434/lib-linux64/libmodels_catalogue.a
 EXE    = $(MODULE).x
 DFILES = $(OBJS:.o=.d) $(MBOBJS:.o=.d)
 

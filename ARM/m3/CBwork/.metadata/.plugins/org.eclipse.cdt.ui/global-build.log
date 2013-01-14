@@ -1,4 +1,19 @@
-08:58:10 **** Clean-only build of configuration Debug for project demo ****
-make clean 
-rm -rf  ./demo.d  demo 
-rm -rf "/home/jon/work/arm/m3/CBwork/demo/Debug/demo.o"  demo demo
+16:36:10 **** Incremental Build of configuration Debug for project demo ****
+make all 
+Building file: ../demo.c
+Invoking: Sourcery CodeBench C Compiler
+arm-none-eabi-gcc -O0 -g3 -Wall -c -fmessage-length=0 -fno-common -MMD -MP -MF"demo.d" -MT"demo.d" -mcpu=cortex-m3 -mthumb -o "demo.o" "../demo.c"
+../demo.c: In function 'isPrime':
+../demo.c:39:12: warning: unused variable 'md' [-Wunused-variable]
+Finished building: ../demo.c
+ 
+Building target: demo
+Invoking: Sourcery CodeBench C Linker
+arm-none-eabi-gcc -Xlinker -Map="demo.map" -T qemu-micro-hosted.ld -mcpu=cortex-m3 -mthumb -o "demo" "@objs.rsp" "@user_objs.rsp" "@libs.rsp"
+Finished building target: demo
+ 
+make --no-print-directory post-build
+arm-none-eabi-size "demo"
+   text	   data	    bss	    dec	    hex	filename
+  22676	   1312	    568	  24556	   5fec	demo
+ 

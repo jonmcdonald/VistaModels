@@ -39,7 +39,7 @@ demo: $(OBJS) $(USER_OBJS)
 # Other Targets
 clean:
 	-$(RM) $(C_DEPS)$(EXECUTABLES)
-	-$(RM) "/home/jon/work/arm/m3/CBwork/demo/Debug/demo.o"  demo demo
+	-$(RM) "/home/jon/VistaModels/ARM/m3/CBwork/demo/Debug/demo.o"  demo demo
 post-build:
 	-arm-none-eabi-size "demo"
 	-@echo ' '

@@ -37,7 +37,7 @@ Folders {
 }
 GeneralCompilationOptions {-Wall -DARM}
 AlwaysCompileInCPPMode 1
-LinkPackages {model_builder sdParameters tlm}
+LinkPackages {model_builder sdParameters tlm models_catalogue}
 ProjectLibraryType archive
 ProjectComponentsLibraryPath {$PRJDIR/$PRJFILE_BASENAME/interfaces}
 ProjectWorkingDirectory {$PRJDIR/$PRJFILE_BASENAME/build}

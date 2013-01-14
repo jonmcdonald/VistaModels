@@ -11,7 +11,7 @@ io_debug_enabled = 1
 Top.cpu_inst.PV.core.elf_image_file = base/base.axf
 Top.cpu_inst.PV.core.elf_image_file = CBwork/demo/Debug/demo
 
-Top.cpu_inst.PV.core.gdbstub_port = 1234
+#Top.cpu_inst.PV.core.gdbstub_port = 1234
 
 Top.bus_inst.s0_base_address = 0xFFFFFFFFFFFFFFFF
 Top.bus_inst.s0_subtract_base_address = 0
