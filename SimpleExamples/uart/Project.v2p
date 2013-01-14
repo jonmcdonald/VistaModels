@@ -1,0 +1,37 @@
+ProjectName Project
+Files {
+	 Sources {
+		{$PRJDIR/sc_main.cpp}
+	 } 
+	 {Public Headers} {} 
+	 Models {
+		{$PRJDIR/models/fake_cpu.mb}
+		{$PRJDIR/models/apb_bus.mb}
+	 } 
+	 Schematics {
+		{$PRJDIR/diagrams/top.h}
+	 } 
+	 Documentation {} 
+	 {Linked Binaries} {} 
+	 {Other Binaries} {} 
+}
+Designs {{$PRJDIR/sc_main.cpp}}
+Folders {
+	 Sources {*.c *.cpp *.C *.cxx *.cc} 
+	 {Public Headers} {*.h *.hpp *.H *.hxx *.hh} 
+	 Models *.mb 
+	 Schematics {} 
+	 Documentation {*.txt *.TXT *.doc *.DOC *.pdf *.PDF *.html *.HTML *.htm *.HTM *.ps *.PS} 
+	 {Linked Binaries} {*.o *.a *.so} 
+	 {Other Binaries} {*.exe *.x} 
+}
+GeneralCompilationOptions -Wall
+AlwaysCompileInCPPMode 1
+LinkPackages {model_builder models_catalogue}
+ProjectLibraryType archive
+ProjectComponentsLibraryPath {$PRJDIR/$PRJFILE_BASENAME/interfaces}
+ProjectWorkingDirectory {$PRJDIR/$PRJFILE_BASENAME/build}
+HasTLMSupport 0
+CompiledWithTLMSupport 0
+IsUsePathVariables 1
+PlatformName Project
