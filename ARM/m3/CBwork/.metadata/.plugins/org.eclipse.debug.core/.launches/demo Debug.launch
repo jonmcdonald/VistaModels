@@ -9,14 +9,14 @@
 <stringAttribute key="VPCoreDesignPath" value="Top.cpu_inst.PV.core"/>
 <stringAttribute key="VPDesignName" value=""/>
 <stringAttribute key="VPDisplay" value=":0"/>
-<stringAttribute key="VPExecPath" value="/home/jon/work/arm/m3/arm.x"/>
+<stringAttribute key="VPExecPath" value="/home/jon/VistaModels/ARM/m3/arm.x"/>
 <stringAttribute key="VPPlatform" value=""/>
 <stringAttribute key="VPPlatformVersion" value=""/>
 <stringAttribute key="VPProjectName" value=""/>
-<stringAttribute key="VPSession" value=" arm/m3/arm.x"/>
+<stringAttribute key="VPSession" value=" ARM/m3/arm.x"/>
 <stringAttribute key="VPSimulationDir" value=""/>
 <stringAttribute key="VPVendor" value=""/>
-<stringAttribute key="VPWorkingDir" value="/home/jon/work/arm/m3"/>
+<stringAttribute key="VPWorkingDir" value="/home/jon/VistaModels/ARM/m3"/>
 <stringAttribute key="com.codesourcery.target.CONFIGURATION_LAYER_NAME" value="_Configuration_1357755472593_2"/>
 <stringAttribute key="org.eclipse.cdt.debug.mi.core.CSL_QEMU_PROCESSOR" value="any"/>
 <stringAttribute key="org.eclipse.cdt.debug.mi.core.DEBUG_NAME" value="arm-none-eabi-gdb"/>

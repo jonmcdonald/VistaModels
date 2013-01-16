@@ -10,8 +10,8 @@
 	<section name="InstallationDialogSettings">
 		<item value="980" key="DIALOG_WIDTH"/>
 		<item value="-121" key="DIALOG_Y_ORIGIN"/>
-		<item value="839" key="DIALOG_HEIGHT"/>
 		<item value="-868" key="DIALOG_X_ORIGIN"/>
+		<item value="839" key="DIALOG_HEIGHT"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="ImportExportAction">

@@ -63,7 +63,7 @@ void extIn_pv::simple() {
   }
 
   wait(1000*clock);
-  sleep(5);
+  //sleep(5);
   sc_stop();
 }
 

@@ -17,3 +17,27 @@ arm-none-eabi-size "demo"
    text	   data	    bss	    dec	    hex	filename
   22676	   1312	    568	  24556	   5fec	demo
  
+13:57:11 **** Incremental Build of configuration Debug for project demo ****
+make all 
+make: Nothing to be done for `all'.
+14:56:28 **** Incremental Build of configuration Debug for project demo ****
+make all 
+make: Nothing to be done for `all'.
+15:36:13 **** Incremental Build of configuration Debug for project demo ****
+make all 
+make: Nothing to be done for `all'.
+09:24:13 **** Incremental Build of configuration Debug for project demo ****
+make all 
+make: Nothing to be done for `all'.
+09:24:35 **** Incremental Build of configuration Debug for project demo ****
+make all 
+make: Nothing to be done for `all'.
+09:25:00 **** Incremental Build of configuration Debug for project demo ****
+make all 
+make: Nothing to be done for `all'.
+09:26:40 **** Incremental Build of configuration Debug for project demo ****
+make all 
+make: Nothing to be done for `all'.
+09:26:49 **** Incremental Build of configuration Debug for project demo ****
+make all 
+make: Nothing to be done for `all'.
