@@ -9,14 +9,14 @@
 <stringAttribute key="VPCoreDesignPath" value="Top.cpu_inst.PV.core"/>
 <stringAttribute key="VPDesignName" value=""/>
 <stringAttribute key="VPDisplay" value=":0"/>
-<stringAttribute key="VPExecPath" value="/home/jon/VistaModels/ARM/m3/arm.x"/>
-<stringAttribute key="VPPlatform" value=""/>
+<stringAttribute key="VPExecPath" value="/home/jon/.vista/VirtualPrototypes/mgcvistatmp0bsJYm/main.vp.exe"/>
+<stringAttribute key="VPPlatform" value="Project_Vista_tutorial"/>
 <stringAttribute key="VPPlatformVersion" value=""/>
-<stringAttribute key="VPProjectName" value=""/>
-<stringAttribute key="VPSession" value=" ARM/m3/arm.x"/>
+<stringAttribute key="VPProjectName" value="M3"/>
+<stringAttribute key="VPSession" value=" Project_Vista_tutorial M3 main.vp.exe"/>
 <stringAttribute key="VPSimulationDir" value=""/>
 <stringAttribute key="VPVendor" value=""/>
-<stringAttribute key="VPWorkingDir" value="/home/jon/VistaModels/ARM/m3"/>
+<stringAttribute key="VPWorkingDir" value="/home/jon/VistaModels/ARM/m3/t"/>
 <stringAttribute key="com.codesourcery.target.CONFIGURATION_LAYER_NAME" value="_Configuration_1357755472593_2"/>
 <stringAttribute key="org.eclipse.cdt.debug.mi.core.CSL_QEMU_PROCESSOR" value="any"/>
 <stringAttribute key="org.eclipse.cdt.debug.mi.core.DEBUG_NAME" value="arm-none-eabi-gdb"/>
@@ -25,7 +25,7 @@
 <stringAttribute key="org.eclipse.cdt.debug.mi.core.GDB_INIT" value=".gdbinit"/>
 <stringAttribute key="org.eclipse.cdt.debug.mi.core.HOST" value="jm"/>
 <booleanAttribute key="org.eclipse.cdt.debug.mi.core.HOST.EXPLICIT" value="true"/>
-<booleanAttribute key="org.eclipse.cdt.debug.mi.core.LOAD_AUTOMATICALLY" value="true"/>
+<booleanAttribute key="org.eclipse.cdt.debug.mi.core.LOAD_AUTOMATICALLY" value="false"/>
 <stringAttribute key="org.eclipse.cdt.debug.mi.core.PORT" value="1234"/>
 <stringAttribute key="org.eclipse.cdt.debug.mi.core.POST_CONNECT_COMMANDS" value=""/>
 <stringAttribute key="org.eclipse.cdt.debug.mi.core.PRE_CONNECT_COMMANDS" value=""/>

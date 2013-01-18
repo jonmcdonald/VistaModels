@@ -24,8 +24,8 @@ add_port "irq_7" /TLM/protocols/signal slave 1 -bind_mode optional
 
 # === parameters ===
 add_parameter "control_page_address" 0 uint64 {}
-add_parameter "elf_image_file" {} string {}
-add_parameter "gdbstub_port" 0 uint32 {}
+add_parameter "elf_image_file" CBwork/demo/Debug/demo string {}
+add_parameter "gdbstub_port" 1234 uint32 {}
 add_parameter "instruction_latency" clock time {}
 add_parameter "instruction_energy" {5 nj} energy {}
 add_parameter "lt_synch_quantum" {50 us} time {}

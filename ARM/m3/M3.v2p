@@ -10,6 +10,7 @@ Files {
 	 } 
 	 Schematics {
 		{$PRJDIR/blocks_lib/simple.h}
+		{$PRJDIR/blocks_lib/Uart.h}
 	 } 
 	 Documentation {} 
 	 {Linked Binaries} {} 
@@ -21,11 +22,13 @@ Files {
 		{$PRJDIR/Models/SuperFIFO.mb}
 		{$PRJDIR/Models/m3Bus.mb}
 		{$PRJDIR/Models/extIn.mb}
-		{$PRJDIR/Models/sink.mb}
+		{$PRJDIR/Models/DriveEn.mb}
+		{$PRJDIR/Models/ahb2apb.mb}
 	 } 
 }
 Designs {{$PRJDIR/main.cpp}}
 Simulations /home/jon/work/arm/m3/M3/sim
+VirtualPrototypes m3vp.prj
 Folders {
 	 Sources {*.c *.cpp *.cc} 
 	 {Public Headers} *.h* 

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item value="com.codesourcery.arm_none_eabi.exe.debug.general.fpu.vfp" key="com.codesourcery.target.SGPPConfigWizardPage.FPU"/>
 	<item value="com.codesourcery.arm_none_eabi.exe.debug.general.board.qemu-micro" key="com.codesourcery.target.SGPPConfigWizardPage.Board"/>
+	<item value="com.codesourcery.arm_none_eabi.exe.debug.general.fpu.vfp" key="com.codesourcery.target.SGPPConfigWizardPage.FPU"/>
 	<item value="com.codesourcery.arm_none_eabi.exe.debug.general.memory.sim" key="com.codesourcery.target.SGPPConfigWizardPage.Profile"/>
 	<item value="com.codesourcery.arm_none_eabi.exe.debug.general.endian.little" key="com.codesourcery.target.SGPPConfigWizardPage.Endianness"/>
 	<item value="com.codesourcery.arm_none_eabi.exe.debug.general.cpu.cortexm3" key="com.codesourcery.target.SGPPConfigWizardPage.Processor"/>
-	<item value="com.codesourcery.arm_none_eabi.exe.debug.general.hosting.hosted" key="com.codesourcery.target.SGPPConfigWizardPage.Hosting"/>
 	<item value="com.codesourcery.arm_none_eabi.exe.debug.general.multilib.multilib-armv7_m" key="com.codesourcery.target.SGPPConfigWizardPage.Selected libraries"/>
+	<item value="com.codesourcery.arm_none_eabi.exe.debug.general.hosting.hosted" key="com.codesourcery.target.SGPPConfigWizardPage.Hosting"/>
 	<item value="com.codesourcery.arm_none_eabi.exe.debug.general.float-abi.float-abi-default" key="com.codesourcery.target.SGPPConfigWizardPage.Hard/Soft Float"/>
 	<item value="com.codesourcery.arm_none_eabi.exe.debug.general.thumb.thumb-default" key="com.codesourcery.target.SGPPConfigWizardPage.ARM/Thumb Mode"/>
 	<section name="defaultDebuggerPerTarget">
