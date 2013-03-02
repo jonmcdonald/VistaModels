@@ -1,0 +1,12 @@
+
+#include "uart.h"
+
+int main( void )
+{
+    print_UART0("Hello Bare Metal\n");
+    print_UART0("OK - Finishing\n");
+    while (1); // Never return
+    return 0;
+}
+
+

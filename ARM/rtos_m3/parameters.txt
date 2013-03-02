@@ -1,0 +1,13 @@
+tlm_timing_model = LT
+clock = 50 NS
+
+#gdbstub_port = 2345
+
+elf_image_file = CM3_RTOS/image.axf
+
+mem_low_base_address      = 0x0
+mem_low_size              = 0x20000
+top.flash.size_in_bytes   = 0x20000
+
+mem_high_base_address = 0x20000000
+
