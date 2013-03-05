@@ -1,0 +1,38 @@
+
+#include "uart.h"
+
+#include <CoOS.h>	
+
+#define TASK_STK_SIZE 128
+#define LCD_BLINK_PRI 0
+OS_STK   led_blink_Stk[TASK_STK_SIZE];
+
+void led_blink(void *pdata)
+{
+	for (;;) 
+	{
+		print_UART0("led_blink\n");
+		CoTickDelay (20);
+	}
+}
+
+int main( void )
+{
+    print_UART0("Initialising CoOS\n");
+	CoInitOS ( );
+
+    print_UART0("Creating Task\n");
+	CoCreateTask(led_blink,
+                 (void *)0,
+                 LCD_BLINK_PRI,
+                 &led_blink_Stk[TASK_STK_SIZE - 1],
+                 TASK_STK_SIZE);
+
+    print_UART0("Starting CoOS\n");
+	CoStartOS ();
+
+    print_UART0("CoOS FAIL\n");
+    while (1); // Never return
+	return 0;
+}
+

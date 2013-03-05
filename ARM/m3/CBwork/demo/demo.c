@@ -15,7 +15,9 @@
 #define FFFULL		0x3A
 #define FFEMPTY		0x05
 
-#define IOSINK          0x40000100
+#define UART            0x40000100
+#define UARTIBRD        (UART+0x24)
+#define UARTCR          (UART+0x30)
 #define IOCNT           0x40000200
 #define IOSTATUS        (IOCNT+0x4)
 
@@ -60,13 +62,27 @@ int GetNextPrimes(int n, int pcount) {
   return i;
 }
 
+void writeUart(char *s) {
+  char* ch = s;
+  while (*ch != NULL) {
+    hw_write(UART, *ch);
+    ch++;
+  }
+}
+
 int main () {
   int i;
   int c;
 
+  /* Initialize UART */
+  hw_write(UARTIBRD, 0x01);
+  hw_write(UARTCR, 0x0301);
+
   hw_write(IOSTATUS, 1);
   //printf ("Starting main\n");
   ffFull = false;
+
+  writeUart("Testing\n");
 
   i = GetNextPrimes(10000000, 100);
   hw_write(IOSTATUS, 2);

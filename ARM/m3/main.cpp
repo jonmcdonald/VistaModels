@@ -8,6 +8,8 @@ int sc_main(int argc, char *argv[]) {
 
   //sc_report_handler::set_actions("/IEEE_Std_1666/deprecated", SC_DO_NOTHING);
 
+  disable_T();
+
   TOP *inst_top_arm = new TOP("Top");
 
   clock_t TimeStart = clock ();

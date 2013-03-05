@@ -1,0 +1,139 @@
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#include "FreeRTOS.h"
+#include "task.h"
+
+#include "uart.h"
+#include "led.h"
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#define red_on_TIME		( ( portTickType ) 1000 / portTICK_RATE_MS )
+#define red_off_TIME		( ( portTickType ) 3000 / portTICK_RATE_MS )
+#define green_on_TIME		( ( portTickType ) 2000 / portTICK_RATE_MS )
+#define green_off_TIME		( ( portTickType ) 2000 / portTICK_RATE_MS )
+#define blue_on_TIME		( ( portTickType ) 3000 / portTICK_RATE_MS )
+#define blue_off_TIME		( ( portTickType ) 1000 / portTICK_RATE_MS )
+
+#define primeDelay		( ( portTickType ) 10 / portTICK_RATE_MS )
+
+#define prime_TASK_PRIORITY		( tskIDLE_PRIORITY + 1 )
+#define led_TASK_PRIORITY		( tskIDLE_PRIORITY + 2 )
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+char*
+itoa(int val, int base)
+{
+    static char buf[32] = {0};
+    int i = 30;
+    for(; val && i ; --i, val /= base) {
+        buf[i] = "0123456789abcdef"[val % base];
+    }
+    return &buf[i+1];
+}
+ 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+static void redTask(void* pvParameters)
+{
+    portTickType xLastExecutionTime;
+    xLastExecutionTime = xTaskGetTickCount();
+    for( ;; )
+    {
+        red_enable(1);
+        vTaskDelayUntil( &xLastExecutionTime, red_on_TIME );
+        red_enable(0);
+        vTaskDelayUntil( &xLastExecutionTime, red_off_TIME );
+    }
+}
+ 
+static void greenTask(void* pvParameters)
+{
+    portTickType xLastExecutionTime;
+    xLastExecutionTime = xTaskGetTickCount();
+    for( ;; )
+    {
+        green_enable(1);
+        vTaskDelayUntil( &xLastExecutionTime, green_on_TIME );
+        green_enable(0);
+        vTaskDelayUntil( &xLastExecutionTime, green_off_TIME );
+    }
+}
+ 
+static void blueTask(void* pvParameters)
+{
+    portTickType xLastExecutionTime;
+    xLastExecutionTime = xTaskGetTickCount();
+    for( ;; )
+    {
+        blue_enable(1);
+        vTaskDelayUntil( &xLastExecutionTime, blue_on_TIME );
+        blue_enable(0);
+        vTaskDelayUntil( &xLastExecutionTime, blue_off_TIME );
+    }
+}
+ 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+static void primeTask(void* pvParameters)
+{
+    int n=256, i = 3, count, c;
+ 
+    int* prime_store = pvPortMalloc(n * sizeof(int));
+    int* prime_put = prime_store;
+ 
+    print_UART0("Prime Numbers will be stored in SRAM: 0x");
+    print_UART0(itoa((int) &(*prime_store), 16));
+    print_UART0("\n");
+ 
+    print_UART0("2, ");
+    *prime_put++ = 2;
+ 
+    for ( count = 2 ; count <= n ;  )
+    {
+        vTaskDelay(primeDelay);
+        for ( c = 2 ; c <= i - 1 ; c++ )
+        {
+            if ( i%c == 0 )
+                break;
+        }
+        if ( c == i )
+        {
+            *prime_put++ = i;
+            print_UART0(itoa(i,10));
+            count++;
+            if(count <= n)
+            {
+                print_UART0(", ");
+            }
+        }
+        i++;
+    }
+    print_UART0("\nCompleted Prime Calculations\n");
+    vTaskSuspend( NULL );
+    for( ;; ) { }
+}
+ 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+int main( void )
+{
+    print_UART0("Initialising RTOS\n");
+    print_UART0("Creating Tasks\n");
+ 
+    xTaskCreate(redTask, "red", configMINIMAL_STACK_SIZE, NULL, led_TASK_PRIORITY, NULL );
+    xTaskCreate(greenTask, "green", configMINIMAL_STACK_SIZE, NULL, led_TASK_PRIORITY, NULL );
+    xTaskCreate(blueTask, "blue", configMINIMAL_STACK_SIZE, NULL, led_TASK_PRIORITY, NULL );
+    xTaskCreate(primeTask, "prime", 4000 + configMINIMAL_STACK_SIZE, NULL, led_TASK_PRIORITY, NULL );
+ 
+    print_UART0("Starting Scheduler\n");
+    vTaskStartScheduler();
+ 
+    print_UART0("Error, exiting\n");
+    while(1);
+    return 0;
+}
+ 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 

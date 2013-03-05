@@ -22,7 +22,7 @@ set_auto_parameter_default "dmi_enabled" true boolean {true false}
 set_auto_parameter_default "warning_level" WARNING string {
       "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
 set_auto_parameter_default "slave_pipeline_length" 2 uint32 {}
-set_auto_parameter_default "size_in_bytes" 1024 uint64 {}
+set_auto_parameter_default "size_in_bytes" 0x100000000 uint64 {}
 set_auto_parameter_default "endianness" host string {"host" "little" "big"}
 
 # === generics ===
