@@ -1,4 +1,5 @@
 #include "simple.h"
+#include "rijndael_tb.h"
 #include <time.h>
 
 #define TOP simple

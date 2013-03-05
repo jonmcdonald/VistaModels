@@ -1,0 +1,3420 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:02:48 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>ARM Cortex R5</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(192);
+    // -->
+ </script>
+ 
+
+<!--154,182,192-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPARM Cortex R5"></a>
+
+<a name="wp120772"></a><h4 class="pHeading3">
+  
+
+
+ARM Cortex R5
+  </h4>
+
+
+<!--ARMCortexR5-->
+
+<a name="MGCCIDPFeature List"></a>
+
+<a name="wp120773"></a><h5 class="pHeading4">
+  
+
+
+Feature List
+</h5>
+
+
+
+<a name="wp120774"></a>
+<ul><li class="LL1BulSolid">V7A ARM Instruction-Set </li></ul>
+<a name="wp120775"></a>
+<ul><li class="LL1BulSolid">Thumb-2 Instruction-Set </li></ul>
+<a name="wp120776"></a>
+<ul><li class="LL1BulSolid">Integrated level 1 D/I Caches </li></ul>
+<a name="wp120777"></a>
+<ul><li class="LL1BulSolid">V7A Memory Management Unit (MMU) </li></ul>
+<a name="wp120778"></a>
+<ul><li class="LL1BulSolid">VFPv3 Floating Point Unit </li></ul>
+<a name="wp120779"></a>
+<ul><li class="LL1BulSolid">PMU (Performance monitor unit) &#151;  cycles and bus cycles counters are implemented</li></ul>
+<a name="wp120780"></a>
+<ul><li class="LL1BulSolid">SIMD (Single Instruction Multiple Data) &#151;  integers of various widths operations and floating points</li></ul>
+<a name="wp120781"></a>
+<ul><li class="LL1BulSolid"> TCM</li></ul>
+<a name="wp120782"></a>
+<ul><li class="LL1BulSolid"> VIC Interface &#151;  Interface to VIC-PL192</li></ul>
+<a name="wp122019"></a>
+<ul><li class="LL1BulSolid"> Level 2 Cache Interface</li></ul>
+<a name="wp122025"></a>
+<ul><li class="LL1BulSolid">Snoop Control Unit</li></ul>
+<a name="wp122026"></a>
+<ul><li class="LL1BulSolid">Accelerator Coherence Port</li></ul><a name="MGCCIDPInterface Ports"></a>
+
+<a name="wp122021"></a><h5 class="pHeading4">
+  
+
+
+Interface Ports
+</h5>
+
+
+
+<a name="wp120785"></a>
+<ul><li class="LL1BulSolid">axi_master of BITNESS width</li></ul>
+<a name="wp123413"></a>
+<ul><li class="LL1BulSolid">axi_peripheral_master &#151;  32 bit wide; for peripherals using AXI3 protocol</li></ul>
+<a name="wp123424"></a>
+<ul><li class="LL1BulSolid">ahb_lite_master &#151;  32 bit wide, for peripherals using AHB Lite protocol.</li></ul>
+<a name="wp123405"></a>
+<ul><li class="LL1BulSolid">acp &#151;  Snoop ACP input port; bitwidth wide</li></ul>
+<a name="wp120789"></a>
+<ul><li class="LL1BulSolid">n_irq_&lt;k&gt; &#151;  Legacy IRQ input; one per CPU- Interrupt controller can be configured to pass it to the CPU core; active low</li></ul>
+<a name="wp120790"></a>
+<ul><li class="LL1BulSolid">n_fiq_&lt;k&gt; &#151;  Legacy FIQ input; one per CPU- Interrupt controller can be configured to pass it to the CPU core; active low</li></ul>
+<a name="wp120791"></a>
+<ul><li class="LL1BulSolid">n_reset_&lt;k&gt; &#151;  CPU reset inputs; one per CPU; active low</li></ul>
+<a name="wp120792"></a>
+<ul><li class="LL1BulSolid">n_pmu_irq_&lt;k&gt; &#151;  IRQ output of CPUs for PMU; active low</li></ul>
+<a name="wp120793"></a>
+<ul><li class="LL1BulSolid">irq_addr_&lt;k&gt; &#151;  32 bit wide input from VIC of CPUs that holds the ISR address to jump to when interrupt happens</li></ul>
+<a name="wp120794"></a>
+<ul><li class="LL1BulSolid">irq_addr_v_&lt;k&gt; &#151;  input signal to CPUs from VIC that indicates the validity of the address in irq_addr_&lt;k&gt;</li></ul>
+<a name="wp120795"></a>
+<ul><li class="LL1BulSolid">irq_ack_&lt;k&gt; &#151;  output signal from CPUs to VIC indicating whether core acknowledged ISR jump address; active high</li></ul><a name="MGCCIDPCPU Specific Parameters"></a>
+
+<a name="wp120800"></a><h5 class="pHeading4">
+  
+
+
+CPU Specific Parameters
+</h5>
+
+
+
+<a name="wp120801"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">dcache_size</span> &#151;  Indicates L1 data cache size. Default is 32K.</li></ul>
+<a name="wp120802"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">icache_size</span> &#151;  Indicates L1 instruction cache size. Default is 32K.</li></ul>
+<a name="wp120803"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">endianness</span> &#151;  Propagated for all components. Default is <span style=" font-style: italic;">little</span>.</li></ul>
+<a name="wp120804"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">high_vec </span>&#151;  Specifies location of interrupt handle routines: 0 - low addresses; 1 - high addresses. Default is 0.</li></ul>
+<a name="wp120805"></a>
+<ul><li class="LL1BulSolid">All common core parameters are available under <span style=" font-style: italic;">core.*</span></li></ul>
+<a name="wp120806"></a>
+<ul><li class="LL1BulSolid">All common cache parameters are available under <span style=" font-style: italic;">l1_dcache.*</span> and <span style=" font-style: italic;">l1_icache.*</span>.</li></ul>
+<a name="wp120807"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">arm_v7_poc</span> &#151;  Contains the cache level defined as <span style=" font-style: italic;">Point of Coherency</span> (PoC) by the ARM V7 specification. Used, in most cases, by the MVA utility as a final level in which to make cache commands (invalidate and clean). Default value is 2. </li></ul>
+<a name="wp120808"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">arm_v7_pou</span> &#151;  Contains the cache level defined as <span style=" font-style: italic;">Point of Unification</span> (PoU) by the ARM V7 specification. Used as the cache level starting point for operation commands to consider the given cache as unified. Default value is 1.</li></ul>
+<a name="wp163225"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">pmu_implemented_counters &#151;  </span>Indicates which counters are implemented in the PMU.</li></ul>
+<a name="wp163226"></a><p class="pL1Body">Each bit stands for a different counter. The pmu_implemented_counters value is assigned an AND operator with an internal PMU register. The results show which counters the PMU knows are implemented. Value range varies from 0 to 0xFFFFFFFF.</p>
+
+<a name="wp163229"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">cluster_id </span>&#151;  Specifies Cluster ID value available in the SMP Affinity register.</li></ul>
+<a name="wp122137"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">mpu_number_regions</span> &#151;  Contains the number of memory regions in the MPU: 0, 12 or 16. A 0 indicates the MPU is inactive. Default value is 12.</li></ul>
+<a name="wp122138"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">atcm_size</span> &#151;  Indicates size of the ATCM memory size in bytes if one is applicable. The size must be an integer that is a power of two. You can configure the TCM memory to be of zero size to disable the TCM functionality. Only one of the following values is permitted: 0, 4K, 8K, ... 512K, 1M, 2M, 4M, 8M. Default is 32K.</li></ul>
+<a name="wp122139"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">btcm_size</span> &#151;  Indicates size of the BTCM memory in bytes if one is applicable. The size must be an integer that is a power of two. When there are 2, the actual size is btcm_size * 2. You can configure the TCM memory to be of zero size to disable the TCM functionality. Only one of the following values is permitted: 0, 4K, 8K, ... 512K, 1M, 2M, 4M, 8M. Default is 32K.</li></ul>
+<a name="wp120813"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">tcm_base</span> &#151;  Indicates the base address if the TCM is not mapped to address 0; either ATCM or BTCM are mapped to address 0 and the other is mapped to tcm_base. Default value is 0x40000000.</li></ul>
+<a name="wp120814"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">initrama</span> &#151;  Indicates whether ATCM should be initialized and enabled at reset. Value is a Boolean (0 - false, 1- true). Default value is false (0).</li></ul>
+<a name="wp120815"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">initramb</span> &#151;  Indicates whether BTCM should be initialized and enabled at reset. Value is a Boolean (0 - false, 1- true). Default value is false (0).</li></ul>
+<a name="wp120816"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">loczrama</span> &#151;  Indicates whether ATCM is mapped to zero (and BTCM is mapped to tcm_base) on reset or not. Value is Boolean(0 - false, 1- true). Default value is false (ATCM is mapped to tcm_base and BTCM is mapped to 0).</li></ul>
+<a name="wp122180"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">teinit</span> &#151;  Specifies whether the core should start working in thumb mode from reset or not. Range is Boolean (0 - false, 1- true). Default value is 0 (false).</li></ul>
+<a name="wp122188"></a>
+<ul><li class="LL1BulSolid">axi_periph_base &#151;  Indicates the base address required for AXI peripherals that are to be connected to the axi_peripheral_master port. </li></ul>
+<a name="wp122189"></a>
+<ul><li class="LL1BulSolid">axi_periph_size &#151;  Indicates the memory size required for AXI peripherals that are to be connected to the axi_peripheral_master port. A 0 indicates the port is inactive. Only one of the following values is permitted: 0, 4K, 8K, ... 512M, 1G, 2G, 4G. Default is 0.</li></ul>
+<a name="wp122190"></a>
+<ul><li class="LL1BulSolid">initppx &#151;  Enable bit for the AXI master peripheral port.</li></ul>
+<a name="wp122191"></a>
+<ul><li class="LL1BulSolid">ahb_lite_base &#151;  Indicates the base address required for AHB Lite peripherals that are to be connected to the ahb_lite_master port. </li></ul>
+<a name="wp122192"></a>
+<ul><li class="LL1BulSolid">ahb_lite_size - Indicates the memory size required for AHB Lite peripherals that are to be connected to the ahb_lite_master port. A 0 indicates the port is inactive. Only one of the following values is permitted: 0, 4K, 8K, ... 512M, 1G, 2G, 4G. Default is 0.</li></ul>
+<a name="wp122193"></a>
+<ul><li class="LL1BulSolid">initpph - Enable bit for the AHB Lite peripheral port.</li></ul><a name="MGCCIDPCP15 Registers"></a>
+
+<a name="wp122184"></a><h5 class="pHeading4">
+  
+
+
+CP15 Registers
+</h5>
+
+
+
+<a name="wp153406"></a><p class="pBodyRelative">
+
+</p>
+<div id="TableDivQz"></div>
+<div align="center">
+
+
+<a name="wp153408"></a><p class="pTableTitle">
+Table 8&#8209;23. 
+
+
+ARM Cortex R5 - CP15 Registers&#160;
+</p>
+
+
+
+<table border="1" cellpadding="5" cellspacing="0" id="wp153408table120823">
+  <tr bgcolor="#CCCCCC"  align="center" valign="middle">
+    <th>
+
+<a name="wp120825"></a><p class="pTableHeading">
+CRn
+</p>
+</th>
+
+    <th>
+
+<a name="wp120827"></a><p class="pTableHeading">
+OP1
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp120829"></a><p class="pTableHeading">
+CRm
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp120831"></a><p class="pTableHeading">
+OP2
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp120833"></a><p class="pTableHeading">
+Register or operation
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp120835"></a><p class="pTableHeading">
+Type
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp120837"></a><p class="pTableHeading">
+Reset value
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp120839"></a><p class="pTableHeading">
+Supported Yes/No
+</p>
+
+
+</th>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="21">
+
+<a name="wp120841"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="19">
+
+<a name="wp120843"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="5">
+
+<a name="wp120845"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp120847"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp120849"></a><p class="pTableCell">
+Main ID 
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="5">
+
+<a name="wp120851"></a><p class="pTableCell">
+RO
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp120853"></a><p class="pTableCell">
+0x411fc145
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="5">
+
+<a name="wp120855"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp120863"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp120865"></a><p class="pTableCell">
+Cache Type
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp120869"></a><p class="pTableCell">
+0x83338003
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp120879"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp120881"></a><p class="pTableCell">
+TCM Type
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp120885"></a><p class="pTableCell">
+0x00010001
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp120895"></a><p class="pTableCell">
+3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp120897"></a><p class="pTableCell">
+TLB Type
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp120911"></a><p class="pTableCell">
+5
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp120913"></a><p class="pTableCell">
+Multiprocessor Affinity
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="8">
+
+<a name="wp120925"></a><p class="pTableCell">
+c1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp120927"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp120929"></a><p class="pTableCell">
+Processor Feature 0
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="8">
+
+<a name="wp120931"></a><p class="pTableCell">
+RO
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp120933"></a><p class="pTableCell">
+0x00000131
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="8">
+
+<a name="wp120935"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp120943"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp120945"></a><p class="pTableCell">
+Processor Feature 1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp120949"></a><p class="pTableCell">
+0x00000001
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp120959"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp120961"></a><p class="pTableCell">
+Debug Feature 0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp120965"></a><p class="pTableCell">
+0x00010400
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp120975"></a><p class="pTableCell">
+3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp120977"></a><p class="pTableCell">
+Auxiliary Feature 0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp120981"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp120991"></a><p class="pTableCell">
+4
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp120993"></a><p class="pTableCell">
+Memory Model Feature 0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp120997"></a><p class="pTableCell">
+0x00210030
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121007"></a><p class="pTableCell">
+5
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121009"></a><p class="pTableCell">
+Memory Model Feature 1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121013"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121023"></a><p class="pTableCell">
+6
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121025"></a><p class="pTableCell">
+Memory Model Feature 2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121029"></a><p class="pTableCell">
+0x01200000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121039"></a><p class="pTableCell">
+7
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121041"></a><p class="pTableCell">
+Memory Model Feature 3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121045"></a><p class="pTableCell">
+0x00000211
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="6">
+
+<a name="wp121053"></a><p class="pTableCell">
+c2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121055"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121057"></a><p class="pTableCell">
+Instruction Set Attribute 0
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="6">
+
+<a name="wp121059"></a><p class="pTableCell">
+RO
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121061"></a><p class="pTableCell">
+0x01101111
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="6">
+
+<a name="wp121063"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121071"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121073"></a><p class="pTableCell">
+Instruction Set Attribute 1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121077"></a><p class="pTableCell">
+0x13112111
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121087"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121089"></a><p class="pTableCell">
+Instruction Set Attribute 2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121093"></a><p class="pTableCell">
+0x21232131
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121103"></a><p class="pTableCell">
+3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121105"></a><p class="pTableCell">
+Instruction Set Attribute 3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121109"></a><p class="pTableCell">
+0x11112131
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121119"></a><p class="pTableCell">
+4
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121121"></a><p class="pTableCell">
+Instruction Set Attribute 4
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121125"></a><p class="pTableCell">
+0x00010142
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121135"></a><p class="pTableCell">
+5
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121137"></a><p class="pTableCell">
+Instruction Set Attribute 5
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121141"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="2">
+
+<a name="wp121147"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121149"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121151"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121153"></a><p class="pTableCell">
+Current Cache Size ID
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121155"></a><p class="pTableCell">
+RO
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121159"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121167"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121169"></a><p class="pTableCell">
+Current Cache Level ID
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="8" rowspan="1">
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="3">
+
+<a name="wp121193"></a><p class="pTableCell">
+c1
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="3">
+
+<a name="wp121195"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="3">
+
+<a name="wp121197"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121199"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121201"></a><p class="pTableCell">
+System Control
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="3">
+
+<a name="wp121203"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121205"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="3">
+
+<a name="wp121207"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121215"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121217"></a><p class="pTableCell">
+Auxiliary Control
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121221"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121231"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121233"></a><p class="pTableCell">
+Coprocessor Access 
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121237"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="8" rowspan="1">
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="2">
+
+<a name="wp121257"></a><p class="pTableCell">
+c5
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121259"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121261"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121263"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121265"></a><p class="pTableCell">
+Data Fault Status
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121267"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121271"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121279"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121281"></a><p class="pTableCell">
+Instruction Fault Status
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="8" rowspan="1">
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="6">
+
+<a name="wp121305"></a><p class="pTableCell">
+c6
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="6">
+
+<a name="wp121307"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121309"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121311"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121313"></a><p class="pTableCell">
+Data Fault Address
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121315"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121319"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121327"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121329"></a><p class="pTableCell">
+Instruction Fault Address
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="3">
+
+<a name="wp121341"></a><p class="pTableCell">
+c1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121343"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121345"></a><p class="pTableCell">
+MPU Region Base Address
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="3">
+
+<a name="wp121347"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121349"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="3">
+
+<a name="wp121351"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121359"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121361"></a><p class="pTableCell">
+MPU Region Size and Enable
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121365"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121375"></a><p class="pTableCell">
+4
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121377"></a><p class="pTableCell">
+MPU Region Access Control
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121381"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121389"></a><p class="pTableCell">
+c2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121391"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121393"></a><p class="pTableCell">
+MPU Memory Region Number
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121395"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121397"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121399"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="8" rowspan="1">
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="11">
+
+<a name="wp121417"></a><p class="pTableCell">
+c7
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="11">
+
+<a name="wp121419"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121421"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121423"></a><p class="pTableCell">
+0-3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121425"></a><p class="pTableCell">
+Reserved
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121427"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121431"></a><p class="pTableCell">
+No
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121439"></a><p class="pTableCell">
+4
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121441"></a><p class="pTableCell">
+NOP (WFI)
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="2">
+
+<a name="wp121453"></a><p class="pTableCell">
+c5
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121455"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121457"></a><p class="pTableCell">
+Invalidate entire Instruction Cache
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121459"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121463"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121471"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121473"></a><p class="pTableCell">
+Invalidate Instruction Cache operations by Physical Address to PoU
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="2">
+
+<a name="wp121485"></a><p class="pTableCell">
+c6
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121487"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121489"></a><p class="pTableCell">
+Invalidate data cache line by Physical Address
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121491"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121495"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121503"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121505"></a><p class="pTableCell">
+Invalidate data cache line by Set/Way
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="2">
+
+<a name="wp121517"></a><p class="pTableCell">
+c10
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121519"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121521"></a><p class="pTableCell">
+Clean data cache line by Physical Address
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121523"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121527"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121535"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121537"></a><p class="pTableCell">
+Clean data cache line by Set/Way
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121549"></a><p class="pTableCell">
+c11
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121551"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121553"></a><p class="pTableCell">
+Clean data cache line by Physical Address to PoU
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121555"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td>
+
+
+<a name="wp121559"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="2">
+
+<a name="wp121565"></a><p class="pTableCell">
+c14
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121567"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121569"></a><p class="pTableCell">
+Clean and invalidate data cache line by physical address to PoU
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121571"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121575"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121583"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121585"></a><p class="pTableCell">
+Clean and invalidate data cache line by Set/Way
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="8" rowspan="1">
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="15">
+
+<a name="wp121609"></a><p class="pTableCell">
+c9
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="15">
+
+<a name="wp121611"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121613"></a><p class="pTableCell">
+c1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121615"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121617"></a><p class="pTableCell">
+BTCM Region
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121619"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121623"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121631"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121633"></a><p class="pTableCell">
+ATCM Region
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121645"></a><p class="pTableCell">
+c2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121647"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121649"></a><p class="pTableCell">
+TCM Selection
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121651"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121653"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121655"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="6">
+
+<a name="wp121661"></a><p class="pTableCell">
+c12
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121663"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121665"></a><p class="pTableCell">
+Performance Monitor Control
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="4">
+
+<a name="wp121667"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121669"></a><p class="pTableCell">
+0x41093000
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="6">
+
+<a name="wp121671"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121679"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121681"></a><p class="pTableCell">
+Count Enable Set
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121685"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121695"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121697"></a><p class="pTableCell">
+Count Enable Clear
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121701"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121711"></a><p class="pTableCell">
+3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121713"></a><p class="pTableCell">
+Overflow Flag Status
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121727"></a><p class="pTableCell">
+4
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121729"></a><p class="pTableCell">
+Software Increment
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121731"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121743"></a><p class="pTableCell">
+5
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121745"></a><p class="pTableCell">
+Performance Counter Selection
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121747"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121749"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="3">
+
+<a name="wp121757"></a><p class="pTableCell">
+c13
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121759"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121761"></a><p class="pTableCell">
+Cycle Count
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="3">
+
+<a name="wp121763"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td colspan="1" rowspan="3">
+
+<a name="wp121767"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121775"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121777"></a><p class="pTableCell">
+Event Type Selection
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121791"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121793"></a><p class="pTableCell">
+Event Count
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="3">
+
+<a name="wp121805"></a><p class="pTableCell">
+c14
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121807"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121809"></a><p class="pTableCell">
+User Enable
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="3">
+
+<a name="wp121811"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121813"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="3">
+
+<a name="wp121815"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121823"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121825"></a><p class="pTableCell">
+Interrupt Enable Set
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121829"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121839"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121841"></a><p class="pTableCell">
+Interrupt Enable Clear
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121845"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="8" rowspan="1">
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121865"></a><p class="pTableCell">
+c11
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td>
+
+
+<a name="wp121869"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121871"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121873"></a><p class="pTableCell">
+Slave Port Control
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121875"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121877"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121879"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="8" rowspan="1">
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="5">
+
+<a name="wp121897"></a><p class="pTableCell">
+c13
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="5">
+
+<a name="wp121899"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="5">
+
+<a name="wp121901"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121903"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121905"></a><p class="pTableCell">
+FCSE PID
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="5">
+
+<a name="wp121907"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121909"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="5">
+
+<a name="wp121911"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121919"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121921"></a><p class="pTableCell">
+Context ID
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121925"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121935"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121937"></a><p class="pTableCell">
+User read/write Thread and Process ID
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121941"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121951"></a><p class="pTableCell">
+3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121953"></a><p class="pTableCell">
+User read- only Thread and Process ID
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121957"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp121967"></a><p class="pTableCell">
+4
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121969"></a><p class="pTableCell">
+Privileged only Thread and Process ID
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121973"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="8" rowspan="1">
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="2">
+
+<a name="wp121993"></a><p class="pTableCell">
+c15
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121995"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp121997"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp121999"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp122001"></a><p class="pTableCell">
+Secondary Auxiliary Control
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp122003"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td>
+
+
+<a name="wp122007"></a><p class="pTableCell">
+No
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp122297"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp122311"></a><p class="pTableCell">
+Normal AXI Peripheral Interface Region
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp122301"></a><p class="pTableCell">
+RW<a href='javascript:oT("CRF","Chapter_Customizing_Gen_Models_new39.html#wp122332");'><span class="cFootnote">1</span></a>
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td>
+
+
+<a name="wp122305"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="2">
+
+<a name="wp122275"></a><p class="pTableCell">
+c15
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp122277"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp122279"></a><p class="pTableCell">
+c1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp122281"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp122344"></a><p class="pTableCell">
+Virtual AXI Peripheral Interface Region
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp122285"></a><p class="pTableCell">
+RW<a href='javascript:oT("CRF","Chapter_Customizing_Gen_Models_new39.html#wp122332");'><span style=" font-size: 8pt; vertical-align: super;">1</span></a>
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td>
+
+
+<a name="wp122289"></a><p class="pTableCell">
+No
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp122265"></a><p class="pTableCell">
+3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp122267"></a><p class="pTableCell">
+AHB Peripheral Interface Region
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td>
+
+
+<a name="wp122273"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+
+</table>
+
+</div>
+<div id='EndTable'> </div>
+
+<a name="wp122332"></a><p class="pTableFootnote">
+<a href='javascript:oT("CRF","Chapter_Customizing_Gen_Models_new39.html#wp122301");'><span class="cFootnote">1</span></a>Only Enable bit is RW; rest of fields are RO.
+</p>
+
+
+<p class="pBodyRelative">
+<br clear='left' class='Blank4Table' />
+
+
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "ARM Cortex R5";
+   PDFLinkTitle = "ARM.Cortex.R5"
+   ThisTopic = "ARMCoretexR599CP15Registers";
+   CurrentFile = "Chapter_Customizing_Gen_Models_new39.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

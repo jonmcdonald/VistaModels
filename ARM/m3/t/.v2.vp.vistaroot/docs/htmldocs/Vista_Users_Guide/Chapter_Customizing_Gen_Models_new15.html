@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:02:48 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Timer</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(168);
+    // -->
+ </script>
+ 
+
+<!--154,155,168-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPTimer"></a>
+
+<a name="wp19133"></a><h4 class="pHeading3">
+  
+
+
+Timer
+  </h4>
+
+
+<!--Timer-->
+
+
+<a name="wp19134"></a><p class="pBody">
+This component raises an Interrupt in a periodic manner.
+</p>
+
+
+<a name="wp19135"></a><p class="pBody">
+Ports provided for this model type: 
+</p>
+
+
+<a name="wp19136"></a>
+<ul><li class="LL1BulSolid">One <span style=" font-weight: bold;">bus</span> (ahb_slave) port through which the Timer is programmed</li></ul>
+<a name="wp19137"></a>
+<ul><li class="LL1BulSolid">One <span style=" font-weight: bold;">interrupt</span> (signal) port for the generated interrupt.</li></ul>
+<a name="wp19138"></a><p class="pBody">
+Parameters include:
+</p>
+
+
+<a name="wp19139"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Clock period</span>: the number of picosec per the period of the clock used by the timer to compute the timer.</li></ul>
+<a name="wp19140"></a><p class="pBody">
+Via the registers you can set:
+</p>
+
+
+<a name="wp19141"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">clock_count</span>: the number of clocks between the interrupts</li></ul>
+<a name="wp19142"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">int_count</span>: number of interrupts to raise</li></ul>
+<a name="wp19143"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">clear_irq</span>: The interrupt is cleared when this register is written (the interrupt is not automatically cleared after a time period)</li></ul>
+<a name="wp19144"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">restart</span>: this triggers a restart of the complete sequence of interrupts</li></ul>
+<a name="wp19145"></a><p class="pBody">
+The following is an example of a code segment that programs a timer:
+</p>
+
+
+<a name="wp19146"></a><pre class="pCodeIndent">
+               //Initialize the timer</pre>
+
+<a name="wp19147"></a><pre class="pCodeIndent">
+               //Generate an interrupt each 100 clocks</pre>
+
+<a name="wp19148"></a><pre class="pCodeIndent">
+               cpu_master_write ( timerAddress+clockCountOffset, 100 ) ; </pre>
+
+<a name="wp19149"></a><pre class="pCodeIndent">
+               //Generate 1000 interrupts</pre>
+
+<a name="wp19150"></a><pre class="pCodeIndent">
+               cpu_master_write ( timerAddress+intCountOffset, 1000 ) ;</pre>
+
+<a name="wp19151"></a><pre class="pCodeIndent">
+               //and start it - 1000 interrupts will be sent</pre>
+
+<a name="wp19152"></a><pre class="pCodeIndent">
+               //the time between the interrupts will be 100*Clock_period<br />           </pre>
+
+<a name="wp19153"></a><pre class="pCodeIndent">
+               cpu_master_write ( timerAddress+restartOffset, 1 ) ;<br />               ......<br />               //When an interrupt is recievd it should be cleared by:</pre>
+
+<a name="wp19154"></a><pre class="pCodeIndent">
+               cpu_master_write ( timerAddress+ clearOffset, 1 ) ;</pre>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Timer";
+   PDFLinkTitle = "Timer"
+   ThisTopic = "Timer";
+   CurrentFile = "Chapter_Customizing_Gen_Models_new15.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

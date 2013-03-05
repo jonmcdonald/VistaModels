@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:02:48 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>VLAN - Virtual LAN</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(206);
+    // -->
+ </script>
+ 
+
+<!--154,205,206-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPVLAN - Virtual LAN"></a>
+
+<a name="wp94550"></a><h4 class="pHeading3">
+  
+
+
+VLAN - Virtual LAN
+  </h4>
+
+
+<!--VLANVirtualLAN-->
+
+
+<a name="wp94552"></a><p class="pBody">
+The VLAN (Virtual Local Area Network) package is used to enable TLM models to communicate with host physical network. From a structural point of view, VLAN, is composed as a LAN (local network) having a number of clients able to send/receive physical ETH packets to/from one another. Each client can see all the network traffic on the VLAN (just like in a real LAN) and choose to answer some of them (send answer packets into the VLAN). The following clients are available:
+</p>
+
+
+<a name="wp94554"></a>
+<ul><li class="LL1BulSolid">Modeled network card(s).</li></ul>
+<a name="wp94555"></a>
+<ul><li class="LL1BulSolid">ARP server &#151;  answers to ARP requests according to the local configuration. Never sends physical ARP.</li></ul>
+<a name="wp94556"></a>
+<ul><li class="LL1BulSolid">IP proxy client side &#151;  catches and parses IP packets and sends IP packet payloads over the host client sockets.</li></ul>
+<a name="wp94557"></a>
+<ul><li class="LL1BulSolid">IP proxy server side + NAT &#151;  opens N server sockets on predefined ports, translates the IP addresses and port numbers according to a table, and injects the IP packets into the VLAN.</li></ul>
+<a name="wp94558"></a>
+<ul><li class="LL1BulSolid">ICPM server for a limited number of IPs &#151;  answers to local ping requests.</li></ul>
+<a name="wp94559"></a>
+<ul><li class="LL1BulSolid">DNS proxy &#151;  catches DNS requests and answers using real nslookup.</li></ul>
+<a name="wp94560"></a>
+<ul><li class="LL1BulSolid">DHCP server</li></ul>
+<a name="wp94562"></a><p class="pBody">
+The VLAN API can be found in the <span style=" font-style: italic;">mb/physical_io/vlan_client.h</span> file. See Doxygen documentation for more information.
+</p>
+
+
+<a name="wp94564"></a><p class="pBody">
+The following parameters (<span style=" font-style: italic;">parameters.txt</span>) are available. All VLAN parameters are global parameters.
+</p>
+
+
+<a name="wp94566"></a>
+<ul><li class="LL1BulSolid">IP address of the host computer as visible from the VP</li></ul>
+<a name="wp94702"></a><pre class="pCodeIndent">
+           vlan:host (default &quot;10.0.2.2&quot;)</pre>
+
+<a name="wp94711"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp94715"></a>
+<ul><li class="LL1BulSolid">Name of host computer as visible from the VP</li></ul>
+<a name="wp94569"></a><pre class="pCodeIndent">
+           vlan:hostname (default &quot;host&quot;)</pre>
+
+<a name="wp94571"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp94573"></a>
+<ul><li class="LL1BulSolid">First address assigned by the DHCP server</li></ul>
+<a name="wp94773"></a><pre class="pCodeIndent">
+           vlan:dhcpstart (default &quot;10.0.2.15&quot;)</pre>
+
+<a name="wp94776"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp94734"></a><p class="pL1Body">This address is assigned to the first NIC. The second NIC address is assigned 10.0.2.16, and so forth.</p>
+
+<a name="wp94577"></a>
+<ul><li class="LL1BulSolid">DNS server visible from the VP</li></ul>
+<a name="wp94766"></a><pre class="pCodeIndent">
+           vlan:dns (default &quot;10.0.2.3&quot;)</pre>
+
+<a name="wp94767"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp94784"></a>
+<ul><li class="LL1BulSolid">Network IP of the VLAN; NetMask is computed from this value.</li></ul>
+<a name="wp94780"></a><pre class="pCodeIndent">
+           vlan:net (default &quot;10.0.2.0&quot;)</pre>
+
+<a name="wp94581"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp94801"></a>
+<ul><li class="LL1BulSolid">First MAC address assigned to the first NIC; additional NIC-s are assigned subsequent MAC addresses.</li></ul>
+<a name="wp94797"></a><pre class="pCodeIndent">
+           vlan:macstart (default &quot;52:54:00:12:34:56&quot;)</pre>
+
+<a name="wp94585"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp94586"></a>
+<ul><li class="LL1BulSolid">Table of TCP Network Address Port Translation</li></ul>
+<a name="wp94820"></a><pre class="pCodeIndent">
+           vlan:tcp_napt (default &quot;&quot;)</pre>
+
+<a name="wp94843"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp94587"></a><p class="pL1Body">The value consists of tokens separated by a semi-colon (;) or comma (,). Each token has the following form: </p>
+
+<a name="wp94854"></a><p class="pL2Body">[IP]:Port =&gt; [IP]:Port</p>
+
+<a name="wp94855"></a><p class="pL1Body">The left side defines the source (host) IP and Port. The right side defines the VP IP and Port. If the IPs are omitted, then <span style=" font-style: italic;">any IP</span> on the host or VP is used. </p>
+
+<a name="wp94882"></a><p class="pL1Body">For example, to forward echo server requests from host port 2007, the following line should be used:</p>
+
+<a name="wp94593"></a><pre class="pCodeIndent">
+           vlan:tcp_napt = :2007 =&gt; :7</pre>
+
+<a name="wp94594"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp94889"></a>
+<ul><li class="LL1BulSolid">Table of UDP Network Address Port Translation</li></ul>
+<a name="wp94595"></a><pre class="pCodeIndent">
+           vlan:udp_napt (default &quot;&quot;)</pre>
+
+<a name="wp94904"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp94906"></a><p class="pL1Body">The value consists of tokens separated by a semi-colon (;) or comma (,). Each token has the following form: </p>
+
+<a name="wp94907"></a><p class="pL2Body">[IP]:Port =&gt; [IP]:Port</p>
+
+<a name="wp94908"></a><p class="pL1Body">The left side defines the source (host) IP and Port. The right side defines the VP IP and Port. If the IPs are omitted, then <span style=" font-style: italic;">any IP</span> on the host or VP is used. </p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "VLAN \- Virtual LAN";
+   PDFLinkTitle = "VLAN..Virtual.LAN"
+   ThisTopic = "VLANVirtualLAN";
+   CurrentFile = "Chapter_Customizing_Gen_Models_new53.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

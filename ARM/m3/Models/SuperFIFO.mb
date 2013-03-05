@@ -43,6 +43,7 @@ state_power 77 -condition_pairs {status 0xA}
 state_power 120 -condition_pairs {status 0x1A}
 state_power 201 -condition_pairs {status 0x3A}
 set_nominal_clock 100
+declare_variable Count -type int32
 
 # === generate options ===
 set_generate_kind "pvt" ;# should be one of: model|pv|pvt

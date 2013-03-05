@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:07:38 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>vista_generate_library</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(491);
+    // -->
+ </script>
+ 
+
+<!--416,486,491-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPvista_generate_library"></a>
+
+<a name="wp16927"></a><p class="pzCmdFunc">
+
+
+
+vista_generate_library
+</p>
+
+
+
+
+<a name="wp16928"></a><p class="pzShortDesc">
+This script performs a batch generation of graphical libraries from Vista project modules, so that they can be integrated in Visual Elite. (For more details, see the <a href='javascript:oT("CRF","appendix_ve_libraries1.html");'>&quot;Vista and Visual Elite&quot;</a>.)
+</p>
+
+
+<a name="wp16935"></a><h6 class="pzHeading">
+  Syntax
+  </h6>
+
+
+<a name="wp16936"></a><p class="pzUsage">
+<span style=" font-weight: bold;">vista_generate_library</span> [-wd <span class="cOptRpl">working_directory</span>] <span class="cReqRpl">project_name</span> [-lib <span class="cOptRpl">library_path</span>]<br />[{-all_modules | -modules} <span class="cOptRpl">module_1, module_2</span>...<span class="cOptRpl">module_n</span> | -modules_file <span class="cOptRpl">file_name</span>]
+</p>
+
+
+<a name="wp16937"></a><h6 class="pzHeading">
+  Arguments
+  </h6>
+
+
+<a name="wp16938"></a><ul class="ulSmSpace"><li class="LLzptArg">-wd <span class="cOptRpl">working_directory</span> </li></ul>
+
+
+<a name="wp18046"></a><div class="LLzArgDesc">Specifies an existing working directory. (The default working directory is the one that was used when Vista was last invoked in the interactive mode after changes were made to the specified project.) </div>
+<a name="wp107760"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">project_name</span> </li></ul>
+
+
+<a name="wp107770"></a><div class="LLzArgDesc">Name of a Vista project.</div>
+<a name="wp18030"></a><ul class="ulSmSpace"><li class="LLzptArg">-lib <span class="cOptRpl">library_path</span> </li></ul>
+
+
+<a name="wp18047"></a><div class="LLzArgDesc">Specifies the path of the Visual Elite graphical library to which the modules will be generated.</div>
+<a name="wp18031"></a><ul class="ulSmSpace"><li class="LLzptArg">{-all_modules | -modules} <span class="cOptRpl">module_1, module_2</span>...<span class="cOptRpl">module_n</span> | -modules_file <span class="cOptRpl">file_name</span></li></ul>
+
+<a name="wp18032"></a><p class="pzptArg1">
+-all_modules &#151;  generates a graphical component for each of the modules belonging to the project.
+</p>
+
+
+<a name="wp16942"></a><p class="pzptArg1">
+-modules &#151;  specifies the path to a previously prepared text file that contains the names of the modules to be converted to graphical components.
+</p>
+
+
+<a name="wp16943"></a><p class="pzptArg1">
+-modules_file &#151; list that contains all of the modules that you selected in step 1 of this procedure.
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "vista_generate_library";
+   PDFLinkTitle = "vistageneratelibrary"
+   ThisTopic = "vistageneratelibrary";
+   CurrentFile = "Chapter_Command_Line_Ops_mb76.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

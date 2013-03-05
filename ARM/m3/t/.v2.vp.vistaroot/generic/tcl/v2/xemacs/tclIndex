@@ -1,0 +1,1 @@
+set auto_index(::v2::xemacs::V2XEmacsConnectionBuilder) [list summit_add_tclindex v2/xemacs/V2XEmacsConnectionBuilder.tcl]

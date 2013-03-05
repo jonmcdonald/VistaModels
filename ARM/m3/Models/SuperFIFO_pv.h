@@ -30,6 +30,7 @@
 
 #include "SuperFIFO_model.h"
 #include <queue>
+#include <fstream>
 
 using namespace tlm;
 
@@ -78,5 +79,6 @@ class SuperFIFO_pv : public SuperFIFO_pv_base {
   bool s_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);   
 
   queue<unsigned int> m_fifo;
+  ofstream ofile;
 };
 

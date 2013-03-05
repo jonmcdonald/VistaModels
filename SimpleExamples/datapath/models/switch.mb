@@ -193,6 +193,6 @@ set_class_name_external_pv ""
 set_max_parameters_of_pv_constructor 5
 set_overwrite 0
 set_generate_ipxact 0
-set_ipxact_vendor Mentor.com
+set_ipxact_vendor "Mentor.com"
 set_ipxact_version 1.0
 

@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:07:38 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Vista Tracing Commands</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(484);
+    // -->
+ </script>
+ 
+
+<!--416,482,484-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPVista Tracing Commands"></a>
+
+<a name="wp17266"></a><h4 class="pHeading3">
+  
+
+
+Vista Tracing Commands
+  </h4>
+
+
+<!--VistaTracingCommands-->
+
+<a name="MGCCIDPName"></a>
+
+<a name="wp17267"></a><h5 class="pHeading4">
+  
+
+
+Name
+</h5>
+
+
+
+<a name="wp17268"></a><p class="pL1Body">Vista tracing commands: trace, untrace, trace_transactions, untrace_transactions, find, wave, acquire, @.</p>
+<a name="MGCCIDPSynopsis"></a>
+
+<a name="wp17270"></a><h5 class="pHeading4">
+  
+
+
+Synopsis
+</h5>
+
+
+
+<a name="wp17271"></a><p class="pL1Body">trace [<span class="cOptRpl">path</span> | -tree | -kind <span class="cOptRpl">kind(s)</span> | -name <span class="cOptRpl">name-pattern</span> | -wave <span class="cOptRpl">wave-name</span> | <br />	-limit <span class="cOptRpl">number</span> | -unlimited]*</p>
+
+<a name="wp17272"></a><p class="pL1Body">untrace [<span class="cOptRpl">path</span> | -tree | -kind <span class="cOptRpl">kind(s)</span> | -name <span class="cOptRpl">name-pattern</span> | -wave <span class="cOptRpl">wave-name</span> | <br />	-limit <span class="cOptRpl">number</span> | -unlimited]*</p>
+
+<a name="wp17273"></a><p class="pL1Body">trace_transactions [<span class="cOptRpl">path</span> | -tree | -kind <span class="cOptRpl">kind(s)</span> | -name <span class="cOptRpl">name-pattern</span> | -wave <span class="cOptRpl">wave-name</span> |<br />	-limit <span class="cOptRpl">number</span> | -unlimited]*</p>
+
+<a name="wp17274"></a><p class="pL1Body">untrace_transactions [<span class="cOptRpl">path</span> | -tree | -kind <span class="cOptRpl">kind(s)</span> | -name <span class="cOptRpl">name-pattern</span> | <br />	-wave <span class="cOptRpl">wave-name</span> | -limit <span class="cOptRpl">number</span> | -unlimited]*</p>
+
+<a name="wp17275"></a><p class="pL1Body">find [<span class="cOptRpl">path</span> | -tree | -kind <span class="cOptRpl">kind(s)</span> | -name <span class="cOptRpl">name-pattern</span> | -wave <span class="cOptRpl">wave-name</span> | <br />	-limit <span class="cOptRpl">number</span> | -unlimited]*</p>
+
+<a name="wp17276"></a><p class="pL1Body">wave use [<span class="cOptRpl">wave-name</span>]</p>
+
+<a name="wp17277"></a><p class="pL1Body">wave create [<span class="cOptRpl">wave-name</span>]</p>
+
+<a name="wp17278"></a><p class="pL1Body">wave open [<span class="cOptRpl">wave-name</span>]</p>
+
+<a name="wp17279"></a><p class="pL1Body">wave clear [<span class="cOptRpl">wave-name</span>]</p>
+
+<a name="wp17280"></a><p class="pL1Body">acquire [<span class="cOptRpl">path</span> | -tree | -kind <span class="cOptRpl">kind(s)</span> | -name <span class="cOptRpl">name-pattern</span> | -trace | -limit <span class="cOptRpl">number</span> | <br />	-unlimited]*</p>
+
+<a name="wp17281"></a><p class="pL1Body">@ <span class="cOptRpl">time-specification command command-arguments</span>....</p>
+<a name="MGCCIDPDescription"></a>
+
+<a name="wp17282"></a><h5 class="pHeading4">
+  
+
+
+Description
+</h5>
+
+
+
+<a name="wp27395"></a><p class="pL1Body">Vista tracing commands are used to manage tracing of specified elements in a design during simulation. </p>
+
+<a name="wp27396"></a><p class="pL1Body">The command `trace&#39; requests Vista runtime to start dumping the values of specified data elements into the simulation history file. The dumping occurs on every time or delta cycle, depending on the options under which the simulation runs. These values can then be viewed using the Vista waveform viewer.</p>
+
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg"><span class="cNotesBlack">Note</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp27477"></a><p class="pnoteNote">
+        	The original Tcl `trace&#39; command is renamed `tcl_trace&#39;.<br />&#160;
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="right" /></td>
+    </tr>
+ </table>
+<a name="wp17285"></a><p class="pL1Body">The command `untrace&#39; requests Vista runtime to stop dumping the values of specified data elements into the simulation history file.</p>
+
+<a name="wp17286"></a><p class="pL1Body">The command `trace_transactions&#39; requests Vista runtime to start recording transactions on the specified ports. The transactions can then be viewed in Vista transaction sequence viewer.</p>
+
+<a name="wp17288"></a><p class="pL1Body">The command `untrace_transactions&#39; requests Vista runtime to stop recording transactions on the specified ports.</p>
+
+<a name="wp17289"></a><p class="pL1Body">The command `find&#39; prints full paths to the data elements specified on the command line.</p>
+
+<a name="wp17290"></a><p class="pL1Body">Vista wave commands allow manipulation of Vista wave files.</p>
+
+<a name="wp17291"></a><ul><li class="LL2BulSolid">The `wave use&#39; command makes the wave file specified by &lt;wave-name&gt; (which is actually a file in the simulation directory) the current wave file. If the command is invoked without the &lt;wave-name&gt; parameter, the current wave name is returned.</li></ul>
+<a name="wp17292"></a><ul><li class="LL2BulSolid">The `wave create&#39; command creates the wave file specified by &lt;wave-name&gt; and makes it the current wave file.</li></ul>
+<a name="wp17293"></a><ul><li class="LL2BulSolid">The `wave clear&#39; command clears the wave file specified by &lt;wave-name&gt; and makes it the current wave file. If the command is invoked without the &lt;wave-name&gt; parameter, the current wave file is cleared.</li></ul>
+<a name="wp17294"></a><ul><li class="LL2BulSolid">The `wave open&#39; command opens the waveform viewer for the wave file specified by &lt;wave-name&gt; and makes it the current wave file. If the command is invoked without the &lt;wave-name&gt; parameter, the current wave file is opened.</li></ul>
+<a name="wp17295"></a><p class="pL1Body">The `acquire&#39; command acquires the specified design elements into the current wave file. If -trace option is specified, the `acquire&#39; command also causes the specified design elements to be traced. Other parameters and options of the `acquire&#39; command are identical to those of the `trace&#39; command.</p>
+
+<a name="wp17296"></a><p class="pL1Body">The `@&#39; meta-command causes the command to be executed at the specified simulation time.</p>
+
+<a name="wp17297"></a><p class="pL1Body">Spaces between `@&#39; and the time specification are optional.</p>
+<a name="MGCCIDPParameters and Options"></a>
+
+<a name="wp17298"></a><h5 class="pHeading4">
+  
+
+
+Parameters and Options
+</h5>
+
+
+
+<a name="wp17299"></a><p class="pBody">
+<span class="cOptRpl">path</span>
+</p>
+
+
+<a name="wp17302"></a><p class="pL1Body">Each path parameter is a design path with wildcards. See <a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb70.html");'>Vista Design Element Path Format</a> for the description of the format.</p>
+
+<a name="wp17304"></a><p class="pL1Body">If the -tree option is specified, Vista tracing commands descend the design tree to find data elements specified by -name and -kind options, starting with roots specified in the path parameters.</p>
+
+<a name="wp17305"></a><p class="pL1Body">If the -tree option is specified, but no &lt;path&gt; parameter appears, the design tree is descended from the top of the design.</p>
+
+<a name="wp17306"></a><p class="pL1Body">If -tree option is not specified, the trace command traces the data elements specified by path parameters, restricted by -kind and -name options.</p>
+
+<a name="wp17307"></a><p class="pBody">
+-tree
+</p>
+
+
+<a name="wp17308"></a><p class="pL1Body">See explanation on the <span class="cOptRpl">path</span> parameter.</p>
+
+<a name="wp17309"></a><p class="pL1Body">The descent through the design tree follows the SystemC design hierarchy, as well as fields in classes and base classes.</p>
+
+<a name="wp27943"></a><p class="pBody">
+-kind <span class="cOptRpl">kind(s)</span>
+</p>
+
+
+<a name="wp27944"></a><p class="pL1Body">Only the elements of the design having the specified kind(s) are considered.</p>
+
+<a name="wp27945"></a><p class="pL1Body">To specify more than one kind use the `|&#39; (pipe) delimeter.</p>
+
+<a name="wp17313"></a><p class="pL1Body">If more than one -kind options appear, all the specified kind(s) are considered.</p>
+
+<a name="wp27422"></a><p class="pL1Body">The following kinds are supported:</p>
+
+<a name="wp27423"></a><ul><li class="LL2BulSolid">any &#151;  any elements of the design;</li></ul>
+<a name="wp27424"></a><ul><li class="LL2BulSolid">module &#151;  SystemC modules;</li></ul>
+<a name="wp17317"></a><ul><li class="LL2BulSolid">channel &#151;  SystemC channels;</li></ul>
+<a name="wp17318"></a><ul><li class="LL2BulSolid">primchannel &#151;  SystemC primitive channels;</li></ul>
+<a name="wp17319"></a><ul><li class="LL2BulSolid">hierchannel &#151;  SystemC hierarchical channels;</li></ul>
+<a name="wp17320"></a><ul><li class="LL2BulSolid">port &#151;  SystemC ports;</li></ul>
+<a name="wp17321"></a><ul><li class="LL2BulSolid">export &#151;  SystemC exports;</li></ul>
+<a name="wp17322"></a><ul><li class="LL2BulSolid">process &#151;  SystemC processes;</li></ul>
+<a name="wp17323"></a><ul><li class="LL2BulSolid">binding &#151;  port/export bindings;</li></ul>
+<a name="wp17324"></a><ul><li class="LL2BulSolid">field &#151;  fields in classes;</li></ul>
+<a name="wp17325"></a><ul><li class="LL2BulSolid">base &#151;  base classes;</li></ul>
+<a name="wp27903"></a><ul><li class="LL2BulSolid">deref &#151;  dereferenced pointers and references;</li></ul>
+<a name="wp27904"></a><ul><li class="LL2BulSolid">index &#151;  indexes of arrays and pointers;</li></ul>
+<a name="wp27905"></a><ul><li class="LL2BulSolid">variable &#151;  variables in SystemC threads;</li></ul>
+<a name="wp17330"></a><p class="pBody">
+-name <span class="cOptRpl">name-pattern</span>
+</p>
+
+
+<a name="wp27960"></a><p class="pL1Body">Only the elements of the design having names satisfying the given pattern are considered. If more than one -name options appear, all the specified patterns are considered.</p>
+
+<a name="wp17332"></a><p class="pBody">
+-wave <span class="cOptRpl">wave-name</span>
+</p>
+
+
+<a name="wp17333"></a><p class="pL1Body">Consider design elements from the wave specified.</p>
+
+<a name="wp17334"></a><p class="pBody">
+-limit <span class="cOptRpl">number</span>
+</p>
+
+
+<a name="wp17335"></a><p class="pBody">
+-unlimited
+</p>
+
+
+<a name="wp17336"></a><p class="pL1Body">The number of design elements considered is by default limited by 100.</p>
+
+<a name="wp17337"></a><p class="pL1Body">To change the limit, use the -limit option.</p>
+
+<a name="wp17338"></a><p class="pL1Body">To disregard the limit, use the -unlimited option.</p>
+
+<a name="wp17339"></a><p class="pBody">
+<span class="cReqRpl">time-specification</span>
+</p>
+
+
+<a name="wp17340"></a><p class="pL1Body">The simulation time at which the specified command must be invoked.</p>
+
+<a name="wp17341"></a><p class="pL1Body">The time specification is a number followed by an optional time unit name.</p>
+
+<a name="wp17342"></a><p class="pL1Body">If the time unit name is omitted, the SystemC simulation default time unit is used.</p>
+<a name="MGCCIDPExamples"></a>
+
+<a name="wp17343"></a><h5 class="pHeading4">
+  
+
+
+Examples
+</h5>
+
+
+
+<a name="wp17344"></a>
+<ul><li class="LL1BulSolid">trace top.port*</li></ul>
+<a name="wp17345"></a>
+<ul><li class="LL1BulSolid">trace *.* -kind port|export -name *_nb</li></ul>
+<a name="wp17346"></a>
+<ul><li class="LL1BulSolid">trace top.(port|channel)*bus*</li></ul>
+<a name="wp17347"></a>
+<ul><li class="LL1BulSolid">@10ns trace -wave mydata</li></ul>
+<a name="wp17348"></a>
+<ul><li class="LL1BulSolid">trace_transactions *.*slave*</li></ul>
+<a name="wp17349"></a>
+<ul><li class="LL1BulSolid">@ 15 ns untrace -tree</li></ul>
+<a name="wp17350"></a>
+<ul><li class="LL1BulSolid">wave open mysignals</li></ul>
+<a name="wp17351"></a>
+<ul><li class="LL1BulSolid">acquire -trace top.m*.(field)counter</li></ul><a name="MGCCIDPSee also"></a>
+
+<a name="wp17354"></a><h5 class="pHeading4">
+  
+
+
+See also
+</h5>
+
+
+
+<a name="wp17358"></a><p class="pBody">
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb70.html");'>Vista Design Element Path Format</a>
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Vista Tracing Commands";
+   PDFLinkTitle = "Vista.Tracing.Commands"
+   ThisTopic = "Seealso99VistaTracingCommands";
+   CurrentFile = "Chapter_Command_Line_Ops_mb69.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

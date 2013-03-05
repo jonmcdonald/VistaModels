@@ -1,4 +1,11 @@
-08:58:10 **** Clean-only build of configuration Debug for project demo ****
-make clean 
-rm -rf  ./demo.d  demo 
-rm -rf "/home/jon/work/arm/m3/CBwork/demo/Debug/demo.o"  demo demo
+14:43:22 **** Build of configuration Debug for project Vista-CM3 ****
+make all 
+Building file: ../src/demo.c
+Invoking: Sourcery CodeBench C Compiler
+arm-none-eabi-gcc -I"/home/jon/VistaModels/ARM/m3/CBwork/Vista-CM3/CMSIS" -O0 -g3 -Wall -c -fmessage-length=0 -fno-common -MMD -MP -MF"src/demo.d" -MT"src/demo.d" -mcpu=cortex-m3 -mthumb -o "src/demo.o" "../src/demo.c"
+In file included from ../src/demo.c:1:0:
+/home/jon/VistaModels/ARM/m3/CBwork/Vista-CM3/CMSIS/VistaCM3.h:140:9: error: expected ',', ';' or '}' before 'volatile'
+../src/demo.c: In function 'main':
+../src/demo.c:16:7: warning: variable 'c' set but not used [-Wunused-but-set-variable]
+../src/demo.c:15:7: warning: variable 'i' set but not used [-Wunused-but-set-variable]
+make: *** [src/demo.o] Error 1

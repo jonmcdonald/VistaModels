@@ -1,0 +1,926 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:00:37 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Invoking Vista</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(23);
+    // -->
+ </script>
+ 
+
+<!--15,23,0-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPInvoking Vista"></a>
+
+<a name="wp9016"></a><h3 class="pHeading2">
+  
+
+
+Invoking Vista
+  </h3>
+
+
+
+<a name="wp9017"></a><p class="pBody">
+Before invoking Vista, make sure that your license is active. For details, see the <span style=" font-style: italic;">Installation Guide</span> provided with this release.
+</p>
+
+<a name="MGCCIDPInvoking Vista on Linux/Unix"></a>
+
+<a name="wp9278"></a><h4 class="pHeading3NoSplit">
+  
+
+
+Invoking Vista on Linux/Unix
+</h4>
+
+
+
+<a name="wp7981"></a><p class="pBody">
+To invoke Vista on Linux/Unix:
+</p>
+
+
+<a name="wp7982"></a>
+<ul><li class="LL1BulSolid">Enter the following command line at your system prompt:</li></ul>
+<a name="wp7983"></a><pre class="pShellCmd">
+     &gt; <span class="cReqRpl">installation-dir</span>/bin/vista [<span class="cOptRpl">command_line_options</span>] &amp;</pre>
+
+
+<a name="wp7984"></a><p class="pL1Body">(For command line options, see the <a href='javascript:oT("CRF","setup_invocation09.html#wp12362");'>Table&#160;2&#8209;3</a>.)</p>
+
+<a name="wp7985"></a><p class="pBody">
+If you want to be able to reference the installation directory using your PATH variable, you can do so by first appending this directory to your system PATH. To do so, enter the following command: 
+</p>
+
+
+<a name="wp7986"></a><pre class="pCode">     &gt; setenv PATH <span class="cReqRpl">installation-dir</span>/bin:$PATH</pre>
+
+
+<a name="wp10844"></a><pre class="pCode">     </pre>
+
+
+<a name="wp7987"></a><p class="pBody">
+The directory from which you invoke Vista will be your working directory. It is here that the initialization file (<span style=" font-style: italic;">vista.ini</span>) will be created and stored.
+</p>
+
+
+<a name="wp7988"></a><p class="pBody">
+The command line used to invoke Vista can include any of the following options:
+</p>
+
+
+<a name="wp7989"></a><pre class="pCode">     vista [-license &lt;license-file-or-port&gt;]</pre>
+
+
+<a name="wp7990"></a><pre class="pCode">        [-wd &lt;working-directory&gt;] </pre>
+
+
+<a name="wp7991"></a><pre class="pCode">        [-ini &lt;ini-file-name&gt;] </pre>
+
+
+<a name="wp7992"></a><pre class="pCode">        [-p &lt;project-file-name&gt;]</pre>
+
+
+<a name="wp8419"></a><pre class="pCode">        [-gcc412|-gcc434]</pre>
+
+
+<a name="wp8420"></a><pre class="pCode">        [-sc22]</pre>
+
+
+<a name="wp8421"></a><pre class="pCode">        [-exec &lt;path_to_executable&gt; [&lt;arguments&gt;] ]</pre>
+
+
+<a name="wp7996"></a><pre class="pCode">        [-source &lt;shell_script&gt;]</pre>
+
+
+<a name="wp7997"></a><pre class="pCode">        [--help-url &lt;URL&gt;]</pre>
+
+
+<a name="wp7998"></a><pre class="pCode">        [--help-command &lt;Help_Command&gt;]</pre>
+
+
+<a name="wp7999"></a><pre class="pCode">        [-display &lt;display_id&gt;]</pre>
+
+
+<a name="wp8000"></a><pre class="pCode">        [-xemacs-exe &lt;path_to_xemacs&gt;]</pre>
+
+
+<a name="wp8001"></a><pre class="pCode">        [--xemacs-read-only | --xemacs-writable]</pre>
+
+
+<a name="wp8002"></a><pre class="pCode">        [--external-editor &lt;editor_command_line&gt;]</pre>
+
+
+<a name="wp8003"></a><pre class="pCode">        [-help]</pre>
+
+
+<a name="wp25566"></a><pre class="pCode">     </pre>
+
+
+<a name="wp12486"></a><p class="pBody">
+where:
+</p>
+<div id="TableDivQz"></div>
+<div align="center">
+
+
+<a name="wp12362"></a><p class="pTableTitle">
+Table 2&#8209;3. 
+
+
+Vista Command Line Options&#160;
+</p>
+
+
+
+<table border="1" cellpadding="5" cellspacing="0" id="wp12362table12354">
+  <tr bgcolor="#CCCCCC"  align="center" valign="middle">
+    <th>
+
+<a name="wp12368"></a><p class="pTableHeading">
+Option value
+</p>
+</th>
+
+    <th>
+
+<a name="wp12370"></a><p class="pTableHeading">
+Description
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp12372"></a><p class="pTableHeading">
+Example
+</p>
+
+
+</th>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp12374"></a><p class="pTableCell">
+license-file-or-port
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12376"></a><p class="pTableCell">
+Tells Vista where to look for its FlexLM license.
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12379"></a><p class="pTableCell">
+-license 26318@myhost1
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp12381"></a><p class="pTableCell">
+working-directory
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12383"></a><p class="pTableCell">
+Is the name of the Vista working directory, by default &ldquo;<span style=" font-weight: bold;">vista_work</span>&rdquo;.
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12386"></a><p class="pTableCell">
+-wd /home/user1/work1
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp12388"></a><p class="pTableCell">
+ini-file-name
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12390"></a><p class="pTableCell">
+Is the name of a Vista initialization file, by default &quot;<span style=" font-style: italic;">vista.ini</span>&quot;.
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12392"></a><p class="pTableCell">
+-ini vista2.ini
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp12394"></a><p class="pTableCell">
+project-file-name
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12397"></a><p class="pTableCell">
+Is the name of a Vista project file.
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12399"></a><p class="pTableCell">
+-p Timer.v2p
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp12401"></a><p class="pTableCell">
+-gcc412, -gcc434,
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12403"></a><p class="pTableCell">
+Are switches that can be used to set the version of gcc used by Vista. (<span style=" font-weight: bold;">-gcc434</span> is the default.)
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12406"></a><p class="pTableCell">
+-gcc434
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp12408"></a><p class="pTableCell">
+-sc22
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12410"></a><p class="pTableCell">
+Are switches that can be used to specify which version of SystemC your designs use.
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12413"></a><p class="pTableCell">
+-sc22
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp12415"></a><p class="pTableCell">
+-path_to_executable
+
+</p>
+
+
+<a name="wp12416"></a><p class="pTableCell">
+[arguments]
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12418"></a><p class="pTableCell">
+Is the full or relative path to the executable to be simulated directly upon invoking Vista;
+
+</p>
+
+
+<a name="wp12419"></a><p class="pTableCell">
+arguments are any optional parameters used by this executable.
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12421"></a><p class="pTableCell">
+-exec ../../design1.exe 100
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp12423"></a><p class="pTableCell">
+shell_script
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12426"></a><p class="pTableCell">
+Is the name of a shell script residing in your <span style=" font-style: italic;">/bin/sh</span> directory. This script should have the same format as the <span style=" font-style: italic;">.vistarc</span> file, and can be similarly used to set values for environment variables in order to control Vista's behavior by invoking the <br /><span style=" font-weight: bold; font-style: italic;">-source</span> command-line option. For more details, including the priority of these values, see the <a href='javascript:oT("CRF","setup_invocation06.html");'>&quot;Controlling Vista Behavior&quot;</a>.
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12432"></a><p class="pTableCell">
+-source myenv.sh
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp12434"></a><p class="pTableCell">
+URL
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12437"></a><p class="pTableCell">
+Is the URL for Vista documentation.
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12440"></a><p class="pTableCell">
+<a href="file:///home/myhome/Vista/"   target="_window">file:///home/myhome/Vista<br />/Help/Vista_Online_Documentation.htm</a>
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp12442"></a><p class="pTableCell">
+Help_Command
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12444"></a><p class="pTableCell">
+Is the command Vista uses to run the browser for its documentation. The value you set should include the %s placeholder for the URL. For example: help-command &ldquo;firefox %s&rdquo;.
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12446"></a><p class="pTableCell">
+--help-command &ldquo;firefox %s&rdquo;
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp12448"></a><p class="pTableCell">
+-display_id
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12450"></a><p class="pTableCell">
+Is the display (and screen) to be used for displaying Vista. (Note that this is a tk option.)
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12453"></a><p class="pTableCell">
+-display otherhost:0.0
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp12455"></a><p class="pTableCell">
+path_to_xemacs
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12458"></a><p class="pTableCell">
+Is the version of XEmacs that will be used by Vista.
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12460"></a><p class="pTableCell">
+-xemacs-exe<br />/public/Integration/tools/bin/xemacs
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp12462"></a><p class="pTableCell">
+--xemacs-read-only,<br /> --xemacs-writable
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12464"></a><p class="pTableCell">
+Are switches that can be used to either: (1) have XEmacs active in a read-only mode; or (2) override a previously set read-only mode of operation set using the vista_xemacs_read_only environment variable (see <a href='javascript:oT("CRF","setup_invocation07.html");'>&quot;Environment Variables for Controlling Behavior&quot;</a>).
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12469"></a><p class="pTableCell">
+--xemacs-read-only
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp12471"></a><p class="pTableCell">
+editor_command_line
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12473"></a><p class="pTableCell">
+Is the command line that invokes the textual editor that you prefer using for creating and editing files within Vista.
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12478"></a><p class="pTableCell">
+vim -g
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp12480"></a><p class="pTableCell">
+-help
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12483"></a><p class="pTableCell">
+Prints all Vista command-line options to standard output.
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp12485"></a><p class="pTableCell">
+-help
+
+</p>
+
+</td>
+
+
+</tr>
+
+
+</table>
+
+</div>
+<div id='EndTable'> </div>
+<p class="pBody">
+<br clear='left' class='Blank4Table' />
+
+
+</p>
+
+<a name="MGCCIDPParameters"></a>
+
+<a name="wp12490"></a><h5 class="pHeading4">
+  
+
+
+Parameters
+</h5>
+
+
+
+<a name="wp9206"></a><p class="pBody">
+All Vista scripts (<span style=" font-style: italic;">vista</span>, <span style=" font-style: italic;">vista_run</span>, <span style=" font-style: italic;">vista_c</span>++ ...) accept the following parameters:
+</p>
+
+
+<a name="wp9225"></a><h6 class="pHTaskSubhead">
+  Group 1
+</h6>
+
+
+
+<a name="wp9207"></a>
+<ul><li class="LL1BulSolid">-default-tlm1.0</li></ul>
+<a name="wp9208"></a>
+<ul><li class="LL1BulSolid">-default-tlm2.0draft1</li></ul>
+<a name="wp9209"></a>
+<ul><li class="LL1BulSolid">-default-tlm2.0draft2 (DEFAULT)</li></ul>
+<a name="wp9210"></a>
+<ul><li class="LL1BulSolid">-default-tlm2.0</li></ul>
+<a name="wp9211"></a>
+<ul><li class="LL1BulSolid">-default-tlm-version &lt;version&gt;</li></ul>
+<a name="wp9232"></a><h6 class="pHTaskSubhead">
+  Group 2
+</h6>
+
+
+
+<a name="wp9212"></a>
+<ul><li class="LL1BulSolid">-with-tlm1.0</li></ul>
+<a name="wp9213"></a>
+<ul><li class="LL1BulSolid">-with-tlm2.0draft1</li></ul>
+<a name="wp9214"></a>
+<ul><li class="LL1BulSolid">-with-tlm2.0draft2</li></ul>
+<a name="wp9215"></a>
+<ul><li class="LL1BulSolid">-with-tlm2.0</li></ul>
+<a name="wp9194"></a>
+<ul><li class="LL1BulSolid">-with-tlm-version &lt;version&gt;</li></ul><a name="MGCCIDPAbout Group 1 Options"></a>
+
+<a name="wp9251"></a><h5 class="pHeading4">
+  
+
+
+About Group 1 Options
+</h5>
+
+
+
+<a name="wp9308"></a><p class="pBody">
+The options in Group 1 (beginning with &ldquo;<span style=" font-weight: bold;">-default-tlm</span>&rdquo;) define the default TLM version Vista will work with, but do not cause <span style=" font-weight: bold; font-style: italic;">vista_c</span>++ to compile with TLM. 
+</p>
+
+
+<a name="wp9303"></a><p class="pBody">
+To compile with TLM:
+</p>
+
+
+<a name="wp9252"></a>
+<ul><li class="LL1BulSolid">Specify the <span style=" font-weight: bold;">+tlm</span> option for <span style=" font-weight: bold; font-style: italic;">vista_c</span>++ </li></ul>
+<a name="wp9253"></a><p class="pL1Body">or </p>
+
+<a name="wp9254"></a>
+<ul><li class="LL1BulSolid">Select &ldquo;<span style=" font-weight: bold;">tlm check-box</span>&rdquo; in the Project Settings dialog.</li></ul>
+<a name="wp9255"></a><p class="pBody">
+You can also specify the default TLM version using the VISTA_DEFAULT_TLM_VERSION environment variable (from shell or in .vistarc).
+</p>
+
+
+<a name="wp9256"></a><p class="pBody">
+Note that in Vista, the default TLM version is the newest one. Currently it is tlm2.0draft2; in subsequent versions of Vista this default could change.
+</p>
+
+<a name="MGCCIDPAbout Group 2 Options"></a>
+
+<a name="wp9312"></a><h5 class="pHeading4">
+  
+
+
+About Group 2 Options
+</h5>
+
+
+
+<a name="wp9246"></a><p class="pBody">
+Options in the second group (beginning with &ldquo;<span style=" font-weight: bold;">-with-tlm</span>&rdquo;) do the same as <span style=" font-weight: bold;">-default-tlm</span>...options, and in addition they cause <span style=" font-weight: bold; font-style: italic;">vista_c</span>++ to compile with the specified TLM.
+</p>
+
+<a name="MGCCIDPExamples"></a>
+
+<a name="wp9318"></a><h5 class="pHeading4">
+  
+
+
+Examples
+</h5>
+
+
+
+<a name="wp9324"></a><p class="pBody">
+The following commands compile my.cpp with tlm2.0, draft2:
+</p>
+
+
+<a name="wp9325"></a><pre class="pCode">     vista_c++ -with-tlm2.0 -c my.cpp </pre>
+
+
+<a name="wp9326"></a><pre class="pCode">     vista_c++ -with-tlm2.0draft2 -c my.cpp</pre>
+
+
+<a name="wp9327"></a><pre class="pCode">     vista_c++ +tlm -c my.cpp </pre>
+
+
+<a name="wp10860"></a><pre class="pCode">     </pre>
+
+
+<a name="wp9328"></a><p class="pBody">
+The following commands compile my.cpp with tlm2.0, draft1:
+</p>
+
+
+<a name="wp9329"></a>
+<ul><li class="LL1BulSolid">vista_c++ -with-tlm2.0draft1 -c my.cpp</li></ul>
+<a name="wp9330"></a>
+<ul><li class="LL1BulSolid">vista_c++ -with-tlm-version 2.0draft1 -c my.cpp</li></ul>
+<a name="wp9322"></a>
+<ul><li class="LL1BulSolid">vista_c++ -default-tlm2.0draft1 +tlm -c my.cpp</li></ul><a name="MGCCIDPInvoking Vista in Batch Mode"></a>
+
+<a name="wp9175"></a><h4 class="pHeading3NoSplit">
+  
+
+
+Invoking Vista in Batch Mode
+</h4>
+
+
+
+<a name="wp9066"></a><p class="pBody">
+To invoke Vista in batch mode, add the following to the command line:
+</p>
+
+
+<a name="wp9037"></a><pre class="pCode">     vista -batch <span class="cReqRpl">VISTA_INVOCATION_FLAGS SIMULATION_FLAGS TARGET_SPECIFICATION -- EXECUTION_PARAMETERS</span></pre>
+
+
+<a name="wp9163"></a><pre class="pCode">     </pre>
+
+
+<a name="wp9164"></a><p class="pBody">
+For further details, see the <a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb01.html");'>Batch and Command-Line Options</a> chapter.
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Invoking Vista";
+   PDFLinkTitle = "Invoking.Vista"
+   ThisTopic = "InvokingVistainBatchMode";
+   CurrentFile = "setup_invocation09.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

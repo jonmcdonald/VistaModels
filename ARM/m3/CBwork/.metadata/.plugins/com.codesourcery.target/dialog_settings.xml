@@ -9,6 +9,12 @@
 	<item value="com.codesourcery.arm_none_eabi.exe.debug.general.multilib.multilib-armv7_m" key="com.codesourcery.target.SGPPConfigWizardPage.Selected libraries"/>
 	<item value="com.codesourcery.arm_none_eabi.exe.debug.general.float-abi.float-abi-default" key="com.codesourcery.target.SGPPConfigWizardPage.Hard/Soft Float"/>
 	<item value="com.codesourcery.arm_none_eabi.exe.debug.general.thumb.thumb-default" key="com.codesourcery.target.SGPPConfigWizardPage.ARM/Thumb Mode"/>
+	<section name="com.codesourcery.target.FileEntryHistory">
+		<list key="log">
+		</list>
+		<list key="commandfile">
+		</list>
+	</section>
 	<section name="defaultDebuggerPerTarget">
 		<item value="" key="arm_none_eabi_backend_"/>
 		<item value="com.mentor.redsea.VPDebugger" key="arm_none_eabi"/>

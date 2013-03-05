@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:00:37 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Vista Working Directory</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(24);
+    // -->
+ </script>
+ 
+
+<!--15,24,0-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPVista Working Directory"></a>
+
+<a name="wp9169"></a><h3 class="pHeading2">
+  
+
+
+Vista Working Directory
+  </h3>
+
+
+
+<a name="wp8123"></a><p class="pBody">
+Vista utilizes a specific directory designated as the Working Directory. It is here that Vista stores the makefile generated for each project in the current environment. Whenever a project is somehow changed in Vista, its makefile is updated in the Working Directory.
+</p>
+
+
+<a name="wp8124"></a><p class="pBody">
+<span style=" font-weight: bold;">On Linux/Unix,</span> the working directory is automatically created as needed when Vista is invoked.
+</p>
+
+
+<a name="wp8126"></a><p class="pBody">
+Note the following points regarding the Working Directory:
+</p>
+
+
+<a name="wp8127"></a>
+<ul><li class="LL1BulSolid">You must have write permission to the Working Directory. </li></ul>
+<a name="wp8128"></a>
+<ul><li class="LL1BulSolid">Each Vista process (GUI) should have its own dedicated working directory. In other words, two or more separate Vista processes must not share the same Working Directory. </li></ul>
+<a name="wp8129"></a>
+<ul><li class="LL1BulSolid">By default, the Working Directory is the directory named &ldquo;<span style=" font-style: italic;">vista_work</span>&rdquo; under the directory from which Vista was invoked (Linux/Unix).</li></ul>
+<a name="wp8130"></a>
+<ul><li class="LL1BulSolid">In the command line used to invoke Vista, you can specify a different Working Directory for the current session by means of the <span style=" font-weight: bold;">-wd</span> command line option. In this case the command line to invoke Vista would have the format:</li></ul>
+<a name="wp8131"></a><p class="pL1Body"><span class="cReqRpl">Vista-installation-dir</span>/<span style=" font-style: italic;">vista</span> -wd <span class="cReqRpl">path_to_Working Directory</span> &amp;</p>
+
+<a name="wp8132"></a><p class="pL1Body">Note that the path to the Working Directory is relative to the current directory: i.e., the directory from which you invoke Vista. </p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Vista Working Directory";
+   PDFLinkTitle = "Vista.Working.Directory"
+   ThisTopic = "VistaWorkingDirectory";
+   CurrentFile = "setup_invocation10.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

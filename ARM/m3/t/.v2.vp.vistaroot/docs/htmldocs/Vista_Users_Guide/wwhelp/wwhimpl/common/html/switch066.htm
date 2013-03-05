@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+ <!-- Copyright (c) 2000-2003 Quadralay Corporation.  All rights reserved. -->
+ <head>
+  <meta http-equiv="content-type" content="text/html">
+  <meta http-equiv="charset"      content="UTF-8">
+  <title>switch.htm</title>
+    
+    
+  <script type="text/javascript" language="JavaScript1.2" src="../../../../wwhdata/common/private/title.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../../../wwhdata/common/private/options.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../../../wwhdata/common/private/locale.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/browser.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/strutils.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/switch.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../../../wwhdata/js/document.js"></script>
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = eval("window.self");
+    window.name = "WWHFrame";
+    // Create browser info object
+    //
+    var  WWHBrowser = new WWHBrowser_Object();
+    // Create switch object
+    //
+    var  WWHSwitch = new WWHSwitch_Object();
+//MGCRK - account for the possibility of a popup
+    WWHFrame.popup = "NO";
+
+    Parts = location.href.split("&");
+    if (Parts.length > 2)
+    {
+       Parameters = Parts[2].split("=");
+      if (Parameters[1] == "popup")
+      {
+         WWHFrame.popup = "YES";
+      }
+    }
+    ThisLocation = location.href;
+
+//MGCRK - account for the possibility of a different first topic other than the title page (OLH projects)
+   if ( (Parts.length < 2) && (WWHFrame.popup != "YES") )
+   {
+      ThisLocation = location.href + "\?context=" + GetDocumentHandle() + "\&topic=" + GetFirstTopic();
+   }
+   // -->
+  </script>
+ </head>
+
+ <body onLoad="WWHSwitch.fExec(true, ThisLocation);">
+ </body>
+</html>

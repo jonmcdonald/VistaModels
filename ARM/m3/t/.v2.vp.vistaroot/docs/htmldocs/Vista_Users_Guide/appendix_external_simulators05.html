@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:08:39 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Work Procedures</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(515);
+    // -->
+ </script>
+ 
+
+<!--511,512,515-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPWork Procedures"></a>
+
+<a name="wp7607"></a><h4 class="pHeading3">
+  
+
+
+Work Procedures
+  </h4>
+
+
+<!--WorkProcedures-->
+
+
+<a name="wp7608"></a><p class="pBody">
+For every Questa &ldquo;sccom&rdquo; use a &ldquo;vista_sccom&rdquo; wrapper script, and for every &ldquo;vsim&rdquo; command, use a &ldquo;vista_vsim&rdquo; wrapper script.
+</p>
+
+
+<a name="wp7609"></a><p class="pBody">
+For example, assuming Questa &ldquo;do&rdquo; commands file:
+</p>
+
+
+<a name="wp7610"></a><pre class="pCode">     &ldquo;run.do&rdquo; :</pre>
+
+
+<a name="wp7611"></a><pre class="pCode">           vdel -all</pre>
+
+
+<a name="wp7612"></a><pre class="pCode">           vlib work</pre>
+
+
+<a name="wp7613"></a><pre class="pCode">           vlog -novopt *.v</pre>
+
+
+<a name="wp7614"></a><pre class="pCode">           sccom -g my-design.cpp</pre>
+
+
+<a name="wp7615"></a><pre class="pCode">           sccom -link</pre>
+
+
+<a name="wp7616"></a><pre class="pCode">           vsim -novopt my-design</pre>
+
+
+<a name="wp7617"></a><pre class="pCode">     </pre>
+
+
+<a name="wp7618"></a><p class="pBody">
+There are essentially two options for using Vista on top of Questa (for the design example, with GUI):
+</p>
+
+
+<a name="wp7619"></a>
+<ul><li class="LL1BulSolid">execute each command, one after the other; </li></ul>
+<a name="wp7620"></a><p class="pL1Body">or</p>
+
+<a name="wp7621"></a>
+<ul><li class="LL1BulSolid">prepend &ldquo;vista_run&rdquo; to Questa scripts, followed by a new shell recognizing the Vista environment.
+
+<div id="TableDivQz"></div>
+<div align="center">
+
+
+<a name="wp7630"></a><p class="pTableTitle">
+Table C&#8209;2. 
+
+
+Questa-Vista Compatibility Options&#160;
+</p>
+
+
+
+<table border="1" cellpadding="5" cellspacing="0" id="wp7630table7622">
+  <tr bgcolor="#CCCCCC"  align="center" valign="middle">
+    <th>
+
+<a name="wp7636"></a><p class="pBody">
+Questa
+</p>
+</th>
+
+    <th>
+
+<a name="wp7638"></a><p class="pBody">
+Vista - Option 1
+</p>
+
+</th>
+
+    <th>
+
+<a name="wp7640"></a><p class="pBody">
+Vista - Option 2
+</p>
+
+</th>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp7642"></a><p class="pTableCell">
+vdel -all   
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7644"></a><p class="pTableCell">
+vdel -all    
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7646"></a><p class="pTableCell">
+vista_run vsim <span style=" color:#0000FF;">-</span>do run.do tcsh
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp7648"></a><p class="pTableCell">
+vlib work 
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7650"></a><p class="pTableCell">
+vlib work     
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp7654"></a><p class="pTableCell">
+vlog -novopt *.v 
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7656"></a><p class="pTableCell">
+vlog -novopt *.v
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp7660"></a><p class="pTableCell">
+sccom -g my-design.cpp 
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7662"></a><p class="pTableCell">
+vista_sccom -g my-design.cpp
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp7666"></a><p class="pTableCell">
+sccom -link       
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7668"></a><p class="pTableCell">
+vista_sccom -link
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp7672"></a><p class="pTableCell">
+vsim -novopt my-design
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7674"></a><p class="pTableCell">
+vista_vsim -novopt my-design
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+
+</table>
+
+</div>
+<div id='EndTable'> </div>
+
+<br clear='left' class='Blank4Table' />
+
+</li></ul>
+<a name="wp7678"></a><p class="pBody">
+After this point, you can work with Questa as usual, and all the necessary Questa programs will be wrapped automatically.
+</p>
+
+<a name="MGCCIDPExample"></a>
+
+<a name="wp7681"></a><h5 class="pHeading4">
+  
+
+
+Example
+</h5>
+
+
+
+<a name="wp7682"></a>
+<ol start="1."><li class="LL1Seq">setenv PATH $QUESTA_INSTALL_DIR/modeltech/bin:${PATH}</li></ol>
+<a name="wp7683"></a>
+<ol start="2."><li class="LL1Seq">cd $QUESTA_INSTALL_DIR/modeltech/examples/systemc/sc_vlog</li></ol>
+<a name="wp7684"></a>
+<ol start="3."><li class="LL1Seq">$VISTA_INSTALL_DIR/bin/vista_run vsim -do run.do tcsh</li></ol><a name="MGCCIDPRunning Simulation and Debugging"></a>
+
+<a name="wp7689"></a><h4 class="pHeading3NoSplit">
+  
+
+
+Running Simulation and Debugging
+</h4>
+
+
+
+<a name="wp7690"></a><p class="pBody">
+Once a vista_vsim script is performed, Vista is invoked, and the Simulate dialog box is displayed with the name of the &#39;vsimk&#39; executable appearing in the Target field of the General Tab.
+</p>
+
+
+<a name="wp7691"></a><p class="pBody">
+To run the simulation:
+</p>
+
+
+<a name="wp7692"></a>
+<ul><li class="LL1BulSolid">Click the OK button.</li></ul>
+<a name="wp7693"></a><p class="pBody">
+Vista&#39;s simulation environment opens and, within the message pane, a &ldquo;vsim&rdquo; prompt is displayed. 
+</p>
+
+
+<a name="wp7694"></a><p class="pBody">
+Any of the `vsim&#39; commands may be entered here. 
+</p>
+
+
+<a name="wp7696"></a><p class="pBody">
+gdb commands can also be issued. To do so, do one of the following:
+</p>
+
+
+<a name="wp7697"></a>
+<ul><li class="LL1BulSolid">At the vsim&gt; prompt enter &ldquo;gdb&rdquo; followed by the desired command; <br />for example:   vsim&gt; gdb info breakpoints</li></ul>
+<a name="wp7698"></a>
+<ul><li class="LL1BulSolid">At the vsim&gt; prompt, type &ldquo;gdb&rdquo; and &lt;Enter&gt;.</li></ul>
+<a name="wp7699"></a><p class="pL1Body"> The gdb&gt; prompt appears. At this point, any gdb command can be entered.</p>
+
+<a name="wp7700"></a><p class="pBody">
+To return to the vsim:
+</p>
+
+
+<a name="wp7701"></a>
+<ul><li class="LL1BulSolid">At the gdb&gt; prompt type &ldquo;vsim&rdquo; and &lt;Enter&gt;.</li></ul>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Work Procedures";
+   PDFLinkTitle = "Work.Procedures"
+   ThisTopic = "SimulatingwithQuesta99RunningSimulationandDebugging";
+   CurrentFile = "appendix_external_simulators05.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

@@ -94,6 +94,7 @@ int main () {
     ffFull = false;
   }
 
+  //i = GetNextPrimes(1000, 10);
   //printf ("Returning from main\n");
   return 0;
 }

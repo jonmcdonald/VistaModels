@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:06:08 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Linking with Purify</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(306);
+    // -->
+ </script>
+ 
+
+<!--301,303,306-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPLinking with Purify"></a>
+
+<a name="wp7934"></a><h4 class="pHeading3">
+  
+
+
+Linking with Purify
+  </h4>
+
+
+<!--LinkingwithPurify-->
+
+
+<a name="wp7935"></a><p class="pBody">
+Vista supports working with IBM Rational Purify<span style=" font-size: 8pt; vertical-align: super;">TM</span>, thus enabling you to examine memory utilization in your designs and to debug any related problems. Note, however, that this support does not include detection of stack overflow or stack bounds read/write errors on SystemC thread stacks.
+</p>
+
+
+<a name="wp7936"></a><p class="pBody">
+As is described below, you can run Purify for your Vista designs in one of two possible ways:
+</p>
+
+
+<a name="wp7937"></a>
+<ul><li class="LL1BulSolid">By calling the &ldquo;vista_purify&rdquo; wrapper script</li></ul>
+<a name="wp7938"></a>
+<ul><li class="LL1BulSolid">By specifying Purify when invoking compilation</li></ul>
+<a name="wp7939"></a><p class="pBody">
+In both cases, by default the installation of Purify designated by your PATH environment variable will be used. However, you can specify a different installation of Purify using the --purify=&lt;path&gt; flag (see below).
+</p>
+
+<a name="MGCCIDPCalling the vista_purify Wrapper"></a>
+
+<a name="wp7941"></a><h5 class="pHeading4">
+  
+
+
+Calling the vista_purify Wrapper
+</h5>
+
+
+
+<a name="wp7942"></a><p class="pBody">
+When linking your design, specify the following arguments in the link command line:
+</p>
+
+
+<a name="wp7943"></a><pre class="pCode">     vista_purify [&lt;purify_options&gt;] vista_cc [&lt;vista_cc_options&gt;]</pre>
+
+
+<a name="wp19515"></a><pre class="pCode">     </pre>
+
+
+<a name="wp7944"></a><p class="pBody">
+where:
+</p>
+
+
+<a name="wp7945"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">vista_purify</span> is the name of Vista&#39;s Purify wrapper script provided in the $VISTA_ROOT/bin directory. </li></ul>
+<a name="wp7946"></a>
+<ul><li class="LL1BulSolid"><span class="cReqRpl">purify_options</span> can be any of the available Purify options. (For details, see your Purify documentation.) </li></ul>
+<a name="wp7947"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">vista_cc </span>is the wrapper script used to compile the design with gcc. Note that this argument may be replaced by <span style=" font-weight: bold;">vista_c++</span> when g++ is used. Both of these, in turn, may invoke any of the supported versions of the gcc or g++ compiler. For details, see <a href='javascript:oT("CRF","setup_invocation06.html");'>&quot;Controlling Vista Behavior&quot;</a>, and <a href='javascript:oT("CRF","setup_invocation09.html");'>&quot;Invoking Vista&quot;</a>. </li></ul>
+<a name="wp7954"></a>
+<ul><li class="LL1BulSolid"><span class="cReqRpl">vista_cc_options</span> can be any of the available options for <span style=" font-weight: bold;">vista_cc</span> or <span style=" font-weight: bold;">vista_g++</span>. Among these options is --purify which can be used to designate that a non-default installation of Purify is to be used, and is followed by the appropriate <span class="cReqRpl">path</span>, i.e., the full path to the desired installation; for example,</li></ul>
+<a name="wp7955"></a><pre class="pCode">        vista_purify -always-use-cache-dir=yes \ </pre>
+
+
+<a name="wp7956"></a><pre class="pCode">          vista_cc --purify=/usr/local/purify/purify \ </pre>
+
+
+<a name="wp7957"></a><pre class="pCode">          simple_bus.o peripheral1.o ... -o sim</pre>
+
+
+<a name="wp7958"></a><pre class="pCode">     </pre>
+
+
+<a name="wp7959"></a><p class="pL1Body">(For details about the various other available vista_cc and vista_c++ options, see the discussion of the command-line arguments that are available for these two wrapper scripts in <a href='javascript:oT("CRF","compile_external_executables1.html");'>&quot;Compiling Externally Built Executables&quot;</a>)</p>
+<a name="MGCCIDPSpecifying Purify when Invoking Compilation"></a>
+
+<a name="wp7964"></a><h5 class="pHeading4">
+  
+
+
+Specifying Purify when Invoking Compilation
+</h5>
+
+
+
+<a name="wp7965"></a><p class="pBody">
+As an alternative to specifying the vista_purify wrapper as an argument in the link command line, you can use Purify by specifying the --purify option when running one of Vista&#39;s compilation wrapper scripts as follows:
+</p>
+
+
+<a name="wp7966"></a><pre class="pCode">     vista_cc --purify[=&lt;path&gt;] [--purifyargs=&lt;arg1&gt;,...,&lt;argn&gt;] [&lt;vista_cc_options&gt;]</pre>
+
+
+<a name="wp19562"></a><pre class="pCode">     </pre>
+
+
+<a name="wp7967"></a><p class="pBody">
+where:
+</p>
+
+
+<a name="wp7968"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">vista_cc</span> (or alternatively <span style=" font-weight: bold;">vista_c++</span>) is the name of the wrapper script used to compile the design. </li></ul>
+<a name="wp7969"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">--purifyargs= </span>specifies one or more of the available Purify options to be used. </li></ul>
+<a name="wp7970"></a>
+<ul><li class="LL1BulSolid"><span class="cReqRpl">vista_cc_options</span> can be any of the available options for vista_cc or vista_g++. Among these, once again, is --purify which can be used to designate that a non-default installation of Purify.</li></ul><a name="MGCCIDPIntegration with Visual Elite"></a>
+
+<a name="wp7971"></a><h5 class="pHeading4">
+  
+
+
+Integration with Visual Elite
+</h5>
+
+
+
+<a name="wp7972"></a><p class="pBody">
+One of the most important features of Vista is that, after you build a project, a library that encompasses the entire project can be created. This library can be read directly by Mentor Graphics's Visual Elite tool. 
+</p>
+
+
+<a name="wp7973"></a><p class="pBody">
+In this way designers can develop their SystemC IP's in Vista, and immediately integrate every component in Visual Elite's graphical environment. The benefits from this robust Visual Elite system integration include: 
+</p>
+
+
+<a name="wp7974"></a>
+<ul><li class="LL1BulSolid">Integrating the design with software using Visual ESC</li></ul>
+<a name="wp7975"></a>
+<ul><li class="LL1BulSolid">Generating a complete Virtual Prototype for the software and firmware engineers</li></ul>
+<a name="wp7976"></a>
+<ul><li class="LL1BulSolid">Co-simulating SystemC designs with HDL using any commercial HDL simulator</li></ul>
+<a name="wp9494"></a><p class="pBody">
+For details, see <a href='javascript:oT("CRF","appendix_ve_libraries1.html");'>&quot;Vista and Visual Elite&quot;</a>.
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Linking with Purify";
+   PDFLinkTitle = "Linking.with.Purify"
+   ThisTopic = "IntegrationwithVisualElite";
+   CurrentFile = "compile_build_project6.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

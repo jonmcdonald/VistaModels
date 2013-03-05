@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:06:18 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Memory Storage and Print command</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(339);
+    // -->
+ </script>
+ 
+
+<!--313,330,339-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPMemory Storage and Print command"></a>
+
+<a name="wp89624"></a><h4 class="pHeading3">
+  
+
+
+Memory Storage and Print command
+  </h4>
+
+
+<!--MemoryStorageandPrintcommand-->
+
+
+<a name="wp89626"></a><p class="pBody">
+Vista provides an external utility called &ldquo;Memory Storage and Printer&rdquo; that is operated in batch mode and enables you to associate files under a host with memory models and print the file content (memory) at any time during simulation or post-simulation. The memory content print-out shows updated values using different formats as specified in the print command arguments.
+</p>
+
+<a name="MGCCIDPMemory Storage"></a>
+
+<a name="wp89628"></a><h5 class="pHeading4">
+  
+
+
+Memory Storage
+</h5>
+
+
+
+<a name="wp89629"></a><p class="pBody">
+The memory storage functionality supports paged memory. You can choose to base any memory model on a host file storage, which helps you load initial values into memory and print the memory using the <a href='javascript:oT("CRF","design_verification27.html#wp89649");'>Memory Printer</a> command. To associate a file with a memory model, a memory parameter should be associated with the full-pathname of the file. Currently only Vista generic memory models can be used.
+</p>
+
+<a name="MGCCIDPMemory Storage Modes"></a>
+
+<a name="wp89631"></a><h6 class="pHeading5">
+  
+
+
+Memory Storage Modes
+</h6>
+
+
+
+<a name="wp89632"></a><p class="pBody">
+You must specify the mode you need to work with by adding a mode-specific parameter in the Vista parameters file (<span style=" font-style: italic;">parameters.txt</span>).
+</p>
+
+<a name="MGCCIDPMemory Storage Parameters"></a>
+
+<a name="wp89634"></a><h6 class="pHeading5">
+  
+
+
+Memory Storage Parameters
+</h6>
+
+
+
+<a name="wp89635"></a><p class="pBody">
+The following parameters can be used:
+</p>
+
+
+<a name="wp89796"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">mb_memory_file_storage</span> &#151;  path to a memory file to use as the initial memory and memory storage. File must be set for read/write access.</li></ul>
+<a name="wp89637"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">mb_memory_file_storage_load</span> &#151;  path to a memory file to use as initial memory only. Memory is stored in a temporary file and deleted when simulation is complete.</li></ul>
+<a name="wp89639"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">mb_memory_paged</span> &#151;  If true, memory is based on a temporary file. An error is issued if both mb_memory_file_storage and mb_memory_paged are defined.</li></ul>
+<a name="wp89641"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">mb_memory_max_loaded_num_chunks</span> - Specifies the maximum total number of chunks to load in memory. The number specified must be greater than 10. If not specified, mb_memory_max_loaded_num_chunks is 10. </li></ul><a name="MGCCIDPMemory Storage Examples"></a>
+
+<a name="wp89644"></a><h6 class="pHeading5">
+  
+
+
+Memory Storage Examples
+</h6>
+
+
+
+<a name="wp89907"></a><p class="pBody">
+The following example shows how to set the memory file storage and the maximum number of data chunks allowed to be loaded.
+</p>
+
+
+<a name="wp89645"></a><pre class="pCode">     top.rom0.mb_memory_file_storage = storage.memory</pre>
+
+
+<a name="wp89646"></a><pre class="pCode">     top.rom0.mb_memory_max_loaded_num_chunks = 20</pre>
+
+
+<a name="wp89647"></a><pre class="pCode">     </pre>
+
+<a name="MGCCIDPMemory Printer"></a>
+
+<a name="wp89649"></a><h5 class="pHeading4">
+  
+
+
+Memory Printer
+</h5>
+
+
+
+<a name="wp89650"></a><p class="pBody">
+The <span class="cRequired">vista_memory_printer</span> command enables you to print a memory file. You can specify a path to a file to print, or a path to a simulation directory and memory module to print, if the memory model is associated with a storage file.
+</p>
+
+<a name="MGCCIDPCommand Arguments "></a>
+
+<a name="wp89652"></a><h6 class="pHeading5">
+  
+
+
+Command Arguments 
+</h6>
+
+
+
+<a name="wp89653"></a>
+<ul><li class="LL1BulSolid">-file &#151;  file path</li></ul>
+<a name="wp89654"></a>
+<ul><li class="LL1BulSolid">-address &#151;  starting address</li></ul>
+<a name="wp89655"></a>
+<ul><li class="LL1BulSolid">-size &#151;  size of element</li></ul>
+<a name="wp89656"></a>
+<ul><li class="LL1BulSolid">-count &#151;  count of elements</li></ul>
+<a name="wp89657"></a>
+<ul><li class="LL1BulSolid">-radix &#151;  the printing format; specify as a string, hex, dec, oct, or assembler</li></ul>
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg"><span class="cNotesBlack">Note</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp90029"></a><p class="pnoteNote">
+        	When specifying an assembler radix, the VISTA_MEMORY_PRINTER_OBJDUMP environment variable is mandatory.
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="right" /></td>
+    </tr>
+ </table>
+<a name="wp89658"></a>
+<ul><li class="LL1BulSolid">-outformat &#151;  number of columns (default 8)</li></ul>
+<a name="wp89660"></a>
+<ul><li class="LL1BulSolid">-arch &#151;  processor architecture </li></ul>
+<a name="wp89662"></a>
+<ul><li class="LL1BulSolid">-objdumpargs &#151;  any extra arguments to pass directly to objdump; must specify as quoted (&ldquo;&rdquo;) strings</li></ul>
+<a name="wp89663"></a>
+<ul><li class="LL1BulSolid">-simdir &#151;  simulation directory path</li></ul>
+<a name="wp89664"></a>
+<ul><li class="LL1BulSolid">-module &#151;  full-path-name of memory module from your simulation to print</li></ul><a name="MGCCIDPMemory Storage Print Examples"></a>
+
+<a name="wp89668"></a><h6 class="pHeading5">
+  
+
+
+Memory Storage Print Examples
+</h6>
+
+
+
+<a name="wp90082"></a><p class="pBody">
+The following are some examples of how to use the vista_memory_printer command:
+</p>
+
+
+<a name="wp89669"></a><pre class="pCode">     vista_memory_printer  -file /home/asmair/vova/ObjDump/a.out </pre>
+
+
+<a name="wp89670"></a><pre class="pCode">     </pre>
+
+
+<a name="wp89671"></a><pre class="pCode">     Output:</pre>
+
+
+<a name="wp89672"></a><pre class="pCode">     0x0 :   0x7f   0x450x4c   0x46   0x020x01   0x01   0x00</pre>
+
+
+<a name="wp89673"></a><pre class="pCode">     0x8 :   0x00   0x000x00   0x00   0x000x00   0x00   0x00</pre>
+
+
+<a name="wp89674"></a><pre class="pCode">        </pre>
+
+
+<a name="wp90399"></a><pre class="pCode">     </pre>
+
+
+<a name="wp89675"></a><pre class="pCode">     vista_memory_printer -simdir /home/tutorial/ -module top.mem_inst -size 4 <br />        -count 4 -radix dec </pre>
+
+
+<a name="wp90093"></a><pre class="pCode">     </pre>
+
+
+<a name="wp89676"></a><pre class="pCode">     Output:</pre>
+
+
+<a name="wp89677"></a><pre class="pCode">     0x0 :       117940364765794      0   0</pre>
+
+
+<a name="wp89678"></a><pre class="pCode">         </pre>
+
+
+<a name="wp90400"></a><pre class="pCode">     </pre>
+
+
+<a name="wp90101"></a><pre class="pCode">     vista_memory_printer -file /home/asmair/a.out - size 4 - count 11 <br />        -radix oct -outformat 3</pre>
+
+
+<a name="wp90105"></a><pre class="pCode">     </pre>
+
+
+<a name="wp89680"></a><pre class="pCode">     <span class="cP9"><span style=" font-family: Courier; font-angle: normal; vertical-align: baseline; color:#000000;">output: </span></span></pre>
+
+
+<a name="wp90184"></a><pre class="pCode">     0x0 :      035200000006   035200000043   035200000043</pre>
+
+
+<a name="wp90185"></a><pre class="pCode">     0xc :      035200000043   035200000043   034150000000</pre>
+
+
+<a name="wp90186"></a><pre class="pCode">     0x18 :      035200000042   035200000045   034103600000</pre>
+
+
+<a name="wp90187"></a><pre class="pCode">     0x24 :      034150010000   034200210037</pre>
+
+
+<a name="wp89684"></a><pre class="pCode">     </pre>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Memory Storage and Print command";
+   PDFLinkTitle = "Memory.Storage.and.Print.command"
+   ThisTopic = "MemoryStoragePrintExamples";
+   CurrentFile = "design_verification27.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

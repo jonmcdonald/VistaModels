@@ -1,0 +1,556 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:06:18 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Setting Up a Simulation Display</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(332);
+    // -->
+ </script>
+ 
+
+<!--313,330,332-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPSetting Up a Simulation Display"></a>
+
+<a name="wp25600"></a><h4 class="pHeading3">
+  
+
+
+Setting Up a Simulation Display
+  </h4>
+
+
+<!--SettingUpaSimulationDisplay-->
+
+<a name="MGCCIDPAcquiring Ports and Channels"></a>
+
+<a name="wp25322"></a><h5 class="pHeading4">
+  
+
+
+Acquiring Ports and Channels
+</h5>
+
+
+
+<a name="wp8091"></a><p class="pBody">
+As was already mentioned, in order that ports and channels in your design may be monitored during simulation, they must be acquired within the Waveform window. To do so: 
+</p>
+
+
+<a name="wp8092"></a>
+<ol start="1."><li class="LL1Seq">In the Project or Design View, select one or more ports displayed in the browser pane. (If you are looking at the design in the Project View, be sure to select the port from the design structure, and not from the class structure.)</li></ol>
+<a name="wp8093"></a>
+<ol start="2."><li class="LL1Seq">In the Waveform window, click the <span style=" font-weight: bold;">Acquire</span> icon: 
+
+
+<img src="images/waveform_acquire_button.gif" id="wp8095" border="0" hspace="0" vspace="0"/>
+
+
+
+ in either of two locations:</li></ol>
+<a name="wp8099"></a><ul><li class="LL2BulHollow">In the Waveform window itself</li></ul>
+<a name="wp8100"></a><ul><li class="LL2BulHollow">In the Vista simulation tool bar</li></ul>
+<a name="wp8101"></a><p class="pL1Body">If no Waveform window is currently opened, clicking the Acquire icon will open one and immediately acquire the selected element to this window. If two or more Waveform windows are currently opened, a list of the open Wave windows will appear beneath the Acquire icon. You must then choose the name of the Waveform window to which the selected element is to be acquired.</p>
+<a name="MGCCIDPAcquire Without Tracing"></a>
+
+<a name="wp9608"></a><h5 class="pHeading4">
+  
+
+
+Acquire Without Tracing
+</h5>
+
+
+
+<a name="wp9611"></a><p class="pBody">
+You can also acquire an object for the waveform without tracing, and then trace at a future time. To do so, click the arrow adjacent to the Acquire tool button and select the Acquire Only option in the list that is displayed. (This now becomes the default Acquire action in the toolbar.)
+</p>
+
+<a name="MGCCIDPAdditional Information"></a>
+
+<a name="wp8102"></a><h5 class="pHeading4">
+  
+
+
+Additional Information
+</h5>
+
+
+
+<a name="wp31360"></a><p class="pBody">
+In addition to SystemC signals, channels and TLM2.0 sockets, you can also view the following information in the Waveform window:
+</p>
+
+
+<a name="wp31361"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Processes (Thread)</span>. Vista&#39;s Waveform window will display the process execution time (&ldquo;vector change value&rdquo;) and the expression it is waiting for. Selecting the process at a certain point and clicking &ldquo;Cause&rdquo; selects the appropriate &ldquo;wait statement&rdquo; in the source code.</li></ul>
+<a name="wp31362"></a>
+<ul><li class="LL1BulSolid">Acquired Events appear in the Vista waveform as &ldquo;signal changes&rdquo; - i.e.: </li></ul>
+<a name="wp31363"></a><ul><li class="LL2BulSolid">Rising edge - &ldquo;event notification&rdquo;</li></ul>
+<a name="wp31364"></a><ul><li class="LL2BulSolid">High level - &ldquo;event delay&rdquo;</li></ul>
+<a name="wp31365"></a><ul><li class="LL2BulSolid">Falling edge - &ldquo;event triggering&rdquo;</li></ul>
+<a name="wp31366"></a><ul><li class="LL2BulSolid">Low level - &ldquo;event discharge&rdquo;</li></ul>
+<a name="wp31367"></a><p class="pBody">
+Clicking &ldquo;Cause&rdquo; from an event selects the appropriate line of code in the source file.
+</p>
+
+
+<a name="wp90358"></a><p class="pBodyRelative">
+
+
+
+</p>
+<div align="left"><img src="images/cause_to_process1.gif" id="wp31369" border="0" hspace="0" vspace="0"/></div><p class="pBodyRelative">
+
+
+
+
+
+</p>
+
+
+<a name="wp30558"></a><p class="pBodyRelative">
+
+
+
+</p>
+<div align="left"><img src="images/cause_to_process2.gif" id="wp30557" border="0" hspace="0" vspace="0"/></div><p class="pBodyRelative">
+
+
+
+
+
+</p>
+
+<a name="MGCCIDPDisplaying the Full Path"></a>
+
+<a name="wp8107"></a><h5 class="pHeading4">
+  
+
+
+Displaying the Full Path
+</h5>
+
+
+
+<a name="wp8108"></a><p class="pBody">
+Once an object has been acquired to the Waveform, you can choose to display either its local name or its full path in the context of the simulated design.
+</p>
+
+
+<a name="wp8109"></a><p class="pBody">
+To display the full path name:
+</p>
+
+
+<a name="wp8110"></a>
+<ul><li class="LL1BulSolid">Choose the <span style=" font-weight: bold;">View &gt;</span> <span style=" font-weight: bold;">Display Full Signal Path </span>command.</li></ul>
+<a name="wp8111"></a><p class="pBody">
+This command is a toggle. Choosing it again will revert the display to the local name of the signal.
+</p>
+
+<a name="MGCCIDPRemoving an Object"></a>
+
+<a name="wp8129"></a><h5 class="pHeading4">
+  
+
+
+Removing an Object
+</h5>
+
+
+
+<a name="wp8130"></a><p class="pBody">
+<span style=" font-weight: bold;">To remove one or more design objects from the Waveform display:</span>
+</p>
+
+
+<a name="wp8131"></a>
+<ol start="1."><li class="LL1Seq">In the left hand column, select the name of the object(s) to be removed.</li></ol>
+<a name="wp8132"></a>
+<ol start="2."><li class="LL1Seq">Choose the <span style=" font-weight: bold;">Edit &gt; Delete</span> menu command or click the Delete icon: 
+
+
+<img src="images/waveform_delete_button.gif" id="wp8134" border="0" hspace="0" vspace="0"/>
+
+
+
+</li></ol><a name="MGCCIDPDefining Sets of Acquired Objects"></a>
+
+<a name="wp8138"></a><h6 class="pHeading5">
+  
+
+
+Defining Sets of Acquired Objects
+</h6>
+
+
+
+<a name="wp8139"></a><p class="pBody">
+If you do not save your current set of acquired objects, you will lose the list when you close the Waveform window.
+</p>
+
+
+<a name="wp8140"></a><p class="pBody">
+To save a set of object names so that you will not need to re-acquire them:
+</p>
+
+
+<a name="wp8141"></a>
+<ol start="1."><li class="LL1Seq">In the Waveform window, choose the File menu<span style=" font-weight: bold;"> &gt; Save Names </span>or click the Save Names icon: 
+
+
+<img src="images/waveform_save_names_button.gif" id="wp8143" border="0" hspace="0" vspace="0"/>
+
+
+
+</li></ol>
+<a name="wp8146"></a>
+<ol start="2."><li class="LL1Seq">In the dialog box now displayed, enter any valid name, or overwrite an existing set of names by selecting it from the list and click OK.</li></ol>
+<a name="wp8147"></a><p class="pBody">
+You can save as many sets of names as you wish, and you can use any set of names anywhere in the simulation environment.
+</p>
+
+
+<a name="wp8148"></a><p class="pBody">
+Once you have saved a set of names, you can later use the File menu<span style=" font-weight: bold;"> &gt; Load Names</span> command to add the saved list of names to a Waveform window. Alternatively, click the Load Names icon: 
+
+
+<img src="images/waveform_load_names_button.gif" id="wp8150" border="0" hspace="0" vspace="0"/>
+
+
+
+
+</p>
+
+<a name="MGCCIDPExamining Simulation Results"></a>
+
+<a name="wp8154"></a><h5 class="pHeading4">
+  
+
+
+Examining Simulation Results
+</h5>
+
+
+<a name="MGCCIDPScrolling in a Waveform Window"></a>
+
+<a name="wp8155"></a><h6 class="pHeading5">
+  
+
+
+Scrolling in a Waveform Window
+</h6>
+
+
+
+<a name="wp8156"></a><p class="pBody">
+To scroll a Waveform display horizontally:
+</p>
+
+
+<a name="wp8157"></a>
+<ul><li class="LL1BulSolid">For small increments of scrolling, click on the left/right arrows. Each click corresponds to the specified scale.</li></ul>
+<a name="wp8158"></a>
+<ul><li class="LL1BulSolid">For larger increments of scrolling, click on the scroll bar beside the left/right arrows.</li></ul>
+<a name="wp8159"></a>
+<ul><li class="LL1BulSolid">For fast scrolling, drag the scroll box to the position of interest within the data.</li></ul>
+<a name="wp8160"></a><p class="pBody">
+To scroll a Waveform display vertically:
+</p>
+
+
+<a name="wp8161"></a>
+<ul><li class="LL1BulSolid">For small increments of scrolling, click on the up/down arrows.</li></ul>
+<a name="wp8162"></a>
+<ul><li class="LL1BulSolid">For larger increments of scrolling, click on the scroll bar beside the up/down arrows.</li></ul>
+<a name="wp8163"></a>
+<ul><li class="LL1BulSolid">For fast scrolling, drag the scroll box to the position of interest within the data.</li></ul><a name="MGCCIDPZooming in a Waveform Window"></a>
+
+<a name="wp8164"></a><h6 class="pHeading5">
+  
+
+
+Zooming in a Waveform Window
+</h6>
+
+
+
+<a name="wp8165"></a><p class="pBody">
+Zooming in and out in a Waveform window is a horizontal operation; the height of your waveforms is not affected.
+</p>
+
+
+<a name="wp8166"></a><p class="pBody">
+Two means for zooming in and out are available. The first is by choosing a command from the <span style=" font-weight: bold;">View &gt; Zoom</span>: <span style=" font-weight: bold;">In</span>, <span style=" font-weight: bold;">Out</span>, or <span style=" font-weight: bold;">Full Zoom</span>. Alternatively, you can click one of the zoom icons:
+</p>
+
+
+<a name="wp8170"></a><p class="pBodyRelative">
+
+
+
+<img src="images/waveform_zoom_buttons.gif" id="wp8168" border="0" hspace="0" vspace="0"/>
+
+
+
+
+</p>
+
+
+<a name="wp8171"></a><p class="pBody">
+Each time you zoom in, the width of each waveform is doubled and the time range viewed is halved. Conversely, each time you zoom out, the width of each waveform is halved and the viewed time range is doubled.
+</p>
+
+
+<a name="wp8172"></a><p class="pBody">
+The second means of zooming in and out lets you determine the portion of the simulation results that will be displayed in the entire width of the wave window.
+</p>
+
+
+<a name="wp8173"></a><p class="pBody">
+To zoom in, enlarging a particular portion of the wave to fill your window&#39;s entire width:
+</p>
+
+
+<a name="wp8174"></a>
+<ol start="1."><li class="LL1Seq">On the time ruler, click and hold down with the left mouse button on the simulation time you want to move to the <span style=" font-weight: bold;">left</span> edge of the window.</li></ol>
+<a name="wp8175"></a>
+<ol start="2."><li class="LL1Seq">Without releasing the button, drag the pointer to the simulation time you want to move to the <span style=" font-weight: bold;">right</span> edge of the window. Your pointer leaves a white rectangle behind.</li></ol>
+<a name="wp8176"></a>
+<ol start="3."><li class="LL1Seq">Release the button. The data you specified expands to fill the window&#39;s entire width.</li></ol>
+<a name="wp8177"></a><p class="pBody">
+To zoom out, reducing the currently visible portion of the wave to fill only a particular portion of the window (and making more of the wave visible in the rest of the window):
+</p>
+
+
+<a name="wp8178"></a>
+<ol start="1."><li class="LL1Seq">On the time ruler, click and hold down with the left mouse button at the position where you want to put the time that&#39;s currently at the right edge of your window.</li></ol>
+<a name="wp8179"></a>
+<ol start="2."><li class="LL1Seq">Without releasing the button, drag the pointer to the position where you want to put the time that&#39;s currently at the left edge of your window. Your pointer leaves a white rectangle behind.</li></ol>
+<a name="wp8180"></a>
+<ol start="3."><li class="LL1Seq">Release the button. Your data shrinks into the area you specified, and adjoining data fills the rest of the window.</li></ol>
+<a name="wp8181"></a><p class="pBody">
+To view the entire simulation results in the Waveform window:
+</p>
+
+
+<a name="wp8182"></a>
+<ul><li class="LL1BulSolid">Click <span style=" font-weight: bold;">View &gt; Zoom &gt; Full Zoom</span>.</li></ul><a name="MGCCIDPUsing Locators to Determine Event Times"></a>
+
+<a name="wp8183"></a><h6 class="pHeading5">
+  
+
+
+Using Locators to Determine Event Times
+</h6>
+
+
+
+<a name="wp8184"></a><p class="pBody">
+A locator is a vertical line extending across the entire window, with a numerical readout next to it displaying its precise time. A locator&#39;s readout can be dragged up or down along the locator on demand.
+</p>
+
+
+<a name="wp8185"></a><p class="pBody">
+You can read the exact time at any point in a wave by dragging a locator to it, and you can also read the current value of any signal at that point in the Values column next to the signal name and type.
+</p>
+
+
+<a name="wp8186"></a><p class="pBody">
+Two types of locators are available:
+</p>
+
+
+<a name="wp8187"></a>
+<ul><li class="LL1BulSolid">An <span style=" font-weight: bold;">absolute locator</span> indicates absolute time, as measured from time zero.</li></ul>
+<a name="wp8188"></a>
+<ul><li class="LL1BulSolid">A <span style=" font-weight: bold;">delta locator</span> indicates the positive or negative difference in time (dT) between its own position and the absolute locator it references.</li></ul>
+<a name="wp8189"></a><p class="pBody">
+You can add any number of absolute or delta locators to the Waveform display.
+</p>
+
+
+<a name="wp8190"></a><p class="pBody">
+To add an absolute locator:
+</p>
+
+
+<a name="wp8191"></a>
+<ul><li class="LL1BulSolid">Choose <span style=" font-weight: bold;">View &gt; Locators &gt; Add New Absolute Locator</span> command. Alternatively, click the Absolute Locator icon: 
+
+
+<img src="images/absolute_locator.gif" id="wp8193" border="0" hspace="0" vspace="0"/>
+
+
+
+</li></ul>
+<a name="wp8196"></a><p class="pBody">
+To add a Delta locator:
+</p>
+
+
+<a name="wp8197"></a>
+<ul><li class="LL1BulSolid">Choose <span style=" font-weight: bold;">View &gt; Locators &gt; Add New Delta Locator</span> command. Alternatively, click the Delta Locator icon: 
+
+
+<img src="images/delta_locator.gif" id="wp8199" border="0" hspace="0" vspace="0"/>
+
+
+
+</li></ul>
+<a name="wp90374"></a><p class="pBody">
+You can also add locators using the drop-down menu that is displayed when you click the arrow located next to the Delta Locator icon: 
+
+
+<img src="images/delta_locator_arrow.gif" id="wp90376" border="0" hspace="0" vspace="0"/>
+
+
+
+
+</p>
+
+
+<a name="wp90378"></a><p class="pBody">
+To instantly scroll the waveform pane to where any locator is:
+</p>
+
+
+<a name="wp8208"></a>
+<ol start="1."><li class="LL1Seq">Click the arrow next to the Locator icon.</li></ol>
+<a name="wp8209"></a>
+<ol start="2."><li class="LL1Seq">From the drop-down list of locators now displayed, select the desired locator.</li></ol>
+<a name="wp8210"></a><p class="pL1Body">The appropriate part of the waveform appears in the visible pane, displaying the locator with it.</p>
+
+<a name="wp8211"></a><p class="pBody">
+To move the currently-selected locator, which is displayed in green, to the next/previous closest wave edge:
+</p>
+
+
+<a name="wp8215"></a>
+<ul><li class="LL1BulSolid">Click either the <span style=" font-weight: bold;">Show Next Event</span> or <span style=" font-weight: bold;">Show Previous Event</span> icon: 
+
+
+<img src="images/show_event_button.gif" id="wp8213" border="0" hspace="0" vspace="0"/>
+
+
+
+</li></ul>
+<a name="wp8216"></a><p class="pBody">
+To move a locator:
+</p>
+
+
+<a name="wp8217"></a>
+<ul><li class="LL1BulSolid">Either drag the locator to a new location, or type its new location (in simulation time units) in the text box next to the Locator icon and press the Return/Enter key.</li></ul>
+<a name="wp8218"></a><p class="pBody">
+To delete a locator:
+</p>
+
+
+<a name="wp8219"></a>
+<ul><li class="LL1BulSolid">Select the locator and click <span style=" font-weight: bold;">View &gt; Locators &gt; Remove Locator</span>.</li></ul><a name="MGCCIDPUsing the Pointer to Determine Event Times"></a>
+
+<a name="wp8220"></a><h6 class="pHeading5">
+  
+
+
+Using the Pointer to Determine Event Times
+</h6>
+
+
+
+<a name="wp8221"></a><p class="pBody">
+You can quickly determine the exact time of a wave edge by placing the pointer over it. A readout pops up, displaying signal name and type, edge value, and absolute time at that point.
+</p>
+
+
+<a name="wp18538"></a><p class="pBody">
+You can also determine the simulation time at any point by placing the pointer over it and viewing the current time in the Time box at the top of the Waveform window.
+</p>
+
+<a name="MGCCIDPClosing a Waveform Window"></a>
+
+<a name="wp8301"></a><h6 class="pHeading5">
+  
+
+
+Closing a Waveform Window
+</h6>
+
+
+
+<a name="wp8302"></a><p class="pBody">
+To close a Waveform window:
+</p>
+
+
+<a name="wp8303"></a>
+<ul><li class="LL1BulSolid">Choose the File menu<span style=" font-weight: bold;"> &gt; Close</span> command.</li></ul>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Setting Up a Simulation Display";
+   PDFLinkTitle = "Setting.Up.a.Simulation.Display"
+   ThisTopic = "ClosingaWaveformWindow";
+   CurrentFile = "design_verification20.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:07:31 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>TLM Control Commands</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(404);
+    // -->
+ </script>
+ 
+
+<!--394,400,404-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPTLM Control Commands"></a>
+
+<a name="wp20311"></a><h4 class="pHeading3">
+  
+
+
+TLM Control Commands
+  </h4>
+
+
+<!--TLMControlCommands-->
+
+
+<a name="wp21601"></a><h6 class="pHTaskSubhead">
+  Set Timing Mode
+</h6>
+
+
+
+<a name="wp20312"></a><p class="pzUsage">
+<span class="cRequired">mon tlm set-timing-model </span>{<span class="cRequired">AT | LT</span>}
+</p>
+
+
+<a name="wp20461"></a><p class="pBody">
+Sets current TLM timing simulation model to AT or LT mode.
+</p>
+
+
+<a name="wp21606"></a><h6 class="pHTaskSubhead">
+  Show Timing Mode
+</h6>
+
+
+
+<a name="wp20313"></a><p class="pzUsage">
+<span class="cRequired">mon tlm show-timing-model</span> 
+</p>
+
+
+<a name="wp20470"></a><p class="pBody">
+Displays current TLM timing simulation model mode.
+</p>
+
+
+<a name="wp21612"></a><h6 class="pHTaskSubhead">
+  Set DMI Status
+</h6>
+
+
+
+<a name="wp20314"></a><p class="pzUsage">
+<span class="cRequired">mon core set-dmi</span> {<span class="cRequired">ON</span> | <span class="cRequired">OFF</span>}
+</p>
+
+
+<a name="wp20477"></a><p class="pBody">
+Sets DMI status of core.
+</p>
+
+
+<a name="wp21537"></a><p class="pBody">
+If enabled, the simulation core uses TLM DMI protocol. 
+</p>
+
+
+<a name="wp21560"></a><p class="pBody">
+This command can be used in order to trace transactions in a wave without fully switching to AT simulation mode.
+</p>
+
+
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg"><span class="cNotesBlack">Note</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp22122"></a><p class="pnoteNote">
+        	When DMI is set to off (transactions access peripherals through the system bus), it is possible to view transaction data and starting times in the Vista Waveform while simulating in LT (fast) mode.
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="right" /></td>
+    </tr>
+ </table>
+<a name="wp21620"></a><h6 class="pHTaskSubhead">
+  Show DMI Status
+</h6>
+
+
+
+<a name="wp20315"></a><p class="pzUsage">
+<span class="cRequired">mon core show-dmi</span> 
+</p>
+
+
+<a name="wp20486"></a><p class="pBody">
+Displays current DMI status of core. If ON, the simulation core uses the TLM DMI protocol. 
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "TLM Control Commands";
+   PDFLinkTitle = "TLM.Control.Commands"
+   ThisTopic = "TLMControlCommands";
+   CurrentFile = "hdsw_verification11.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

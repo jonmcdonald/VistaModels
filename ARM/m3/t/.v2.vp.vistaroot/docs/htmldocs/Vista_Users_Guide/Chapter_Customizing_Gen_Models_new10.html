@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:02:48 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>INTC (Interrupt Controller)</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(163);
+    // -->
+ </script>
+ 
+
+<!--154,155,163-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPINTC (Interrupt Controller)"></a>
+
+<a name="wp17235"></a><h4 class="pHeading3">
+  
+
+
+INTC (Interrupt Controller)
+  </h4>
+
+
+<!--INTCInterruptController-->
+
+
+<a name="wp17236"></a><p class="pBody">
+This component receives a set of interrupts (between 1 to 32) and uses priority settings and queues to determine which one of these to output. This model is based on concepts found in popular Vector interrupts controllers. The interrupts can be assigned dynamic priorities (0 the highest). The default priority for an interrupt is equal to 15, which can be changed via the <span style=" font-weight: bold;">Update from Template</span> dialog, see <a href='javascript:oT("CRF","Chapter_Customizing_Gen_Models_new59.html");'>&quot;Modifying Generic Configuration and Updating Tables&quot;</a>. When concurrent interrupts with the same priority occur then their relative priority is according to their number (0 is the highest).
+</p>
+
+
+<a name="wp17237"></a><p class="pBody">
+Ports include:
+</p>
+
+
+<a name="wp17238"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Bus </span>(AHB) slave port, through which the INTC is programmed</li></ul>
+<a name="wp17239"></a>
+<ul><li class="LL1BulSolid">Between one and 32 <span style=" font-weight: bold;">interrupt</span> input ports (e.g., int source1, int source2) - two are provided and up to 30 additional ones can be added</li></ul>
+<a name="wp17240"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Interrupt output</span> port</li></ul>
+<a name="wp17241"></a><p class="pBody">
+Five registers and two register vectors (memory ranges) are provided.
+</p>
+
+
+<a name="wp17242"></a><p class="pBody">
+In the following four registers there is one bit of the register for each interrupt. The least significant bit for interrupt number 0, and so on.
+</p>
+
+
+<a name="wp17243"></a>
+<ul><li class="LL1BulSolid">The read-only <span style=" font-weight: bold;">IRQStatus</span> register provides the masked status of interrupts. One in a bit specifies that an interrupt is active and unmasked.</li></ul>
+<a name="wp17244"></a>
+<ul><li class="LL1BulSolid">The <span style=" font-weight: bold;">RowStatus</span> register provides the unmasked status of the interrupt sources. One in a bit specifies that an interrupt is active.</li></ul>
+<a name="wp17245"></a>
+<ul><li class="LL1BulSolid">The<span style=" font-weight: bold;"> IntEnable</span> register enables the interrupts. Upon assignment to this register each bit that is one enables the corresponding interrupt and a zero bit does nothing. Reading this register retrieves the masking of the interrupts: One in a bit specifies that an interrupt is enabled.</li></ul>
+<a name="wp17246"></a>
+<ul><li class="LL1BulSolid">The write-only <span style=" font-weight: bold;">IntClear</span> register disables the interrupts. Upon assignment to this register each bit that is one disables the corresponding interrupt, a zero bit does nothing.</li></ul>
+<a name="wp17247"></a><p class="pBody">
+The <span style=" font-weight: bold;">IntAddress</span> register contains the ID of the last active interrupt. Mostly this ID will be the address of the Interrupt Service Routine (ISR). This ID is set through the <span style=" font-weight: bold;">VectAddr</span> register vector (below). A read from this register sets the current interrupt as being serviced. A read must only be performed while there is an active interrupt.
+</p>
+
+
+<a name="wp17248"></a><p class="pBody">
+A write of any value to this register clears the current interrupt. A write must only be performed at the end of an interrupt service routine.
+</p>
+
+
+<a name="wp17249"></a><p class="pBody">
+The two register vectors are:
+</p>
+
+
+<a name="wp17250"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">VecAddress</span> - a vector of 32 registers where the corresponding interrupt&#39;s ID can be set and read.</li></ul>
+<a name="wp17251"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">VecPriority</span> - a vector of 32 registers where the corresponding interrupt&#39;s priority can be set and read.</li></ul>
+<a name="wp17252"></a><p class="pBody">
+The following is an example of code that is called whenever an interrupt from the INTC arrives at a cpu:
+</p>
+
+
+<a name="wp17253"></a><pre class="pCodeIndent">
+              typedef void (*ISR_func)() ;</pre>
+
+<a name="wp17254"></a><pre class="pCodeIndent">
+               ISR_func ISR_address ;</pre>
+
+<a name="wp17255"></a><pre class="pCodeIndent">
+               cpu_master_read ( intcAddress+VicAddressOffset, ISR_address ) ;</pre>
+
+<a name="wp17256"></a><pre class="pCodeIndent">
+                   </pre>
+
+<a name="wp17257"></a><pre class="pCodeIndent">
+               unsigned int status, rowStatus ;</pre>
+
+<a name="wp17258"></a><pre class="pCodeIndent">
+               cpu_master_read ( intcAddress+IRQStatusOffset, status ) ;</pre>
+
+<a name="wp17259"></a><pre class="pCodeIndent">
+               cpu_master_read ( intcAddress+RowStatusOffset, rowStatus ) ;</pre>
+
+<a name="wp17260"></a><pre class="pCodeIndent">
+               printf ( &quot;Time %s: Treated interrupt %u status 0x%x row status 0x%x\n&quot;, sc_time_stamp().to_string().c_str(),  ISR_address, status, rowStatus) ;</pre>
+
+<a name="wp17261"></a><pre class="pCodeIndent">
+               (*ISR_address) () ; //Call the ISR function</pre>
+
+<a name="wp17262"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp17263"></a><pre class="pCodeIndent">
+               //We should clear the interrupt in the INTC at the end of the ISR</pre>
+
+<a name="wp17264"></a><pre class="pCodeIndent">
+               cpu_master_write ( intcAddress+intAddressOffset, 1 ) ;</pre>
+
+<a name="wp17265"></a><pre class="pCodeIndent">
+           </pre>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "INTC (Interrupt Controller)";
+   PDFLinkTitle = "INTC.Interrupt.Controller"
+   ThisTopic = "INTCInterruptController";
+   CurrentFile = "Chapter_Customizing_Gen_Models_new10.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

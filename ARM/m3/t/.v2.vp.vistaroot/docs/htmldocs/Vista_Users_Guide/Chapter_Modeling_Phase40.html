@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:01:17 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Using Vista Learning Power </title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(135);
+    // -->
+ </script>
+ 
+
+<!--96,134,135-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPUsing Vista Learning Power "></a>
+
+<a name="wp99135"></a><h4 class="pHeading3">
+  
+
+
+Using Vista Learning Power 
+  </h4>
+
+
+<!--UsingVistaLearningPower-->
+
+
+<a name="wp99136"></a><p class="pBody">
+Vista power modeling uses a state based power approach that maps power values to the state of the model or Signal Toggle-Rates indicating the level of consumed power of the model based on the most active signal toggle-rates. Power learning is based on one or more HDL simulation run results, each run result relies on two inputs: a power graph for each simulation run and a vcd file that includes chosen (state) register and signal value changes. 
+</p>
+
+
+<a name="wp99175"></a><p class="pBody">
+The power graph can be produced by either a commercial power extraction tool or your in-house technology. The power graph should be converted to the Vista power graph format described in the prerequisite procedure of &ldquo;<a href='javascript:oT("CRF","Chapter_Modeling_Phase41.html");'>Extracting Power &#151;  State Based Method</a>&rdquo;.
+</p>
+
+
+<a name="wp99137"></a><p class="pBody">
+The Vista Learning Power feature produces the 3 power components that Vista declares:
+</p>
+
+
+<a name="wp99138"></a>
+<ul><li class="LL1BulSolid">Leakage power &#151;  the static power; leakage power is considered as a constant that the power extraction tool provides</li></ul>
+<a name="wp99139"></a>
+<ul><li class="LL1BulSolid">Clock Tree power &#151;  the part of the dynamic power that is always consumed when a clock changes; Vista calculates the clock tree power as the minimal power consumption of the clock changes</li></ul>
+<a name="wp99140"></a>
+<ul><li class="LL1BulSolid">Dynamic Power &#151;  the part of the dynamic power that is consumed based on different model functional states; dynamic power is calculated as state based power using the values of the state variables and the power graph</li></ul>
+<a name="wp99204"></a><p class="pBody">
+Vista make use of 3 different methods to measure the model power:
+</p>
+
+
+<a name="wp99205"></a>
+<ul><li class="LL1BulSolid">Power policy &#151;  For a Vista TLM Model, it is possible to provide power estimation in a Top-down approach using Vista Power policies associated with the model states and/or the model transactions.</li></ul>
+<a name="wp99206"></a>
+<ul><li class="LL1BulSolid">SystemC State-based power model &#151;  This power model can be attached to every kind of timed functional SystemC model. In this Bottom-up approach, Vista learns power depending on the state variable values extracted from the RTL VCD files and the corresponding Power-Waveform input.</li></ul>
+<a name="wp134135"></a>
+<ul><li class="LL1BulSolid">SystemC Toggle-rates based power model &#151;  can be attached to every kind of timed functional SystemC model, and learns power depending on the activity (toggle rates) of the most active RTL signals. Overall power is calculated (not divided by leakage, clock tree, and dynamic components).</li></ul>
+<a name="wp99207"></a><p class="pBody">
+The differences in the flow for the first and second models are described in &ldquo;<a href='javascript:oT("CRF","Chapter_Modeling_Phase41.html");'></a><a href='javascript:oT("CRF","Chapter_Modeling_Phase41.html");'>Extracting Power &#151;  State Based Method</a>&rdquo;. The SystemC toggle-rate based power model functionality is described in &ldquo;<span style=" color: Blue;">Extracting Power - toggle rates based method</span>&rdquo;.
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Using Vista Learning Power ";
+   PDFLinkTitle = "Using.Vista.Learning.Power."
+   ThisTopic = "UsingVistaLearningPower";
+   CurrentFile = "Chapter_Modeling_Phase40.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

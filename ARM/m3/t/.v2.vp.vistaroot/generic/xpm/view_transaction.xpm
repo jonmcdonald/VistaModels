@@ -1,0 +1,28 @@
+/* XPM */
+static char *view_transaction[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 6 1",
+"  c black",
+". c green",
+"X c red",
+"o c #8D8D8D",
+"O c gray75",
+"+ c gray100",
+/* pixels */
+"               +",
+" OOOOOOOXXOOOO o",
+" OOOOOOOXXOOOO o",
+" +++++++..++++ o",
+" +++++++..++++ o",
+" OOOOOOOXXOOOO o",
+" OOOOOOOXXOOOO o",
+" +++++++..++++ o",
+" +++++++..++++ o",
+" OOOOOOOXXOOOO o",
+" OOOOOOOXXOOOO o",
+" +++++++..++++ o",
+" +++++++..++++ o",
+" OOOOOOOXXOOOO o",
+"               o",
+"+ooooooooooooooo"
+};

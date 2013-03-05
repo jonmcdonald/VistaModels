@@ -1,0 +1,367 @@
+NAME
+       tclvars - Variables used by Tcl
+
+
+DESCRIPTION
+       The following global variables are created and managed automatically by
+       the Tcl library.  Except where noted below, these variables should nor-
+       mally  be  treated  as  read-only  by  application-specific code and by
+       users.
+
+       env    This variable is maintained by Tcl as an  array  whose  elements
+              are  the environment variables for the process.  Reading an ele-
+              ment will return the  value  of  the  corresponding  environment
+              variable.   Setting an element of the array will modify the cor-
+              responding environment variable  or  create  a  new  one  if  it
+              doesn't  already exist.  Unsetting an element of env will remove
+              the corresponding environment  variable.   Changes  to  the  env
+              array will affect the environment passed to children by commands
+              like exec.  If the entire env array is unset then Tcl will  stop
+              monitoring  env  accesses  and will not update environment vari-
+              ables.
+              Under Windows, the environment variables PATH and COMSPEC in any
+              capitalization  are  converted automatically to upper case.  For
+              instance, the PATH variable could be exported by  the  operating
+              system  as ''path'', ''Path'', ''PaTh'', etc., causing otherwise
+              simple Tcl code to have to  support  many  special  cases.   All
+              other  environment  variables  inherited by Tcl are left unmodi-
+              fied.  Setting an env array variable to blank  is  the  same  as
+              unsetting  it  as this is the behavior of the underlying Windows
+              OS.  It should be noted that relying on an  existing  and  empty
+              environment  variable  won't  work on windows and is discouraged
+              for cross-platform usage.
+              On the Macintosh, the environment variable is constructed by Tcl
+              as no global environment variable exists.  The environment vari-
+              ables that are created for Tcl include:
+
+              LOGIN  This holds the Chooser name of the Macintosh.
+
+              USER   This also holds the Chooser name of the Macintosh.
+
+              SYS_FOLDER
+                     The path to the system directory.
+
+              APPLE_M_FOLDER
+                     The path to the Apple Menu directory.
+
+              CP_FOLDER
+                     The path to the control panels directory.
+
+              DESK_FOLDER
+                     The path to the desk top directory.
+
+              EXT_FOLDER
+                     The path to the system extensions directory.
+
+              PREF_FOLDER
+                     The path to the preferences directory.
+
+              PRINT_MON_FOLDER
+                     The path to the print monitor directory.
+
+              SHARED_TRASH_FOLDER
+                     The path to the network trash directory.
+
+              TRASH_FOLDER
+                     The path to the trash directory.
+
+              START_UP_FOLDER
+                     The path to the start up directory.
+
+              HOME   The path to the application's default directory.
+
+              You can also create your own environment variables for the  Mac-
+              intosh.   A  file named  Tcl Environment Variables may be placed
+              in the preferences folder in the Mac system folder.   Each  line
+              of this file should be of the form VAR_NAME=var_data.
+
+              The  last  alternative  is  to  place environment variables in a
+              'STR#' resource named Tcl Environment Variables of the  applica-
+              tion.  This is considered a little more ''Mac like'' than a Unix
+              style Environment Variable  file.   Each  entry  in  the  'STR#'
+              resource  has  the  same  format as above.  The source code file
+              tclMacEnv.c contains the implementation of the  env  mechanisms.
+              This  file  contains  many #define's that allow customization of
+              the env mechanisms to fit your applications needs.
+
+       errorCode
+              After an error has occurred, this variable will be set  to  hold
+              additional information about the error in a form that is easy to
+              process with programs.  errorCode consists of a  Tcl  list  with
+              one  or more elements.  The first element of the list identifies
+              a general class of errors, and determines the format of the rest
+              of  the  list.   The following formats for errorCode are used by
+              the Tcl core; individual applications may define additional for-
+              mats.
+
+              ARITH code msg
+                     This format is used when an arithmetic error occurs (e.g.
+                     an attempt to divide by zero in the expr command).   Code
+                     identifies  the  precise  error and msg provides a human-
+                     readable description of the error.  Code will  be  either
+                     DIVZERO (for an attempt to divide by zero), DOMAIN (if an
+                     argument is outside the domain of  a  function,  such  as
+                     acos(-3)),  IOVERFLOW  (for  integer  overflow), OVERFLOW
+                     (for a floating-point overflow), or UNKNOWN (if the cause
+                     of the error cannot be determined).
+
+              CHILDKILLED pid sigName msg
+                     This  format is used when a child process has been killed
+                     because of a signal.  The  second  element  of  errorCode
+                     will be the process's identifier (in decimal).  The third
+                     element will be the symbolic  name  of  the  signal  that
+                     caused  the  process  to terminate; it will be one of the
+                     names from the include file signal.h,  such  as  SIGPIPE.
+                     The fourth element will be a short human-readable message
+                     describing the signal, such as ''write on  pipe  with  no
+                     readers'' for SIGPIPE.
+
+              CHILDSTATUS pid code
+                     This  format is used when a child process has exited with
+                     a non-zero exit status.  The second element of  errorCode
+                     will  be  the  process's  identifier (in decimal) and the
+                     third element will be the exit code returned by the  pro-
+                     cess (also in decimal).
+
+              CHILDSUSP pid sigName msg
+                     This  format  is  used when a child process has been sus-
+                     pended because of a signal.  The second element of error-
+                     Code  will  be the process's identifier, in decimal.  The
+                     third element will be the symbolic  name  of  the  signal
+                     that  caused  the process to suspend; this will be one of
+                     the  names  from  the  include  file  signal.h,  such  as
+                     SIGTTIN.   The fourth element will be a short human-read-
+                     able message describing the signal, such as  ''background
+                     tty read'' for SIGTTIN.
+
+              NONE   This format is used for errors where no additional infor-
+                     mation is available for  an  error  besides  the  message
+                     returned  with  the error.  In these cases errorCode will
+                     consist of a list containing a single element whose  con-
+                     tents are NONE.
+
+              POSIX errName msg
+                     If  the  first  element  of  errorCode is POSIX, then the
+                     error occurred during a POSIX kernel  call.   The  second
+                     element of the list will contain the symbolic name of the
+                     error that occurred, such as ENOENT; this will be one  of
+                     the  values  defined  in  the  include file errno.h.  The
+                     third element of the list will be a  human-readable  mes-
+                     sage  corresponding to errName, such as ''no such file or
+                     directory'' for the ENOENT case.
+
+              To set errorCode, applications  should  use  library  procedures
+              such  as Tcl_SetErrorCode and Tcl_PosixError, or they may invoke
+              the error command.  If one of these methods  hasn't  been  used,
+              then  the  Tcl interpreter will reset the variable to NONE after
+              the next error.
+
+       errorInfo
+              After an error has occurred, this string  will  contain  one  or
+              more lines identifying the Tcl commands and procedures that were
+              being executed when the most recent error  occurred.   Its  con-
+              tents  take the form of a stack trace showing the various nested
+              Tcl commands that had been invoked at the time of the error.
+
+       tcl_library
+              This variable holds the name of a directory containing the  sys-
+              tem library of Tcl scripts, such as those used for auto-loading.
+              The value of this variable is returned by the info library  com-
+              mand.   See  the library manual entry for details of the facili-
+              ties provided by the Tcl script library.  Normally each applica-
+              tion  or  package  will have its own application-specific script
+              library in addition to the Tcl script library; each  application
+              should  set  a  global  variable  with  a name like $app_library
+              (where app is the application's name) to hold the  network  file
+              name  for  that  application's  library  directory.  The initial
+              value of tcl_library is set when an interpreter  is  created  by
+              searching  several different directories until one is found that
+              contains an appropriate Tcl startup script.  If the  TCL_LIBRARY
+              environment  variable  exists,  then  the  directory it names is
+              checked first.  If TCL_LIBRARY isn't set or doesn't refer to  an
+              appropriate directory, then Tcl checks several other directories
+              based on a compiled-in default location,  the  location  of  the
+              binary  containing  the  application,  and  the  current working
+              directory.
+
+       tcl_patchLevel
+              When an interpreter is created Tcl initializes this variable  to
+              hold  a  string  giving the current patch level for Tcl, such as
+              7.3p2 for Tcl 7.3 with the first two official patches, or  7.4b4
+              for the fourth beta release of Tcl 7.4.  The value of this vari-
+              able is returned by the info patchlevel command.
+
+       tcl_pkgPath
+              This variable holds a list of directories indicating where pack-
+              ages  are  normally  installed.   It is not used on Windows.  It
+              typically contains either one or two entries; if it contains two
+              entries,  the  first is normally a directory for platform-depen-
+              dent packages (e.g., shared library binaries) and the second  is
+              normally  a  directory  for platform-independent packages (e.g.,
+              script files). Typically a package is installed as  a  subdirec-
+              tory  of  one of the entries in $tcl_pkgPath. The directories in
+              $tcl_pkgPath are included by default in the auto_path  variable,
+              so  they  and  their  immediate subdirectories are automatically
+              searched for packages during package  require  commands.   Note:
+              tcl_pkgPath  it  not intended to be modified by the application.
+              Its value is added to auto_path at startup; changes to  tcl_pkg-
+              Path  are not reflected in auto_path.  If you want Tcl to search
+              additional directories for packages you should add the names  of
+              those directories to auto_path, not tcl_pkgPath.
+
+       tcl_platform
+              This  is an associative array whose elements contain information
+              about the platform on which the application is running, such  as
+              the  name  of  the operating system, its current release number,
+              and the machine's instruction set.  The  elements  listed  below
+              will  always be defined, but they may have empty strings as val-
+              ues if Tcl couldn't retrieve any relevant information.  In addi-
+              tion,  extensions  and applications may add additional values to
+              the array.  The predefined elements are:
+
+
+              byteOrder
+                     The native byte order of this machine:  either  littleEn-
+                     dian or bigEndian.
+
+              debug  If  this  variable  exists, then the interpreter was com-
+                     piled with debugging symbols enabled.  This variable will
+                     only  exist  on  Windows so extension writers can specify
+                     which package to load depending on the C run-time library
+                     that is loaded.
+
+              machine
+                     The  instruction  set  executed  by this machine, such as
+                     intel, PPC, 68k, or sun4m.  On UNIX machines, this is the
+                     value returned by uname -m.
+
+              os     The name of the operating system running on this machine,
+                     such as Windows 95, Windows NT, MacOS, or SunOS.  On UNIX
+                     machines,  this  is  the  value returned by uname -s.  On
+                     Windows 95 and Windows 98, the  value  returned  will  be
+                     Windows  95  to provide better backwards compatibility to
+                     Windows 95; to distinguish between  the  two,  check  the
+                     osVersion.
+
+              osVersion
+                     The  version  number  for the operating system running on
+                     this machine.   On  UNIX  machines,  this  is  the  value
+                     returned by uname -r.  On Windows 95, the version will be
+                     4.0; on Windows 98, the version will be 4.10.
+
+              platform
+                     Either windows, macintosh, or unix.  This identifies  the
+                     general operating environment of the machine.
+
+              threaded
+                     If  this  variable  exists, then the interpreter was com-
+                     piled with threads enabled.
+
+              user   This identifies the  current  user  based  on  the  login
+                     information  available  on the platform.  This comes from
+                     the USER or LOGNAME environment variable on Unix, and the
+                     value from GetUserName on Windows and Macintosh.
+
+              wordSize
+                     This  gives  the size of the native-machine word in bytes
+                     (strictly,  it  is  same  as  the  result  of  evaluating
+                     sizeof(long) in C.)
+
+       tcl_precision
+              This  variable  controls  the  number of digits to generate when
+              converting floating-point values to strings.  It defaults to 12.
+              17  digits  is  ''perfect''  for  IEEE floating-point in that it
+              allows double-precision values to be converted  to  strings  and
+              back  to  binary with no loss of information.  However, using 17
+              digits prevents any rounding, which produces longer, less  intu-
+              itive results.  For example, expr 1.4 returns 1.3999999999999999
+              with tcl_precision set to 17, vs. 1.4 if tcl_precision is 12.
+              All interpreters in  a  process  share  a  single  tcl_precision
+              value:  changing  it  in  one  interpreter will affect all other
+              interpreters  as  well.   However,  safe  interpreters  are  not
+              allowed to modify the variable.
+
+       tcl_rcFileName
+              This variable is used during initialization to indicate the name
+              of a user-specific startup file.  If it is set  by  application-
+              specific  initialization,  then  the Tcl startup code will check
+              for the existence of this file and source it if it exists.   For
+              example,  for wish the variable is set to ~/.wishrc for Unix and
+              ~/wishrc.tcl for Windows.
+
+       tcl_rcRsrcName
+              This variable is only used on Macintosh systems.   The  variable
+              is  used  during  initialization to indicate the name of a user-
+              specific TEXT resource located in the application  or  extension
+              resource  forks.   If it is set by application-specific initial-
+              ization, then the Tcl startup code will check for the  existence
+              of  this  resource and source it if it exists.  For example, the
+              Macintosh wish application has the variable is set to tclshrc.
+
+       tcl_traceCompile
+              The value of this variable can be set to control how much  trac-
+              ing  information  is  displayed during bytecode compilation.  By
+              default, tcl_traceCompile is zero and  no  information  is  dis-
+              played.  Setting tcl_traceCompile to 1 generates a one line sum-
+              mary in stdout whenever a procedure or top level command is com-
+              piled.   Setting  it to 2 generates a detailed listing in stdout
+              of the bytecode instructions emitted during  every  compilation.
+              This variable is useful in tracking down suspected problems with
+              the Tcl compiler.  It is also occasionally useful when  convert-
+              ing existing code to use Tcl8.0.
+
+              This  variable and functionality only exist if TCL_COMPILE_DEBUG
+              was defined during Tcl's compilation.
+
+       tcl_traceExec
+              The value of this variable can be set to control how much  trac-
+              ing  information  is  displayed  during  bytecode execution.  By
+              default, tcl_traceExec is zero and no information is  displayed.
+              Setting  tcl_traceExec to 1 generates a one line trace in stdout
+              on each call to a Tcl procedure.  Setting it to  2  generates  a
+              line of output whenever any Tcl command is invoked that contains
+              the name of the command and its arguments.  Setting it to 3 pro-
+              duces  a  detailed  trace  showing  the result of executing each
+              bytecode instruction.  Note that when tcl_traceExec is 2  or  3,
+              commands  such  as set and incr that have been entirely replaced
+              by a sequence of bytecode instructions are not  shown.   Setting
+              this variable is useful in tracking down suspected problems with
+              the bytecode compiler and interpreter.  It is also  occasionally
+              useful when converting code to use Tcl8.0.
+
+              This  variable and functionality only exist if TCL_COMPILE_DEBUG
+              was defined during Tcl's compilation.
+
+       tcl_wordchars
+              The value of this variable is a regular expression that  can  be
+              set  to  control  what  are  considered ''word'' characters, for
+              instances like selecting a word by double-clicking  in  text  in
+              Tk.   It  is platform dependent.  On Windows, it defaults to \S,
+              meaning anything but a Unicode space  character.   Otherwise  it
+              defaults  to  \w,  which  is any Unicode word character (number,
+              letter, or underscore).
+
+       tcl_nonwordchars
+              The value of this variable is a regular expression that  can  be
+              set  to control what are considered ''non-word'' characters, for
+              instances like selecting a word by double-clicking  in  text  in
+              Tk.   It  is platform dependent.  On Windows, it defaults to \s,
+              meaning any Unicode space character.  Otherwise it  defaults  to
+              \W, which is anything but a Unicode word character (number, let-
+              ter, or underscore).
+
+       tcl_version
+              When an interpreter is created Tcl initializes this variable  to
+              hold the version number for this version of Tcl in the form x.y.
+              Changes to x represent major changes with probable incompatibil-
+              ities  and  changes  to  y  represent small enhancements and bug
+              fixes that retain backward compatibility.   The  value  of  this
+              variable is returned by the info tclversion command.
+
+
+SEE ALSO
+       eval(n)
+
+
+KEYWORDS
+       arithmetic,  bytecode,  compiler, error, environment, POSIX, precision,

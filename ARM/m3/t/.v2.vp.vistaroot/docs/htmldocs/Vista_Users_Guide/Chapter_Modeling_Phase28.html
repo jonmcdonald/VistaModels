@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:01:17 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Example of a Callback that uses Master Calls</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(123);
+    // -->
+ </script>
+ 
+
+<!--96,117,123-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPExample of a Callback that uses Master Calls"></a>
+
+<a name="wp22876"></a><h4 class="pHeading3">
+  
+
+
+Example of a Callback that uses Master Calls
+  </h4>
+
+
+<!--ExampleofaCallbackthatusesMasterCalls-->
+
+
+<a name="wp22526"></a><pre class="pCodeIndent">
+           void DMA_pv::cb_write_Trigger(unsigned int newValue) {<br />           </pre>
+
+<a name="wp22528"></a><pre class="pCodeIndent">
+              unsigned int Data [16];</pre>
+
+<a name="wp22530"></a><pre class="pCodeIndent">
+           <br />              cout &lt;&lt; name () &lt;&lt; &quot; @ &quot; &lt;&lt; sc_time_stamp () &lt;&lt; &quot; Trigger Callback&quot; &lt;&lt; endl;</pre>
+
+<a name="wp22532"></a><pre class="pCodeIndent">
+           <br />              cout &lt;&lt; name () &lt;&lt; &quot; Source=0x&quot; &lt;&lt; hex &lt;&lt; Source</pre>
+
+<a name="wp22533"></a><pre class="pCodeIndent">
+                 &lt;&lt; &quot; Destination=0x&quot; &lt;&lt; Destination</pre>
+
+<a name="wp22534"></a><pre class="pCodeIndent">
+                 &lt;&lt; &quot; Size=&quot; &lt;&lt; dec &lt;&lt; Size &lt;&lt; endl;</pre>
+
+<a name="wp22536"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp22583"></a><pre class="pCodeIndent">
+              master_read (Source, Data, Size);</pre>
+
+<a name="wp22537"></a><pre class="pCodeIndent">
+              print (Data, Size);</pre>
+
+<a name="wp22578"></a><pre class="pCodeIndent">
+              master_write (Destination, Data, Size);</pre>
+
+<a name="wp22579"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp22905"></a><pre class="pCodeIndent">
+              cout &lt;&lt; name () &lt;&lt; &quot; @ &quot; &lt;&lt; sc_time_stamp () &lt;&lt; &quot; (&quot; &lt;&lt; dec &lt;&lt; simcontext ()-&gt;delta_count () &lt;&lt; &quot;) Assert Interrupt&quot; &lt;&lt; endl;</pre>
+
+<a name="wp22906"></a><pre class="pCodeIndent">
+           <br />              irq.write (false);<br />           </pre>
+
+<a name="wp22543"></a><pre class="pCodeIndent">
+           }</pre>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Example of a Callback that uses Master Calls";
+   PDFLinkTitle = "Example.of.a.Callback.that.uses.Master.Calls"
+   ThisTopic = "ExampleofaCallbackthatusesMasterCalls";
+   CurrentFile = "Chapter_Modeling_Phase28.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:06:18 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Tracing and Untracing Objects</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(320);
+    // -->
+ </script>
+ 
+
+<!--313,314,319-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPTracing and Untracing Objects"></a>
+
+<a name="wp17942"></a><h5 class="pHeading4Split">
+  
+
+
+Tracing and Untracing Objects
+</h5>
+
+
+
+
+<a name="wp17943"></a><p class="pL1Body">Use the Trace tool button to turn on tracing for an object, and Untrace to cancel tracing for the object. (For transactions, this option is available in addition to Trace/Untrace Transactions).</p>
+
+<a name="wp28002"></a><p class="pL1Body">TLM sockets can also be traced and acquired, and their transactions can be viewed in the Waveform. The beginning and end times of Read and Write transactions are shown, as well as Interrupt times. </p>
+<a name="MGCCIDPAcquiring and/or Tracing Via the Trace/Trace Transactions/Acquire Dialogs"></a>
+
+<a name="wp17944"></a><h6 class="pHeading5">
+  <a name="MGCCIDMVISTA_HELP_DESIGN_VERIFICATION__TRACE_DIALOG"></a><a name="MGCCIDM1018"></a>
+
+
+Acquiring and/or Tracing Via the Trace/Trace Transactions/Acquire Dialogs
+</h6>
+
+
+
+<a name="wp17945"></a><p class="pL1Body">The Trace and Trace Transactions dialogs allows you to easily specify what objects to trace/untrace. Access these dialogs via the <span style=" font-weight: bold;">Simulation &gt; Trace</span> menu commands.</p>
+
+<a name="wp17946"></a><ul><li class="LL2BulSolid"><span style=" font-weight: bold;">Trace/Untrace</span> option to select the basic command</li></ul>
+<a name="wp20718"></a><ul><li class="LL2BulSolid"><span style=" font-weight: bold;">Command</span>. This field reflects the parameters entered in the remaining fields of this dialog. You can also enter the command here directly.</li></ul>
+<a name="wp20719"></a><ul><li class="LL2BulSolid">In <span style=" font-weight: bold;">Trace Path</span>, specify the full path of the object to be traced (for example, a.b.obj).</li></ul>
+<a name="wp20720"></a><ul><li class="LL2BulSolid">Use the <span style=" font-weight: bold;">Name Pattern</span> and <span style=" font-weight: bold;">Kind</span> fields to narrow the set of objects traced; regular expressions can be used (for example, top.a.* or top.x.port_*).</li></ul>
+<a name="wp17950"></a><ul><li class="LL2BulSolid">Mark the <span style=" font-weight: bold;">Trace tree</span> checkbox to trace an object&#39;s sub-elements as well as the object itself.</li></ul>
+<a name="wp17951"></a><ul><li class="LL2BulSolid">Use the <span style=" font-weight: bold;">Trace at time: </span>field and the until: field to specify a time range.</li></ul>
+<a name="wp17952"></a><ul><li class="LL2BulSolid">Limit the number of traced objects via the <span style=" font-weight: bold;">Trace Limit </span>option and field.</li></ul>
+<a name="wp17954"></a><p class="pL1Body"><span style=" font-weight: bold;">To acquire the object, or acquire and trace (via the Simulation &gt; Trace &gt; Acquire dialog):</span></p>
+
+<a name="wp17955"></a><ul><li class="LL2BulSolid">Specify command parameters (similar to Trace dialog parameters above, with commands <span style=" font-weight: bold;">Acquire and Trace </span>and <span style=" font-weight: bold;">Acquire Only</span>)</li></ul>
+<a name="wp22121"></a><ul><li class="LL2BulSolid">Specify a wave in the <span style=" font-weight: bold;">Acquire to wave</span> field, either by entering the path or by using the pull-down list to select the location.</li></ul>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Tracing and Untracing Objects";
+   PDFLinkTitle = "Tracing.and.Untracing.Objects"
+   ThisTopic = "AcquiringandorTracingViatheTraceTraceTransactionsAcquireDialogs";
+   CurrentFile = "design_verification08.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:01:17 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Parameters</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(112);
+    // -->
+ </script>
+ 
+
+<!--96,111,112-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPParameters"></a>
+
+<a name="wp24136"></a><h4 class="pHeading3">
+  
+
+
+Parameters<a name="MGCCIDMHELP_MODEL_PARAMETERS"></a><a name="MGCCIDM2"></a>
+  </h4>
+
+
+<!--Parameters-->
+
+
+<a name="wp42530"></a><p class="pBody">
+This optional task involves specifying parameters to be used for internal model processing. Parameters are set statically before simulation and can be accessed from within the model. The parameter values can also be set in the Parameter file.
+</p>
+
+
+<a name="wp43492"></a><p class="pBody">
+The <span style=" font-weight: bold;">Parameter</span> tab allows you to specify global declarations and to configure each instance of each of the models with specific parameters. These parameters are set statically for each simulation session and include global parameters such as <span style=" font-weight: bold; font-style: italic;">clock</span>, and local parameters such as operation mode or bus-configuration parameters. 
+</p>
+
+
+<a name="wp43496"></a><p class="pBody">
+Parameters can be set in a parameter text file. All parameters of all instantiated models in a design are grouped into a single unified list and can be assigned desired values. 
+</p>
+
+
+<a name="wp43497"></a><p class="pBody">
+A line that defines a parameter value takes the form:
+</p>
+
+
+<a name="wp43498"></a><pre class="pCode">     instance_path.parameter_name = value<br />     </pre>
+
+
+<a name="wp43499"></a><p class="pBody">
+<span style=" font-style: italic;">instance_path</span> is the full SystemC path of a component instance in the simulation, with the top-level design, with each level of the hierarchy separated by the &ldquo;.&rdquo; character.
+</p>
+
+
+<a name="wp43500"></a><p class="pBody">
+Note that a line which begins with the `#' char is treated as a comment.
+</p>
+
+
+<a name="wp115973"></a><p class="pBody">
+If the environment variable VISTA_PARAMETERS_FILE is set, then its value is used as the name of the parameters file. If VISTA_PARAMETERS_FILE is not set, but SD_PARAMETERS_FILE is set, then the value of the SD_PARAMETERS_FILE environment variable is used. If neither are set, the default file name <span style=" font-style: italic;">parameters.txt</span> is used. The file should be in the current working directory. 
+</p>
+
+
+<a name="wp116028"></a><p class="pBody">
+For more information regarding specifying the parameterization file, see the System Architect tab in <a href='javascript:oT("CRF","design_verification07.html");'>&quot;Invoking Simulation&quot;</a>.
+</p>
+
+<a name="MGCCIDPAuto-Generated General Parameters "></a>
+
+<a name="wp44364"></a><h5 class="pHeading4">
+  
+
+
+Auto-Generated General Parameters 
+</h5>
+
+
+
+<a name="wp53682"></a><p class="pBody">
+The auto-generated parameters of the model are:
+</p>
+
+
+<a name="wp53683"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">clock</span> - defines the general clock's value for the model. The default is `1 ns'.</li></ul>
+<a name="wp53689"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">verbose parameters</span> - sets the verbosity of simulation printout for every model. Its default value is `True'.</li></ul>
+<a name="wp53697"></a>
+<ul><li class="LL1BulSolid"><span class="cReqRpl">protocol_name</span><span style=" font-weight: bold; font-angle: normal;">_clock</span> - defines the default clock parameter for every protocol used in the model. Its default value is that of the general `<span style=" font-weight: bold; font-angle: normal;">clock</span>' auto generated parameter.</li></ul>
+<a name="wp53702"></a>
+<ul><li class="LL1BulSolid"><span class="cReqRpl">port_name</span><span style=" font-weight: bold; font-angle: normal;">_pipeline_length</span> - for every slave port defined in the model, this parameter indicates the number of threads created for activities that are initiated on transactions on that port. Its default value is 2.</li></ul>
+<a name="wp53806"></a><p class="pL1Body">When this parameter is set to `n', the slave callback of the model can be called <span style=" font-style: italic;">n</span> times in parallel. This means that before the callback finishes, it could be called for another scene.</p>
+
+<a name="wp59917"></a>
+<ul><li class="LL1BulSolid"><span class="cP12"><span style=" font-weight: bold; font-angle: normal; vertical-align: baseline; color:#000000;">mb_debug</span></span><span class="cP12"><span style=" font-weight: regular; font-angle: normal; vertical-align: baseline; color:#000000;"> - </span></span><span class="cP12"><span style=" font-weight: regular; font-angle: normal; vertical-align: baseline; color:#000000;">The mb_debug parameter is used for automatic printing of debug information. When it is set to 1 then for every target callback (associated with target ports, registers and memory ranges) the following debug information is printed out: callback name, address and the corresponding data for write transactions. </span></span></li></ul>
+<a name="wp59879"></a>
+<ul><li class="LL1BulSolid"><span class="cP12"><span style=" font-weight: bold; font-angle: normal; vertical-align: baseline; color:#000000;">nominal_voltage</span></span><span class="cP12"><span style=" font-weight: regular; font-angle: normal; vertical-align: baseline; color:#000000;"> - </span></span><span class="cP12"><span style=" font-weight: regular; font-angle: normal; vertical-align: baseline; color:#000000;">The value of nominal_voltage represents the nominal voltage of the component and it is measured in Volts. </span></span></li></ul>
+<a name="wp59904"></a><p class="pL1Body">The default value is 1 Volt. Refer to the set_voltage function in <a href='javascript:oT("CRF","Chapter_Modeling_Phase31.html#wp137897");'>Specifying Power Policies</a> for further explanation on how it is used.</p>
+
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg"><span class="cNotesBlack">Note</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp59888"></a><p class="pnoteNote">
+        	A warning is displayed if more than <span style=" font-style: italic;">n</span> callbacks are active in parallel.<br />&#160;
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="right" /></td>
+    </tr>
+ </table>
+<a name="wp53826"></a><p class="pL1Body">Refer to <span style=" color: Blue;"><a href='javascript:oT("STD","Timing-dependentBehavior","VistaModelingGuide");' >Timing-dependent behavior </a></span>in the <span style=" color: Blue;"><a href='javascript:oT("STD","manualtitle","VistaModelingGuide");' >Vista Modeling Guide</a></span> for an explanation on the creation of threads in slave callbacks.</p>
+
+<a name="wp53838"></a><p class="pBodyTight">
+The following parameters are generated for every port that instantiates a protocol that is implemented with multiple state machines; for example, AXI:
+</p>
+
+
+<a name="wp53842"></a>
+<ul><li class="LL1BulSolid"><span class="cReqRpl">port_name</span><span style=" font-weight: bold; font-angle: normal;">_outstanding</span> - indicates the maximum number of transactions that can be issued in parallel on a <span style=" font-weight: bold; font-style: italic;">master</span> port. It also indicates the maximum number of transactions that can be processed in parallel by a <span style=" font-weight: bold; font-style: italic;">slave</span> port. Its default value is 1.</li></ul>
+<a name="wp53853"></a>
+<ul><li class="LL1BulSolid"><span class="cReqRpl">port_name</span><span style=" font-weight: bold; font-angle: normal;">_read_data_queue_size</span> and <span class="cReqRpl">port_name</span><span style=" font-weight: bold; font-angle: normal;">_write_data_queue_size </span><span style=" font-weight: regular; font-angle: normal;">- defines the read/write data queue size for master ports in bytes. Default value is `0'.</span></li></ul>
+<a name="wp53861"></a><p class="pL1Body">The size of the read/write transactions that are issued in parallel cannot exceed the queue size. If a transaction is issued when there is no more room left in the queue, the transaction is halted until one or more transactions are finished and space is freed in the queue. If the read data queue size is equal to zero, the size is unlimited.</p>
+
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg"><span class="cNotesBlack">Note</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp53867"></a><p class="pnoteNote">
+        	For multi-channel buses; for example, AXI, the <span class="cReqRpl">port_name</span><span style=" font-weight: bold; font-angle: normal;">_read_data_queue_size</span> and <span class="cReqRpl">port_name</span><span style=" font-weight: bold; font-angle: normal;">_write_data_queue_size </span>parameters are not generated.
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="right" /></td>
+    </tr>
+ </table>
+<a name="wp119723"></a>
+<ul><li class="LL1BulSolid"><span class="cRequired">warning_level</span> <span class="cReqRpl">(string)</span> - defines how warnings issued by the model are treated.</li></ul>
+<a name="wp119724"></a><p class="pL1Body">Possible values:</p>
+
+<a name="wp119725"></a><ul><li class="LL2BulHollow"><span class="cRequired">IGNORE</span>: No messages</li></ul>
+<a name="wp119726"></a><ul><li class="LL2BulHollow"><span class="cRequired">WARNING</span>: Warning (SC_REPORT_WARNING) is issued</li></ul>
+<a name="wp119727"></a><ul><li class="LL2BulHollow"><span class="cRequired">ONCE</span>: Warning (SC_REPORT_WARNING) is issued only once for each kind of message</li></ul>
+<a name="wp119728"></a><ul><li class="LL2BulHollow"><span class="cRequired">ERROR</span>: Error (SC_REPORT_ERROR) is issued; Simulation is stopped</li></ul>
+<a name="wp119729"></a><ul><li class="LL2BulHollow"><span class="cRequired">FATAL</span>: Fatal (SC_REPORT_FATAL) is issued; Simulation is aborted (with stack/core)</li></ul>
+<a name="wp119730"></a><p class="pL1Body">This parameter can also be specified for model sub-components (registers, ports, memories, etc). Example:</p>
+
+<a name="wp119732"></a><pre class="pCodeIndent">
+           <span class="cReqRpl">inst_path</span>.Model.PV.port0.warning_level = ONCE</pre>
+
+<a name="wp119733"></a><pre class="pCodeIndent">
+           top.bus.warning_level = IGNORE</pre>
+
+<a name="wp119834"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp119836"></a>
+<ul><li class="LL1BulSolid"><span class="cRequired">dmi_enabled</span> <span class="cReqRpl">(bool)</span> - defines whether model issues DMI requests. </li></ul>
+<a name="wp119864"></a><p class="pL1Body">This parameter can also be specified for model sub-component (registers, ports, memories, etc) and can be used also to view transactions (waves, tracers) while running in LT mode. </p>
+
+<a name="wp119838"></a><p class="pL1Body">Examples:</p>
+
+<a name="wp119839"></a><pre class="pCodeIndent">
+           <span class="cReqRpl">inst_path</span>.Model.PV.port0.dmi_enabled = false</pre>
+
+<a name="wp119886"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp128208"></a>
+<ul><li class="LL1BulSolid">disable_dmi &#151;  In peripheral models, disables the register/memory ranges DMI</li></ul>
+<a name="wp128209"></a>
+<ul><li class="LL1BulSolid">disable_dmi_memory, disable_fast_memory &#151;  In memory components, disables DMI returned from the components.</li></ul><a name="MGCCIDPSpecifying Parameters in the Modeling Dialog"></a>
+
+<a name="wp44371"></a><h5 class="pHeading4">
+  
+
+
+Specifying Parameters in the Modeling Dialog
+</h5>
+
+
+
+<a name="wp44352"></a><p class="pBody">
+<span class="cP12"><span style=" font-weight: bold; font-angle: normal; vertical-align: baseline; color:#000000;">To specify</span></span> p<span class="cP12"><span style=" font-weight: bold; font-angle: normal; vertical-align: baseline; color:#000000;">arameters for the model:</span></span>
+</p>
+
+
+<a name="wp43518"></a>
+<ol start="1."><li class="LL1Seq">In the Vista browser, double-click on the model.</li></ol>
+<a name="wp43519"></a>
+<ol start="2."><li class="LL1Seq">In Vista's modeling dialog, select the <span style=" font-weight: bold;">PV</span> tab.</li></ol>
+<a name="wp43618"></a>
+<ol start="3."><li class="LL1Seq">Select the <span style=" font-weight: bold;">Parameters &gt; User-defined </span>tab:</li></ol>
+
+
+
+<a name="wp43624"></a><p class="pFigureTitle">
+Figure 7&#8209;13. 
+
+
+Vista's Modeling - User-defined Parameters Tab
+
+
+</p>
+<div align="center"><img src="images/model_parameters.gif" id="wp43622" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp43625"></a>
+<ol start="4."><li class="LL1Seq">Enter the interface parameters in the table:</li></ol>
+<a name="wp43528"></a><ul><li class="LL2BulSolid">Enter the parameter's name in the <span style=" font-weight: bold;">Name</span> field.</li></ul>
+<a name="wp43529"></a><ul><li class="LL2BulSolid">Enter the parameter's default value in the <span style=" font-weight: bold;">Default Value</span><span style=" font-weight: bold;"> </span>field and select its type in the <span style=" font-weight: bold;">Type</span> field.   </li></ul>
+<a name="wp43530"></a>
+<ol start="5."><li class="LL1Seq">Select the <span style=" font-weight: bold;">Parameters &gt; Auto-defined </span>tab to review the protocol-dependent parameters specified automatically by Vista.</li></ol>
+<a name="wp43608"></a>
+<ol start="6."><li class="LL1Seq">Modify the Default Value assigned to a parameter where necessary.</li></ol>
+
+
+
+<a name="wp43614"></a><p class="pFigureTitle">
+Figure 7&#8209;14. 
+
+
+Vista's Modeling - Auto-defined Parameters Tab
+
+
+</p>
+<div align="center"><img src="images/autoDefinedParametersTab.gif" id="wp43612" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp43615"></a>
+<ol start="7."><li class="LL1Seq">Click <span style=" font-weight: bold;">Save</span>.</li></ol>
+<a name="wp43579"></a><p class="pL1Body">The changes to the Model are saved. 
+</p>
+<div id="TableDivQz"></div>
+<div align="center">
+
+
+<a name="wp43543"></a><p class="pTableTitle">
+Table 7&#8209;3. 
+
+
+Vista's Modeling - Parameter Tab Options
+</p>
+
+
+
+<table border="1" cellpadding="5" cellspacing="0" id="wp43543table43539">
+  <tr bgcolor="#CCCCCC"  align="center" valign="middle">
+    <th>
+
+<a name="wp43549"></a><p class="pBody">
+Field/Control
+</p>
+</th>
+
+    <th>
+
+<a name="wp43551"></a><p class="pBody">
+Description
+</p>
+
+</th>
+
+    <th>
+
+<a name="wp43553"></a><p class="pBody">
+Values
+</p>
+
+</th>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp43555"></a><p class="pTableCell">
+Name
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp43557"></a><p class="pTableCell">
+The name for the user-defined configuration parameter.
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp43559"></a><p class="pTableCell">
+Legal Identifier
+
+</p>
+
+
+<a name="wp43563"></a><p class="pTableCell">
+(See <a href='javascript:oT("CRF","Chapter_Modeling_Phase14.html");'>Format for Legal Identifiers</a>)
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp43566"></a><p class="pTableCell">
+Default Value
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp43568"></a><p class="pTableCell">
+User-defined parameter default value.
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp43570"></a><p class="pTableCell">
+Integer, Unsigned or String value
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp43572"></a><p class="pTableCell">
+Type
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp43574"></a><p class="pTableCell">
+Parameter data type.
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp43576"></a><p class="pTableCell">
+&ldquo;int16&rdquo;<br />&ldquo;uint16&rdquo;
+
+</p>
+
+
+<a name="wp43577"></a><p class="pTableCell">
+&ldquo;int32&rdquo;
+
+</p>
+
+
+<a name="wp43578"></a><p class="pTableCell">
+&ldquo;uint32&ldquo;<br />&ldquo;string&rdquo; <br />(and more)
+
+</p>
+
+</td>
+
+
+</tr>
+
+
+</table>
+
+</div>
+<div id='EndTable'> </div>
+<p class="pL1Body">
+<br clear='left' class='Blank4Table' />
+
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Parameters";
+   PDFLinkTitle = "Parameters"
+   ThisTopic = "FIGUREVistasModelingAutodefinedParametersTab";
+   CurrentFile = "Chapter_Modeling_Phase17.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

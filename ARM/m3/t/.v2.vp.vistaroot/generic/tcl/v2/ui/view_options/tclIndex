@@ -1,0 +1,2 @@
+set auto_index(::v2::ui::view_options::ArrayRangeDialog) [list summit_add_tclindex v2/ui/view_options/ArrayRangeDialog.tcl]
+set auto_index(::v2::ui::view_options::PropertiesDialog) [list summit_add_tclindex v2/ui/view_options/PropertiesDialog.tcl]

@@ -1,0 +1,26 @@
+/* XPM */
+static char *delta_cycle[] = {
+/* columns rows colors chars-per-pixel */
+"17 16 4 1",
+"  c black",
+". c #FF8040",
+"X c #848284",
+"o c #BDBEBD",
+/* pixels */
+"ooooooooooooooooo",
+"oooooooo oooooooo",
+"ooooooo . Xoooooo",
+"ooooooo . Xoooooo",
+"oooooo ... Xooooo",
+"oooooo ... Xooooo",
+"ooooo ..... Xoooo",
+"ooooo ..... Xoooo",
+"oooo ....... Xooo",
+"oooo ....... Xooo",
+"ooo ......... Xoo",
+"ooo ......... Xoo",
+"oo ........... Xo",
+"oo             Xo",
+"oooXXXXXXXXXXXXXo",
+"ooooooooooooooooo"
+};

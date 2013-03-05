@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:07:22 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Analysis from a Virtual Prototype</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(393);
+    // -->
+ </script>
+ 
+
+<!--384,393,0-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPAnalysis from a Virtual Prototype"></a>
+
+<a name="wp21435"></a><h3 class="pHeading2">
+  
+
+
+Analysis from a Virtual Prototype
+  </h3>
+
+
+
+<a name="wp21436"></a><p class="pBody">
+When a Virtual Prototype is executing you can trace and create analysis data. Analysis data is protected by license. A Virtual Prototype is not only capable of tracing and generating analysis data but can also invoke the Analysis Viewer.
+</p>
+
+
+<a name="wp22022"></a><p class="pBody">
+Use the following flow and options to trace and view analysis results created by a Virtual Prototype:
+</p>
+
+
+<a name="wp22024"></a>
+<ol start="1."><li class="LL1Seq">Install VP (installing the Virtual Prototype executable is mandatory for using the Virtual Prototype Analysis flow).</li></ol>
+<a name="wp22026"></a><pre class="pCodeIndent">
+           VP-<span class="cReqRpl">name</span>.exe -install <span class="cReqRpl">dirname</span></pre>
+
+<a name="wp22027"></a><p class="pL2Body"><span class="cReqRpl">dirname</span> must be a new directory</p>
+
+<a name="wp22115"></a><p class="pL1Body">After successful installation, a <span style=" font-style: italic;">run.exe</span> is created under the install directory. You will run the created VP instead of the original VP executable. For more information, refer to &ldquo;<a href='javascript:oT("CRF","virtual_prototyping09.html");'>Installing Virtual Prototype Executables</a>&rdquo;. </p>
+
+<a name="wp22029"></a>
+<ol start="2."><li class="LL1Seq">Set your simulation directory option:</li></ol>
+<a name="wp22423"></a><p class="pL1Body">	-vp_simdir (or -vp-simdir, -vpsimdir, or -simdir)</p>
+
+<a name="wp22436"></a><p class="pL1Body">If a simulation directory option is not specified, a default simulation directory, called <span style=" font-style: italic;">sim</span>, is created in the Virtual Prototype working directory.</p>
+
+<a name="wp22444"></a><p class="pL1Body">The following example creates the simulation results in the directory <span style=" font-style: italic;">/mypath/simdir</span>. </p>
+
+<a name="wp22030"></a><pre class="pCodeIndent">
+           <span class="cReqRpl">vp-install-dir</span>/run.exe -vp_simdir <span style=" font-style: italic;">/mypath/simdir</span></pre>
+
+<a name="wp22452"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp22035"></a>
+<ol start="3."><li class="LL1Seq">Add trace results for the different Analysis types:</li></ol>
+<a name="wp22036"></a><p class="pL1Body">The following trace options are available:</p>
+
+<a name="wp22205"></a><ul><li class="LL2BulHollow">Trace power for instance and complete design tree: </li></ul>
+<a name="wp22265"></a><p class="pL3Body">-vp-trace-power (or -vp_trace_power)</p>
+
+<a name="wp22233"></a><ul><li class="LL2BulHollow">Trace transactions timing: </li></ul>
+<a name="wp22269"></a><p class="pL3Body">-vp-trace-sockets (or -vp_trace_sockets)</p>
+
+<a name="wp22246"></a><ul><li class="LL2BulHollow">Trace user-defined attributes: </li></ul>
+<a name="wp22273"></a><p class="pL3Body">-vp-trace-attributes (or -vp_trace_attributes)</p>
+
+<a name="wp22257"></a><ul><li class="LL2BulHollow">Trace cache hit/miss ratio:</li></ul>
+<a name="wp22279"></a><p class="pL3Body">-vp-trace-cache (or -vp_trace_cache)</p>
+
+<a name="wp22453"></a><p class="pL1Body">If no trace option is specified, VP will not create the simulation directory.</p>
+
+<a name="wp22288"></a><p class="pL1Body">The following example adds trace results for both power and transactions timing under the simulation directory: </p>
+
+<a name="wp22042"></a><pre class="pCodeIndent">
+           <span class="cReqRpl">vp-install-dir</span>/run.exe -simdir /mypath/simdir -vp-trace-power <br />              -vp-trace-sockets</pre>
+
+<a name="wp22304"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp22045"></a>
+<ol start="4."><li class="LL1Seq">Create analysis data:</li></ol>
+<a name="wp22046"></a><p class="pL1Body">To create analysis data from the simulation and traced data, issue the command:</p>
+
+<a name="wp22313"></a><p class="pApplCmd">
+<span class="cTab25"> </span>prepare_analysis_database.exe
+</p>
+
+
+<a name="wp22048"></a><p class="pL1Body">The following example creates analysis data in the specified simulation directory. The analysis data is based on trace options used during simulation.</p>
+
+<a name="wp22320"></a><pre class="pCodeIndent">
+           <span class="cReqRpl">vp-install-dir</span>/prepare_analysis_database.exe -simdir /mypath/simdir</pre>
+
+<a name="wp22334"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp22051"></a>
+<ol start="5."><li class="LL1Seq">Show the analysis results:</li></ol>
+<a name="wp22052"></a><p class="pL1Body">To show the analysis results in the Analysis Viewer, issue the following command:</p>
+
+<a name="wp22367"></a><p class="pApplCmd">
+<span class="cTab25"> </span>vp_analysis.exe 
+</p>
+
+
+<a name="wp22386"></a><p class="pL1Body">The following example opens the Analysis Viewer with the analysis results stored in the specified simulation directory.</p>
+
+<a name="wp22054"></a><pre class="pCodeIndent">
+           <span class="cReqRpl">vp-install-dir</span>/vp_analysis.exe -simdir /mypath/simdir</pre>
+
+<a name="wp22413"></a><pre class="pCodeIndent">
+           </pre>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Analysis from a Virtual Prototype";
+   PDFLinkTitle = "Analysis.from.a.Virtual.Prototype"
+   ThisTopic = "VirtuaPrototyping99AnalysisfromaVirtualPrototype";
+   CurrentFile = "virtual_prototyping10.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

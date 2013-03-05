@@ -28,6 +28,7 @@
 
 #include "SuperFIFO_pv.h"
 #include <iostream>
+#include <iomanip>
 
 using namespace sc_core;
 using namespace sc_dt;
@@ -37,6 +38,9 @@ using namespace std;
 SuperFIFO_pv::SuperFIFO_pv(sc_module_name module_name) 
   : SuperFIFO_pv_base(module_name) {
   irq.initialize(false);
+  ofile.open("SuperFIFO.txt", ios::out);
+  ofile << "event;SC_MODULE.SuperFIFO_pv;id;EventField.Long" << endl;
+  ofile << "0;SC_MODULE.SuperFIFO_pv;"<< name() <<";Count=0" << endl;
 } 
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -75,6 +79,8 @@ unsigned int SuperFIFO_pv::cb_read_d() {
     else 
       status = 0x2;
     count = c;
+    Count = c;
+    ofile << (uint64) (sc_time_stamp()/sc_time(1,SC_PS)) <<";SC_MODULE.SuperFIFO_pv;"<< name() <<";"<< c << endl;
   }
 
   cout << endl;
@@ -134,6 +140,8 @@ void SuperFIFO_pv::cb_write_d(unsigned int newValue) {
   }
 
   count.setData(c);
+  Count = c;
+  ofile << (uint64) (sc_time_stamp()/sc_time(1,SC_PS)) <<";SC_MODULE.SuperFIFO_pv;"<< name() <<";"<< c << endl;
 }
  
 
@@ -143,7 +151,9 @@ void SuperFIFO_pv::cb_write_status(unsigned int newValue) {
 
   if (newValue & 0x80000000) {
     count = 0;
+    Count = 0;
     status = 0x5;
+    ofile << (uint64) (sc_time_stamp()/sc_time(1,SC_PS)) <<";SC_MODULE.SuperFIFO_pv;"<< name() <<";0"<< endl;
     while (!m_fifo.empty()) {
       m_fifo.pop();
     }

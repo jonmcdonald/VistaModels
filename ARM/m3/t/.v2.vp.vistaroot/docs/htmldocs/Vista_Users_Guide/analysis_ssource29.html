@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:06:58 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Analysis from a Virtual Prototype</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(383);
+    // -->
+ </script>
+ 
+
+<!--355,383,0-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPAnalysis from a Virtual Prototype"></a>
+
+<a name="wp22452"></a><h3 class="pHeading2">
+  
+
+
+Analysis from a Virtual Prototype
+  </h3>
+
+
+
+<a name="wp53699"></a><p class="pBody">
+When a Virtual Prototype is executing you can trace and create analysis data. Analysis data is protected by license. A Virtual Prototype is not only capable of tracing and generating analysis data but can also invoke the Analysis Viewer.
+</p>
+
+
+<a name="wp53701"></a><p class="pBody">
+The following are the options to trace and view analysis results created by a Virtual Prototype:
+</p>
+
+
+<a name="wp53705"></a>
+<ul><li class="LL1BulSolid">Simulation directory option: </li></ul>
+<a name="wp53833"></a><p class="pL1Body">-vpsim-dir (or -vp_sim_dir or -simdir)</p>
+
+<a name="wp53707"></a><p class="pL1Body">The following example creates analysis results in the directory <span style=" font-style: italic;">/my_path/my_sim_dir</span>: </p>
+
+<a name="wp53842"></a><p class="pApplCmd">
+<span class="cTab25"> </span>vp.exe -vp_sim_dir  /my_path/my_sim_dir   vp-trace-power
+</p>
+
+
+<a name="wp53711"></a><p class="pL1Body">If simulation directory option is not specified, a default simulation directory called <span style=" font-style: italic;">sim</span> is created in Virtual Prototype working directory. </p>
+
+<a name="wp53883"></a>
+<ul><li class="LL1BulSolid">There are 3 possible ways to invoke the Virtual Prototype for analysis purposes.</li></ul>
+<a name="wp53717"></a><p class="pL1Body">In the following <span style=" font-style: italic;">vp.exe</span> is the Virtual Prototype executable and <span style=" font-style: italic;">run.exe</span> is an executable available after Virtual Prototype is installed (<span class="cRequired">vp.exe</span> <span class="cRequired">-install</span> <span class="cRequired">DIRNAME</span>).</p>
+
+<a name="wp53723"></a><ul><li class="LL2BulHollow">Invoke Virtual Prototype with trace options but do not convert or view analysis database at this stage:</li></ul>
+<a name="wp53725"></a><p class="pApplCmd">
+<span class="cTab25"> </span>vp.exe (or run.exe if VP is installed)  -vp-trace-power  -vp-trace-sockets
+</p>
+
+
+<a name="wp53727"></a><p class="pL2Body">This is the fastest way to run simulation but additional time is needed to convert (prepare) analysis database when analysis viewer is opened.</p>
+
+<a name="wp53731"></a><p class="pL2Body">If Virtual Prototype is installed, the analysis viewer can be opened using the following command:</p>
+
+<a name="wp53733"></a><p class="pApplCmd">
+<span class="cTab25"> </span>vp_analysis.exe <span class="cReqRpl">simdir</span>
+</p>
+
+
+<a name="wp53735"></a><p class="pL2Body">The <span class="cReqRpl">simdir</span> is an optional parameter, by default the directory <span style=" font-style: italic;">./sim</span> is opened if it exists. The analysis database is created (if needed) and displayed.</p>
+
+<a name="wp53739"></a><p class="pL2Body">If VP has not been installed the analysis viewer can be invoked using the following command:</p>
+
+<a name="wp53741"></a><p class="pApplCmd">
+<span class="cTab25"> </span>vp.exe -view_analysis  -simdir <span class="cReqRpl">simdir</span>
+</p>
+
+
+<a name="wp53743"></a><p class="pL2Body">While the analysis database is being created, the dialogue box Creating Analysis Database is displayed. To stop database creation, click <span style=" font-weight: bold;">Abort</span>. If you abort database creation, to recreate the database click <span style=" font-weight: bold;">Refresh</span> or reopen the simulation directory in the analysis viewer.</p>
+
+<a name="wp53751"></a><p class="pL2Body">While the analysis database is created, the Analysis Viewer GUI is updated periodically with the new simulation time, etc.</p>
+
+<a name="wp53757"></a><ul><li class="LL2BulHollow">Invoke Virtual Prototype with trace options and with analysis running in background; this prepares the analysis database in parallel with running simulation. Analysis results can be viewed later as described in bullet 1, but no additional time will be needed to prepare analysis database.</li></ul>
+<a name="wp53765"></a><p class="pApplCmd">
+<span class="cTab25"> </span>vp.exe (or run.exe if  VP is installed ) -analysis  -vp-trace-power -vp-trace-sockets
+</p>
+
+
+<a name="wp53769"></a><ul><li class="LL2BulHollow">Invoke Virtual Prototype in simulation mode and at the same time open the analysis viewer:</li></ul>
+<a name="wp53771"></a><p class="pApplCmd">
+<span class="cTab25"> </span>vp.exe (or run.exe if  VP is installed ) -analysis_gui  -vp-trace-power -vp-trace-sockets
+</p>
+
+
+<a name="wp53773"></a><p class="pL1Body">While the analysis database is created, the Analysis Viewer GUI is updated periodically with the new simulation time, etc.</p>
+
+<a name="wp53775"></a><p class="pL1Body">At the end of analysis database creation the message &ldquo;Analysis database created successfully.&rdquo; is displayed.</p>
+
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg"><span class="cNotesBlack">Note</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp53690"></a><p class="pnoteNote">
+        	The Virtual Prototype Analysis viewer is supported under Linux. It is possible to create analysis data with a Virtual Prototype created for Windows using the Virtual Prototype trace options (for example, -vp-trace-power) then view the analysis results in Linux.
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="right" /></td>
+    </tr>
+ </table>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Analysis from a Virtual Prototype";
+   PDFLinkTitle = "Analysis.from.a.Virtual.Prototype"
+   ThisTopic = "AnalysisGraphsandReports99AnalysisfromaVirtualPrototype";
+   CurrentFile = "analysis_ssource29.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

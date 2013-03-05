@@ -1,0 +1,502 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:04:35 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Description of Segments</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(233);
+    // -->
+ </script>
+ 
+
+<!--224,231,233-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPDescription of Segments"></a>
+
+<a name="wp39199"></a><h4 class="pHeading3">
+  
+
+
+Description of Segments
+  </h4>
+
+
+<!--DescriptionofSegments-->
+
+
+<a name="wp39200"></a><p class="pBody">
+The following segments are described in this section:
+</p>
+
+
+<a name="wp39934"></a>
+<ul><li class="LL1BulSolid"><a href='javascript:oT("CRF","ve_10mrg_block10.html#wp39201");'>Includes Segment</a></li></ul>
+<a name="wp39939"></a>
+<ul><li class="LL1BulSolid"><a href='javascript:oT("CRF","ve_10mrg_block10.html#wp39209");'>Module Definition Segment</a></li></ul>
+<a name="wp39947"></a>
+<ul><li class="LL1BulSolid"><a href='javascript:oT("CRF","ve_10mrg_block10.html#wp39230");'>Fields Declaration Segment</a></li></ul>
+<a name="wp39955"></a>
+<ul><li class="LL1BulSolid"><a href='javascript:oT("CRF","ve_10mrg_block10.html#wp39277");'>Initialization Declaration Segment</a></li></ul>
+<a name="wp39963"></a>
+<ul><li class="LL1BulSolid"><a href='javascript:oT("CRF","ve_10mrg_block10.html#wp39296");'>Destructor Declaration Segment</a></li></ul>
+<a name="wp39971"></a>
+<ul><li class="LL1BulSolid"><a href='javascript:oT("CRF","ve_10mrg_block10.html#wp39316");'>Elaboration Declaration Segment:</a></li></ul><a name="MGCCIDPIncludes Segment"></a>
+
+<a name="wp39201"></a><h5 class="pHeading4">
+  
+
+
+Includes Segment
+</h5>
+
+
+
+<a name="wp39203"></a><pre class="pCodeIndent">
+              $includes_begin;</pre>
+
+<a name="wp39204"></a><pre class="pCodeIndent">
+              $includes_end;</pre>
+
+<a name="wp39205"></a><pre class="pCode">     </pre>
+
+
+<a name="wp39206"></a><p class="pBody">
+The Includes segment encompasses the list of the include files required by the components. A component's include file is the file where the module class is declared. You may add, delete or modify any include statement.
+</p>
+
+<a name="MGCCIDPModule Definition Segment"></a>
+
+<a name="wp39209"></a><h5 class="pHeading4">
+  
+
+
+Module Definition Segment
+</h5>
+
+
+
+<a name="wp39211"></a><pre class="pCodeIndent">
+           $module_begin(&quot;module_name&quot;);</pre>
+
+<a name="wp39212"></a><pre class="pCodeIndent">
+           ... module definitions &#0133;.</pre>
+
+<a name="wp39213"></a><pre class="pCodeIndent">
+           $module_end;</pre>
+
+<a name="wp39214"></a><pre class="pCode">     </pre>
+
+
+<a name="wp39215"></a><p class="pBody">
+A Module-definition segment contains the following sub-segments:
+</p>
+
+
+<a name="wp39217"></a><pre class="pCodeIndent">
+              $initialization_begin</pre>
+
+<a name="wp39218"></a><pre class="pCodeIndent">
+               $initialization_end</pre>
+
+<a name="wp39219"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp39220"></a><pre class="pCodeIndent">
+               $elaboration_begin;</pre>
+
+<a name="wp39221"></a><pre class="pCodeIndent">
+               $elaboration_end;</pre>
+
+<a name="wp39222"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp39223"></a><pre class="pCodeIndent">
+               $destructor_begin;</pre>
+
+<a name="wp39224"></a><pre class="pCodeIndent">
+               $destructor_end;</pre>
+
+<a name="wp39225"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp39226"></a><pre class="pCodeIndent">
+               $fields_begin;</pre>
+
+<a name="wp39227"></a><pre class="pCodeIndent">
+               $fields_end;</pre>
+<a name="MGCCIDPFields Declaration Segment"></a>
+
+<a name="wp39230"></a><h5 class="pHeading4">
+  
+
+
+Fields Declaration Segment
+</h5>
+
+
+
+<a name="wp39232"></a><pre class="pCodeIndent">
+           $fields_begin</pre>
+
+<a name="wp39233"></a><pre class="pCodeIndent">
+           $fields_end;</pre>
+
+<a name="wp39234"></a><pre class="pCode">     </pre>
+
+
+<a name="wp39235"></a><p class="pBody">
+A Fields segment is used to declare class data members.
+</p>
+
+
+<a name="wp39236"></a><p class="pBody">
+Data members are grouped using the following sub-segments:
+</p>
+
+
+<a name="wp39238"></a><pre class="pCodeIndent">
+              $port(&quot;name&quot;)</pre>
+
+<a name="wp39239"></a><pre class="pCodeIndent">
+              ... port declaration</pre>
+
+<a name="wp39240"></a><pre class="pCodeIndent">
+              $end</pre>
+
+<a name="wp39241"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp39242"></a><pre class="pCodeIndent">
+              $export(&quot;name&quot;)</pre>
+
+<a name="wp39243"></a><pre class="pCodeIndent">
+              ... export declaration</pre>
+
+<a name="wp39244"></a><pre class="pCodeIndent">
+              $end</pre>
+
+<a name="wp39245"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp39246"></a><pre class="pCodeIndent">
+              $socket(&quot;name&quot;)</pre>
+
+<a name="wp39247"></a><pre class="pCodeIndent">
+              ... socket declaration</pre>
+
+<a name="wp39248"></a><pre class="pCodeIndent">
+              $end</pre>
+
+<a name="wp39249"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp39250"></a><pre class="pCodeIndent">
+              $channel(&quot;name&quot;)</pre>
+
+<a name="wp39251"></a><pre class="pCodeIndent">
+              ... channel declaration</pre>
+
+<a name="wp39252"></a><pre class="pCodeIndent">
+              $end</pre>
+
+<a name="wp39253"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp39254"></a><pre class="pCodeIndent">
+              $component(&quot;name&quot;)</pre>
+
+<a name="wp39255"></a><pre class="pCodeIndent">
+              ... component declaration</pre>
+
+<a name="wp39256"></a><pre class="pCodeIndent">
+              $end</pre>
+
+<a name="wp39257"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp39258"></a><pre class="pCodeIndent">
+              $field(&quot;name&quot;)</pre>
+
+<a name="wp39259"></a><pre class="pCodeIndent">
+              ... other field declaration</pre>
+
+<a name="wp39260"></a><pre class="pCodeIndent">
+              $end</pre>
+
+<a name="wp39261"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp39263"></a><p class="pBody">
+Where &ldquo;name&rdquo; is a name of the element taken from graphical block diagram.
+</p>
+
+
+<a name="wp39264"></a><p class="pBody">
+Members declarations have the form: 
+</p>
+
+
+<a name="wp40056"></a><p class="pBody">
+ClassName fieldName;
+</p>
+
+
+<a name="wp39265"></a><p class="pBody">
+For example:
+</p>
+
+
+<a name="wp39267"></a><pre class="pCodeIndent">
+              $socket(&quot;S5&quot;);</pre>
+
+<a name="wp39268"></a><pre class="pCodeIndent">
+              tlm::tlm_initiator_socket&lt;&gt; S5;</pre>
+
+<a name="wp39269"></a><pre class="pCodeIndent">
+              $end;</pre>
+
+<a name="wp39270"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp39271"></a><pre class="pCodeIndent">
+              $component(&quot;MEM&quot;);</pre>
+
+<a name="wp39272"></a><pre class="pCodeIndent">
+              MEMORY_pvt *MEM;</pre>
+
+<a name="wp39273"></a><pre class="pCodeIndent">
+              $end;</pre>
+
+<a name="wp39276"></a><pre class="pCode">     </pre>
+
+<a name="MGCCIDPInitialization Declaration Segment"></a>
+
+<a name="wp39277"></a><h5 class="pHeading4">
+  
+
+
+Initialization Declaration Segment
+</h5>
+
+
+
+<a name="wp39279"></a><pre class="pCodeIndent">
+           $initialization_begin</pre>
+
+<a name="wp39280"></a><pre class="pCodeIndent">
+           $initialization_end</pre>
+
+<a name="wp39281"></a><pre class="pCode">     </pre>
+
+
+<a name="wp39282"></a><p class="pBody">
+An Initialization segment is used to initialize the module data members (components, ports, sockets, signals etc). It is generated at the beginning of module constructor(s).
+</p>
+
+
+<a name="wp39286"></a><p class="pBody">
+Example of an initialization segment:
+</p>
+
+
+<a name="wp39288"></a><pre class="pCodeIndent">
+              $init(&quot;name&quot;),</pre>
+
+<a name="wp39289"></a><pre class="pCodeIndent">
+              ... initialization code</pre>
+
+<a name="wp39290"></a><pre class="pCodeIndent">
+              $end</pre>
+
+<a name="wp39291"></a><pre class="pCode">     </pre>
+
+
+<a name="wp39292"></a><p class="pBody">
+By default, each element is initialized with one constructor parameter &ldquo;name&rdquo;. The user can modify the initialization section specifying additional constructor parameters.
+</p>
+
+<a name="MGCCIDPDestructor Declaration Segment"></a>
+
+<a name="wp39296"></a><h5 class="pHeading4">
+  
+
+
+Destructor Declaration Segment
+</h5>
+
+
+
+<a name="wp39298"></a><pre class="pCodeIndent">
+           $destructor_begin;</pre>
+
+<a name="wp39299"></a><pre class="pCodeIndent">
+           $destructor_end;</pre>
+
+<a name="wp39300"></a><pre class="pCode">     </pre>
+
+
+<a name="wp39301"></a><p class="pBody">
+A Destructor segment is used for deleting components. Each deleted element is enclosed in $destructor_component sub-segment
+</p>
+
+
+<a name="wp39304"></a><pre class="pCodeIndent">
+              $destruct_component(&quot;name&quot;),</pre>
+
+<a name="wp39305"></a><pre class="pCodeIndent">
+              ... destruction code</pre>
+
+<a name="wp39306"></a><pre class="pCodeIndent">
+              $end</pre>
+
+<a name="wp39307"></a><pre class="pCode">     </pre>
+
+
+<a name="wp39308"></a><p class="pBody">
+Example:
+</p>
+
+
+<a name="wp39310"></a><pre class="pCodeIndent">
+              $destruct_component(&quot;MEM&quot;);</pre>
+
+<a name="wp39311"></a><pre class="pCodeIndent">
+              delete MEM; MEM = 0;</pre>
+
+<a name="wp39312"></a><pre class="pCodeIndent">
+              $end;</pre>
+
+<a name="wp39313"></a><pre class="pCode">     </pre>
+
+<a name="MGCCIDPElaboration Declaration Segment:"></a>
+
+<a name="wp39316"></a><h5 class="pHeading4">
+  
+
+
+Elaboration Declaration Segment:
+</h5>
+
+
+
+<a name="wp39318"></a><pre class="pCodeIndent">
+           $elaboration_begin;</pre>
+
+<a name="wp39319"></a><pre class="pCodeIndent">
+           $elaboration_end;</pre>
+
+<a name="wp39320"></a><pre class="pCode">     </pre>
+
+
+<a name="wp39321"></a><p class="pBody">
+The Elaboration contains the elaboration code. It is generated inside the module&#39;s constructor(s).
+</p>
+
+
+<a name="wp39324"></a><p class="pBody">
+This segment contains two parts: component-creation and binding-definitions segments.
+</p>
+
+
+<a name="wp39326"></a><p class="pBody">
+Example of module creation segment:
+</p>
+
+
+<a name="wp39328"></a><pre class="pCodeIndent">
+              $create_component(&quot;CPU&quot;);</pre>
+
+<a name="wp39329"></a><pre class="pCodeIndent">
+              CPU = new CPU_pvt(&quot;CPU&quot;);</pre>
+
+<a name="wp39330"></a><pre class="pCodeIndent">
+              $end;</pre>
+
+<a name="wp39331"></a><pre class="pCode">     </pre>
+
+
+<a name="wp39332"></a><p class="pBody">
+Example of binding definition segment:
+</p>
+
+
+<a name="wp39334"></a><pre class="pCodeIndent">
+              $bind(&quot;DMA-&gt;irq&quot;,&quot;CPU-&gt;irq&quot;);</pre>
+
+<a name="wp39335"></a><pre class="pCodeIndent">
+              DMA-&gt;irq.bind(CPU-&gt;irq);</pre>
+
+<a name="wp39336"></a><pre class="pCodeIndent">
+              $end;</pre>
+
+<a name="wp39337"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp39338"></a><p class="pBody">
+As mentioned above, you can modify any user code specifying constructor parameters, changing the order of component creation within the elaboration segment and similar.
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Description of Segments";
+   PDFLinkTitle = "Description.of.Segments"
+   ThisTopic = "ElaborationDeclarationSegment";
+   CurrentFile = "ve_10mrg_block10.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

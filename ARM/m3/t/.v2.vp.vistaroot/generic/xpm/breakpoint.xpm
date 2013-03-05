@@ -1,0 +1,32 @@
+/* XPM */
+/* sccsid = "%Z%sccs get -r%I% %P%" */
+static char *magick[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 9 1",
+"  c White",
+". c Gray0",
+"X c #ff9995",
+"o c Red",
+"O c #c20202",
+"+ c Gray75",
+"@ c #feaf8f",
+"# c #a50101",
+"$ c #dc1b1b",
+/* pixels */
+"                ",
+"                ",
+"    .......     ",
+"   .XXXXXXX.    ",
+"  .XXooooooo.   ",
+" .XXooooooooo.  ",
+" .Xo o o o oO.+ ",
+" .Xo o o o oO.+ ",
+" .@o o o o oO.+ ",
+" .@o o o o o#.+ ",
+" .@ooooooo$$#.+ ",
+"  .$$$$$$$##.+  ",
+"   .#######.+   ",
+"    .......+    ",
+"     ++++++     ",
+"                "
+};

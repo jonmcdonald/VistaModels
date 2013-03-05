@@ -1,0 +1,147 @@
+NAME
+       resource - Manipulate Macintosh resources
+
+SYNOPSIS
+       resource option ?arg arg ...?
+
+
+DESCRIPTION
+       The  resource command provides some generic operations for dealing with
+       Macintosh resources.  This command is only supported on  the  Macintosh
+       platform.  Each Macintosh file consists of two forks: a data fork and a
+       resource fork.  You use the normal open, puts, close, etc. commands  to
+       manipulate  the  data  fork.   You  must  use this command, however, to
+       interact with the resource fork.  Option indicates what  resource  com-
+       mand  to  perform.   Any  unique abbreviation for option is acceptable.
+       The valid options are:
+
+       resource close rsrcRef
+              Closes the given  resource  reference  (obtained  from  resource
+              open).   Resources  from  that  resource  file will no longer be
+              available.
+
+       resource delete ?options? resourceType
+              This command will delete the resource specified by  options  and
+              type  resourceType (see RESOURCE TYPES below).  The options give
+              you several ways to specify the resource to be deleted.
+
+              -id resourceId
+                     If the  -id  option  is  given  the  id  resourceId  (see
+                     RESOURCE IDS below) is used to specify the resource to be
+                     deleted.  The id must be a number - to specify a name use
+                     the -name option.
+
+              -name resourceName
+                     If  -name  is  specified, the resource named resourceName
+                     will be deleted.  If the -id is also provided, then there
+                     must  be  a resource with BOTH this name and this id.  If
+                     no name is provided, then the id will be used  regardless
+                     of the name of the actual resource.
+
+              -file resourceRef
+                     If  the  -file option is specified then the resource will
+                     be deleted from the file pointed to by resourceRef.  Oth-
+                     erwise the first resource with the given resourceName and
+                     or resourceId which is found on the  resource  file  path
+                     will  be  deleted.   To  inspect  the  file path, use the
+                     resource files command.
+
+       resource files ?resourceRef?
+              If resourceRefis not provided, this command returns a  Tcl  list
+              of  the  resource references for all the currently open resource
+              files.  The list is in the normal  Macintosh  search  order  for
+              resources.  If resourceRef is specified, the command will return
+              the path to the file whose resource fork is represented by  that
+              token.
+
+       resource list resourceType ?resourceRef?
+              List all of the resources ids of type resourceType (see RESOURCE
+              TYPES below).  If resourceRef is specified then the command will
+              limit  the  search to that particular resource file.  Otherwise,
+              all resource files currently opened by the application  will  be
+              searched.   A Tcl list of either the resource name's or resource
+              id's of the found resources will be returned.  See the  RESOURCE
+              IDS  section below for more details about what a resource id is.
+
+       resource open fileName ?access?
+              Open the resource for the file fileName.  Standard  file  access
+              permissions may also be specified (see the manual entry for open
+              for details).  A resource reference  (resourceRef)  is  returned
+              that  can  be used by the other resource commands.  An error can
+              occur if the file doesn't exist or the  file  does  not  have  a
+              resource fork.  However, if you open the file with write permis-
+              sions the file and/or resource fork will be created  instead  of
+              generating an error.
+
+       resource read resourceType resourceId ?resourceRef?
+              Read  the  entire  resource  of  type resourceType (see RESOURCE
+              TYPES below) and the name or id of resourceId (see RESOURCE  IDS
+              below)  into  memory  and  return the result.  If resourceRef is
+              specified we limit our search to that resource  file,  otherwise
+              we  search  all  open  resource forks in the application.  It is
+              important to note that most Macintosh resource use a binary for-
+              mat  and  the  data returned from this command may have embedded
+              NULLs or other non-ASCII data.
+
+       resource types ?resourceRef?
+              This command returns a Tcl  list  of  all  resource  types  (see
+              RESOURCE  TYPES  below) found in the resource file pointed to by
+              resourceRef.  If resourceRef is not specified it will return all
+              the resource types found in every resource file currently opened
+              by the application.
+
+       resource write ?options? resourceType data
+              This command will write the passed in data as a new resource  of
+              type  resourceType  (see RESOURCE TYPES below).  Several options
+              are available that  describe  where  and  how  the  resource  is
+              stored.
+
+              -id resourceId
+                     If  the  -id  option  is  given  the  id  resourceId (see
+                     RESOURCE IDS below) is used for the new resource,  other-
+                     wise a unique id will be generated that will not conflict
+                     with any existing resource.  However, the id  must  be  a
+                     number - to specify a name use the -name option.
+
+              -name resourceName
+                     If   -name  is  specified  the  resource  will  be  named
+                     resourceName, otherwise it will have the empty string  as
+                     the name.
+
+              -file resourceRef
+                     If  the  -file option is specified then the resource will
+                     be written in the file pointed to by resourceRef,  other-
+                     wise the most recently open resource will be used.
+
+              -force If  the  target  resource already exists, then by default
+                     Tcl will not overwrite it, but raise  an  error  instead.
+                     Use  the  -force  flag  to  force  overwriting the extant
+                     resource.
+
+
+RESOURCE TYPES
+       Resource types are defined as a four  character  string  that  is  then
+       mapped  to an underlying id.  For example, TEXT refers to the Macintosh
+       resource type for text.  The type STR# is a list  of  counted  strings.
+       All Macintosh resources must be of some type.  See Macintosh documenta-
+       tion for a more complete list of resource types that are commonly used.
+
+
+RESOURCE IDS
+       For  this  command  the  notion of a resource id actually refers to two
+       ideas in Macintosh resources.  Every place you can use  a  resource  Id
+       you  can  use either the resource name or a resource number.  Names are
+       always searched or returned in preference to numbers.  For example, the
+       resource list command will return names if they exist or numbers if the
+       name is NULL.
+
+
+PORTABILITY ISSUES
+       The resource command is only available on Macintosh.
+
+
+SEE ALSO
+       open(n)
+
+
+KEYWORDS

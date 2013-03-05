@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:08:20 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Protocol Attributes</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(503);
+    // -->
+ </script>
+ 
+
+<!--496,503,503-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPProtocol Attributes"></a>
+
+<a name="wp6173"></a><h3 class="pHeading2">
+  
+
+
+Protocol Attributes
+  </h3>
+
+
+<a name="MGCCIDPGeneral Protocol Attributes"></a>
+
+<a name="wp6643"></a><h4 class="pHeading3">
+  
+
+
+General Protocol Attributes
+  </h4>
+
+
+<!--GeneralProtocolAttributes-->
+
+
+<a name="wp6175"></a><p class="pBody">
+(* <span style=" font-weight: bold;">address</span> *):- Defines the protocol parameter that represents the address
+</p>
+
+
+<a name="wp6176"></a><p class="pBody">
+(* <span style=" font-weight: bold;">block_size</span> *):- The size of the date (1 byte, 2 bytes, 4 bytes, 8 bytes, &#0133;)
+</p>
+
+
+<a name="wp6570"></a><p class="pBody">
+(* <span style=" font-weight: bold;">bus_master</span> *):- This is a master protocol
+</p>
+
+
+<a name="wp6595"></a><p class="pBody">
+(* <span style=" font-weight: bold;">bus_slave</span> *):- This is a slave protocol 
+</p>
+
+
+<a name="wp6596"></a><p class="pBody">
+(* <span style=" font-weight: bold;">clock</span> *):- The clock that controls the protocol; there must be one and only one
+</p>
+
+
+<a name="wp6597"></a><p class="pBody">
+(* <span style=" font-weight: bold;">default_read</span> *):- Default READ transaction
+</p>
+
+
+<a name="wp6181"></a><p class="pBody">
+(* <span style=" font-weight: bold;">default_value</span> *):- Protocol parameter default value
+</p>
+
+
+<a name="wp6182"></a><p class="pBody">
+(* <span style=" font-weight: bold;">default_write</span> *):- Default WRITE transaction
+</p>
+
+
+<a name="wp6183"></a><p class="pBody">
+(* <span style=" font-weight: bold;">default_transition</span> *):- This protocol transition is part of a default transaction
+</p>
+
+
+<a name="wp6184"></a><p class="pBody">
+(* <span style=" font-weight: bold;">error</span> *):- This transition represents an error in a transaction (data not transferred)
+</p>
+
+
+<a name="wp6185"></a><p class="pBody">
+(* <span style=" font-weight: bold;">master</span> *):- This protocol parameter/function is driven/issued by the master side
+</p>
+
+
+<a name="wp6186"></a><p class="pBody">
+(* <span style=" font-weight: bold;">power_manager</span> *):- Used only in the power protocol
+</p>
+
+
+<a name="wp6187"></a><p class="pBody">
+(* <span style=" font-weight: bold;">protocol_error</span> *):- Error-function definition
+</p>
+
+
+<a name="wp6188"></a><p class="pBody">
+(* <span style=" font-weight: bold;">protocol_initial</span> *):- Protocol State Machine initial state definition
+</p>
+
+
+<a name="wp6189"></a><p class="pBody">
+(* <span style=" font-weight: bold;">protocol_SM</span> *):- Protocol State Machine definition
+</p>
+
+
+<a name="wp6190"></a><p class="pBody">
+(* <span style=" font-weight: bold;">slave</span> *):- This protocol parameter/function is driven/issued by the slave side
+</p>
+
+
+<a name="wp6191"></a><p class="pBody">
+(* <span style=" font-weight: bold;">transaction</span> *):- Transaction function definition
+</p>
+
+<a name="MGCCIDPProtocol Attributes (Multiple State Machines Only)"></a>
+
+<a name="wp6193"></a><h4 class="pHeading3NoSplit">
+  
+
+
+Protocol Attributes (Multiple State Machines Only)
+</h4>
+
+
+
+<a name="wp6194"></a><p class="pBody">
+(* <span style=" font-weight: bold;">id</span> *):- Identification parameter, for out-of-order transactions
+</p>
+
+
+<a name="wp6195"></a><p class="pBody">
+(* <span style=" font-weight: bold;">SM_successor</span> *):- Initial state of the next state machine
+</p>
+
+
+<a name="wp6196"></a><p class="pBody">
+(* <span style=" font-weight: bold;">tlm_phase_start</span> *):- tlm_phase to be issued at the TLM level at the entrance to a state machine
+</p>
+
+
+<a name="wp6197"></a><p class="pBody">
+(* <span style=" font-weight: bold;">tlm_phase_end</span> *):- tlm_phase to be issued at the TLM level at the exit from a state machine
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Protocol Attributes";
+   PDFLinkTitle = "Protocol.Attributes"
+   ThisTopic = "ProtocolAttributesMultipleStateMachinesOnly";
+   CurrentFile = "appendix_defining_c_protocols8.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

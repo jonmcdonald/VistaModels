@@ -1,0 +1,26 @@
+//###########################################################
+//# Sourcery Analyzer - Saved Window File
+//# Wednesday, February 6, 2013 at 7:08:56 PM EST
+//#
+//# Note: This is an auto-generated file.
+//#
+//# Any edits that you make may cause the restore of
+//# this window to fail - EDIT AT YOUR OWN RISK
+//###########################################################
+
+set names width 100
+
+// ===== Create row #1 =====
+add blank row -title "Event Filter 1" -group "90ebc584-f585-49a7-88f1-9562429c020f" -preview_graph_types 2
+
+// ===== Create row #2 =====
+add waveform -alias "Event Filter 1" -color_index 0 "<vpData>Session 1/Event Filter 1/Event Filter 1" -group "90ebc584-f585-49a7-88f1-9562429c020f"
+set axis properties -row -2 -axis Y1 -autorange
+
+// ===== Set X-axis data units =====
+set user scale Time 1.0 s -axis X
+
+// ===== Set X-axis min/max extents =====
+set axis properties -axis X -min 999.97 -max 1000.05
+
+// ====== Create the cursors, markers and measurements =====

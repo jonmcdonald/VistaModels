@@ -1,0 +1,3494 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:02:48 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>ARM Cortex M4</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(187);
+    // -->
+ </script>
+ 
+
+<!--154,182,187-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPARM Cortex M4"></a>
+
+<a name="wp122367"></a><h4 class="pHeading3">
+  
+
+
+ARM Cortex M4
+  </h4>
+
+
+<!--ARMCortexM4-->
+
+<a name="MGCCIDPFeature List"></a>
+
+<a name="wp122370"></a><h5 class="pHeading4">
+  
+
+
+Feature List
+</h5>
+
+
+
+<a name="wp122371"></a>
+<ul><li class="LL1BulSolid">AHB Interface</li></ul>
+<a name="wp122372"></a>
+<ul><li class="LL1BulSolid">ARM v7M architecture Instruction Set</li></ul>
+<a name="wp122373"></a>
+<ul><li class="LL1BulSolid">Thumb Instruction set</li></ul>
+<a name="wp122374"></a>
+<ul><li class="LL1BulSolid">Thumb2 Instruction set</li></ul>
+<a name="wp122375"></a>
+<ul><li class="LL1BulSolid">MPU - Memory Protection Unit</li></ul>
+<a name="wp122376"></a>
+<ul><li class="LL1BulSolid">NVIC - Nested Vector Interrupt Controller</li></ul>
+<a name="wp123310"></a>
+<ul><li class="LL1BulSolid">System Tick Timer</li></ul>
+<a name="wp123311"></a>
+<ul><li class="LL1BulSolid">FPU - Floating Point Unit (FPv4-SP)</li></ul><a name="MGCCIDPInterface Ports"></a>
+
+<a name="wp123315"></a><h5 class="pHeading4">
+  
+
+
+Interface Ports
+</h5>
+
+
+
+<a name="wp122382"></a>
+<ul><li class="LL1BulSolid">icode - Cortex M4 I-CODE AHB bus interface</li></ul>
+<a name="wp122383"></a>
+<ul><li class="LL1BulSolid">dcode - Cortex M4 D-CODE AHB bus interface</li></ul>
+<a name="wp122384"></a>
+<ul><li class="LL1BulSolid">system - Cortex M4 AHB system bus interface</li></ul>
+<a name="wp122385"></a>
+<ul><li class="LL1BulSolid">ppb - Cortex M4, private peripheral bus external APB bus interface</li></ul>
+<a name="wp122386"></a>
+<ul><li class="LL1BulSolid">nmi - Active high non mask able interrupt signal</li></ul>
+<a name="wp122387"></a>
+<ul><li class="LL1BulSolid">reset_n - Active low reset signal</li></ul>
+<a name="wp122388"></a>
+<ul><li class="LL1BulSolid">irq_&lt;N&gt; - Active high interrupt signal, up to 240 external interrupts lines</li></ul><a name="MGCCIDPGeneration Parameters (Generics)"></a>
+
+<a name="wp122391"></a><h5 class="pHeading4">
+  
+
+
+Generation Parameters (Generics)
+</h5>
+
+
+
+<a name="wp122392"></a>
+<ul><li class="LL1BulSolid">IRQ_NUM &#151;  Number of implemented IRQs. The value of this parameter defines the value of the ICTR control register.</li></ul><a name="MGCCIDPCPU Specific Parameters"></a>
+
+<a name="wp122395"></a><h5 class="pHeading4">
+  
+
+
+CPU Specific Parameters
+</h5>
+
+
+
+<a name="wp122396"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">systick_clock </span>- SysTick embedded timer clock. The actual clock value used by the embedded timer is choosen according to the CLKSOURCE bit in SysTick CONTROL register, according to ARM documentation. </li></ul>
+<a name="wp122397"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">v7m_timing </span>- Path to a file containing a table describing Cortex M4 V7m timing. By default, the Vista Cortex M4 timing policies file is used. </li></ul>
+<a name="wp122398"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">v7m_power</span> - Path to a file containing a table describing Cortex M4 V7m power. Not used by default.</li></ul>
+<a name="wp122399"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">priority_bits</span> - Number of priority bits implemented in the CPU. Possible values are 1 to 8. Default value is 8.</li></ul>
+<a name="wp122400"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">CPUID</span> - Value of the CPUID register that is visible by the software. Default value is 0x412fc231.</li></ul>
+<a name="wp122401"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">PID0-PID7, CID0-CID3</span> - Identification registers. Default values are PID0=0, PID1=0xb0, PID2=0x1b, PID3=0, PID4=0, PID5=0, PID6=0, PID7=0, CID0=0x0d, CID1=0xe0, CID2=0x05, CID3=0xb1.</li></ul>
+<a name="wp122402"></a>
+<ul><li class="LL1BulSolid">All common core parameters are available under &ldquo;<span style=" font-style: italic;">cpu.core</span>.*&rdquo;</li></ul><a name="MGCCIDPSystem Control Registers"></a>
+
+<a name="wp122405"></a><h5 class="pHeading4">
+  
+
+
+System Control Registers
+</h5>
+
+
+
+<a name="wp123261"></a><p class="pBodyRelative">
+
+</p>
+<div id="TableDivQz"></div>
+<div align="center">
+
+
+<a name="wp124852"></a><p class="pTableTitle">
+Table 8&#8209;16. 
+
+
+ARM Cortex M4 - System Control Registers&#160;
+</p>
+
+
+
+<table border="1" cellpadding="5" cellspacing="0" id="wp124852table122406">
+  <tr bgcolor="#CCCCCC"  align="center" valign="middle">
+    <th>
+
+<a name="wp124864"></a><p class="pTableHeading">
+Address
+</p>
+</th>
+
+    <th>
+
+<a name="wp124866"></a><p class="pTableHeading">
+Name
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp124868"></a><p class="pTableHeading">
+Type
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp124870"></a><p class="pTableHeading">
+Description
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp124872"></a><p class="pTableHeading">
+Reset Value
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp124874"></a><p class="pTableHeading">
+Supported Yes/No
+</p>
+
+
+</th>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp124876"></a><p class="pTableCell">
+0xE000E008
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124878"></a><p class="pTableCell">
+ACTLR
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp124880"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124882"></a><p class="pTableCell">
+Auxiliary Control Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124884"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124886"></a><p class="pTableCell">
+RAZ WI
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp124888"></a><p class="pTableCell">
+0xE000E010
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124890"></a><p class="pTableCell">
+STCSR
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124894"></a><p class="pTableCell">
+SysTick Control and Status Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124896"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124898"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp124900"></a><p class="pTableCell">
+0xE000E014
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124902"></a><p class="pTableCell">
+STRVR
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124904"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124906"></a><p class="pTableCell">
+SysTick Reload Value Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124908"></a><p class="pTableCell">
+Unknown
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp124910"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp124912"></a><p class="pTableCell">
+0xE000E018
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124914"></a><p class="pTableCell">
+STCVR
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124916"></a><p class="pTableCell">
+RW clear
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124918"></a><p class="pTableCell">
+SysTick Current Value Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124920"></a><p class="pTableCell">
+Unknown
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp124924"></a><p class="pTableCell">
+0xE000E01C
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124926"></a><p class="pTableCell">
+STCR
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp124928"></a><p class="pTableCell">
+RO
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124930"></a><p class="pTableCell">
+SysTick Calibration Value Register
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td colspan="1" rowspan="3">
+
+<a name="wp124934"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp124936"></a><p class="pTableCell">
+0xE000ED00
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124938"></a><p class="pTableCell">
+CPUID
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124942"></a><p class="pTableCell">
+CPUID Base Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124944"></a><p class="pTableCell">
+0x412FC231
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp124948"></a><p class="pTableCell">
+0xE000ED04
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124950"></a><p class="pTableCell">
+ICSR
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124952"></a><p class="pTableCell">
+RW/RO
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124954"></a><p class="pTableCell">
+Interrupt Control and State Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124956"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp124960"></a><p class="pTableCell">
+0xE000ED08
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124962"></a><p class="pTableCell">
+VTOR
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="12">
+
+<a name="wp124964"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124966"></a><p class="pTableCell">
+Vector Table Offset Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124968"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="12">
+
+<a name="wp124970"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp124972"></a><p class="pTableCell">
+0xE000ED0C
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124974"></a><p class="pTableCell">
+AIRCR
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124978"></a><p class="pTableCell">
+Application Interrupt and Reset Control Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124980"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp124984"></a><p class="pTableCell">
+0xE000ED10
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124986"></a><p class="pTableCell">
+SCR
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124990"></a><p class="pTableCell">
+System Control Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124992"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp124996"></a><p class="pTableCell">
+0xE000ED14
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp124998"></a><p class="pTableCell">
+CCR
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125002"></a><p class="pTableCell">
+Configuration and Control Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125004"></a><p class="pTableCell">
+0x00000200
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125008"></a><p class="pTableCell">
+0xE000ED18
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125010"></a><p class="pTableCell">
+SHPR1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125014"></a><p class="pTableCell">
+System Handler Priority Register 1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125016"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125020"></a><p class="pTableCell">
+0xE000ED1C
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125022"></a><p class="pTableCell">
+SHPR2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125026"></a><p class="pTableCell">
+System Handler Priority Register 2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125028"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125032"></a><p class="pTableCell">
+0xE000ED20
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125034"></a><p class="pTableCell">
+SHPR3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125038"></a><p class="pTableCell">
+System Handler Priority Register 3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125040"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125044"></a><p class="pTableCell">
+0xE000ED24
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125046"></a><p class="pTableCell">
+SHCSR
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125050"></a><p class="pTableCell">
+System Handler Control and State Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125052"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125056"></a><p class="pTableCell">
+0xE000ED28
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125058"></a><p class="pTableCell">
+CFSR
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125062"></a><p class="pTableCell">
+Configurable Fault Status Registers
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125064"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125068"></a><p class="pTableCell">
+0xE000ED2C
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125070"></a><p class="pTableCell">
+HFSR
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125074"></a><p class="pTableCell">
+HardFault Status Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125076"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125080"></a><p class="pTableCell">
+0xE000ED30
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125082"></a><p class="pTableCell">
+DFSR
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125086"></a><p class="pTableCell">
+Debug Fault Status Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125088"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125092"></a><p class="pTableCell">
+0xE000ED34
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125094"></a><p class="pTableCell">
+MMFAR
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125098"></a><p class="pTableCell">
+MemManage Fault Address Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125100"></a><p class="pTableCell">
+Unknown
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125104"></a><p class="pTableCell">
+0xE000ED38
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125106"></a><p class="pTableCell">
+BFAR
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp125108"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125110"></a><p class="pTableCell">
+BusFault Address Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125112"></a><p class="pTableCell">
+Unknown
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp125114"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125116"></a><p class="pTableCell">
+0xE000ED3C
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125118"></a><p class="pTableCell">
+AFSR
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125122"></a><p class="pTableCell">
+Auxiliary Fault Status Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125124"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125128"></a><p class="pTableCell">
+0xE000ED40
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125130"></a><p class="pTableCell">
+ID_PFR0
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="13">
+
+<a name="wp125132"></a><p class="pTableCell">
+RO
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125134"></a><p class="pTableCell">
+Processor Feature Register 0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125136"></a><p class="pTableCell">
+0x00000030
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="13">
+
+<a name="wp125138"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125140"></a><p class="pTableCell">
+0xE000ED44
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125142"></a><p class="pTableCell">
+ID_PFR1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125146"></a><p class="pTableCell">
+Processor Feature Register 1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125148"></a><p class="pTableCell">
+0x00000200
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125152"></a><p class="pTableCell">
+0xE000ED48
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125154"></a><p class="pTableCell">
+ID_DFR0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125158"></a><p class="pTableCell">
+Debug Features Register 0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125160"></a><p class="pTableCell">
+0x00100000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125164"></a><p class="pTableCell">
+0xE000ED4C
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125166"></a><p class="pTableCell">
+ID_AFR0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125170"></a><p class="pTableCell">
+Auxiliary Features Register 0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125172"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125176"></a><p class="pTableCell">
+0xE000ED50
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125178"></a><p class="pTableCell">
+ID_MMFR0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125182"></a><p class="pTableCell">
+Memory Model Feature Register 0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125184"></a><p class="pTableCell">
+0x00000030
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125188"></a><p class="pTableCell">
+0xE000ED54
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125190"></a><p class="pTableCell">
+ID_ MMFR1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125194"></a><p class="pTableCell">
+Memory Model Feature Register 1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125196"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125200"></a><p class="pTableCell">
+0xE000ED58
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125202"></a><p class="pTableCell">
+ID_MMFR2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125206"></a><p class="pTableCell">
+Memory Model Feature Register 2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125208"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125212"></a><p class="pTableCell">
+0xE000ED5C
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125214"></a><p class="pTableCell">
+ID_MMFR3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125218"></a><p class="pTableCell">
+Memory Model Feature Register 3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125220"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125224"></a><p class="pTableCell">
+0xE000ED60
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125226"></a><p class="pTableCell">
+ID_ISAR0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125230"></a><p class="pTableCell">
+Instruction Set Attributes Register 0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125232"></a><p class="pTableCell">
+0x01100110
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125236"></a><p class="pTableCell">
+0xE000ED64
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125238"></a><p class="pTableCell">
+ID_ISAR1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125242"></a><p class="pTableCell">
+Instruction Set Attributes Register 1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125244"></a><p class="pTableCell">
+0x02111000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125248"></a><p class="pTableCell">
+0xE000ED68
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125250"></a><p class="pTableCell">
+ID_ISAR2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125254"></a><p class="pTableCell">
+Instruction Set Attributes Register 2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125256"></a><p class="pTableCell">
+0x21112231
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125260"></a><p class="pTableCell">
+0xE000ED6C
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125262"></a><p class="pTableCell">
+ID_ISAR3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125266"></a><p class="pTableCell">
+Instruction Set Attributes Register 3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125268"></a><p class="pTableCell">
+0x01111110
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125272"></a><p class="pTableCell">
+0xE000ED70
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125274"></a><p class="pTableCell">
+ID_ISAR4
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125278"></a><p class="pTableCell">
+Instruction Set Attributes Register 4
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125280"></a><p class="pTableCell">
+0x01310132
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125284"></a><p class="pTableCell">
+0xE000ED88
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125286"></a><p class="pTableCell">
+CPACR
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp125288"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125290"></a><p class="pTableCell">
+Coprocessor Access Control Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125292"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125294"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125296"></a><p class="pTableCell">
+0xE000EDF0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125298"></a><p class="pTableCell">
+DHCSR
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125302"></a><p class="pTableCell">
+Debug Halting Control and Status Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125304"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125306"></a><p class="pTableCell">
+No
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125308"></a><p class="pTableCell">
+0xE000EDF4
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125310"></a><p class="pTableCell">
+DCRSR
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125312"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125314"></a><p class="pTableCell">
+Debug Core Register Selector Register
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td>
+
+
+<a name="wp125318"></a><p class="pTableCell">
+No
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125320"></a><p class="pTableCell">
+0xE000EDF8
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125322"></a><p class="pTableCell">
+DCRDR
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125324"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125326"></a><p class="pTableCell">
+Debug Core Register Data Register
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp125330"></a><p class="pTableCell">
+No
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125332"></a><p class="pTableCell">
+0xE000EDFC
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125334"></a><p class="pTableCell">
+DEMCR
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125336"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125338"></a><p class="pTableCell">
+Debug Exception and Monitor Control Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125340"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125344"></a><p class="pTableCell">
+0xE000EF00
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125346"></a><p class="pTableCell">
+STIR
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125348"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125350"></a><p class="pTableCell">
+Software Triggered Interrupt Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125352"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="11">
+
+<a name="wp125354"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125356"></a><p class="pTableCell">
+0xE000ED90
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125358"></a><p class="pTableCell">
+MPU_TYPE
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125360"></a><p class="pTableCell">
+RO
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125362"></a><p class="pTableCell">
+MPU Type Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125364"></a><p class="pTableCell">
+0x00000800
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125368"></a><p class="pTableCell">
+0xE000ED94
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125370"></a><p class="pTableCell">
+MPU_CTRL
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="9">
+
+<a name="wp125372"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125374"></a><p class="pTableCell">
+MPU Control Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125376"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125380"></a><p class="pTableCell">
+0xE000ED98
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125382"></a><p class="pTableCell">
+MPU_RNR
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125386"></a><p class="pTableCell">
+MPU Region Number Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125388"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125392"></a><p class="pTableCell">
+0xE000ED9C
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125394"></a><p class="pTableCell">
+MPU_RBAR
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125398"></a><p class="pTableCell">
+MPU Region Base Address Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125400"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125404"></a><p class="pTableCell">
+0xE000EDA0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125406"></a><p class="pTableCell">
+MPU_RASR
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125410"></a><p class="pTableCell">
+MPU Region Attribute and Size Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125412"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125416"></a><p class="pTableCell">
+0xE000EDA4
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125418"></a><p class="pTableCell">
+MPU_RBAR_A1
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="5">
+
+<a name="wp125422"></a><p class="pTableCell">
+MPU alias registers
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125424"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125428"></a><p class="pTableCell">
+0xE000EDA8
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125430"></a><p class="pTableCell">
+MPU_RASR_A1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125436"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125440"></a><p class="pTableCell">
+0xE000EDAC
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125442"></a><p class="pTableCell">
+MPU_RBAR_A2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125448"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125452"></a><p class="pTableCell">
+0xE000EDB0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125454"></a><p class="pTableCell">
+MPU_RASR_A2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125460"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125464"></a><p class="pTableCell">
+0xE000EDB4
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125466"></a><p class="pTableCell">
+MPU_RBAR_A3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125472"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125476"></a><p class="pTableCell">
+0xE000EDB8
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125478"></a><p class="pTableCell">
+MPU_RASR_A3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125480"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125482"></a><p class="pTableCell">
+MPU alias registers
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125484"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="3">
+
+<a name="wp125486"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125488"></a><p class="pTableCell">
+0xE000E100 -0xE000E13C
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125490"></a><p class="pTableCell">
+NVIC_ISER0 -NVIC_ISER15
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp125492"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125494"></a><p class="pTableCell">
+Interrupt Set-Enable Registers
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125496"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125500"></a><p class="pTableCell">
+0xE000E180-0xE000E1BC
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125502"></a><p class="pTableCell">
+NVIC_ICER0-NVIC_ICER15
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125506"></a><p class="pTableCell">
+Interrupt Clear-Enable Registers
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125508"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125512"></a><p class="pTableCell">
+0xE000E200-0xE000E23C
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125514"></a><p class="pTableCell">
+NVIC_ISPR0 -NVIC_ISPR15
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp125516"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125518"></a><p class="pTableCell">
+Interrupt Set-Pending Registers
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125520"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp125522"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125524"></a><p class="pTableCell">
+0xE000E280 -0xE000E2BC
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125526"></a><p class="pTableCell">
+NVIC_ICPR0 -NVIC_ICPR15
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125530"></a><p class="pTableCell">
+Interrupt Clear-Pending Registers
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125532"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125536"></a><p class="pTableCell">
+0xE000E300 -0xE000E37C
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125538"></a><p class="pTableCell">
+NVIC_IABR0 -NVIC_IABR15
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125540"></a><p class="pTableCell">
+RO
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125542"></a><p class="pTableCell">
+Interrupt Active Bit Registers
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125544"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp125546"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125548"></a><p class="pTableCell">
+0xE000E400-0xE000E7EC
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125550"></a><p class="pTableCell">
+NVIC_IPR0 -NVIC_IPR123
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125552"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125554"></a><p class="pTableCell">
+Interrupt Priority Registers
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125556"></a><p class="pTableCell">
+0x00000000
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125560"></a><p class="pTableCell">
+0xE000EFD0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125562"></a><p class="pTableCell">
+PID4
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="12">
+
+<a name="wp125564"></a><p class="pTableCell">
+RO
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="8">
+
+<a name="wp125566"></a><p class="pTableCell">
+Peripheral Identification Registers
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125568"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="12">
+
+<a name="wp125570"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125572"></a><p class="pTableCell">
+0xE000EFD4
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125574"></a><p class="pTableCell">
+PID5
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125580"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125584"></a><p class="pTableCell">
+0xE000EFD8
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125586"></a><p class="pTableCell">
+PID6
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125592"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125596"></a><p class="pTableCell">
+0xE000EFDC
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125598"></a><p class="pTableCell">
+PID7
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125604"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125608"></a><p class="pTableCell">
+0xE000EFE0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125610"></a><p class="pTableCell">
+PID0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125616"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125620"></a><p class="pTableCell">
+0xE000EFE4
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125622"></a><p class="pTableCell">
+PID1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125628"></a><p class="pTableCell">
+0xb0
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125632"></a><p class="pTableCell">
+0xE000EFE8
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125634"></a><p class="pTableCell">
+PID2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125640"></a><p class="pTableCell">
+0x1b
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125644"></a><p class="pTableCell">
+0xE000EFEC
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125646"></a><p class="pTableCell">
+PID3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125652"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125656"></a><p class="pTableCell">
+0xE000EFF0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125658"></a><p class="pTableCell">
+CID0
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="4">
+
+<a name="wp125662"></a><p class="pTableCell">
+Component Identification Registers
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125664"></a><p class="pTableCell">
+0x0d
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125668"></a><p class="pTableCell">
+0xE000EFF4
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125670"></a><p class="pTableCell">
+CID1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125676"></a><p class="pTableCell">
+0xe0
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125680"></a><p class="pTableCell">
+0xE000EFF8
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125682"></a><p class="pTableCell">
+CID2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125688"></a><p class="pTableCell">
+0x05
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp125692"></a><p class="pTableCell">
+0xE000EFFC
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125694"></a><p class="pTableCell">
+CID3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp125700"></a><p class="pTableCell">
+0xb1
+
+</p>
+
+</td>
+
+
+</tr>
+
+
+</table>
+
+</div>
+<div id='EndTable'> </div>
+<p class="pBodyRelative">
+<br clear='left' class='Blank4Table' />
+
+
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "ARM Cortex M4";
+   PDFLinkTitle = "ARM.Cortex.M4"
+   ThisTopic = "ARMCortexM499SystemControlRegisters";
+   CurrentFile = "Chapter_Customizing_Gen_Models_new34.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

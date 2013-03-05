@@ -1,0 +1,7 @@
+set auto_index(::v2::ui::projects::AddModelsToProject) [list summit_add_tclindex v2/ui/projects/AddModelsToProjectDialog.tcl]
+set auto_index(::v2::ui::projects::HistoryButtonMenu) [list summit_add_tclindex v2/ui/projects/HistoryButtonMenu.tcl]
+set auto_index(::v2::ui::projects::BackButtonMenu) [list summit_add_tclindex v2/ui/projects/HistoryButtonMenu.tcl]
+set auto_index(::v2::ui::projects::ForwardButtonMenu) [list summit_add_tclindex v2/ui/projects/HistoryButtonMenu.tcl]
+set auto_index(::v2::ui::projects::PopupMenu) [list summit_add_tclindex v2/ui/projects/PopupMenu.tcl]
+set auto_index(::v2::ui::projects::ProjectsTree) [list summit_add_tclindex v2/ui/projects/ProjectsTree.tcl]
+set auto_index(::UI::v2/ui/projects/ProjectsTree/DocumentLinker) [list summit_add_tclindex v2/ui/projects/ProjectsTree.tcl]

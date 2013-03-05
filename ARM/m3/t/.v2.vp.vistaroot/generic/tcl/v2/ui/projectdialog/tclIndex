@@ -1,0 +1,6 @@
+set auto_index(::v2::ui::projectdialog::CreateFolderDialog) [list summit_add_tclindex v2/ui/projectdialog/CreateFolderDialog.tcl]
+set auto_index(::v2::ui::projectdialog::Dependences) [list summit_add_tclindex v2/ui/projectdialog/Dependences.tcl]
+set auto_index(::UI::v2/ui/projectdialog/Dependences/DocumentLinker) [list summit_add_tclindex v2/ui/projectdialog/Dependences.tcl]
+set auto_index(::v2::ui::projectdialog::ProjectSetting) [list summit_add_tclindex v2/ui/projectdialog/ProjectSetting.tcl]
+set auto_index(::v2::ui::projectdialog::ProjectSettingTree) [list summit_add_tclindex v2/ui/projectdialog/ProjectSettingTree.tcl]
+set auto_index(::UI::v2/ui/projectdialog/ProjectSettingTree/DocumentLinker) [list summit_add_tclindex v2/ui/projectdialog/ProjectSettingTree.tcl]

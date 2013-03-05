@@ -25,7 +25,8 @@ Files {
 	 } 
 }
 Designs {{$PRJDIR/main.cpp}}
-Simulations /home/jon/work/arm/m3/M3/sim
+Simulations {/home/jon/work/arm/m3/M3/sim /home/jon/VistaModels/ARM/m3/M3/sim}
+VirtualPrototypes m3vp.prj
 Folders {
 	 Sources {*.c *.cpp *.cc} 
 	 {Public Headers} *.h* 

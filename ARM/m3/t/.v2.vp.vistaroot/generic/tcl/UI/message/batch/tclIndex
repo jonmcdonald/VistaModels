@@ -1,0 +1,1 @@
+set auto_index(tk_messageBox) [list summit_add_tclindex UI/message/batch/init.tcl]

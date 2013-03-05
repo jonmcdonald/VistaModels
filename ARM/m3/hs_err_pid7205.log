@@ -1,0 +1,1003 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x4a7b32ba, pid=7205, tid=1365928768
+#
+# JRE version: 7.0_07-b10
+# Java VM: Java HotSpot(TM) Client VM (23.3-b01 mixed mode linux-x86 )
+# Problematic frame:
+# 
+[error occurred during error reporting (printing problematic frame), id 0xb]
+
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x4cfed400):  JavaThread "Worker-21" [_thread_in_native, id=7416, stack(0x51656000,0x516a7000)]
+
+siginfo:si_signo=SIGSEGV: si_errno=0, si_code=1 (SEGV_MAPERR), si_addr=0x0029c424
+
+Registers:
+EAX=0x516a5c48, EBX=0x4a8da138, ECX=0x00000000, EDX=0x00000000
+ESP=0x516a5b20, EBP=0x516a5b48, ESI=0x0029c424, EDI=0x516a5d30
+EIP=0x4a7b32ba, EFLAGS=0x00010246, CR2=0x0029c424
+
+Top of Stack: (sp=0x516a5b20)
+0x516a5b20:   b715e5c0 516a5ff4 516a5b68 516a5b68
+0x516a5b30:   b715e5c0 50a4c320 50a4c328 4a8da138
+0x516a5b40:   516a5c48 516a5d30 516a5b68 4a7b333e
+0x516a5b50:   00000000 00000000 00000038 4a8da138
+0x516a5b60:   4a8da138 516a5c48 516a5bf8 4a701165
+0x516a5b70:   516a5c48 516a5b78 4faf7ff4 4faab415
+0x516a5b80:   4cfec174 4cf0a8bc 00000025 4cfed400
+0x516a5b90:   516a5c88 516a5c88 4cfed400 50b12326 
+
+Instructions: (pc=0x4a7b32ba)
+0x4a7b329a:   5d f4 8b 4d 0c e8 93 a0 ec ff 81 c3 94 6e 12 00
+0x4a7b32aa:   89 75 f8 85 d2 89 7d fc 78 4c 8b b3 24 fb ff ff
+0x4a7b32ba:   8b 06 89 4c 24 04 89 14 24 ff 90 dc 00 00 00 85
+0x4a7b32ca:   c0 89 c7 74 22 8b 06 8b 40 50 89 45 f0 e8 34 ff 
+
+Register to memory mapping:
+
+EAX=0x516a5c48 is pointing into the stack for thread: 0x4cfed400
+EBX=
+[error occurred during error reporting (printing register info), id 0xb]
+
+Stack: [0x51656000,0x516a7000],  sp=0x516a5b20,  free space=318k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+[error occurred during error reporting (printing native stack), id 0xb]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  com.mentor.vista.vp.profiler.jni.JniVPExternalEventRetriever.getVPAnalysisPowerTrackNames(Ljava/lang/String;)[Ljava/lang/String;+0
+j  com.mentor.vista.vp.profiler.jni.JniVPExternalEventRetriever.getVPAnalysisPowerTrackNamesApi(Ljava/lang/String;)[Ljava/lang/String;+26
+j  com.mentor.vista.vp.profiler.agent.VPPowerAgent.getTrackNames(Ljava/lang/String;)[Ljava/lang/String;+4
+j  com.mentor.vista.vp.profiler.agent.VPCommonAgent.createAgentSessionParameters(Lorg/eclipse/core/resources/IResource;)V+69
+j  com.mentor.vista.vp.profiler.agent.VPCommonAgent.createAgentProfilingData(Lcom/mentor/embedded/profiler/core/ProfilerFolder;)V+11
+j  com.mentor.vista.vp.profiler.agent.VPPowerAgent.preProcessing(Lorg/eclipse/core/runtime/IProgressMonitor;)Lorg/eclipse/core/runtime/IStatus;+42
+j  com.mentor.embedded.profiler.extension.EventAnalysis.run(Lorg/eclipse/core/runtime/IProgressMonitor;)Lorg/eclipse/core/runtime/IStatus;+577
+j  org.eclipse.core.internal.jobs.Worker.run()V+31
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x5047c400 JavaThread "Worker-22" [_thread_blocked, id=7420, stack(0x50166000,0x501b7000)]
+=>0x4cfed400 JavaThread "Worker-21" [_thread_in_native, id=7416, stack(0x51656000,0x516a7000)]
+  0x4a54e000 JavaThread "process reaper" daemon [_thread_blocked, id=7413, stack(0x5001a000,0x50029000)]
+  0x5044a800 JavaThread "Worker-20" [_thread_blocked, id=7364, stack(0x50b1d000,0x50b6e000)]
+  0x09994c00 JavaThread "Worker-19" [_thread_blocked, id=7362, stack(0x510af000,0x51100000)]
+  0x4cffac00 JavaThread "Worker-17" [_thread_blocked, id=7347, stack(0x51203000,0x51254000)]
+  0x4d67c000 JavaThread "[ThreadPool Manager] - Idle Thread" daemon [_thread_blocked, id=7274, stack(0x4d46b000,0x4d4bc000)]
+  0x4f646000 JavaThread "TimerQueue" daemon [_thread_blocked, id=7270, stack(0x4d5af000,0x4d600000)]
+  0x4f649c00 JavaThread "AWT-EventQueue-0" [_thread_in_native, id=7269, stack(0x4d723000,0x4d774000)]
+  0x4f649000 JavaThread "AWT-Shutdown" [_thread_blocked, id=7268, stack(0x50115000,0x50166000)]
+  0x4f9a8000 JavaThread "org.eclipse.cdt.internal.ui.text.CReconciler" daemon [_thread_blocked, id=7253, stack(0x50567000,0x505b8000)]
+  0x4ff39800 JavaThread "Bundle File Closer" daemon [_thread_blocked, id=7242, stack(0x50bbf000,0x50c10000)]
+  0x50655000 JavaThread "Thread-6" [_thread_blocked, id=7237, stack(0x50b6e000,0x50bbf000)]
+  0x50ec5c00 JavaThread "AWT-XAWT" daemon [_thread_blocked, id=7231, stack(0x50c61000,0x50cb2000)]
+  0x50eae000 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=7230, stack(0x50cb2000,0x50d03000)]
+  0x09b88000 JavaThread "Java indexing" daemon [_thread_blocked, id=7227, stack(0x5185e000,0x518af000)]
+  0x5172a800 JavaThread "Worker-JM" [_thread_blocked, id=7222, stack(0x516af000,0x51700000)]
+  0x098bec00 JavaThread "[Timer] - Main Queue Handler" daemon [_thread_blocked, id=7221, stack(0x5180d000,0x5185e000)]
+  0x54014800 JavaThread "Framework Event Dispatcher" daemon [_thread_blocked, id=7219, stack(0x518af000,0x51900000)]
+  0x51bcdc00 JavaThread "Start Level Event Dispatcher" daemon [_thread_blocked, id=7218, stack(0x51a0d000,0x51a5e000)]
+  0x51bafc00 JavaThread "State Data Manager" daemon [_thread_blocked, id=7217, stack(0x51a5e000,0x51aaf000)]
+  0x51b92400 JavaThread "Framework Active Thread" [_thread_blocked, id=7216, stack(0x51aaf000,0x51b00000)]
+  0xb6abf000 JavaThread "Service Thread" daemon [_thread_blocked, id=7212, stack(0x53c8c000,0x53cdd000)]
+  0xb6abd000 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=7211, stack(0x53cdd000,0x53d5e000)]
+  0xb6abb800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=7210, stack(0x53d5e000,0x53daf000)]
+  0xb6a83000 JavaThread "Finalizer" daemon [_thread_blocked, id=7209, stack(0x53faf000,0x54000000)]
+  0xb6a81400 JavaThread "Reference Handler" daemon [_thread_blocked, id=7208, stack(0x5414f000,0x541a0000)]
+  0xb6a07000 JavaThread "main" [_thread_in_native, id=7206, stack(0xb6bc1000,0xb6c12000)]
+
+Other Threads:
+  0xb6a7bc00 VMThread [stack: 0x541a0000,0x54221000] [id=7207]
+  0xb6ac1800 WatcherThread [stack: 0x53c0b000,0x53c8c000] [id=7213]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 41728K, used 20098K [0x54980000, 0x576c0000, 0x69ed0000)
+  eden space 37120K,  54% used [0x54980000, 0x55d20858, 0x56dc0000)
+  from space 4608K,   0% used [0x57240000, 0x57240000, 0x576c0000)
+  to   space 4608K,   0% used [0x56dc0000, 0x56dc0000, 0x57240000)
+ tenured generation   total 92500K, used 44128K [0x69ed0000, 0x6f925000, 0x94980000)
+   the space 92500K,  47% used [0x69ed0000, 0x6c9e80f8, 0x6c9e8200, 0x6f925000)
+ compacting perm gen  total 64256K, used 64245K [0x94980000, 0x98840000, 0xb4980000)
+   the space 64256K,  99% used [0x94980000, 0x9883d568, 0x9883d600, 0x98840000)
+No shared spaces configured.
+
+Card table byte_map: [0x5467f000,0x54980000] byte_map_base: 0x543da400
+
+Polling page: 0xb7770000
+
+Code Cache  [0xb4a00000, 0xb5270000, 0xb6a00000)
+ total_blobs=4362 nmethods=3991 adapters=302 free_code_cache=24147Kb largest_free_block=24720192
+
+Compilation events (10 events):
+Event: 1848.352 Thread 0xb6abd000 4056             org.eclipse.jface.action.Action::getAccelerator (5 bytes)
+Event: 1848.352 Thread 0xb6abd000 nmethod 4056 0xb526b988 code [0xb526ba80, 0xb526bb00]
+Event: 1848.358 Thread 0xb6abd000 4057             org.eclipse.ui.internal.menus.SlaveMenuService::getCurrentState (8 bytes)
+Event: 1848.358 Thread 0xb6abd000 nmethod 4057 0xb526bb48 code [0xb526bc50, 0xb526bcec]
+Event: 1848.403 Thread 0xb6abd000 4058             org.eclipse.core.commands.AbstractHandler::fireHandlerChanged (48 bytes)
+Event: 1848.404 Thread 0xb6abd000 nmethod 4058 0xb526bd48 code [0xb526be80, 0xb526c040]
+Event: 1848.470 Thread 0xb6abd000 4059             org.eclipse.jface.action.ActionContributionItem$1::propertyChange (12 bytes)
+Event: 1848.470 Thread 0xb6abd000 nmethod 4059 0xb526c1c8 code [0xb526c2d0, 0xb526c36c]
+Event: 1848.625 Thread 0xb6abd000 4060             java.util.ResourceBundle::getObject (82 bytes)
+Event: 1848.625 Thread 0xb6abd000 nmethod 4060 0xb526c408 code [0xb526c5b0, 0xb526c934]
+
+GC Heap History (10 events):
+Event: 1629.707 GC heap before
+{Heap before GC invocations=31 (full 14):
+ def new generation   total 41728K, used 12229K [0x54980000, 0x576c0000, 0x69ed0000)
+  eden space 37120K,  20% used [0x54980000, 0x550f1628, 0x56dc0000)
+  from space 4608K, 100% used [0x56dc0000, 0x57240000, 0x57240000)
+  to   space 4608K,   0% used [0x57240000, 0x57240000, 0x576c0000)
+ tenured generation   total 92500K, used 45845K [0x69ed0000, 0x6f925000, 0x94980000)
+   the space 92500K,  49% used [0x69ed0000, 0x6cb957d8, 0x6cb95800, 0x6f925000)
+ compacting perm gen  total 62208K, used 62149K [0x94980000, 0x98640000, 0xb4980000)
+   the space 62208K,  99% used [0x94980000, 0x98631448, 0x98631600, 0x98640000)
+No shared spaces configured.
+Event: 1629.916 GC heap after
+Heap after GC invocations=32 (full 15):
+ def new generation   total 41728K, used 0K [0x54980000, 0x576c0000, 0x69ed0000)
+  eden space 37120K,   0% used [0x54980000, 0x54980000, 0x56dc0000)
+  from space 4608K,   0% used [0x56dc0000, 0x56dc0000, 0x57240000)
+  to   space 4608K,   0% used [0x57240000, 0x57240000, 0x576c0000)
+ tenured generation   total 92500K, used 43309K [0x69ed0000, 0x6f925000, 0x94980000)
+   the space 92500K,  46% used [0x69ed0000, 0x6c91b4d8, 0x6c91b600, 0x6f925000)
+ compacting perm gen  total 62208K, used 62149K [0x94980000, 0x98640000, 0xb4980000)
+   the space 62208K,  99% used [0x94980000, 0x98631448, 0x98631600, 0x98640000)
+No shared spaces configured.
+}
+Event: 1689.708 GC heap before
+{Heap before GC invocations=32 (full 15):
+ def new generation   total 41728K, used 1491K [0x54980000, 0x576c0000, 0x69ed0000)
+  eden space 37120K,   4% used [0x54980000, 0x54af4d90, 0x56dc0000)
+  from space 4608K,   0% used [0x56dc0000, 0x56dc0000, 0x57240000)
+  to   space 4608K,   0% used [0x57240000, 0x57240000, 0x576c0000)
+ tenured generation   total 92500K, used 43309K [0x69ed0000, 0x6f925000, 0x94980000)
+   the space 92500K,  46% used [0x69ed0000, 0x6c91b4d8, 0x6c91b600, 0x6f925000)
+ compacting perm gen  total 62208K, used 62149K [0x94980000, 0x98640000, 0xb4980000)
+   the space 62208K,  99% used [0x94980000, 0x98631458, 0x98631600, 0x98640000)
+No shared spaces configured.
+Event: 1689.936 GC heap after
+Heap after GC invocations=33 (full 16):
+ def new generation   total 41728K, used 0K [0x54980000, 0x576c0000, 0x69ed0000)
+  eden space 37120K,   0% used [0x54980000, 0x54980000, 0x56dc0000)
+  from space 4608K,   0% used [0x56dc0000, 0x56dc0000, 0x57240000)
+  to   space 4608K,   0% used [0x57240000, 0x57240000, 0x576c0000)
+ tenured generation   total 92500K, used 38014K [0x69ed0000, 0x6f925000, 0x94980000)
+   the space 92500K,  41% used [0x69ed0000, 0x6c3efaf0, 0x6c3efc00, 0x6f925000)
+ compacting perm gen  total 62208K, used 62122K [0x94980000, 0x98640000, 0xb4980000)
+   the space 62208K,  99% used [0x94980000, 0x9862a878, 0x9862aa00, 0x98640000)
+No shared spaces configured.
+}
+Event: 1738.494 GC heap before
+{Heap before GC invocations=33 (full 16):
+ def new generation   total 41728K, used 37120K [0x54980000, 0x576c0000, 0x69ed0000)
+  eden space 37120K, 100% used [0x54980000, 0x56dc0000, 0x56dc0000)
+  from space 4608K,   0% used [0x56dc0000, 0x56dc0000, 0x57240000)
+  to   space 4608K,   0% used [0x57240000, 0x57240000, 0x576c0000)
+ tenured generation   total 92500K, used 38014K [0x69ed0000, 0x6f925000, 0x94980000)
+   the space 92500K,  41% used [0x69ed0000, 0x6c3efaf0, 0x6c3efc00, 0x6f925000)
+ compacting perm gen  total 64256K, used 64089K [0x94980000, 0x98840000, 0xb4980000)
+   the space 64256K,  99% used [0x94980000, 0x98816690, 0x98816800, 0x98840000)
+No shared spaces configured.
+Event: 1738.528 GC heap after
+Heap after GC invocations=34 (full 16):
+ def new generation   total 41728K, used 4608K [0x54980000, 0x576c0000, 0x69ed0000)
+  eden space 37120K,   0% used [0x54980000, 0x54980000, 0x56dc0000)
+  from space 4608K, 100% used [0x57240000, 0x576c0000, 0x576c0000)
+  to   space 4608K,   0% used [0x56dc0000, 0x56dc0000, 0x57240000)
+ tenured generation   total 92500K, used 39957K [0x69ed0000, 0x6f925000, 0x94980000)
+   the space 92500K,  43% used [0x69ed0000, 0x6c5d55f8, 0x6c5d5600, 0x6f925000)
+ compacting perm gen  total 64256K, used 64089K [0x94980000, 0x98840000, 0xb4980000)
+   the space 64256K,  99% used [0x94980000, 0x98816690, 0x98816800, 0x98840000)
+No shared spaces configured.
+}
+Event: 1749.711 GC heap before
+{Heap before GC invocations=34 (full 16):
+ def new generation   total 41728K, used 14908K [0x54980000, 0x576c0000, 0x69ed0000)
+  eden space 37120K,  27% used [0x54980000, 0x5538f368, 0x56dc0000)
+  from space 4608K, 100% used [0x57240000, 0x576c0000, 0x576c0000)
+  to   space 4608K,   0% used [0x56dc0000, 0x56dc0000, 0x57240000)
+ tenured generation   total 92500K, used 39957K [0x69ed0000, 0x6f925000, 0x94980000)
+   the space 92500K,  43% used [0x69ed0000, 0x6c5d55f8, 0x6c5d5600, 0x6f925000)
+ compacting perm gen  total 64256K, used 64235K [0x94980000, 0x98840000, 0xb4980000)
+   the space 64256K,  99% used [0x94980000, 0x9883ac40, 0x9883ae00, 0x98840000)
+No shared spaces configured.
+Event: 1749.943 GC heap after
+Heap after GC invocations=35 (full 17):
+ def new generation   total 41728K, used 0K [0x54980000, 0x576c0000, 0x69ed0000)
+  eden space 37120K,   0% used [0x54980000, 0x54980000, 0x56dc0000)
+  from space 4608K,   0% used [0x57240000, 0x57240000, 0x576c0000)
+  to   space 4608K,   0% used [0x56dc0000, 0x56dc0000, 0x57240000)
+ tenured generation   total 92500K, used 44123K [0x69ed0000, 0x6f925000, 0x94980000)
+   the space 92500K,  47% used [0x69ed0000, 0x6c9e6ca0, 0x6c9e6e00, 0x6f925000)
+ compacting perm gen  total 64256K, used 64235K [0x94980000, 0x98840000, 0xb4980000)
+   the space 64256K,  99% used [0x94980000, 0x9883ac40, 0x9883ae00, 0x98840000)
+No shared spaces configured.
+}
+Event: 1809.946 GC heap before
+{Heap before GC invocations=35 (full 17):
+ def new generation   total 41728K, used 1291K [0x54980000, 0x576c0000, 0x69ed0000)
+  eden space 37120K,   3% used [0x54980000, 0x54ac2cd8, 0x56dc0000)
+  from space 4608K,   0% used [0x57240000, 0x57240000, 0x576c0000)
+  to   space 4608K,   0% used [0x56dc0000, 0x56dc0000, 0x57240000)
+ tenured generation   total 92500K, used 44123K [0x69ed0000, 0x6f925000, 0x94980000)
+   the space 92500K,  47% used [0x69ed0000, 0x6c9e6ca0, 0x6c9e6e00, 0x6f925000)
+ compacting perm gen  total 64256K, used 64236K [0x94980000, 0x98840000, 0xb4980000)
+   the space 64256K,  99% used [0x94980000, 0x9883b370, 0x9883b400, 0x98840000)
+No shared spaces configured.
+Event: 1810.149 GC heap after
+Heap after GC invocations=36 (full 18):
+ def new generation   total 41728K, used 0K [0x54980000, 0x576c0000, 0x69ed0000)
+  eden space 37120K,   0% used [0x54980000, 0x54980000, 0x56dc0000)
+  from space 4608K,   0% used [0x57240000, 0x57240000, 0x576c0000)
+  to   space 4608K,   0% used [0x56dc0000, 0x56dc0000, 0x57240000)
+ tenured generation   total 92500K, used 44128K [0x69ed0000, 0x6f925000, 0x94980000)
+   the space 92500K,  47% used [0x69ed0000, 0x6c9e80f8, 0x6c9e8200, 0x6f925000)
+ compacting perm gen  total 64256K, used 64236K [0x94980000, 0x98840000, 0xb4980000)
+   the space 64256K,  99% used [0x94980000, 0x9883b370, 0x9883b400, 0x98840000)
+No shared spaces configured.
+}
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 1738.006 Thread 0x09d6e000 Threw 0x569ab3a0 at /HUDSON/workspace/jdk7u7-2-build-linux-i586-product/jdk7u7/hotspot/src/share/vm/prims/nativeLookup.cpp:376
+Event: 1738.131 Thread 0x09d7e400 Threw 0x56c386a0 at /HUDSON/workspace/jdk7u7-2-build-linux-i586-product/jdk7u7/hotspot/src/share/vm/prims/nativeLookup.cpp:376
+Event: 1738.147 Thread 0x09d7dc00 Threw 0x56c28158 at /HUDSON/workspace/jdk7u7-2-build-linux-i586-product/jdk7u7/hotspot/src/share/vm/prims/nativeLookup.cpp:376
+Event: 1738.254 Thread 0x09d7e400 Threw 0x56c55cb0 at /HUDSON/workspace/jdk7u7-2-build-linux-i586-product/jdk7u7/hotspot/src/share/vm/prims/nativeLookup.cpp:376
+Event: 1738.348 Thread 0x09d7dc00 Threw 0x56ce2038 at /HUDSON/workspace/jdk7u7-2-build-linux-i586-product/jdk7u7/hotspot/src/share/vm/prims/nativeLookup.cpp:376
+Event: 1848.111 Thread 0x50655000 Threw 0x55abe620 at /HUDSON/workspace/jdk7u7-2-build-linux-i586-product/jdk7u7/hotspot/src/share/vm/runtime/objectMonitor.cpp:1433
+Event: 1848.112 Thread 0x50655000 Threw 0x55abe738 at /HUDSON/workspace/jdk7u7-2-build-linux-i586-product/jdk7u7/hotspot/src/share/vm/runtime/objectMonitor.cpp:1612
+Event: 1848.113 Thread 0x50655000 Threw 0x55abe850 at /HUDSON/workspace/jdk7u7-2-build-linux-i586-product/jdk7u7/hotspot/src/share/vm/runtime/objectMonitor.cpp:1612
+Event: 1848.114 Thread 0x50655000 Threw 0x55abe968 at /HUDSON/workspace/jdk7u7-2-build-linux-i586-product/jdk7u7/hotspot/src/share/vm/runtime/objectMonitor.cpp:1612
+Event: 1848.115 Thread 0x50655000 Threw 0x55abea80 at /HUDSON/workspace/jdk7u7-2-build-linux-i586-product/jdk7u7/hotspot/src/share/vm/runtime/objectMonitor.cpp:1612
+
+Events (10 events):
+Event: 1848.365 Thread 0x4a53d000 Thread added: 0x4a53d000
+Event: 1848.371 Executing VM operation: RevokeBias
+Event: 1848.371 Executing VM operation: RevokeBias done
+Event: 1848.371 Executing VM operation: RevokeBias
+Event: 1848.371 Executing VM operation: RevokeBias done
+Event: 1848.371 Thread 0x4a53d000 Thread exited: 0x4a53d000
+Event: 1848.459 Executing VM operation: BulkRevokeBias
+Event: 1848.459 Executing VM operation: BulkRevokeBias done
+Event: 1848.552 Executing VM operation: RevokeBias
+Event: 1848.558 Executing VM operation: RevokeBias done
+
+
+Dynamic libraries:
+08048000-08049000 r-xp 00000000 08:01 5380728    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/bin/java
+08049000-0804a000 rwxp 00000000 08:01 5380728    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/bin/java
+0980f000-09e83000 rwxp 00000000 00:00 0          [heap]
+4a500000-4a5b7000 rwxp 00000000 00:00 0 
+4a5b7000-4a600000 ---p 00000000 00:00 0 
+4a663000-4a8cd000 r-xp 00000000 08:01 5377879    /home/jon/VistaModels/ARM/m3/t/vp_sim/analysis_db_accessor.32.so
+4a8cd000-4a8df000 rwxp 00269000 08:01 5377879    /home/jon/VistaModels/ARM/m3/t/vp_sim/analysis_db_accessor.32.so
+4a8df000-4a900000 rwxp 00000000 00:00 0 
+4a900000-4a9b2000 rwxp 00000000 00:00 0 
+4a9b2000-4aa00000 ---p 00000000 00:00 0 
+4aa00000-4aafe000 rwxp 00000000 00:00 0 
+4aafe000-4ab00000 ---p 00000000 00:00 0 
+4ab00000-4acff000 rwxp 00000000 00:00 0 
+4acff000-4ad00000 ---p 00000000 00:00 0 
+4ad00000-4adf3000 rwxp 00000000 00:00 0 
+4adf3000-4ae00000 ---p 00000000 00:00 0 
+4ae57000-4aefc000 r-xp 00000000 08:01 4066458    /usr/share/fonts/truetype/ttf-dejavu/DejaVuSans-Bold.ttf
+4aefc000-4aefd000 ---p 00000000 00:00 0 
+4aefd000-4b6fd000 rwxp 00000000 00:00 0 
+4b6fd000-4b6fe000 ---p 00000000 00:00 0 
+4b6fe000-4befe000 rwxp 00000000 00:00 0 
+4befe000-4beff000 ---p 00000000 00:00 0 
+4beff000-4c6ff000 rwxp 00000000 00:00 0 
+4c6ff000-4c700000 ---p 00000000 00:00 0 
+4c700000-4cf00000 rwxp 00000000 00:00 0 
+4cf00000-4cffc000 rwxp 00000000 00:00 0 
+4cffc000-4d000000 ---p 00000000 00:00 0 
+4d083000-4d0ce000 r-xs 003d0000 08:01 4996911    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.pde.ui_3.7.1.v20120824-102423.jar
+4d200000-4d300000 rwxp 00000000 08:01 5378027    /home/jon/VistaModels/ARM/m3/t/vp_sim/MGC_VISTA_SIM_history.data.analysis.analog (deleted)
+4d300000-4d400000 rwxp 00000000 00:00 0 
+4d46b000-4d46e000 ---p 00000000 00:00 0 
+4d46e000-4d4bc000 rwxp 00000000 00:00 0 
+4d5af000-4d5b2000 ---p 00000000 00:00 0 
+4d5b2000-4d600000 rwxp 00000000 00:00 0 
+4d600000-4d700000 rwxp 00000000 00:00 0 
+4d723000-4d726000 ---p 00000000 00:00 0 
+4d726000-4d774000 rwxp 00000000 00:00 0 
+4d774000-4d8bb000 r-xp 00000000 08:01 3278396    /usr/lib/i386-linux-gnu/libxml2.so.2.7.8
+4d8bb000-4d8bf000 r-xp 00147000 08:01 3278396    /usr/lib/i386-linux-gnu/libxml2.so.2.7.8
+4d8bf000-4d8c0000 rwxp 0014b000 08:01 3278396    /usr/lib/i386-linux-gnu/libxml2.so.2.7.8
+4d8c0000-4d8c1000 rwxp 00000000 00:00 0 
+4d8c1000-4d8f9000 r-xp 00000000 08:01 3281464    /usr/lib/i386-linux-gnu/libcroco-0.6.so.3.0.1
+4d8f9000-4d8fa000 ---p 00038000 08:01 3281464    /usr/lib/i386-linux-gnu/libcroco-0.6.so.3.0.1
+4d8fa000-4d8fc000 r-xp 00038000 08:01 3281464    /usr/lib/i386-linux-gnu/libcroco-0.6.so.3.0.1
+4d8fc000-4d8fd000 rwxp 0003a000 08:01 3281464    /usr/lib/i386-linux-gnu/libcroco-0.6.so.3.0.1
+4d8fd000-4e800000 r-xp 00000000 08:01 4625380    /usr/share/icons/hicolor/icon-theme.cache
+4e800000-4e8fe000 rwxp 00000000 00:00 0 
+4e8fe000-4e900000 ---p 00000000 00:00 0 
+4e915000-4f200000 r-xp 00000000 08:01 4620378    /usr/share/icons/gnome/icon-theme.cache
+4f200000-4f2ff000 rwxp 00000000 00:00 0 
+4f2ff000-4f300000 ---p 00000000 00:00 0 
+4f317000-4f400000 r-xp 00000000 08:01 4620364    /usr/share/icons/Humanity/icon-theme.cache
+4f400000-4f4fe000 rwxp 00000000 00:00 0 
+4f4fe000-4f500000 ---p 00000000 00:00 0 
+4f500000-4f600000 rwxp 00000000 00:00 0 
+4f600000-4f700000 rwxp 00000000 00:00 0 
+4f71d000-4f754000 r-xp 00000000 08:01 3281834    /usr/lib/i386-linux-gnu/librsvg-2.so.2.36.1
+4f754000-4f755000 r-xp 00036000 08:01 3281834    /usr/lib/i386-linux-gnu/librsvg-2.so.2.36.1
+4f755000-4f756000 rwxp 00037000 08:01 3281834    /usr/lib/i386-linux-gnu/librsvg-2.so.2.36.1
+4f756000-4f7b6000 rwxs 00000000 00:04 983052     /SYSV00000000 (deleted)
+4f7d4000-4f7f9000 r-xp 00000000 08:01 6299505    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libdcpr.so
+4f7f9000-4f7fc000 rwxp 00024000 08:01 6299505    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libdcpr.so
+4f7fc000-4f849000 r-xp 00000000 08:01 4066460    /usr/share/fonts/truetype/ttf-dejavu/DejaVuSansMono-Bold.ttf
+4f849000-4f8a1000 r-xp 00000000 08:01 4066486    /usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-BI.ttf
+4f8a1000-4f900000 r-xp 00000000 08:01 4066491    /usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-RI.ttf
+4f900000-4f9ff000 rwxp 00000000 00:00 0 
+4f9ff000-4fa00000 ---p 00000000 00:00 0 
+4fa1b000-4faf3000 r-xp 00000000 08:01 3281877    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.16
+4faf3000-4faf4000 ---p 000d8000 08:01 3281877    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.16
+4faf4000-4faf8000 r-xp 000d8000 08:01 3281877    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.16
+4faf8000-4faf9000 rwxp 000dc000 08:01 3281877    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.16
+4faf9000-4fb00000 rwxp 00000000 00:00 0 
+4fb00000-4fbfe000 rwxp 00000000 00:00 0 
+4fbfe000-4fc00000 ---p 00000000 00:00 0 
+4fc09000-4fc18000 r-xs 000af000 08:01 1318786    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/330/1/.cp/library.jar
+4fc18000-4fc6a000 r-xp 00000000 08:01 4066485    /usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-B.ttf
+4fc6a000-4fd00000 r-xs 00944000 08:01 4996904    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.jdt.ui_3.8.1.v20120814-144251.jar
+4fd00000-4fe00000 rwxp 00000000 00:00 0 
+4fe00000-4ff00000 rwxp 00000000 00:00 0 
+4ff00000-50000000 rwxp 00000000 00:00 0 
+5001a000-5001d000 ---p 00000000 00:00 0 
+5001d000-50029000 rwxp 00000000 00:00 0 
+50029000-50040000 r-xp 00000000 08:01 5250945    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.mentor.embedded.ui.linux.x86_1.1.0.394665/os/linux/x86/libplatform.so
+50040000-50042000 rwxp 00016000 08:01 5250945    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.mentor.embedded.ui.linux.x86_1.1.0.394665/os/linux/x86/libplatform.so
+50042000-50047000 rwxp 00000000 00:00 0 
+5005d000-500b7000 r-xs 0052c000 08:01 4996418    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.cdt.ui_5.4.0.394665.jar
+500bf000-500d0000 r-xs 00115000 08:01 4996909    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.pde.core_3.8.0.v20120606-170547.jar
+500d0000-500d3000 r-xs 0002e000 08:01 5645327    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/ext/sunjce_provider.jar
+500da000-5010d000 r-xp 00000000 08:01 6299530    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libsunec.so
+5010d000-50111000 rwxp 00032000 08:01 6299530    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libsunec.so
+50111000-50115000 rwxp 00000000 00:00 0 
+50115000-50118000 ---p 00000000 00:00 0 
+50118000-50166000 rwxp 00000000 00:00 0 
+50166000-50169000 ---p 00000000 00:00 0 
+50169000-501b7000 rwxp 00000000 00:00 0 
+501b7000-501fe000 r-xp 00000000 08:01 4195215    /lib/i386-linux-gnu/libdbus-1.so.3.5.8
+501fe000-501ff000 r-xp 00047000 08:01 4195215    /lib/i386-linux-gnu/libdbus-1.so.3.5.8
+501ff000-50200000 rwxp 00048000 08:01 4195215    /lib/i386-linux-gnu/libdbus-1.so.3.5.8
+50200000-502ff000 rwxp 00000000 00:00 0 
+502ff000-50300000 ---p 00000000 00:00 0 
+50310000-50332000 r-xs 00184000 08:01 4996557    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.mylyn.tasks.ui_3.8.1.v20120725-0100.jar
+50332000-50340000 r-xp 00000000 08:01 4195219    /lib/i386-linux-gnu/libudev.so.0.13.0
+50340000-50341000 r-xp 0000e000 08:01 4195219    /lib/i386-linux-gnu/libudev.so.0.13.0
+50341000-50342000 rwxp 0000f000 08:01 4195219    /lib/i386-linux-gnu/libudev.so.0.13.0
+50347000-50352000 r-xs 00084000 08:01 4996685    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.ui.workbench.texteditor_3.8.0.v20120523-1310.jar
+50352000-50367000 r-xp 00000000 08:01 3278992    /usr/lib/i386-linux-gnu/gvfs/libgvfscommon.so
+50367000-50368000 r-xp 00014000 08:01 3278992    /usr/lib/i386-linux-gnu/gvfs/libgvfscommon.so
+50368000-50369000 rwxp 00015000 08:01 3278992    /usr/lib/i386-linux-gnu/gvfs/libgvfscommon.so
+50369000-503ad000 r-xp 00000000 08:01 3281675    /usr/lib/i386-linux-gnu/libibus-1.0.so.0.401.0
+503ad000-503ae000 r-xp 00043000 08:01 3281675    /usr/lib/i386-linux-gnu/libibus-1.0.so.0.401.0
+503ae000-503af000 rwxp 00044000 08:01 3281675    /usr/lib/i386-linux-gnu/libibus-1.0.so.0.401.0
+503af000-503b2000 ---p 00000000 00:00 0 
+503b2000-50400000 rwxp 00000000 00:00 0 
+50400000-504fb000 rwxp 00000000 00:00 0 
+504fb000-50500000 ---p 00000000 00:00 0 
+50504000-5052d000 r-xp 00000000 08:01 3277259    /usr/lib/i386-linux-gnu/gio/modules/libgvfsdbus.so
+5052d000-5052e000 r-xp 00028000 08:01 3277259    /usr/lib/i386-linux-gnu/gio/modules/libgvfsdbus.so
+5052e000-5052f000 rwxp 00029000 08:01 3277259    /usr/lib/i386-linux-gnu/gio/modules/libgvfsdbus.so
+5052f000-50535000 r-xp 00000000 08:01 3282437    /usr/lib/i386-linux-gnu/gtk-2.0/2.10.0/immodules/im-ibus.so
+50535000-50536000 r-xp 00005000 08:01 3282437    /usr/lib/i386-linux-gnu/gtk-2.0/2.10.0/immodules/im-ibus.so
+50536000-50537000 rwxp 00006000 08:01 3282437    /usr/lib/i386-linux-gnu/gtk-2.0/2.10.0/immodules/im-ibus.so
+5053a000-50544000 r-xs 0006c000 08:01 4996413    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.cdt.make.ui_7.2.0.394665.jar
+50544000-50560000 r-xs 0013f000 08:01 4996406    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.cdt.dsf.gdb_4.1.0.394665.jar
+50560000-50565000 r-xp 00000000 08:01 3282275    /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-gif.so
+50565000-50566000 r-xp 00005000 08:01 3282275    /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-gif.so
+50566000-50567000 rwxp 00006000 08:01 3282275    /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-gif.so
+50567000-5056a000 ---p 00000000 00:00 0 
+5056a000-505b8000 rwxp 00000000 00:00 0 
+505b8000-505cc000 r-xs 000df000 08:01 4996518    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.jface.text_3.8.1.v20120828-155502.jar
+505cc000-505dd000 r-xs 00105000 08:01 4996884    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.emf.ecore_2.8.1.v20120911-0500.jar
+505dd000-505ed000 r-xp 00000000 08:01 3277258    /usr/lib/i386-linux-gnu/gio/modules/libgioremote-volume-monitor.so
+505ed000-505ee000 r-xp 0000f000 08:01 3277258    /usr/lib/i386-linux-gnu/gio/modules/libgioremote-volume-monitor.so
+505ee000-505ef000 rwxp 00010000 08:01 3277258    /usr/lib/i386-linux-gnu/gio/modules/libgioremote-volume-monitor.so
+505ef000-50600000 r-xs 00167000 08:01 5120497    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.mentor.embedded.profiler.jwdb_2.1.0.201301030956-59643/jwdb.jar
+50600000-50700000 rwxp 00000000 00:00 0 
+50702000-50710000 r-xs 00094000 08:01 4996407    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.cdt.dsf.gdb.ui_2.4.0.394665.jar
+50710000-50729000 r-xs 00105000 08:01 4996399    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.cdt.debug.ui_7.2.0.394665.jar
+5072d000-50736000 r-xs 00046000 08:01 4996405    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.cdt.dsf_2.3.0.394665.jar
+50736000-5075c000 r-xs 002db000 08:01 5117954    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.mentor.embedded.profiler.graphview_2.1.0.201301030956-59643/gview.jar
+5075d000-5076e000 r-xs 00137000 08:01 4996414    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.cdt.managedbuilder.core_8.1.0.394665.jar
+5076e000-5077b000 r-xs 0007a000 08:01 4996396    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.cdt.debug.core_7.2.0.394665.jar
+5077b000-507da000 r-xp 00000000 08:01 6299526    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libt2k.so
+507da000-507de000 rwxp 0005f000 08:01 6299526    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libt2k.so
+507de000-507e2000 rwxp 00000000 00:00 0 
+507e2000-507fe000 r-xp 00000000 08:01 4195252    /lib/i386-linux-gnu/libgcc_s.so.1
+507fe000-507ff000 r-xp 0001b000 08:01 4195252    /lib/i386-linux-gnu/libgcc_s.so.1
+507ff000-50800000 rwxp 0001c000 08:01 4195252    /lib/i386-linux-gnu/libgcc_s.so.1
+50800000-50900000 rwxp 00000000 00:00 0 
+50900000-5090c000 r-xs 00081000 08:01 4996670    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.ui.editors_3.8.0.v20120523-1540.jar
+5090c000-50914000 r-xs 00000000 08:01 4464911    /home/jon/.local/share/gvfs-metadata/root-579e0eda.log
+50914000-5091b000 r-xs 00000000 08:01 3278524    /usr/lib/i386-linux-gnu/gconv/gconv-modules.cache
+5091b000-5095d000 r-xp 00000000 08:01 6299534    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libfontmanager.so
+5095d000-50960000 rwxp 00041000 08:01 6299534    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libfontmanager.so
+50960000-50964000 rwxp 00000000 00:00 0 
+50964000-509af000 r-xs 0047e000 08:01 4996393    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.cdt.core_5.4.0.394665.jar
+509af000-509b2000 ---p 00000000 00:00 0 
+509b2000-50a00000 rwxp 00000000 00:00 0 
+50a00000-50b00000 rwxp 00000000 00:00 0 
+50b00000-50b01000 r-xs 00003000 08:01 5645325    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/ext/sunec.jar
+50b06000-50b1b000 r-xp 00000000 08:01 4996970    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.mentor.vista.vp.profiler.native.linux_2.0.0.201301171106/libmgc_vp_analysis_db_reader.so
+50b1b000-50b1c000 r-xp 00014000 08:01 4996970    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.mentor.vista.vp.profiler.native.linux_2.0.0.201301171106/libmgc_vp_analysis_db_reader.so
+50b1c000-50b1d000 rwxp 00015000 08:01 4996970    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.mentor.vista.vp.profiler.native.linux_2.0.0.201301171106/libmgc_vp_analysis_db_reader.so
+50b1d000-50b20000 ---p 00000000 00:00 0 
+50b20000-50c10000 rwxp 00000000 00:00 0 
+50c10000-50c13000 ---p 00000000 00:00 0 
+50c13000-50d03000 rwxp 00000000 00:00 0 
+50d03000-50d4c000 r-xp 00000000 08:01 6299498    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/xawt/libmawt.so
+50d4c000-50d4f000 rwxp 00048000 08:01 6299498    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/xawt/libmawt.so
+50d4f000-50dd5000 r-xp 00000000 08:01 6299517    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libawt.so
+50dd5000-50ddc000 rwxp 00086000 08:01 6299517    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libawt.so
+50ddc000-50e00000 rwxp 00000000 00:00 0 
+50e00000-50f00000 rwxp 00000000 00:00 0 
+50f02000-50f03000 r-xs 00003000 08:01 4996395    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.cdt.core.linux.x86_5.2.0.394665.jar
+50f0a000-50f1a000 r-xs 000e4000 08:01 4996320    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.codesourcery.target_2012.9.0.394665.jar
+50f1b000-50f20000 r-xs 00034000 08:01 4996625    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.rse.importexport_1.2.300.201205300905.jar
+50f27000-50f51000 r-xs 0044e000 08:01 4996893    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.jdt.core_3.8.2.v20120814-155456.jar
+50f51000-50f56000 r-xs 00038000 08:01 4996660    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.text_3.5.200.v20120523-1310.jar
+50f56000-50f59000 ---p 00000000 00:00 0 
+50f59000-50fa7000 rwxp 00000000 00:00 0 
+50fab000-50fae000 r-xs 0001e000 08:01 4996962    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.mentor.vista.vp.profiler_2.0.0.201301171106.jar
+50fae000-50fb8000 r-xs 0005e000 08:01 4996676    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.ui.navigator_3.5.250.394665.jar
+50fb8000-50fbc000 r-xs 00016000 08:01 794457     /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/325/1/.cp/library.jar
+50fbc000-50fbf000 ---p 00000000 00:00 0 
+50fbf000-5100d000 rwxp 00000000 00:00 0 
+5100e000-51012000 r-xs 0001d000 08:01 4996486    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.equinox.p2.repository_2.2.0.v20120524-1945.jar
+51014000-51017000 r-xp 00000000 08:01 1319032    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/57/1/.cp/os/linux/x86/libspawner.so
+51017000-51018000 rwxp 00002000 08:01 1319032    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/57/1/.cp/os/linux/x86/libspawner.so
+51018000-5101c000 r-xs 00020000 08:01 4996387    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.cdt.codan.core_2.1.0.394665.jar
+5101c000-51024000 r-xs 0004c000 08:01 4996479    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.equinox.p2.metadata_2.1.0.v20120430-2001.jar
+51027000-5102b000 r-xs 0002d000 08:01 4996475    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.equinox.p2.engine_2.2.0.v20120501-1502.jar
+5102b000-5105e000 r-xs 00265000 08:01 4996444    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.debug.ui_3.8.150.394665.jar
+5105e000-51061000 r-xs 0001a000 08:01 4996391    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.cdt.codan.ui_2.1.0.394665.jar
+51061000-51064000 r-xs 0001b000 08:01 4996677    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.ui.navigator.resources_3.4.450.394665.jar
+51064000-5106d000 r-xs 00063000 08:01 4996412    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.cdt.make.core_7.2.0.394665.jar
+5106d000-51077000 r-xs 00071000 08:01 4996416    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.cdt.managedbuilder.ui_8.1.0.394665.jar
+51077000-5107c000 r-xs 0002d000 08:01 1318782    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/339/1/.cp/library.jar
+5107c000-51083000 r-xs 00049000 08:01 4996521    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.ltk.core.refactoring_3.6.0.v20120523-1543.jar
+51085000-51088000 r-xs 00019000 08:01 4996430    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.core.filebuffers_3.5.200.v20120523-1310.jar
+51088000-5108a000 r-xs 00009000 08:01 1318804    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/341/1/.cp/library.jar
+5108b000-5108f000 r-xs 00021000 08:01 1318800    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/344/1/.cp/library.jar
+5108f000-51092000 r-xs 00018000 08:01 5508791    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/jce.jar
+51092000-51097000 r-xs 00045000 08:01 4996672    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.ui.forms_3.5.200.v20120521-2332.jar
+51097000-5109a000 r-xs 0001a000 08:01 4996481    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.equinox.p2.metadata.repository_1.2.100.v20120524-1717.jar
+5109a000-5109e000 r-xs 00033000 08:01 4996887    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.emf.ecore.xmi_2.8.0.v20120911-0500.jar
+5109e000-510a6000 r-xs 0004d000 08:01 4996443    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.debug.core_3.7.100.v20120521-2012.jar
+510a7000-510ab000 r-xs 00023000 08:01 4996544    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.mylyn.context.ui_3.8.1.v20120725-0100.jar
+510ab000-510ae000 r-xs 0000f000 08:01 4996471    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.equinox.p2.core_2.2.50.394665.jar
+510af000-510b2000 ---p 00000000 00:00 0 
+510b2000-51100000 rwxp 00000000 00:00 0 
+51100000-51200000 rwxp 00000000 00:00 0 
+51200000-51203000 r-xs 00014000 08:01 4996680    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.ui.views_3.6.100.v20120521-2332.jar
+51203000-51206000 ---p 00000000 00:00 0 
+51206000-51254000 rwxp 00000000 00:00 0 
+51254000-5125d000 r-xp 00000000 08:01 924897     /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/281/1/.cp/libswt-atk-gtk-3834.so
+5125d000-5125e000 rwxp 00009000 08:01 924897     /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/281/1/.cp/libswt-atk-gtk-3834.so
+51260000-5126b000 r-xp 00000000 08:01 4620370    /usr/share/icons/Humanity-Dark/icon-theme.cache
+5126d000-51270000 r-xs 00017000 08:01 794575     /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/351/1/.cp/library.jar
+51270000-51273000 r-xs 00017000 08:01 4996682    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.ui.views.properties.tabbed_3.5.300.v20120523-1956.jar
+51273000-51296000 r-xp 00000000 08:01 4587545    /usr/share/icons/ubuntu-mono-dark/icon-theme.cache
+51296000-5129f000 r-xs 00059000 08:01 4996655    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.team.core_3.6.100.v20120524-0627.jar
+5129f000-512a9000 r-xs 00085000 08:01 4996656    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.team.cvs.core_3.3.500.v20120522-1148.jar
+512aa000-512ad000 r-xs 00013000 08:01 4996894    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.jdt.core.manipulation_1.5.0.v20120523-1543.jar
+512ad000-512b7000 r-xs 00066000 08:01 4996522    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.ltk.ui.refactoring_3.7.0.v20120523-1543.jar
+512b7000-512ba000 r-xs 00018000 08:01 4996422    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.core.commands_3.6.1.v20120521-2332.jar
+512ba000-512bd000 r-xs 0001a000 08:01 4996542    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.mylyn.context.core_3.8.1.v20120725-0100.jar
+512bd000-512be000 r-xp 00000000 08:01 917505     /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/281/1/.cp/libswt-awt-gtk-3834.so
+512be000-512bf000 rwxp 00000000 08:01 917505     /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/281/1/.cp/libswt-awt-gtk-3834.so
+512bf000-512c0000 r-xp 00000000 08:01 6299547    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libjawt.so
+512c0000-512c1000 rwxp 00000000 08:01 6299547    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libjawt.so
+512c1000-512c4000 r-xs 00013000 08:01 794565     /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/350/1/.cp/library.jar
+512c4000-512c8000 rwxs 00000000 00:04 1015821    /SYSV00000000 (deleted)
+512c8000-512e2000 r-xs 00181000 08:01 4996651    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.rse.ui_3.3.0.201205300905.jar
+512e2000-512e4000 r-xs 0000a000 08:01 5117905    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.mentor.embedded.profiler.agent.lttng_2.1.0.201301030956-59643/library.jar
+512e4000-512e7000 r-xs 0000d000 08:01 1319219    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/343/1/.cp/library.jar
+512e8000-512eb000 r-xs 00013000 08:01 794654     /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/333/1/.cp/library.jar
+512eb000-512ec000 r-xp 00000000 08:01 3282285    /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-svg.so
+512ec000-512ed000 r-xp 00000000 08:01 3282285    /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-svg.so
+512ed000-512ee000 rwxp 00001000 08:01 3282285    /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-svg.so
+512ef000-512f1000 r-xs 00015000 08:01 4996433    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.core.jobs_3.5.200.v20120521-2346.jar
+512f1000-512f2000 r-xs 00002000 08:01 4996432    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.core.filesystem.linux.x86_1.4.0.v20120522-1137.jar
+512f2000-512f4000 r-xp 00000000 08:01 1050515    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/94/1/.cp/os/linux/x86/libunixfile_1_0_0.so
+512f4000-512f5000 rwxp 00001000 08:01 1050515    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/94/1/.cp/os/linux/x86/libunixfile_1_0_0.so
+512f5000-512f7000 r-xs 00008000 08:01 4996947    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.mentor.embedded.profiler.textimport_2.1.0.201301030956-59643.jar
+512f7000-51302000 r-xs 000bb000 08:01 4996436    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.core.resources_3.8.1.v20120802-154922.jar
+51302000-5132a000 r-xs 00219000 08:01 4996673    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.ui.ide_3.8.1.v20120829-085332.jar
+5132a000-51334000 r-xp 00000000 08:01 924895     /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/281/1/.cp/libswt-cairo-gtk-3834.so
+51334000-51335000 rwxp 0000a000 08:01 924895     /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/281/1/.cp/libswt-cairo-gtk-3834.so
+51335000-51339000 r-xp 00000000 08:01 3282281    /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.so
+51339000-5133a000 r-xp 00003000 08:01 3282281    /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.so
+5133a000-5133b000 rwxp 00004000 08:01 3282281    /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.so
+5133b000-5138d000 r-xp 00000000 08:01 4066461    /usr/share/fonts/truetype/ttf-dejavu/DejaVuSansMono.ttf
+5138d000-513e4000 r-xp 00000000 08:01 4066490    /usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-R.ttf
+513e4000-513e6000 r-xp 00000000 08:01 3282641    /usr/lib/i386-linux-gnu/pango/1.6.0/modules/pango-basic-fc.so
+513e6000-513e7000 r-xp 00001000 08:01 3282641    /usr/lib/i386-linux-gnu/pango/1.6.0/modules/pango-basic-fc.so
+513e7000-513e8000 rwxp 00002000 08:01 3282641    /usr/lib/i386-linux-gnu/pango/1.6.0/modules/pango-basic-fc.so
+513e8000-513ee000 r-xs 00000000 08:01 786727     /var/cache/fontconfig/945677eb7aeaf62f1d50efc3fb3ec7d8-le32d4.cache-3
+513ee000-513f2000 r-xs 00000000 08:01 791951     /var/cache/fontconfig/a755afe4a08bf5b97852ceb7400b47bc-le32d4.cache-3
+513f2000-513f5000 r-xs 00000000 08:01 791950     /var/cache/fontconfig/6d41288fd70b0be22e8c3a91e032eec0-le32d4.cache-3
+513f5000-51400000 r-xs 00000000 08:01 791887     /var/cache/fontconfig/04aabc0a78ac019cf9454389977116d2-le32d4.cache-3
+51400000-51500000 rwxp 00000000 00:00 0 
+51500000-51501000 r-xs 00000000 08:01 4458148    /home/jon/.local/share/gvfs-metadata/root
+51501000-51503000 r-xs 00000000 08:01 791972     /var/cache/fontconfig/99e8ed0e538f840c565b6ed5dad60d56-le32d4.cache-3
+51503000-51506000 r-xs 00000000 08:01 791970     /var/cache/fontconfig/2cd17615ca594fa2959ae173292e504c-le32d4.cache-3
+51506000-51509000 r-xs 00000000 08:01 791795     /var/cache/fontconfig/385c0604a188198f04d133e54aba7fe7-le32d4.cache-3
+51509000-5150a000 r-xs 00000000 08:01 791794     /var/cache/fontconfig/4794a0821666d79190d59a36cb4f44b5-le32d4.cache-3
+5150a000-5150d000 r-xs 00000000 08:01 791793     /var/cache/fontconfig/8801497958630a81b71ace7c5f9b32a8-le32d4.cache-3
+5150d000-51511000 r-xs 00000000 08:01 791788     /var/cache/fontconfig/3047814df9a2f067bd2d96a2b9c36e5a-le32d4.cache-3
+51511000-5151e000 r-xs 00000000 08:01 791701     /var/cache/fontconfig/d52a8644073d54c13679302ca1180695-le32d4.cache-3
+5151e000-51523000 r-xp 00000000 08:01 3281387    /usr/lib/i386-linux-gnu/libXtst.so.6.1.0
+51523000-51524000 r-xp 00004000 08:01 3281387    /usr/lib/i386-linux-gnu/libXtst.so.6.1.0
+51524000-51525000 rwxp 00005000 08:01 3281387    /usr/lib/i386-linux-gnu/libXtst.so.6.1.0
+51525000-51526000 r-xp 00000000 08:01 3281651    /usr/lib/i386-linux-gnu/libgthread-2.0.so.0.3200.3
+51526000-51527000 r-xp 00000000 08:01 3281651    /usr/lib/i386-linux-gnu/libgthread-2.0.so.0.3200.3
+51527000-51528000 rwxp 00001000 08:01 3281651    /usr/lib/i386-linux-gnu/libgthread-2.0.so.0.3200.3
+51528000-51529000 r-xs 00005000 08:01 794659     /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/349/1/.cp/library.jar
+51529000-5152a000 r-xs 00000000 08:01 791781     /var/cache/fontconfig/56cf4f4769d0f4abc89a4895d7bd3ae1-le32d4.cache-3
+5152a000-5152b000 r-xs 00000000 08:01 791715     /var/cache/fontconfig/b9d506c9ac06c20b433354fa67a72993-le32d4.cache-3
+5152b000-5152f000 r-xs 00000000 08:01 791702     /var/cache/fontconfig/b47c4e1ecd0709278f4910c18777a504-le32d4.cache-3
+5152f000-51531000 r-xs 00000000 08:01 786724     /var/cache/fontconfig/e13b20fdb08344e0e664864cc2ede53d-le32d4.cache-3
+51531000-51534000 r-xs 00000000 08:01 786707     /var/cache/fontconfig/7ef2298fde41cc6eeb7af42e48b7d293-le32d4.cache-3
+51534000-51538000 rwxp 00000000 00:00 0 
+51538000-51593000 r-xp 00000000 08:01 924894     /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/281/1/.cp/libswt-pi-gtk-3834.so
+51593000-51595000 rwxp 0005a000 08:01 924894     /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/281/1/.cp/libswt-pi-gtk-3834.so
+51595000-51596000 rwxp 00000000 00:00 0 
+51596000-51599000 r-xp 00000000 08:01 924893     /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/281/1/.cp/libswt-gtk-3834.so
+51599000-5159a000 rwxp 00002000 08:01 924893     /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/281/1/.cp/libswt-gtk-3834.so
+5159a000-5159b000 rwxp 00000000 00:00 0 
+5159b000-5159c000 r-xs 00017000 08:01 4996932    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.mentor.embedded.profiler.fileimport_2.1.0.201301030956-59643.jar
+5159c000-5159e000 r-xs 00008000 08:01 4996549    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.mylyn.monitor.core_3.8.1.v20120725-0100.jar
+5159e000-515a2000 r-xs 00022000 08:01 4996666    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.ui_3.8.0.v20120523-1546.jar
+515a2000-515de000 r-xs 00629000 08:01 4996350    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.ibm.icu_4.4.2.v20110823.jar
+515de000-515f4000 r-xs 00230000 08:01 4996654    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.swt.gtk.linux.x86_3.8.1.v3834e.jar
+515f4000-515f5000 r-xs 00004000 08:01 4996653    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.swt_3.8.1.v3834e.jar
+515f5000-5160a000 r-xs 000f6000 08:01 4996516    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.jface_3.8.0.v20120521-2332.jar
+5160a000-51651000 r-xs 003b4000 08:01 4996683    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.ui.workbench_3.8.1.v20120816-082703.jar
+51654000-51656000 r-xs 00005000 08:01 4996477    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.equinox.p2.garbagecollector_1.0.200.v20110808-1657.jar
+51656000-51659000 ---p 00000000 00:00 0 
+51659000-516a7000 rwxp 00000000 00:00 0 
+516a7000-516a8000 r-xs 00013000 08:01 4996941    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.mentor.embedded.profiler.sessionlist_2.1.0.201301030956-59643.jar
+516a9000-516ab000 r-xs 00007000 08:01 4996440    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.core.variables_3.2.600.v20120521-2012.jar
+516ab000-516af000 r-xs 0002b000 08:01 794639     /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/345/1/.cp/library.jar
+516af000-51700000 rwxp 00000000 00:00 0 
+51700000-517f8000 rwxp 00000000 00:00 0 
+517f8000-51800000 ---p 00000000 00:00 0 
+51800000-51802000 r-xs 0000d000 08:01 4996431    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.core.filesystem_1.3.200.v20120522-2012.jar
+51802000-51806000 r-xs 00024000 08:01 4996669    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.ui.console_3.5.100.v20120521-2012.jar
+51806000-51808000 r-xs 000b3000 08:01 4996929    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.mentor.embedded.profiler.core_2.1.0.201301030956-59643.jar
+51808000-51809000 r-xs 00030000 08:01 4996943    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.mentor.embedded.profiler.system.mel_2.1.0.201301030956-59643.jar
+51809000-5180b000 r-xs 00021000 08:01 4996925    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.mentor.embedded.profiler.agent_2.1.0.201301030956-59643.jar
+5180b000-5180d000 r-xs 0000a000 08:01 4996415    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.cdt.managedbuilder.gnu.ui_8.1.0.394665.jar
+5180d000-51900000 rwxp 00000000 00:00 0 
+51900000-51a00000 rwxp 00000000 00:00 0 
+51a00000-51a01000 r-xs 00000000 08:01 791996     /var/cache/fontconfig/c05880de57d1f5e948fdfacc138775d9-le32d4.cache-3
+51a01000-51a0b000 r-xs 00254000 08:01 5508814    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/resources.jar
+51a0b000-51a0c000 r-xs 00001000 08:01 1318833    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/configuration/org.eclipse.osgi/bundles/324/1/.cp/library.jar
+51a0c000-51b00000 rwxp 00000000 00:00 0 
+51b00000-51bff000 rwxp 00000000 00:00 0 
+51bff000-51c00000 ---p 00000000 00:00 0 
+51c00000-51c01000 r-xs 00000000 08:01 791969     /var/cache/fontconfig/e7071f4a29fa870f4323321c154eba04-le32d4.cache-3
+51c01000-51c02000 r-xs 00028000 08:01 4996942    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.mentor.embedded.profiler.sessionview_2.1.0.201301030956-59643.jar
+51c02000-51c04000 r-xs 0001c000 08:01 4996949    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.mentor.embedded.profiler.traceview_2.1.0.201301030956-59643.jar
+51c04000-51c06000 r-xs 00015000 08:01 4996423    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.core.contenttype_3.4.200.v20120523-2004.jar
+51c06000-51c08000 r-xs 00002000 08:01 5508745    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.core.runtime.compatibility.registry_3.5.100.v20120521-2346/runtime_registry_compatibility.jar
+51c08000-51c0b000 r-xs 0002a000 08:01 4996498    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.equinox.registry_3.5.200.v20120522-1841.jar
+51c0b000-51c0d000 r-xs 00005000 08:01 4996392    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.cdt.codan.ui.cxx_3.0.0.394665.jar
+51c0d000-51c0e000 rwxs 00000000 08:01 5123150    /tmp/mgls_shared_mutex_7205
+51c0e000-51c10000 r-xs 0000c000 08:01 4996930    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.mentor.embedded.profiler.develop_2.1.0.201301030956-59643.jar
+51c10000-51c11000 r-xs 00002000 08:01 4996394    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.cdt.core.linux_5.2.0.394665.jar
+51c11000-51c13000 r-xs 0000e000 08:01 4996388    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.cdt.codan.core.cxx_1.1.0.394665.jar
+51c13000-51c14000 r-xs 00036000 08:01 4996936    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.mentor.embedded.profiler.reports_2.1.0.201301030956-59643.jar
+51c14000-51c16000 r-xs 00010000 08:01 4996417    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.cdt.mylyn.ui_3.8.1.v20120725-0100.jar
+51c16000-51c2a000 r-xp 00000000 08:01 6299544    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libnet.so
+51c2a000-51c2b000 rwxp 00014000 08:01 6299544    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libnet.so
+51c2b000-51c3f000 r-xs 00141000 08:01 4996574    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.osgi_3.8.1.v20120830-144521.jar
+51c3f000-51c9f000 rwxs 00000000 00:04 917515     /SYSV00000000 (deleted)
+51c9f000-51d02000 rwxp 00000000 00:00 0 
+51d02000-51d05000 r-xp 00000000 08:01 3282274    /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-bmp.so
+51d05000-51d06000 r-xp 00002000 08:01 3282274    /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-bmp.so
+51d06000-51d07000 rwxp 00003000 08:01 3282274    /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-bmp.so
+51d07000-51d23000 r-xs 00000000 08:01 3680314    /usr/share/mime/mime.cache
+51d23000-51d4c000 r-xp 00000000 08:01 3281918    /usr/lib/i386-linux-gnu/libvorbis.so.0.4.5
+51d4c000-51d4d000 r-xp 00028000 08:01 3281918    /usr/lib/i386-linux-gnu/libvorbis.so.0.4.5
+51d4d000-51d4e000 rwxp 00029000 08:01 3281918    /usr/lib/i386-linux-gnu/libvorbis.so.0.4.5
+51d4e000-51d56000 r-xp 00000000 08:01 3281717    /usr/lib/i386-linux-gnu/libltdl.so.7.3.0
+51d56000-51d57000 r-xp 00008000 08:01 3281717    /usr/lib/i386-linux-gnu/libltdl.so.7.3.0
+51d57000-51d58000 rwxp 00009000 08:01 3281717    /usr/lib/i386-linux-gnu/libltdl.so.7.3.0
+51d58000-51d69000 r-xp 00000000 08:01 3281885    /usr/lib/i386-linux-gnu/libtdb.so.1.2.9
+51d69000-51d6a000 r-xp 00010000 08:01 3281885    /usr/lib/i386-linux-gnu/libtdb.so.1.2.9
+51d6a000-51d6b000 rwxp 00011000 08:01 3281885    /usr/lib/i386-linux-gnu/libtdb.so.1.2.9
+51d6b000-51d73000 r-xp 00000000 08:01 3281922    /usr/lib/i386-linux-gnu/libvorbisfile.so.3.3.4
+51d73000-51d74000 r-xp 00007000 08:01 3281922    /usr/lib/i386-linux-gnu/libvorbisfile.so.3.3.4
+51d74000-51d75000 rwxp 00008000 08:01 3281922    /usr/lib/i386-linux-gnu/libvorbisfile.so.3.3.4
+51d75000-51d84000 r-xp 00000000 08:01 3281455    /usr/lib/i386-linux-gnu/libcanberra.so.0.2.5
+51d84000-51d85000 r-xp 0000e000 08:01 3281455    /usr/lib/i386-linux-gnu/libcanberra.so.0.2.5
+51d85000-51d86000 rwxp 0000f000 08:01 3281455    /usr/lib/i386-linux-gnu/libcanberra.so.0.2.5
+51d86000-51d8a000 r-xp 00000000 08:01 3281451    /usr/lib/i386-linux-gnu/libcanberra-gtk.so.0.1.8
+51d8a000-51d8b000 r-xp 00003000 08:01 3281451    /usr/lib/i386-linux-gnu/libcanberra-gtk.so.0.1.8
+51d8b000-51d8c000 rwxp 00004000 08:01 3281451    /usr/lib/i386-linux-gnu/libcanberra-gtk.so.0.1.8
+51d8c000-51d8d000 r-xs 00000000 08:01 791968     /var/cache/fontconfig/0d8c3b2ac0904cb8a57a757ad11a4a08-le32d4.cache-3
+51d8d000-51d9b000 r-xp 00000000 08:01 6299523    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libnio.so
+51d9b000-51d9c000 rwxp 0000e000 08:01 6299523    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libnio.so
+51d9c000-51dd1000 r-xp 00000000 08:01 3282430    /usr/lib/i386-linux-gnu/gtk-2.0/2.10.0/engines/libmurrine.so
+51dd1000-51dd2000 r-xp 00034000 08:01 3282430    /usr/lib/i386-linux-gnu/gtk-2.0/2.10.0/engines/libmurrine.so
+51dd2000-51dd3000 rwxp 00035000 08:01 3282430    /usr/lib/i386-linux-gnu/gtk-2.0/2.10.0/engines/libmurrine.so
+51dd3000-51dd4000 ---p 00000000 00:00 0 
+51dd4000-525d4000 rwxp 00000000 00:00 0 
+525d4000-525d5000 ---p 00000000 00:00 0 
+525d5000-52dd5000 rwxp 00000000 00:00 0 
+52dd5000-52ddc000 r-xp 00000000 08:01 3282293    /usr/lib/i386-linux-gnu/gio/modules/libdconfsettings.so
+52ddc000-52ddd000 r-xp 00006000 08:01 3282293    /usr/lib/i386-linux-gnu/gio/modules/libdconfsettings.so
+52ddd000-52dde000 rwxp 00007000 08:01 3282293    /usr/lib/i386-linux-gnu/gio/modules/libdconfsettings.so
+52dde000-52e02000 r-xp 00000000 08:01 4064470    /usr/share/glib-2.0/schemas/gschemas.compiled
+52e02000-52e12000 r-xp 00000000 08:01 3279655    /usr/lib/liboverlay-scrollbar-0.2.so.0.0.16
+52e12000-52e13000 r-xp 0000f000 08:01 3279655    /usr/lib/liboverlay-scrollbar-0.2.so.0.0.16
+52e13000-52e14000 rwxp 00010000 08:01 3279655    /usr/lib/liboverlay-scrollbar-0.2.so.0.0.16
+52e14000-52e31000 r-xp 00000000 08:01 3281409    /usr/lib/i386-linux-gnu/libatk-1.0.so.0.20409.1
+52e31000-52e33000 r-xp 0001c000 08:01 3281409    /usr/lib/i386-linux-gnu/libatk-1.0.so.0.20409.1
+52e33000-52e34000 rwxp 0001e000 08:01 3281409    /usr/lib/i386-linux-gnu/libatk-1.0.so.0.20409.1
+52e34000-53294000 r-xp 00000000 08:01 3281655    /usr/lib/i386-linux-gnu/libgtk-x11-2.0.so.0.2400.10
+53294000-53298000 r-xp 00460000 08:01 3281655    /usr/lib/i386-linux-gnu/libgtk-x11-2.0.so.0.2400.10
+53298000-5329a000 rwxp 00464000 08:01 3281655    /usr/lib/i386-linux-gnu/libgtk-x11-2.0.so.0.2400.10
+5329a000-5329c000 rwxp 00000000 00:00 0 
+5329c000-532a1000 r-xp 00000000 08:01 3281361    /usr/lib/i386-linux-gnu/libXdmcp.so.6.0.0
+532a1000-532a2000 r-xp 00004000 08:01 3281361    /usr/lib/i386-linux-gnu/libXdmcp.so.6.0.0
+532a2000-532a3000 rwxp 00005000 08:01 3281361    /usr/lib/i386-linux-gnu/libXdmcp.so.6.0.0
+532a3000-532a5000 r-xp 00000000 08:01 3281350    /usr/lib/i386-linux-gnu/libXau.so.6.0.0
+532a5000-532a6000 r-xp 00001000 08:01 3281350    /usr/lib/i386-linux-gnu/libXau.so.6.0.0
+532a6000-532a7000 rwxp 00002000 08:01 3281350    /usr/lib/i386-linux-gnu/libXau.so.6.0.0
+532a7000-532c6000 r-xp 00000000 08:01 3278392    /usr/lib/i386-linux-gnu/libxcb.so.1.1.0
+532c6000-532c7000 r-xp 0001f000 08:01 3278392    /usr/lib/i386-linux-gnu/libxcb.so.1.1.0
+532c7000-532c8000 rwxp 00020000 08:01 3278392    /usr/lib/i386-linux-gnu/libxcb.so.1.1.0
+532c8000-532d0000 r-xp 00000000 08:01 3278831    /usr/lib/i386-linux-gnu/libxcb-render.so.0.0.0
+532d0000-532d1000 r-xp 00008000 08:01 3278831    /usr/lib/i386-linux-gnu/libxcb-render.so.0.0.0
+532d1000-532d2000 rwxp 00009000 08:01 3278831    /usr/lib/i386-linux-gnu/libxcb-render.so.0.0.0
+532d2000-532d4000 r-xp 00000000 08:01 3278833    /usr/lib/i386-linux-gnu/libxcb-shm.so.0.0.0
+532d4000-532d5000 r-xp 00001000 08:01 3278833    /usr/lib/i386-linux-gnu/libxcb-shm.so.0.0.0
+532d5000-532d6000 rwxp 00002000 08:01 3278833    /usr/lib/i386-linux-gnu/libxcb-shm.so.0.0.0
+532d6000-532fe000 r-xp 00000000 08:01 4195308    /lib/i386-linux-gnu/libpng12.so.0.46.0
+532fe000-532ff000 r-xp 00027000 08:01 4195308    /lib/i386-linux-gnu/libpng12.so.0.46.0
+532ff000-53300000 rwxp 00028000 08:01 4195308    /lib/i386-linux-gnu/libpng12.so.0.46.0
+53300000-53393000 r-xp 00000000 08:01 3281792    /usr/lib/i386-linux-gnu/libpixman-1.so.0.24.4
+53393000-53397000 r-xp 00092000 08:01 3281792    /usr/lib/i386-linux-gnu/libpixman-1.so.0.24.4
+53397000-53398000 rwxp 00096000 08:01 3281792    /usr/lib/i386-linux-gnu/libpixman-1.so.0.24.4
+53398000-533be000 r-xp 00000000 08:01 4195249    /lib/i386-linux-gnu/libexpat.so.1.5.2
+533be000-533bf000 ---p 00026000 08:01 4195249    /lib/i386-linux-gnu/libexpat.so.1.5.2
+533bf000-533c1000 r-xp 00026000 08:01 4195249    /lib/i386-linux-gnu/libexpat.so.1.5.2
+533c1000-533c2000 rwxp 00028000 08:01 4195249    /lib/i386-linux-gnu/libexpat.so.1.5.2
+533c2000-533d5000 r-xp 00000000 08:01 4201387    /lib/i386-linux-gnu/libresolv-2.15.so
+533d5000-533d6000 ---p 00013000 08:01 4201387    /lib/i386-linux-gnu/libresolv-2.15.so
+533d6000-533d7000 r-xp 00013000 08:01 4201387    /lib/i386-linux-gnu/libresolv-2.15.so
+533d7000-533d8000 rwxp 00014000 08:01 4201387    /lib/i386-linux-gnu/libresolv-2.15.so
+533d8000-533da000 rwxp 00000000 00:00 0 
+533da000-533f7000 r-xp 00000000 08:01 4195319    /lib/i386-linux-gnu/libselinux.so.1
+533f7000-533f8000 r-xp 0001c000 08:01 4195319    /lib/i386-linux-gnu/libselinux.so.1
+533f8000-533f9000 rwxp 0001d000 08:01 4195319    /lib/i386-linux-gnu/libselinux.so.1
+533f9000-5340d000 r-xp 00000000 08:01 4195342    /lib/i386-linux-gnu/libz.so.1.2.3.4
+5340d000-5340e000 r-xp 00013000 08:01 4195342    /lib/i386-linux-gnu/libz.so.1.2.3.4
+5340e000-5340f000 rwxp 00014000 08:01 4195342    /lib/i386-linux-gnu/libz.so.1.2.3.4
+5340f000-53412000 r-xp 00000000 08:01 3281582    /usr/lib/i386-linux-gnu/libgmodule-2.0.so.0.3200.3
+53412000-53413000 r-xp 00002000 08:01 3281582    /usr/lib/i386-linux-gnu/libgmodule-2.0.so.0.3200.3
+53413000-53414000 rwxp 00003000 08:01 3281582    /usr/lib/i386-linux-gnu/libgmodule-2.0.so.0.3200.3
+53414000-534a9000 r-xp 00000000 08:01 3277020    /usr/lib/i386-linux-gnu/libfreetype.so.6.8.0
+534a9000-534ad000 r-xp 00094000 08:01 3277020    /usr/lib/i386-linux-gnu/libfreetype.so.6.8.0
+534ad000-534ae000 rwxp 00098000 08:01 3277020    /usr/lib/i386-linux-gnu/libfreetype.so.6.8.0
+534ae000-534d8000 r-xp 00000000 08:01 3281776    /usr/lib/i386-linux-gnu/libpangoft2-1.0.so.0.3000.0
+534d8000-534d9000 r-xp 00029000 08:01 3281776    /usr/lib/i386-linux-gnu/libpangoft2-1.0.so.0.3000.0
+534d9000-534da000 rwxp 0002a000 08:01 3281776    /usr/lib/i386-linux-gnu/libpangoft2-1.0.so.0.3000.0
+534da000-5360a000 r-xp 00000000 08:01 3281348    /usr/lib/i386-linux-gnu/libX11.so.6.3.0
+5360a000-5360b000 r-xp 0012f000 08:01 3281348    /usr/lib/i386-linux-gnu/libX11.so.6.3.0
+5360b000-5360d000 rwxp 00130000 08:01 3281348    /usr/lib/i386-linux-gnu/libX11.so.6.3.0
+5360d000-5360e000 rwxp 00000000 00:00 0 
+5360e000-536d5000 r-xp 00000000 08:01 3281447    /usr/lib/i386-linux-gnu/libcairo.so.2.11000.2
+536d5000-536d6000 r-xp 000c7000 08:01 3281447    /usr/lib/i386-linux-gnu/libcairo.so.2.11000.2
+536d6000-536d7000 rwxp 000c8000 08:01 3281447    /usr/lib/i386-linux-gnu/libcairo.so.2.11000.2
+536d7000-536d9000 rwxp 00000000 00:00 0 
+536d9000-536dd000 r-xp 00000000 08:01 3281365    /usr/lib/i386-linux-gnu/libXfixes.so.3.1.0
+536dd000-536de000 r-xp 00004000 08:01 3281365    /usr/lib/i386-linux-gnu/libXfixes.so.3.1.0
+536de000-536df000 rwxp 00005000 08:01 3281365    /usr/lib/i386-linux-gnu/libXfixes.so.3.1.0
+536df000-536e1000 r-xp 00000000 08:01 3281359    /usr/lib/i386-linux-gnu/libXdamage.so.1.1.0
+536e1000-536e2000 r-xp 00001000 08:01 3281359    /usr/lib/i386-linux-gnu/libXdamage.so.1.1.0
+536e2000-536e3000 rwxp 00002000 08:01 3281359    /usr/lib/i386-linux-gnu/libXdamage.so.1.1.0
+536e3000-536ec000 r-xp 00000000 08:01 3281357    /usr/lib/i386-linux-gnu/libXcursor.so.1.0.2
+536ec000-536ed000 r-xp 00008000 08:01 3281357    /usr/lib/i386-linux-gnu/libXcursor.so.1.0.2
+536ed000-536ee000 rwxp 00009000 08:01 3281357    /usr/lib/i386-linux-gnu/libXcursor.so.1.0.2
+536ee000-536f5000 r-xp 00000000 08:01 3281381    /usr/lib/i386-linux-gnu/libXrandr.so.2.2.0
+536f5000-536f6000 r-xp 00006000 08:01 3281381    /usr/lib/i386-linux-gnu/libXrandr.so.2.2.0
+536f6000-536f7000 rwxp 00007000 08:01 3281381    /usr/lib/i386-linux-gnu/libXrandr.so.2.2.0
+536f7000-53705000 r-xp 00000000 08:01 3281369    /usr/lib/i386-linux-gnu/libXi.so.6.1.0
+53705000-53706000 r-xp 0000d000 08:01 3281369    /usr/lib/i386-linux-gnu/libXi.so.6.1.0
+53706000-53707000 rwxp 0000e000 08:01 3281369    /usr/lib/i386-linux-gnu/libXi.so.6.1.0
+53707000-53717000 r-xp 00000000 08:01 3281363    /usr/lib/i386-linux-gnu/libXext.so.6.4.0
+53717000-53718000 r-xp 0000f000 08:01 3281363    /usr/lib/i386-linux-gnu/libXext.so.6.4.0
+53718000-53719000 rwxp 00010000 08:01 3281363    /usr/lib/i386-linux-gnu/libXext.so.6.4.0
+53719000-5374b000 r-xp 00000000 08:01 3278415    /usr/lib/i386-linux-gnu/libfontconfig.so.1.4.4
+5374b000-5374c000 r-xp 00032000 08:01 3278415    /usr/lib/i386-linux-gnu/libfontconfig.so.1.4.4
+5374c000-5374d000 rwxp 00033000 08:01 3278415    /usr/lib/i386-linux-gnu/libfontconfig.so.1.4.4
+5374d000-538a0000 r-xp 00000000 08:01 3281572    /usr/lib/i386-linux-gnu/libgio-2.0.so.0.3200.3
+538a0000-538a2000 r-xp 00153000 08:01 3281572    /usr/lib/i386-linux-gnu/libgio-2.0.so.0.3200.3
+538a2000-538a3000 rwxp 00155000 08:01 3281572    /usr/lib/i386-linux-gnu/libgio-2.0.so.0.3200.3
+538a3000-538a4000 rwxp 00000000 00:00 0 
+538a4000-538c3000 r-xp 00000000 08:01 3281562    /usr/lib/i386-linux-gnu/libgdk_pixbuf-2.0.so.0.2600.1
+538c3000-538c4000 r-xp 0001e000 08:01 3281562    /usr/lib/i386-linux-gnu/libgdk_pixbuf-2.0.so.0.2600.1
+538c4000-538c5000 rwxp 0001f000 08:01 3281562    /usr/lib/i386-linux-gnu/libgdk_pixbuf-2.0.so.0.2600.1
+538c5000-5390c000 r-xp 00000000 08:01 3281772    /usr/lib/i386-linux-gnu/libpango-1.0.so.0.3000.0
+5390c000-5390d000 ---p 00047000 08:01 3281772    /usr/lib/i386-linux-gnu/libpango-1.0.so.0.3000.0
+5390d000-5390e000 r-xp 00047000 08:01 3281772    /usr/lib/i386-linux-gnu/libpango-1.0.so.0.3000.0
+5390e000-5390f000 rwxp 00048000 08:01 3281772    /usr/lib/i386-linux-gnu/libpango-1.0.so.0.3000.0
+5390f000-5391a000 r-xp 00000000 08:01 3281774    /usr/lib/i386-linux-gnu/libpangocairo-1.0.so.0.3000.0
+5391a000-5391b000 r-xp 0000a000 08:01 3281774    /usr/lib/i386-linux-gnu/libpangocairo-1.0.so.0.3000.0
+5391b000-5391c000 rwxp 0000b000 08:01 3281774    /usr/lib/i386-linux-gnu/libpangocairo-1.0.so.0.3000.0
+5391c000-539c7000 r-xp 00000000 08:01 3281560    /usr/lib/i386-linux-gnu/libgdk-x11-2.0.so.0.2400.10
+539c7000-539c8000 ---p 000ab000 08:01 3281560    /usr/lib/i386-linux-gnu/libgdk-x11-2.0.so.0.2400.10
+539c8000-539ca000 r-xp 000ab000 08:01 3281560    /usr/lib/i386-linux-gnu/libgdk-x11-2.0.so.0.2400.10
+539ca000-539cb000 rwxp 000ad000 08:01 3281560    /usr/lib/i386-linux-gnu/libgdk-x11-2.0.so.0.2400.10
+539cb000-53a05000 r-xp 00000000 08:01 4195304    /lib/i386-linux-gnu/libpcre.so.3.12.1
+53a05000-53a06000 r-xp 00039000 08:01 4195304    /lib/i386-linux-gnu/libpcre.so.3.12.1
+53a06000-53a07000 rwxp 0003a000 08:01 4195304    /lib/i386-linux-gnu/libpcre.so.3.12.1
+53a07000-53afe000 r-xp 00000000 08:01 4195256    /lib/i386-linux-gnu/libglib-2.0.so.0.3200.3
+53afe000-53aff000 r-xp 000f6000 08:01 4195256    /lib/i386-linux-gnu/libglib-2.0.so.0.3200.3
+53aff000-53b00000 rwxp 000f7000 08:01 4195256    /lib/i386-linux-gnu/libglib-2.0.so.0.3200.3
+53b00000-53bff000 rwxp 00000000 00:00 0 
+53bff000-53c00000 ---p 00000000 00:00 0 
+53c00000-53c03000 r-xs 00018000 08:01 4996457    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.equinox.common_3.6.100.v20120522-1841.jar
+53c03000-53c05000 r-xp 00000000 08:01 3281355    /usr/lib/i386-linux-gnu/libXcomposite.so.1.0.0
+53c05000-53c06000 r-xp 00001000 08:01 3281355    /usr/lib/i386-linux-gnu/libXcomposite.so.1.0.0
+53c06000-53c07000 rwxp 00002000 08:01 3281355    /usr/lib/i386-linux-gnu/libXcomposite.so.1.0.0
+53c07000-53c09000 r-xp 00000000 08:01 3281371    /usr/lib/i386-linux-gnu/libXinerama.so.1.0.0
+53c09000-53c0a000 r-xp 00001000 08:01 3281371    /usr/lib/i386-linux-gnu/libXinerama.so.1.0.0
+53c0a000-53c0b000 rwxp 00002000 08:01 3281371    /usr/lib/i386-linux-gnu/libXinerama.so.1.0.0
+53c0b000-53c0c000 ---p 00000000 00:00 0 
+53c0c000-53cdd000 rwxp 00000000 00:00 0 
+53cdd000-53cde000 ---p 00000000 00:00 0 
+53cde000-53daf000 rwxp 00000000 00:00 0 
+53daf000-53faf000 r-xp 00000000 08:01 3284040    /usr/lib/locale/locale-archive
+53faf000-54000000 rwxp 00000000 00:00 0 
+54000000-54100000 rwxp 00000000 00:00 0 
+54100000-5414d000 r-xp 00000000 08:01 3281596    /usr/lib/i386-linux-gnu/libgobject-2.0.so.0.3200.3
+5414d000-5414e000 r-xp 0004c000 08:01 3281596    /usr/lib/i386-linux-gnu/libgobject-2.0.so.0.3200.3
+5414e000-5414f000 rwxp 0004d000 08:01 3281596    /usr/lib/i386-linux-gnu/libgobject-2.0.so.0.3200.3
+5414f000-541a0000 rwxp 00000000 00:00 0 
+541a0000-541a1000 ---p 00000000 00:00 0 
+541a1000-5426c000 rwxp 00000000 00:00 0 
+5426c000-54428000 r-xs 031b4000 08:01 5508778    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/rt.jar
+54428000-54448000 rwxp 00000000 00:00 0 
+54448000-54529000 rwxp 00000000 00:00 0 
+54529000-54557000 rwxp 00000000 00:00 0 
+54557000-5467f000 rwxp 00000000 00:00 0 
+5467f000-54696000 rwxp 00000000 00:00 0 
+54696000-54729000 rwxp 00000000 00:00 0 
+54729000-54757000 rwxp 00000000 00:00 0 
+54757000-5487f000 rwxp 00000000 00:00 0 
+5487f000-5489f000 rwxp 00000000 00:00 0 
+5489f000-5497f000 rwxp 00000000 00:00 0 
+5497f000-576c0000 rwxp 00000000 00:00 0 
+576c0000-69ed0000 rwxp 00000000 00:00 0 
+69ed0000-6f925000 rwxp 00000000 00:00 0 
+6f925000-94980000 rwxp 00000000 00:00 0 
+94980000-98840000 rwxp 00000000 00:00 0 
+98840000-b4980000 rwxp 00000000 00:00 0 
+b4980000-b49a2000 rwxp 00000000 00:00 0 
+b49a2000-b4a00000 rwxp 00000000 00:00 0 
+b4a00000-b5270000 rwxp 00000000 00:00 0 
+b5270000-b6b00000 rwxp 00000000 00:00 0 
+b6b00000-b6b01000 r-xs 00002000 08:01 4996689    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.ui.workbench.compatibility_3.2.101.v20120523-1956/compatibility.jar
+b6b01000-b6b09000 r-xp 00000000 08:01 3281383    /usr/lib/i386-linux-gnu/libXrender.so.1.3.0
+b6b09000-b6b0a000 r-xp 00007000 08:01 3281383    /usr/lib/i386-linux-gnu/libXrender.so.1.3.0
+b6b0a000-b6b0b000 rwxp 00008000 08:01 3281383    /usr/lib/i386-linux-gnu/libXrender.so.1.3.0
+b6b0b000-b6b10000 r-xp 00000000 08:01 3281535    /usr/lib/i386-linux-gnu/libffi.so.6.0.0
+b6b10000-b6b11000 r-xp 00004000 08:01 3281535    /usr/lib/i386-linux-gnu/libffi.so.6.0.0
+b6b11000-b6b12000 rwxp 00005000 08:01 3281535    /usr/lib/i386-linux-gnu/libffi.so.6.0.0
+b6b12000-b6b13000 r-xs 0000f000 08:01 4996939    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.mentor.embedded.profiler.scripting_2.1.0.201301030956-59643.jar
+b6b13000-b6b19000 r-xp 00000000 08:01 3281760    /usr/lib/i386-linux-gnu/libogg.so.0.7.1
+b6b19000-b6b1a000 r-xp 00005000 08:01 3281760    /usr/lib/i386-linux-gnu/libogg.so.0.7.1
+b6b1a000-b6b1b000 rwxp 00006000 08:01 3281760    /usr/lib/i386-linux-gnu/libogg.so.0.7.1
+b6b1b000-b6b20000 r-xp 00000000 08:01 3282451    /usr/lib/i386-linux-gnu/gtk-2.0/modules/libcanberra-gtk-module.so
+b6b20000-b6b21000 r-xp 00004000 08:01 3282451    /usr/lib/i386-linux-gnu/gtk-2.0/modules/libcanberra-gtk-module.so
+b6b21000-b6b22000 rwxp 00005000 08:01 3282451    /usr/lib/i386-linux-gnu/gtk-2.0/modules/libcanberra-gtk-module.so
+b6b22000-b6b2f000 r-xp 00000000 08:01 5645213    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.equinox.launcher.gtk.linux.x86_1.1.200.v20120522-1813/eclipse_1502.so
+b6b2f000-b6b30000 rwxp 0000c000 08:01 5645213    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.equinox.launcher.gtk.linux.x86_1.1.200.v20120522-1813/eclipse_1502.so
+b6b30000-b6b47000 r-xp 00000000 08:01 6299494    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libzip.so
+b6b47000-b6b48000 rwxp 00017000 08:01 6299494    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libzip.so
+b6b48000-b6b53000 r-xp 00000000 08:01 4201386    /lib/i386-linux-gnu/libnss_files-2.15.so
+b6b53000-b6b54000 r-xp 0000a000 08:01 4201386    /lib/i386-linux-gnu/libnss_files-2.15.so
+b6b54000-b6b55000 rwxp 0000b000 08:01 4201386    /lib/i386-linux-gnu/libnss_files-2.15.so
+b6b55000-b6b5f000 r-xp 00000000 08:01 4202968    /lib/i386-linux-gnu/libnss_nis-2.15.so
+b6b5f000-b6b60000 r-xp 00009000 08:01 4202968    /lib/i386-linux-gnu/libnss_nis-2.15.so
+b6b60000-b6b61000 rwxp 0000a000 08:01 4202968    /lib/i386-linux-gnu/libnss_nis-2.15.so
+b6b61000-b6b77000 r-xp 00000000 08:01 4202980    /lib/i386-linux-gnu/libnsl-2.15.so
+b6b77000-b6b78000 r-xp 00015000 08:01 4202980    /lib/i386-linux-gnu/libnsl-2.15.so
+b6b78000-b6b79000 rwxp 00016000 08:01 4202980    /lib/i386-linux-gnu/libnsl-2.15.so
+b6b79000-b6b7b000 rwxp 00000000 00:00 0 
+b6b7b000-b6b82000 r-xp 00000000 08:01 4201384    /lib/i386-linux-gnu/libnss_compat-2.15.so
+b6b82000-b6b83000 r-xp 00006000 08:01 4201384    /lib/i386-linux-gnu/libnss_compat-2.15.so
+b6b83000-b6b84000 rwxp 00007000 08:01 4201384    /lib/i386-linux-gnu/libnss_compat-2.15.so
+b6b84000-b6b85000 r-xs 00008000 08:01 5117866    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/com.mentor.embedded.profiler.agent.ust_2.1.0.201301030956-59643/library.jar
+b6b85000-b6b86000 r-xp 00000000 08:01 4465023    /home/jon/.config/dconf/user
+b6b86000-b6b8a000 r-xs 0007c000 08:01 5508798    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/jsse.jar
+b6b8a000-b6b8c000 r-xs 0000b000 08:01 4996468    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/plugins/org.eclipse.equinox.launcher_1.3.0.v20120522-1813.jar
+b6b8c000-b6b94000 rwxs 00000000 08:01 5117384    /tmp/hsperfdata_jon/7205
+b6b94000-b6bb7000 r-xp 00000000 08:01 6299510    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libjava.so
+b6bb7000-b6bb8000 rwxp 00023000 08:01 6299510    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libjava.so
+b6bb8000-b6bbf000 r-xp 00000000 08:01 4202967    /lib/i386-linux-gnu/librt-2.15.so
+b6bbf000-b6bc0000 r-xp 00006000 08:01 4202967    /lib/i386-linux-gnu/librt-2.15.so
+b6bc0000-b6bc1000 rwxp 00007000 08:01 4202967    /lib/i386-linux-gnu/librt-2.15.so
+b6bc1000-b6bc2000 ---p 00000000 00:00 0 
+b6bc2000-b6c12000 rwxp 00000000 00:00 0 
+b6c12000-b6c3c000 r-xp 00000000 08:01 4202971    /lib/i386-linux-gnu/libm-2.15.so
+b6c3c000-b6c3d000 r-xp 00029000 08:01 4202971    /lib/i386-linux-gnu/libm-2.15.so
+b6c3d000-b6c3e000 rwxp 0002a000 08:01 4202971    /lib/i386-linux-gnu/libm-2.15.so
+b6c3e000-b7151000 r-xp 00000000 08:01 6429983    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/client/libjvm.so
+b7151000-b716e000 rwxp 00513000 08:01 6429983    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/client/libjvm.so
+b716e000-b758e000 rwxp 00000000 00:00 0 
+b758e000-b7731000 r-xp 00000000 08:01 4201204    /lib/i386-linux-gnu/libc-2.15.so
+b7731000-b7732000 ---p 001a3000 08:01 4201204    /lib/i386-linux-gnu/libc-2.15.so
+b7732000-b7734000 r-xp 001a3000 08:01 4201204    /lib/i386-linux-gnu/libc-2.15.so
+b7734000-b7735000 rwxp 001a5000 08:01 4201204    /lib/i386-linux-gnu/libc-2.15.so
+b7735000-b7738000 rwxp 00000000 00:00 0 
+b7738000-b773b000 r-xp 00000000 08:01 4202975    /lib/i386-linux-gnu/libdl-2.15.so
+b773b000-b773c000 r-xp 00002000 08:01 4202975    /lib/i386-linux-gnu/libdl-2.15.so
+b773c000-b773d000 rwxp 00003000 08:01 4202975    /lib/i386-linux-gnu/libdl-2.15.so
+b773d000-b7750000 r-xp 00000000 08:01 6299529    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/jli/libjli.so
+b7750000-b7751000 rwxp 00012000 08:01 6299529    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/jli/libjli.so
+b7751000-b7752000 rwxp 00000000 00:00 0 
+b7752000-b7769000 r-xp 00000000 08:01 4202969    /lib/i386-linux-gnu/libpthread-2.15.so
+b7769000-b776a000 r-xp 00016000 08:01 4202969    /lib/i386-linux-gnu/libpthread-2.15.so
+b776a000-b776b000 rwxp 00017000 08:01 4202969    /lib/i386-linux-gnu/libpthread-2.15.so
+b776b000-b776d000 rwxp 00000000 00:00 0 
+b776d000-b776e000 r-xs 00000000 08:01 4464916    /home/jon/.cache/dconf/user
+b776e000-b776f000 r-xp 005e0000 08:01 3284040    /usr/lib/locale/locale-archive
+b776f000-b7770000 rwxp 00000000 00:00 0 
+b7770000-b7771000 r-xp 00000000 00:00 0 
+b7771000-b777c000 r-xp 00000000 08:01 6299516    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libverify.so
+b777c000-b777d000 rwxp 0000b000 08:01 6299516    /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/jre/lib/i386/libverify.so
+b777d000-b777f000 rwxp 00000000 00:00 0 
+b777f000-b7780000 r-xp 00000000 00:00 0          [vdso]
+b7780000-b77a0000 r-xp 00000000 08:01 4202972    /lib/i386-linux-gnu/ld-2.15.so
+b77a0000-b77a1000 r-xp 0001f000 08:01 4202972    /lib/i386-linux-gnu/ld-2.15.so
+b77a1000-b77a2000 rwxp 00020000 08:01 4202972    /lib/i386-linux-gnu/ld-2.15.so
+bf9f9000-bfa19000 rwxp 00000000 00:00 0          [stack]
+bfa19000-bfa1b000 rw-p 00000000 00:00 0 
+
+VM Arguments:
+jvm_args: -Xms40m -Xmx1024m -XX:MaxPermSize=512m -Dderby.stream.error.field=java.lang.System.err 
+java_command: /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse//plugins/org.eclipse.equinox.launcher_1.3.0.v20120522-1813.jar -os linux -ws gtk -arch x86 -showsplash /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse//plugins/com.codesourcery.ide_1.0.0.394665/splash.bmp -launcher /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse/eclipse -name Eclipse --launcher.library /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse//plugins/org.eclipse.equinox.launcher.gtk.linux.x86_1.1.200.v20120522-1813/eclipse_1502.so -startup /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse//plugins/org.eclipse.equinox.launcher_1.3.0.v20120522-1813.jar --launcher.overrideVmargs -exitdata d800a -product com.codesourcery.ide.ide -data CBwork -vm /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/bin/../jre/bin/java -vmargs -Xms40m -Xmx1024m -XX:MaxPermSize=512m -Dderby.stream.error.field=java.lang.System.err -jar /home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/eclipse//plugins/org.eclipse.equinox.launcher_1.3.0.v20120522-1813.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/home/tools/CodeSourcery/Sourcery_CodeBench_for_ARM_EABI/bin:/home/tools/vista/bin:.:/home/jon/bin:/home/jon/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/tools/questa/bin
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x4909c0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x4909c0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x3a44e0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: SIG_IGN, sa_mask[0]=0x00001000, sa_flags=0x10000000
+SIGXFSZ: [libjvm.so+0x3a44e0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x3a44e0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x3a3dc0], sa_mask[0]=0x00000000, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x3a63b0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libjvm.so+0x3a63b0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x3a63b0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x3a63b0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:wheezy/sid
+
+uname:Linux 3.2.0-37-generic-pae #58-Ubuntu SMP Thu Jan 24 15:51:02 UTC 2013 i686
+libc:glibc 2.15 NPTL 2.15 
+rlimit: STACK 8192k, CORE 0k, NPROC 32135, NOFILE 4096, AS infinity
+load average:0.01 0.09 0.12
+
+/proc/meminfo:
+MemTotal:        4127948 kB
+MemFree:         2218828 kB
+Buffers:          238152 kB
+Cached:          1118776 kB
+SwapCached:            0 kB
+Active:          1124808 kB
+Inactive:         682944 kB
+Active(anon):     451480 kB
+Inactive(anon):     7056 kB
+Active(file):     673328 kB
+Inactive(file):   675888 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+HighTotal:       3280840 kB
+HighFree:        1702940 kB
+LowTotal:         847108 kB
+LowFree:          515888 kB
+SwapTotal:       4192252 kB
+SwapFree:        4192252 kB
+Dirty:               152 kB
+Writeback:             0 kB
+AnonPages:        450820 kB
+Mapped:           100992 kB
+Shmem:              7692 kB
+Slab:              79820 kB
+SReclaimable:      68508 kB
+SUnreclaim:        11312 kB
+KernelStack:        2864 kB
+PageTables:         6728 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     6256224 kB
+Committed_AS:    2123012 kB
+VmallocTotal:     122880 kB
+VmallocUsed:       49820 kB
+VmallocChunk:      72500 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       12280 kB
+DirectMap2M:      901120 kB
+
+
+CPU:total 1 (1 cores per cpu, 1 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, tsc
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i7-3667U CPU @ 2.00GHz
+stepping	: 9
+cpu MHz		: 2516.921
+cache size	: 6144 KB
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx lm constant_tsc up pni monitor ssse3 lahf_lm
+bogomips	: 5033.84
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 4127948k(2218704k free), swap 4192252k(4192252k free)
+
+vm_info: Java HotSpot(TM) Client VM (23.3-b01) for linux-x86 JRE (1.7.0_07-b10), built on Aug 28 2012 18:07:06 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Wed Feb  6 15:43:34 2013
+elapsed time: 1848 seconds
+

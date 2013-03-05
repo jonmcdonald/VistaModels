@@ -1,0 +1,25 @@
+/* XPM */
+static char *untrace_transaction[] = {
+/* columns rows colors chars-per-pixel */
+"18 15 4 1",
+"  c black",
+". c red",
+"X c #FEFEFE",
+"o c gray100",
+/* pixels */
+"                  ",
+" .oooooo..ooooooo ",
+" ..    ..oooooooo ",
+" o..  ..ooooooooo ",
+" oo....oooo ooooo ",
+" ooo..oooo   oooo ",
+" oo....oo  o  ooo ",
+" o..  ..  ooo  oo ",
+" ..o  o..ooooo  o ",
+" .oooooo. ooo  oo ",
+" ooXooooo  o  ooo ",
+" ooooooooo   oooo ",
+" oooooooooo ooooo ",
+" oooooooooooooooo ",
+"                  "
+};

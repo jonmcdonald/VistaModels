@@ -1,0 +1,503 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:07:38 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Machine Architecture Command Reference - Modeling</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(462);
+    // -->
+ </script>
+ 
+
+<!--416,462,0-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPMachine Architecture Command Reference - Modeling"></a>
+
+<a name="wp31500"></a><h3 class="pHeading2">
+  
+
+
+Machine Architecture Command Reference - Modeling
+  </h3>
+
+
+
+<a name="wp16114"></a><p class="pzShortDesc">
+The Machine Architecture commands to be used in a tcl script are summarized in the following table (<span style=" font-weight: bold;">bold</span> type denotes a default value).
+</p>
+
+
+<a name="wp13626"></a><p class="pzBody">
+Sample script:
+</p>
+
+
+<a name="wp13630"></a><pre class="pCode">     add_pipeline_policy p1 p2 -latency 10 -buffer_size 10</pre>
+
+
+<a name="wp13631"></a><pre class="pCode">     add_split_policy p1.READ 22 -type generic -latency 22 -wait_states 22</pre>
+
+
+<a name="wp13632"></a><pre class="pCode">     add_split_policy p1.READ 33 -type generic -latency 0</pre>
+
+
+<a name="wp13633"></a><pre class="pCode">     add_delay_policy p2 25</pre>
+
+
+<a name="wp13634"></a><pre class="pCode">     add_sequential_policy p2.READ -cause p1.WRITE -latency 30</pre>
+
+
+<a name="wp21546"></a><pre class="pCode">     add_power_policy p1 10 100</pre>
+
+
+<a name="wp85998"></a><pre class="pCode">     </pre>
+
+
+<a name="wp85999"></a><p class="pBodyRelative">
+
+</p>
+<div id="TableDivQz"></div>
+<div align="center">
+
+
+<a name="wp83976"></a><p class="pTableTitle">
+Table 18&#8209;4. 
+
+
+Machine Architecture Commands&#160;
+</p>
+
+
+
+<table border="1" cellpadding="5" cellspacing="0" id="wp83976table21435">
+  <tr bgcolor="#CCCCCC"  align="center" valign="middle">
+    <th>
+
+<a name="wp83980"></a><p class="pTableHeading">
+Command name
+</p>
+</th>
+
+    <th>
+
+<a name="wp83982"></a><p class="pTableHeading">
+Description
+</p>
+
+
+</th>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp83987"></a><p class="pTableCell">
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb48.html");'>add_delay_policy</a>
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp83989"></a><p class="pTableCell">
+Adds a `delay' policy
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp83994"></a><p class="pTableCell">
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb49.html");'>add_pipeline_policy</a> 
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp83996"></a><p class="pTableCell">
+Adds a `pipeline' policy
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp84001"></a><p class="pTableCell">
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb50.html");'>add_sequential_policy</a> 
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp84003"></a><p class="pTableCell">
+Adds a `sequential' policy
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp84008"></a><p class="pTableCell">
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb51.html");'>add_split_policy</a>
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp84010"></a><p class="pTableCell">
+Adds a `split' policy
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp84015"></a><p class="pTableCell">
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb52.html");'>declare_fifo_register</a> 
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp84017"></a><p class="pTableCell">
+Declares a register of the type FIFO.
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp84022"></a><p class="pTableCell">
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb53.html");'>declare_memory</a>
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp84024"></a><p class="pTableCell">
+Declares a memory range
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp84029"></a><p class="pTableCell">
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb54.html");'>declare_register</a>
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp84031"></a><p class="pTableCell">
+Declares a register
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp84036"></a><p class="pTableCell">
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb55.html");'>declare_variable</a> 
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp84038"></a><p class="pTableCell">
+Declares a PV variable (mb_variable)
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp84043"></a><p class="pTableCell">
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb56.html");'>set_clock_tree_power</a>
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp84045"></a><p class="pTableCell">
+Sets a clock power tree
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp84050"></a><p class="pTableCell">
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb57.html");'>set_leakage_power</a>
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp84052"></a><p class="pTableCell">
+Sets leakage power
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp84057"></a><p class="pTableCell">
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb58.html");'>set_register_value</a> 
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp84059"></a><p class="pTableCell">
+Sets a register initialization value
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp84064"></a><p class="pTableCell">
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb59.html");'>set_sync_all</a> 
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp84066"></a><p class="pTableCell">
+Sets synchronization at the model level
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp84071"></a><p class="pTableCell">
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb60.html");'>state_power</a>
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp84073"></a><p class="pTableCell">
+Adds state based power policy
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp84075"></a><p class="pTableCell">
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb61.html");'>set_nominal_clock</a>
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp84077"></a><p class="pTableCell">
+Sets the nominal clock
+
+</p>
+
+</td>
+
+
+</tr>
+
+
+</table>
+
+</div>
+<div id='EndTable'> </div>
+<p class="pBodyRelative">
+<br clear='left' class='Blank4Table' />
+
+
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Machine Architecture Command Reference \- Modeling";
+   PDFLinkTitle = "Machine.Architecture.Command.Reference..Modeling"
+   ThisTopic = "MachineArchitectureCommandReferenceModeling";
+   CurrentFile = "Chapter_Command_Line_Ops_mb47.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

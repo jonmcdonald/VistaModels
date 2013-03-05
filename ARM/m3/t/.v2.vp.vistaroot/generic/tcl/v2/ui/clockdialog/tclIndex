@@ -1,0 +1,1 @@
+set auto_index(::v2::ui::clockdialog::NewClock) [list summit_add_tclindex v2/ui/clockdialog/NewClock.tcl]

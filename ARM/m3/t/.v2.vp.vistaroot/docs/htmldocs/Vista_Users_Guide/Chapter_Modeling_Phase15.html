@@ -1,0 +1,785 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:01:17 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Ports</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(110);
+    // -->
+ </script>
+ 
+
+<!--96,107,110-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPPorts"></a>
+
+<a name="wp15083"></a><h4 class="pHeading3">
+  
+
+
+Ports
+  </h4>
+
+
+<!--Ports-->
+
+
+<a name="wp15080"></a><p class="pBody">
+The first type of information to enter in defining the model interface is one or more ports and associated protocols. 
+</p>
+
+<a name="MGCCIDPSpecifying Ports"></a>
+
+<a name="wp33230"></a><h5 class="pHeading4">
+  
+
+
+Specifying Ports
+</h5>
+
+
+
+<a name="wp33231"></a><p class="pBody">
+<span style=" font-weight: regular; font-angle: normal;">To specify one or more ports in the model interface:</span>
+</p>
+
+
+<a name="wp33232"></a>
+<ol start="1."><li class="LL1Seq">In the Vista modeling dialog, select the <span style=" font-weight: bold;">Ports </span>tab.</li></ol>
+
+
+
+<a name="wp26839"></a><p class="pFigureTitle">
+Figure 7&#8209;12. 
+
+
+Vista Modeling - Ports Tab
+
+
+</p>
+<div align="center"><img src="images/model_ports.gif" id="wp26837" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp7874"></a>
+<ol start="2."><li class="LL1Seq">Enter an identifying name for the port, with no spaces or special characters. This name must be unique within the model and is used to build functions such as {port_name}Read() and {port_name}Write().</li></ol>
+<a name="wp7875"></a>
+<ol start="3."><li class="LL1Seq">Select the protocol used for the port from the pull-down list. For more information on protocols, refer to <a href='javascript:oT("CRF","Chapter_Modeling_Phase11.html");'>&quot;Creating Models (Overview)&quot;</a> and <a href='javascript:oT("CRF","appendix_defining_c_protocols1.html");'>&quot;Using Protocols&quot;</a>.</li></ol>
+<a name="wp7876"></a>
+<ol start="4."><li class="LL1Seq">If the side (Master or Slave) is not automatically set, select it from the dropdown list.</li></ol>
+<a name="wp20751"></a>
+<ol start="5."><li class="LL1Seq">Select the port width from the pull-down list or specify a different width.</li></ol>
+<a name="wp58463"></a>
+<ol start="6."><li class="LL1Seq">Choose an option from the dropdown list of the <span style=" font-weight: bold;">Bind Mode</span> column, to change the default bind mode. For more information on the Bind Mode, refer to <a href='javascript:oT("CRF","Chapter_Modeling_Phase15.html#wp59406");'>Bind Mode</a>.</li></ol>
+<a name="wp7877"></a>
+<ol start="7."><li class="LL1Seq">Click <span style=" font-weight: bold;">Save</span>. (It is also possible to save the settings after making changes to other tabs.)
+
+<div id="TableDivQz"></div>
+<div align="center">
+
+
+<a name="wp28052"></a><p class="pTableTitle">
+Table 7&#8209;1. 
+
+
+Vista Modeling - Ports Tab Options &#160;
+</p>
+
+
+
+<table border="1" cellpadding="5" cellspacing="0" id="wp28052table28047">
+  <tr bgcolor="#CCCCCC"  align="center" valign="middle">
+    <th>
+
+<a name="wp28058"></a><p class="pTableHeading">
+Field/Control
+</p>
+</th>
+
+    <th>
+
+<a name="wp28060"></a><p class="pTableHeading">
+Description
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp28062"></a><p class="pTableHeading">
+Values
+</p>
+
+
+</th>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp28064"></a><p class="pTableCell">
+Name
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp28066"></a><p class="pTableCell">
+The name for the Model port; must be unique among ports for this design
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp28068"></a><p class="pTableCell">
+Legal Identifier
+
+</p>
+
+
+<a name="wp28072"></a><p class="pTableCell">
+(See <a href='javascript:oT("CRF","Chapter_Modeling_Phase14.html");'>Format for Legal Identifiers</a>)
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp28075"></a><p class="pTableCell">
+Protocol
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp28077"></a><p class="pTableCell">
+Protocol characterizing the communication behavior of this port: selected from the list of protocols
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp28081"></a><p class="pTableCell">
+Side
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp28083"></a><p class="pTableCell">
+Whether the port functions as Master (initiator) or Slave (target)
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp28085"></a><p class="pTableCell">
+Master<br />Slave
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp28087"></a><p class="pTableCell">
+Width
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp28089"></a><p class="pTableCell">
+The size of the port (in bits)<br />
+
+</p>
+
+
+<a name="wp33615"></a><p class="pTableCell">
+Note that in the<span style=" font-weight: bold;"> </span><a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb14.html");'><span style=" font-weight: bold;">create_tlm_model</span></a> command, when a bus slave or bus master port has a width that is different from the standard values 8, 16, 32, 64 (it has an implicit standard value that is computed in the following way: it is the maximal standard factor of the port widths rounded to the next 8-bit value: i.e., (port width + 7)/8)
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp28091"></a><p class="pTableCell">
+Unsigned integer
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp58467"></a><p class="pTableCell">
+Bind Mode
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp58469"></a><p class="pTableCell">
+The defined binding behavior of the port.
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp58471"></a><p class="pTableCell">
+Mandatory/Optional
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp100555"></a><p class="pTableCell">
+Reset value
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp100561"></a><p class="pTableCell">
+Value of the signal port in reset
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp100574"></a><p class="pTableCell">
+Integer or expression; expression is calculated in elaboration time
+
+</p>
+
+
+<a name="wp100575"></a><p class="pTableCell">
+By default, if not specified, value of 0 used
+
+</p>
+
+</td>
+
+
+</tr>
+
+
+</table>
+
+</div>
+<div id='EndTable'> </div>
+
+<br clear='left' class='Blank4Table' />
+
+</li></ol><a name="MGCCIDPBind Mode"></a>
+
+<a name="wp59406"></a><h6 class="pHeading5">
+  
+
+
+Bind Mode
+</h6>
+
+
+
+<a name="wp59971"></a><p class="pBody">
+For both master and slave ports a user may specify whether the binding of a specific port is optional or mandatory. 
+</p>
+
+
+<a name="wp59972"></a><p class="pBody">
+The option allows a user to include unbound ports in a design without having a SystemC exception raised during the elaboration because of unbound ports. 
+</p>
+
+
+<a name="wp59973"></a><p class="pBody">
+If a transaction is delivered through an unbound master port an exception is raised to warn the user about the improper behavior. Special cases are ports of signal protocol: no exception is raised in simulation, they behave like unconnected HDL signals. 
+</p>
+
+
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg"><span class="cNotesBlack">Note</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp44304"></a><p class="pnoteNote">
+        	To modify the default port width, use the variable DEFAULT_PORT_WIDTH <br />&#160;
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="right" /></td>
+    </tr>
+ </table>
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg"><span class="cNotesBlack">Note</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp58475"></a><p class="pnoteNote">
+        
+
+
+<img src="images/Chapter_Modeling_Phase19a.jpg" height="36" width="35" id="wp58478" border="0" hspace="0" vspace="0"/>
+
+
+
+	To modify the default Bind Mode, use the variable DEFAULT_BIND_MODE<br />&#160;
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="right" /></td>
+    </tr>
+ </table><a name="MGCCIDPSpecifying Non-TLM Ports"></a>
+
+<a name="wp81965"></a><h5 class="pHeading4">
+  
+
+
+Specifying Non-TLM Ports
+</h5>
+
+
+
+<a name="wp81969"></a><p class="pBody">
+For specifying the non TLM ports, you need to fill the <span style=" font-weight: bold;">Other Ports</span> table in the <span style=" font-weight: bold;">Ports </span>tab. 
+</p>
+<div id="TableDivQz"></div>
+<div align="center">
+
+
+<a name="wp81976"></a><p class="pTableTitle">
+Table 7&#8209;2. 
+
+
+Vista Modeling - Ports Tab Options - Other Ports
+</p>
+
+
+
+<table border="1" cellpadding="5" cellspacing="0" id="wp81976table81974">
+  <tr bgcolor="#CCCCCC"  align="center" valign="middle">
+    <th>
+
+<a name="wp81982"></a><p class="pTableHeading">
+Field/Control
+</p>
+</th>
+
+    <th>
+
+<a name="wp81984"></a><p class="pTableHeading">
+Description
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp81986"></a><p class="pTableHeading">
+Values
+</p>
+
+
+</th>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp81988"></a><p class="pTableCell">
+Name
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp81990"></a><p class="pTableCell">
+The name of the port which must be unique in the model
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp81992"></a><p class="pTableCell">
+Legal Identifier
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp81994"></a><p class="pTableCell">
+Kind
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp81996"></a><p class="pTableCell">
+Non-TLM port kind
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp81998"></a><p class="pTableCell">
+<span style=" font-weight: regular; font-angle: normal;">port</span>, export
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp82000"></a><p class="pTableCell">
+Class
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp82002"></a><p class="pTableCell">
+The port class string
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp82004"></a><p class="pTableCell">
+Legal class string. May contain templates.
+
+</p>
+
+</td>
+
+
+</tr>
+
+
+</table>
+
+</div>
+<div id='EndTable'> </div>
+<p class="pBody">
+<br clear='left' class='Blank4Table' />
+
+
+</p>
+
+
+<a name="wp141678"></a><p class="pBody">
+When Kind is specified as &ldquo;port&rdquo;, Class should be a viable SystemC port type; for example: sc_port &lt;IF, N, P&gt; or at least: sc_port &lt;IF<span class="cReqRpl">&gt;</span> in which case N = 1 and <br />P = ONE_OR_MORE_BOUND.
+</p>
+
+
+<a name="wp141855"></a><p class="pBody">
+When Kind is specified as &ldquo;export&rdquo;, Class should be a viable SystemC export type; for example, sc_export &lt;IF<span class="cReqRpl">&gt;</span>.
+</p>
+
+
+<a name="wp141868"></a><p class="pBody">
+For signal ports (sc_in, sc_out, sc_inout) select a &ldquo;port&rdquo; Kind. The value should be the class name T preceded with the specific signal port class name (sc_in &lt;T&gt;, sc_out &lt;T&gt;, or sc_inout &lt;T&gt;) were T stands for the signal-port data type. For example, if T is int and the signal port class is sc_in then the value should be sc_in &lt;int&gt;; if T is bool and signal port class is sc_inout then the value should be sc_inout &lt;bool&gt;.
+</p>
+
+
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg"><span class="cNotesBlack">Note</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp141864"></a><p class="pnoteNote">
+        	Non-TLM ports are not internal model-builder ports, therefore they cannot be used as access ports and in policies fields. In addition, slave callbacks will not be generated for them. Non-TLM ports can be bound in the Block Diagram editor and can be used in the model implementation code.
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="right" /></td>
+    </tr>
+ </table><a name="MGCCIDPUsing Bus Callbacks"></a>
+
+<a name="wp82714"></a><h5 class="pHeading4">
+  
+
+
+Using Bus Callbacks
+</h5>
+
+
+
+<a name="wp82715"></a><p class="pBody">
+Use the following bus callbacks to better customize your Analysis metrics that rely on TLM2.0 Base Protocol phases by computing the time between sending and receiving transaction phases.
+</p>
+
+
+<a name="wp82716"></a>
+<ul><li class="LL1BulSolid">Sent Phase &#151;  call when a phase is sent through the port_index port.</li></ul>
+<a name="wp82717"></a><p class="pL1Body">Example:</p>
+
+<a name="wp82718"></a><pre class="pCodeIndent">
+           virtual void sent_phase_cb(unsigned port_index,</pre>
+
+<a name="wp82719"></a><pre class="pCodeIndent">
+              tlm::tlm_generic_payload&amp; trans,</pre>
+
+<a name="wp82720"></a><pre class="pCodeIndent">
+              tlm::tlm_phase&amp; phase, sc_core::sc_time&amp; t) {}</pre>
+
+<a name="wp82721"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp82722"></a>
+<ul><li class="LL1BulSolid">Received Phase &#151;  call when a phase is received by the port_index port.</li></ul>
+<a name="wp82723"></a><p class="pL1Body">Example:</p>
+
+<a name="wp82724"></a><pre class="pCodeIndent">
+           virtual void received_phase_cb(unsigned port_index,</pre>
+
+<a name="wp82725"></a><pre class="pCodeIndent">
+              tlm::tlm_generic_payload&amp; trans,</pre>
+
+<a name="wp82726"></a><pre class="pCodeIndent">
+              tlm::tlm_phase&amp; phase, sc_core::sc_time&amp; t) {}</pre>
+
+<a name="wp82727"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp82728"></a>
+<ul><li class="LL1BulSolid">Forward Arbitration time &#151;  call when a phase is sent through the master_port_index. Arbitration_time is the time (in ps) between the current time (when a phase is sent through the master_port_index) and the time the phase was received by the slave_port_index.</li></ul>
+<a name="wp82729"></a><p class="pL1Body">Example:</p>
+
+<a name="wp82730"></a><pre class="pCodeIndent">
+           virtual void forward_arbitration_cb(unsigned master_port_index,</pre>
+
+<a name="wp82731"></a><pre class="pCodeIndent">
+              unsigned slave_port_index,</pre>
+
+<a name="wp82732"></a><pre class="pCodeIndent">
+              tlm::tlm_generic_payload&amp; trans,</pre>
+
+<a name="wp82733"></a><pre class="pCodeIndent">
+              tlm::tlm_phase&amp; phase,</pre>
+
+<a name="wp82734"></a><pre class="pCodeIndent">
+              unsigned long long forward_arbitration_time) {}</pre>
+
+<a name="wp82735"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp82736"></a>
+<ul><li class="LL1BulSolid">Backward Arbitration time &#151;  call when a phase is sent through the slave_port_index. Arbitration_time is the time (in ps) between the current time (when the phase is sent through the slave_port_index) and the time the phase was received by the master_port_index.</li></ul>
+<a name="wp82737"></a><p class="pL1Body">Example:</p>
+
+<a name="wp82738"></a><pre class="pCodeIndent">
+           virtual void backward_arbitration_cb(unsigned slave_port_index,</pre>
+
+<a name="wp82739"></a><pre class="pCodeIndent">
+              unsigned master_port_index,</pre>
+
+<a name="wp82740"></a><pre class="pCodeIndent">
+              tlm::tlm_generic_payload&amp; trans,</pre>
+
+<a name="wp82741"></a><pre class="pCodeIndent">
+              tlm::tlm_phase&amp; phase,</pre>
+
+<a name="wp82742"></a><pre class="pCodeIndent">
+              unsigned long long backward_arbitration_time) {}</pre>
+
+<a name="wp82743"></a><pre class="pCodeIndent">
+           </pre>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Ports";
+   PDFLinkTitle = "Ports"
+   ThisTopic = "UsingBusCallbacks";
+   CurrentFile = "Chapter_Modeling_Phase15.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

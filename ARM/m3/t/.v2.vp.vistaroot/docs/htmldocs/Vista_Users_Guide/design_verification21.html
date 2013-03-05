@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:06:18 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Watching Values</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(333);
+    // -->
+ </script>
+ 
+
+<!--313,330,333-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPWatching Values"></a>
+
+<a name="wp8305"></a><h4 class="pHeading3">
+  
+
+
+Watching Values
+  </h4>
+
+
+<!--WatchingValues-->
+
+
+<a name="wp8306"></a><p class="pBody">
+The Watch feature enables you to continuously monitor the changing values of selected objects (data class members and events) during simulation. To facilitate monitoring, the selected objects (taken from anywhere in the design) are copied to the Watch folder in the browser. 
+</p>
+
+<a name="MGCCIDPAdding Objects to the Watch List"></a>
+
+<a name="wp8308"></a><h5 class="pHeading4">
+  
+
+
+Adding Objects to the Watch List
+</h5>
+
+
+
+<a name="wp8309"></a><p class="pBody">
+This command adds one or more selected objects, or for that matter any part of the selected design hierarchy, to the Watch folder. To do so:
+</p>
+
+
+<a name="wp8310"></a>
+<ol start="1."><li class="LL1Seq">Select the one or more such objects.</li></ol>
+<a name="wp8311"></a>
+<ol start="2."><li class="LL1Seq">Choose the <span style=" font-weight: bold;">Simulation &gt; Watch &gt; Add to Watches</span> command or click the equivalent icon: 
+
+
+<img src="images/add_to_watches.gif" id="wp8313" border="0" hspace="0" vspace="0"/>
+
+
+
+</li></ol>
+<a name="wp8316"></a><p class="pBody">
+The selected objects are copied to the Watch folder in the browser.
+</p>
+
+<a name="MGCCIDPSaving and Loading a Watch List"></a>
+
+<a name="wp8317"></a><h6 class="pHeading5">
+  
+
+
+Saving and Loading a Watch List
+</h6>
+
+
+
+<a name="wp8318"></a><p class="pBody">
+All of the objects currently residing in the Watch list can be saved as a file that can later be loaded. This eliminates the need to manually redefine these objects every time you begin a simulation set on a given design. Because you can create any number of watch list files for the same design, saving and loading different files can be a valuable debugging tool.
+</p>
+
+
+<a name="wp8319"></a><p class="pBody">
+<span style=" font-weight: bold;">To save the currently defined objects as a Watch list file:</span>
+</p>
+
+
+<a name="wp8320"></a>
+<ol start="1."><li class="LL1Seq">Choose the <span style=" font-weight: bold;">Simulation &gt; Watch &gt; Save Watches </span>command.</li></ol>
+<a name="wp8321"></a>
+<ol start="2."><li class="LL1Seq">In the dialog box now displayed, specify the directory location and name of the file that you are creating.</li></ol>
+<a name="wp8322"></a><p class="pBody">
+<span style=" font-weight: bold;">To load a previously-saved Watch list:</span>
+</p>
+
+
+<a name="wp8323"></a>
+<ol start="1."><li class="LL1Seq">Choose the <span style=" font-weight: bold;">Simulation &gt; Watch &gt; Load Watches </span>command. </li></ol>
+<a name="wp8324"></a>
+<ol start="2."><li class="LL1Seq">In the dialog box now displayed, select the name of the Watch list file and click Open.</li></ol><a name="MGCCIDPDeleting Objects from the Watch List"></a>
+
+<a name="wp8326"></a><h5 class="pHeading4">
+  
+
+
+Deleting Objects from the Watch List
+</h5>
+
+
+
+<a name="wp8327"></a><p class="pBody">
+To remove one or more objects from the Watch list:
+</p>
+
+
+<a name="wp8328"></a>
+<ol start="1."><li class="LL1Seq">Select the objects to be deleted from the Watch folder in the Browser.</li></ol>
+<a name="wp8329"></a>
+<ol start="2."><li class="LL1Seq">Choose the <span style=" font-weight: bold;">Simulation &gt; Watch &gt; Delete Watch </span>command.</li></ol>
+<a name="wp8330"></a><p class="pBody">
+To entirely empty a Watch list:
+</p>
+
+
+<a name="wp8331"></a>
+<ol start="1."><li class="LL1Seq">Select the Watch list in the Browser.</li></ol>
+<a name="wp22352"></a>
+<ol start="2."><li class="LL1Seq">Choose the <span style=" font-weight: bold;">Simulation &gt; Watch &gt; Delete All Watches </span>command.</li></ol><a name="MGCCIDPViewing Local Variables"></a>
+
+<a name="wp22357"></a><h5 class="pHeading4">
+  
+
+
+Viewing Local Variables<a name="MGCCIDMVISTA_HELP_DESIGN_VERIFICATION__INSPECT_COMMAND"></a><a name="MGCCIDM1015"></a>
+</h5>
+
+
+
+<a name="wp22358"></a><p class="pBody">
+Vista allows you to select and evaluate a local variable of a thread or method in several ways, and attach it to the &ldquo;Watch List&rdquo; folder. You can also combine several variables and/or constants with arithmetic operators to generate an expression that can be evaluated. Once a variable is selected, you can instruct Vista to evaluate the specific variable instance, or any instance of that variable, whichever is in the current simulation scope.
+</p>
+
+
+<a name="wp18879"></a><p class="pBody">
+To automatically display the value of a local variable:
+</p>
+
+
+<a name="wp18885"></a>
+<ol start="1."><li class="LL1Seq">Switch to a specific thread or method. (Note that you can dive into a function called from the thread or method and inspect a local variable of the function). </li></ol>
+<a name="wp18893"></a>
+<ol start="2."><li class="LL1Seq">If focus is not currently on the text-editor area, click anywhere in the area.</li></ol>
+<a name="wp18898"></a>
+<ol start="3."><li class="LL1Seq">Move the mouse (&ldquo;I&rdquo;) cursor onto the variable.</li></ol>
+<a name="wp22042"></a><p class="pL1Body">The value is displayed in the pane below the code.</p>
+
+
+
+
+<a name="wp22046"></a><p class="pFigureTitle">
+Figure 12&#8209;10. 
+
+
+Displaying Local Variable Value
+
+
+</p>
+<div align="center"><img src="images/auto_variable_display.gif" id="wp46662" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp22047"></a><p class="pBody">
+To select and inspect a local variable and add it to the Watch List:
+</p>
+
+
+<a name="wp8337"></a>
+<ol start="1."><li class="LL1Seq">Stop simulation in a specific thread or method. (Note that you can dive into a function called from the thread or method and inspect a local variable of the function). </li></ol>
+<a name="wp8338"></a>
+<ol start="2."><li class="LL1Seq">Now enter the function by first setting a breakpoint in a process. Step through until the appropriate function call. Then dive into the function by clicking the appropriate icon: 
+
+
+<img src="images/simulation_step_into_button.gif" id="wp8340" border="0" hspace="0" vspace="0"/>
+
+
+
+</li></ol>
+<a name="wp8343"></a>
+<ol start="3."><li class="LL1Seq">Select the local variable you wish to inspect. </li></ol>
+<a name="wp8347"></a>
+<ol start="4."><li class="LL1Seq">Click the Inspect command icon 
+
+
+<img src="images/inspect_command_button.gif" id="wp8345" border="0" hspace="0" vspace="0"/>
+
+
+
+ or, from the &ldquo;Watch&rdquo;, choose <span style=" font-weight: bold;">Watch &gt; Open Inspect</span>. Note that, in the dialog box now opened, the selected variable is specified.</li></ol>
+<a name="wp8348"></a>
+<ol start="5."><li class="LL1Seq">Click &ldquo;Evaluate&rdquo; to view the current value of the variable.</li></ol>
+<a name="wp8349"></a>
+<ol start="6."><li class="LL1Seq">Click &ldquo;Add to Watch&rdquo; to add the variable to the &ldquo;Watch folder&rdquo;.</li></ol>
+<a name="wp8350"></a>
+<ol start="7."><li class="LL1Seq">If there is more than one instance of the module currently debugged, select the &ldquo;Only in&rdquo; check box, if you wish to view only a specific instance. When the &ldquo;Only in&rdquo; check box is checked, the full path name of the variable will be displayed in the dialog box and in the &ldquo;Watch List&rdquo; folder. (If you do not perform this step, during simulation the value of the local variable will change each time a different instance is being simulated.)</li></ol>
+<a name="wp8351"></a><p class="pBody">
+<span style=" font-weight: bold;">To acquire a local variable to the waveform window, once you have performed the above procedure:</span>
+</p>
+
+
+<a name="wp8352"></a>
+<ol start="1."><li class="LL1Seq">Select the local variable in one of two possible locations:</li></ol>
+<a name="wp8353"></a><ul><li class="LL2BulSolid">In the Watch list that appears in the Browser, or</li></ul>
+<a name="wp8354"></a><ul><li class="LL2BulSolid">In the list of local variables displayed for a process in the Simulation Control window.</li></ul>
+<a name="wp8355"></a>
+<ol start="2."><li class="LL1Seq">Choose the &ldquo;Add to Wave&rdquo; command from the right-mouse button menu.</li></ol>
+<a name="wp8356"></a><p class="pBody">
+Note that it is also possible to directly acquire a local variable to the waveform window from the code of a module. To do so:
+</p>
+
+
+<a name="wp8357"></a>
+<ol start="1."><li class="LL1Seq">Within the code, select the name of the local variable to be acquired.</li></ol>
+<a name="wp8358"></a>
+<ol start="2."><li class="LL1Seq">Choose the &ldquo;Add to Wave&rdquo; command from the right-mouse button menu.</li></ol>
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg"><span class="cNotesBlack">Note</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp8359"></a><p class="pnoteNote">
+        	Within the browser's watch list directory, as well as in the waveform window, the current value of an acquired local variable of any SystemC type (i.e., types starting with the SC_ prefix; for example SC_UINT) is displayed immediately without your having to expand the contents of the struct.
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="right" /></td>
+    </tr>
+ </table>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Watching Values";
+   PDFLinkTitle = "Watching.Values"
+   ThisTopic = "FIGUREDisplayingLocalVariableValue";
+   CurrentFile = "design_verification21.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

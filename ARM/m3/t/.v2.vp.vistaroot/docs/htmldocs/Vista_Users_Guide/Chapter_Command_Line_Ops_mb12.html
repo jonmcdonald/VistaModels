@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:07:38 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>create_protocol</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(427);
+    // -->
+ </script>
+ 
+
+<!--416,420,427-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPcreate_protocol"></a>
+
+<a name="wp103867"></a><p class="pzCmdFunc">
+
+
+
+create_protocol
+</p>
+
+
+
+
+<a name="wp103868"></a><p class="pzShortDesc">
+Creates a protocol in Vista model builder using a .<span style=" font-style: italic;">tcl</span> script.
+</p>
+
+
+<a name="wp103869"></a><h6 class="pzHeading">
+  Syntax
+  </h6>
+
+
+<a name="wp103870"></a><p class="pzUsage">
+create_protocol <span class="cReqRpl">protocol-tcl-script</span> [-g | -generate-ipxact] [{-i | ipxact-dest-library} <span class="cOptRpl">ipxact-dest-library</span>] [{-v | -vendor} <span class="cOptRpl">ipxact-vendor</span>] [{-ver | -version} <span class="cOptRpl">ipxact-version</span>]
+</p>
+
+
+<a name="wp103871"></a><h6 class="pzHeading">
+  Arguments
+  </h6>
+
+
+<a name="wp103872"></a><h6 class="pzHeading2">
+  Common (Optional)
+</h6>
+
+
+
+<a name="wp103873"></a><ul class="ulSmSpace"><li class="LLzptArg">[-help | -h]</li></ul>
+
+
+<a name="wp103874"></a><div class="LLzArgDesc">Displays help.</div>
+<a name="wp103875"></a><ul class="ulSmSpace"><li class="LLzptArg">[-usage] </li></ul>
+
+
+<a name="wp103876"></a><div class="LLzArgDesc">Displays the syntax for this command.</div>
+<a name="wp103877"></a><h6 class="pzHeading2">
+  Required
+</h6>
+
+
+
+<a name="wp104034"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">protocol-tcl-script</span></li></ul>
+
+
+<a name="wp104044"></a><div class="LLzArgDesc">Path to the .<span style=" font-style: italic;">tcl</span> script file that defines the protocol.</div>
+<a name="wp104029"></a><h6 class="pzHeading2">
+  Optional
+</h6>
+
+
+
+<a name="wp104065"></a><ul class="ulSmSpace"><li class="LLzptArg">-generate_ipxact</li></ul>
+
+
+<a name="wp104066"></a><div class="LLzArgDesc">If present, causes generation of an IP-XACT Bus Definition named <span class="cReqRpl">protocol</span>.<span style=" font-style: italic;">xml</span> and an IP-XACT Abstraction Definition named <span class="cReqRpl">protocol</span>_<span class="cRequired">tlm20</span>.<span style=" font-style: italic;">xml</span>, describing the protocol. The definitions are at TLM 2.0 abstraction level, using transactional ports.</div>
+<a name="wp104067"></a><ul class="ulSmSpace"><li class="LLzptArg">-ipxact_dest_library <span class="cOptRpl">string</span></li></ul>
+
+
+<a name="wp104068"></a><div class="LLzArgDesc">Defines the library name for the generated IP-XACT descriptions. If not present, the name Library is used. This option is only considered if the -generate_ipxact option is present.</div>
+<a name="wp104070"></a><ul class="ulSmSpace"><li class="LLzptArg">-vendor <span class="cOptRpl">string</span></li></ul>
+
+
+<a name="wp104071"></a><div class="LLzArgDesc">Specifies the vendor name for the generated IP-XACT descriptions. If not present, the vendor name Mentor.com is used. This option is only considered if the -generate_ipxact option is present.</div>
+<a name="wp104072"></a><ul class="ulSmSpace"><li class="LLzptArg">-version <span class="cOptRpl">string</span></li></ul>
+
+
+<a name="wp104073"></a><div class="LLzArgDesc">Specifies the version string for the generated IP-XACT descriptions. If not present, the version string 1.0 is used. This option is only considered if the -generate_ipxact option is present.</div>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "create_protocol";
+   PDFLinkTitle = "createprotocol"
+   ThisTopic = "createprotocol";
+   CurrentFile = "Chapter_Command_Line_Ops_mb12.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

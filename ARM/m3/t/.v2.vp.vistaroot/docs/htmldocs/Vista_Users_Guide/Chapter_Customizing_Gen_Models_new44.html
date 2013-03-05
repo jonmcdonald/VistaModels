@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:02:48 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>PPC440 (Based on PPC440x5)</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(197);
+    // -->
+ </script>
+ 
+
+<!--154,182,197-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPPPC440 (Based on PPC440x5)"></a>
+
+<a name="wp47248"></a><h4 class="pHeading3">
+  
+
+
+PPC440 (Based on PPC440x5)
+  </h4>
+
+
+<!--PPC440BasedonPPC440x5-->
+
+<a name="MGCCIDPModel Structure"></a>
+
+<a name="wp47251"></a><h5 class="pHeading4">
+  
+
+
+Model Structure
+</h5>
+
+
+
+<a name="wp47252"></a><p class="pBody">
+Under <span style=" font-style: italic;">cpu.PV</span> 
+</p>
+
+
+<a name="wp47253"></a>
+<ul><li class="LL1BulSolid">&ldquo;core&rdquo; : mb::models::ppc::core4xx &#151;  The code.</li></ul>
+<a name="wp47254"></a>
+<ul><li class="LL1BulSolid">&ldquo;dcache&rdquo; : mb::models::cache &#151;  The data cache.</li></ul>
+<a name="wp47255"></a>
+<ul><li class="LL1BulSolid">&ldquo;icache&rdquo; : mb::models::cache &#151;  The instruction cache.</li></ul><a name="MGCCIDPInterface Ports"></a>
+
+<a name="wp47258"></a><h5 class="pHeading4">
+  
+
+
+Interface Ports
+</h5>
+
+
+
+<a name="wp47259"></a>
+<ul><li class="LL1BulSolid">data_read_initiator &#151;  Data read master port.</li></ul>
+<a name="wp47260"></a>
+<ul><li class="LL1BulSolid">data_write_initiator &#151;  Data write master port.</li></ul>
+<a name="wp47261"></a>
+<ul><li class="LL1BulSolid">insn_read_initiator &#151;  Instruction fetch master port.</li></ul>
+<a name="wp47262"></a>
+<ul><li class="LL1BulSolid">dcr_initiator &#151;  DCR initiator port. Address is <span style=" font-weight: bold;">DCRN*4</span>.</li></ul>
+<a name="wp47263"></a>
+<ul><li class="LL1BulSolid">int_irq &#151;  External interrupt input. Active high.</li></ul>
+<a name="wp47264"></a>
+<ul><li class="LL1BulSolid">cint_irq &#151;  Critical interrupt input. Active high.</li></ul>
+<a name="wp47265"></a>
+<ul><li class="LL1BulSolid">reset &#151;  Chip reset input. Active high.</li></ul><a name="MGCCIDPCPU Specific Parameters"></a>
+
+<a name="wp47268"></a><h5 class="pHeading4">
+  
+
+
+CPU Specific Parameters
+</h5>
+
+
+
+<a name="wp47269"></a><p class="pBody">
+Parameters' paths shall be provided as <span style=" font-style: italic;">Inst.PV.PATH</span>.
+</p>
+
+
+<a name="wp47271"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">dcache_size</span> &#151;  L1 data cache size. Default is 32K.</li></ul>
+<a name="wp47272"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">icache_size</span> &#151;  L1 instruction cache size. Default is 32K.</li></ul>
+<a name="wp47273"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">timer_clock</span> &#151;  Clock used for embedded timers. If not set, core &ldquo;<span style=" font-weight: bold; font-style: italic;">clock</span>&rdquo; parameter is used.</li></ul>
+<a name="wp47600"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">pvr</span> - Value of the PVR register.</li></ul>
+<a name="wp47601"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">fpu_support</span> - Boolean value specifying whether the FPU support is enabled.</li></ul>
+<a name="wp47602"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">boot_tlb</span> - A specification of initial identical (i.e virt=phys) TLB map used during ELF loading and ELF starting.</li></ul>
+<a name="wp47603"></a><p class="pL1Body">Default value: &ldquo;0=0:4G:128M 63=0xfffff000:4K:4K&rdquo;.</p>
+
+<a name="wp47605"></a><p class="pL1Body">The string value of this parameter is parsed according to the following grammar:</p>
+
+<a name="wp47608"></a><pre class="pCodeIndent">
+           tlb_boot: (group WS)*;</pre>
+
+<a name="wp47609"></a><pre class="pCodeIndent">
+           group: index &#39;=&#39; addr &#39;:&#39; size &#39;:&#39; page_size;</pre>
+
+<a name="wp47610"></a><pre class="pCodeIndent">
+           index: DEC_INT;</pre>
+
+<a name="wp47611"></a><pre class="pCodeIndent">
+           addr: DEC_INT |&#39;0x&#39; HEX_INT;</pre>
+
+<a name="wp47612"></a><pre class="pCodeIndent">
+           size: DEC_INT (&#39;K&#39;|&#39;k&#39;|&#39;M&#39;|&#39;m&#39;|&#39;G&#39;|&#39;g&#39;);</pre>
+
+<a name="wp47613"></a><pre class="pCodeIndent">
+           page_size: DEC_INT (&#39;K&#39;|&#39;k&#39;|&#39;M&#39;|&#39;m&#39;|&#39;G&#39;|&#39;g&#39;);</pre>
+
+<a name="wp47663"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp47615"></a><p class="pL1Body">Where:</p>
+
+<a name="wp47616"></a><pre class="pCodeIndent">
+           WS: white spaces;</pre>
+
+<a name="wp47617"></a><pre class="pCodeIndent">
+           DEC_INT: dec integer;</pre>
+
+<a name="wp47618"></a><pre class="pCodeIndent">
+           HEX_INT: hex integer;</pre>
+
+<a name="wp47667"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp47620"></a><p class="pL1Body">No white spaces are allowed in the middle of the group.</p>
+
+<a name="wp47622"></a><p class="pL1Body">Each group is interpreted as a sequence of TLB entries starting from entry &#39;index&#39;; from address &#39;address&#39; to &#39;address&#39; + &#39;size&#39;. The range in mapped using &#39;page_size&#39; pages, i.e &#39;size&#39;/&#39;page_size&#39; TLB entries will be used.</p>
+
+<a name="wp47274"></a>
+<ul><li class="LL1BulSolid">All common core parameters are available under &ldquo;<span style=" font-weight: bold;">core.*</span>&rdquo;.</li></ul>
+<a name="wp47275"></a>
+<ul><li class="LL1BulSolid">All common cache parameters are available under &ldquo;<span style=" font-weight: bold;">dcache.*</span>&rdquo; and &ldquo;<span style=" font-weight: bold;">icache.*</span>&rdquo;.</li></ul>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "PPC440 (Based on PPC440x5)";
+   PDFLinkTitle = "PPC440.Based.on.PPC440x5"
+   ThisTopic = "Parameters99PPC440BasedonPPC440x5";
+   CurrentFile = "Chapter_Customizing_Gen_Models_new44.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

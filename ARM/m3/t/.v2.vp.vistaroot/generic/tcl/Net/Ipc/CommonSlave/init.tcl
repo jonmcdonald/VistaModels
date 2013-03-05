@@ -1,0 +1,11 @@
+summit_begin_package Net:Ipc:CommonSlave
+
+summit_package_require Net:Ipc
+summit_package_require Net:Rpc
+summit_package_require Net:TcpIp
+summit_package_require Net:Util
+summit_package_require Application
+
+summit_source SlaveConnectionBuilder.tcl
+
+summit_end_package

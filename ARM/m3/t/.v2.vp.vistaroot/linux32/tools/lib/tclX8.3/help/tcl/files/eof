@@ -1,0 +1,22 @@
+NAME
+       eof - Check for end of file condition on channel
+
+SYNOPSIS
+       eof channelId
+
+
+DESCRIPTION
+       Returns  1  if an end of file condition occurred during the most recent
+       input operation on channelId (such as gets), 0 otherwise.
+
+       ChannelId must be an identifier for an open channel such as a Tcl stan-
+       dard channel (stdin, stdout, or stderr), the return value from an invo-
+       cation of open or socket, or the result of a channel  creation  command
+       provided by a Tcl extension.
+
+
+SEE ALSO
+       file(n), open(n), close(n), fblocked(n), Tcl_StandardChannels(3)
+
+
+KEYWORDS

@@ -1,0 +1,724 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:01:17 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Modeling Timing</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(133);
+    // -->
+ </script>
+ 
+
+<!--96,129,133-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPModeling Timing"></a>
+
+<a name="wp130105"></a><h4 class="pHeading3">
+  
+
+
+Modeling Timing
+  </h4>
+
+
+<!--ModelingTiming-->
+
+
+<a name="wp130107"></a><p class="pBody">
+Use policies to add timing and power to the functional code without changing it. Policies are considered an aspect oriented language that is defined in terms of functional event types. The following discussion assumes a familiarity with policies as discussed in &ldquo;<a href='javascript:oT("CRF","Chapter_Modeling_Phase31.html");'>Timing and Power Policies</a>&rdquo;. 
+</p>
+
+
+<a name="wp130169"></a><p class="pBody">
+The following example illustrates the basis of the policies mechanism. Consider functional code that does the following:
+</p>
+
+
+<a name="wp130170"></a>
+<ol start="1."><li class="LL1Seq">read</li></ol>
+<a name="wp130171"></a>
+<ol start="2."><li class="LL1Seq">read</li></ol>
+<a name="wp130172"></a>
+<ol start="3."><li class="LL1Seq">write</li></ol>
+<a name="wp130173"></a><p class="pBody">
+Let us look at two cases:
+</p>
+
+
+<a name="wp130174"></a>
+<ol start="1."><li class="LL1Seq">The two reads are pipelined; a scheduling mechanism has to <span style=" font-style: italic;">meet</span> the second read before the first one finishes. However, the functional code finishes the first read before it executes the second read.</li></ol>
+<a name="wp130175"></a>
+<ol start="2."><li class="LL1Seq">The write should happen before the first read; a scheduling mechanism has to <span style=" font-style: italic;">meet</span> the write before both reads finish.</li></ol>
+<a name="wp130235"></a><p class="pBody">
+If the policies scheduling mechanism <span style=" font-style: italic;">meet</span>s the whole sequence of the functional events before doing the scheduling it can realize any events schedule. 
+</p>
+
+
+<a name="wp130237"></a><p class="pBody">
+The fir_filter example (see <a href='javascript:oT("CRF","Chapter_Modeling_Phase38.html#wp131518");'>FIR Filter Example</a>) shows a real life abstract algorithm implemented in hardware. The order of the reads and writes are different between the two representations. Moreover transactions can be pipelined with multiple outstanding ones. 
+</p>
+
+
+<a name="wp130239"></a><p class="pBody">
+The simulation algorithm of the scalable model should support all of the above maintaining the same functionality. To realize this:
+</p>
+
+
+<a name="wp130241"></a>
+<ul><li class="LL1BulSolid">The functional code runs in zero time, which is also called timing decoupling, until the end of a callback or a synchronization event happens (see &ldquo;<a href='javascript:oT("CRF","Chapter_Modeling_Phase38.html#wp130624");'>Synchronizing PV and T</a>&rdquo;). </li></ul>
+<a name="wp130242"></a>
+<ul><li class="LL1BulSolid">Each time a functional event is issued by the functional code, it is delegated to the policy engine. </li></ul>
+<a name="wp130277"></a>
+<ul><li class="LL1BulSolid">The policy engine keeps a list of functional events that have been met. </li></ul>
+<a name="wp130278"></a>
+<ul><li class="LL1BulSolid">For each functional event the policy engine looks for a previous <span class="cReqRpl">cause</span> functional event that matches a <span class="cReqRpl">sequential</span> or <span class="cReqRpl">pipeline</span> policy. It searches back through the list until it finds the last functional event that matches. </li></ul>
+<a name="wp130279"></a><ul><li class="LL2BulHollow">Only functional events that are caused by the same callback or by the same SystemC thread are matched. Policies do not apply between functional events that are caused by different threads. This rule prevents the chaos that mainly arises from accidentally matching functional events generated from different callbacks.</li></ul>
+<a name="wp130280"></a>
+<ul><li class="LL1BulSolid">If no such policy is found a default policy is chosen:</li></ul>
+<a name="wp130281"></a><ul><li class="LL2BulHollow">As a rule, the default policy is a sequential policy with zero latency from the last functional event.</li></ul>
+<a name="wp130282"></a><ul><li class="LL2BulHollow">If the last functional event is a slave transaction that is connected with a delay policy whose sync equals SYNC_START, then the default policy is a pipeline policy with zero latency from that event. There can not be functional events that have sequential policy from such slave transactions because it contradicts the sync=SYNC_START semantics that specifies that the end of the slave is the last operation of the callback.</li></ul>
+<a name="wp130283"></a><p class="pL1Body">The default policy ensures that the order of the events when the code runs in AT mode are similar to the LT order.</p>
+
+<a name="wp130284"></a>
+<ul><li class="LL1BulSolid">The resulting policy specifies after which <span class="cReqRpl">cause</span> functional event a functional event is scheduled. Each functional event has an <span class="cReqRpl">effect</span> <span class="cReqRpl">policy list</span> (a list of policies for which it is a <span class="cReqRpl">cause</span>). Each policy is associated with an <span class="cReqRpl">effect</span> functional event. The resulting policy and functional event are appended to the <span class="cReqRpl">effect policy list</span> of the <span class="cReqRpl">cause</span> functional event that was found.</li></ul>
+<a name="wp130396"></a>
+<ul><li class="LL1BulSolid">How the functional event is executed at this stage is determined according to its type:</li></ul>
+<a name="wp130397"></a><ul><li class="LL2BulHollow">Read transactions with enabled DMI. </li></ul>
+<a name="wp130423"></a><p class="pL2Body">If DMI is granted, reads have no side effects. The values returned by the reads are needed for the continuation of the run of the functional code. Hence, they are done immediately and transparently through the DMI pointer. They are also done later through the T mechanism to affect the timing. The section &ldquo;<a href='javascript:oT("CRF","Chapter_Modeling_Phase38.html#wp130841");'>Use of DMI for Master Transactions</a>&rdquo; discusses the ramification of this approach.</p>
+
+<a name="wp130398"></a><ul><li class="LL2BulHollow">Write transactions with enabled DMI. </li></ul>
+<a name="wp130437"></a><p class="pL2Body">If DMI is granted, writes have no side effect other than changing the memory contents. The status returned by the write transactions are guaranteed to be successful. Hence, they are not executed at this stage but are delayed to the T mechanism. The section &ldquo;<a href='javascript:oT("CRF","Chapter_Modeling_Phase38.html#wp130841");'>Use of DMI for Master Transactions</a>&rdquo; discusses the ramification of this approach.</p>
+
+<a name="wp130399"></a><ul><li class="LL2BulHollow">Read and write transactions with disabled DMI. </li></ul>
+<a name="wp130445"></a><p class="pL2Body">The callback or thread waits until the transaction executes through the T mechanism (see &ldquo;<a href='javascript:oT("CRF","Chapter_Modeling_Phase38.html#wp130624");'>Synchronizing PV and T</a>&rdquo;) and then executes the transaction through nb_transport.</p>
+
+<a name="wp130400"></a><ul><li class="LL2BulHollow">Writes to variables and internal registers and events notification are ignored. They are executed later through the T mechanism.</li></ul>
+<a name="wp130401"></a><ul><li class="LL2BulHollow">Reads from variables and internal registers are done immediately.</li></ul>
+<a name="wp130460"></a>
+<ul><li class="LL1BulSolid">Each T model includes an sc_method that executes the following T mechanism for each scheduled functional event at its scheduled time: </li></ul>
+<a name="wp133543"></a>
+<ol start="1."><li class="LL1Seq">For each pipeline policy in the current functional event <span class="cReqRpl">effect policy list</span>, the following is done for the associated <span class="cReqRpl">effect</span> functional event: </li></ol>
+<a name="wp133544"></a><ul><li class="LL2BulHollow">The latency and power parameters of the policy are evaluated.</li></ul>
+<a name="wp130463"></a><ul><li class="LL2BulHollow">The callback evaluate_pipeline_policy is called. Using this callback, you can override the parameter values of the policy (or even schedule the <span class="cReqRpl">effect</span> functional event to infinity and bring it back in another callback). </li></ul>
+<a name="wp130464"></a><ul><li class="LL2BulHollow">The functional event is scheduled to be executed after the computed latency.</li></ul>
+<a name="wp130465"></a>
+<ol start="2."><li class="LL1Seq">If the current functional event is a slave transaction, the callback evaluate_delay_policy is called. If the current functional event is a master transaction, the callback evaluate_split_policy is called. Using this callback, you can override the parameter values of the policy. </li></ol>
+<a name="wp130468"></a>
+<ol start="3."><li class="LL1Seq">The current functional event is Executed:</li></ol>
+<a name="wp133961"></a><ul><li class="LL2BulSolid">For memory read and write nb_transport is called.</li></ul>
+<a name="wp133962"></a><ul><li class="LL2BulSolid">Writes to variables and internal registers, and events notification are executed. </li></ul>
+<a name="wp133963"></a><ul><li class="LL2BulSolid">Reads to variables and internal registers are ignored.</li></ul>
+<a name="wp133964"></a><ul><li class="LL2BulSolid">For a slave transaction that is associated with a functional callback, the callback is execute.</li></ul>
+<a name="wp130470"></a>
+<ol start="4."><li class="LL1Seq">For each sequential policy in the current functional event <span class="cReqRpl">effect policy list</span>, the following is done for the associated <span class="cReqRpl">effect</span> functional event: </li></ol>
+<a name="wp130471"></a><ul><li class="LL2BulHollow">The latency and power parameters of the policy are evaluated.</li></ul>
+<a name="wp130472"></a><ul><li class="LL2BulHollow">The callback evaluate_sequential_policy is called. Using this callback, you can override the parameter values of the policy (or even schedule the <span class="cReqRpl">effect</span> functional event to infinity and bring it back in another callback). </li></ul>
+<a name="wp130473"></a><ul><li class="LL2BulHollow">The functional event is scheduled to be executed after the computed latency.</li></ul>
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg"><span class="cNotesBlack">Note</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp130474"></a><p class="pnoteNote">
+        	The T mechanism can support wait statements embedded in the functional code and intermingling of threads in time.
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="right" /></td>
+    </tr>
+ </table><a name="MGCCIDPSynchronizing PV and T"></a>
+
+<a name="wp130624"></a><h5 class="pHeading4">
+  
+
+
+Synchronizing PV and T
+</h5>
+
+
+
+<a name="wp130626"></a><p class="pBody">
+When a callback returns or a thread issues a wait statement, the T code is activated, the events are scheduled in time, and eventually the PV and T execution is synchronized. 
+</p>
+
+
+<a name="wp130628"></a><p class="pBody">
+Some constructs can cause the synchronization to happen earlier:
+</p>
+
+
+<a name="wp130630"></a>
+<ul><li class="LL1BulSolid">Wait statements during a callback execution. </li></ul>
+<a name="wp130684"></a><p class="pL1Body">The class mb_module defines the methods: wait (multiple methods) and mb_sync. Calling mb_sync stops PV execution and waits until all pending T activities finish. Each wait function first calls mb_sync and then calls sc_core::wait with the same parameters that the function was called with.</p>
+
+<a name="wp130632"></a>
+<ul><li class="LL1BulSolid">Specifying sync=SYNC_START for a sequential or a pipeline policy means that the call to the <span class="cReqRpl">effect</span> event waits then resumes only when the T mechanism is about to start the event according to the timing policies. In other words, the PV and T execution is synchronized at the start of the <span class="cReqRpl">effect</span> event; this is the basis for the name of the Sync option. See the examples in &ldquo;<span style=" color: Blue;"><a href='javascript:oT("STD","UsingSync","VistaModelingGuide");' >Using Sync</a></span>&rdquo; in the <span style=" color: Blue;"><a href='javascript:oT("STD","manualtitle","VistaModelingGuide");' >Vista Modeling Guide </a></span>for scenarios that make this synchronization method necessary. The T mechanism insures that synchronizing to the start of the <span class="cReqRpl">effect</span> event enables pipelining of transactions and issuing of multiple outstanding transactions. </li></ul>
+<a name="wp130634"></a>
+<ul><li class="LL1BulSolid">There is an option to specify sync=SYNC_END for a sequential policy. This means that the call to the <span class="cReqRpl">effect</span> event waits then resumes after the T mechanism finishes executing the event according to the timing policies. This option makes the PV execution sequential; therefore, issuing multiple outstanding transactions can not be supported. The option can be used by test-benches that need to be completely synchronized.</li></ul>
+<a name="wp130636"></a>
+<ul><li class="LL1BulSolid">If DMI is not enabled to a read or write transaction target, there is an implicit synchronization to the end of the transaction. The reason is that a read has to wait until it gets the data from the memory; no DMI is provided to pre-fetch the data. For a write, the wait is for the transaction status. The assumption is that DMI is not enabled only to memory areas where accesses result in side effects, like registers. Since accesses that result in side effects are naturally serialized, it is appropriate that these transactions are synchronized to their end.</li></ul><a name="MGCCIDPIssues in Realizing Events Schedule"></a>
+
+<a name="wp130757"></a><h5 class="pHeading4">
+  
+
+
+Issues in Realizing Events Schedule
+</h5>
+
+
+
+<a name="wp130759"></a><p class="pBody">
+If a timing sequence in simulation can adhere to the timing dictated by the policies, then it is termed realizable. The following are the scenarios that can prevent the realization of this timing:
+</p>
+
+
+<a name="wp130760"></a>
+<ul><li class="LL1BulSolid">Any construct that involves early synchronization can prevent the policies from achieving their schedule; for example, a transaction should have started according to its policies but the simulation time has already passed because of a wait statement (explicit or implicit). This is especially true for the pipeline policy. An example of when sync causes such a problem, and when it does not, is shown in the fir filter example. You can avoid such problems by using sync wisely and making sure that DMI is enabled for the accesses. </li></ul>
+<a name="wp130762"></a>
+<ul><li class="LL1BulSolid">Congestion on a master port: a transaction is scheduled to start on a master port but other transactions are pending on the port. By pending, we mean that the first transaction had not yet finished the address phase and the others (if any) are waiting to start their address phases. If the transaction is able to start its address phase at the scheduled time and its data phase has to wait because of data transfers, the schedule is still realized and the added waiting is a part of the transaction latency. </li></ul>
+<a name="wp130763"></a>
+<ul><li class="LL1BulSolid">Exceeding the number of maximal outstanding transactions: a transaction is scheduled to start on a master port but the number of transactions that are not yet finished equals or exceeds the number of maximal outstanding transactions parameter. </li></ul>
+<a name="wp130765"></a><p class="pBody">
+The last two scenarios might be OK from the application stand point; otherwise, they reflect a real problem in the application and should be solved at this level; for example, by adding ports, or enlarging the number of outstanding transaction. 
+</p>
+
+<a name="MGCCIDPUse of DMI for Master Transactions"></a>
+
+<a name="wp130841"></a><h5 class="pHeading4">
+  
+
+
+Use of DMI for Master Transactions
+</h5>
+
+
+
+<a name="wp130843"></a><p class="pBody">
+DMI access is essential to enable the policy engine to realize events scheduling. Only when pipelining and reordering is not needed can the events scheduling be realized without DMI.
+</p>
+
+
+<a name="wp130844"></a><p class="pBody">
+Using DMI adds complexity because each read operation is done twice and at different times: 
+</p>
+
+
+<a name="wp130845"></a>
+<ol start="1."><li class="LL1Seq">Through the DMI; the values are used for the run of the functional code.</li></ol>
+<a name="wp130846"></a>
+<ol start="2."><li class="LL1Seq">Through nb_transport; the transactions are needed for the timing and power calculation. The transactions are shown in the waveform and analysis tools.</li></ol>
+<a name="wp130847"></a><p class="pBody">
+The T mechanism keeps a cache of pending write transactions that are scheduled but not yet executed. If a read transaction address range intersects with a pending write transaction the appropriate values are returned from cache and not from memory. The cache can be viewed as a write-back cache whose blocks are written to memory according to their schedule. 
+</p>
+
+
+<a name="wp130848"></a><p class="pBody">
+Therefore, it is guaranteed that the two reads return the same value if there is no other threads that access the same memory range asynchronously. This exception is not severe because such behavior might happen in real life concurrent systems and is considered an application bug.
+</p>
+
+<a name="MGCCIDPConcurrent Callbacks"></a>
+
+<a name="wp130940"></a><h5 class="pHeading4">
+  
+
+
+Concurrent Callbacks
+</h5>
+
+
+
+<a name="wp130942"></a><p class="pBody">
+Each callback runs in a dynamic thread. The thread always waits until the time at which all of the T transactions of the callback have finished before it terminates. If another slave transaction causes the callback code to be called while a previous callback thread is still running, the new callback instance runs in a new dynamic thread. This allows for modeling concurrent behavior (pipelining of the callbacks).
+</p>
+
+
+<a name="wp130944"></a><p class="pBody">
+This implementation raises the following problem: if the time between the transactions causing the callback is always smaller than the execution time of the callback function, then the number of simultaneously running dynamic threads always increments (until simulation crashes). This scenario signifies that there is a problem of mismatching throughputs in the design. Each port has an automatically-generated parameter named: <span class="cReqRpl">port_name</span>_pipeline_length; whenever the number of simultaneously-running dynamic threads created for transactions on this port exceeds this parameter value, a warning is issued. Therefore, you can locate the problem and fix it.
+</p>
+
+<a name="MGCCIDPCommunication Between Functional and T Code"></a>
+
+<a name="wp130981"></a><h5 class="pHeading4">
+  
+
+
+Communication Between Functional and T Code
+</h5>
+
+
+
+<a name="wp130983"></a><p class="pBody">
+In real life, there is no distinction between the functional and timed model, they are one and the same. Therefore, both facets of the model are intertwined. Vista has a novel mechanism to enable the two facets to influence each other.
+</p>
+
+
+<a name="wp130984"></a><p class="pBody">
+The functional model naturally computes values. Some of the values are needed by the T part in order to compute delays, and so forth. You pass these values from the functional model to the T part through the model builder variables (described in &ldquo;<a href='javascript:oT("CRF","Chapter_Modeling_Phase36.html");'>Communication Channels</a>&rdquo;). The fact that the timing of the assignments to the variables is controlled through the policies enables you to pass them to the T model at the right time.
+</p>
+
+
+<a name="wp130985"></a><p class="pBody">
+The way that the T model affects the functional model is through the synchronization mechanism of the policies; that is, through the sync field of the policies. The example <span style=" color: Blue;"><a href='javascript:oT("STD","Timing-dependentBehavior","VistaModelingGuide");' >Timing-dependent behavior </a></span>in the <span style=" color: Blue;"><a href='javascript:oT("STD","manualtitle","VistaModelingGuide");' >Vista Modeling Guide</a></span> shows such behavior.
+</p>
+
+
+<a name="wp130986"></a><p class="pBody">
+Therefore, when policies and variables are used, replication of code between the functional and the T portions of the model is avoided. A model designed in this manner takes less time to write and runs faster during simulation.
+</p>
+
+<a name="MGCCIDPDefining Latencies Between Different Threads"></a>
+
+<a name="wp131061"></a><h5 class="pHeading4">
+  
+
+
+Defining Latencies Between Different Threads
+</h5>
+
+
+
+<a name="wp131063"></a><p class="pBody">
+Only the functional events that are caused by the same callback or by the same SystemC thread are matched by the policy engine. 
+</p>
+
+
+<a name="wp131064"></a><p class="pBody">
+However it is quite natural, if you need to use a thread to want to specify that a write issued by a thread follows N clocks after a read issued by a callback in the case that the callback calls Notify for the event E that triggered the thread. If there is no obvious flow between the threads there is no sense in having a policy between their events. 
+</p>
+
+
+<a name="wp131065"></a><p class="pBody">
+To specify this using policies:
+</p>
+
+
+<a name="wp131066"></a>
+<ol start="1."><li class="LL1Seq">Specify that E.notify follows sequentially after the read by M clocks.</li></ol>
+<a name="wp131067"></a>
+<ol start="2."><li class="LL1Seq">Specify that the write follows sequentially after a wait by N-M clocks (if M is zero or equal to N then one policy can be left as a default one). </li></ol>
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg"><span class="cNotesBlack">Note</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp131072"></a><p class="pnoteNote">
+        	The write follows N clocks after the read if the thread is guaranteed to wait every time on a wait statement that is triggered by E. 
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="right" /></td>
+    </tr>
+ </table><a name="MGCCIDPLatency of a Bus Transaction"></a>
+
+<a name="wp131170"></a><h5 class="pHeading4">
+  
+
+
+Latency of a Bus Transaction
+</h5>
+
+
+
+<a name="wp131172"></a><p class="pBody">
+A transaction starts at a master port then passes through one or more buses until it reaches a slave port. Latency is measured from the time the first request (nb_transport) leaves the master port until the last reply (nb_transport) is sent in whichever direction.
+</p>
+
+
+<a name="wp131174"></a><p class="pBody">
+There are a lot of ingredients that construct the transaction latency:
+</p>
+
+
+<a name="wp131176"></a>
+<ol start="1."><li class="LL1Seq">Address arbitration:</li></ol>
+<a name="wp131177"></a><p class="pL1Body">The bus arbitrates between all of the address requests that are pending when the bus address channel is freed. To ensure that all of the address requests are taken into account, regardless of their order, the bus queues all requests and does the arbitration at the time that the next clock should occur. Therefore, arbitration takes at least one clock cycle and can take multiple clock cycles until the address channel is free and access is granted.</p>
+
+<a name="wp131178"></a><p class="pL1Body">A path that gives a single master exclusive access to a slave does not incur arbitration overhead.</p>
+
+<a name="wp131179"></a><p class="pL1Body">If there is a cascade of busses, the arbitration time is summed.</p>
+
+<a name="wp131181"></a>
+<ol start="2."><li class="LL1Seq">Postponing of address acknowledgement by the slave due to exceeding of maximal outstanding transactions:</li></ol>
+<a name="wp131251"></a><p class="pL1Body">A transaction arrives at a slave port but the number of transactions that were not yet finished equals or exceeds the number of maximal outstanding transactions parameter.</p>
+
+<a name="wp131183"></a>
+<ol start="3."><li class="LL1Seq">Postponing of address acknowledgement by the T code in the slave (for advanced use): </li></ol>
+<a name="wp131272"></a><p class="pL1Body">You can use an API to schedule the address acknowledgement according to some algorithm.</p>
+
+<a name="wp131185"></a>
+<ol start="4."><li class="LL1Seq">Latency parameter of slave delay policy:</li></ol>
+<a name="wp131290"></a><p class="pL1Body">If the slave is the initiator of the data channel, it waits for the latency of its delay policy and then initiates the data channel. If the slave is the target of the data channel, it adds this latency to the computation of the data channel timing.</p>
+
+<a name="wp131187"></a>
+<ol start="5."><li class="LL1Seq">Postponing of the data channel by the master or the slave due to exceeding of maximal outstanding read or write data buffer:</li></ol>
+<a name="wp131311"></a><p class="pL1Body">A master or slave port has to send or receive data and has a dedicated buffer for the data or its associated tag (the tag is used for out-of-order transactions). If there is no space in the buffer, the transfer is stalled until enough space is free. If the data size of the transaction is bigger than the buffer size, a warning is issued and the behavior is as if the buffer size matches the transaction data size. The implementation of this timing in simulation is similar to that of the latency parameter of the slave delay policy.</p>
+
+<a name="wp131313"></a>
+<ol start="6."><li class="LL1Seq">Data Arbitration: </li></ol>
+<a name="wp131336"></a><p class="pL1Body">If the address arbitration does not hold for the data channel, the data channels also needs arbitration. The arbitration is done once at the start of the data channel. Splitting and interleaving of data is not supported (fortunately modern protocols, for example: AMBA 4, also tend not to support these features). Currently data arbitration is done only on read transactions for a data channel that is initiated by the slave; therefore, such backward path arbitration is done for example, for AXI.</p>
+
+<a name="wp131315"></a>
+<ol start="7."><li class="LL1Seq">Pipeline policy of the bus:</li></ol>
+<a name="wp131370"></a><p class="pL1Body">A bus can have an inner pipeline that adds latency but enables a faster clock. The bus adds to the latency by postponing the data channel starting phase from its input to its output. It has no effect on the throughput because of the pipelining. </p>
+
+<a name="wp131384"></a>
+<ol start="8."><li class="LL1Seq">Latency per word:</li></ol>
+<a name="wp131385"></a><p class="pL1Body">This ingredient is very complicated to implement in TLM because each word of a burst is not modeled but only their aggregate. Standard TLM2.0 does not provide for very accurate modeling; therefore, an ignorable extension is used. </p>
+
+<a name="wp131387"></a><p class="pL1Body">The port passes data in a byte array. To find the number of the words in a transaction on a port, the size in bits of the transaction is divided by the port width (bits also) and rounded to the next integer. Inherently the time it takes to pass a word is a clock cycle (called the &#39;necessary clock&#39;). Even if there is a cascade of busses, with no width and clock speed changes, the time for a word passage is a single clock cycle. </p>
+
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg"><span class="cNotesBlack">Note</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp133704"></a><p class="pnoteNote">
+        	If the critical path of the logic through the buses is larger than the clock, an inner pipeline should be added. 
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="right" /></td>
+    </tr>
+ </table>
+<a name="wp131389"></a><p class="pL1Body">The timing estimation of the data phase supports width and clock speed changes. It is done as follows:</p>
+
+<a name="wp131391"></a><p class="pL2Body">The initiator of the data channel computes the time it can move the data with the following formula:</p>
+
+<a name="wp131392"></a><p class="pL3Body">number_of_words(master_port)* (1 + wait_states(master_port))* clock_period (master_port)</p>
+
+<a name="wp131393"></a><p class="pL2Body">It sends this value as an extension of the transaction at the end of the address arbitration stage (the END_REQ phase).</p>
+
+<a name="wp131395"></a><p class="pL2Body">The bus slave port computes its own transfer time with the following formula:</p>
+
+<a name="wp131396"></a><p class="pL3Body">Max(number_of_words(bus_slave_port)* clock_period (bus_slave_port), extension_value) </p>
+
+<a name="wp131397"></a><p class="pL2Body">It sends this value as an extension of the transaction on its master port.</p>
+
+<a name="wp131398"></a><p class="pL2Body">The same is done by any bus slave port in the bus cascade.</p>
+
+<a name="wp131469"></a><p class="pL2Body">The target of the data channel computes the time it can process the data with the following formula:</p>
+
+<a name="wp131470"></a><p class="pL3Body">Max(number_of_words(slave_port)* (1+wait_states(slave_port))* clock_period(slave_port), extension_value)</p>
+
+<a name="wp131471"></a><p class="pL2Body">It waits for this amount of time.</p>
+
+<a name="wp131485"></a><p class="pBody">
+Some of the following can not be done for a protocol with only two phases and some approximations are done: 
+</p>
+
+
+<a name="wp131487"></a><p class="pL1Body">The arbitration is approximated in the following way. When a transaction S starts, if another transaction is in process, a cycle of the arbitration time for S is not counted. Therefore, address and data pipelining is taken into account.</p>
+
+<a name="wp131489"></a><p class="pL1Body">The data start time is implicit and is not sent as a phase; therefore, the data channel timing computation extension is sent on the address request phase (BEGIN_REQ). All other features are not supported. If they are needed, a less efficient protocol with more phases should be chosen.</p>
+<a name="MGCCIDPFIR Filter Example"></a>
+
+<a name="wp131518"></a><h5 class="pHeading4">
+  
+
+
+FIR Filter Example
+</h5>
+
+
+
+<a name="wp131521"></a><pre class="pCode">     void fir_filter_pv::cb_write_out_buffer_addr(unsigned int) {</pre>
+
+
+<a name="wp131522"></a><pre class="pCode">        for ( int j = 0 ; j &lt; buf_size ; j ++ ) {</pre>
+
+
+<a name="wp131524"></a><pre class="pCode">           master_read ( read_ptr, input ) ;</pre>
+
+
+<a name="wp133742"></a><pre class="pCode">           cout &lt;&lt; &quot;Read start time &quot; &lt;&lt; sc_time_stamp() &lt;&lt; &#39;\n&#39; ;</pre>
+
+
+<a name="wp133743"></a><pre class="pCode">           //The printout is printed at the transaction start time</pre>
+
+
+<a name="wp131525"></a><pre class="pCode">           read_ptr += master.get_bus_width()/8;</pre>
+
+
+<a name="wp131526"></a><pre class="pCode">           run ( input, output ) ; // Apply the fir filter</pre>
+
+
+<a name="wp131527"></a><pre class="pCode">           master_write ( write_ptr, output ) ;</pre>
+
+
+<a name="wp131528"></a><pre class="pCode">           write_ptr += master.get_bus_width()/8;</pre>
+
+
+<a name="wp131529"></a><pre class="pCode">        }</pre>
+
+
+<a name="wp131530"></a><pre class="pCode">        irq.write ( 1 ) ;</pre>
+
+
+<a name="wp131531"></a><pre class="pCode">     } </pre>
+
+
+<a name="wp131575"></a><pre class="pCode">     </pre>
+
+
+<a name="wp131533"></a><p class="pBody">
+The code reads a bus word from a memory pointed by read_ptr, computes Fir Filter, and writes the resulting bus word to a memory pointed by write_ptr. It does not forget to advance the pointers.
+</p>
+
+
+<a name="wp131535"></a><p class="pBody">
+The policies for the code are the following:
+</p>
+
+
+<a name="wp131537"></a><pre class="pCode">     add_sequential_policy master.READ -cause master.READ -latency 1 <br />        -sync NO_SYNC -power 0</pre>
+
+
+<a name="wp131538"></a><pre class="pCode">     # reflects the pipelined implementation of the HW algorithm so that each</pre>
+
+
+<a name="wp131539"></a><pre class="pCode">     # iteration of the loop starts a clock after the previous iteration while</pre>
+
+
+<a name="wp131540"></a><pre class="pCode">     # the previous iteration is still working.</pre>
+
+
+<a name="wp131541"></a><pre class="pCode">     # Specifying -sync 1 for this policy keeps the schedule.</pre>
+
+
+<a name="wp131542"></a><pre class="pCode">     </pre>
+
+
+<a name="wp131598"></a><pre class="pCode">     add_sequential_policy master.WRITE -cause master.READ -latency taps <br />        -sync NO_SYNC -power 20</pre>
+
+
+<a name="wp131543"></a><pre class="pCode">     # It takes as many clocks as the number of the taps of the fir filter to <br />     # generate an output.</pre>
+
+
+<a name="wp131544"></a><pre class="pCode">     # Specifying -sync 1 for this policy, changes the schedule and the <br />     # algorithm pipelining does not show</pre>
+
+
+<a name="wp133753"></a><pre class="pCode">     </pre>
+
+
+<a name="wp133756"></a><p class="pBody">
+When the model is simulated with the policies shown, then you get the following printout:
+</p>
+
+
+<a name="wp133757"></a><pre class="pCode">     Read start time 1160 ns</pre>
+
+
+<a name="wp133758"></a><pre class="pCode">     Read start time 1160 ns</pre>
+
+
+<a name="wp133759"></a><pre class="pCode">     Read start time 1160 ns</pre>
+
+
+<a name="wp133760"></a><pre class="pCode">     Read start time 1160 ns</pre>
+
+
+<a name="wp133754"></a><pre class="pCode">     </pre>
+
+
+<a name="wp133769"></a><p class="pBody">
+The printout shows that time does not advance as expected during the functional run in the AT mode. <a href='javascript:oT("CRF","Chapter_Modeling_Phase38.html#wp133781");'>Figure&#160;7&#8209;26</a> shows the waveform of the transactions:
+</p>
+
+
+
+
+
+<a name="wp133781"></a><p class="pFigureTitle">
+Figure 7&#8209;26. 
+
+
+AT Mode Transaction Waveforms When Synching to Read Start
+
+
+</p>
+<div align="center"><img src="images/PolicyWaveforms.gif" id="wp133783" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp133787"></a><p class="pBody">
+<a href='javascript:oT("CRF","Chapter_Modeling_Phase38.html#wp133781");'>Figure&#160;7&#8209;26</a> shows that some of the write transactions are executed in parallel with some of the read transactions; therefore, the transactions are reordered when compared to the functional order.
+</p>
+
+
+<a name="wp133789"></a><p class="pBody">
+If the first policy is changed to:
+</p>
+
+
+<a name="wp133802"></a><pre class="pCode">     add_sequential_policy master.READ -cause master.READ -latency 1 <br />        -sync SYNC_START -power 0</pre>
+
+
+<a name="wp133804"></a><pre class="pCode">     </pre>
+
+
+<a name="wp133785"></a><p class="pBody">
+You get the following printout:
+</p>
+
+
+<a name="wp133822"></a><pre class="pCode">     Read start time 1200 ns</pre>
+
+
+<a name="wp133823"></a><pre class="pCode">     Read start time 1250 ns</pre>
+
+
+<a name="wp133824"></a><pre class="pCode">     Read start time 1300 ns</pre>
+
+
+<a name="wp133825"></a><pre class="pCode">     Read start time 1350 ns</pre>
+
+
+<a name="wp133826"></a><pre class="pCode">     Read start time 1400 ns </pre>
+
+
+<a name="wp133833"></a><pre class="pCode">     </pre>
+
+
+<a name="wp133835"></a><p class="pBody">
+The printout shows that time advances during the functional run in the AT mode. The waveform of the transactions is the same as the one shown above (note the match of the printout times to the waveform timing). This demonstrates that syncing to the read start did not change the results.
+</p>
+
+
+<a name="wp133838"></a><p class="pBody">
+However if the second policy is changed to:
+</p>
+
+
+<a name="wp133892"></a><pre class="pCode">     add_sequential_policy master.WRITE -cause master.READ -latency taps</pre>
+
+
+<a name="wp133893"></a><pre class="pCode">        -sync SYNC_START -power 20</pre>
+
+
+<a name="wp133820"></a><pre class="pCode">     </pre>
+
+
+<a name="wp133903"></a><p class="pBody">
+You get the waveform of the transactions shown in <a href='javascript:oT("CRF","Chapter_Modeling_Phase38.html#wp133921");'>Figure&#160;7&#8209;27</a>:
+</p>
+
+
+
+
+
+<a name="wp133921"></a><p class="pFigureTitle">
+Figure 7&#8209;27. 
+
+
+AT Mode Transaction Waveforms When Synching to Write Start
+
+
+</p>
+<div align="center"><img src="images/PolicyWaveforms2.gif" id="wp133919" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp133915"></a><p class="pBody">
+As shown in <a href='javascript:oT("CRF","Chapter_Modeling_Phase38.html#wp133921");'>Figure&#160;7&#8209;27</a>, synching to the write start makes the schedule non-realizable because the policies scheduling engine does not meet the reads before it schedules the writes.
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Modeling Timing";
+   PDFLinkTitle = "Modeling.Timing"
+   ThisTopic = "FIGUREATModeTransactionWaveformsWhenSynchingtoWriteStart";
+   CurrentFile = "Chapter_Modeling_Phase38.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

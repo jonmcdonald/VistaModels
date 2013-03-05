@@ -1,0 +1,614 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:01:17 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Registers</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(113);
+    // -->
+ </script>
+ 
+
+<!--96,111,113-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPRegisters"></a>
+
+<a name="wp7958"></a><h4 class="pHeading3">
+  
+
+
+Registers<a name="MGCCIDMHELP_MODEL_REGISTERS"></a><a name="MGCCIDM3"></a>
+  </h4>
+
+
+<!--Registers-->
+
+
+<a name="wp41236"></a><p class="pBody">
+Registers are assigned to a specific address, and during simulation are set and read by other models using a designated port. Register values actually change only at the time that they should change according to the timing policies. This feature enables polling of the registers; the model polling a register will see the value only when it is calculated in real-life time. Moreover, like HW signals (VHDL or SystemC), the order of the evaluation by the simulation kernel of the reading/writing threads of the register will not affect the simulation results. When a user tries to both read and write a register from the same thread (not recommended), this behavior must be taken into consideration (i.e., the value will not change immediately after the write). 
+</p>
+
+
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg"><span class="cNotesBlack">Note</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp81690"></a><p class="pnoteNote">
+        	During learning, the engine also traces all accesses to the defined registers and learns the way they affect the model timing behavior. The learned TLM model will then exercise the same timing behavior accordingly. The more relevant the register details entered here, the more accurate the learned model will be. See <a href='javascript:oT("CRF","Chapter_Modeling_Phase39.html");'>&quot;Extracting Power from HDL Models&quot;</a> for additional information.
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="right" /></td>
+    </tr>
+ </table><a name="MGCCIDPSpecifying Registers"></a>
+
+<a name="wp81715"></a><h5 class="pHeading4">
+  
+
+
+Specifying Registers
+</h5>
+
+
+
+<a name="wp28448"></a><p class="pBody">
+<span class="cP12"><span style=" font-weight: bold; font-angle: normal; vertical-align: baseline; color:#000000;">To specify registers for the model:</span></span>
+</p>
+
+
+<a name="wp27295"></a>
+<ol start="1."><li class="LL1Seq">In the Vista modeling dialog, select the PV tab.</li></ol>
+<a name="wp27296"></a>
+<ol start="2."><li class="LL1Seq">Select the Registers tab:</li></ol>
+
+
+
+<a name="wp96262"></a><p class="pFigureTitle">
+Figure 7&#8209;15. 
+
+
+Vista Modeling - Registers Tab
+
+
+</p>
+<div align="center"><img src="images/model_builder_registers.gif" id="wp96260" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp27301"></a>
+<ol start="3."><li class="LL1Seq">In the<span style=" font-weight: bold;"> </span><span style=" font-weight: bold;">Default access port</span> field, select the port through which registers and memory are accessed from the pull-down list. (This can be customized for individual Registers.)</li></ol>
+<a name="wp27302"></a>
+<ol start="4."><li class="LL1Seq">In the Registers table, enter one or more registers. Specify the following information for each register:</li></ol>
+<a name="wp27303"></a><ul><li class="LL2BulSolid"><span style=" font-weight: bold;">Name</span> &#151;  Specify the legal identifier of the register as a text string; see <a href='javascript:oT("CRF","Chapter_Modeling_Phase14.html");'>Format for Legal Identifiers</a>. </li></ul>
+<a name="wp35663"></a><ul><li class="LL2BulSolid"><span style=" font-weight: bold;">Access port </span>&#151;  Specify one or more register access ports; by default, the <span style=" font-weight: bold; font-style: italic;">host</span> access port is used, modify if needed.</li></ul>
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg"><span class="cNotesBlack">Note</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp96550"></a><p class="pnoteNote">
+        	Multiple access ports for <a href='javascript:oT("CRF","Chapter_Modeling_Phase18.html");'>Registers</a>, <a href='javascript:oT("CRF","Chapter_Modeling_Phase19.html");'>FIFO Registers</a> and <a href='javascript:oT("CRF","Chapter_Modeling_Phase20.html");'>Memory Ranges</a> are supported. In the Access port column, the port names should be separated by a space. In the command, the syntax is the same but the port names list should be in curly brackets: <span style=" font-style: italic;">declare_register {port1 port2} reg1 0x200 {}</span>.
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="right" /></td>
+    </tr>
+ </table>
+<a name="wp35661"></a><ul><li class="LL2BulSolid"><span style=" font-weight: bold;">Address </span>&#151;  Specify the register address; an address can be used more than once only if the<span style=" font-weight: bold;"> Bit Ranges</span> are different.</li></ul>
+<a name="wp96570"></a><ul><li class="LL2BulSolid"><span style=" font-weight: bold;">Bit Range </span>&#151;  If only part of the register is used, specify the size of the register in bits (for example, [7:0])</li></ul>
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg"><span class="cNotesBlack">Note</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp96584"></a><p class="pnoteNote">
+        	In the Address and Bit Range fields, you can use legal C expressions that contain constants and/or variables that are defined in an external file; for example, BASE_ADDRESS + 4*MY_INDEX or (MAX_RANGE -10):MAX_RANGE.
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="right" /></td>
+    </tr>
+ </table>
+<a name="wp120058"></a><ul><li class="LL2BulSolid"><span style=" font-weight: bold;">Access </span>&#151;  Specify the access type as r, w, or r/w; select from the pull-down list.</li></ul>
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg"><span class="cNotesBlack">Note</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp120071"></a><p class="pnoteNote">
+        	The parameter <span class="cRequired">access_violation_policy</span> <span class="cReqRpl">(of string type)</span> can be used to specify the value returned when you read from a write-only register. Possible values are:<br /><br />		RAZ - for Read As Zero (all bits are read as zeros)<br />		RAO - for Read As Ones (all bits are read as ones)<br />		RAIS - for Read As Is (the register value is returned)<br />		DEADBEEF - 0xDEADBEEF is returned.
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="right" /></td>
+    </tr>
+ </table>
+<a name="wp119963"></a><ul><li class="LL2BulSolid"><span style=" font-weight: bold;">Trigger </span>&#151;  If required, click the Trigger checkbox to indicate the register should have a callback method.</li></ul>
+<a name="wp96342"></a><p class="pL2Body">If Trigger is enabled, a special callback method is created in the PV code (implemented by the user). Whenever a read-write action is performed on this register, the special callback method is called.</p>
+
+<a name="wp27311"></a><ul><li class="LL2BulSolid"><span style=" font-weight: bold;">Width</span>&#151; Specify the width of the register; if 0 is specified, the width of the access port is used.</li></ul>
+<a name="wp96353"></a><ul><li class="LL2BulSolid"><span style=" font-weight: bold;">Reset Value</span> &#151;  Specify the register value to use when model is reset; the value can be an integer or expression (the expression is calculated in elaboration time). If not specified, the reset value is 0.</li></ul>
+<a name="wp81553"></a>
+<ol start="5."><li class="LL1Seq">(Advanced) If you need to change certain attributes of a register (for example, what type of value is held by the register or the initialization value), use the Attributes tab as described in <a href='javascript:oT("CRF","Chapter_Modeling_Phase41.html#wp98411");'>&quot;Attribute Specifications for Variables and Registers&quot;</a>).</li></ol>
+<a name="wp120097"></a><p class="pBodyRelative">
+
+</p>
+<div id="TableDivQz"></div>
+<div align="center">
+
+
+<a name="wp81564"></a><p class="pTableTitle">
+Table 7&#8209;4. 
+
+
+Vista's Modeling - Registers Tab Options &#160;
+</p>
+
+
+
+<table border="1" cellpadding="5" cellspacing="0" id="wp81564table81557">
+  <tr bgcolor="#CCCCCC"  align="center" valign="middle">
+    <th>
+
+<a name="wp81570"></a><p class="pTableHeading">
+Field/Control
+</p>
+</th>
+
+    <th>
+
+<a name="wp81572"></a><p class="pTableHeading">
+Description
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp81574"></a><p class="pTableHeading">
+Values
+</p>
+
+
+</th>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp81576"></a><p class="pTableCell">
+<span class="cP12"><span style=" font-weight: bold; font-angle: normal; vertical-align: baseline; color:#000000;">Default Access Port</span></span>
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp81578"></a><p class="pTableCell">
+Default setting for port through which registers are accessed (see Access port column).
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp81582"></a><p class="pTableCell">
+<span class="cP12"><span style=" font-weight: bold; font-angle: normal; vertical-align: baseline; color:#000000;">Registers:</span></span>
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp81588"></a><p class="pTableCell">
+Name
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp81590"></a><p class="pTableCell">
+Name assigned to each register.
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp81592"></a><p class="pTableCell">
+Legal Identifier
+
+</p>
+
+
+<a name="wp81596"></a><p class="pTableCell">
+(See <a href='javascript:oT("CRF","Chapter_Modeling_Phase14.html");'>Format for Legal Identifiers</a>)
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp81599"></a><p class="pTableCell">
+Access port
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp81601"></a><p class="pTableCell">
+Port through which registers are accessed.
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp81605"></a><p class="pTableCell">
+Address
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp81607"></a><p class="pTableCell">
+Address assigned to each register.
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp81611"></a><p class="pTableCell">
+Bit Range
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp81613"></a><p class="pTableCell">
+Sets size of register (in bits) when only part of register is used. 
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp81615"></a><p class="pTableCell">
+(for example, 7:0)
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp81617"></a><p class="pTableCell">
+Access
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp81619"></a><p class="pTableCell">
+Access type of register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp81621"></a><p class="pTableCell">
+r (read)
+
+</p>
+
+
+<a name="wp81622"></a><p class="pTableCell">
+w (write)
+
+</p>
+
+
+<a name="wp81623"></a><p class="pTableCell">
+r/w (read and write)
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp81625"></a><p class="pTableCell">
+Trigger
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp81627"></a><p class="pTableCell">
+Indicates whether to generate callback functions for register.
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp81631"></a><p class="pTableCell">
+Width
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp81633"></a><p class="pTableCell">
+Width of register in bits. If value is 0, width of access port is used.
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp96470"></a><p class="pTableCell">
+Reset Value
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp96481"></a><p class="pTableCell">
+Value of register in reset.
+
+</p>
+
+
+<a name="wp96482"></a><p class="pTableCell">
+By default not specified and considered as 0.
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp96474"></a><p class="pTableCell">
+Integer or expression; Expression calculated in elaboration time
+
+</p>
+
+</td>
+
+
+</tr>
+
+
+</table>
+
+</div>
+<div id='EndTable'> </div>
+<p class="pBodyRelative">
+<br clear='left' class='Blank4Table' />
+
+
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Registers";
+   PDFLinkTitle = "Registers"
+   ThisTopic = "FIGUREVistaModelingRegistersTab";
+   CurrentFile = "Chapter_Modeling_Phase18.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

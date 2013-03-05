@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:07:38 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>add_sequential_policy</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(465);
+    // -->
+ </script>
+ 
+
+<!--416,462,465-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPadd_sequential_policy"></a>
+
+<a name="wp38909"></a><p class="pzCmdFunc">
+
+
+
+add_sequential_policy
+</p>
+
+
+
+
+<a name="wp22010"></a><p class="pzMiscInfo">
+Adds a &#39;sequential&#39; policy. (See <a href='javascript:oT("CRF","Chapter_Modeling_Phase31.html#wp17899");'>&quot;Sequential Policy&quot;</a>.)
+</p>
+
+
+<a name="wp22011"></a><h6 class="pzHeading">
+  Syntax
+  </h6>
+
+
+<a name="wp21339"></a><p class="pzUsage">
+add_sequential_policy [-h | -help] [-usage] [{-c | -cause} <span class="cOptRpl">cause</span>] [-d | -disabled] <br />[{-l | -latency} <span class="cOptRpl">latency</span>] [{-s | -sync} <span class="cOptRpl">sync</span>] [{-p | -power} <span class="cOptRpl">power</span>] <span class="cReqRpl">port_or_transaction</span>
+</p>
+
+
+<a name="wp22016"></a><h6 class="pzHeading">
+  Arguments
+  </h6>
+
+
+<a name="wp35730"></a><h6 class="pzHeading2">
+  Common (Optional)
+</h6>
+
+
+
+<a name="wp107139"></a><ul class="ulSmSpace"><li class="LLzptArg">[-h | -help]</li></ul>
+
+
+<a name="wp107140"></a><div class="LLzArgDesc">Provides help.</div>
+<a name="wp107141"></a><ul class="ulSmSpace"><li class="LLzptArg">[-usage] </li></ul>
+
+
+<a name="wp107142"></a><div class="LLzArgDesc">Displays the syntax for this command.</div>
+<a name="wp35734"></a><h6 class="pzHeading2">
+  Optional
+</h6>
+
+
+
+<a name="wp32259"></a><ul class="ulSmSpace"><li class="LLzptArg">{-c | -cause} <span class="cOptRpl">cause</span></li></ul>
+
+
+<a name="wp32260"></a><div class="LLzArgDesc">Cause port or port.transaction</div>
+<a name="wp107146"></a><ul class="ulSmSpace"><li class="LLzptArg">-d | -disabled</li></ul>
+
+
+<a name="wp107147"></a><div class="LLzArgDesc">A flag for not using this policy</div>
+<a name="wp107148"></a><ul class="ulSmSpace"><li class="LLzptArg">{-l | -latency} <span class="cOptRpl">latency</span></li></ul>
+
+
+<a name="wp107149"></a><div class="LLzArgDesc">Latency in clocks.</div>
+<a name="wp107150"></a><ul class="ulSmSpace"><li class="LLzptArg">{-s | -sync} <span class="cOptRpl">sync</span> </li></ul>
+
+
+<a name="wp107151"></a><div class="LLzArgDesc">Specifies that waits are to be used to synchronize PV and T.</div>
+<a name="wp107152"></a><ul class="ulSmSpace"><li class="LLzptArg">{-p | -power} <span class="cOptRpl">power</span></li></ul>
+
+
+<a name="wp107153"></a><div class="LLzArgDesc">Specifies the power value in mW.</div>
+<a name="wp35738"></a><h6 class="pzHeading2">
+  Required
+</h6>
+
+
+
+<a name="wp26376"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">port_or_transaction</span></li></ul>
+
+
+<a name="wp26384"></a><div class="LLzArgDesc">Effect port or port.transaction</div>
+<a name="wp23006"></a><h6 class="pzHeading">
+  See also
+
+</h6>
+
+<div id="TableDivQz"></div>
+
+<div align="left">
+
+
+
+
+
+<table border="0" cellpadding="2" cellspacing="0" width="96%" id="wp85365table85363">
+
+  <tr align="left" valign="top">
+
+    <td>
+
+
+
+
+
+<a name="wp85365"></a><p class="pTableCell">
+
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb48.html");'><span style=" font-weight: bold;">add_delay_policy</span></a>
+
+</p>
+
+</td>
+
+    <td>
+
+
+
+
+
+<a name="wp85367"></a><p class="pTableCell">
+
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb49.html");'><span style=" font-weight: bold;">add_pipeline_policy</span></a>
+
+
+
+</p>
+
+
+
+</td>
+
+
+
+</tr>
+
+  <tr align="left" valign="top">
+
+    <td>
+
+
+
+
+
+<a name="wp85369"></a><p class="pTableCell">
+
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb51.html");'><span style=" font-weight: bold;">add_split_policy</span></a>
+
+
+
+</p>
+
+
+
+</td>
+
+    <td>
+
+
+
+
+
+<a name="wp85371"></a><p class="pTableCell">
+
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb61.html");'><span style=" font-weight: bold;">set_nominal_clock</span></a>
+
+
+
+</p>
+
+
+
+</td>
+
+
+
+</tr>
+
+
+
+</table>
+
+
+
+</div>
+
+<div id='EndTable'> </div>
+
+<h6 class="pzHeading">
+
+<br clear='left' class='Blank4Table' />
+
+
+
+  </h6>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "add_sequential_policy";
+   PDFLinkTitle = "addsequentialpolicy"
+   ThisTopic = "addsequentialpolicy";
+   CurrentFile = "Chapter_Command_Line_Ops_mb50.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

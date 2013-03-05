@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+ <!-- Copyright (c) 2000-2003 Quadralay Corporation.  All rights reserved. -->
+
+ <head>
+  <meta http-equiv="content-type" content="text/html">
+  <meta http-equiv="charset"      content="UTF-8">
+  <!--JS-->
+  <noscript><meta http-equiv="Refresh" content="0;url=../../../../../mgc_html_help/noscript.html"></noscript>
+  <script type="text/javascript" language="JavaScript1.2" src="../../../../wwhdata/js/docvars.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../../../wwhdata/common/private/title.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../../../wwhdata/common/private/popupf.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../../../wwhdata/common/private/options.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../../../wwhdata/common/private/locale.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/scripts/browser.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/scripts/popup.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/scripts/filelist.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/scripts/pophash.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/scripts/booklist.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/scripts/bookgrps.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/scripts/help.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/scripts/controls.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/scripts/strutils.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/handler.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../../../wwhdata/js/private/options.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../../../wwhdata/js/private/locale.js"></script>
+  <!--MGCRK begin MGC specific javascript files. -->
+  <script type="text/javascript" language="JavaScript1.2" src="../../../../wwhdata/js/document.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../../../wwhdata/js/MGCCookies.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../../../../wwhelp/wwhimpl/common/private/LibList.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/browserdetect.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../../../wwhdata/common/topics.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../../../../wwhelp/Index/LibraryAvailable.js"></script>
+  <!--MGCRK end MGC specific javascript files. -->
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/tabs.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/outline.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/outlsafe.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/outlfast.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/panels.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/javascpt.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/rollover.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+   // Set reference to top level help frame
+   //
+   var  WWHFrame = eval("window.self");
+   window.name = "WWHFrame";
+
+   //MGCRK load document title, handle, index, PDF, library info
+   var DMerge = true;
+   if ( typeof(WWHFrame.mLibraryList) == "undefined")
+   {
+      DMerge = false;
+      alert("This document tree has not been properly prepared for use.\nSearch, Index, and Interbook links will not work.\nContact your System Administrator or Support at Mentor Graphics.");
+   }
+
+   WWHFrame.popup = "NO";
+   WWHFrame.DocumentTitle = GetDocumentTitle();
+   WWHFrame.DocumentHandle = GetDocumentHandle();
+   WWHFrame.PDFLink = GetPDFLink();
+
+   WWHFrame.IHUBHandle = GetIHUBHandle();
+   // Check for infohub handle passed in
+   WWHFrame.InfoHubTrail = "NONE";
+   Parts = location.href.split("&");
+   for (MaxIndex = Parts.length, Index = 0 ; Index < MaxIndex ; Index++)
+   {
+     Parameters = Parts[Index].split("=");
+     if (Parameters[0] == "ihub")
+     {
+        WWHFrame.InfoHubTrail = Parameters[1];
+     }
+   }
+
+   var IconsEnabled = WWHFrame.EnableNavigation();
+   var NavIconsEnabled = IconsEnabled;
+   //MGCRK Detect SupportNet installation
+   var OnSupportNet = false;
+   var DocLocation = window.location.toString().replace(/\./g,"");
+   DocLocation = DocLocation.replace(/.*supportnetmentorcom.*/,"ONSUPPORTNET");
+   if (DocLocation == "ONSUPPORTNET")
+   {
+     MySearchPrefs = "DOC";
+     OnSupportNet = true;
+     LibraryAvailable = false;
+   }
+
+   WWHFrame.BaseFontSize = 2;
+   WWHFrame.BaseFontFamily = "font face=\"Arial, Helvetica, sans-serif\""
+   WWHFrame.BaseFont = "<font size=\"" + WWHFrame.BaseFontSize + "\" face=\"Arial, Helvetica, sans-serif\">";
+   DetectBrowser();
+
+   //Specify fonts based on browser
+   //V2.1 change to be able to resize text in document window.
+   BaseBodyFontSize = 13;
+   var BaseBodyFonts = new Object();
+   BaseBodyFonts["Windows"] = new Array(11,13,15);
+   BaseBodyFonts["Unix"] = new Array(17,18,19);
+   BaseBodyFonts["Linux"] = new Array(11,12,13);
+   BaseBodyFonts["Mac"] = new Array(17,19,21);
+   BaseBodyFontSize = BaseBodyFonts[WWHFrame.operatingsystem][1];
+   var BaseNavFonts = new Object();
+   BaseNavFonts["Windows"] = new Array(9,11,13);
+   BaseNavFonts["Unix"] = new Array(14,15,16);
+   BaseNavFonts["Linux"] = new Array(10,11,12);
+   BaseNavFonts["Mac"] = new Array(12,13,14);
+   BaseNavFontSize = BaseNavFonts[WWHFrame.operatingsystem][1];
+   BaseBodyFontSizeID = 1;
+   BaseNavFontSizeID = 1;
+   if (MGCCookiesEnabled() != null)
+   {
+      if (MGCGetCookie("MGCBaseNavFontSizeID") != null)
+      {  
+         BaseNavFontSizeID = MGCGetCookie("MGCBaseNavFontSizeID");
+         BaseNavFontSize = BaseNavFonts[WWHFrame.operatingsystem][BaseNavFontSizeID];
+      }
+      if (MGCGetCookie("MGCBaseBodyFontSizeID") != null)
+      {  
+         BaseBodyFontSizeID = MGCGetCookie("MGCBaseBodyFontSizeID");
+         BaseBodyFontSize = BaseBodyFonts[WWHFrame.operatingsystem][BaseBodyFontSizeID];
+      }
+   }
+
+// MGCRK check for Netscape 4 1(or other unsupported browser) 0/23/04
+//load blank window and display info on browser configuration.
+   if ((WWHFrame.browsername == "Netscape Navigator") && (WWHFrame.browserversion.substring(0,1) == "4") )
+   {
+      window.location.replace("../../common/html/blank.htm");
+      WWHFrame.DisplayHelp('../../../../../mgc_html_help/mgc_html_help.htm?topic=browser_settings.html#Netscape4')
+      window.close();
+   }
+
+// New default navigation font tags
+   WWHFrame.NavPtag = "<p class\=\"pMGCNavPtag\"\>"
+   WWHFrame.NavTitlePtag = "<p class\=\"pMGCNavTitlePtag\"\>"
+   WWHFrame.NavCtag = "<span class\=\"cMGCNav10\"\>"
+   if (WWHFrame.operatingsystem == "Unix")
+   {
+      WWHFrame.NavTitlePtag = "<p class\=\"pMGCNavTitlePtag\"\>"
+      WWHFrame.NavPtag = "<p class\=\"pMGCNavPtag\"\>"
+      WWHFrame.NavCtag = "<span class\=\"cMGCNav14\"\>"
+   }
+
+   WWHFrame.NavigationPtag = "<p class=\"pNavigation10\">";
+
+   if (WWHFrame.operatingsystem == "Unix")
+   {
+       WWHFrame.BaseFontSize = "3";
+   }
+
+   if ((WWHFrame.browsername == "Netscape Navigator") && (WWHFrame.browserversion.substring(0,1) == "4") && (WWHFrame.operatingsystem == "Unix"))
+   {
+       WWHFrame.BaseFontSize = "2";
+       WWHFrame.BaseFont = "<font size=\"" + WWHFrame.BaseFontSize + "\" face=\"Arial, Helvetica, sans-serif\">";
+   }
+   if ((WWHFrame.browserversion.substring(0,1) == "7") && (WWHFrame.operatingsystem == "Unix"))
+   {
+       WWHFrame.BaseFontSize = "2";
+       WWHFrame.BaseFont = "<font size=\"" + WWHFrame.BaseFontSize + "\" face=\"Arial, Helvetica, sans-serif\">";
+   }
+
+//  MGCRK - end of MGC specific variables
+
+    // Create browser info object
+    //
+    var  WWHBrowser = new WWHBrowser_Object();
+
+    // Create new help object
+    //
+    var  WWHHelp = new WWHHelp_Object(location.href);
+
+    // Create controls object
+    //
+       var  WWHControls = new WWHControls_Object();
+
+    // Create related topics object
+    //
+//    var  WWHRelatedTopics = new WWHRelatedTopics_Object();
+
+    // Create alinks object
+    //
+//    var  WWHALinks = new WWHALinks_Object();
+
+    // Create highlight words object
+    //
+//    var  WWHHighlightWords = new WWHHighlightWords_Object();
+
+    // Create new handler object
+    //
+    var  WWHHandler = new WWHHandler_Object();
+
+    // Create new JavaScript Help object
+    //
+    var  WWHJavaScript = new WWHJavaScript_Object();
+
+    // Create new outline (TOC) object
+    //
+    var  WWHOutline = new WWHOutline_Object();
+
+    // Create new index object
+    //
+//    var  WWHIndex = new WWHIndex_Object();
+
+    // Create new search object
+    //
+//    var  WWHSearch = new WWHSearch_Object();
+
+    // Create new favorites object
+    //
+//    var  WWHFavorites = new WWHFavorites_Object();
+
+    // Create new history object
+    //
+//    var  WWHHistory = new WWHHistory_Object();
+
+    function  WWHFrame_HandleKeyDown(ParamEvent)
+    {
+      return WWHFrame.WWHHelp.fHandleKeyDown(ParamEvent);
+    }
+
+    function  WWHFrame_HandleKeyPress(ParamEvent)
+    {
+      return WWHFrame.WWHHelp.fHandleKeyPress(ParamEvent);
+    }
+
+    function  WWHFrame_HandleKeyUp(ParamEvent)
+    {
+      return WWHFrame.WWHHelp.fHandleKeyUp(ParamEvent);
+    }
+   // -->
+  </script>
+ </head>
+<!-- MGCRK added names to frames column was 300-->
+ <frameset cols="250,*" onLoad="WWHHelp.fInitStage(0);" onKeyDown="WWHFrame_HandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHFrame_HandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHFrame_HandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+  <frame name="MGCNavigate" src="navigate.htm" scrolling="no">
+  <frame name="MGCContent" src="../../common/html/content.htm" scrolling="auto">
+  <noframes>
+   <body>
+    <p>This page uses frames, but your browser doesn't support them.</p>
+   </body>
+  </noframes>
+ </frameset>
+</html>

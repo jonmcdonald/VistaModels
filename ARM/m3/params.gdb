@@ -8,14 +8,29 @@ tlm_timing_model = LT
 
 io_debug_enabled = 1
 
+Top.cpu_inst.PV.core.elf_image_file = base/base.axf
 Top.cpu_inst.PV.core.elf_image_file = CBwork/demo/Debug/demo
+Top.cpu_inst.PV.core.elf_image_file = CBwork/AEShw/Debug/AEShw
+Top.cpu_inst.PV.core.elf_image_file = CBwork/Vista-CM3/Debug/Vista-CM3
+
+Top.cpu_inst.PV.core.gdbstub_port = 0
 Top.cpu_inst.PV.core.gdbstub_port = 1234
 
-Top.bus_inst.s0_base_address = 0xFFFFFFFF
+Top.bus_inst.s0_base_address = 0xFFFFFFFFFFFFFFFF
 Top.bus_inst.s0_subtract_base_address = 0
 
 Top.bus_inst.s1_base_address = 0x40000000
 Top.bus_inst.s1_size         = 0x00000100
 
-Top.mem_inst.PageSize = 0x100000
+Top.bus_inst.s2_base_address = 0x40000100
+Top.bus_inst.s2_size         = 0x00000100
 
+Top.bus_inst.s3_base_address = 0x40000200
+Top.bus_inst.s3_size         = 0x00000100
+
+Top.mem_inst.size_in_bytes        = 0x100000000
+Top.mem_inst.mb_memory_chunk_size = 0x10000
+
+Top.extIn_inst.DriverFunction = simple
+Top.extIn_inst.WaitDist = constant 93
+Top.extIn_inst.NumberPackets = 100

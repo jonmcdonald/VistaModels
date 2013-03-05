@@ -1,0 +1,631 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:01:17 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Extracting Power &#151;  Toggle Rates Based Method</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(137);
+    // -->
+ </script>
+ 
+
+<!--96,134,137-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPExtracting Power &#151;  Toggle Rates Based Method"></a>
+
+<a name="wp134306"></a><h4 class="pHeading3">
+  
+
+
+Extracting Power &#151;  Toggle Rates Based Method
+  </h4>
+
+
+<!--ExtractingPower151ToggleRatesBasedMethod-->
+
+
+<a name="wp134307"></a><p class="pBody">
+A signal toggle rate is closely connected with the power consumed. If you know the capacitance and toggle rate of all the signals you know precisely the consumed power. Vista power approximates this by finding a (small) subset of the signals whose changing toggle rate through time represents the power behavior of the component. Vista Power toggle rates based learning method includes finding the most active signals of the component and learning the power, based on the toggle rates of a subset of the signals.
+</p>
+
+
+<a name="wp134344"></a><h6 class="pHTaskSubhead">
+  Power Learning Flow
+</h6>
+
+
+
+<a name="wp134346"></a>
+<ol start="1."><li class="LL1Seq">Create Vista RTL implemented model and setup input files (set of groups including VCD file + power dump file + DUT inside vcd file).</li></ol>
+<a name="wp134347"></a>
+<ol start="2."><li class="LL1Seq">Using Vista capabilities, extract most active signals from VCD input files. Based on the most active signals list, create a list of inputs signals to the learning engine.</li></ol>
+<a name="wp134348"></a>
+<ol start="3."><li class="LL1Seq">Run learning engine. As a result of learning procedure, get the decision tree and list of HDL signals, participating in learning. If the learning result is not acceptable, edit the list of the inputs signals and/or change the learning arguments and rerun the learning engine.</li></ol>
+<a name="wp134349"></a>
+<ol start="4."><li class="LL1Seq">Associate the HDL signals, participating in learning, with SystemC functional model ports.</li></ol>
+<a name="wp134350"></a>
+<ol start="5."><li class="LL1Seq">Generate code for the power model and add it to the project.</li></ol>
+<a name="wp134351"></a>
+<ol start="6."><li class="LL1Seq">Instantiate the power model in the design and bind its ports with the SystemC functional model ports.</li></ol><a name="MGCCIDPCreate Vista RTL Implemented Model "></a>
+
+<a name="wp134390"></a><h5 class="pHeading4">
+  <a name="MGCCIDMHELP_MODEL_RTL_POWER_INPUTS"></a>
+
+
+Create Vista RTL Implemented Model 
+</h5>
+
+
+
+<a name="wp134391"></a><p class="pBody">
+To create a Vista RTL implemented model, use the <span style=" font-weight: bold;">File &gt; New RTL impl model</span> menu item then set the input files in the Model dialog <span style=" font-weight: bold;">Extraction &gt; RTL power</span> <span style=" font-weight: bold;">inputs</span> tab sheet (<a href='javascript:oT("CRF","Chapter_Modeling_Phase42.html#wp134304");'>Figure&#160;7&#8209;37</a>) or use the tcl function <span class="cRequired">create_tlm_model</span> with the following arguments:
+</p>
+
+
+<a name="wp134392"></a><pre class="pCode">     -implementation-kind rtl </pre>
+
+
+<a name="wp134394"></a><pre class="pCode">     -rtl-power-inputs {{vcd file1 power dump file1 DUT1} {vcd file2 power dump<br />           file2 DUT2}&#0133;.  }</pre>
+
+
+<a name="wp134490"></a><pre class="pCode">     </pre>
+
+
+
+
+
+<a name="wp134304"></a><p class="pFigureTitle">
+Figure 7&#8209;37. 
+
+
+RTL Power Inputs
+
+
+</p>
+<div align="center"><img src="images/ModelDialog.png" id="wp134483" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp134495"></a><p class="pBody">
+The model is listed in the Viewer Browser.
+</p>
+
+<a name="MGCCIDPExtract Most Active Signals"></a>
+
+<a name="wp134501"></a><h5 class="pHeading4">
+  <a name="MGCCIDMHELP_GET_MOST_ACTIVE_SIGNALS"></a>
+
+
+Extract Most Active Signals
+</h5>
+
+
+
+<a name="wp134502"></a><p class="pBody">
+To extract the most active signals from the vcd inputs of the model, use the tcl API <span class="cRequired">get_most_active_signals</span> function as follows or select the model in the Vista browser then right-click and choose <span style=" font-weight: bold;">Get most active signals </span>(you will need to specify the signal top percent and if wires are to be included in the Most Active Signals dialog as shown in Fig2).
+</p>
+
+
+<a name="wp134503"></a><p class="pApplCmd">
+<span class="cRequired">get_most_active_signals</span> <span class="cReqRpl">library model</span> [-p top_percent] [ -w wires_included]
+</p>
+
+
+<a name="wp134603"></a><p class="pL1Body">where:</p>
+
+<a name="wp134617"></a><p class="pL1Body">top percent &#151;  percent of most active signals to use</p>
+
+<a name="wp134618"></a><p class="pL1Body">wires included off &#151;  most active signals list includes regs only</p>
+
+
+
+
+<a name="wp134591"></a><p class="pFigureTitle">
+Figure 7&#8209;38. 
+
+
+Most Active Signals Dialog Box
+
+
+</p>
+<div align="center"><img src="images/MoseActiveSignals.png" id="wp134596" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp134656"></a><p class="pBody">
+The following two files are created in the RTL Power sub-folder of the model:
+</p>
+
+
+<a name="wp134657"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">toggle_counts.txt </span>&#151;  read-only file which includes the toggle counts of all signals that have a non-zero toggle count in the vcd files (in accordance with the <span style=" font-style: italic;">wires included</span> argument)</li></ul>
+<a name="wp134658"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">allowed_signals.txt</span> &#151;  includes list of signals whose activity is an input of the power learning engine. Vista produces the initial contents of the file, which includes the top percent of signals that appear in the <span style=" font-style: italic;">toggle_counts.txt</span> file. You can edit the allowed signals list prior to learning.</li></ul><a name="MGCCIDPLearn Power HDL"></a>
+
+<a name="wp134739"></a><h5 class="pHeading4">
+  <a name="MGCCIDMHELP_LEARN_POWER_HDL"></a>
+
+
+Learn Power HDL
+</h5>
+
+
+
+<a name="wp134740"></a><p class="pBody">
+The learning engine can be invoked using the learn_power_hdl tcl API function as follows or by selecting the model in the Vista browser then right-clicking and choosing <span class="cRequired">Learn Power HDL</span> (you need to specify whether to use clustering, the maximum number of clusters, and accuracy required as shown in Fig3.
+</p>
+
+
+<a name="wp134814"></a><p class="pApplCmd">
+<span class="cRequired">learn_power_hdl</span> <span class="cReqRpl">library model</span> [-clustering_mode <span class="cRequired">no</span> | <span class="cReqRpl">maximum_clustersnumber</span>, <span class="cReqRpl">accuracy</span>] 
+</p>
+
+
+
+
+
+<a name="wp134654"></a><p class="pFigureTitle">
+Figure 7&#8209;39. 
+
+
+Learn Power HDL Dialog Box
+
+
+</p>
+<div align="center"><img src="images/LearnPowerHDLdialog.png" id="wp134824" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp134835"></a><p class="pBody">
+The following files are created:
+</p>
+
+
+<a name="wp134850"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">power_report.html</span> (read-only file) &#151;  contains the a learning report that includes the accuracy of learning and a decision tree that shows the dependence between the toggle rates of the most active signals and overall power values. If the accuracy is not acceptable, edit the inputs of learning (in particular, the <span style=" font-style: italic;">allowed_signals.txt</span> file) and/or change the clustering mode learning. </li></ul>
+<a name="wp134851"></a><p class="pL1Body">The Learning Report includes following sections:</p>
+
+<a name="wp134852"></a><ul><li class="LL2BulHollow">Title and Date of generation</li></ul>
+<a name="wp134853"></a><ul><li class="LL2BulHollow">List of RTL inputs (vcd file with point to DUT and Power Dump file table)</li></ul>
+<a name="wp134854"></a><ul><li class="LL2BulHollow">Case Count &#151;  number of segments, where the toggle rates were computed and, together with power values, were provided to the learning engine</li></ul>
+<a name="wp134855"></a><ul><li class="LL2BulHollow">Model Description &#151;  includes following sub-sections:</li></ul>
+<a name="wp134856"></a><ul><li class="LL3BulSolid">List of power values cluster centers</li></ul>
+<a name="wp134857"></a><ul><li class="LL3BulSolid">Decision Tree</li></ul>
+<a name="wp134939"></a><p class="pL3Body">The decision tree analysis is similar to the state base power decision tree analysis (see &ldquo;<a href='javascript:oT("CRF","Chapter_Modeling_Phase41.html#wp98673");'>Decision-Tree Analysis</a>&rdquo;), but the inputs of the decision tree are the toggle rates and not signal values.</p>
+
+<a name="wp134858"></a><p class="pL3Body">Example: </p>
+
+<a name="wp134859"></a><p class="pL3Body">dt(5) </p>
+
+<a name="wp134861"></a><pre class="pCodeIndent">
+              if &quot;TgR&lt;\state [1:0]&gt;&quot; min=0,max=100 [1797.000000] &lt; 100 <br />                    [662.000000]</pre>
+
+<a name="wp134863"></a><pre class="pCodeIndent">
+                  if &quot;TgR&lt;\state [1:0]&gt;&quot; min=0,max=50 [662.000000] &lt; 50<br />                    [208.000000]</pre>
+
+<a name="wp134865"></a><pre class="pCodeIndent">
+                 then &quot;22.495284&quot; [208.000000/34.000000] &gt;= 50 [454.000000]</pre>
+
+<a name="wp134869"></a><pre class="pCodeIndent">
+              then &quot;31.076564&quot; [1135.000000/482.000000]</pre>
+
+<a name="wp134870"></a><pre class="pCodeIndent">
+              </pre>
+
+<a name="wp134994"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp134871"></a><ul><li class="LL2BulSolid">Model Error &#151;  weighted average model error in mW </li></ul>
+<a name="wp134998"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">map_signals_2_sc.txt</span> &#151;  includes mapping between hdl signals that appeared in vcd files and SystemC ports that will appear in the power model. Vista generates the default mapping (the SystemC port name is TgR__<span class="cReqRpl">HDL port name</span>). You can edit the file prior to SystemC code generation, but do not change the HDL signals that appear in the file. </li></ul>
+<a name="wp134999"></a><p class="pL1Body">Example: </p>
+
+<a name="wp135046"></a><p class="pL1Body">If the activity of HDL signal state[1:0] is influent to power changes, the following line appears in the <span style=" font-style: italic;">default map_signals_2_sc.txt</span> file: </p>
+
+<a name="wp135000"></a><pre class="pCodeIndent">
+           {TgR \state [1:0]} TgR__state__1_0__ uint64</pre>
+
+<a name="wp135061"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp135002"></a><p class="pL1Body">The line indicates that the toggle rates of HDL signal state[1:0] will appear in the generated SystemC code as the TgR__state__1_0 SystemC port and the appropriate model port should be of type uint64.</p>
+<a name="MGCCIDPGenerate Code"></a>
+
+<a name="wp135089"></a><h5 class="pHeading4">
+  
+
+
+Generate Code
+</h5>
+
+
+
+<a name="wp135090"></a><p class="pBody">
+To generate SystemC code, right-click and choose <span style=" font-weight: bold;">Generate Code</span> or us the tcl API function: 
+</p>
+
+
+<a name="wp135091"></a><p class="pApplCmd">
+save_model <span class="cReqRpl">model-path </span>-generate
+</p>
+
+
+<a name="wp135092"></a><p class="pBody">
+The files <span class="cReqRpl">model_name</span><span style=" font-weight: regular; font-style: italic;">_power_model.cpp</span> and <span class="cReqRpl">model_name</span><span style=" font-weight: regular; font-style: italic;">_power_model.h</span> are created.
+</p>
+
+
+<a name="wp135093"></a><p class="pBody">
+The Power Model is a SystemC SC_MODULE that has ports which appear in the <span style=" font-style: italic;">map_signals_2_sc.txt</span> file. 
+</p>
+
+<a name="MGCCIDPUsing A Power Model in a Design"></a>
+
+<a name="wp135172"></a><h5 class="pHeading4">
+  
+
+
+Using A Power Model in a Design
+</h5>
+
+
+
+<a name="wp135173"></a><p class="pBody">
+After code generation, you must add the power model to the project in addition to the functional code. For example, if the functional code is located in files <span style=" font-style: italic;">dma_sc.h</span> and <span style=" font-style: italic;">dma_sc.cpp,</span> and the power learned model is DMA, both files <span style=" font-style: italic;">dma_sc.*</span> and the DMA model should be added to the project.
+</p>
+
+
+<a name="wp135176"></a><p class="pBody">
+The functional model should have SystemC ports (not just internal design variables) that behave the same as the HDL ports and signals that participate in learning. The power model ports should be bound with such ports. That is, in the module that instantiated the functional code, you must add instantiation of the power model and for each power model port, binding between the functional model port and power model port. It enables viewing of the power graph in the analysis window during the simulation. 
+</p>
+
+<a name="MGCCIDPExample of Usage of Power Model in a Design"></a>
+
+<a name="wp135236"></a><h6 class="pHeading5">
+  
+
+
+Example of Usage of Power Model in a Design
+</h6>
+
+
+
+<a name="wp135237"></a><p class="pBody">
+Sat that in the vcd file, the most active HDL signal is named &ldquo;state[1:0]&rdquo;.
+</p>
+
+
+<a name="wp135238"></a><p class="pBody">
+File <span style=" font-style: italic;">map_signals_2_sc.txt</span> includes the following mapping: 
+</p>
+
+
+<a name="wp135351"></a>
+<ul><li class="LL1BulSolid">Functional model <span style=" font-style: italic;">dma_sc.h</span> include port that behaves similar to HDL signal state[1:0]:</li></ul>
+<a name="wp135240"></a><pre class="pCodeIndent">
+           sc_inout &lt; unsigned long long &gt; State;</pre>
+
+<a name="wp135241"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp135242"></a>
+<ul><li class="LL1BulSolid">Generated power model includes appropriate port:</li></ul>
+<a name="wp135243"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp135244"></a><pre class="pCodeIndent">
+           class DMA_power_model: public sc_core::sc_module</pre>
+
+<a name="wp135245"></a><pre class="pCodeIndent">
+           {</pre>
+
+<a name="wp135246"></a><pre class="pCodeIndent">
+           public:</pre>
+
+<a name="wp135247"></a><pre class="pCodeIndent">
+           &#0133;&#0133;..</pre>
+
+<a name="wp135248"></a><pre class="pCodeIndent">
+             mb::rtl_power::toggle_attribute&lt; unsigned long long &gt; TgR__state__1_0__;</pre>
+
+<a name="wp135249"></a><pre class="pCodeIndent">
+           &#0133;.</pre>
+
+<a name="wp135250"></a><pre class="pCodeIndent">
+           };</pre>
+
+<a name="wp135251"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp135253"></a><p class="pBody">
+Say the dma functional model is instantiated in the SC_MODULE(top) (file <span style=" font-style: italic;">top_sc.h</span>), so inside SC_MODULE(top) you have the following code:
+</p>
+
+
+<a name="wp135254"></a><pre class="pCode">     #pragma once </pre>
+
+
+<a name="wp135255"></a><pre class="pCode">      </pre>
+
+
+<a name="wp135256"></a><pre class="pCode">     #include &quot;systemc.h&quot;</pre>
+
+
+<a name="wp135257"></a><pre class="pCode">     #include &quot;dma_sc.h&quot;</pre>
+
+
+<a name="wp135258"></a><pre class="pCode">     </pre>
+
+
+<a name="wp135259"></a><pre class="pCode">     &#0133;</pre>
+
+
+<a name="wp135260"></a><pre class="pCode">     SC_MODULE (top) {</pre>
+
+
+<a name="wp135261"></a><pre class="pCode">     &#0133;&#0133;.</pre>
+
+
+<a name="wp135262"></a><pre class="pCode">       dma    d;</pre>
+
+
+<a name="wp135263"></a><pre class="pCode">     &#0133;..</pre>
+
+
+<a name="wp135264"></a><pre class="pCode">       SC_CTOR(top) : &#0133; d(&quot;Dma&quot;)</pre>
+
+
+<a name="wp135265"></a><pre class="pCode">         {</pre>
+
+
+<a name="wp135266"></a><pre class="pCode">     &#0133;</pre>
+
+
+<a name="wp135267"></a><pre class="pCode">       }</pre>
+
+
+<a name="wp135268"></a><pre class="pCode">     };</pre>
+
+
+<a name="wp135269"></a><pre class="pCode">     </pre>
+
+
+<a name="wp135270"></a><p class="pBody">
+You need to add the power model instantiation there:
+</p>
+
+
+<a name="wp135273"></a><pre class="pCode">     #pragma once</pre>
+
+
+<a name="wp135274"></a><pre class="pCode">     </pre>
+
+
+<a name="wp135275"></a><pre class="pCode">     #include &quot;systemc.h&quot;</pre>
+
+
+<a name="wp135276"></a><pre class="pCode">     #include &quot;dma_sc.h&quot;</pre>
+
+
+<a name="wp135277"></a><pre class="pCode">     </pre>
+
+
+<a name="wp135278"></a><pre class="pCode">     #include &quot;DMA_power_model.h&quot;</pre>
+
+
+<a name="wp135279"></a><pre class="pCode">     </pre>
+
+
+<a name="wp135280"></a><pre class="pCode">     </pre>
+
+
+<a name="wp135281"></a><pre class="pCode">     </pre>
+
+
+<a name="wp135282"></a><pre class="pCode">     SC_MODULE (top) {</pre>
+
+
+<a name="wp135283"></a><pre class="pCode">     &#0133;.</pre>
+
+
+<a name="wp135284"></a><pre class="pCode">       dma    d;</pre>
+
+
+<a name="wp135285"></a><pre class="pCode">       DMA_power_model d_power;</pre>
+
+
+<a name="wp135286"></a><pre class="pCode">     &#0133;.</pre>
+
+
+<a name="wp135287"></a><pre class="pCode">       SC_CTOR(top) : &#0133; d(&quot;Dma&quot;),d_power ( &quot;dma_power&quot; )&#0133;.</pre>
+
+
+<a name="wp135288"></a><pre class="pCode">         {</pre>
+
+
+<a name="wp135289"></a><pre class="pCode">     &#0133;.</pre>
+
+
+<a name="wp135290"></a><pre class="pCode">         d.State ( d_power.TgR__state__1_0__ ); // bind functional model port with the appropriate power model port</pre>
+
+
+<a name="wp135291"></a><pre class="pCode">     &#0133;.</pre>
+
+
+<a name="wp135292"></a><pre class="pCode">       }</pre>
+
+
+<a name="wp135293"></a><pre class="pCode">     };</pre>
+
+
+<a name="wp135294"></a><pre class="pCode">     </pre>
+
+<a name="MGCCIDPSetting Sampling Interval"></a>
+
+<a name="wp141903"></a><h6 class="pHeading5">
+  Setting Sampling Interval
+</h6>
+
+
+
+<a name="wp141920"></a><p class="pBody">
+The sampling interval is the minimal time interval used to compute the toggle rate. The default sampling interval is 1 US. To set the sampling interval, use the simulation parameter power_sampling_interval, which is defined in the parameters file as follows:
+</p>
+
+
+<a name="wp141922"></a><pre class="pCode">     <span class="cReqRpl">path to design top</span>.<span class="cReqRpl">power model instantiation name</span>.power_sampling_interval </pre>
+
+
+<a name="wp141966"></a><pre class="pCode">        = <span class="cReqRpl">time interval value</span></pre>
+
+
+<a name="wp141969"></a><pre class="pCode">     </pre>
+
+
+<a name="wp141924"></a><p class="pBody">
+For example,
+</p>
+
+
+<a name="wp141926"></a><pre class="pCode">     top.dma_power.power_sampling_interval = 20 ns</pre>
+
+<a name="MGCCIDPSimulation of Power Model Outside of Vista"></a>
+
+<a name="wp135396"></a><h5 class="pHeading4">
+  
+
+
+Simulation of Power Model Outside of Vista
+</h5>
+
+
+
+<a name="wp135397"></a><p class="pBody">
+The same as for a state based non-TLM power model, you can create a power model inside Vista and simulate it outside of Vista. In addition to the requirements listed in &ldquo;<a href='javascript:oT("CRF","Chapter_Modeling_Phase42.html#wp135172");'>Using A Power Model in a Design</a>&rdquo;, you need to declare callback functions and update the makefile for the project: 
+</p>
+
+
+<a name="wp135398"></a><p class="pBody">
+The following callback functions should be declared:
+</p>
+
+
+<a name="wp135399"></a><pre class="pCode">     Void _power_model_user_evaluate ( double power, sc_core::sc_time time) </pre>
+
+
+<a name="wp135400"></a><pre class="pCode">     Sc_core::sc_time get_power_sampling_interval () </pre>
+
+
+<a name="wp135431"></a><pre class="pCode">     </pre>
+
+
+<a name="wp135401"></a><p class="pBody">
+The following options should be added to the makefile: 
+</p>
+
+
+<a name="wp135402"></a><p class="pL1Body">On compilation of gcc:</p>
+
+<a name="wp135403"></a><pre class="pCodeIndent">
+           -DVISTA_POWER_EXT_MODEL -I <span class="cReqRpl">vista_istallation</span>/papoulis/include <br />              -I <span class="cReqRpl">vista_istallation</span>/papoulis/include/mb_include</pre>
+
+<a name="wp135452"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp135404"></a><p class="pL1Body">On link:</p>
+
+<a name="wp135405"></a><pre class="pCode">     <span class="cReqRpl">vista_istallation</span>/papoulis/<span class="cReqRpl">arch</span>/libst.esl.library.so  <br />     <span class="cReqRpl">vista_istallation</span>/papoulis/<span class="cReqRpl">arch</span>/<span class="cReqRpl">vista-gcc-sc-version</span>/esl.sc_sim.a</pre>
+
+
+<a name="wp135509"></a><pre class="pCode">     <span class="cReqRpl">vista-gcc-sc-version</span> - ex., vista_gcc34_sc22</pre>
+
+
+<a name="wp135485"></a><pre class="pCode">     </pre>
+
+
+<a name="wp135486"></a><p class="pL2Body">Where:</p>
+
+<a name="wp135406"></a><p class="pL2Body"><span class="cReqRpl">arch</span> is linux32 or linux64</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Extracting Power &#151;  Toggle Rates Based Method";
+   PDFLinkTitle = "Extracting.Power...Toggle.Rates.Based.Method"
+   ThisTopic = "SimulationofPowerModelOutsideofVista";
+   CurrentFile = "Chapter_Modeling_Phase42.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

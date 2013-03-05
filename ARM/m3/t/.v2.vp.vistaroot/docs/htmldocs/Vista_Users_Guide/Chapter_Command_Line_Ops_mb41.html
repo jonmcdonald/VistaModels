@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:07:38 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>run_external_command</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(456);
+    // -->
+ </script>
+ 
+
+<!--416,420,456-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPrun_external_command"></a>
+
+<a name="wp18163"></a><p class="pzCmdFunc">
+
+
+
+run_external_command
+</p>
+
+
+
+
+<a name="wp26157"></a><p class="pzMiscInfo">
+Executes shell commands in a Vista Power script or prompt.
+</p>
+
+
+<a name="wp26158"></a><h6 class="pzHeading">
+  Syntax
+  </h6>
+
+
+<a name="wp18484"></a><p class="pzUsage">
+run_external_command [-h | -help] [-usage] [{-e | -env} <span class="cOptRpl">env</span>] [{-o | -output-path} <span class="cOptRpl">output_path</span>] <br />[{-r | -rand-seed} <span class="cOptRpl">rand_seed</span>] [{-s | -sources} <span class="cOptRpl">sources</span>] <span class="cReqRpl">command</span>
+</p>
+
+
+<a name="wp23823"></a><h6 class="pzHeading">
+  Arguments
+  </h6>
+
+
+<a name="wp35413"></a><h6 class="pzHeading2">
+  Common (Optional)
+</h6>
+
+
+
+<a name="wp31313"></a><ul class="ulSmSpace"><li class="LLzptArg">[-h | -help]</li></ul>
+
+
+<a name="wp31314"></a><div class="LLzArgDesc">Provides help.</div>
+<a name="wp31315"></a><ul class="ulSmSpace"><li class="LLzptArg">[-usage] </li></ul>
+
+
+<a name="wp31316"></a><div class="LLzArgDesc">Displays the syntax for this command.</div>
+<a name="wp35423"></a><h6 class="pzHeading2">
+  Optional
+</h6>
+
+
+
+<a name="wp31383"></a><ul class="ulSmSpace"><li class="LLzptArg">[{-e | -env} <span class="cOptRpl">env</span>]</li></ul>
+
+
+<a name="wp31384"></a><div class="LLzArgDesc">Environment variables (e.g. -env VISTA_SYSTEMC=1).</div>
+<a name="wp31398"></a><ul class="ulSmSpace"><li class="LLzptArg">[{-o | -output-path} <span class="cOptRpl">output_path</span>]</li></ul>
+
+
+<a name="wp31399"></a><div class="LLzArgDesc">Target output path.</div>
+<a name="wp31412"></a><ul class="ulSmSpace"><li class="LLzptArg">[{-r | -rand-seed} <span class="cOptRpl">rand_seed</span>]</li></ul>
+
+
+<a name="wp31413"></a><div class="LLzArgDesc">Select seed for random sequence.</div>
+<a name="wp31426"></a><ul class="ulSmSpace"><li class="LLzptArg">[{-s | -sources} <span class="cOptRpl">sources</span>]</li></ul>
+
+
+<a name="wp31427"></a><div class="LLzArgDesc">Optional list of source files (used internally for regressions).</div>
+<a name="wp35439"></a><h6 class="pzHeading2">
+  Required
+</h6>
+
+
+
+<a name="wp26216"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">command</span></li></ul>
+
+
+<a name="wp31430"></a><div class="LLzArgDesc">The command to be executed.</div>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "run_external_command";
+   PDFLinkTitle = "runexternalcommand"
+   ThisTopic = "runexternalcommand";
+   CurrentFile = "Chapter_Command_Line_Ops_mb41.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

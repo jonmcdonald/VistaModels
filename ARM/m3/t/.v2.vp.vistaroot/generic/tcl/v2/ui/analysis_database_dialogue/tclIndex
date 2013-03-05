@@ -1,0 +1,7 @@
+set auto_index(::v2::ui::analysis_database_dialogue::AnalysisDatabaseDialogue) [list summit_add_tclindex v2/ui/analysis_database_dialogue/AnalysisDatabaseDialogue.tcl]
+set auto_index(::v2::ui::analysis_database_dialogue::AnalysisDatabaseDialogue::create_body) [list summit_add_tclindex v2/ui/analysis_database_dialogue/AnalysisDatabaseDialogue.tcl]
+set auto_index(::v2::ui::analysis_database_dialogue::AnalysisDatabaseDialogue::create_buttons) [list summit_add_tclindex v2/ui/analysis_database_dialogue/AnalysisDatabaseDialogue.tcl]
+set auto_index(::v2::ui::analysis_database_dialogue::AnalysisDatabaseDialogue::FinishCommand) [list summit_add_tclindex v2/ui/analysis_database_dialogue/AnalysisDatabaseDialogue.tcl]
+set auto_index(::v2::ui::analysis_database_dialogue::AnalysisDatabaseDialogue::onDelete) [list summit_add_tclindex v2/ui/analysis_database_dialogue/AnalysisDatabaseDialogue.tcl]
+set auto_index(::v2::ui::analysis_database_dialogue::AnalysisDatabaseDialogue::set_geometry) [list summit_add_tclindex v2/ui/analysis_database_dialogue/AnalysisDatabaseDialogue.tcl]
+set auto_index(::v2::ui::analysis_database_dialogue::AnalysisDatabaseDialogue::AbortDatabaseCreationCommand) [list summit_add_tclindex v2/ui/analysis_database_dialogue/AnalysisDatabaseDialogue.tcl]

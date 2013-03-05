@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:02:48 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Memory</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(165);
+    // -->
+ </script>
+ 
+
+<!--154,155,165-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPMemory"></a>
+
+<a name="wp19117"></a><h4 class="pHeading3">
+  
+
+
+Memory
+  </h4>
+
+
+<!--Memory-->
+
+
+<a name="wp21814"></a><p class="pBody">
+Memory size is defined using the size_in_bytes parameter. Memory endianness is defined using the endianness parameter whose value can be: host, little, or big.
+</p>
+
+
+<a name="wp19121"></a><p class="pBody">
+The memory model stores and retrieves the data by itself; there is no need for additional code. However, two callback functions are created for incoming Read or Write transactions that can be used to further define behavior, or for debugging purposes. The address chunk or page is not allocated until the address is written, a read of an unallocated address always return zeros without allocating the chunk.
+</p>
+
+
+<a name="wp137523"></a><p class="pBody">
+In addition the following parameters can be used:
+</p>
+
+
+<a name="wp137524"></a>
+<ul><li class="LL1BulSolid">disable_dmi_memory &#151;  when not zero, memory does not have a direct memory pointer; default is 0 </li></ul>
+<a name="wp137525"></a>
+<ul><li class="LL1BulSolid">mb_memory_chunk_size &#151;  By default, the memory chunk size is 0x100000 (1 M); if a transaction in the design has a data length greater than the memory chunk size then a DMI pointer is not returned.</li></ul>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Memory";
+   PDFLinkTitle = "Memory"
+   ThisTopic = "Memory";
+   CurrentFile = "Chapter_Customizing_Gen_Models_new12.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

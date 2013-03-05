@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:01:17 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Transaction Callbacks and Scheduling Functions</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(142);
+    // -->
+ </script>
+ 
+
+<!--96,141,142-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPTransaction Callbacks and Scheduling Functions"></a>
+
+<a name="wp42326"></a><h4 class="pHeading3">
+  
+
+
+Transaction Callbacks and Scheduling Functions
+  </h4>
+
+
+<!--TransactionCallbacksandSchedulingFunctions-->
+
+
+<a name="wp42327"></a><p class="pBody">
+For each <span style=" font-weight: bold;">port</span>, whether master or slave, the following callback is called when a transaction starts or ends:
+</p>
+
+
+<a name="wp42328"></a><pre class="pCode">     accept_&lt;protocol&gt;_&lt;transaction&gt; (long port_index, signed long long time, ..., &lt;type&gt; &lt;parameter_i&gt;, ...)</pre>
+
+
+<a name="wp42329"></a><pre class="pCode">     </pre>
+
+
+<a name="wp42330"></a><pre class="pCode">     end_&lt;protocol&gt;_&lt;transaction&gt; (long port_index, signed long long time, ..., &lt;type&gt; &lt;parameter_i&gt;, ...)</pre>
+
+
+<a name="wp42331"></a><pre class="pCode">     </pre>
+
+
+<a name="wp42332"></a><p class="pBody">
+where:<span style=" font-weight: bold;"> </span>
+</p>
+
+
+<a name="wp42333"></a>
+<ul><li class="LL1BulSolid"><span class="cRequired">portIndex</span><span style=" font-weight: bold;"> </span>is a port enumeration value (as defined in <span style=" font-weight: bold; font-style: italic;">&lt;ModuleName&gt;_model.h)</span></li></ul>
+<a name="wp42334"></a>
+<ul><li class="LL1BulSolid"><span class="cRequired">time</span> is the actual simulation time</li></ul>
+<a name="wp42335"></a>
+<ul><li class="LL1BulSolid"><span class="cRequired">parameter_i</span> is a parameter in the transaction (as defined in the Verilog protocol definition).</li></ul>
+<a name="wp42336"></a><p class="pBody">
+For each <span style=" font-weight: bold;">initiator port</span>, the following scheduling function is provided:
+</p>
+
+
+<a name="wp42337"></a><pre class="pCode">     Schedule_protocol_transaction (long port_index, signed long long delay, ..., type parameter_i, ...)</pre>
+
+
+<a name="wp42338"></a><pre class="pCode">     </pre>
+
+
+<a name="wp42339"></a><p class="pBody">
+The following is an example of using the above callbacks in order to initiate a non-blocking burst Write on <span style=" font-weight: bold;">ahb_master_port</span> when a WRITE transaction in a slave port is terminated:
+</p>
+
+
+<a name="wp42340"></a><pre class="pCode">     void <span style=" font-weight: bold;">USB_t::end_ahb_slave_WRITE</span>(long <span style=" font-weight: bold;">port_index</span>, signed long long <span style=" font-weight: bold;">time</span>, long <span style=" font-weight: bold;">HADDR</span>, long* <span style=" font-weight: bold;">HWDATA</span>, long <span style=" font-weight: bold;">HSIZE</span>) {</pre>
+
+
+<a name="wp42341"></a><pre class="pCodeIndent">
+           printf(&quot;WRITE_TRANSACTION terminated\n&quot;);</pre>
+
+<a name="wp42342"></a><pre class="pCodeIndent">
+           long* mydata = new long[2]</pre>
+
+<a name="wp42343"></a><pre class="pCodeIndent">
+           transaction_power power (0.1, 0.01, 10);</pre>
+
+<a name="wp42344"></a><pre class="pCodeIndent">
+           schedule_ahb_master_WRITE(<span style=" font-weight: bold;">ahb_master_port</span>, 10, 2, power, myData, 2, 2, 0);</pre>
+
+<a name="wp42345"></a><pre class="pCode">     }</pre>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Transaction Callbacks and Scheduling Functions";
+   PDFLinkTitle = "Transaction.Callbacks.and.Scheduling.Functions"
+   ThisTopic = "TransactionCallbacksandSchedulingFunctions";
+   CurrentFile = "Chapter_Modeling_Phase47.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

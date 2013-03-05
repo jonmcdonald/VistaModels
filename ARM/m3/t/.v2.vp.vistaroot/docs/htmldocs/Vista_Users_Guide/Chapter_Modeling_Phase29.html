@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:01:17 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Modeling Timing and Power (T)</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(124);
+    // -->
+ </script>
+ 
+
+<!--96,124,0-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPModeling Timing and Power (T)"></a>
+
+<a name="wp22522"></a><h3 class="pHeading2">
+  
+
+
+Modeling Timing and Power (T)
+  </h3>
+
+
+
+<a name="wp14769"></a><p class="pBody">
+This key step in the modeling workflow, described in detail in the following sections, is where performance (timing and power) are incorporated to complete the comprehensive TLM design solution. To generate the model with this <span style=" font-weight: bold;">T</span> component, see <a href='javascript:oT("CRF","Chapter_Modeling_Phase43.html");'>&quot;Generating a Model&quot;</a>.
+</p>
+
+
+<a name="wp40532"></a><p class="pBody">
+Timing and power <span style=" font-style: italic;">Policies</span> are used to manually define performance in a top-down manner, when no HDL is available. Use of policies is a powerful mechanism for defining complex timing in an intuitive way, as the policies provide accurate reflections of various timing architectures: pipelining, concurrency, latencies.
+</p>
+
+
+<a name="wp43048"></a><p class="pBody">
+The policies are defined using the concept of PV events. PV events include the following: read/write transactions on master / slave ports and read/write operations on model builder registers and PV variables.
+</p>
+
+
+<a name="wp58491"></a><p class="pBody">
+The policies timing is defined relative to clocks. The PV or T code can change the timing and power consumed by the policies by calling the following functions: 
+</p>
+
+
+<a name="wp58492"></a><pre class="pCode">     void set_internal_clock(config::uint64 clock); \\ The internal clock of the model.</pre>
+
+
+<a name="wp58493"></a><pre class="pCode">     void set_clock(unsigned port_index, config::uint64 clock); \\ The clock of the port.</pre>
+
+
+<a name="wp58515"></a><pre class="pCode">     </pre>
+
+
+<a name="wp58495"></a><p class="pBody">
+The following is an example of the use of such a call:
+</p>
+
+
+<a name="wp58496"></a><pre class="pCode">     void cb_write_clock_freq(unsigned int newValue) </pre>
+
+
+<a name="wp58525"></a><pre class="pCodeIndent">
+           {</pre>
+
+<a name="wp58497"></a><pre class="pCodeIndent">
+             set_internal_clock ( newValue ) ;</pre>
+
+<a name="wp58498"></a><pre class="pCodeIndent">
+             // Modeling an internal power controller that changes the clock frequency upon SW command</pre>
+
+<a name="wp58532"></a><pre class="pCodeIndent">
+           }</pre>
+
+<a name="wp58533"></a><pre class="pCodeIndent">
+           </pre>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Modeling Timing and Power (T)";
+   PDFLinkTitle = "Modeling.Timing.and.Power.T"
+   ThisTopic = "ModelingTimingandPowerT";
+   CurrentFile = "Chapter_Modeling_Phase29.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

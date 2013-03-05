@@ -1,0 +1,1 @@
+set auto_index(bgerror) [list summit_add_tclindex v2/ui/profiling/main.tcl]

@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:02:48 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Core Creation Flow</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(204);
+    // -->
+ </script>
+ 
+
+<!--154,204,204-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPCore Creation Flow"></a>
+
+<a name="wp34156"></a><h3 class="pHeading2">
+  
+
+
+Core Creation Flow
+  </h3>
+
+
+<a name="MGCCIDPCortex A9 Based System - Formation Flow"></a>
+
+<a name="wp34159"></a><h4 class="pHeading3">
+  
+
+
+Cortex A9 Based System - Formation Flow
+  </h4>
+
+
+<!--CortexA9BasedSystemFormationFlow-->
+
+
+<a name="wp28161"></a><p class="pBody">
+The instantiation of a QEMU processor model within Vista is quite straight forward, and consists of the following steps: 
+</p>
+
+
+<a name="wp28162"></a>
+<ol start="1."><li class="LL1Seq">Launch Vista.</li></ol>
+<a name="wp28163"></a>
+<ol start="2."><li class="LL1Seq">Open an existing project or create a new one.</li></ol>
+<a name="wp28164"></a>
+<ol start="3."><li class="LL1Seq">Select the relevant processor under the Generic Library/Cores hierarchy, double click the cortex-a9mp processor.</li></ol>
+
+
+
+<a name="wp28168"></a><p class="pFigureTitle">
+Figure 8&#8209;10. 
+
+
+QEMU Processors Models
+
+
+</p>
+<div align="center"><img src="images/QEMUProcessorsModels.gif" id="wp30996" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp33790"></a>
+<ol start="4."><li class="LL1Seq">The &ldquo;<span style=" font-style: italic;">Configure Model</span>&rdquo; and <span style=" font-style: italic;">A9</span> model dialogs open. Setting the generic parameters in the &ldquo;<span style=" font-style: italic;">Configure Model</span>&rdquo; will update the corresponding ports, parameters and registers in the model dialog. E.G.: &ldquo;<span style=" font-style: italic;">NUM_SPI</span>&rdquo; will set the number of &ldquo;<span style=" font-style: italic;">irq</span>&rdquo; (interrupts) ports in the model.</li></ol>
+<a name="wp137725"></a><p class="pBodyRelative">
+
+
+
+</p>
+<div align="center"><img src="images/ConfigureModel.gif" id="wp33801" border="0" hspace="0" vspace="0"/></div><p class="pBodyRelative">
+
+
+
+
+
+</p>
+
+
+
+
+
+<a name="wp33796"></a><p class="pFigureTitle">
+Figure 8&#8209;11. 
+
+
+Cortex-a9mp Dialog
+
+
+</p>
+<div align="center"><img src="images/CortexM3Dialog.gif" id="wp33794" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp33797"></a>
+<ol start="5."><li class="LL1Seq">Update from Template.
+
+
+
+<div align="center"><img src="images/updateFromTemplate.gif" id="wp33836" border="0" hspace="0" vspace="0"/></div>
+
+
+
+
+</li></ol>
+<a name="wp33807"></a><p class="pL1Body">In case of the model being incorrectly modified, you can re-configure it through the Update from Template dialog. To open the Update from Template dialog, click the <span style=" font-weight: bold;">Update tables from template</span> icon from the toolbar.</p>
+
+<a name="wp125963"></a><p class="pBodyRelative">
+
+
+
+</p>
+<div align="center"><img src="images/updateFromTemplateDLG.gif" id="wp33839" border="0" hspace="0" vspace="0"/></div><p class="pBodyRelative">
+
+
+
+
+
+</p>
+
+
+<a name="wp94539"></a>
+<ol start="6."><li class="LL1Seq">Save and generate the model.</li></ol>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Core Creation Flow";
+   PDFLinkTitle = "Core.Creation.Flow"
+   ThisTopic = "FIGURECortexa9mpDialog";
+   CurrentFile = "Chapter_Customizing_Gen_Models_new51.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

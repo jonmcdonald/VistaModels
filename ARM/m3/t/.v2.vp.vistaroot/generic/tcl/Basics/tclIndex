@@ -1,0 +1,1 @@
+set auto_index(::Basics::build_tclIndex) [list summit_add_tclindex Basics/build_tclIndex.tcl]

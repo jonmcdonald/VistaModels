@@ -1,0 +1,44 @@
+/* XPM */
+static char *add_msg[] = {
+/* columns rows colors chars-per-pixel */
+"19 18 13 1",
+"  c black",
+". c #808080",
+"X c #C0C0C0",
+"$ c #ffb66a",
+"# c #ff6100",
+"@ c #ff0010",
+"% c #afd1ed",
+"U c #00344a",
+"K c #000080",
+"R c #009d73",
+"+ c #00d26a",
+"& c None",
+"o c gray100",
+/* pixels */
+"ooooooooooooooooooX",
+"o                 .",
+"o XXX XXXXXXXXXXX .",
+"o XXX XXXXXXXXXXX .",
+"o XXX XXXXXXXXXXX .",
+"o XXX XXXXXXXXXXX .",
+"o XXX XXXXXXXXXXX .",
+"o XXX XXXXXXXXXXX .",
+"o XXX XXXXXXXXXXX .",
+"o XXX XXXXXXXXXXX .",
+"o XXX XXXXXXXXXXX .",
+"o                 .",
+"o &&&&&KKKK&&&&&o .",
+"o $#&&&K%%K&&+RUo .",
+"o $#@KKK%%KKU+RUo .",
+"o @@&&&K%%K&&UUUo .",
+"o &&&&&KKKK&&&&&  .",
+"X.................."
+};
+
+
+
+
+
+
+

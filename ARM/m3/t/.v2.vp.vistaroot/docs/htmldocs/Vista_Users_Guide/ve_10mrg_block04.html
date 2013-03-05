@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:04:35 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Object Attributes</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(227);
+    // -->
+ </script>
+ 
+
+<!--224,225,227-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPObject Attributes"></a>
+
+<a name="wp41178"></a><h4 class="pHeading3">
+  
+
+
+Object Attributes
+  </h4>
+
+
+<!--ObjectAttributes-->
+
+
+<a name="wp41179"></a><p class="pBody">
+Each graphical object can be further refined using the &ldquo;Attribute&rdquo; dialog. As described below, each object type has its own attributes that you can configure in order to define detailed design specifications.
+</p>
+
+<a name="MGCCIDPComponent Attributes"></a>
+
+<a name="wp42025"></a><h5 class="pHeading4">
+  
+
+
+Component Attributes
+</h5>
+
+
+
+<a name="wp41364"></a><p class="pBody">
+Component attributes are general attributes for all components.
+</p>
+
+
+<a name="wp41365"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Name</span>: Instance specific name of the design unit</li></ul>
+<a name="wp41366"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Visible</span>: Mark this check box to make the Instance name visible.</li></ul>
+<a name="wp41367"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Create Instantiation as</span>: Select either &ldquo;Class pointer&rdquo; creating a pointer to the instance or &ldquo;Class object&rdquo; to create an object of the instance.</li></ul><a name="MGCCIDPComponent Pin Attributes"></a>
+
+<a name="wp42003"></a><h5 class="pHeading4">
+  
+
+
+Component Pin Attributes
+</h5>
+
+
+
+<a name="wp42004"></a><p class="pBody">
+The Attributes dialog also displays the attributes of the selected pin (port) of a component. 
+</p>
+
+
+<a name="wp42005"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Name</span>: The name assigned to the pin.</li></ul>
+<a name="wp42007"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Port Class</span>: The name of the class, as defined for the port/socket</li></ul>
+<a name="wp42009"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Data Type</span>: The data type class name of the channel</li></ul>
+<a name="wp42011"></a>
+<ul><li class="LL1BulSolid">Expression fields: These fields allow you to associate a valid expression that is applicable to the instantiating unit with a selected pin. </li></ul>
+<a name="wp42013"></a><p class="pL1Body">Note that a pin associated with an expression cannot be connected to a signal in the block diagram. Conversely, a pin already connected to a signal cannot be associated with an expression. </p>
+
+<a name="wp42014"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Associate expression</span>: Mark this check box if you want to associate an expression with the selected pin.</li></ul>
+<a name="wp42055"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Expression</span>: Enter the expression to be associated with the pin.</li></ul>
+<a name="wp42056"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Visible</span>: Mark this check box if you want the associated expression to appear in the block diagram.</li></ul>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Object Attributes";
+   PDFLinkTitle = "Object.Attributes"
+   ThisTopic = "ComponentPinAttributes99VistaWorkflow";
+   CurrentFile = "ve_10mrg_block04.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

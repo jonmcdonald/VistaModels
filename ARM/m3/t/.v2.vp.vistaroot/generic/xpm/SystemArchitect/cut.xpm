@@ -1,0 +1,34 @@
+/* XPM */
+/*sccsid = "@(#)sccs get -r14.1 /home/hdldraw/sccs/VisualElite/runtime/tcl/GUI/Images/s.cut.xpm"*/
+static char *magick[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 11 1",
+"  c Gray75",
+". c Gray0",
+"X c #fdfd8b",
+"o c #8d8d8d",
+"O c #ffff66",
+"+ c #efe740",
+"@ c #e2db46",
+"# c #e2dc1f",
+"$ c #c8c41b",
+"% c #dfc013",
+"& c #d8c801",
+/* pixels */
+"                ",
+"    .   .       ",
+"    .X  .X      ",
+"    .Xo .Xo     ",
+"    ..o..Xo     ",
+"     .X.XXo     ",
+"     ...Xo      ",
+"      .OOo      ",
+"     ...o       ",
+"     .+...      ",
+"   ...@.@@.     ",
+"  . @.@.@o.@    ",
+"  .#o.#.# .#o   ",
+"  .$o.$o.. $o   ",
+"   ..o%o %%o    ",
+"    &&o  oo     "
+};

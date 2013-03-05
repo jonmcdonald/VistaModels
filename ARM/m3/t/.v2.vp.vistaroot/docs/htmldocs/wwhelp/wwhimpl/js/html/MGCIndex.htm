@@ -1,0 +1,534 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+ <!-- Copyright (c) 2000-2003 Quadralay Corporation.  All rights reserved. -->
+ <head>
+  <meta http-equiv="content-type" content="text/html">
+  <meta http-equiv="charset"      content="UTF-8">
+  <title>MGCIndex.htm</title>
+    <script type="text/javascript" language="JavaScript1.2" src="../../js/scripts/wwhpagef.js"></script>
+    <link rel="stylesheet" href="./document.css" type="text/css" />
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent.parent");
+	document.write(MGCWWGenerateNavStyle());
+	document.write(MGCWWGetDocumentStyleSheet(4));
+	document.write(MGCWWGetPGFStyleSheet(4));
+//MGCRK - load Index & paragraph data for the selected books
+//
+    WWHFrame.mLParatext = new Object();
+    WWHFrame.mIndexList = new Array;
+    WWHFrame.mMGCBooklist = new Array;
+    switch (WWHFrame.MySearchPrefs)
+    {
+//       case "DOC": WWHFrame.mMGCBooklist[0][1] = WWHFrame.mHandle; break;
+       case "LIB": WWHFrame.mMGCBooklist = WWHFrame.mLibraryList; break;
+       case "IHUB": WWHFrame.mMGCBooklist = WWHFrame.ihubDList; break;
+       case "MYDOCS": WWHFrame.mMGCBooklist = WWHFrame.mMyDocsList; break;
+       default: WWHFrame.mMGCBooklist = WWHFrame.mLibraryList;
+    }
+    if (WWHFrame.MySearchPrefs != "DOC")
+    {
+       for (MaxIndex = WWHFrame.mMGCBooklist.length, Index = 0 ; Index < MaxIndex ; Index++)
+       {
+          // Get the title for this handle
+//          WWHFrame.IXDocTitleID = Index;
+//          document.write("<br>Loading data for : " + WWHFrame.mMGCBooklist[Index][1]);
+          if (WWHFrame.LastIndexLetter != "symbols")
+          {
+          letterFile = "<script language=\"JavaScript1.2\" src=\"../../../../" + WWHFrame.mMGCBooklist[Index][1] + "/wwhdata/js/Index/ix_" + WWHFrame.LastIndexLetter + "\.js\"\>\<\/script\>\n";
+          }
+          else
+          {
+             letterFile = "<script language=\"JavaScript1.2\" src=\"../../../../" + WWHFrame.mMGCBooklist[Index][1] + "/wwhdata/js/Index/ix_misc\.js\"\>\<\/script\>\n";
+          }
+          paraFile = "<script language=\"JavaScript1.2\" src=\"../../../../" + WWHFrame.mMGCBooklist[Index][1] + "/wwhdata/common/ParaTxt2.js\"\>\<\/script\>\n";
+          document.write(letterFile);
+          document.write(paraFile);
+       }
+     }
+     else
+     {
+        if (WWHFrame.LastIndexLetter != "symbols")
+        {
+           letterFile = "<script language=\"JavaScript1.2\" src=\"../../../../" + WWHFrame.mHandle + "/wwhdata/js/Index/ix_" + WWHFrame.LastIndexLetter + "\.js\"\>\<\/script\>\n";
+        }
+        else
+        {
+           letterFile = "<script language=\"JavaScript1.2\" src=\"../../../../" + WWHFrame.mHandle + "/wwhdata/js/Index/ix_misc.js\"\>\<\/script\>\n";
+        }
+        paraFile = "<script language=\"JavaScript1.2\" src=\"../../../../" + WWHFrame.mHandle + "/wwhdata/common/ParaTxt2.js\"\>\<\/script\>\n";
+        document.write(letterFile);
+        document.write(paraFile);
+     }
+
+
+	// FUNCTIONS
+	//
+    function byName(a, b)
+    {
+       var anew = a[1].toLowerCase();
+       var bnew = b[1].toLowerCase();
+       if (anew < bnew) return -1;
+       if (anew > bnew) return 1;
+       return 0;
+    }
+    // MGCSD - Fixed byTitle to sort first by title, then by name (if same title)
+    function byTitle(a, b)
+    {
+       var aTitle = a[0];
+       var bTitle = b[0];
+       if (aTitle < bTitle) return -1;
+       if (aTitle > bTitle) return 1;
+       // same title, sort by name
+       var aName = a[1].toLowerCase();
+       var bName = b[1].toLowerCase();
+       if (aName < bName) return -1;
+       if (aName > bName) return 1;
+       return 0;
+    }
+    function ixD(tag)
+    {
+        WWHFrame.MGCContent.MGCDocContent.location = "../../../../" + tag;
+    }
+    // toggles show/hide of sub index items (secondary or tertiary)
+	function ixT(id)
+    {
+    	var div = document.getElementById("ix"+id);
+    	var icon = document.getElementById("ixicon"+id);
+    	if ( typeof div == "undefined" ) return;
+    	if ( typeof icon == "undefined" ) return;
+    	var disp = div.style.display;
+    	if ( disp == "block" ) {
+    	   div.style.display = "none";
+    	   icon.innerHTML = "<img src=\"../../common/images/plus.png\" class=\"MGCIXIcon\">";
+    	} else {
+    	   div.style.display = "block";
+    	   icon.innerHTML = "<img src=\"../../common/images/minus.png\" class=\"MGCIXIcon\">";
+    	}
+    }
+
+
+
+        function GetIXPTextID(Context,File)
+        {
+           if (Context == "a") { return "NOT FOUND"; }
+           File = File.replace(".html","")
+//           File = File + ".html";
+           for (MMx = WWHFrame.mLParatext[Context].length, Ix = 0 ; Ix < MMx ; Ix++)
+           {
+              if ( WWHFrame.mLParatext[Context][Ix][0] == File )
+              { return WWHFrame.mLParatext[Context][Ix][1] + " ..."; }
+           }
+           return "NOT FOUND";
+        }
+
+
+
+
+
+	function GetTitleID(Title)
+	{
+		for (MMaxIx = WWHFrame.mMGCBooklist.length, MIx = 0 ; MIx < MMaxIx ; MIx++) {
+			if ( WWHFrame.mMGCBooklist[MIx][1] == Title ) {
+				return MIx;
+			}
+		}
+		return 0;
+	}
+
+
+   // -->
+  </script>
+
+ </head>
+
+ <body style="background-color: #E8EEF2;">
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+    // Display Index
+    //
+    WWHFrame = eval("parent.parent.parent");
+    //  add book title pointer to array
+    //
+
+    MMaxIndex = WWHFrame.mIndexList.length;
+	HasEntries = false;
+    HTML = "";
+	CountSuffix = " entries";
+	ExpandLimit = 3;  // min number of entries for expand/collapse behavior
+
+	// prepare index list for sorting
+	for ( MIndex = 0 ; MIndex < MMaxIndex ; MIndex++ ) {
+		WWHFrame.mIndexList[MIndex][1] = WWHFrame.mIndexList[MIndex][1].replace(/<[ir]>/ig,"");
+		WWHFrame.mIndexList[MIndex][1] = WWHFrame.mIndexList[MIndex][1].replace(/<Emphasis>/ig,"");
+		WWHFrame.mIndexList[MIndex][1] = WWHFrame.mIndexList[MIndex][1].replace(/<Default Para Font>/ig,"");
+		WWHFrame.mIndexList[MIndex][1] = WWHFrame.mIndexList[MIndex][1].replace(/<\$nopage>/ig,"");
+		var Title = WWHFrame.mIndexList[MIndex][3];
+		WWHFrame.mIndexList[MIndex][0] =  GetTitleID(Title);
+		Term = WWHFrame.mIndexList[MIndex][1];
+		Term2 = Term.split(":");
+		if (Term2.length == 2) { WWHFrame.mIndexList[MIndex][1] = Term + ":_a"; }
+		if (Term2.length == 1) { WWHFrame.mIndexList[MIndex][1] = Term + ":_a:_a"; }
+    }
+
+	//console.log(WWHFrame.mIndexList.join("\n"));
+
+	// Sort by topic or Book
+    IndexSorted = new Array();
+	if (WWHFrame.ShowSearchBooks == "YES") {
+		IndexSorted = WWHFrame.mIndexList.sort(byTitle);
+    } else {
+		IndexSorted = WWHFrame.mIndexList.sort(byName);
+	}
+
+
+    IXPrimary = new Array(MMaxIndex+1);
+    IXSecondary = new Array(MMaxIndex+1);
+    IXTertiary = new Array(MMaxIndex+1);
+
+    // pre-process sorted index list, gather data on multiple entries, etc.
+	for ( MIndex = 0 ; MIndex < MMaxIndex ; MIndex++ ) {
+		IXItem = IndexSorted[MIndex][1];
+		IXItem = IXItem.replace(/zZzsee also/, "<i>see also</i>");
+		// split into primary, secondary, and tertiary parts
+		IXParts = IXItem.split(":");
+		// strip leading and trailing spaces
+		IXPrimary[MIndex] = IXParts[0];
+		IXSecondary[MIndex] = IXParts[1];
+		IXTertiary[MIndex] = IXParts[2];
+	}
+
+    // initialize counters
+	IXCount = -1;
+    IXCount2 = -1;
+    IXCount3 = -1;
+    IXCountB = -1;
+    IXDupCount = 0;
+    IXDupTotal = 0;
+
+    LastTitleID = -1;
+    LastTitle = "";
+    LastPrimaryLC = "";
+    LastSecondaryLC = "";
+    LastTertiaryLC = "";
+    LastType = "primary";
+
+    // process sorted index list
+    WWHFrame.MGCFirstIndex = false;
+    for ( MIndex = 0 ; MIndex < MMaxIndex ; MIndex++ ) {
+		IXBookTitle = "";
+		IXTitle = "";
+		IXDiv = "";
+		IXDivEnd = "";
+		IXDivAfter = "";
+		IXNum = "";
+		Icon = "";
+		
+		// check counters, used to close divs
+		if ( IXCount > 0 ) {
+		    IXCount--;
+		} else if ( IXCount == 0 ) {
+		    IXCount--;
+		    IXDivEnd += "</div>";
+		}
+		if ( IXCount2 > 0 ) {
+		    IXCount2--;
+		} else if ( IXCount2 == 0 ) {
+		    IXCount2--;
+		    IXDivEnd += "</div>";
+		}
+		if ( IXCount3 > 0 ) {
+		    IXCount3--;
+		} else if ( IXCount3 == 0 ) {
+		    IXCount3--;
+		    IXDivEnd += "</div>";
+		}
+		if ( IXCountB > 0 ) {
+		    IXCountB--;
+		} else if ( IXCountB == 0 ) {
+		    IXCountB--;
+		    IXDivEnd += "</div>";
+		}
+
+		IXEntry = IndexSorted[MIndex];
+		BookTitle = WWHFrame.mMGCBooklist[IXEntry[0]][0];
+		if (WWHFrame.ShowSearchBooks == "YES" && IXEntry[0] != LastTitleID ) {
+			// start of new book, add the title
+			IXBookTitle += "<p class=\"pMGCIXTitleB\">" + BookTitle + "</p>";
+		}
+
+		IXTitleID = IXEntry[0];
+		IXTag = IXEntry[2];
+		IHandle = IXEntry[3];
+		IFile = IXEntry[4] + ".html";
+		IXFile = IHandle + "/" + IFile;
+                //MGCRK update the displayed topic to the first index result.
+                if (MIndex == 0)
+                {
+                   if (WWHFrame.MGCContent.MGCDocContent.DocTitle == "Search Tips")
+                   {
+                      WWHFrame.MGCFirstIndex = true;
+                      WWHFrame.MGCContent.MGCDocContent.location="../../../../" + IXFile;
+                   }
+                }
+		var Primary = IXPrimary[MIndex];
+		var Secondary = IXSecondary[MIndex];
+		var Tertiary = IXTertiary[MIndex];
+		var PrimaryLC = IXPrimary[MIndex].toLowerCase();
+		var SecondaryLC = IXSecondary[MIndex].toLowerCase();
+		var TertiaryLC = IXTertiary[MIndex].toLowerCase();
+
+		var IXText = "";
+		var IXIndent = 0;
+		var PlusIcon = "<a href=\"javascript:ixT(" + MIndex + ");\" ><div class=\"MGCIXIconDiv\" id=\"ixicon" + MIndex + "\"><img src=\"../../common/images/plus.png\" class=\"MGCIXIcon\"></div></a>";
+		var PlusLink = "<a href=\"javascript:ixT(" + MIndex + ");\" class=\"MGCIXLink\" >";
+
+		// determine index type (primary, secondary, or tertiary)
+		if ( Secondary == "_a" ) {
+			// PRIMARY
+			IXText = Primary;
+			IXIndent += 1;
+            if ( PrimaryLC != LastPrimaryLC ) {
+                // count how many same primary entries follow
+                var cnt = 1;
+                var dup = 1;
+                while ( IXPrimary[MIndex+cnt] ) {
+                    if ( IXPrimary[MIndex+cnt].toLowerCase() == PrimaryLC ) {
+                        // if no secondary, this is a duplicate
+						if ( SecondaryLC == "_a" ) {
+                            dup++;
+                        }
+                        cnt++;
+					} else {
+					    break;
+					}
+				}
+				if ( cnt > ExpandLimit ) {
+					// duplicate secondary and/or tertiary entries ahead, add title and plus icon
+					IXTitle += "<div class=\"pMGCIX" + IXIndent + "\">" + PlusIcon + PlusLink + Primary + "</a> (" + cnt + CountSuffix +")</div>";
+					IXDiv += "<div id=\"ix" + MIndex + "\" class=\"MGCIXDiv\">";
+					IXCount = cnt-1;
+					IXIndent++;
+				} else if ( cnt > 1 ) {
+					IXTitle += "<div class=\"pMGCIX" + (IXIndent+1) + "\">" + Primary + "</div>";
+					IXIndent++;
+				}
+				// keep track of duplicates
+				if ( dup > 1 ) {
+					IXDupCount = dup;
+					IXDupTotal = dup+1;
+					IXText = "<i>entry 1</i>";
+                }
+            } else {
+                IXText = "<i>entry " + (IXDupTotal-(--IXDupCount)) + "</i>";
+                IXIndent++;
+            }
+		} else if ( Tertiary == "_a" ) {
+			// SECONDARY
+			IXText = Secondary;
+			IXIndent += 2;
+			if ( PrimaryLC != LastPrimaryLC ) {
+                // reached new primary, look ahead for multiple entries
+                var cnt = 1;
+                var cntb = 1;
+                var dup = 1;
+                while ( IXPrimary[MIndex+cnt] ) {
+                    if ( IXPrimary[MIndex+cnt].toLowerCase() == PrimaryLC ) {
+                        if ( IXSecondary[MIndex+cnt].toLowerCase() == SecondaryLC ) {
+                            if ( IXTertiary[MIndex+cnt] == "_a" ) {
+                                dup++;
+                            }
+                            cntb++;
+                        }
+                        cnt++;
+					} else {
+					    break;
+					}
+				}
+				// primaries
+				if ( cnt > ExpandLimit ) {
+					IXTitle += "<div class=\"pMGCIX" + (IXIndent-1) + "\">" + PlusIcon + PlusLink + Primary + "</a> (" + cnt + CountSuffix +")</div>";
+					IXTitle += "<div id=\"ix" + MIndex + "\" class=\"MGCIXDiv\">";
+				} else {
+					IXTitle += "<div class=\"pMGCIX" + IXIndent + "\">" + Primary + "</div>";
+					IXTitle += "<div id=\"ix" + MIndex + "\" class=\"MGCIXDivShow\">";
+				}
+				IXCount2 = cnt-1;
+				// secondaries
+				if ( cntb > ExpandLimit ) {
+					// duplicate secondary and/or tertiary entries ahead, add title and plus icon
+					PlusIcon = "<a href=\"javascript:ixT('b" + MIndex + "');\" ><div class=\"MGCIXIconDiv\" id=\"ixiconb" + MIndex + "\"><img src=\"../../common/images/plus.png\" class=\"MGCIXIcon\"></div></a>";
+					PlusLink = "<a href=\"javascript:ixT('b" + MIndex + "');\" class=\"MGCIXLink\" >";
+					IXTitle += "<div class=\"pMGCIX" + (IXIndent) + "\">" + PlusIcon + PlusLink + Secondary + "</a> (" + cntb + CountSuffix +")</div>";
+					IXDiv += "<div id=\"ixb" + MIndex + "\" class=\"MGCIXDiv\">";
+					IXCountB = cntb-1;
+					IXIndent++;
+				} else if ( cntb > 1 ) {
+					IXTitle += "<div class=\"pMGCIX" + (IXIndent+1) + "\">" + Secondary + "</div>";
+					IXIndent++;
+				}
+				// keep track of duplicates
+				if ( dup > 1 ) {
+					IXDupCount = dup;
+					IXDupTotal = dup+1;
+					IXText = "<i>entry 1</i>";
+                }
+		    } else if ( SecondaryLC == LastSecondaryLC ) {
+	        	IXText = "<i>entry " + (IXDupTotal-(--IXDupCount)) + "</i>";
+	        	IXIndent++;
+	        } else {
+		        // look ahead for duplicate secondary entries
+		        var cnt = 1;
+                var dup = 1;
+                while ( IXSecondary[MIndex+cnt] ) {
+                    if ( IXPrimary[MIndex+cnt].toLowerCase() == PrimaryLC && IXSecondary[MIndex+cnt].toLowerCase() == SecondaryLC ) {
+                        if ( TertiaryLC == "_a" ) {
+                            dup++;
+                        }
+                        cnt++;
+					} else {
+					    break;
+					}
+				}
+				if ( cnt > ExpandLimit ) {
+					// duplicate secondary and/or tertiary entries ahead, add title and plus icon
+					IXTitle += "<div class=\"pMGCIX" + IXIndent + "\">" + PlusIcon + PlusLink + Secondary + "</a> (" + cnt + CountSuffix +")</div>";
+					IXDiv += "<div id=\"ix" + MIndex + "\" class=\"MGCIXDiv\">";
+					IXCount3 = cnt-1;
+					IXIndent++;
+				} else if ( cnt > 1 ) {
+				    IXTitle += "<div class=\"pMGCIX" + (IXIndent+1) + "\">" + Secondary + "</div>";
+					IXIndent++;
+				}
+				// keep track of duplicates
+				if ( dup > 1 ) {
+					IXDupCount = dup;
+					IXDupTotal = dup+1;
+					IXText = "<i>entry 1</i>";
+                }
+			}
+		} else {
+			// TERTIARY
+			IXText = Tertiary;
+			IXIndent += 3;
+
+			if ( PrimaryLC != LastPrimaryLC ) {
+                // reached new primary, look ahead for multiple entries
+                var cnt = 1;
+                var cntb = 1;
+                var dup = 1;
+                while ( IXPrimary[MIndex+cnt] ) {
+                    if ( IXPrimary[MIndex+cnt].toLowerCase() == PrimaryLC ) {
+                        if ( IXSecondary[MIndex+cnt].toLowerCase() == SecondaryLC ) {
+                            if ( IXTertiary[MIndex+cnt] == "_a" ) {
+                                dup++;
+                            }
+                            cntb++;
+                        }
+                        cnt++;
+					} else {
+					    break;
+					}
+				}
+				// primaries
+				if ( cnt > ExpandLimit ) {
+					IXTitle += "<div class=\"pMGCIX" + (IXIndent-2) + "\">" + PlusIcon + PlusLink + Primary + "</a> (" + cnt + CountSuffix +")</div>";
+					IXTitle += "<div id=\"ix" + MIndex + "\" class=\"MGCIXDiv\">";
+				} else {
+					IXTitle += "<div class=\"pMGCIX" + (IXIndent-1) + "\">" + Primary + "</div>";
+					IXTitle += "<div id=\"ix" + MIndex + "\" class=\"MGCIXDivShow\">";
+				}
+				IXCount2 = cnt-1;
+				// secondaries
+				if ( cntb > ExpandLimit ) {
+					// duplicate secondary and/or tertiary entries ahead, add title and plus icon
+					PlusIcon = "<a href=\"javascript:ixT('b" + MIndex + "');\" ><div class=\"MGCIXIconDiv\" id=\"ixiconb" + MIndex + "\"><img src=\"../../common/images/plus.png\" class=\"MGCIXIcon\"></div></a>";
+					PlusLink = "<a href=\"javascript:ixT('b" + MIndex + "');\" class=\"MGCIXLink\" >";
+					IXTitle += "<div class=\"pMGCIX" + (IXIndent-1) + "\">" + PlusIcon + PlusLink + Secondary + "</a> (" + cntb + CountSuffix +")</div>";
+					IXDiv += "<div id=\"ixb" + MIndex + "\" class=\"MGCIXDiv\">";
+					IXCountB = cntb-1;
+				} else if ( cntb > 0 ) {
+					IXTitle += "<div class=\"pMGCIX" + (IXIndent) + "\">" + Secondary + "</div>";
+				}
+				// keep track of duplicates
+				if ( dup > 1 ) {
+					IXDupCount = dup;
+					IXDupTotal = dup+1;
+					IXText = "<i>entry 1</i>";
+                }
+		    } else if ( SecondaryLC != LastSecondaryLC ) {
+		        // look ahead for multiple entries
+		        var cnt = 1;
+				while ( IXSecondary[MIndex+cnt] ) {
+                    if ( IXSecondary[MIndex+cnt].toLowerCase() == SecondaryLC ) {
+                        cnt++;
+					} else {
+					    break;
+					}
+				}
+				if ( cnt > ExpandLimit ) {
+					// duplicate secondary and/or tertiary entries ahead, add title and plus icon
+					IXTitle += "<div class=\"pMGCIX" + (IXIndent-1) + "\">" + PlusIcon + PlusLink + Secondary + "</a> (" + cnt + CountSuffix +")</div>";
+					IXDiv += "<div id=\"ix" + MIndex + "\" class=\"MGCIXDiv\">";
+					IXCount3 = cnt-1;
+				} else if ( cnt > 0 ) {
+				    IXTitle += "<div class=\"pMGCIX" + (IXIndent) + "\">" + Secondary + "</div>";
+				}
+                //IXCount3 = cnt-1;
+				//IXTitle += "<div class=\"pMGCIX" + (IXIndent-1) + "\">" + PlusIcon + Secondary + " (" + cnt + CountSuffix + ")</div>";
+				//IXDiv = "<div id=\"ix" + MIndex + "\" class=\"MGCIXDiv\">";
+			}
+
+		}
+
+		// MGCRK - find matching paragraph text for this topic
+		//
+		PText = "Not Found";
+		if (WWHFrame.ISVerbose) {
+                        PText = GetIXPTextID(IHandle,IFile);
+			if (PText != "NOT FOUND") {
+                                PText = "<b>" + PText.replace("<br>","</b><br>");
+				PText = "<p class=\"pMGCIXSnippet" + IXIndent + "\">" + PText + "</p>";
+			}
+		}
+
+
+		// add index entry if not a dummy
+		if ( Primary == "aDuMmY" || Primary == "z_DummyValue" ) {
+			HTML += IXDivEnd;
+			HTML += IXBookTitle;
+		} else {
+			HasEntries = true;
+			//Link = "<a class=\"MGCIXLink\" href=\"javascript\:ixT(" + MIndex + ");ixD\('" + IHandle + "/" + IFile + "#wp" + IXTag + "\'\)\;\">";
+			Link = "<a class=\"MGCIXLink\" href=\"javascript\:ixD\('" + IHandle + "/" + IFile + "#wp" + IXTag + "\'\)\;\" title=\"" + BookTitle + "\">";
+			if ( Icon == "" ) {
+				//Icon = "<img src=\"../../common/images/doc2_blank.gif\" class=\"MGCIXIcon\">";
+				IXIndent++;
+			}
+			
+			HTML += IXDivEnd;
+			HTML += IXBookTitle;
+			HTML += IXTitle;
+			HTML += IXDiv;
+			HTML += "<div class=\"pMGCIX" + IXIndent + "\">" + Icon + Link + IXText + "</a>" + IXNum + "</div>";
+			if (WWHFrame.ISVerbose) {
+				HTML += PText;
+			}
+			HTML += IXDivAfter;
+		}
+
+        // save for next iteration
+		LastTitleID = IXEntry[0];
+		LastPrimaryLC = PrimaryLC;
+		LastSecondaryLC = SecondaryLC;
+		LastTertiaryLC = TertiaryLC;
+    }
+
+	if (!HasEntries) {
+        HTML += "<br /><p class=\"pMGCIX1\">There are no Index entries for <b>" + WWHFrame.LastIndexLetter.toUpperCase() + "</b>. Please choose a different letter.</p>";
+	}
+    document.write(HTML);
+   // -->
+  </script>
+ </body>
+</html>

@@ -1,0 +1,4 @@
+set auto_index(::v2::ui::text_editor::TextEditor) [list summit_add_tclindex v2/ui/text_editor/TextEditor.tcl]
+set auto_index(::v2::ui::text_editor::Toolbar) [list summit_add_tclindex v2/ui/text_editor/Toolbar.tcl]
+set auto_index(::v2::ui::text_editor::ViewMenu) [list summit_add_tclindex v2/ui/text_editor/ViewMenu.tcl]
+set auto_index(::UI::v2/ui/text_editor/ViewMenu/DocumentLinker) [list summit_add_tclindex v2/ui/text_editor/ViewMenu.tcl]

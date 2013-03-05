@@ -1,0 +1,168 @@
+NAME
+       scan - Parse string using conversion specifiers in the style of sscanf
+
+SYNOPSIS
+       scan string format ?varName varName ...?
+
+
+INTRODUCTION
+       This  command parses fields from an input string in the same fashion as
+       the ANSI C sscanf procedure and returns a count of the number  of  con-
+       versions  performed,  or  -1  if the end of the input string is reached
+       before any conversions have been performed.  String gives the input  to
+       be  parsed  and  format  indicates  how to parse it, using % conversion
+       specifiers as in sscanf.  Each varName gives the name  of  a  variable;
+       when a field is scanned from string the result is converted back into a
+       string and assigned to the corresponding variable.  If no varName vari-
+       ables are specified, then scan works in an inline manner, returning the
+       data that would otherwise be stored in the variables as a list.  In the
+       inline  case,  an  empty  string  is returned when the end of the input
+       string is reached before any conversions have been performed.
+
+
+DETAILS ON SCANNING
+       Scan operates by scanning string and  format  together.   If  the  next
+       character  in  format  is  a blank or tab then it matches any number of
+       white space characters in string (including zero).   Otherwise,  if  it
+       isn't  a  %  character then it must match the next character of string.
+       When a % is encountered in format, it indicates the start of a  conver-
+       sion  specifier.   A  conversion  specifier  contains up to four fields
+       after the %: a *, which indicates that the converted  value  is  to  be
+       discarded instead of assigned to a variable; a XPG3 position specifier;
+       a number indicating a maximum field width; a field size modifier; and a
+       conversion  character.  All of these fields are optional except for the
+       conversion character.  The fields that are present must appear  in  the
+       order given above.
+
+       When  scan  finds  a conversion specifier in format, it first skips any
+       white-space characters in string (unless the  specifier  is  [  or  c).
+       Then  it converts the next input characters according to the conversion
+       specifier and stores the result in the variable given by the next argu-
+       ment to scan.
+
+       If  the % is followed by a decimal number and a $, as in ''%2$d'', then
+       the variable to use is not taken from  the  next  sequential  argument.
+       Instead, it is taken from the argument indicated by the number, where 1
+       corresponds to the first varName.  If there are any  positional  speci-
+       fiers  in  format then all of the specifiers must be positional.  Every
+       varName on the argument list must correspond to exactly one  conversion
+       specifier or an error is generated, or in the inline case, any position
+       can be specified at most once and the empty positions will be filled in
+       with empty strings.
+
+       The following conversion characters are supported:
+
+       d         The input field must be a decimal integer.  It is read in and
+                 the value is stored in the variable as a decimal string.   If
+                 the  l  or  L field size modifier is given, the scanned value
+                 will have an internal representation that is at least 64-bits
+                 in size.
+
+       o         The  input  field must be an octal integer. It is read in and
+                 the value is stored in the variable as a decimal string.   If
+                 the  l  or  L field size modifier is given, the scanned value
+                 will have an internal representation that is at least 64-bits
+                 in size.  If the value exceeds MAX_INT (017777777777 on plat-
+                 forms using 32-bit integers when the l and  L  modifiers  are
+                 not given), it will be truncated to a signed integer.  Hence,
+                 037777777777 will  appear  as  -1  on  a  32-bit  machine  by
+                 default.
+
+       x         The  input field must be a hexadecimal integer. It is read in
+                 and the value is stored in the variable as a decimal  string.
+                 If the l or L field size modifier is given, the scanned value
+                 will have an internal representation that is at least 64-bits
+                 in  size.   If the value exceeds MAX_INT (0x7FFFFFFF on plat-
+                 forms using 32-bit integers when the l and  L  modifiers  are
+                 not given), it will be truncated to a signed integer.  Hence,
+                 0xFFFFFFFF will appear as -1 on a 32-bit machine.
+
+       u         The input field must be a  decimal  integer.   The  value  is
+                 stored in the variable as an unsigned decimal integer string.
+                 If the l or L field size modifier is given, the scanned value
+                 will have an internal representation that is at least 64-bits
+                 in size.
+
+       i         The input field must be an integer.  The base (i.e.  decimal,
+                 octal,  or  hexadecimal) is determined in the same fashion as
+                 described in expr.  The value is stored in the variable as  a
+                 decimal  string.  If the l or L field size modifier is given,
+                 the scanned value will have an internal  representation  that
+                 is at least 64-bits in size.
+
+       c         A  single character is read in and its binary value is stored
+                 in the variable as a decimal string.  Initial white space  is
+                 not  skipped in this case, so the input field may be a white-
+                 space character.  This conversion is different from the  ANSI
+                 standard  in that the input field always consists of a single
+                 character and no field width may be specified.
+
+       s         The input field consists of all the characters up to the next
+                 white-space character; the characters are copied to the vari-
+                 able.
+
+       e or f or g
+                 The input field must be a floating-point number consisting of
+                 an  optional  sign,  a string of decimal digits possibly con-
+                 taining a decimal point, and an optional exponent  consisting
+                 of  an  e  or  E followed by an optional sign and a string of
+                 decimal digits.  It is read in and stored in the variable  as
+                 a floating-point string.
+
+       [chars]   The  input  field  consists  of  any  number of characters in
+                 chars.  The matching string is stored in  the  variable.   If
+                 the  first  character  between the brackets is a ] then it is
+                 treated as part of chars rather than the closing bracket  for
+                 the  set.   If chars contains a sequence of the form a-b then
+                 any character between a and b (inclusive) will match.  If the
+                 first  or last character between the brackets is a -, then it
+                 is treated as part of chars rather than indicating a range.
+
+       [^chars]  The input field consists of any number of characters  not  in
+                 chars.   The  matching  string is stored in the variable.  If
+                 the character immediately following the ^ is a ] then  it  is
+                 treated  as  part  of the set rather than the closing bracket
+                 for the set.  If chars contains a sequence of  the  form  a-b
+                 then  any  character  between  a  and  b  (inclusive) will be
+                 excluded from the  set.   If  the  first  or  last  character
+                 between  the  brackets  is a -, then it is treated as part of
+                 chars rather than indicating a range.
+
+       n         No input is consumed from the  input  string.   Instead,  the
+                 total  number  of characters scanned from the input string so
+                 far is stored in the variable.
+
+       The number of characters read from the input for a  conversion  is  the
+       largest  number  that  makes sense for that particular conversion (e.g.
+       as many decimal digits as possible for %d, as many octal digits as pos-
+       sible  for %o, and so on).  The input field for a given conversion ter-
+       minates either when a white-space character is encountered or when  the
+       maximum field width has been reached, whichever comes first.  If a * is
+       present in the conversion specifier then no variable  is  assigned  and
+       the next scan argument is not consumed.
+
+
+DIFFERENCES FROM ANSI SSCANF
+       The  behavior  of  the  scan command is the same as the behavior of the
+       ANSI C sscanf procedure except for the following differences:
+
+       [1]    %p conversion specifier is not currently supported.
+
+       [2]    For %c conversions a single character value is  converted  to  a
+              decimal string, which is then assigned to the corresponding var-
+              Name; no field width may be specified for this conversion.
+
+       [3]    The h modifier is always ignored and the l and L  modifiers  are
+              ignored  when  converting  real values (i.e. type double is used
+              for the internal representation).
+
+       [4]    If the end of the input string is reached before any conversions
+              have  been performed and no variables are given, an empty string
+              is returned.
+
+
+SEE ALSO
+       format(n), sscanf(3)
+
+
+KEYWORDS

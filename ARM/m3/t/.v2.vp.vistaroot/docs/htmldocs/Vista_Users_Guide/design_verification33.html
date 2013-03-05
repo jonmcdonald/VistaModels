@@ -1,0 +1,566 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:06:18 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Transaction Sequence Viewer</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(345);
+    // -->
+ </script>
+ 
+
+<!--313,345,0-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPTransaction Sequence Viewer"></a>
+
+<a name="wp22697"></a><h3 class="pHeading2">
+  
+
+
+Transaction Sequence Viewer
+  </h3>
+
+
+
+<a name="wp8727"></a><p class="pBody">
+SystemC&#39;s interface class and its virtual methods allow designers to capture systems at the transactional level (TL) by defining communication protocols between &ldquo;masters,&rdquo; &ldquo;buses,&rdquo; and &ldquo;slaves&rdquo; with function calls rather than with signals as is done in RTL.
+</p>
+
+
+<a name="wp20852"></a><p class="pBody">
+Vista&#39;s supports designing with this methodology by providing its Transaction Sequence Viewer (Transactional Level Viewer) with which you can trace activity of ports in your design during simulation. In order to record the transactions on any given port, all you have to do is acquire this port. No specific API has to be added to the code. You may define your own protocol and do not have to adhere to the TLM library standard.
+</p>
+
+<a name="MGCCIDPCompilation Prerequisite"></a>
+
+<a name="wp8730"></a><h5 class="pHeading4">
+  
+
+
+Compilation Prerequisite
+</h5>
+
+
+
+<a name="wp8731"></a><p class="pBody">
+In order to be able to utilize the Transaction Sequence Viewer, before compiling or building your project you must select the <span style=" font-weight: bold;">Transaction Sequence Recording Support</span> checkbox in the <span style=" font-weight: bold;">Project &gt; Settings &gt; General </span>dialog box. 
+</p>
+
+
+<a name="wp8732"></a><p class="pBody">
+Note that compiling a project with this option activated will slow down simulation performance.
+</p>
+
+<a name="MGCCIDPSimulation Invocation Prerequisite"></a>
+
+<a name="wp8734"></a><h5 class="pHeading4">
+  
+
+
+Simulation Invocation Prerequisite
+</h5>
+
+
+
+<a name="wp8735"></a><p class="pBody">
+If you want Vista to trace transaction activity on ports in your design during simulation, be sure to select the <span style=" font-weight: bold;">Enable Transaction Sequence Recording </span>check box before clicking OK in the Simulation box.
+</p>
+
+<a name="MGCCIDPAcquiring Ports"></a>
+
+<a name="wp8738"></a><h5 class="pHeading4">
+  
+
+
+Acquiring Ports
+</h5>
+
+
+
+<a name="wp8739"></a><p class="pBody">
+To acquire ports to be displayed in the Transaction Sequence Viewer:
+</p>
+
+
+<a name="wp8740"></a>
+<ol start="1."><li class="LL1Seq">After invoking simulation, in the Vista design browser select a port whose transactions are to be traced.</li></ol>
+<a name="wp8741"></a>
+<ol start="2."><li class="LL1Seq">Holding down the right mouse button, choose the Trace Transactions command from the displayed menu. A small upper-case &ldquo;T&rdquo; will appear to the left of the port name.</li></ol>
+<a name="wp8742"></a>
+<ol start="3."><li class="LL1Seq">Repeat the previous step for each of the ports whose transactions you want to trace.</li></ol>
+<a name="wp8743"></a><p class="pL1Body">All of the methods belonging to the acquired port will be displayable in the Transaction Sequence Viewer. Note, however, that you can select to display only those methods of a port which currently interest you. To do so:</p>
+
+<a name="wp8744"></a><ol start="1."><li class="LL2Seq">In the design browser, position the mouse pointer over a port, as above.</li></ol>
+<a name="wp8745"></a><ol start="2."><li class="LL2Seq">Expand the port interface methods.</li></ol>
+<a name="wp8746"></a><ol start="3."><li class="LL2Seq">Holding down the right mouse button, choose the &ldquo;Trace Transactions&rdquo; command from the displayed menu.</li></ol>
+<a name="wp8747"></a>
+<ol start="4."><li class="LL1Seq">Continue simulation by either choosing the <span style=" font-weight: bold;">Simulate &gt; Continue</span> menu command or by clicking the 
+
+
+<img src="images/simulation_continue_button.gif" id="wp8749" border="0" hspace="0" vspace="0"/>
+
+
+
+ icon.</li></ol>
+<a name="wp8751"></a>
+<ol start="5."><li class="LL1Seq">Open the Transaction Sequence Viewer by choosing <span style=" font-weight: bold;">Simulation &gt; Transactions</span> or by clicking the equivalent icon, 
+
+
+<img src="images/design_verification94.jpg" height="24" width="22" id="wp8753" border="0" hspace="0" vspace="0"/>
+
+
+
+.</li></ol><a name="MGCCIDPTransaction Sequence Viewer (TSV) Display and Controls"></a>
+
+<a name="wp8758"></a><h5 class="pHeading4">
+  
+
+
+Transaction Sequence Viewer (TSV) Display and Controls<a name="MGCCIDMVISTA_HELP_DESIGN_VERIFICATION__TSV_WINDOW"></a><a name="MGCCIDM1019"></a>
+</h5>
+
+
+
+<a name="wp8759"></a><p class="pBody">
+During simulation, transaction data is generated and displayed in the TSV table, each line of which is dedicated to the data of a specific method. The layout of the table is as follows:
+</p>
+
+<a name="MGCCIDPTime "></a>
+
+<a name="wp8760"></a><h6 class="pHeading5">
+  
+
+
+Time 
+</h6>
+
+
+
+<a name="wp8761"></a><p class="pBody">
+The simulation time for the transaction. If there is a delta cycle for this transaction, this is displayed in the parentheses to the right. 
+</p>
+
+<a name="MGCCIDPPort "></a>
+
+<a name="wp8762"></a><h6 class="pHeading5">
+  
+
+
+Port 
+</h6>
+
+
+
+<a name="wp8763"></a><p class="pBody">
+The hierarchical name of the port. 
+</p>
+
+<a name="MGCCIDPMethod "></a>
+
+<a name="wp8764"></a><h6 class="pHeading5">
+  
+
+
+Method 
+</h6>
+
+
+
+<a name="wp8765"></a><p class="pBody">
+The method name reflecting the port interface. 
+</p>
+
+<a name="MGCCIDPArguments/Return Value "></a>
+
+<a name="wp8766"></a><h6 class="pHeading5">
+  
+
+
+Arguments/Return Value 
+</h6>
+
+
+
+<a name="wp8767"></a><p class="pBody">
+The value displayed in the column to the right of the method name will be either the arguments of the method (indicated by a right-pointing red arrow) or its return values (indicated by a left-pointing green arrow, and always starting with the word &ldquo;return&rdquo;). These values extend for their entire length along the line dedicated to this method. However, to more conveniently view, select, and filter the methods, you can expand the + icon located between the method name and arrow. 
+</p>
+
+<a name="MGCCIDP+ icon "></a>
+
+<a name="wp8768"></a><h6 class="pHeading5">
+  
+
+
++ icon 
+</h6>
+
+
+
+<a name="wp8769"></a><p class="pBody">
+When you expand this icon, the individual arguments or return values associated with the method are displayed on separate lines. Using the resulting vertical listing allows you to more specifically select the ports and methods to be displayed in Transaction Sequence Viewer. (See &ldquo;<a href='javascript:oT("CRF","design_verification33.html#wp8792");'>&quot;Filtering Method Transaction Data&quot;</a>.) 
+</p>
+
+<a name="MGCCIDPRuntime "></a>
+
+<a name="wp8773"></a><h6 class="pHeading5">
+  
+
+
+Runtime 
+</h6>
+
+
+
+<a name="wp8774"></a><p class="pBody">
+Displays the current simulation time. 
+</p>
+
+<a name="MGCCIDPGo to Time "></a>
+
+<a name="wp8775"></a><h6 class="pHeading5">
+  
+
+
+Go to Time 
+</h6>
+
+
+
+<a name="wp8776"></a><p class="pBody">
+Entering a simulation time here and clicking the <span style=" font-weight: bold;">Go To Time</span> button will display and highlight in the window this time, or the closest time that comes before the time you entered. The format of the entered time is identical to that displayed in the Time column of the table, i.e., &lt;time&gt;[&lt;units&gt;][&lt;delta&gt;]. Following are some examples:
+</p>
+
+
+<a name="wp8777"></a>
+<ul><li class="LL1BulSolid">600</li></ul>
+<a name="wp8778"></a>
+<ul><li class="LL1BulSolid">100.4 ns</li></ul>
+<a name="wp8779"></a>
+<ul><li class="LL1BulSolid">200ps(12)</li></ul><a name="MGCCIDPVertical Scroll Arrows "></a>
+
+<a name="wp8780"></a><h6 class="pHeading5">
+  
+
+
+Vertical Scroll Arrows 
+</h6>
+
+
+
+<a name="wp8781"></a><p class="pBody">
+At the left side of the table are three upward pointing and three downward pointing arrows. From top to bottom, clicking any of these arrows (or using the keypad key specified in parentheses) performs the appropriate operation, displaying: 
+</p>
+
+
+<a name="wp8782"></a>
+<ul><li class="LL1BulSolid">Up arrows </li></ul>
+<a name="wp8783"></a><ul><li class="LL2BulHollow">First page of transaction data (Home) </li></ul>
+<a name="wp8784"></a><ul><li class="LL2BulHollow">Previous page (Page up) </li></ul>
+<a name="wp8785"></a><ul><li class="LL2BulHollow">Previous line (Up arrow on keypad) </li></ul>
+<a name="wp8786"></a>
+<ul><li class="LL1BulSolid">Down arrows </li></ul>
+<a name="wp8787"></a><ul><li class="LL2BulHollow">Next line (Down arrow on keypad or Space bar) </li></ul>
+<a name="wp8788"></a><ul><li class="LL2BulHollow">Next page down (Page down or click the Enter key) </li></ul>
+<a name="wp8789"></a><ul><li class="LL2BulHollow">Last page of transaction data (End) </li></ul><a name="MGCCIDPFiltering Method Transaction Data"></a>
+
+<a name="wp8792"></a><h5 class="pHeading4">
+  
+
+
+Filtering Method Transaction Data<a name="MGCCIDMVISTA_HELP_DESIGN_VERIFICATION__FILTERING_METHOD_TRANSACTION_DATA"></a><a name="MGCCIDM1020"></a>
+</h5>
+
+
+
+<a name="wp8793"></a><p class="pBody">
+Once again, each line displayed in the Transaction Sequence Viewer is dedicated to transaction information related to a given method of a port. Following simulation, you can filter the port and/or method-related information that is displayed in the TSV table.
+</p>
+
+<a name="MGCCIDPFiltering Mechanism"></a>
+
+<a name="wp8794"></a><h6 class="pHeading5">
+  
+
+
+Filtering Mechanism
+</h6>
+
+
+
+<a name="wp8795"></a><p class="pBody">
+Vista currently supports the filtering mechanism described below.
+</p>
+
+
+<a name="wp8796"></a><p class="pBody">
+TSV filtering is based on the creation and application of a Tcl script. This script, which stores the filtering data last saved, is stored in Vista&#39;s working directory and is loaded when you open the Transaction Sequence Viewer.
+</p>
+
+
+<a name="wp8797"></a><p class="pBody">
+Essentially, when the script is executed, each line is checked sequentially against the individual transactions that comprise the database of traced ports and methods. When there is a match between the regular expression that appears in the line of a script and a given transaction, the appropriate action is taken for this transaction: it is either included in or excluded from the set of transactions that are to be displayed. The script then returns to the top and begins examining the next transaction record, and so on. In this way, Vista determines which of the transactions will be displayed when the filter is activated and which will not.
+</p>
+
+<a name="MGCCIDPFiltering Arguments"></a>
+
+<a name="wp8798"></a><h6 class="pHeading5">
+  
+
+
+Filtering Arguments
+</h6>
+
+
+
+<a name="wp8799"></a><p class="pBody">
+The script utilizes the following two arguments:
+</p>
+
+
+<a name="wp8800"></a><p class="pBody">
+<span style=" font-weight: bold;">include [-exact] </span>
+</p>
+
+
+<a name="wp8801"></a>
+<ul><li class="LL1BulSolid">Retains the specified ports and/or methods in the Transaction Sequence Viewer window that is displayed when the filter is activated. (This activation is done by switching on the <span style=" font-weight: bold;">Filter &gt; Use Filter</span> flag.) </li></ul>
+<a name="wp8802"></a>
+<ul><li class="LL1BulSolid">When the include argument appears alone as the only string in the script, all traced ports/methods will be displayed. This may also be expressed in the script as: </li></ul>
+<a name="wp8803"></a><ul><li class="LL2BulHollow">include *, or as </li></ul>
+<a name="wp8804"></a><ul><li class="LL2BulHollow">+ </li></ul>
+<a name="wp8805"></a>
+<ul><li class="LL1BulSolid">Entering the optional -exact parameter means that the specified ports/methods must exactly match the description in a given line of the script. Or in other words, rather than being able to conform to a regular expression that utilizes wild card characters, the description of the port/method in any transaction must be the &ldquo;sting equal&rdquo; of the line of the script in order to be included in the filtered transaction data. </li></ul>
+<a name="wp8806"></a>
+<ul><li class="LL1BulSolid">Note that include is the default, i.e., if the script is empty, all traced ports and methods will be displayed. </li></ul>
+<a name="wp8807"></a><p class="pBody">
+<span style=" font-weight: bold;">exclude [-exact] </span>
+</p>
+
+
+<a name="wp8808"></a>
+<ul><li class="LL1BulSolid">Causes the specified ports and/or methods to be hidden and, therefore, not displayed. </li></ul>
+<a name="wp8809"></a>
+<ul><li class="LL1BulSolid">When the exclude argument appears alone as the only string in the script, no traced ports/methods will be displayed. This may also be expressed in the script as: </li></ul>
+<a name="wp8810"></a><ul><li class="LL2BulHollow">exclude *, or as </li></ul>
+<a name="wp8811"></a><ul><li class="LL2BulHollow">-</li></ul>
+<a name="wp8812"></a>
+<ul><li class="LL1BulSolid">Entering the optional -exact parameter has the same significance as described above for include. Only in this case, when an exact match occurs between a line of the script and the port/method data for a transaction, this transaction will <span style=" font-weight: bold;">not</span> be displayed when the filter is activated. (Once again, this activation is done by switching on the <span style=" font-weight: bold;">Filter &gt; Use Filter</span> flag.) </li></ul><a name="MGCCIDPSpecifying Something to be Displayed"></a>
+
+<a name="wp8813"></a><h6 class="pHeading5">
+  
+
+
+Specifying Something to be Displayed
+</h6>
+
+
+
+<a name="wp8814"></a><p class="pBody">
+Prepare a simple script using the following format:
+</p>
+
+
+<a name="wp8815"></a><pre class="pCode">     include -port &lt;port_name&gt; -method &lt;method_name&gt;</pre>
+
+
+<a name="wp8816"></a><pre class="pCode">     exclude</pre>
+
+
+<a name="wp8817"></a><pre class="pCode">     </pre>
+
+
+<a name="wp8818"></a><p class="pBody">
+When this filter script is applied, only the specified port/method will be displayed in the Transaction Sequence Viewer window. All other transaction data will be hidden.
+</p>
+
+<a name="MGCCIDPDeactivating the Filter"></a>
+
+<a name="wp8819"></a><h6 class="pHeading5">
+  
+
+
+Deactivating the Filter
+</h6>
+
+
+
+<a name="wp8820"></a><p class="pBody">
+Even though a filter exists, it may be deactivated by toggling to the <span style=" font-weight: bold;">Filter &gt; View All</span> flag. In this case, all traced port/method transactions will be displayed in the TSV window.
+</p>
+
+<a name="MGCCIDPAutomatically Generating a Script Body"></a>
+
+<a name="wp8821"></a><h6 class="pHeading5">
+  
+
+
+Automatically Generating a Script Body
+</h6>
+
+
+
+<a name="wp8822"></a><p class="pBody">
+Vista provides a convenient means of building up the initial body of your scripts. This is done by selecting the appropriate line or lines in the TSV table and then choosing the desired command from the right mouse button menu. The available commands are:
+</p>
+
+
+<a name="wp8823"></a>
+<ul><li class="LL1BulSolid">Hide Selected Ports</li></ul>
+<a name="wp8824"></a>
+<ul><li class="LL1BulSolid">Hide Selected Methods</li></ul>
+<a name="wp8825"></a>
+<ul><li class="LL1BulSolid">Show Only Selected Ports</li></ul>
+<a name="wp8826"></a>
+<ul><li class="LL1BulSolid">Show Only Selected Methods</li></ul>
+<a name="wp8827"></a><p class="pBody">
+For all of these commands, multiple selection and deselection of lines is possible using the Shift and Control keys in conjunction with clicking the left mouse button.
+</p>
+
+
+<a name="wp8828"></a><p class="pBody">
+When you invoke any of the above commands, the Transaction Filter editing window is opened and there the invoked command and lines are inserted at the top of the script. (The most recently inserted lines will be highlighted in red.) Naturally, you can manually edit these automatically generated lines of the script.
+</p>
+
+
+<a name="wp8829"></a><p class="pBody">
+In order to save these automatically generated script lines and to apply them to the transaction data currently displayed in the TSV window, click Apply or OK.
+</p>
+
+<a name="MGCCIDPTransaction Filter Menu Commands"></a>
+
+<a name="wp8830"></a><h6 class="pHeading5">
+  
+
+
+Transaction Filter Menu Commands
+</h6>
+
+
+
+<a name="wp8831"></a><p class="pBody">
+The Transaction Filter editing window includes following menu commands:
+</p>
+
+
+<a name="wp8832"></a><p class="pL1Body"><span style=" font-weight: bold;">File &gt; Save As</span> </p>
+
+<a name="wp8833"></a><p class="pL1Body">Writes the contents of current contents of the window to an external file. </p>
+
+<a name="wp8834"></a><p class="pL1Body"><span style=" font-weight: bold;">File &gt; Insert on Top </span></p>
+
+<a name="wp8835"></a><p class="pL1Body">Inserts the contents of the specified external file at the very top of the script. </p>
+
+<a name="wp8836"></a><p class="pL1Body"><span style=" font-weight: bold;">File &gt; Close </span></p>
+
+<a name="wp8837"></a><p class="pL1Body">Closes the Transaction Filter editing window. </p>
+
+<a name="wp8838"></a><p class="pL1Body"><span style=" font-weight: bold;">Edit &gt; Undo, Redo, Cut, Copy, Paste </span></p>
+
+<a name="wp8839"></a><p class="pL1Body">Perform the standard editing operations within the Transaction Filter editing window. </p>
+
+<a name="wp22408"></a><p class="pL1Body"><span style=" font-weight: bold;">Edit &gt; Clear </span></p>
+
+<a name="wp77185"></a><p class="pL1Body">Clears the entire contents of editing window. </p>
+<a name="MGCCIDPCreating a TSV Textual Report"></a>
+
+<a name="wp77196"></a><h6 class="pHeading5">
+  
+
+
+Creating a TSV Textual Report
+</h6>
+
+
+
+<a name="wp77197"></a><p class="pBody">
+To create a textual report of the TSV activity, use the vista_dump_tsv_transactions command:
+</p>
+
+
+<a name="wp77199"></a><p class="pzUsage">
+vista_dump_tsv_transactions <span class="cReqRpl">simulation_directory</span> <span class="cOptional">-port </span><span class="cOptRpl">name-pattern</span><span class="cOptional"> | <br />-method </span><span class="cOptRpl">name-pattern</span><span class="cOptional"> | -from </span><span class="cOptRpl">from_time</span><span class="cOptional"> | -to </span><span class="cOptRpl">to_time</span><span class="cOptional"> | -units </span><span class="cOptRpl">time_units</span><span class="cOptional"> | <br />-limit </span><span class="cOptRpl">max_number_of_printed_transactions</span> 
+</p>
+
+
+<a name="wp77226"></a><p class="pBody">
+You must specify the simulation directory in which to create the textual report. You can optionally specify one of the following:
+</p>
+
+
+<a name="wp77294"></a>
+<ul><li class="LL1BulSolid"><span class="cOptional">-port </span><span class="cOptRpl">name-pattern</span>: name of port (can be a regular expression)</li></ul>
+<a name="wp77295"></a>
+<ul><li class="LL1BulSolid"><span class="cOptional">-method </span><span class="cOptRpl">name-pattern</span>: name of specific method (can be a regular expression)</li></ul>
+<a name="wp77296"></a>
+<ul><li class="LL1BulSolid"><span class="cOptional">-from </span><span class="cOptRpl">from_time</span>: the specific simulation time at which to start the report</li></ul>
+<a name="wp77297"></a>
+<ul><li class="LL1BulSolid"><span class="cOptional">-to </span><span class="cOptRpl">to_time</span>: the specific simulation time at which to end the report</li></ul>
+<a name="wp77298"></a>
+<ul><li class="LL1BulSolid"><span class="cOptional">-units </span><span class="cOptRpl">time_units</span>: any simulation time units (s, ms, us, ns, ps, fs)</li></ul>
+<a name="wp77299"></a>
+<ul><li class="LL1BulSolid"><span class="cOptional">-limit </span><span class="cOptRpl">max_number_of_printed_transactions</span>: maximum number of transactions to print; the default maximum number of printed transactions is 1000</li></ul>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Transaction Sequence Viewer";
+   PDFLinkTitle = "Transaction.Sequence.Viewer"
+   ThisTopic = "CreatingaTSVTextualReport";
+   CurrentFile = "design_verification33.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

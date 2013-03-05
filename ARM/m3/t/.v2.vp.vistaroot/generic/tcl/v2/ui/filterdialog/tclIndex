@@ -1,0 +1,1 @@
+set auto_index(::v2::ui::filterdialog::FilterDialog) [list summit_add_tclindex v2/ui/filterdialog/FilterDialog.tcl]

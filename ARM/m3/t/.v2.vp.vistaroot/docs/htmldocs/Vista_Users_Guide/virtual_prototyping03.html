@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:07:22 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Creating a Virtual Prototype Using vista_create_vp</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(386);
+    // -->
+ </script>
+ 
+
+<!--384,386,0-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPCreating a Virtual Prototype Using vista_create_vp"></a>
+
+<a name="wp10243"></a><h3 class="pHeading2">
+  
+
+
+Creating a Virtual Prototype Using vista_create_vp
+  </h3>
+
+
+
+<a name="wp10244"></a><p class="pBody">
+The <span style=" font-style: italic;">vista_create_vp</span> script is a Tcl interpreter with commands added for creation of Virtual Prototype.
+</p>
+
+
+<a name="wp10172"></a><p class="pBody">
+To invoke the vista_create_vp script use the following command format:
+</p>
+
+
+<a name="wp10174"></a><p class="pApplCmd">
+vista_create_vp &lt;creation script&gt; &lt;Other Vista command line parameters&gt;
+</p>
+
+
+<a name="wp10176"></a><p class="pBody">
+The creation script is a Tcl script that describes Virtual Prototype attributes. The following sections describe the attributes and provide the commands to use to set each. 
+</p>
+
+
+<a name="wp10946"></a><h6 class="pHTaskSubhead">
+  Virtual Prototype File
+</h6>
+
+
+
+<a name="wp10959"></a><p class="pBody">
+Use the generate command to specify the pathname of the Virtual Prototype file to generate. 
+</p>
+
+
+<a name="wp10977"></a><pre class="pShellCmd">
+     <span class="cRequired">generate</span> <span class="cReqRpl">virtual_prototype_file_path</span> </pre>
+
+
+<a name="wp10978"></a><p class="pBody">
+For example, 
+</p>
+
+
+<a name="wp10986"></a><pre class="pShellCmd">
+     generate /home/me/platform_vp.exe</pre>
+
+
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nmrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nmrule_upper.jpg"><span class="cNotesRed">Caution</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp11038"></a><p class="pnoteSWCaution">
+        	The <span class="cRequired">generate</span> command must be the last command in the creation script.<br />
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nmrule_bottom.gif"><img src="wwhelp/wwhimpl/common/images/nmrule_bottom.gif" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nmrule_bottom.gif"><img src="wwhelp/wwhimpl/common/images/nmrule_bottom.gif" align="right" /></td>
+    </tr>
+ </table>
+<a name="wp11053"></a><h6 class="pHTaskSubhead">
+  Virtual Prototype Simulator Program
+</h6>
+
+
+
+<a name="wp11140"></a><p class="pBody">
+Use the following commands to specify the program that runs the actual simulation. The program and all shared libraries upon which it depends are copied into the Virtual Prototype runtime.
+</p>
+
+
+<a name="wp11141"></a><p class="pBody">
+To create a Virtual Prototype Simulator for a design in a Vista project, use the following:
+</p>
+
+
+<a name="wp11142"></a><pre class="pShellCmd">
+     <span class="cRequired">project</span> <span class="cReqRpl">project_name</span> </pre>
+
+
+<a name="wp10183"></a><pre class="pShellCmd">
+     <span class="cRequired">top</span> <span class="cReqRpl">top_name</span> </pre>
+
+
+<a name="wp10187"></a><pre class="pShellCmd">
+     <span class="cRequired">use_top</span> </pre>
+
+
+<a name="wp11157"></a><p class="pBody">
+For example:
+</p>
+
+
+<a name="wp11159"></a><pre class="pCode">     project MyPlatform</pre>
+
+
+<a name="wp11160"></a><pre class="pCode">     top {$PRJDIR/my_sc_main.cpp}</pre>
+
+
+<a name="wp11192"></a><pre class="pCode">     use_top</pre>
+
+
+<a name="wp11201"></a><pre class="pCode">     </pre>
+
+
+<a name="wp11193"></a><p class="pBody">
+To create a Virtual Prototype Simulator for a design in an external executable, use the following:
+</p>
+
+
+<a name="wp11194"></a><pre class="pShellCmd">
+     <span class="cRequired">executable</span> <span class="cReqRpl">executable_file_path</span> </pre>
+
+
+<a name="wp10189"></a><pre class="pShellCmd">
+     <span class="cRequired">use_executable</span> </pre>
+
+
+<a name="wp11206"></a><p class="pBody">
+For example:
+</p>
+
+
+<a name="wp11208"></a><pre class="pCode">     executable /home/me/MyPlatform.exe</pre>
+
+
+<a name="wp11209"></a><pre class="pCode">     use_executable</pre>
+
+
+<a name="wp11240"></a><pre class="pCode">     </pre>
+
+
+<a name="wp11204"></a><h6 class="pHTaskSubhead">
+  Command Line Arguments
+</h6>
+
+
+
+<a name="wp11276"></a><p class="pBody">
+Command line arguments are passed to the Virtual Prototype Simulator program when a Virtual Prototype is invoked. The arguments can reference Virtual Prototype runtime environment variables.
+</p>
+
+
+<a name="wp11280"></a><p class="pBody">
+Additional arguments are passed to the Virtual Prototype invocation by adding them at the end of the command line.
+</p>
+
+
+<a name="wp10191"></a><pre class="pShellCmd">
+     <span class="cRequired">cmdline</span> arg1 ...</pre>
+
+
+<a name="wp11307"></a><p class="pBody">
+For example:
+</p>
+
+
+<a name="wp11309"></a><pre class="pCode">     cmdline -image {$VISTA_VIRTUAL_PROTOTYPES_ROOT/sw.image}</pre>
+
+
+<a name="wp11305"></a><h6 class="pHTaskSubhead">
+  Working Directory
+</h6>
+
+
+
+<a name="wp11358"></a><p class="pBody">
+Use the following command to specify the path to the working directory in the Virtual Prototype runtime. The path can refer to Virtual Prototype runtime environment variables. Relative paths are prepended with $VISTA_VIRTUAL_PROTOTYPES_ROOT/. If a working directory is not specified, the directory where Virtual Prototype is invoked is used.
+</p>
+
+
+<a name="wp10193"></a><pre class="pShellCmd">
+     <span class="cRequired">cd</span> <span class="cReqRpl">target_relative_path</span> </pre>
+
+
+<a name="wp11384"></a><p class="pBody">
+For example:
+</p>
+
+
+<a name="wp11386"></a><pre class="pCode">     cd sim_work</pre>
+
+
+<a name="wp11382"></a><h6 class="pHTaskSubhead">
+  Parameters File
+</h6>
+
+
+
+<a name="wp11429"></a><p class="pBody">
+Use the following command to specify the Vista Parameters file to use during Virtual Prototype simulation. The file is copied into the Virtual Prototype runtime environment during generation.
+</p>
+
+
+<a name="wp10195"></a><pre class="pShellCmd">
+     <span class="cRequired">params</span> <span class="cReqRpl">parameters_file_path</span> </pre>
+
+
+<a name="wp11469"></a><p class="pBody">
+For example:
+</p>
+
+
+<a name="wp11471"></a><pre class="pCode">     params /home/me/MyPlatform.params</pre>
+
+
+<a name="wp11899"></a><pre class="pCode">     </pre>
+
+
+<a name="wp11902"></a><p class="pBody">
+You can specify an additional Vista Parameters file using the environment variable VISTA_PARAMETERS_FILE. Settings in the parameters file specified via this environment variable take precedence over those in Virtual Prototype runtime parameters file.
+</p>
+
+
+<a name="wp11467"></a><h6 class="pHTaskSubhead">
+  Environment
+</h6>
+
+
+
+<a name="wp11521"></a><p class="pBody">
+The Virtual Prototype creator can set runtime environment variables for Virtual Prototype invocation. The specified variable values can refer to Virtual Prototype runtime environment variables.
+</p>
+
+
+<a name="wp11524"></a><p class="pBody">
+The following operations for environment variables are available:
+</p>
+
+
+<a name="wp11526"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">set</span> &#151;  Unconditionally sets the value of the specified environment variable.</li></ul>
+<a name="wp11591"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">default</span> &#151;  Sets the value of the specified environment variable only if it was not set in the your environment.</li></ul>
+<a name="wp11626"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">prepend</span> and <span style=" font-weight: bold;">append</span> &#151;  prepends or appends the specified value to the previously specified value of an environment variable. A colon (:) is used as a delimiter.</li></ul>
+<a name="wp10197"></a><pre class="pShellCmd">
+     <span class="cRequired">env set</span> <span class="cReqRpl">variable</span> <span class="cReqRpl">value</span> </pre>
+
+
+<a name="wp10199"></a><pre class="pShellCmd">
+     <span class="cRequired">env default</span> <span class="cReqRpl">variable</span> <span class="cReqRpl">value</span></pre>
+
+
+<a name="wp10201"></a><pre class="pShellCmd">
+     <span class="cRequired">env prepend</span> <span class="cReqRpl">variable</span> <span class="cReqRpl">value</span></pre>
+
+
+<a name="wp10203"></a><pre class="pShellCmd">
+     <span class="cRequired">env append</span> <span class="cReqRpl">variable</span> <span class="cReqRpl">value</span></pre>
+
+
+<a name="wp11692"></a><p class="pBody">
+For example:
+</p>
+
+
+<a name="wp11726"></a><pre class="pCode">     env set IMAGE_FILE2 {$VISTA_VIRTUAL_PROTOTYPES_ROOT/sw2.image}</pre>
+
+
+<a name="wp11732"></a><pre class="pCode">     env default DEBUG_MODE 0</pre>
+
+
+<a name="wp11694"></a><pre class="pCode">     env prepend PATH {$VISTA_VIRTUAL_PROTOTYPES_ROOT/platform_tools}</pre>
+
+
+<a name="wp11695"></a><pre class="pCode">     env append LD_LIBRARY_PATH {$VISTA_VIRTUAL_PROTOTYPES_ROOT/platform_libs}</pre>
+
+
+<a name="wp11690"></a><h6 class="pHTaskSubhead">
+  Additional Directories 
+</h6>
+
+
+
+<a name="wp11796"></a><p class="pBody">
+The Virtual Prototype creator enables you to copy additional directories into the Virtual Prototype runtime environment. The contents of each directory is copied into the specified Target Directory. 
+</p>
+
+
+<a name="wp11834"></a><p class="pBody">
+You can specify the Target Directory name or the name of a Target Environment Variable that references the Target Directory. If you specify the Target Directory name, the name is automatically prepended with <span style=" font-style: italic;">$VISTA_VIRTUAL_PROTOTYPES_ROOT/</span>. If you specify the name of a Target Environment Variable, the Target Directory name can be omitted.
+</p>
+
+
+<a name="wp11794"></a><p class="pBody">
+Specify one of the following variants in the script file:
+</p>
+
+
+<a name="wp10205"></a><pre class="pShellCmd">
+     <span class="cRequired">xcopy</span> <span class="cReqRpl">directory_path</span> <span class="cReqRpl">target_relative_path</span> -env <span class="cReqRpl">variable</span> |<br />        <span class="cReqRpl">directory_path</span> <span class="cReqRpl">target_relative_path</span> | <br />        <span class="cReqRpl">directory_path</span> -env <span class="cReqRpl">variable</span></pre>
+
+
+<a name="wp11911"></a><p class="pBody">
+For example:
+</p>
+
+
+<a name="wp11913"></a><pre class="pCode">     xcopy /home/me/platform_support platsup -env PLATFORM_SUPPORT</pre>
+
+
+<a name="wp11914"></a><pre class="pCode">     xcopy /home/me/platform_support platsup</pre>
+
+
+<a name="wp11915"></a><pre class="pCode">     xcopy /home/me/platform_support -env PLATFORM_SUPPORT</pre>
+
+
+<a name="wp12002"></a><h6 class="pHTaskSubhead">
+  Additional Files
+</h6>
+
+
+
+<a name="wp12005"></a><p class="pBody">
+The Virtual Prototype creator enables you to copy additional files into the Virtual Prototype runtime environment. Each file is copied to the specified Target Directory. 
+</p>
+
+
+<a name="wp12072"></a><p class="pBody">
+You can specify the Target Directory name or the name of a Target Environment Variable that references the Target Directory. If you specify the Target Directory name, the name is automatically prepended with <span style=" font-style: italic;">$VISTA_VIRTUAL_PROTOTYPES_ROOT/</span>. The basename of the file remains unchanged. If you specify the name of a Target Environment Variable, the Target Directory name can be omitted. 
+</p>
+
+
+<a name="wp12022"></a><p class="pBody">
+Specify one of the following variants in the script file:
+</p>
+
+
+<a name="wp12144"></a><pre class="pShellCmd">
+     <span class="cRequired">copy</span> <span class="cReqRpl">file_path</span> <span class="cReqRpl">target_relative_path</span> -env <span class="cReqRpl">variable</span> | <br />        <span class="cReqRpl">file_path</span> <span class="cReqRpl">target_relative_path</span> | <br />        <span class="cReqRpl">file_path</span> -env <span class="cReqRpl">variable</span></pre>
+
+
+<a name="wp12028"></a><p class="pBody">
+For example:
+</p>
+
+
+<a name="wp12030"></a><pre class="pCode">     copy /home/me/platform.image images -env PLATFORM.IMAGE</pre>
+
+
+<a name="wp12031"></a><pre class="pCode">     copy /home/me/platform.image images</pre>
+
+
+<a name="wp12032"></a><pre class="pCode">     copy /home/me/platform.image -env PLATFORM.IMAGE</pre>
+
+
+<a name="wp12158"></a><pre class="pCode">     </pre>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Creating a Virtual Prototype Using vista_create_vp";
+   PDFLinkTitle = "Creating.a.Virtual.Prototype.Using.vistacreatevp"
+   ThisTopic = "CreatingaVirtualPrototypeUsingvistacreatevp";
+   CurrentFile = "virtual_prototyping03.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

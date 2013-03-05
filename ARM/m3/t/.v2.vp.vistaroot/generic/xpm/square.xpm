@@ -1,0 +1,19 @@
+/* XPM */
+static char *square[] = {
+/* columns rows colors chars-per-pixel */
+"11 11 2 1",
+"  c black",
+". c gray40",
+/* pixels */
+"...........",
+".         .",
+".         .",
+".         .",
+".         .",
+".         .",
+".         .",
+".         .",
+".         .",
+".         .",
+"..........."
+};

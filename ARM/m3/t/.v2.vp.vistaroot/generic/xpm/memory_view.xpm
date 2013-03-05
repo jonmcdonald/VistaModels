@@ -1,0 +1,25 @@
+/* XPM */
+static char *memory_view[] = {
+/* columns rows colors chars-per-pixel */
+"15 15 4 1",
+"  c black",
+". c #808080",
+"X c #C3C3C3",
+"o c gray100",
+/* pixels */
+"              o",
+" ............ .",
+" ............ .",
+" ..XXooXXooXX .",
+" ..XXooXXooXX .",
+" ..ooXXooXXoo .",
+" ..ooXXooXXoo .",
+" ..XXooXXooXX .",
+" ..XXooXXooXX .",
+" ..ooXXooXXoo .",
+" ..ooXXooXXoo .",
+" ..XXooXXooXX .",
+" ..XXooXXooXX .",
+"              .",
+"o.............."
+};

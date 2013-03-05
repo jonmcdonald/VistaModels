@@ -1,0 +1,2842 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:02:48 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Processors Library</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(182);
+    // -->
+ </script>
+ 
+
+<!--154,182,182-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPProcessors Library"></a>
+
+<a name="wp47010"></a><h3 class="pHeading2">
+  
+
+
+Processors Library
+  </h3>
+
+
+<a name="MGCCIDPARM 926"></a>
+
+<a name="wp47293"></a><h4 class="pHeading3">
+  
+
+
+ARM 926
+  </h4>
+
+
+<!--ARM926-->
+
+<a name="MGCCIDPFeature List"></a>
+
+<a name="wp47296"></a><h5 class="pHeading4">
+  
+
+
+Feature List
+</h5>
+
+
+
+<a name="wp47297"></a>
+<ul><li class="LL1BulSolid">AHB Interface </li></ul>
+<a name="wp47298"></a>
+<ul><li class="LL1BulSolid">ARM v5 architecture Instruction Set</li></ul>
+<a name="wp47299"></a>
+<ul><li class="LL1BulSolid">Thumb Instruction Set</li></ul>
+<a name="wp47300"></a>
+<ul><li class="LL1BulSolid">Floating Point</li></ul>
+<a name="wp47301"></a>
+<ul><li class="LL1BulSolid">MMU</li></ul>
+<a name="wp47302"></a>
+<ul><li class="LL1BulSolid">L1 Cache</li></ul>
+<a name="wp47303"></a>
+<ul><li class="LL1BulSolid">Interrupts</li></ul>
+<a name="wp47306"></a>
+<ul><li class="LL1BulSolid">TCM
+
+
+</li></ul><a name="MGCCIDPInterface Ports"></a>
+
+<a name="wp47309"></a><h5 class="pHeading4">
+  
+
+
+Interface Ports
+</h5>
+
+
+
+<a name="wp47310"></a>
+<ul><li class="LL1BulSolid">Initiator - AHB bus master port </li></ul>
+<a name="wp47311"></a>
+<ul><li class="LL1BulSolid">n_irq - Active low interrupt signal</li></ul>
+<a name="wp47312"></a>
+<ul><li class="LL1BulSolid">n_fiq - Active low fast interrupt signal</li></ul>
+<a name="wp47313"></a>
+<ul><li class="LL1BulSolid">n_reset - Active low reset signal</li></ul>
+<a name="wp169740"></a>
+<ul><li class="LL1BulSolid">itcm_acp &#151;  used to access I TCM from outside; protocol:generic, direction:slave, bitness:32</li></ul>
+<a name="wp169742"></a>
+<ul><li class="LL1BulSolid">dtcm_acp &#151;  used to access D TCM from outside; protocol:generic, direction:slave, bitness:32</li></ul><a name="MGCCIDPCPU Specific Parameters"></a>
+
+<a name="wp47319"></a><h5 class="pHeading4">
+  
+
+
+CPU Specific Parameters
+</h5>
+
+
+
+<a name="wp47325"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">dcache_size</span> &#151;  L1 data cache size. Default is 32K. The parameter specifies the data cache size in bytes. The size must be an integer which is a power of two. You may configure the <span style=" font-style: italic;">dcache_size</span> to be of zero size in order to disable the data cache functionality.</li></ul>
+<a name="wp73766"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">icache_size</span> &#151;  L1 instruction cache size. Default is 32K. The parameter specifies the instruction cache in bytes. The size must be an integer which is a power of two. You may configure the <span style=" font-style: italic;">icache_size</span> to be of zero size in order to disable the instruction cache functionality.</li></ul>
+<a name="wp73773"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">dtcm_size, itcm_size</span> &#151;  Size of data/instruction TCM memories. The parameter specifies the tightly coupled memory size in bytes if one is applicable. The size must be an integer which is a power of two. You may configure the TCM memory to be of zero size in order to disable the TCM functionality. Only one of the following values is permitted: 0, 4K, 8K, &#0133; 512K, 1M (default is 8K).</li></ul>
+<a name="wp73768"></a>
+<ul><li class="LL1BulSolid"><span style=" font-style: italic;">initram</span> (default: false) enable Instruction TCM on reset.</li></ul>
+<a name="wp169767"></a>
+<ul><li class="LL1BulSolid">HAS_ITCM_ACP &#151;  Defines whether to create the itcm_acp port. The specified value must be a boolean. A 1 creates the itcm_acp port. The default is 0.</li></ul>
+<a name="wp169770"></a>
+<ul><li class="LL1BulSolid">HAS_DTCM_ACP &#151;  Defines whether to create the dtcm_acp port. The specified value must be a boolean. A 1 creates the dtcm_acp port. The default is 0.</li></ul><a name="MGCCIDPCP15 Registers"></a>
+
+<a name="wp73769"></a><h5 class="pHeading4">
+  
+
+
+CP15 Registers
+</h5>
+
+
+
+<a name="wp153268"></a><p class="pBodyRelative">
+
+</p>
+<div id="TableDivQz"></div>
+<div align="center">
+
+
+<a name="wp153270"></a><p class="pTableTitle">
+Table 8&#8209;11. 
+
+
+ARM926EJ-S - CP15 Registers&#160;
+</p>
+
+
+
+<table border="1" cellpadding="5" cellspacing="0" id="wp153270table77065">
+  <tr bgcolor="#CCCCCC"  align="center" valign="middle">
+    <th>
+
+<a name="wp77067"></a><p class="pTableHeading">
+CRn
+</p>
+</th>
+
+    <th>
+
+<a name="wp77069"></a><p class="pTableHeading">
+OP1
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp77071"></a><p class="pTableHeading">
+CRm
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp77073"></a><p class="pTableHeading">
+OP2
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp77075"></a><p class="pTableHeading">
+Register or operation
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp77077"></a><p class="pTableHeading">
+Type
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp77079"></a><p class="pTableHeading">
+Supported Yes/No
+</p>
+
+
+</th>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="3">
+
+<a name="wp77081"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="3">
+
+<a name="wp77083"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="3">
+
+<a name="wp77085"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77087"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77089"></a><p class="pTableCell">
+Main ID
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="3">
+
+<a name="wp77091"></a><p class="pTableCell">
+RO
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="3">
+
+<a name="wp77093"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77101"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77103"></a><p class="pTableCell">
+Cache Type
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77115"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77117"></a><p class="pTableCell">
+TCM Type
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="7" rowspan="1">
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77137"></a><p class="pTableCell">
+c1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77139"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77141"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77143"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77145"></a><p class="pTableCell">
+Control
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77147"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77149"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="7" rowspan="1">
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77166"></a><p class="pTableCell">
+c2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77168"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77170"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77172"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77174"></a><p class="pTableCell">
+Translation Table Base Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77176"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77178"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="7" rowspan="1">
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77194"></a><p class="pTableCell">
+c3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77196"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77198"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77200"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77202"></a><p class="pTableCell">
+Domain Access Control
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77204"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77206"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="7" rowspan="1">
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="2">
+
+<a name="wp77222"></a><p class="pTableCell">
+c5
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77224"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77226"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77228"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77230"></a><p class="pTableCell">
+Data Fault Status
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77232"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77234"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77242"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77244"></a><p class="pTableCell">
+Instruction Fault Status
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="7" rowspan="1">
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77264"></a><p class="pTableCell">
+c6
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77266"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77268"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77270"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77272"></a><p class="pTableCell">
+Data Fault Address
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77274"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77276"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="7" rowspan="1">
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="8">
+
+<a name="wp77292"></a><p class="pTableCell">
+c7
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="8">
+
+<a name="wp77294"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77296"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77298"></a><p class="pTableCell">
+4
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77300"></a><p class="pTableCell">
+Wait for Interrupt
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77302"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77304"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="3">
+
+<a name="wp77310"></a><p class="pTableCell">
+c5
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77312"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77314"></a><p class="pTableCell">
+Invalidate ICache
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="3">
+
+<a name="wp77316"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="3">
+
+<a name="wp77318"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77326"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77328"></a><p class="pTableCell">
+Invalidate ICache Single Entry (MVA)
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77340"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77342"></a><p class="pTableCell">
+Invalidate ICache Single Entry (Set/Way)
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="3">
+
+<a name="wp77352"></a><p class="pTableCell">
+c6
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77354"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77356"></a><p class="pTableCell">
+Invalidate DCache
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="3">
+
+<a name="wp77358"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="3">
+
+<a name="wp77360"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77368"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77370"></a><p class="pTableCell">
+Invalidate DCache Single Entry (MVA)
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77382"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77384"></a><p class="pTableCell">
+Invalidate DCache Single Entry (Set/Way)
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77394"></a><p class="pTableCell">
+c7
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77396"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77398"></a><p class="pTableCell">
+Invalidate ICache and DCache
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77400"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77402"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="7">
+
+<a name="wp77404"></a><p class="pTableCell">
+c7<br />(cont)
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="7">
+
+<a name="wp77406"></a><p class="pTableCell">
+0<br />(cont)
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="4">
+
+<a name="wp77408"></a><p class="pTableCell">
+c10
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77410"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77412"></a><p class="pTableCell">
+Clean DCache Single Entry (MVA)
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77414"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77416"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77424"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77426"></a><p class="pTableCell">
+Clean and Invalidate DCache Entry (Set/Way)
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77438"></a><p class="pTableCell">
+3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77440"></a><p class="pTableCell">
+Test and Clean DCache
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td>
+
+
+<a name="wp77444"></a><p class="pTableCell">
+No
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77452"></a><p class="pTableCell">
+4
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77454"></a><p class="pTableCell">
+Drain Write Buffer
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77456"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77458"></a><p class="pTableCell">
+Write ignored
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77464"></a><p class="pTableCell">
+c13
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77466"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77468"></a><p class="pTableCell">
+Prefetch ICache Line (MVA)
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77470"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77472"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="2">
+
+<a name="wp77478"></a><p class="pTableCell">
+c14
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77480"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77482"></a><p class="pTableCell">
+Clean and Invalidate DCache Entry (MVA)
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77484"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77486"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77494"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77496"></a><p class="pTableCell">
+Clean and Invalidate DCache Entry (Set/Way)
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="7" rowspan="1">
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="6">
+
+<a name="wp77516"></a><p class="pTableCell">
+c8
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="6">
+
+<a name="wp77518"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77520"></a><p class="pTableCell">
+c5
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77522"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77524"></a><p class="pTableCell">
+Invalidate Set-Associative TLB
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77526"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77528"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77536"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77538"></a><p class="pTableCell">
+Invalidate Single Entry
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="2">
+
+<a name="wp77548"></a><p class="pTableCell">
+c6
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77550"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77552"></a><p class="pTableCell">
+Invalidate Set-Associative TLB
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77554"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77556"></a><p class="pTableCell">
+No
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77564"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77566"></a><p class="pTableCell">
+Invalidate Single Entry
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="2">
+
+<a name="wp77576"></a><p class="pTableCell">
+c7
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77578"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77580"></a><p class="pTableCell">
+Invalidate Set-Associative TLB
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77582"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77584"></a><p class="pTableCell">
+No
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77592"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77594"></a><p class="pTableCell">
+Invalidate Single Entry
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="7" rowspan="1">
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="4">
+
+<a name="wp77614"></a><p class="pTableCell">
+c9
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="4">
+
+<a name="wp77616"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77618"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77620"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77622"></a><p class="pTableCell">
+DCache Lockdown Register
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77624"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77626"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77634"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77636"></a><p class="pTableCell">
+ICache Lockdown Register
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="2">
+
+<a name="wp77646"></a><p class="pTableCell">
+c1
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77648"></a><p class="pTableCell">
+0
+
+</p>
+
+
+<a name="wp77649"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77651"></a><p class="pTableCell">
+Data TCM Region Register
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77653"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77655"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77665"></a><p class="pTableCell">
+Instruction TCM Region Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77669"></a><p class="pTableCell">
+No
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="7" rowspan="1">
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77685"></a><p class="pTableCell">
+c10
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77687"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77689"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77691"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77693"></a><p class="pTableCell">
+Data TLB lockdown victim
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77695"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77697"></a><p class="pTableCell">
+Write ignored
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="7" rowspan="1">
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="2">
+
+<a name="wp77713"></a><p class="pTableCell">
+c13
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77715"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77717"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77719"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77721"></a><p class="pTableCell">
+FCSE PID
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77723"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77725"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77733"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77735"></a><p class="pTableCell">
+Context ID
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="7" rowspan="1">
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="10">
+
+<a name="wp77755"></a><p class="pTableCell">
+c15
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="3">
+
+<a name="wp77757"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77759"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77761"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77763"></a><p class="pTableCell">
+Debug Override Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77765"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77767"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77773"></a><p class="pTableCell">
+c1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77775"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77777"></a><p class="pTableCell">
+Debug and Test Address Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77779"></a><p class="pTableCell">
+RO
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77781"></a><p class="pTableCell">
+Yes
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77787"></a><p class="pTableCell">
+c2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77789"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77791"></a><p class="pTableCell">
+Memory Region Remap Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77793"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77795"></a><p class="pTableCell">
+No
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77799"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77801"></a><p class="pTableCell">
+c1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77803"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77805"></a><p class="pTableCell">
+Trace Control Register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77807"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77809"></a><p class="pTableCell">
+No
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="6">
+
+<a name="wp77813"></a><p class="pTableCell">
+5
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77815"></a><p class="pTableCell">
+c2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77817"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77819"></a><p class="pTableCell">
+Tag in Main TLB Entry
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77821"></a><p class="pTableCell">
+RO
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77823"></a><p class="pTableCell">
+No
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77831"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77833"></a><p class="pTableCell">
+Tag in Lockdown TLB entry
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="2">
+
+<a name="wp77843"></a><p class="pTableCell">
+c3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77845"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77847"></a><p class="pTableCell">
+Tag in Main TLB Entry
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77849"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77851"></a><p class="pTableCell">
+No
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77859"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77861"></a><p class="pTableCell">
+Tag in Lockdown TLB Entry
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="2">
+
+<a name="wp77871"></a><p class="pTableCell">
+c4
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77873"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77875"></a><p class="pTableCell">
+PA and Access Permission Data in Main TLB Entry
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77877"></a><p class="pTableCell">
+RO
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77879"></a><p class="pTableCell">
+No
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77887"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77889"></a><p class="pTableCell">
+PA and Access Permission Data in Lockdown TLB Entry
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="6">
+
+<a name="wp77895"></a><p class="pTableCell">
+c15
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77897"></a><p class="pTableCell">
+5
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77899"></a><p class="pTableCell">
+c5
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77901"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77903"></a><p class="pTableCell">
+PA and Access Permission Data in Main TLB Entry
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77905"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77907"></a><p class="pTableCell">
+No
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77915"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77917"></a><p class="pTableCell">
+PA and Access Permission Data in Lockdown TLB Entry
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+&#160;</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77927"></a><p class="pTableCell">
+c7
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77929"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77931"></a><p class="pTableCell">
+Transfer Main TLB Entry into RAM
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77933"></a><p class="pTableCell">
+WO
+
+</p>
+
+</td>
+
+    <td colspan="1" rowspan="2">
+
+<a name="wp77935"></a><p class="pTableCell">
+No
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+&#160;</td>
+
+    <td>
+
+
+<a name="wp77943"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77945"></a><p class="pTableCell">
+Transfer Lockdown TLB Entry into RAM
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="2">
+
+<a name="wp77953"></a><p class="pTableCell">
+7
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77955"></a><p class="pTableCell">
+c0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77957"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77959"></a><p class="pTableCell">
+Cache debug control register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77961"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77963"></a><p class="pTableCell">
+No
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp77969"></a><p class="pTableCell">
+c1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77971"></a><p class="pTableCell">
+0
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77973"></a><p class="pTableCell">
+MMU debug control register
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77975"></a><p class="pTableCell">
+RW
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp77977"></a><p class="pTableCell">
+No
+
+</p>
+
+</td>
+
+
+</tr>
+
+
+</table>
+
+</div>
+<div id='EndTable'> </div>
+<p class="pBodyRelative">
+<br clear='left' class='Blank4Table' />
+
+
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Processors Library";
+   PDFLinkTitle = "Processors.Library"
+   ThisTopic = "ARM926EJS99CP15Registers";
+   CurrentFile = "Chapter_Customizing_Gen_Models_new29.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

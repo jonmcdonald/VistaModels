@@ -1,0 +1,3 @@
+set auto_index(::Net::Ipc::CommonSlave::create_slave_ipc) [list summit_add_tclindex Net/Ipc/CommonSlave/CommonSlave.tcl]
+set auto_index(::Net::Ipc::CommonSlave::SlaveConnectionBuilder) [list summit_add_tclindex Net/Ipc/CommonSlave/SlaveConnectionBuilder.tcl]
+set auto_index(::Net::Ipc::CommonSlave::ConnectionListener) [list summit_add_tclindex Net/Ipc/CommonSlave/SlaveConnectionBuilder.tcl]

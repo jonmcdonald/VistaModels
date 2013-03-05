@@ -1,0 +1,7 @@
+Create VP analysis data, run vp with:
+	run.exe -analysis -vp_trace_power -vp_trace_cache -vp_trace_attributes -simdir vp_sim
+Create database
+	prepare_analysis_database.exe -simdir vp_sim
+
+Now there should be analysis_db_accessor.32.so and MGC_VISTA_SIM_histor.data.analysis.analog 
+in the vp_sim dir.

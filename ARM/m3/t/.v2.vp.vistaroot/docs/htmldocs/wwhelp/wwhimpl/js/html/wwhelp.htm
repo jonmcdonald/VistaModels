@@ -1,0 +1,510 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Frameset//EN" "http://www.w3.org/TR/REC-html40/frameset.dtd">
+<html>
+ <!-- Copyright (c) 2000-2003 Quadralay Corporation.  All rights reserved. -->
+
+ <head>
+  <noscript><meta http-equiv="Refresh" content="0;url=../../../../mgc_html_help/mgc_html_help.htm"></noscript>
+  <meta http-equiv="content-type" content="text/html">
+  <meta http-equiv="charset"      content="UTF-8">
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+     mLParatext = new Array;
+   // -->
+  </script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/private/LibList.js"></script>
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+
+    var  WWHFrame = eval("window.self");
+    window.name = "WWHFrameGS";
+    // Extract the handle of the document that was passed in
+    // and all other parameters
+    Parts = location.href.split("?");
+    MGCTreeLoc = Parts[0].toString();
+    MGCTreeLoc = MGCTreeLoc.replace(/\/wwhelp\/wwhimpl.*/,"");
+//    WWHFrame.MGCSetCookiePath(MGCTreeLoc)
+ //alert("MGCTreeLoc is " + MGCTreeLoc);
+    Parameters = Parts[1];
+    mHandle = "_a_search_tips";
+    mTab = "contents";
+    mHREF = "title1.html";
+  
+    allParameters = Parts[1].split("&");
+    mPage = "NO";
+    mCurrInfoHubHandle = "mgc_ih";
+    mCurrInfoHubName = "Mentor Graphics";
+    mInfoHubName = "Mentor Graphics";
+    mSource = "doc";
+    mTopic = "NONE";
+    for (MaxIndex = allParameters.length, Index = 0 ; Index < MaxIndex ; Index++)
+    {
+       mParameter = allParameters[Index].split("=");
+       if (allParameters[Index] == "tab=index")
+       {
+          InGlobalIndex = true;
+          mTab = "index";
+       }
+       if (allParameters[Index] == "tab=search")
+       {
+          InGlobalSearch = true;
+          mTab = "search";
+       }
+       if (mParameter[0] == "topic") { mTopic = mParameter[1]; }
+       if (mParameter[0] == "href") { mPage = mParameter[1]; }
+       if (mParameter[0] == "context") { mHandle = mParameter[1]; }
+       if (mParameter[0] == "src") { mSource = mParameter[1]; }
+       if (mParameter[0] == "ihub")
+       {
+          mCurrInfoHubHandle = mParameter[1];
+          ihubFile = "../../../../../infohubs/" + mCurrInfoHubHandle + "/js/list.js";
+          // Insert information for current infohub (one that was passed as argument)
+          document.write("<script type=\"text/javascript\" language=\"JavaScript1.2\" src=\"" + ihubFile + "\"></script>");
+       }
+    }
+    //
+    //MGCRK check to see if dmerge has been run
+    if ( typeof(WWHFrame.mLibraryList) == "undefined")
+    {
+      DMerge = false;
+      if ( (mSource == 'lib') || (mSource == 'ihub') ){ window.location = "MGCNoLibrary.htm"; }
+   }
+   // -->
+  </script>
+
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/private/title.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/private/popupf.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/private/options.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/private/locale.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/scripts/browser.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/scripts/popup.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/scripts/filelist.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/scripts/pophash.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/scripts/booklist.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/scripts/bookgrps.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/scripts/help.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/scripts/controls.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/scripts/related.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/scripts/strutils.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../common/scripts/MGChighlt.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/handler.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../private/options.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../private/locale.js"></script>
+<!--MGCRK added document.js & library.js, etc. -->
+<!--  <script type="text/javascript" language="JavaScript1.2" src="../scripts/document.js"></script>-->
+
+  <script type="text/javascript" language="JavaScript1.2" src="../../../Index/LibraryAvailable.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../../Index/letters.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../../Index/globalletters.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../../../Index/MGCIndex.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/MGCCookies.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/browserdetect.js"></script>
+ <!--  end of MGC specific javascript files -->
+ <script type="text/javascript" language="JavaScript1.2" src="../scripts/tabs.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/outline.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/outlsafe.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/outlfast.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/index.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/search.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/favorites.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/panels.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/javascpt.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/wwhpagef.js"></script>
+  <script type="text/javascript" language="JavaScript1.2" src="../scripts/rollover.js"></script>
+
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+
+    var  WWHFrame = eval("window.self");
+    window.name = "WWHFrameGS";
+
+
+    LoadedFirstSearchEntry = false;
+    CookiesEnabled = true;
+    if (MGCCookiesEnabled() == null) { CookiesEnabled = false; }
+
+    // If this is global Index, set flag so that each page load reloads the Index tab to update the doc title,
+    // we don't need this for search.  Should change the variable name in the future because it is misleading.
+    InGlobalSearch = false;
+    InGlobalIndex = false;
+    MGCShowSearchFilter = false;
+    MinSearchPercent = 1;
+    ISVerbose = false;
+    IXDocTitleID = 0;
+    WWHFrame.BookCaseHandle  = new Array();
+    WWHFrame.BookCaseHandle[0] = "NONE";
+    WWHFrame.HighlightSearchTerms = false;
+    WWHFrame.PageHits = 0;
+    WWHFrame.SearchPointers = "";
+    WWHFrame.CurrentSearchHit = -1;
+
+    // Insert js file for document variables for the doc handle passed in
+    mCurrentDocList = new Array("xxxx",mHandle);
+    if (mPage != "NO")
+    {
+       dHandle = mPage.split("/");
+    }
+    
+    DocVarFile = "../../../../" + dHandle[0] + "/wwhdata/js/docvars.js";
+    DocVarFile2 = "../../../../" + dHandle[0] + "/wwhdata/js/document.js";
+    document.write("<script type=\"text/javascript\" language=\"JavaScript1.2\" src=\"" + DocVarFile + "\"></script>");
+    document.write("<script type=\"text/javascript\" language=\"JavaScript1.2\" src=\"" + DocVarFile2 + "\"></script>");
+
+    EnableNav = "ENABLE";
+    //PDFLink = "YES";
+    AlternateBooks = false;
+    FirstSearchEntry = "";
+    LoadedFirstSearchEntry = false;
+    // MGCRK 
+    //load MyDocs cookie
+    MySearchPrefs = "LIB";
+    switch (mSource)
+    {
+       case "doc": MySearchPrefs = "DOC";; break;
+       case "ihub": MySearchPrefs = "IHUB"; break;
+       case "mydocs": MySearchPrefs = "MYDOCS"; break;
+       default: MySearchPrefs = "LIB";
+    }
+
+    if ((mCurrInfoHubHandle == "mgc_ih") && (mSource != "mydocs") && (mSource != "doc") ) { MySearchPrefs = "LIB"; }
+    if (!WWHFrame.LibraryAvailable)
+       { MySearchPrefs = "DOC"; }
+    //MGCRK add code to detect if on SupportNet so Library operations can be disabled
+    var OnSupportNet = false;
+    var DocLocation = window.location.toString().replace(/\./g,"");
+    DocLocation = DocLocation.replace(/.*mentorsupportnetcom.*/,"ONSUPPORTNET");
+    if (DocLocation == "ONSUPPORTNET")
+    {
+      MySearchPrefs = "DOC";
+      OnSupportNet = true;
+      LibraryAvailable = false;
+    }
+    if (CookiesEnabled) { MGCSetCookie("MGCMySearchPrefs",MySearchPrefs) }
+    mMyDocsList = new Array();
+    mMGCBooklist = new Array;
+    mLDocList = new Array;
+    mSearchDocList = new Array;
+    mSearchDocList = mLibraryList;
+    mLParatext = new Array;
+    mIndexList = new Array;
+    if (CookiesEnabled)
+    {
+       if (MGCGetCookie("MGCMyDocs") != null)
+       {
+          LocalMyDocsList = new Array();
+          mMyDocsList[0] = ["None Selected","zzZZzz"];
+          LocalMyDocsList[0] = ["None Selected","zzZZzz"];
+          LArray = new Array;
+          SavedMyDocs = MGCGetCookie("MGCMyDocs");
+          RestoredMyDocs = unescape(SavedMyDocs).replace(",,",",");
+          LocalMyDocsList = RestoredMyDocs.split(",");
+          FoundOne = false;
+          for (MaxIndex = LocalMyDocsList.length, Index = 0 ; Index < MaxIndex ; Index++)
+          {
+             // See if handle is in the library,
+             // if not, leave it out of the list
+             InLib = false;
+             LData = LocalMyDocsList[Index].split("ySepZ");
+             for (MaxIx = mLibraryList.length, Ix = 0 ; Ix < MaxIx ; Ix++)
+             {
+                if ( LData[1] == mLibraryList[Ix][1] )
+                   { InLib = true;FoundOne = true; }
+             }
+             if ( ( LData[1] != "zzZZzz" ) && InLib )
+             { 
+                mMyDocsList[Index] = LData;
+                mLDocList[Index] = LData;
+             }
+          }
+          if ( (LocalMyDocsList[0][1] != "zzZZzz") && FoundOne )
+          {
+             AlternateBooks = true;
+          }
+       }
+       if (MGCGetCookie("MGCMySearchPrefs") != null)
+       {
+          MySearchPrefs = MGCGetCookie("MGCMySearchPrefs");
+       }
+    }
+   // -->
+  </script>
+  <script type="text/javascript" language="JavaScript1.2">
+   <!--
+
+    // Set reference to top level help frame
+    //
+    var  WWHFrame = eval("window.self");
+    window.name = "WWHFrameGS";
+
+    //MGCRK load document title, handle, index, PDF, library, and bookcase info
+    //
+    EnableSearchPopups = "YES"
+    WWHFrame.popup = "NO";
+    WWHFrame.NavIconsEnabled = "ENABLE";
+    IndexPopups = "YES";
+// MGCRK - Get/Save Index Letter
+
+    LastIndexLetter = "a";
+    if (CookiesEnabled)
+    {
+       LastIndexLetter = MGCGetCookie("MGCLastIndexLetter");
+       if (LastIndexLetter == null)
+       { 
+          LastIndexLetter = "a";
+          MGCSetCookie("MGCLastIndexLetter",LastIndexLetter);
+       }
+    }
+
+
+
+
+
+//  MGCRK Search specific initialization
+//
+    var MinSearchPercent;
+    var ShowSearchBooks;
+    if (CookiesEnabled)
+    {
+       ShowSearchBooks = MGCGetCookie("MGCShowSearchBooks");
+       if (ShowSearchBooks == null)
+       { 
+          ShowSearchBooks = "NO";
+          MGCSetCookie("MGCShowSearchBooks",ShowSearchBooks);
+       }
+//       MinSearchPercent = MGCGetCookie("MGCMinSearchPercent");
+//       if (MinSearchPercent == null)
+//       { 
+          MinSearchPercent = 1;
+          MGCSetCookie("MGCMinSearchPercent",MinSearchPercent);
+//       }
+    }
+    else
+    {
+       MinSearchPercent = 1;
+       ShowSearchBooks = "NO";
+    }
+
+   //   
+   //  Reload history data from cookie
+   //  or initialize if no cookie
+   //   
+
+//   WWHFrame.ModifyHistoryOK = "OK";
+//   if (MGCCookiesEnabled() != null)
+//   {
+//      if (MGCGetCookie("MGCHistory") != null)
+//      {
+//         SavedHistory = MGCGetCookie("MGCHistory");
+//         RestoredHistory = unescape(SavedHistory).replace(",,",",");
+//         WWHFrame.History = RestoredHistory.split("::zQZq,");
+//         if ( WWHFrame.History.length > 20 )
+//         {
+//            WWHFrame.TempHistory = WWHFrame.History.slice(1,20);
+//            WWHFrame.History = WWHFrame.TempHistory;
+//         }
+//         for (MaxIndex = WWHFrame.History.length, Index = 0 ; Index < MaxIndex-1 ; Index++)
+//         {
+//            WWHFrame.History[Index] = WWHFrame.History[Index] + "::zQZq";
+//         }
+//         WWHFrame.HistoryPointer = (WWHFrame.History.length-1);
+//      }
+//      else
+//      {
+//         WWHFrame.History = new Array();
+//         WWHFrame.HistoryPointer = -1;
+//      }
+//   }
+//   else
+//   {
+//      WWHFrame.History = new Array();
+//      WWHFrame.HistoryPointer = -1;
+//   }
+//   //   
+//   //  Reload favorites data from cookie
+//   //  or initialize if no cookie
+//   //   
+//
+//   if (CookiesEnabled)
+//   {
+//      if (MGCGetCookie("MGCFavorites") != null)
+//      {
+//         SavedFavorites = MGCGetCookie("MGCFavorites");
+//         RestoredFavorites = unescape(SavedFavorites).replace(",,",",");
+//         WWHFrame.Favorites = RestoredFavorites.split("::zQZq,");
+//         if ( WWHFrame.Favorites.length > 20 )
+//         {
+//            WWHFrame.TempFavorites = WWHFrame.Favorites.slice(1,20);
+//            WWHFrame.Favorites = WWHFrame.TempFavorites;
+//         }
+//         for (MaxIndex = WWHFrame.Favorites.length, Index = 0 ; Index < MaxIndex-1 ; Index++)
+//         {
+//            WWHFrame.Favorites[Index] = "qQzq" + WWHFrame.Favorites[Index] + "::zQZq";
+//            WWHFrame.Favorites[Index] = WWHFrame.Favorites[Index].replace(/qQzq,/,"").replace(/qQzq/,"");
+//         }
+//         WWHFrame.FavoritesPointer = (WWHFrame.Favorites.length-1);
+//      }
+//      else
+//      {
+//         WWHFrame.Favorites = new Array();
+//         WWHFrame.FavoritesPointer = -1;
+//      }
+//   }
+//   else
+//   {
+//      WWHFrame.Favorites = new Array();
+//      WWHFrame.FavoritesPointer = -1;
+//   }
+//
+    var DocumentTitle = GetDocumentTitle();
+    var DocumentHandle = GetDocumentHandle();
+    var BookcaseHandle = GetBookcaseHandle();
+    var PDFLink = GetPDFLink();
+    var IncludeIndex = "YES";
+    var LibraryName = "MGC Library";
+    var InIndex = false;
+    var InSearch = false;
+
+    //MGCRK Detect if installation is on SupportNet
+    var OnSupportNet = false;
+    var DocLocation = window.location.toString().replace(/\./g,"");
+    DocLocation = DocLocation.replace(/.*mentorsupportnetcom.*/,"ONSUPPORTNET");
+    if (DocLocation == "ONSUPPORTNET")
+    {
+      MySearchPrefs = "DOC";
+      OnSupportNet = true;
+      LibraryAvailable = false;
+    }
+
+
+   DetectBrowser();
+//alert("OS is " + WWHFrame.operatingsystem);
+//   WWHFrame.BaseFontSize = 2;
+//   WWHFrame.BaseFontFamily = "font face=\"Arial, Helvetica, sans-serif\""
+//   WWHFrame.BaseFont = "<font size=\"" + WWHFrame.BaseFontSize + "\" face=\"Arial, Helvetica, sans-serif\">";
+//   WWHFrame.NavigationPtag = "<p class=\"pNavigation10\">";
+//   if ( (WWHFrame.operatingsystem == "Unix") || (WWHFrame.operatingsystem == "Linux") )
+//   {
+//       WWHFrame.BaseFontSize = "3";
+//   }
+//   if ((WWHFrame.browsername == "Netscape Navigator") && (WWHFrame.browserversion.substring(0,1) == "4") && (WWHFrame.operatingsystem == "Unix"))
+//   {
+//       WWHFrame.BaseFontSize = "3";
+//       WWHFrame.BaseFont = "<font size=\"" + WWHFrame.BaseFontSize + "\" face=\"Verdana, Helvetica, Arial, sans-serif\">";
+//   }
+
+   //Specify fonts based on browser
+   //V2 change to be able to resize text in document window.
+
+   BaseBodyFontSize = 13;
+   var BaseBodyFonts = new Object();
+   BaseBodyFonts["Windows"] = new Array(11,13,15);
+   BaseBodyFonts["Unix"] = new Array(17,18,19);
+   BaseBodyFonts["Linux"] = new Array(11,12,13);
+   BaseBodyFonts["Mac"] = new Array(14,16,18);
+   BaseBodyFontSize = BaseBodyFonts[WWHFrame.operatingsystem][1];
+   var BaseNavFonts = new Object();
+   BaseNavFonts["Windows"] = new Array(9,11,13);
+   BaseNavFonts["Unix"] = new Array(14,15,16);
+   BaseNavFonts["Linux"] = new Array(10,11,12);
+   BaseNavFonts["Mac"] = new Array(11,12,13);
+   BaseNavFontSize = BaseNavFonts[WWHFrame.operatingsystem][1];
+   BaseBodyFontSizeID = 1;
+   BaseNavFontSizeID = 1;
+   if (CookiesEnabled)
+   {
+      if (MGCGetCookie("MGCBaseNavFontSizeID") != null)
+      {  
+         BaseNavFontSizeID = MGCGetCookie("MGCBaseNavFontSizeID");
+         BaseNavFontSize = BaseNavFonts[WWHFrame.operatingsystem][BaseNavFontSizeID];
+      }
+      if (MGCGetCookie("MGCBaseBodyFontSizeID") != null)
+      {  
+         BaseBodyFontSizeID = MGCGetCookie("MGCBaseBodyFontSizeID");
+         BaseBodyFontSize = BaseBodyFonts[WWHFrame.operatingsystem][BaseBodyFontSizeID];
+      }
+   }
+    // Create browser info object
+    //
+    var  WWHBrowser = new WWHBrowser_Object();
+
+    // Create new help object
+    //
+    var  WWHHelp = new WWHHelp_Object(location.href);
+
+    // Create controls object
+    //
+    var  WWHControls = new WWHControls_Object();
+
+    // Create related topics object
+    //
+    var  WWHRelatedTopics = new WWHRelatedTopics_Object();
+
+    // Create alinks object
+    //
+    var  WWHALinks = new WWHALinks_Object();
+
+    // Create highlight words object
+    //
+//    var  WWHHighlightWords = new WWHHighlightWords_Object();
+
+    // Create new handler object
+    //
+    var  WWHHandler = new WWHHandler_Object();
+
+    // Create new JavaScript Help object
+    //
+    var  WWHJavaScript = new WWHJavaScript_Object();
+
+    // Create new outline object
+    //
+    var  WWHOutline = new WWHOutline_Object();
+
+    // Create new index object
+    //
+    var  WWHIndex = new WWHIndex_Object();
+
+    // Create new search object
+    //
+    var  WWHSearch = new WWHSearch_Object();
+
+    function  WWHFrame_HandleKeyDown(ParamEvent)
+    {
+      return WWHFrame.WWHHelp.fHandleKeyDown(ParamEvent);
+    }
+    // Create new favorites object
+    //
+    var  WWHFavorites = new WWHFavorites_Object();
+
+    // Create new history object
+    //
+//    var  WWHHistory = new WWHHistory_Object();
+
+    function  WWHFrame_HandleKeyPress(ParamEvent)
+    {
+      return WWHFrame.WWHHelp.fHandleKeyPress(ParamEvent);
+    }
+
+    function  WWHFrame_HandleKeyUp(ParamEvent)
+    {
+      return WWHFrame.WWHHelp.fHandleKeyUp(ParamEvent);
+    }
+   // -->
+//WWHFrame.document.write("WWHFrame.MySearchPrefs is: " + WWHFrame.MySearchPrefs);
+
+  </script>
+ </head>
+<!-- MGCRK added names to frames - reset nav pane width to 250 -->
+ <frameset cols="250,*" onLoad="WWHHelp.fInitStage(0);" onKeyDown="WWHFrame_HandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHFrame_HandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHFrame_HandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+  <frame name="MGCNavigate" src="navigate.htm" scrolling="no">
+  <frame name="MGCContent" src="../../common/html/content.htm" scrolling="auto">
+
+  <noframes>
+   <body>
+    <p>This page uses frames, but your browser doesn't support them.</p>
+   </body>
+  </noframes>
+ </frameset>
+</html>

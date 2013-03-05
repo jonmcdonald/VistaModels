@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:08:36 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Exporting sc_module Parameter Information to Visual Elite</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(510);
+    // -->
+ </script>
+ 
+
+<!--504,510,0-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPExporting sc_module Parameter Information to Visual Elite"></a>
+
+<a name="wp7635"></a><h3 class="pHeading2">
+  
+
+
+Exporting sc_module Parameter Information to Visual Elite
+  </h3>
+
+
+
+<a name="wp7636"></a><p class="pBody">
+The sc_module parameters defined for a Vista project can be displayed in Visual Elite (in the <span style=" font-weight: bold;">Component &gt; Attributes &gt; Parameters</span> dialog box). This requires that, within Vista, you first prepare a directives file that has the following format:
+</p>
+
+
+<a name="wp7637"></a><pre class="pCode">     module &lt;module_a_name&gt;</pre>
+
+
+<a name="wp7638"></a><pre class="pCode">     parameter &lt;parameter_a1_name&gt; &lt;parameter_a1_type&gt; &lt;parameter_a1_default_value&gt;</pre>
+
+
+<a name="wp7639"></a><pre class="pCode">     parameter &lt;parameter_a2_name&gt; &lt;parameter_a2_type&gt; &lt;parameter_a2_default_value&gt;</pre>
+
+
+<a name="wp7640"></a><pre class="pCode">     .</pre>
+
+
+<a name="wp7641"></a><pre class="pCode">     .</pre>
+
+
+<a name="wp7642"></a><pre class="pCode">     parameter &lt;parameter_an_name&gt; &lt;parameter_an_type&gt; &lt;parameter_an_default_value&gt;</pre>
+
+
+<a name="wp7643"></a><pre class="pCode">     .</pre>
+
+
+<a name="wp7644"></a><pre class="pCode">     .</pre>
+
+
+<a name="wp7645"></a><pre class="pCode">     parameter &lt;parameter_b1_name&gt; &lt;parameter_b1_type&gt; &lt;parameter_b1_default_value&gt;</pre>
+
+
+<a name="wp7646"></a><pre class="pCode">     parameter &lt;parameter_b2_name&gt; &lt;parameter_b2_type&gt; &lt;parameter_b2_default_value&gt;</pre>
+
+
+<a name="wp7647"></a><pre class="pCode">     .</pre>
+
+
+<a name="wp7648"></a><pre class="pCode">     .</pre>
+
+
+<a name="wp7649"></a><pre class="pCode">     parameter &lt;parameter_bn_name&gt; &lt;parameter_bn_type&gt; &lt;parameter_bn_default_value&gt;</pre>
+
+
+<a name="wp7650"></a><pre class="pCode">     </pre>
+
+
+<a name="wp7651"></a><p class="pBody">
+Having created a directives file, you specify its location in the Directives file field of the <span style=" font-weight: bold;">Tools &gt;</span> <span style=" font-weight: bold;">Generate Graphical Library</span> dialog box. (See <a href='javascript:oT("CRF","appendix_ve_libraries3.html");'>&quot;Interactively Generating Graphical Libraries&quot;</a>.)
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Exporting sc_module Parameter Information to Visual Elite";
+   PDFLinkTitle = "Exporting.scmodule.Parameter.Information.to.Visual.Elite"
+   ThisTopic = "ExportingscmoduleParameterInformationtoVisualElite";
+   CurrentFile = "appendix_ve_libraries7.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

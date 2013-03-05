@@ -1,0 +1,101 @@
+NAME
+       lsearch - See if a list contains a particular element
+
+SYNOPSIS
+       lsearch ?options? list pattern
+
+
+DESCRIPTION
+       This  command  searches  the  elements  of  list  to see if one of them
+       matches pattern.  If so, the command returns the  index  of  the  first
+       matching  element  (unless  the options -all or -inline are specified.)
+       If not, the command returns -1.  The option arguments indicates how the
+       elements of the list are to be matched against pattern and it must have
+       one of the following values:
+
+       -all   Changes the result to be the list of all  matching  indices  (or
+              all matching values if -inline is specified as well.)
+
+       -ascii The  list  elements  are  to be examined as Unicode strings (the
+              name is for backward-compatability  reasons.)   This  option  is
+              only meaningful when used with -exact or -sorted.
+
+       -decreasing
+              The  list  elements are sorted in decreasing order.  This option
+              is only meaningful when used with -sorted.
+
+       -dictionary
+              The list elements are to be compared using dictionary-style com-
+              parisons.   This option is only meaningful when used with -exact
+              or -sorted.
+
+       -exact The list element must contain exactly the same  string  as  pat-
+              tern.
+
+       -glob  Pattern  is  a  glob-style pattern which is matched against each
+              list element using the same rules as the string match command.
+
+       -increasing
+              The list elements are sorted in increasing order.   This  option
+              is only meaningful when used with -sorted.
+
+       -inline
+              The matching value is returned instead of its index (or an empty
+              string if no value matches.)  If -all is  also  specified,  then
+              the  result  of  the  command  is  the  list  of all values that
+              matched.
+
+       -integer
+              The list elements are to be compared as integers.   This  option
+              is only meaningful when used with -exact or -sorted.
+
+       -not   This  negates the sense of the match, returning the index of the
+              first non-matching value in the list.
+
+       -real  The list elements are to be compared as  floating-point  values.
+              This option is only meaningful when used with -exact or -sorted.
+
+       -regexp
+              Pattern is treated as a regular expression and  matched  against
+              each  list  element  using  the rules described in the re_syntax
+              reference page.
+
+       -sorted
+              The list elements are in sorted order.  If this option is speci-
+              fied,  lsearch  will use a more efficient searching algorithm to
+              search list.  If no other options are specified, list is assumed
+              to  be sorted in increasing order, and to contain ASCII strings.
+              This option is mutually exclusive with -glob and -regexp, and is
+              treated  exactly like -exact when either -all, or -not is speci-
+              fied.
+
+       -start index
+              The list is searched starting at position index.  If  index  has
+              the  value  end,  it refers to the last element in the list, and
+              end-integer refers to the last element in  the  list  minus  the
+              specified integer offset.
+
+       If  option  is  omitted then it defaults to -glob.  If more than one of
+       -exact, -glob, -regexp, and -sorted is specified, whichever  option  is
+       specified  last takes precedence.  If more than one of -ascii, -dictio-
+       nary, -integer and -real is specified, the option specified last  takes
+       precedence.   If more than one of -increasing and -decreasing is speci-
+       fied, the option specified last takes precedence.
+
+
+EXAMPLES
+              lsearch {a b c d e} c => 2
+              lsearch -all {a b c a b c} c => 2 5
+              lsearch -inline {a20 b35 c47} b* => b35
+              lsearch -inline -not {a20 b35 c47} b* => a20
+              lsearch -all -inline -not {a20 b35 c47} b* => a20 c47
+              lsearch -all -not {a20 b35 c47} b* => 0 2
+              lsearch -start 3 {a b c a b c} c => 5
+
+
+SEE ALSO
+       foreach(n), list(n),  lappend(n),  lindex(n),  linsert(n),  llength(n),
+       lset(n), lsort(n), lrange(n), lreplace(n)
+
+
+KEYWORDS

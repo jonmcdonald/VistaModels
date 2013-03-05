@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:02:48 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Debug Flow Using GDB </title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(209);
+    // -->
+ </script>
+ 
+
+<!--154,208,209-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPDebug Flow Using GDB "></a>
+
+<a name="wp28204"></a><h4 class="pHeading3">
+  
+
+
+Debug Flow Using GDB 
+  </h4>
+
+
+<!--DebugFlowUsingGDB-->
+
+
+<a name="wp28205"></a>
+<ol start="1."><li class="LL1Seq">Specify the GDB stub port (i.e. 1234) through the model parameters or through an external parameters file (refer to <a href='javascript:oT("CRF","Chapter_Customizing_Gen_Models_new26.html#wp46738");'>GDB Stub Port (gdbstub_port)</a> for the parameter descriptions).</li></ol>
+<a name="wp28206"></a>
+<ol start="2."><li class="LL1Seq">Start simulation in Vista.</li></ol>
+<a name="wp28207"></a>
+<ol start="3."><li class="LL1Seq">Invoke &ldquo;xemacs&rdquo; -load arm_gdb.el (refer to <a href='javascript:oT("CRF","Chapter_Customizing_Gen_Models_new58.html");'>ARM GDB Cross Debugger Configurations</a>).</li></ol>
+<a name="wp28208"></a>
+<ol start="4."><li class="LL1Seq">Press <span style=" font-weight: bold;">Alt + x</span>.</li></ol>
+<a name="wp28209"></a>
+<ol start="5."><li class="LL1Seq">Type <span style=" font-weight: bold;">arm-gdb</span> to start the arm cross debugger.</li></ol>
+
+
+
+<a name="wp28213"></a><p class="pFigureTitle">
+Figure 8&#8209;12. 
+
+
+ARM Cross Debugger
+
+
+</p>
+<div align="center"><img src="images/ARMCrossDebugger.gif" id="wp31008" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp28226"></a>
+<ol start="6."><li class="LL1Seq">At the GDB prompt specify the path to the software ELF image files. </li></ol>
+
+
+
+<a name="wp28230"></a><p class="pFigureTitle">
+Figure 8&#8209;13. 
+
+
+SW Executable 
+
+
+</p>
+<div align="center"><img src="images/SWExecutable.gif" id="wp31011" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp28233"></a>
+<ol start="7."><li class="LL1Seq">Start the simulation and wait for the following prompt:</li></ol>
+<a name="wp28235"></a><p class="pL1Body"><span class="cP12"><span style=" font-weight: regular; font-style: italic; vertical-align: baseline; color:#000000;">&ldquo;qemu: gdbstub is waiting for SW Debugger connection on port &#39;1234&#39; &ldquo;</span></span></p>
+
+<a name="wp28238"></a>
+<ol start="8."><li class="LL1Seq">At the GDB prompt, type target remote: 1234.</li></ol>
+
+
+
+<a name="wp28242"></a><p class="pFigureTitle">
+Figure 8&#8209;14. 
+
+
+Connect To Target
+
+
+</p>
+<div align="center"><img src="images/ConnectToTarget.gif" id="wp31014" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp28248"></a>
+<ol start="9."><li class="LL1Seq">Type the following commands </li></ol>
+<a name="wp28249"></a><ul><li class="LL2BulSolid">&lt;gdb prompt&gt;b main.</li></ul>
+<a name="wp28250"></a><ul><li class="LL2BulSolid">&lt;gdb prompt&gt;c + enter.</li></ul>
+<a name="wp28252"></a><p class="pL1Body"><a href='javascript:oT("CRF","Chapter_Customizing_Gen_Models_new56.html#wp28257");'>Figure&#160;8&#8209;15</a> demonstrates the debugger state at the beginning of the debug session:</p>
+
+
+
+
+<a name="wp28257"></a><p class="pFigureTitle">
+Figure 8&#8209;15. 
+
+
+Debug Sequence
+
+
+</p>
+<div align="center"><img src="images/DebugSequence.gif" id="wp31021" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Debug Flow Using GDB ";
+   PDFLinkTitle = "Debug.Flow.Using.GDB."
+   ThisTopic = "FIGUREDebugSequence";
+   CurrentFile = "Chapter_Customizing_Gen_Models_new56.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

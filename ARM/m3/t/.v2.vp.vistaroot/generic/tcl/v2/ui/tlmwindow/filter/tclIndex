@@ -1,0 +1,4 @@
+set auto_index(::v2::ui::tlmwindow::filter::FilterDialog) [list summit_add_tclindex v2/ui/tlmwindow/filter/FilterDialog.tcl]
+set auto_index(::v2::ui::tlmwindow::filter::Toolbar) [list summit_add_tclindex v2/ui/tlmwindow/filter/Toolbar.tcl]
+set auto_index(::v2::ui::tlmwindow::filter::ViewMenu) [list summit_add_tclindex v2/ui/tlmwindow/filter/ViewMenu.tcl]
+set auto_index(::UI::v2/ui/tlmwindow/filter/ViewMenu/DocumentLinker) [list summit_add_tclindex v2/ui/tlmwindow/filter/ViewMenu.tcl]

@@ -1,0 +1,7 @@
+set auto_index(::v2::ui::processes::LocalVariablesView) [list summit_add_tclindex v2/ui/processes/LocalVariablesView.tcl]
+set auto_index(::UI::v2/ui/processes/LocalVariablesView/DocumentLinker) [list summit_add_tclindex v2/ui/processes/LocalVariablesView.tcl]
+set auto_index(::v2::ui::processes::ProcessesTreeView) [list summit_add_tclindex v2/ui/processes/ProcessesTreeView.tcl]
+set auto_index(::UI::v2/ui/processes/ProcessesTreeView/DocumentLinker) [list summit_add_tclindex v2/ui/processes/ProcessesTreeView.tcl]
+set auto_index(::v2::ui::processes::ProcessesView) [list summit_add_tclindex v2/ui/processes/ProcessesView.tcl]
+set auto_index(::v2::ui::processes::StackView) [list summit_add_tclindex v2/ui/processes/StackView.tcl]
+set auto_index(::UI::v2/ui/processes/StackView/DocumentLinker) [list summit_add_tclindex v2/ui/processes/StackView.tcl]

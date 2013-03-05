@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:06:16 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Command-Line Arguments</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(309);
+    // -->
+ </script>
+ 
+
+<!--308,309,0-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPCommand-Line Arguments"></a>
+
+<a name="wp7803"></a><h3 class="pHeading2">
+  
+
+
+Command-Line Arguments
+  </h3>
+
+
+
+<a name="wp7804"></a><p class="pBody">
+The above vista_cc and vista_c++ wrappers accept all the standard Vista command arguments. (For details, see <a href='javascript:oT("CRF","setup_invocation09.html");'>&quot;Invoking Vista&quot;</a>.)
+</p>
+
+
+<a name="wp7808"></a><p class="pBody">
+In addition, these wrappers accept the following command-line arguments pertinent to the compilation, linking, and debugging of executables:
+</p>
+<div id="TableDivQz"></div>
+<div align="center">
+
+
+<a name="wp7814"></a><p class="pTableTitle">
+Table 11&#8209;1. 
+
+
+Command-Line Arguments&#160;
+</p>
+
+
+
+<table border="1" cellpadding="5" cellspacing="0" id="wp7814table7809">
+  <tr bgcolor="#CCCCCC"  align="center" valign="middle">
+    <th>
+
+<a name="wp7818"></a><p class="pTableHeading">
+Argument
+</p>
+</th>
+
+    <th>
+
+<a name="wp7820"></a><p class="pTableHeading">
+Description
+</p>
+
+
+</th>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp7822"></a><p class="pTableCell">
+-sc22
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7824"></a><p class="pTableCell">
+Compile for SystemC 2.2.
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp7826"></a><p class="pTableCell">
+-sc-static, <br />-sc-dynamic
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7828"></a><p class="pTableCell">
+Forces use of either the static or dynamic version of the Vista SystemC runtime library during linking. (Static is the default.)
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp7830"></a><p class="pTableCell">
+-gcc412,
+
+</p>
+
+
+<a name="wp8453"></a><p class="pTableCell">
+-gcc434
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7832"></a><p class="pTableCell">
+Compile for gcc 4.1.2, 4.3.4 respectively. Unless otherwise set (see <span style=" font-weight: bold;">Note</span> below), gcc 4.3.4 is the default for Linux/Unix. These arguments invoke the similarly- named wrappers stored in the Vista installation directory.
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp7834"></a><p class="pTableCell">
+-tsv
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7836"></a><p class="pTableCell">
+Compile with support for Vista transaction recording. For details, see the <a href='javascript:oT("CRF","design_verification33.html");'>&quot;Transaction Sequence Viewer&quot;</a>.
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp7841"></a><p class="pTableCell">
+-osci
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7843"></a><p class="pTableCell">
+Linking will be performed using the standard OSCI runtime kernel provided with Vista. As indicated above, when you use this option, debugging the resulting executable will not be possible in the Vista environment.
+
+</p>
+
+</td>
+
+
+</tr>
+
+
+</table>
+
+</div>
+<div id='EndTable'> </div>
+<p class="pBody">
+<br clear='left' class='Blank4Table' />
+
+
+</p>
+
+
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg"><span class="cNotesBlack">Note</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp7844"></a><p class="pnoteNote">
+        	Regarding the version of SystemC and gcc to be used, the command-line arguments described in the above table will take precedence over any other previously-set values. (For details, see <a href='javascript:oT("CRF","setup_invocation06.html");'>&quot;Controlling Vista Behavior&quot;</a>.)
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="right" /></td>
+    </tr>
+ </table>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Command\-Line Arguments";
+   PDFLinkTitle = "CommandLine.Arguments"
+   ThisTopic = "CommandLineArguments";
+   CurrentFile = "compile_external_executables2.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

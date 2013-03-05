@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:07:38 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>associate_hdl_unit_to_model</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(423);
+    // -->
+ </script>
+ 
+
+<!--416,420,423-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPassociate_hdl_unit_to_model"></a>
+
+<a name="wp18109"></a><p class="pzCmdFunc">
+
+
+
+associate_hdl_unit_to_model
+</p>
+
+
+
+
+<a name="wp24103"></a><p class="pzShortDesc">
+Associates an HDL unit and signals with a TLM model and Ports.
+</p>
+
+
+<a name="wp19185"></a><h6 class="pzHeading">
+  Syntax
+  </h6>
+
+
+<a name="wp81877"></a><p class="pzUsage">
+associate_hdl_unit_to_model [-h | -help] [-usage] [<span class="cOptional">&#8209;port_association_list </span><span class="cOptRpl">list</span>] <br />[{-hu | -<span class="cOptional">hdl_unit_name}</span> <span class="cOptRpl">name</span>] <span class="cReqRpl">library_name</span> <span class="cReqRpl">model_name</span> 
+</p>
+
+
+<a name="wp81878"></a><h6 class="pzHeading">
+  Arguments
+  </h6>
+
+
+<a name="wp33075"></a><h6 class="pzHeading2">
+  Common (Optional)
+</h6>
+
+
+
+<a name="wp33076"></a><ul class="ulSmSpace"><li class="LLzptArg">[-help | -h]</li></ul>
+
+
+<a name="wp28602"></a><div class="LLzArgDesc">Displays help.</div>
+<a name="wp28603"></a><ul class="ulSmSpace"><li class="LLzptArg">[-usage] </li></ul>
+
+
+<a name="wp28604"></a><div class="LLzArgDesc">Displays the syntax for this command.</div>
+<a name="wp81848"></a><h6 class="pzHeading2">
+  Optional
+</h6>
+
+
+
+<a name="wp19111"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cOptional">&#8209;port_association_list</span> <span class="cOptRpl">list</span> </li></ul>
+
+
+<a name="wp19176"></a><div class="LLzArgDesc">List of protocol parameter and HDL signal pairs for each port. The list format is:</div>
+
+<a name="wp33392"></a><div class="LLzArgDesc">{port1 {param1 signal1 param2 signal2} port2 {&#0133;}&#0133;}</div>
+<a name="wp81895"></a><ul class="ulSmSpace"><li class="LLzptArg">{-hu | -<span class="cOptional">hdl_unit_name}</span> <span class="cOptRpl">name</span></li></ul>
+
+
+<a name="wp81903"></a><div class="LLzArgDesc">Specify the name of the HDL Unit. If not specified, HDL Unit name is assumed equal to the TLM model name.</div>
+<a name="wp84394"></a><h6 class="pzHeading2">
+  Required
+</h6>
+
+
+
+<a name="wp84395"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">library_name</span></li></ul>
+
+
+<a name="wp84396"></a><div class="LLzArgDesc">Specify the name of the model library.</div>
+<a name="wp84397"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">model_name</span></li></ul>
+
+
+<a name="wp84398"></a><div class="LLzArgDesc">Specify the name of the TLM model.</div>
+<a name="wp33448"></a><h6 class="pzHeading">
+  See also
+
+</h6>
+
+<div id="TableDivQz"></div>
+
+<div align="left">
+
+
+
+
+
+<table border="0" cellpadding="2" cellspacing="0" width="96%" id="wp84912table84910">
+
+  <tr align="left" valign="top">
+
+    <td>
+
+
+
+
+
+<a name="wp84912"></a><p class="pTableCell">
+
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb14.html");'><span class="cP12"><span style=" font-weight: bold; font-angle: normal; vertical-align: baseline; color:#000000;">create_tlm_model</span></span></a>
+
+</p>
+
+</td>
+
+    <td>
+
+
+
+
+
+<a name="wp84914"></a><p class="pTableCell">
+
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb35.html");'><span class="cP12"><span style=" font-weight: bold; font-angle: normal; vertical-align: baseline; color:#000000;">parse_vhdl_source</span></span></a>
+
+
+
+</p>
+
+
+
+</td>
+
+
+
+</tr>
+
+  <tr align="left" valign="top">
+
+    <td>
+
+
+
+
+
+<a name="wp84916"></a><p class="pTableCell">
+
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb34.html");'><span class="cP12"><span style=" font-weight: bold; font-angle: normal; vertical-align: baseline; color:#000000;">parse_verilog_source</span></span></a>
+
+
+
+</p>
+
+
+
+</td>
+
+    <td>
+
+
+
+
+
+<a name="wp84918"></a><p class="pTableCell">
+
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb37.html");'><span class="cP12"><span style=" font-weight: bold; font-angle: normal; vertical-align: baseline; color:#000000;">read_vcd</span></span></a>
+
+
+
+</p>
+
+
+
+</td>
+
+
+
+</tr>
+
+
+
+</table>
+
+
+
+</div>
+
+<div id='EndTable'> </div>
+
+<h6 class="pzHeading">
+
+<br clear='left' class='Blank4Table' />
+
+
+
+  </h6>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "associate_hdl_unit_to_model";
+   PDFLinkTitle = "associatehdlunittomodel"
+   ThisTopic = "associatehdlunittomodel";
+   CurrentFile = "Chapter_Command_Line_Ops_mb08.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

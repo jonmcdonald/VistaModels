@@ -1,0 +1,4 @@
+set auto_index(::v2::ui::workwindow::WorkWindow) [list summit_add_tclindex v2/ui/workwindow/WorkWindow.tcl]
+set auto_index(::v2::ui::workwindow::find_projects_workwindow) [list summit_add_tclindex v2/ui/workwindow/init.tcl]
+set auto_index(::v2::ui::workwindow::get_Projects_tree_document) [list summit_add_tclindex v2/ui/workwindow/init.tcl]
+set auto_index(::v2::ui::workwindow::refresh_Projects_tree) [list summit_add_tclindex v2/ui/workwindow/init.tcl]

@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:06:08 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Building a Project</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(303);
+    // -->
+ </script>
+ 
+
+<!--301,303,0-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPBuilding a Project"></a>
+
+<a name="wp7884"></a><h3 class="pHeading2">
+  
+
+
+Building a Project
+  </h3>
+
+
+
+<a name="wp7885"></a><p class="pBody">
+Building a project involves creating objects from each of the source files that are referenced by this project, then linking the resulting objects, and building an executable. Two commands are available in the Build for building an entire project on its own:
+</p>
+
+
+<a name="wp7886"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Build Project</span> compiles only those sources in the project that require compilation, and then links the resulting objects and builds an executable.</li></ul>
+<a name="wp7887"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Rebuild Project</span> re-compiles all of the project's sources prior to the build operation. This command first deletes all the project's objects (.o files), then recompiles all sources and builds the design.</li></ul>
+<a name="wp7888"></a><p class="pBody">
+Another command, <span style=" font-weight: bold;">Build Executable</span>, can be used to build a single sc_main source in a project, instead of the entire project, thereby shortening the build time.
+</p>
+
+
+<a name="wp7889"></a><p class="pBody">
+Vista also provides additional commands for building a project together with other projects on which it depends.
+</p>
+
+
+<a name="wp7890"></a><p class="pBody">
+<span style=" font-weight: bold;">To build a project: </span>
+</p>
+
+
+<a name="wp9608"></a>
+<ol start="1."><li class="LL1Seq">In the browser, select any object belonging to the project.</li></ol>
+<a name="wp9612"></a>
+<ol start="2."><li class="LL1Seq">Choose the appropriate command or, for Build Project, click the equivalent icon <span style=" font-weight: bold;">
+
+
+<img src="images/build_projecta.gif" id="wp9610" border="0" hspace="0" vspace="0"/>
+
+
+
+</span>.</li></ol>
+<a name="wp7897"></a><p class="pBody">
+During the build operation Vista automatically moves the project&#39;s sc_main file from the Sources directory to the Designs directory in the browser. When the build has been successfully completed, an appropriate message is displayed in the Messages window. 
+</p>
+
+
+<a name="wp7898"></a><p class="pBody">
+To build a single sm_main source and not the entire project:
+</p>
+
+
+<a name="wp9556"></a>
+<ol start="1."><li class="LL1Seq">In the browser, select the icon of the sc_main source.</li></ol>
+<a name="wp9557"></a>
+<ol start="2."><li class="LL1Seq">Choose the <span style=" font-weight: bold;">Build &gt; Build Executable</span> command.</li></ol>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Building a Project";
+   PDFLinkTitle = "Building.a.Project"
+   ThisTopic = "BuildingaProject";
+   CurrentFile = "compile_build_project3.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

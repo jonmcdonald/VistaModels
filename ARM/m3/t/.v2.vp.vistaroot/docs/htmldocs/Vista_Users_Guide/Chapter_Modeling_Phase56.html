@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:01:17 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Power-up and Power-down Modeling</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(151);
+    // -->
+ </script>
+ 
+
+<!--96,141,151-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPPower-up and Power-down Modeling"></a>
+
+<a name="wp133460"></a><h4 class="pHeading3">
+  
+
+
+Power-up and Power-down Modeling
+  </h4>
+
+
+<!--PowerupandPowerdownModeling-->
+
+
+<a name="wp132193"></a><p class="pBody">
+Power-up and power-down operation is modeled using enable, disable, and reset operations on corresponding domains (or on individual objects, if it is convenient). Use the <span style=" font-style: italic;">string</span> protocol to pass global power state information in the form of strings between different models; for example from a PMU controller to peripherals. The following is an example of a behavioral callback for a PMU slave port:
+</p>
+
+
+<a name="wp132195"></a><pre class="pCode">     void pmu_port_write(std::string str) {    if (str == &quot;ON&quot;) {      wic_domain.enable();      core_domain.enable();    } else if (str == &quot;SLEEP&quot;) {       wic_domain.enable();       core_domain.disable();         } else if (str == &quot;OFF&quot;) {       wic_domain.disable_and_reset();       core_domain.disable_and_reset();    } else {       mb::sysc::warning(str + &quot;: invalid PMU state&quot;);    }  }</pre>
+
+
+<a name="wp132196"></a><pre class="pCode">     </pre>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Power\-up and Power\-down Modeling";
+   PDFLinkTitle = "Powerup.and.Powerdown.Modeling"
+   ThisTopic = "PowerupandPowerdownModeling";
+   CurrentFile = "Chapter_Modeling_Phase56.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

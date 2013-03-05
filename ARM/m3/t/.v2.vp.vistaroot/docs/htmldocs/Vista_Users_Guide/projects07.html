@@ -1,0 +1,531 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:01:04 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Defining Project Folders</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(68);
+    // -->
+ </script>
+ 
+
+<!--62,64,68-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPDefining Project Folders"></a>
+
+<a name="wp7858"></a><h4 class="pHeading3">
+  
+
+
+Defining Project Folders<a name="MGCCIDMVISTA_HELP_PROJECTS__FOLDERS_TAB"></a><a name="MGCCIDM1004"></a>
+  </h4>
+
+
+<!--DefiningProjectFolders-->
+
+
+<a name="wp7859"></a><p class="pBody">
+The <span style=" font-weight: bold;">Folders</span> tab is used to define the folders that will be created for the project, and that will subsequently be displayed as branches for the project within the browser.
+</p>
+
+
+<a name="wp7860"></a><p class="pBody">
+In the right-hand column you can specify the file extensions for the different files to be referenced by each of the folders. Defining these extensions means that, when you add files to a new or existing project using the Add by Extension option, the files will automatically be referenced to the appropriate folder. For details, see <a href='javascript:oT("CRF","projects08.html");'>&quot;Defining Project Files&quot;</a>.
+</p>
+
+<a name="MGCCIDPVirtual Folders"></a>
+
+<a name="wp7866"></a><h5 class="pHeading4">
+  
+
+
+Virtual Folders
+</h5>
+
+
+
+<a name="wp7867"></a><p class="pBody">
+Note that Vista project folders are not real folders but are, rather, virtual folders. This means that all project files retain their original location in the file system, while Vista project folders simply reference them. For this reason:
+</p>
+
+
+<a name="wp7868"></a>
+<ul><li class="LL1BulSolid">An operation such as adding files to a project is in fact referencing one or more new files. </li></ul>
+<a name="wp7869"></a>
+<ul><li class="LL1BulSolid">Cutting and pasting files between folders is in fact simply changing the reference to the file. </li></ul>
+<a name="wp7870"></a>
+<ul><li class="LL1BulSolid">Removing a file is actually deleting the reference to the file, but not the file itself.</li></ul><a name="MGCCIDPDefault Folders"></a>
+
+<a name="wp7873"></a><h5 class="pHeading4">
+  
+
+
+Default Folders
+</h5>
+
+
+
+<a name="wp7874"></a><p class="pBody">
+By default, the following folders are defined for a project:
+</p>
+
+
+<a name="wp7875"></a>
+<ul><li class="LL1BulSolid">Sources (mandatory)</li></ul>
+<a name="wp7876"></a>
+<ul><li class="LL1BulSolid">Public Headers (mandatory)</li></ul>
+<a name="wp7877"></a>
+<ul><li class="LL1BulSolid">External Headers (where relevant)</li></ul>
+<a name="wp7878"></a>
+<ul><li class="LL1BulSolid">Documentation (where relevant)</li></ul>
+<a name="wp11869"></a>
+<ul><li class="LL1BulSolid">Others (where relevant)</li></ul>
+<a name="wp11870"></a>
+<ul><li class="LL1BulSolid">Schematics (created automatically) - h file per schematic, when a schematic is saved</li></ul>
+<a name="wp11872"></a>
+<ul><li class="LL1BulSolid">Simulation (created automatically) - after a successful design build</li></ul>
+<a name="wp7881"></a><p class="pBody">
+Optional folders can be renamed, deleted, or used to reference files with extensions different from the defaults. 
+</p>
+
+
+<a name="wp7882"></a><p class="pBody">
+The following table summarizes each of the Vista system-defined folders that are displayed in the Browser after you elaborate your design:
+</p>
+<div id="TableDivQz"></div>
+<div align="center">
+
+
+<a name="wp7888"></a><p class="pTableTitle">
+Table 4&#8209;1. 
+
+
+Vista Folders&#160;
+</p>
+
+
+
+<table border="1" cellpadding="5" cellspacing="0" id="wp7888table7883">
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp7894"></a><p class="pTableHeading">
+Folder name
+</p>
+</td>
+
+    <td>
+
+
+<a name="wp7896"></a><p class="pTableHeading">
+Files referenced by this folder
+</p>
+
+
+</td>
+
+    <td>
+
+
+<a name="wp7898"></a><p class="pTableHeading">
+Status
+</p>
+
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp7900"></a><p class="pTableCell">
+Sources
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7902"></a><p class="pTableCell">
+Source files, i.e., .c or .cpp files.
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7904"></a><p class="pTableCell">
+Mandatory
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp7906"></a><p class="pTableCell">
+Public Headers
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7908"></a><p class="pTableCell">
+Header files which are part of the project, i.e., .h or .hpp files
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7910"></a><p class="pTableCell">
+Mandatory
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp7912"></a><p class="pTableCell">
+External Header
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7914"></a><p class="pTableCell">
+Header files that are read from include path directories, specified under the Include Paths tab (discussed later on), but otherwise not part of the project
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7916"></a><p class="pTableCell">
+Mandatory
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp7918"></a><p class="pTableCell">
+Simulation
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7920"></a><p class="pTableCell">
+Only files which include the <br />&ldquo;sc_main&rdquo; routine
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7922"></a><p class="pTableCell">
+Mandatory after build (created automatically)
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp11877"></a><p class="pTableCell">
+Schematics
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp11879"></a><p class="pTableCell">
+ 
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp11881"></a><p class="pTableCell">
+.h file is created automatically when schematic is saved
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp11883"></a><p class="pTableCell">
+Linked Binaries
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp11885"></a><p class="pTableCell">
+Objects, archive (static) libraries or dynamic libraries (.o, .a, .so)
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp11887"></a><p class="pTableCell">
+Included in the link when you build a project; generate symbols for module objects
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp11889"></a><p class="pTableCell">
+Other Binaries
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp11891"></a><p class="pTableCell">
+(.exe, .x) not part of the link, but visible in the schematic (components that are linked in this executable) 
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp11893"></a><p class="pTableCell">
+In order to generate graphical symbols; not included in the link
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp7924"></a><p class="pTableCell">
+Documentation
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7926"></a><p class="pTableCell">
+Any kind of documentation file (.doc, .txt, 
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7928"></a><p class="pTableCell">
+Optional
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp7930"></a><p class="pTableCell">
+Others
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7932"></a><p class="pTableCell">
+Any selected file whose file extension doesn&#39;t match the extensions mapped to the other folders
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp7934"></a><p class="pTableCell">
+Optional
+
+</p>
+
+</td>
+
+
+</tr>
+
+
+</table>
+
+</div>
+<div id='EndTable'> </div>
+<p class="pBody">
+<br clear='left' class='Blank4Table' />
+
+
+</p>
+
+
+<a name="wp7935"></a><p class="pBody">
+In addition to these folders, you can add as many additional folders as you want in order to organize your work. 
+</p>
+
+
+<a name="wp11918"></a><p class="pBody">
+you add these by Add Files in the Project Settings &gt; Files tab.
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Defining Project Folders";
+   PDFLinkTitle = "Defining.Project.Folders"
+   ThisTopic = "DefaultFolders";
+   CurrentFile = "projects07.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

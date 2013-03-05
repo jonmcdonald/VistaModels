@@ -1,0 +1,2 @@
+:- consult(init).
+:- consult(util).

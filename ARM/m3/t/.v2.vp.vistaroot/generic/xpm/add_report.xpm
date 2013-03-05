@@ -1,0 +1,29 @@
+/* XPM */
+static char *add_report[] = {
+/* columns rows colors chars-per-pixel */
+"19 18 5 1",
+"  c black",
+". c #808080",
+"X c #C0C0C0",
+"o c gray100",
+"O c None",
+/* pixels */
+"OOOOOOOOOOOOOOOOOOO",
+"O                 .",
+"O XXX XXXXXXXXXXX .",
+"O XXX XXXXXXXXXXX .",
+"O XXX XXXXXXXXXXX .",
+"O XXX XXXXXXXXXXX .",
+"O XXX XXXXXXXXXXX .",
+"O XXX XXXXXXXXXXX .",
+"O XXX XXXXXXXXXXX .",
+"O XXX XXXXXXXXXXX .",
+"O XXX XXXXXXXXXXX .",
+"O XXX             .",
+"O XXX ooooooooooo .",
+"O XXX ooooooooooo .",
+"O XXX ooooooooooo .",
+"O XXX ooooooooooo .",
+"O                 .",
+"O.................."
+};

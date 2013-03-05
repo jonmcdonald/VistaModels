@@ -1,0 +1,20 @@
+summit_begin_package Net:Ipc
+
+package require Tcl
+package require Itcl
+
+summit_package_require Utilities
+summit_package_require Application
+
+summit_source Ipc.tcl
+summit_source ConnectionRegistry.tcl
+summit_source Connection.tcl
+summit_source MessageConnection.tcl
+summit_source ConnectionBuilder.tcl
+summit_source ConnectionFactory.tcl
+summit_source ConnectionContainer.tcl
+summit_source ConnectionServer.tcl
+summit_source ConnectionManager.tcl
+summit_source Utilities.tcl
+
+summit_end_package

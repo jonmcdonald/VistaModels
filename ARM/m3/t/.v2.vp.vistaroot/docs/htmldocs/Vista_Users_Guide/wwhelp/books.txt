@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<WebWorksHelpBooks version="4.0.0" name="$GET_PROJECTPROP(Title, UTF-8);" expandalltopentries="false" showbooks="false">
+ <Book directory="." encoding="$DEFAULTCHARSET;" />
+</WebWorksHelpBooks>

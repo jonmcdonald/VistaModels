@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.debug.ui.LAUNCH_CONFIGURATIONS_DIALOG_SECTION">
-		<item value="1279" key="DIALOG_WIDTH"/>
-		<item value=", com.codesourcery.mentor.vista.gdb.target.launch, " key="org.eclipse.debug.ui.EXPANDED_NODES"/>
-		<item value="780" key="DIALOG_HEIGHT"/>
-		<item value="141" key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_1"/>
+		<item value="994" key="DIALOG_WIDTH"/>
+		<item value=", com.codesourcery.mentor.vista.gdb.target.launch, com.codesourcery.target.launch, " key="org.eclipse.debug.ui.EXPANDED_NODES"/>
+		<item value="1414" key="DIALOG_HEIGHT"/>
+		<item value="200" key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_1"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value="858" key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_2"/>
+		<item value="799" key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_2"/>
 	</section>
 </section>

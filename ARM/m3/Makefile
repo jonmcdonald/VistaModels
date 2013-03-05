@@ -32,9 +32,9 @@ MBSRCS = $(wildcard $(MODELS)/*.cpp)
 MBOBJS = $(MBSRCS:.cpp=.o)
 MBARCHIVE = lib$(MODELS).a
 
-INCDIR = -I. -I./$(LOCAL) -I./$(MODELS) 
+INCDIR = -I. -I./$(LOCAL) -I./$(MODELS) -I/usr/include/i386-linux-gnu
 
-LIBS   = $(EXTRA_LIBS) -L. -l$(MODELS) 
+LIBS   = $(EXTRA_LIBS) -L. -l$(MODELS) -L/usr/lib/i386-linux-gnu
 EXE    = $(MODULE).x
 DFILES = $(OBJS:.o=.d) $(MBOBJS:.o=.d)
 

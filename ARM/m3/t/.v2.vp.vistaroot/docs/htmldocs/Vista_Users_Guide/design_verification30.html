@@ -1,0 +1,485 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:06:18 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Monitoring STL Objects</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(342);
+    // -->
+ </script>
+ 
+
+<!--313,341,342-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPMonitoring STL Objects"></a>
+
+<a name="wp25867"></a><h4 class="pHeading3">
+  <a name="MGCCIDMVISTA_HELP_ARRAY_RANGE"></a>
+
+
+Monitoring STL Objects
+  </h4>
+
+
+<!--MonitoringSTLObjects-->
+
+
+<a name="wp25868"></a><p class="pBody">
+Vectors, Lists, Queues and other STL containers are represented in Vista's Design Browser in the form of arrays and vectors. STL objects can be watched, traced and acquired to a Vista waveform as any other Vista objects.
+</p>
+
+
+<a name="wp25869"></a><p class="pBody">
+Both individual index values and ranges of values can be displayed. 
+</p>
+
+
+
+
+
+<a name="wp25875"></a><p class="pFigureTitle">
+Figure 12&#8209;14. 
+
+
+Array Tree in the Design Browser
+
+
+</p>
+<div align="center"><img src="images/stl_array_view.gif" id="wp110034" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp25876"></a><p class="pBody">
+A right-mouse-button menu includes all relevant operations for the array or vector object: Radix, Index Radix, Range and other settings via the Radix &amp; Range Options dialog (see <a href='javascript:oT("CRF","design_verification30.html#wp26340");'>&quot;Radix &amp; Range View Options&quot;</a>).
+</p>
+
+<a name="MGCCIDPMonitoring STL Arrays"></a>
+
+<a name="wp22767"></a><h5 class="pHeading4">
+  
+
+
+Monitoring STL Arrays
+</h5>
+
+
+
+<a name="wp22768"></a><p class="pBody">
+The following STL container types are supported in the Vista workspace:
+</p>
+
+
+<a name="wp22769"></a>
+<ul><li class="LL1BulSolid">Vector</li></ul>
+<a name="wp22770"></a>
+<ul><li class="LL1BulSolid">Queue</li></ul>
+<a name="wp22771"></a>
+<ul><li class="LL1BulSolid">Dequeue</li></ul>
+<a name="wp22772"></a>
+<ul><li class="LL1BulSolid">List</li></ul>
+<a name="wp22773"></a>
+<ul><li class="LL1BulSolid">Stack</li></ul>
+<a name="wp22774"></a><p class="pBody">
+For both the values and the indexes of the arrays, you can specify the radix: binary, decimal, hexadecimal, or octal).
+</p>
+
+<a name="MGCCIDPUsing STL Objects"></a>
+
+<a name="wp25937"></a><h5 class="pHeading4">
+  
+
+
+Using STL Objects
+</h5>
+
+
+<a name="MGCCIDPLarge Array Ranges"></a>
+
+<a name="wp25941"></a><h6 class="pHeading5">
+  
+
+
+Large Array Ranges
+</h6>
+
+
+
+<a name="wp25942"></a><p class="pBody">
+Navigating within very large arrays is facilitated by a hierarchy of <span style=" font-style: italic;">Array folders</span>. This applies to C arrays, and to STL types except lists.
+</p>
+
+
+<a name="wp25943"></a><p class="pBody">
+If there are over 100 elements in a vector-type array, one or more array folders are used. An array folder groups 100 entries, and puts the remaining entries in corresponding folders. 
+</p>
+
+
+<a name="wp25944"></a><p class="pBody">
+An array of 1000 is split into ten folders of 100 entries each; an array of 10,000 into ten folders of 1000 each, and so on.
+</p>
+
+<a name="MGCCIDPSTL List Ranges"></a>
+
+<a name="wp25948"></a><h6 class="pHeading5">
+  
+
+
+STL List Ranges
+</h6>
+
+
+
+<a name="wp25949"></a><p class="pBody">
+An STL list with more than 100 elements contains Begin and End folders. The Begin folder displays the first 100 elements and a folder called Next.
+</p>
+
+
+<a name="wp25950"></a><p class="pBody">
+The Next folder in turn shows the next 100 elements and, if there are still elements to display, another folder called Next.
+</p>
+
+
+<a name="wp25951"></a><p class="pBody">
+The Begin folder and its subsequent folders thus allow traversing a list from the beginning to the end. Similarly, the End folder and its subsequent folders allow traversing a list in the opposite direction.
+</p>
+
+
+<a name="wp25952"></a><p class="pBody">
+Large list (&ldquo;L_big_list&rdquo;) after elaboration has a size of 0. For &ldquo;L_big_list&rdquo; after 10 ns, one can view list items from the beginning or from the end.
+</p>
+
+<a name="MGCCIDPArray Range for Pointers"></a>
+
+<a name="wp25955"></a><h6 class="pHeading5">
+  
+
+
+Array Range for Pointers
+</h6>
+
+
+
+<a name="wp26337"></a><p class="pBody">
+Specifying an array range for a pointer displays an array of de-referenced elements under the pointer.
+</p>
+
+<a name="MGCCIDPRadix &amp; Range View Options"></a>
+
+<a name="wp26340"></a><h5 class="pHeading4">
+  <a name="MGCCIDMVISTA_HELP_RADIX_RANGE_OPTIONS"></a>
+
+
+Radix &amp; Range View Options
+</h5>
+
+
+
+<a name="wp26341"></a><p class="pBody">
+Tree-related properties such as value radix, array index radix, and array range can be configured in the View Options dialog.
+</p>
+
+
+<a name="wp26322"></a><p class="pBody">
+The following options/properties are available:
+</p>
+
+
+<a name="wp26323"></a>
+<ul><li class="LL1BulSolid">Value radix</li></ul>
+<a name="wp26324"></a>
+<ul><li class="LL1BulSolid">Array index radix</li></ul>
+<a name="wp26325"></a>
+<ul><li class="LL1BulSolid">Array range</li></ul>
+<a name="wp26329"></a><p class="pBody">
+<span style=" font-weight: bold;">Path Pattern: </span>defines a subset of objects for all settings in the dialog, using a pattern, such as top.s*; can be further constrained in the DataTypePattern fields, 
+</p>
+
+<a name="MGCCIDPRadix and Index Radix"></a>
+
+<a name="wp26130"></a><h6 class="pHeading5">
+  
+
+
+Radix and Index Radix
+</h6>
+
+
+
+<a name="wp26131"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Radix/Index-Radix options:</span></li></ul>
+<a name="wp26132"></a><ul><li class="LL2BulSolid"><span style=" font-weight: bold;">As is (</span>inherited from the parent level)</li></ul>
+<a name="wp26133"></a><ul><li class="LL2BulSolid"><span style=" font-weight: bold;">Binary</span></li></ul>
+<a name="wp26134"></a><ul><li class="LL2BulSolid"><span style=" font-weight: bold;">Octal</span></li></ul>
+<a name="wp26135"></a><ul><li class="LL2BulSolid"><span style=" font-weight: bold;">Decimal</span></li></ul>
+<a name="wp26136"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Apply to Subtree:</span> indicates whether the setting is to be applied to children of the highlighted object as well as the object itself</li></ul>
+<a name="wp26137"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Data Type Pattern: </span>defines a subset of types using a regular expression, such as *int or my_type_*</li></ul><a name="MGCCIDPRange"></a>
+
+<a name="wp26141"></a><h6 class="pHeading5">
+  
+
+
+Range
+</h6>
+
+
+
+<a name="wp26142"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Range options:</span></li></ul>
+<a name="wp26143"></a><ul><li class="LL2BulSolid"><span style=" font-weight: bold;">As is (</span>inherited from the parent level)</li></ul>
+<a name="wp26144"></a><ul><li class="LL2BulSolid"><span style=" font-weight: bold;">All: </span>show from the start to the end of the range</li></ul>
+<a name="wp26145"></a><ul><li class="LL2BulSolid"><span style=" font-weight: bold;">Range:</span> specifies a min and max value separated by a dash (&ldquo;-&rdquo;); can also be a combination of integers and/or ranges (for example: 0, 7, 11, 24-56, 256-512, 1024)</li></ul>
+<a name="wp26146"></a><ul><li class="LL2BulSolid"><span style=" font-weight: bold;">Tail: </span>specifies the number of units to display, starting from the end of the array</li></ul>
+<a name="wp26147"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Apply to Subtree:</span> indicates whether the setting is to be applied to children of the highlighted object as well as the object itself</li></ul>
+<a name="wp26148"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Data Type Pattern: </span>defines a subset of types using a regular expression, such as *int or my_type_*</li></ul><a name="MGCCIDPView Options File Syntax"></a>
+
+<a name="wp22787"></a><h6 class="pHeading5">
+  
+
+
+View Options File Syntax
+</h6>
+
+
+
+<a name="wp22788"></a><p class="pBody">
+A set of View Option settings are loaded from (and saved in) View Options text files with a specific syntax.
+</p>
+
+
+<a name="wp22789"></a><p class="pBody">
+They can be modified via the View Options dialog, or they can be edited directly in the View Options file.
+</p>
+
+
+<a name="wp22790"></a><p class="pBody">
+The syntax of the View Options file is similar to the syntax of resource files such as .Xdefaults. Options can be specified for a group of items that have a common name pattern:
+</p>
+
+
+<a name="wp22791"></a><pre class="pCode">     &lt;tree_item_path_pattern&gt; option_name option_value -flag1 value -flag2 value</pre>
+
+
+<a name="wp90401"></a><pre class="pCode">     </pre>
+
+
+<a name="wp22792"></a><p class="pBody">
+where:
+</p>
+
+
+<a name="wp22793"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">&lt;tree_item_path_pattern&gt;</span> is a visible path name pattern (for example, the one in the Trace dialog)</li></ul>
+<a name="wp22794"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">tree_item_path</span> may include regular expressions such as * (match all) or [a-z] (character range)</li></ul>
+<a name="wp22795"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">option_name</span> is a name of a specific option (&#39;radix&#39;, &#39;index_radix&#39;, or &#39;range&#39;)</li></ul>
+<a name="wp22796"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">option_value </span>is a value for a specific option</li></ul>
+<a name="wp22797"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">flag1, </span>and <span style=" font-weight: bold;">flag2</span> are additional flags constraining the scope of the setting (for example -type short to have the setting applied only to those entries of type short)</li></ul>
+<a name="wp22798"></a><p class="pBody">
+If a tree item has the same view options specified more than once in the file, the last specified value is used.
+</p>
+
+
+<a name="wp23139"></a><p class="pBody">
+Examples from a View Options file:
+</p>
+
+
+<a name="wp23140"></a><p class="pBody">
+# Specifying a hexadecimal value radix for all the elements in the design hierarchy which are named &ldquo;address&rdquo;:
+</p>
+
+
+<a name="wp22801"></a><pre class="pCode">     *.address radix hex  <br />     </pre>
+
+
+<a name="wp22802"></a><p class="pBody">
+# Specifying a decimal value radix for all the elements in the design hierarchy named &ldquo;counter&rdquo; # and of data type &ldquo;int&rdquo;:
+</p>
+
+
+<a name="wp22803"></a><pre class="pCode">     *.counter radix dec  -type int<br />     </pre>
+
+
+<a name="wp22804"></a><p class="pBody">
+# Specifying a binary value radix for all the elements in the design hierarchy with the hierarchy # path starting with &ldquo;top&rdquo; and ending with &ldquo;register&rdquo; with data type &ldquo;short&rdquo;:
+</p>
+
+
+<a name="wp22806"></a><pre class="pCode">     top*register radix bin  -type short<br />     </pre>
+
+
+<a name="wp22807"></a><p class="pBody">
+# Specifying a hexadecimal value radix for all the design hierarchy elements in the subtree top.multiplier: 
+</p>
+
+
+<a name="wp22808"></a><pre class="pCode">     top.multiplier.* radix hexadecimal <br />     </pre>
+
+
+<a name="wp22809"></a><p class="pBody">
+# Specifying a hexadecimal array index radix for all the arrays named &lt;anything&gt;&rdquo;my_array&rdquo;:
+</p>
+
+
+<a name="wp22810"></a><pre class="pCode">     *my_array index_radix hex<br />     </pre>
+
+
+<a name="wp22811"></a><p class="pBody">
+# Specifying an array range from 0 to 100 for all arrays
+</p>
+
+
+<a name="wp22812"></a><pre class="pCode">     * range 0-100<br />     </pre>
+
+
+<a name="wp22813"></a><p class="pBody">
+# Specifying an array range from 1000 to 2000 for all the arrays in the design hierarchy named &ldquo;big_array&rdquo; (this overrides the previous view option specified for all arrays in general):
+</p>
+
+
+<a name="wp22814"></a><pre class="pCode">     *.big_array range 1000-2000<br />     </pre>
+
+
+<a name="wp22815"></a><p class="pBody">
+# Specifying array range 1,2,20-40,100 for all the arrays in the design hierarchy named &ldquo;my_vector&rdquo; (this overrides the previous view option specified for all arrays in general):
+</p>
+
+
+<a name="wp22816"></a><pre class="pCode">     *.my_vector range 1,2,20-40,100</pre>
+
+
+<a name="wp22928"></a><pre class="pCode">     </pre>
+
+<a name="MGCCIDPHierarchy of View Options Files"></a>
+
+<a name="wp22929"></a><h6 class="pHeading5">
+  
+
+
+Hierarchy of View Options Files
+</h6>
+
+
+
+<a name="wp22930"></a><p class="pBody">
+View Options files have a hierarchy similar to the .vistarc file hierarchy.
+</p>
+
+
+<a name="wp22820"></a>
+<ol start="1."><li class="LL1Seq">The file<span style=" font-weight: bold;"> </span><span style=" font-weight: bold; font-style: italic;">.vista_view_options</span> resides in Vista&#39;s installation root directory and is read by Vista.</li></ol>
+<a name="wp22821"></a>
+<ol start="2."><li class="LL1Seq">After loading this file, the file <span style=" font-style: italic;">/home/$LOGNAME/.vista_view_options</span> is also loaded, so that each user can define individual view-options settings.</li></ol>
+<a name="wp22823"></a>
+<ol start="3."><li class="LL1Seq">Each Vista project also has its own view-options file residing in the same folder as the project <span style=" font-style: italic;">v2p</span> file and named .<span class="cReqRpl">project name</span><span style=" font-weight: regular; font-style: italic;">_view_options</span>. Here, you can specify view options for a specific project.</li></ol>
+<a name="wp23258"></a>
+<ol start="4."><li class="LL1Seq">Each Vista simulation also has its own view-options file residing in the simulation directory and named .<span style=" font-style: italic;">vista_view_options</span>.</li></ol>
+<a name="wp23259"></a><p class="pBody">
+Values specified in different files have different priorities. The priority of these values (in descending order) is:
+</p>
+
+
+<a name="wp23267"></a>
+<ul><li class="LL1BulSolid">	Values specified in simulation view options file (highest priority)</li></ul>
+<a name="wp23285"></a>
+<ul><li class="LL1BulSolid">Values specified in the project view options file</li></ul>
+<a name="wp23286"></a>
+<ul><li class="LL1BulSolid">Values specified in <span style=" font-style: italic;">/home/$LOGNAME/.vista_view _options</span></li></ul>
+<a name="wp23294"></a>
+<ul><li class="LL1BulSolid">Values specified in the installation root file</li></ul>
+<a name="wp22826"></a><p class="pBody">
+If a view option setting appears more than once in a file, the last-specified value overrides any value specified earlier.
+</p>
+
+<a name="MGCCIDPView Options with RMB"></a>
+
+<a name="wp22827"></a><h6 class="pHeading5">
+  
+
+
+View Options with RMB
+</h6>
+
+
+
+<a name="wp22828"></a><p class="pBody">
+Each view option can be set via a dialog accessible via the RMB, for a single object selected in the Browser or for a set of selected items.
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Monitoring STL Objects";
+   PDFLinkTitle = "Monitoring.STL.Objects"
+   ThisTopic = "ViewOptionswithRMB";
+   CurrentFile = "design_verification30.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

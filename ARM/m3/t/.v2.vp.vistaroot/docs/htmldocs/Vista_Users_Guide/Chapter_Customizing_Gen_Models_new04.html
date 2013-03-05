@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:02:48 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>BusRemapper</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(157);
+    // -->
+ </script>
+ 
+
+<!--154,155,157-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPBusRemapper"></a>
+
+<a name="wp165140"></a><h4 class="pHeading3">
+  
+
+
+BusRemapper
+  </h4>
+
+
+<!--BusRemapper-->
+
+
+<a name="wp165146"></a><p class="pBody">
+The BusRemapper model enables you to dynamically configure new address space for the bus master sockets.
+</p>
+
+
+<a name="wp165148"></a><p class="pBody">
+As one master port can have multiple (distinct) address spaces, configuring a new address space that can overlap an existing address space requires you to remove the old address space prior to the new configuration.
+</p>
+
+
+<a name="wp165152"></a><p class="pBody">
+The BusRemapper model has two generic configuration parameters:
+</p>
+
+
+<a name="wp165154"></a>
+<ul><li class="LL1BulSolid">PROTOCOL with values {ahb, apb, axi, generic}, default is ahb</li></ul>
+<a name="wp165156"></a>
+<ul><li class="LL1BulSolid">BUS_WIDTH with values {8, 16, 32, 64}, default is 32</li></ul>
+<a name="wp165158"></a><p class="pBody">
+The BusRemapper model defines:
+</p>
+
+
+<a name="wp165311"></a>
+<ul><li class="LL1BulSolid">A TLM slave port with protocol derived from PROTOCOL and Size=BUS_WIDTH.</li></ul>
+<a name="wp165162"></a>
+<ul><li class="LL1BulSolid">An external, non TLM port of Kind=port and class=&ldquo;sc_port&rdquo;&lt;esl::sc_sim::mem_remap_if&gt;.</li></ul>
+<a name="wp165164"></a>
+<ul><li class="LL1BulSolid">Registers:</li></ul>
+<a name="wp165166"></a><ul><li class="LL2BulHollow">base_address &#151;  at address 0, width=BUS_WIDTH</li></ul>
+<a name="wp165168"></a><ul><li class="LL2BulHollow">size &#151;  at address 0+(BUS_WIDTH/8)</li></ul>
+<a name="wp165170"></a><ul><li class="LL2BulHollow">op &#151;  at address 0+2*(BUS_WIDTH/8), defined as Trigger</li></ul>
+<a name="wp165172"></a>
+<ul><li class="LL1BulSolid">A memory range:</li></ul>
+<a name="wp165174"></a><p class="pL1Body">port &#151;  at address 0+3*(BUS_WIDTH/8), Size=256 bytes</p>
+
+<a name="wp165176"></a><p class="pBody">
+A remapping interface has been defined in file <span style=" font-style: italic;">mem_remap_if.h</span>. The interface defines two methods:
+</p>
+
+
+<a name="wp165180"></a><p class="pL1Body">set_base_address_and_size(const char* portName, uint64 address, unit64 size)</p>
+
+<a name="wp165182"></a><p class="pL1Body">remove_base_address(const char* portName, uint64 address)</p>
+
+<a name="wp165188"></a><p class="pBody">
+To enable address re-mapping in a bus component:
+</p>
+
+
+<a name="wp165190"></a>
+<ol start="1."><li class="LL1Seq">Add a BusRemapper component to your design.</li></ol>
+<a name="wp165191"></a>
+<ol start="2."><li class="LL1Seq">Add a TLM master port to the bus and bind it to the BusRemapper's TLM slave port.</li></ol>
+<a name="wp165192"></a>
+<ol start="3."><li class="LL1Seq">Add an external port to the bus, of Kind=export and class= &ldquo;remap_export&rdquo;, and bind it to the BusRemapper's external port.</li></ol>
+<a name="wp165193"></a><p class="pBody">
+To remove an existing memory range (for example, address 0 from master port master_1):
+</p>
+
+
+<a name="wp165195"></a>
+<ol start="1."><li class="LL1Seq">Write the name of the port (master_1) to memory port of the BusRemapper.</li></ol>
+<a name="wp165197"></a>
+<ol start="2."><li class="LL1Seq">Write the base address (0) to register base_address of the BusRemapper.</li></ol>
+<a name="wp165199"></a>
+<ol start="3."><li class="LL1Seq">Write the operation (remove=1) to register op of the BusRemapper (this should be the last write, as it triggers the whole operation).</li></ol>
+<a name="wp165201"></a><p class="pBody">
+To add a new memory range, (for example, from base address=0x10000 and size=0x10000 to bus port master_2):
+</p>
+
+
+<a name="wp165203"></a>
+<ol start="1."><li class="LL1Seq">Write the name of the port (master_2) to memory port of the BusRemapper.</li></ol>
+<a name="wp165205"></a>
+<ol start="2."><li class="LL1Seq">Write the base address (0x1000) to register base_address of the BusRemapper.</li></ol>
+<a name="wp165207"></a>
+<ol start="3."><li class="LL1Seq">Write the size (0x10000) to register size of the BusRemapper.</li></ol>
+<a name="wp165144"></a>
+<ol start="4."><li class="LL1Seq">Write the operation (add=0) to register op of the BusRemapper (this should be the last write, as it triggers the whole operation).</li></ol>
+<a name="wp165702"></a><p class="pBody">
+<a href='javascript:oT("CRF","Chapter_Customizing_Gen_Models_new04.html#wp165706");'>Figure&#160;8&#8209;3</a> shows a usage example of bus remapping.
+</p>
+
+
+
+
+
+<a name="wp165706"></a><p class="pFigureTitle">
+Figure 8&#8209;3. 
+
+
+Bus Remapping Usage Example
+
+
+</p>
+<div align="center"><img src="images/BusRemappingUsage.gif" id="wp165711" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "BusRemapper";
+   PDFLinkTitle = "BusRemapper"
+   ThisTopic = "FIGUREBusRemappingUsageExample";
+   CurrentFile = "Chapter_Customizing_Gen_Models_new04.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

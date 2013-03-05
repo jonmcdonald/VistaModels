@@ -1,0 +1,23 @@
+/* XPM */
+static char *proc_red[] = {
+/* columns rows colors chars-per-pixel */
+"15 14 3 1",
+"  c black",
+". c red",
+"X c gray100",
+/* pixels */
+"XXXXXXXXXXXXXXX",
+"XXXXX     XXXXX",
+"XXXX ..... XXXX",
+"XXX ....... XXX",
+"XX ......... XX",
+"XX ...... .. XX",
+"X ........ .. X",
+"X ...   .. .. X",
+"XX ..  ... . XX",
+"XX .. .   .. XX",
+"XXX ....... XXX",
+"XXXX ..... XXXX",
+"XXXXX     XXXXX",
+"XXXXXXXXXXXXXXX"
+};

@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:07:38 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>instantiate_model_from_ipxact</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(438);
+    // -->
+ </script>
+ 
+
+<!--416,420,438-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPinstantiate_model_from_ipxact"></a>
+
+<a name="wp81666"></a><p class="pzCmdFunc">
+
+
+
+instantiate_model_from_ipxact
+</p>
+
+
+
+
+<a name="wp81667"></a><p class="pzShortDesc">
+Creates a new TLM model according to the data extracted from the IP-XACT RTL description without saving the model.
+</p>
+
+
+<a name="wp81668"></a><p class="pzBody">
+This command is useful when additional batch processing is required during the time between creating the model and saving it to a Vista project library.
+</p>
+
+
+<a name="wp81669"></a><h6 class="pzHeading">
+  Syntax
+  </h6>
+
+
+<a name="wp81670"></a><p class="pzUsage">
+instantiate_model_from_ipxact <span class="cReqRpl">template_path model_name ipxact_root_path output_library </span>[<span class="cOptRpl">options</span>]
+</p>
+
+
+<a name="wp81671"></a><h6 class="pzHeading">
+  Arguments
+  </h6>
+
+
+<a name="wp81672"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">template_path</span> </li></ul>
+
+
+<a name="wp81673"></a><div class="LLzArgDesc">Path to the generic model.</div>
+
+<a name="wp81674"></a><div class="LLzArgDesc">Currently only Nic301 is available: <span style=" font-style: italic;">/TLM/Generic_Library/Nic301</span> </div>
+<a name="wp81675"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">model_name</span> </li></ul>
+
+
+<a name="wp81676"></a><div class="LLzArgDesc">Name of the ARM top component created by the ARM ADR tool</div>
+<a name="wp81677"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">ipxact_root_path</span> </li></ul>
+
+
+<a name="wp81678"></a><div class="LLzArgDesc">Full path to the root of the directory tree created by the ARM ADR tool that contains the IP-XACT description for the created component: </div>
+
+<a name="wp81679"></a><div class="LLzArgDesc"><span style=" font-style: italic;">&#0133;/&lt;project_name&gt;_RTL/logical/component_name</span> </div>
+
+<a name="wp81680"></a><div class="LLzArgDesc">or </div>
+
+<a name="wp81681"></a><div class="LLzArgDesc">&#0133;/<span class="cReqRpl">project_name</span><span style=" font-weight: regular; font-style: italic;">_RTL/logical</span> </div>
+<a name="wp81682"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">output_library</span> </li></ul>
+
+
+<a name="wp81683"></a><div class="LLzArgDesc">Name of Vista library in which to create the TLM model</div>
+<a name="wp81684"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cOptRpl">options</span></li></ul>
+
+
+<a name="wp81685"></a><div class="LLzArgDesc">All optional arguments accepted by the <a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb14.html");'>create_tlm_model</a> command, in particular:</div>
+<a name="wp81686"></a><p class="pzptArg1">
+-generate_kind pvt | pv
+</p>
+
+
+<a name="wp81687"></a><p class="pzptArg1">
+-overwrite 1 | 0
+</p>
+
+
+<a name="wp81688"></a><p class="pzptArg1">
+<span class="cOptRpl">-vista_project</span> &#151;  name of Vista project in which to add the model
+</p>
+
+
+<a name="wp81689"></a><p class="pzptArg1">
+generate_ipxact 1 | 0
+</p>
+
+
+<a name="wp81690"></a><p class="pzptArg1">
+<span class="cOptRpl">-ipxact_vendor</span> &#151;  vendor name to use in generating the IP-XACT description
+</p>
+
+
+<a name="wp81691"></a><p class="pzptArg1">
+<span class="cOptRpl">-ipxact_version</span> &#151;  version string to be use in generated IP-XACT description
+</p>
+
+
+<a name="wp81692"></a><h6 class="pzHeading">
+  Return Value
+  </h6>
+
+
+<a name="wp81693"></a><p class="pzBody">
+The command returns the model builder path (<span class="cReqRpl">model_path</span>) of the created model. The path can be used in a subsequent save command; for example: 
+</p>
+
+
+<a name="wp81694"></a><p class="pApplCmd">
+save_model -generate -vista_project $vista_project $model_path
+</p>
+
+
+<a name="wp81695"></a><h6 class="pzHeading">
+  See Also
+  </h6>
+
+
+<a name="wp81699"></a><p class="pzBody">
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb11.html");'>configure_model_from_ipxact</a>
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "instantiate_model_from_ipxact";
+   PDFLinkTitle = "instantiatemodelfromipxact"
+   ThisTopic = "instantiatemodelfromipxact";
+   CurrentFile = "Chapter_Command_Line_Ops_mb23.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

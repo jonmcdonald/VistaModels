@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:02:48 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Statistics Modeling Package</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(213);
+    // -->
+ </script>
+ 
+
+<!--154,213,0-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPStatistics Modeling Package"></a>
+
+<a name="wp18635"></a><h3 class="pHeading2">
+  
+
+
+Statistics Modeling Package
+  </h3>
+
+
+
+<a name="wp17842"></a><p class="pBody">
+The Statistics Modeling Package defines various distributions available for use with model builder Models. These are modeling classes and functions that can be embedded in models to initiate various activities (transactions), random or distributed, into master ports for exploration of performance in a system under various activity scenarios.
+</p>
+
+
+<a name="wp17843"></a><p class="pBody">
+The distributions are defined using a common base class (<span style=" font-weight: bold;">mb_Distribution</span>), which is an abstract class. Each specific type of distribution (gaussian, exponential, etc.) has its own separate class, derived from the base class.
+</p>
+
+
+<a name="wp17844"></a><p class="pBody">
+To use a distribution for generating random numbers, you need to define a variable of type <span style=" font-weight: bold;">mb_Distribution</span> (or one of the derived classes), and construct an object with the appropriate properties. 
+</p>
+
+
+<a name="wp17845"></a><p class="pBody">
+For this purpose a general function is provided having the following prototype:
+</p>
+
+
+<a name="wp17846"></a><pre class="pCodeIndent">
+           mb_Distribution* mbCreateDistribution(const char* dist_string);</pre>
+
+<a name="wp17847"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp17848"></a><p class="pBody">
+The function returns a properly-initialized <span style=" font-weight: bold;">mb_Distribution</span> object created according to the specification in the <span style=" font-weight: bold;">dist_string</span> parameter, which has the format:
+</p>
+
+
+<a name="wp17849"></a><p class="pL1Body">&ldquo;<span class="cReqRpl">keyword</span> <span class="cReqRpl">parameters</span>&rdquo;</p>
+
+<a name="wp17850"></a><p class="pBody">
+where <span style=" font-style: italic;">keyword</span> options are <span style=" font-weight: bold; font-style: italic;">File, Uniform, Gaussian, Exponential, Poisson and Constant</span>.
+</p>
+
+
+<a name="wp17851"></a><p class="pBody">
+The keyword is not case sensitive. Each keyword results in the creation of an object of the appropriate derived class of the mb_Distribution class:
+</p>
+
+
+<a name="wp17852"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">File</span>: mb_FileDistribution(const char *filepath)</li></ul>
+<a name="wp17853"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Uniform</span>: mb_UniformDistribution(double min, double max, uint64 seed)</li></ul>
+<a name="wp17854"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Gaussian</span>: mb_GaussianDistribution(double mean, double stddev, uint64 seed)</li></ul>
+<a name="wp17855"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Exponential</span>: mb_ExponentialDistribution(double mean, uint64 seed)</li></ul>
+<a name="wp17856"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Poisson</span>: mb_PoissonDistribution(double mean, uint64 seed)</li></ul>
+<a name="wp17857"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Constant</span>: mb_ConstantDistribution(double value, uint64 seed)</li></ul>
+<a name="wp17858"></a><p class="pBody">
+The parameters for each type of distribution are the same type and in the same order as needed by the constructors of each class, as specified above. Whenever the distribution constructor takes a seed, it is optional.
+</p>
+
+
+<a name="wp17859"></a><p class="pBody">
+In the input string, a space separates the keyword from the parameter list, and parameters are separated by spaces as well.
+</p>
+
+
+<a name="wp17860"></a><p class="pBody">
+The following is an example of using <span style=" font-weight: bold;">mb_Distribution</span> object in a testbench for generating various data sizes and delays:
+</p>
+
+
+<a name="wp17861"></a><pre class="pCodeIndent">
+           void data_generator_pv::testbench() {</pre>
+
+<a name="wp17862"></a><pre class="pCodeIndent">
+                uint64 waitCycles, genSize;</pre>
+
+<a name="wp17863"></a><pre class="pCodeIndent">
+              uint64 cycles = 1000;</pre>
+
+<a name="wp17864"></a><pre class="pCodeIndent">
+              while(cycles--) {</pre>
+
+<a name="wp17865"></a><pre class="pCodeIndent">
+           waitCycles = waitDistribution-&gt;getNextInt64();</pre>
+
+<a name="wp17866"></a><pre class="pCodeIndent">
+                   genSize = sizeDistribution-&gt;getNextInt64();</pre>
+
+<a name="wp17867"></a><pre class="pCodeIndent">
+                 &#0133;</pre>
+
+<a name="wp17868"></a><pre class="pCodeIndent">
+                 master_read(address, rData, genSize);</pre>
+
+<a name="wp17869"></a><pre class="pCodeIndent">
+                 wait(waitCycles, SC_PS);</pre>
+
+<a name="wp17870"></a><pre class="pCodeIndent">
+                 &#0133;</pre>
+
+<a name="wp17871"></a><pre class="pCodeIndent">
+           }     </pre>
+
+<a name="wp17872"></a><pre class="pCodeIndent">
+           }</pre>
+
+<a name="wp17873"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp17874"></a><pre class="pCodeIndent">
+           data_generator_pv::data_generator_pv(sc_module_name _name):data_generator_base_pv(_name)</pre>
+
+<a name="wp17875"></a><pre class="pCodeIndent">
+           {</pre>
+
+<a name="wp17876"></a><pre class="pCodeIndent">
+                m_sizeDistribution = mb_CreateDistribution(sizeDistributionStr);</pre>
+
+<a name="wp17877"></a><pre class="pCodeIndent">
+                m_waitDistribution = mb_CreateDistribution(waitDistributionStr);</pre>
+
+<a name="wp17878"></a><pre class="pCodeIndent">
+               SC_THREAD(testbench);</pre>
+
+<a name="wp17879"></a><pre class="pCodeIndent">
+           }</pre>
+
+<a name="wp17880"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp17881"></a><p class="pBody">
+Note that <span style=" font-weight: bold;">sizeDistributionStr</span> and <span style=" font-weight: bold;">waitDistributionStr</span> are parameters and can be defined in the parameter file. One possible definition could be:
+</p>
+
+
+<a name="wp17882"></a><pre class="pCodeIndent">
+           &lt;pv_instance_path&gt;.waitDistributionStr = gaussian 5 2</pre>
+
+<a name="wp17883"></a><pre class="pCodeIndent">
+           &lt;pv_instance_path&gt;.sizeDistributionStr = uniform 1 5</pre>
+
+<a name="wp17884"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp17885"></a><p class="pBody">
+For more details, see the header file <span style=" font-style: italic;">mb_Distribution.h</span> in the directory: <span class="cReqRpl">mb_install_directory</span><span style=" font-weight: regular; font-style: italic;">/include/esl/sc_sim</span>.
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Statistics Modeling Package";
+   PDFLinkTitle = "Statistics.Modeling.Package"
+   ThisTopic = "StatisticsModelingPackage";
+   CurrentFile = "Chapter_Customizing_Gen_Models_new60.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

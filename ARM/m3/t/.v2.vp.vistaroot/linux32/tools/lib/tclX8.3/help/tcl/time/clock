@@ -1,0 +1,207 @@
+NAME
+       clock - Obtain and manipulate time
+
+SYNOPSIS
+       clock option ?arg arg ...?
+
+
+DESCRIPTION
+       This  command  performs  one  of  several operations that may obtain or
+       manipulate strings or values that represent some notion of  time.   The
+       option  argument  determines what action is carried out by the command.
+       The legal options (which may be abbreviated) are:
+
+       clock clicks ?-milliseconds?
+              Return a high-resolution time value as a system-dependent  inte-
+              ger value.  The unit of the value is system-dependent but should
+              be the highest resolution clock available on the system such  as
+              a  CPU  cycle  counter.  If -milliseconds is specified, then the
+              value is guaranteed to  be  of  millisecond  granularity.   This
+              value  should  only  be  used  for  the  relative measurement of
+              elapsed time.
+
+       clock format clockValue ?-format string? ?-gmt boolean?
+              Converts an integer time value, typically returned by clock sec-
+              onds, clock scan, or the atime or mtime options of the file com-
+              mand, to  human-readable  form.   If  the  -format  argument  is
+              present  the  next  argument  is a string that describes how the
+              date and time are to be formatted.  Field descriptors consist of
+              a % followed by a field descriptor character.  All other charac-
+              ters are copied into the result.  Valid field descriptors are:
+
+              %%     Insert a %.
+
+              %a     Abbreviated weekday name (Mon, Tue, etc.).
+
+              %A     Full weekday name (Monday, Tuesday, etc.).
+
+              %b     Abbreviated month name (Jan, Feb, etc.).
+
+              %B     Full month name.
+
+              %c     Locale specific date and time.  The format for  date  and
+                     time  in  the default "C" locale on Unix/Mac is "%a %b %d
+                     %H:%M:%S %Y".  On Windows, this value is the locale  spe-
+                     cific  long  date  and time, as specified in the Regional
+                     Options control panel settings.
+
+              %C     First two digits of the four-digit year (19 or 20).
+
+              %d     Day of month (01 - 31).
+
+              %D     Date as %m/%d/%y.
+
+              %e     Day of month (1 - 31), no leading zeros.
+
+              %h     Abbreviated month name.
+
+              %H     Hour in 24-hour format (00 - 23).
+
+              %I     Hour in 12-hour format (01 - 12).
+
+              %j     Day of year (001 - 366).
+
+              %k     Hour in 24-hour format, without leading zeros (0 - 23).
+
+              %l     Hour in 12-hour format, without leading zeros (1 - 12).
+
+              %m     Month number (01 - 12).
+
+              %M     Minute (00 - 59).
+
+              %n     Insert a newline.
+
+              %p     AM/PM indicator.
+
+              %r     Time in a locale-specific "meridian" format.  The "merid-
+                     ian" format in the default "C" locale is "%I:%M:%S %p".
+
+              %R     Time as %H:%M.
+
+              %s     Count  of seconds since the epoch, expressed as a decimal
+                     integer.
+
+              %S     Seconds (00 - 59).
+
+              %t     Insert a tab.
+
+              %T     Time as %H:%M:%S.
+
+              %u     Weekday number (Monday = 1, Sunday = 7).
+
+              %U     Week of year (00 - 52), Sunday is the first  day  of  the
+                     week.
+
+              %V     Week  of  year  according to ISO-8601 rules.  Week 1 of a
+                     given year is the week containing 4 January.
+
+              %w     Weekday number (Sunday = 0, Saturday = 6).
+
+              %W     Week of year (00 - 52), Monday is the first  day  of  the
+                     week.
+
+              %x     Locale  specific  date  format.  The format for a date in
+                     the default "C" locale for Unix/Mac  is  "%m/%d/%y".   On
+                     Windows,  this  value  is  the locale specific short date
+                     format, as specified  in  the  Regional  Options  control
+                     panel settings.
+
+              %X     Locale  specific  24-hour  time format.  The format for a
+                     24-hour time in the default "C" locale  for  Unix/Mac  is
+                     "%H:%M:%S".   On  Windows,  this value is the locale spe-
+                     cific time format, as specified in the  Regional  Options
+                     control panel settings.
+
+              %y     Year without century (00 - 99).
+
+              %Y     Year with century (e.g. 1990)
+
+              %Z     Time zone name.
+
+              If  the -format argument is not specified, the format string "%a
+              %b %d %H:%M:%S %Z %Y" is used.  If the -gmt argument is  present
+              the next argument must be a boolean which if true specifies that
+              the time will be formatted as Greenwich Mean Time. If false then
+              the  local  timezone  will  be  used as defined by the operating
+              environment.
+
+       clock scan dateString ?-base clockVal? ?-gmt boolean?
+              Convert dateString to an integer clock  value  (see  clock  sec-
+              onds).   This  command  can  parse  and  convert  virtually  any
+              standard date and/or time string,  which  can  include  standard
+              time  zone  mnemonics.  If only a time is specified, the current
+              date is assumed.  If the string does not  contain  a  time  zone
+              mnemonic,  the local time zone is assumed, unless the -gmt argu-
+              ment is true, in which case the clock value is calculated assum-
+              ing  that the specified time is relative to Greenwich Mean Time.
+              -gmt, if specified, affects only the  computed  time  value;  it
+              does not impact the interpretation of -base.
+
+              If the -base flag is specified, the next argument should contain
+              an integer clock value.  Only the date in this  value  is  used,
+              not the time.  This is useful for determining the time on a spe-
+              cific day or doing other date-relative conversions.
+
+              The dateString consists of zero or more  specifications  of  the
+              following form:
+
+              time   A  time  of  day,  which  is  of  the  form: hh?:mm?:ss??
+                     ?meridian? ?zone?  or  hhmm  ?meridian?   ?zone?.  If  no
+                     meridian  is  specified,  hh  is interpreted on a 24-hour
+                     clock.
+
+              date   A specific month and day with optional year.  The accept-
+                     able formats are mm/dd?/yy?, monthname dd ?, yy?, dd mon-
+                     thname ?yy?, day, dd monthname yy, ?CC?yymmdd, ?CC?yy-mm-
+                     dd, dd-monthname-?CC?yy.  The default year is the current
+                     year.  If the year is less than 100, we treat  the  years
+                     00-68 as 2000-2068 and the years 69-99 as 1969-1999.  Not
+                     all platforms can represent the years 38-70, so an  error
+                     may result if these years are used.
+
+              ISO 8601 point-in-time
+                     An ISO 8601 point-in-time specification, such as CCyymmd-
+                     dThhmmss, where T is the literal T, CCyymmdd  hhmmss,  or
+                     CCyymmddThh:mm:ss.
+
+              relative time
+                     A specification relative to the current time.  The format
+                     is number unit  acceptable  units  are  year,  fortnight,
+                     month,  week,  day, hour, minute (or min), and second (or
+                     sec).  The unit can be specified as a singular or plural,
+                     as  in  3  weeks.  These modifiers may also be specified:
+                     tomorrow, yesterday, today, now, last, this, next, ago.
+
+              The actual date is calculated according to the following  steps.
+              First, any absolute date and/or time is processed and converted.
+              Using that time as  the  base,  day-of-week  specifications  are
+              added.   Next,  relative  specifications are used.  If a date or
+              day is specified, and no absolute or  relative  time  is  given,
+              midnight  is used.  Finally, a correction is applied so that the
+              correct hour of the day is produced after allowing for  daylight
+              savings  time  differences  and  the  correct date is given when
+              going from the end of a long month to a short month.
+
+              Daylight savings time correction is applied only when the  rela-
+              tive  time  is  specified  in  units  of days or more, ie, days,
+              weeks, fortnights, months or years.  This means that when cross-
+              ing  the  daylight savings time boundary, different results will
+              be given for clock scan "1 day" and clock scan "24 hours":
+                     % clock scan "1 day" -base [clock scan 1999-10-31]
+                     941443200
+                     % clock scan "24 hours" -base [clock scan 1999-10-31]
+                     941439600
+
+       clock seconds
+              Return the current date and time as a  system-dependent  integer
+              value.  The unit of the value is seconds, allowing it to be used
+              for relative time calculations.  The value is usually defined as
+              total  elapsed time from an ''epoch''.  You shouldn't assume the
+              value of the epoch.
+
+
+SEE ALSO
+       date(1), time(n)
+
+
+KEYWORDS

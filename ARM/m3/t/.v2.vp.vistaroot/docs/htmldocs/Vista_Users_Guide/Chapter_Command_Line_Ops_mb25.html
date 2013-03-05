@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:07:38 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>learn_model</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(440);
+    // -->
+ </script>
+ 
+
+<!--416,420,440-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPlearn_model"></a>
+
+<a name="wp18133"></a><p class="pzCmdFunc">
+
+
+
+learn_model
+</p>
+
+
+
+
+<a name="wp19417"></a><p class="pzShortDesc">
+Learns an HDL model from a set of TLM databases.
+</p>
+
+
+<a name="wp19423"></a><h6 class="pzHeading">
+  Syntax
+  </h6>
+
+
+<a name="wp30604"></a><p class="pzUsage">
+learn_model [-h | -help] [-usage] [-include-dirs <span class="cOptRpl">dirs</span>] [-progress-cmd <span class="cOptRpl">cmd</span>] [-rand-seed <span class="cOptRpl">seed</span>] <br />[-timing-model-source <span class="cOptRpl">timing_model_source</span>] [-use-timing-policies] <br />[-genetic-confidence <span class="cOptRpl">confidence</span>] [-lp | -learn-power] [-lt | -learn-timing] <span class="cReqRpl">library_name model_name db_names </span>
+</p>
+
+
+<a name="wp23598"></a><h6 class="pzHeading">
+  Arguments
+  </h6>
+
+
+<a name="wp31896"></a><h6 class="pzHeading2">
+  Common
+</h6>
+
+
+
+<a name="wp29750"></a><ul class="ulSmSpace"><li class="LLzptArg">-help</li></ul>
+
+
+<a name="wp29751"></a><div class="LLzArgDesc">Provides help.</div>
+<a name="wp29752"></a><ul class="ulSmSpace"><li class="LLzptArg">-usage</li></ul>
+
+
+<a name="wp29753"></a><div class="LLzArgDesc">Displays the syntax for this command.</div>
+<a name="wp31909"></a><h6 class="pzHeading2">
+  Optional
+</h6>
+
+
+
+<a name="wp82919"></a><ul class="ulSmSpace"><li class="LLzptArg">-include-dirs <span class="cOptRpl">dirs</span></li></ul>
+
+
+<a name="wp82920"></a><div class="LLzArgDesc">Include directories for the timing model.</div>
+<a name="wp29748"></a><ul class="ulSmSpace"><li class="LLzptArg">-progress-cmd <span class="cOptRpl">cmd</span></li></ul>
+
+
+<a name="wp25336"></a><div class="LLzArgDesc">Progress indicator command (for customizing the progress command).</div>
+<a name="wp82885"></a><ul class="ulSmSpace"><li class="LLzptArg">-rand-seed <span class="cOptRpl">seed</span> </li></ul>
+
+
+<a name="wp82886"></a><div class="LLzArgDesc">Random seed for learning; is used to guarantee identical learning results.</div>
+<a name="wp25339"></a><ul class="ulSmSpace"><li class="LLzptArg">-timing-model-source <span class="cOptRpl">timing_model_source</span></li></ul>
+
+
+<a name="wp25340"></a><div class="LLzArgDesc">Source file of the timing model.</div>
+<a name="wp25349"></a><ul class="ulSmSpace"><li class="LLzptArg">-use-timing-policies</li></ul>
+
+
+<a name="wp25350"></a><div class="LLzArgDesc">Timing policies are used during learning (valid when specifying -learn_timing).</div>
+<a name="wp25374"></a><ul class="ulSmSpace"><li class="LLzptArg">-genetic-confidence <span class="cOptRpl">confidence</span></li></ul>
+
+
+<a name="wp25375"></a><div class="LLzArgDesc">Optimization level, from 1 for short inaccurate learning to 8 for a model with highest accuracy.</div>
+<a name="wp25454"></a><ul class="ulSmSpace"><li class="LLzptArg">-lp | -learn-power</li></ul>
+
+
+<a name="wp34333"></a><div class="LLzArgDesc">Include power learning.</div>
+<a name="wp82944"></a><ul class="ulSmSpace"><li class="LLzptArg">-lt | -learn-timing</li></ul>
+
+
+<a name="wp82960"></a><div class="LLzArgDesc">Include timing learning.</div>
+<a name="wp25455"></a><h6 class="pzHeading2">
+  Required
+</h6>
+
+
+
+<a name="wp25459"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">library_name</span></li></ul>
+
+
+<a name="wp25460"></a><div class="LLzArgDesc">Name of model library.</div>
+<a name="wp25464"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">model_name</span></li></ul>
+
+
+<a name="wp34298"></a><div class="LLzArgDesc">Name of model</div>
+<a name="wp82995"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">db_names</span></li></ul>
+
+
+<a name="wp83015"></a><div class="LLzArgDesc">List of HDL simulation database names.</div>
+<a name="wp83011"></a><h6 class="pzHeading">
+  See also
+  </h6>
+
+
+<a name="wp34302"></a><p class="pzBody">
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb20.html");'>generate_testbench</a>
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "learn_model";
+   PDFLinkTitle = "learnmodel"
+   ThisTopic = "learnmodel";
+   CurrentFile = "Chapter_Command_Line_Ops_mb25.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

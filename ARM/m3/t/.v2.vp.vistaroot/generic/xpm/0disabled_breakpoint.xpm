@@ -1,0 +1,25 @@
+/* XPM */
+static char *0disabled_breakpoint[] = {
+/* columns rows colors chars-per-pixel */
+"9 16 3 1",
+"  c black",
+". c #FFBCB9",
+"X c gray100",
+/* pixels */
+"XXXXXXXXX",
+"XXXXXXXXX",
+"XXXXXXXXX",
+"XXXXXXXXX",
+"XXXXXXXXX",
+"XXXXXXXXX",
+"XXXXXXXXX",
+"XX     XX",
+"X ..... X",
+" ....... ",
+" X.X.X.X ",
+" X.X.X.X.",
+" X.X  .  ",
+" ....  ..",
+"X ....  .",
+"XX .  .  "
+};

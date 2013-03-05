@@ -1,0 +1,18 @@
+::v2::systemc_editor::UpdateModule top1 top.h {
+{add_element cpu1 -kind component -class CPU}
+{add_element cpu2 -kind component -class CPU}
+{add_element p1 -kind port -class sc_port}
+{add_element p2 -kind port -class sc_port}
+{add_element sig1 -kind channel -class sc_signal}
+{add_bind p1 sig1}
+{add_bind p2 sig2}
+{.rename cpu1 cpu3}
+} {
+{add_element cpu1 -kind component -class CPU}
+{add_element cpu2 -kind component -class CPU}
+{add_element p1 -kind port -class sc_port}
+{add_element p2 -kind port -class sc_port}
+{add_element sig1 -kind channel -class sc_signal}
+{add_bind p1 sig1}
+{add_bind p2 sig2}
+}

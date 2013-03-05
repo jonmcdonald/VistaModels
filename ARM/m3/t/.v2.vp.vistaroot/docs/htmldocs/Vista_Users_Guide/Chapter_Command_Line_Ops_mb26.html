@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:07:38 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>learn_power_hdl</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(441);
+    // -->
+ </script>
+ 
+
+<!--416,420,441-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPlearn_power_hdl"></a>
+
+<a name="wp104694"></a><p class="pzCmdFunc">
+
+
+
+learn_power_hdl
+</p>
+
+
+
+
+<a name="wp104695"></a><p class="pzShortDesc">
+Learns the power behavior by activity of HDL signals of the model.
+</p>
+
+
+<a name="wp104696"></a><h6 class="pzHeading">
+  Syntax
+  </h6>
+
+
+<a name="wp104697"></a><p class="pzUsage">
+learn_power_hdl [-h | -help] [-usage] [-allow_file <span class="cOptRpl">file-path</span>] [-clustering_mode <span class="cOptRpl">mode</span>] <span class="cReqRpl">library_name model_name</span> 
+</p>
+
+
+<a name="wp104698"></a><h6 class="pzHeading">
+  Arguments
+  </h6>
+
+
+<a name="wp104699"></a><h6 class="pzHeading2">
+  Common
+</h6>
+
+
+
+<a name="wp104700"></a><ul class="ulSmSpace"><li class="LLzptArg">-h|-help</li></ul>
+
+
+<a name="wp104701"></a><div class="LLzArgDesc">Provides help.</div>
+<a name="wp104702"></a><ul class="ulSmSpace"><li class="LLzptArg">-usage</li></ul>
+
+
+<a name="wp104703"></a><div class="LLzArgDesc">Displays the syntax for this command.</div>
+<a name="wp104704"></a><h6 class="pzHeading2">
+  Optional
+</h6>
+
+
+
+<a name="wp104705"></a><ul class="ulSmSpace"><li class="LLzptArg">-allow_file <span class="cOptRpl">file-path</span></li></ul>
+
+
+<a name="wp104706"></a><div class="LLzArgDesc">Specifies path to file that lists the signal activity that is to be inputted to the learning engine. The default file path is <span class="cReqRpl">path_to_model_rtl_power_folder</span>/<span style=" font-style: italic;">allowed_signals.txt</span>.</div>
+<a name="wp104707"></a><ul class="ulSmSpace"><li class="LLzptArg">-clustering_mode <span class="cOptRpl">mode</span></li></ul>
+
+
+<a name="wp104708"></a><div class="LLzArgDesc">Specifies clustering (maximum clusters and accuracy) to use. By default, 20,0.7 is specified and a maximum of 20 clusters with 0.7 accuracy is used. Specify <span class="cRequired">no</span> to avoid clustering.</div>
+<a name="wp104721"></a><h6 class="pzHeading2">
+  Required
+</h6>
+
+
+
+<a name="wp104722"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">library_name</span></li></ul>
+
+
+<a name="wp104723"></a><div class="LLzArgDesc">Specifies the name of model library.</div>
+<a name="wp104724"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">model_name</span></li></ul>
+
+
+<a name="wp104725"></a><div class="LLzArgDesc">Specifies the name of the model.</div>
+<a name="wp104728"></a><h6 class="pzHeading">
+  See also
+  </h6>
+
+
+<a name="wp104732"></a><p class="pzBody">
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb22.html");'>get_most_active_signals</a>
+</p>
+
+
+<a name="wp104692"></a><p class="pzBody">
+  
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "learn_power_hdl";
+   PDFLinkTitle = "learnpowerhdl"
+   ThisTopic = "learnpowerhdl";
+   CurrentFile = "Chapter_Command_Line_Ops_mb26.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

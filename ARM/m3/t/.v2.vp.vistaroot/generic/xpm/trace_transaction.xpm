@@ -1,0 +1,24 @@
+/* XPM */
+static char *trace_transaction[] = {
+/* columns rows colors chars-per-pixel */
+"18 15 3 1",
+"  c black",
+". c #FEFEFE",
+"X c gray100",
+/* pixels */
+"                  ",
+" XXXXXXXXXXXXXXXX ",
+" X      XXXXXXXXX ",
+" X      XXXXXXXXX ",
+" XXX  XXXXX XXXXX ",
+" XXX  XXXX   XXXX ",
+" XXX  XXX  X  XXX ",
+" XXX  XX  XXX  XX ",
+" XXX  X  XXXXX  X ",
+" XXXXXXX  XXX  XX ",
+" XX.XXXXX  X  XXX ",
+" XXXXXXXXX   XXXX ",
+" XXXXXXXXXX XXXXX ",
+" XXXXXXXXXXXXXXXX ",
+"                  "
+};

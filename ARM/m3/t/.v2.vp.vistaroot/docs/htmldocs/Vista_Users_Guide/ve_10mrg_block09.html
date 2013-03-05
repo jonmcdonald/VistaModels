@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:04:35 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Segment Skeleton of an Empty Block Diagram</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(232);
+    // -->
+ </script>
+ 
+
+<!--224,231,232-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPSegment Skeleton of an Empty Block Diagram"></a>
+
+<a name="wp39167"></a><h4 class="pHeading3">
+  
+
+
+Segment Skeleton of an Empty Block Diagram
+  </h4>
+
+
+<!--SegmentSkeletonofanEmptyBlockDiagram-->
+
+
+<a name="wp39169"></a><p class="pBody">
+The typical generated file has the following structure:
+</p>
+
+
+<a name="wp40620"></a><pre class="pCodeIndent">
+           #pragma once - preprocessor directive designed to cause the current</pre>
+
+<a name="wp39171"></a><pre class="pCodeIndent">
+           source file to be included only once in a single compilation</pre>
+
+<a name="wp39172"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp39173"></a><pre class="pCodeIndent">
+           $includes_begin;</pre>
+
+<a name="wp39174"></a><pre class="pCodeIndent">
+           #include &lt;systemc.h&gt;</pre>
+
+<a name="wp39175"></a><pre class="pCodeIndent">
+           $includes_end;</pre>
+
+<a name="wp39176"></a><pre class="pCodeIndent">
+           </pre>
+
+<a name="wp39177"></a><pre class="pCodeIndent">
+           $module_begin(&quot;top&quot;);  -- &quot;top&quot; is the name of the block diagram unit specified by the user</pre>
+
+<a name="wp39178"></a><pre class="pCodeIndent">
+           SC_MODULE(top) {</pre>
+
+<a name="wp39179"></a><pre class="pCodeIndent">
+           public:</pre>
+
+<a name="wp39180"></a><pre class="pCodeIndent">
+             top(::sc_core::sc_module_name name):</pre>
+
+<a name="wp39181"></a><pre class="pCodeIndent">
+               ::sc_core::sc_module(name)</pre>
+
+<a name="wp39182"></a><pre class="pCodeIndent">
+               $initialization_begin</pre>
+
+<a name="wp39183"></a><pre class="pCodeIndent">
+               $initialization_end</pre>
+
+<a name="wp39184"></a><pre class="pCodeIndent">
+           {</pre>
+
+<a name="wp39185"></a><pre class="pCodeIndent">
+               $elaboration_begin;</pre>
+
+<a name="wp39186"></a><pre class="pCodeIndent">
+               $elaboration_end;</pre>
+
+<a name="wp39187"></a><pre class="pCodeIndent">
+             }</pre>
+
+<a name="wp39188"></a><pre class="pCodeIndent">
+             ~top() {</pre>
+
+<a name="wp39189"></a><pre class="pCodeIndent">
+               $destructor_begin;</pre>
+
+<a name="wp39190"></a><pre class="pCodeIndent">
+               $destructor_end;</pre>
+
+<a name="wp39191"></a><pre class="pCodeIndent">
+             }</pre>
+
+<a name="wp39192"></a><pre class="pCodeIndent">
+           public:</pre>
+
+<a name="wp39193"></a><pre class="pCodeIndent">
+               $fields_begin;</pre>
+
+<a name="wp39194"></a><pre class="pCodeIndent">
+               $fields_end;</pre>
+
+<a name="wp39195"></a><pre class="pCodeIndent">
+           };</pre>
+
+<a name="wp39196"></a><pre class="pCodeIndent">
+           $module_end;</pre>
+
+<a name="wp39197"></a><pre class="pCodeIndent">
+           </pre>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Segment Skeleton of an Empty Block Diagram";
+   PDFLinkTitle = "Segment.Skeleton.of.an.Empty.Block.Diagram"
+   ThisTopic = "SegmentSkeletonofanEmptyBlockDiagram";
+   CurrentFile = "ve_10mrg_block09.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

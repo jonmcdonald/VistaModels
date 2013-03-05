@@ -1,0 +1,16 @@
+summit_begin_package v2:ui:analysis:window
+
+summit_package_require Net:Ipc
+summit_package_require Net:Rpc
+summit_package_require Net:TcpIp
+summit_package_require Net:Util
+summit_package_require Document
+summit_package_require Application
+summit_package_require UI
+
+summit_package_require v2:ui
+summit_package_require v2:ui:help
+summit_package_require v2:ui:analog_wave
+
+
+summit_end_package

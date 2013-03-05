@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:07:38 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>declare_memory</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(468);
+    // -->
+ </script>
+ 
+
+<!--416,462,468-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPdeclare_memory"></a>
+
+<a name="wp21356"></a><p class="pzCmdFunc">
+
+
+
+declare_memory
+</p>
+
+
+
+
+<a name="wp22486"></a><p class="pzMiscInfo">
+Declares a memory range. (See <a href='javascript:oT("CRF","Chapter_Modeling_Phase20.html#wp27893");'>&quot;Specifying Memory Ranges&quot;</a>.)
+</p>
+
+
+<a name="wp22487"></a><h6 class="pzHeading">
+  Syntax
+  </h6>
+
+
+<a name="wp21357"></a><p class="pzUsage">
+declare_memory [-h | -help] [-usage] [-i | -is_virtual] memory_name slave_port base_address size
+</p>
+
+
+<a name="wp32722"></a><h6 class="pzHeading">
+  Arguments
+  </h6>
+
+
+<a name="wp36021"></a><h6 class="pzHeading2">
+  Common (Optional)
+</h6>
+
+
+
+<a name="wp107331"></a><ul class="ulSmSpace"><li class="LLzptArg">[-h | -help]</li></ul>
+
+
+<a name="wp107332"></a><div class="LLzArgDesc">Provides help.</div>
+<a name="wp107333"></a><ul class="ulSmSpace"><li class="LLzptArg">[-usage] </li></ul>
+
+
+<a name="wp107334"></a><div class="LLzArgDesc">Displays the syntax for this command.</div>
+<a name="wp36034"></a><h6 class="pzHeading2">
+  Optional
+</h6>
+
+
+
+<a name="wp32727"></a><ul class="ulSmSpace"><li class="LLzptArg">-i | -is_virtual</li></ul>
+
+
+<a name="wp32663"></a><div class="LLzArgDesc">A flag if this range is a virtual memory.</div>
+<a name="wp36044"></a><h6 class="pzHeading2">
+  Required
+</h6>
+
+
+
+<a name="wp26887"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">memory_name</span></li></ul>
+
+
+<a name="wp26888"></a><div class="LLzArgDesc">Identifying name</div>
+<a name="wp26892"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">slave_port</span></li></ul>
+
+
+<a name="wp26893"></a><div class="LLzArgDesc">Access port(s) name(s). For more than one port, use curly brackets; {port1 port2}</div>
+<a name="wp26924"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">base_address</span></li></ul>
+
+
+<a name="wp26925"></a><div class="LLzArgDesc">Start of the memory block</div>
+<a name="wp26926"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">size</span></li></ul>
+
+
+<a name="wp26903"></a><div class="LLzArgDesc">Size of the memory block</div>
+<a name="wp23074"></a><h6 class="pzHeading">
+  See also
+
+</h6>
+
+<div id="TableDivQz"></div>
+
+<div align="left">
+
+
+
+
+
+<table border="0" cellpadding="2" cellspacing="0" width="96%" id="wp85427table85425">
+
+  <tr align="left" valign="top">
+
+    <td>
+
+
+
+
+
+<a name="wp85427"></a><p class="pTableCell">
+
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb52.html");'><span style=" font-weight: bold;">declare_fifo_register</span></a>
+
+</p>
+
+</td>
+
+    <td>
+
+
+
+
+
+<a name="wp85429"></a><p class="pTableCell">
+
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb54.html");'><span style=" font-weight: bold;">declare_register</span></a><span style=" font-weight: bold;">, </span>
+
+
+
+</p>
+
+
+
+</td>
+
+
+
+</tr>
+
+
+
+</table>
+
+
+
+</div>
+
+<div id='EndTable'> </div>
+
+<h6 class="pzHeading">
+
+<br clear='left' class='Blank4Table' />
+
+
+
+  </h6>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "declare_memory";
+   PDFLinkTitle = "declarememory"
+   ThisTopic = "declarememory";
+   CurrentFile = "Chapter_Command_Line_Ops_mb53.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

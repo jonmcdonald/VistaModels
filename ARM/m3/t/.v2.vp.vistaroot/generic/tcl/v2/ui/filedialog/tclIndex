@@ -1,0 +1,2 @@
+set auto_index(::v2::ui::filedialog::ImportDialog) [list summit_add_tclindex v2/ui/filedialog/ImportDialog.tcl]
+set auto_index(::v2::ui::filedialog::NewFile) [list summit_add_tclindex v2/ui/filedialog/NewFile.tcl]

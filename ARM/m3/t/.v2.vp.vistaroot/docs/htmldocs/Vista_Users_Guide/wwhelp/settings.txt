@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<WebWorksHelpSettings version="4.0.0">
+ <Common>
+  <Cookies enable="$GET_PROJECTPROP(Cookies);" daystoexpire="30" id="$BZUniqueID;" />
+
+  <!-- Accessible values are "true", "false", "ask" -->
+
+  <!-- force to true -->
+  <!--Accessible value="$GET_PROJECTPROP(Accessibility-Type);" -->
+  <Accessible value="true" />
+
+  <!-- See Also links (Associative links) -->
+  <SeeAlso showbook="false">
+   <Size width="250" />
+   <Indent value="17" />
+   <Title>
+    <Font style="font-family: Verdana, Arial, Helvetica, sans-serif ; font-size: 10pt" />
+    <Colors foreground="#FFFFFF" background="#999999" />
+   </Title>
+   <Font style="font-family: Verdana, Arial, Helvetica, sans-serif ; font-size: 8pt" />
+   <Colors foreground="#003399" background="#FFFFFF" border="#666666" />
+  </SeeAlso>
+
+  <NavigationBar>
+   <SyncContents enable="$GET_PROJECTPROP(Sync);" />
+
+   <Previous enable="$GET_PROJECTPROP(NextPrevious);" />
+
+   <Next enable="$GET_PROJECTPROP(NextPrevious);" />
+
+   <RelatedTopics enableicon="$GET_PROJECTPROP(Related);" enableinline="$GET_PROJECTPROP(Related);">
+    <Title>
+     <Font style="font-family: Verdana, Arial, Helvetica, sans-serif ; font-size: 10pt" />
+<!--     <Colors foreground="#FFFFFF" background="#999999" />-->
+     <Colors foreground="#FFFFFF" background="#003399" />
+    </Title>
+    <Inline>
+     <Font style="font-family: Verdana, Arial, Helvetica, sans-serif ; font-size: 10pt" />
+     <Colors foreground="#003366" />
+    </Inline>
+    <Font style="font-family: Verdana, Arial, Helvetica, sans-serif ; font-size: 8pt" />
+    <Colors foreground="#003399" background="#FFFFFF" border="#666666" />
+    <Size width="250" />
+   </RelatedTopics>
+
+   <Email enable="$GET_PROJECTPROP(Email);" address="$GET_PROJECTPROP(EmailAddress);" />
+
+   <Print enable="$GET_PROJECTPROP(Print);" />
+
+   <Bookmark enable="$GET_PROJECTPROP(Bookmark);" />
+  </NavigationBar>
+
+  <Tabs>
+   <!-- border color not used by Java applet -->
+   <!-- RKMGC changed foreground/background colors -->
+   <DefaultColors foreground="#000000" background="#BFBFC4" border="#666666" />
+   <SelectedColors foreground="#FFFFFF" background="#1E1D78" border="#333333" />
+  </Tabs>
+
+  <Panels>
+    <!-- RKMGC Disabled hover text -->
+    <!-- RKMGC Enabled hover text mgc_ww_2003.92m-->
+   <HoverText enable="true">
+    <!-- <Font> option not used by Java applet -->
+    <!-- RKMGC Changed font size to 10 and foreground/background colors -->
+    <Font style="font-family: Verdana, Arial, Helvetica, sans-serif ; font-size: 10pt" />
+    <Colors foreground="#FFFFFF" background="#999999" border="#FFFFFF" />
+    <Size width="150" />
+   </HoverText>
+
+   <Contents enable="$GET_PROJECTPROP(Contents);" />
+
+   <Index enable="$GET_PROJECTPROP(Index);" />
+
+   <Search enable="$GET_PROJECTPROP(Search);">
+    <Results showrank="true" />
+    <Highlighting enable="true">
+     <Colors foreground="#FFFFFF" background="#333399" />
+    </Highlighting>
+   </Search>
+
+   <!-- Favorites not supported in JavaScript -->
+   <!--<Favorites enable="$GET_PROJECTPROP(Favorites);" />-->
+   <Favorites enable="true" />
+   <History enable="true" />
+  </Panels>
+
+  <Popups>
+   <Colors foreground="#000000" background="#FFFFCC" border="#999999" />
+   <Size width="200" />
+  </Popups>
+ </Common>
+
+ <Implementations forcejavascript="$GET_PROJECTPROP(ForceJavaScript);">
+  <Java>
+   <Font family="sans-serif" size="12" />
+   <FrameColors background="#999999" />
+   <Colors foreground="#000000" background="#CCCCCC" />
+
+   <Panels>
+    <Contents>
+     <Colors background="#FFFFFF" />
+    </Contents>
+
+    <Index>
+     <Font allowitalics="true" />
+    </Index>
+   </Panels>
+  </Java>
+
+  <JavaScript>
+   <Font style="font-family: Verdana, Arial, Helvetica, sans-serif ; font-size: 8pt" />
+   <Indent value="17" />
+   <AnchorColors highlight="#CCCCCC" enabled="#315585" disabled="black" />
+
+   <Tabs>
+    <!-- <Font> overrides can be specified here -->
+    <Font style="font-family: Verdana, Arial, Helvetica, sans-serif ; font-size: 10pt" />
+   </Tabs>
+
+   <Panels>
+    <Contents>
+     <!-- <Font>, <Indent>, and <AnchorColors> overrides can be specified here -->
+    </Contents>
+
+    <Index>
+     <!-- <Font>, <Indent>, and <AnchorColors> overrides can be specified here -->
+
+     <SectionNavigation threshold="500" separator=" - ">
+      <Font style="font-family: Verdana, Arial, Helvetica, sans-serif ; font-size: 7pt ; font-weight: bold" />
+      <CurrentColor value="black" />
+      <AnchorColors highlight="#CCCCCC" enabled="#315585" disabled="#999999" />
+     </SectionNavigation>
+    </Index>
+
+    <Search resultsbybook="true">
+     <!-- <Font>, <Indent>, and <AnchorColors> overrides can be specified here -->
+    </Search>
+   </Panels>
+  </JavaScript>
+ </Implementations>
+
+</WebWorksHelpSettings>

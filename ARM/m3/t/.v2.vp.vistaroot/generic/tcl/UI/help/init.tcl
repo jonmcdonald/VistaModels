@@ -1,0 +1,8 @@
+summit_begin_package UI:help
+
+summit_package_require Utilities
+
+summit_source HelpManager.tcl
+summit_source StandardHelpHandler.tcl
+
+summit_end_package

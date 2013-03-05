@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:07:38 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>declare_register </title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(469);
+    // -->
+ </script>
+ 
+
+<!--416,462,469-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPdeclare_register "></a>
+
+<a name="wp37451"></a><p class="pzCmdFunc">
+
+
+
+declare_register 
+</p>
+
+
+
+
+<a name="wp37455"></a><p class="pzMiscInfo">
+Declares a register (See <a href='javascript:oT("CRF","Chapter_Modeling_Phase18.html#wp81715");'>&quot;Specifying Registers&quot;</a>.)
+</p>
+
+
+<a name="wp37456"></a><h6 class="pzHeading">
+  Syntax
+  </h6>
+
+
+<a name="wp84145"></a><p class="pzUsage">
+declare_register [-help] [-usage] [-is-trigger] [-kind <span class="cOptRpl">kind</span>] [-rw-access <span class="cOptRpl">rw_access</span>] <br />[-size <span class="cOptRpl">size</span>] [-width <span class="cOptRpl">width</span>] [-type <span class="cOptRpl">type</span>] [-rv | -reset_value <span style=" font-style: italic;">value</span>] <span class="cReqRpl">slave_port</span> <span class="cReqRpl">register_name</span> <span class="cReqRpl">register_name</span> <span class="cReqRpl">bit_range</span> 
+</p>
+
+
+<a name="wp84146"></a><h6 class="pzHeading">
+  Arguments
+  </h6>
+
+
+<a name="wp32785"></a><h6 class="pzHeading2">
+  Common (Optional)
+</h6>
+
+
+
+<a name="wp32731"></a><ul class="ulSmSpace"><li class="LLzptArg">-help</li></ul>
+
+
+<a name="wp32732"></a><div class="LLzArgDesc">Provides help.</div>
+<a name="wp32733"></a><ul class="ulSmSpace"><li class="LLzptArg">-usage </li></ul>
+
+
+<a name="wp32734"></a><div class="LLzArgDesc">Displays the syntax for this command.</div>
+<a name="wp32789"></a><h6 class="pzHeading2">
+  Optional
+</h6>
+
+
+
+<a name="wp32741"></a><ul class="ulSmSpace"><li class="LLzptArg">-is-trigger</li></ul>
+
+
+<a name="wp32742"></a><div class="LLzArgDesc">A flag if the register should have a callback method</div>
+<a name="wp32755"></a><ul class="ulSmSpace"><li class="LLzptArg">-kind <span class="cOptRpl">kind</span></li></ul>
+
+
+<a name="wp32756"></a><div class="LLzArgDesc">Register kind, default is bitfield, can be also number or address</div>
+<a name="wp26957"></a><ul class="ulSmSpace"><li class="LLzptArg">-rw-access <span class="cOptRpl">rw_access</span></li></ul>
+
+
+<a name="wp26958"></a><div class="LLzArgDesc">Read/Write access - values can be r, w, or r/w.</div>
+<a name="wp40239"></a><ul class="ulSmSpace"><li class="LLzptArg">-size <span class="cOptRpl">size</span></li></ul>
+
+
+<a name="wp40240"></a><div class="LLzArgDesc">Size of the register.</div>
+
+<a name="wp40241"></a><div class="LLzArgDesc">This option is deprecated, use the -width option.</div>
+<a name="wp26938"></a><ul class="ulSmSpace"><li class="LLzptArg">-width <span class="cOptRpl">width</span></li></ul>
+
+
+<a name="wp40217"></a><div class="LLzArgDesc">Width of the register in bits.</div>
+<a name="wp84212"></a><ul class="ulSmSpace"><li class="LLzptArg">-type <span class="cOptRpl">type</span></li></ul>
+
+
+<a name="wp84213"></a><div class="LLzArgDesc">Register type.</div>
+<a name="wp84233"></a><ul class="ulSmSpace"><li class="LLzptArg">-rv |-reset_value <span style=" font-style: italic;">value</span></li></ul>
+
+
+<a name="wp84244"></a><div class="LLzArgDesc">The value of the register after reset model action.</div>
+<a name="wp40219"></a><h6 class="pzHeading2">
+  Required
+</h6>
+
+
+
+<a name="wp27025"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">slave_port</span></li></ul>
+
+
+<a name="wp27029"></a><div class="LLzArgDesc">Access port(s) name(s). For more than one port, use curly brackets; {port1 port2}</div>
+<a name="wp27032"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">register_name</span> </li></ul>
+
+
+<a name="wp27033"></a><div class="LLzArgDesc">Identifying name for the register</div>
+<a name="wp27037"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">register_name</span> </li></ul>
+
+
+<a name="wp27038"></a><div class="LLzArgDesc">Register address</div>
+<a name="wp27042"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">bit_range</span></li></ul>
+
+
+<a name="wp27043"></a><div class="LLzArgDesc">Bit range in format: (max:low)</div>
+<a name="wp23083"></a><h6 class="pzHeading">
+  See also
+
+</h6>
+
+<div id="TableDivQz"></div>
+
+<div align="left">
+
+
+
+
+
+<table border="0" cellpadding="2" cellspacing="0" width="96%" id="wp84284table84282">
+
+  <tr align="left" valign="top">
+
+    <td>
+
+
+
+
+
+<a name="wp84284"></a><p class="pTableCell">
+
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb52.html");'>declare_fifo_register</a>
+
+</p>
+
+</td>
+
+    <td>
+
+
+
+
+
+<a name="wp84286"></a><p class="pTableCell">
+
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb53.html");'>declare_memory</a>
+
+
+
+</p>
+
+
+
+</td>
+
+
+
+</tr>
+
+
+
+</table>
+
+
+
+</div>
+
+<div id='EndTable'> </div>
+
+<h6 class="pzHeading">
+
+<br clear='left' class='Blank4Table' />
+
+
+
+  </h6>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "declare_register ";
+   PDFLinkTitle = "declareregister."
+   ThisTopic = "declareregister";
+   CurrentFile = "Chapter_Command_Line_Ops_mb54.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

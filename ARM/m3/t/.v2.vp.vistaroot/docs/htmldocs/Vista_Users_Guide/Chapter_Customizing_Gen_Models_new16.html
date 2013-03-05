@@ -1,0 +1,1403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:02:48 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>SystemC Model for UART Visualization Object - Middleware model</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(169);
+    // -->
+ </script>
+ 
+
+<!--154,155,169-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPSystemC Model for UART Visualization Object - Middleware model"></a>
+
+<a name="wp34765"></a><h4 class="pHeading3">
+  
+
+
+SystemC Model for UART Visualization Object - Middleware model
+  </h4>
+
+
+<!--SystemCModelforUARTVisualizationObjectMiddlewaremodel-->
+
+
+<a name="wp34776"></a><p class="pBody">
+This is a description of the UART visualization object. Functional features are listed in <a href='javascript:oT("CRF","Chapter_Customizing_Gen_Models_new16.html#wp34794");'>UART Visualization Middleware Features</a>. The <a href='javascript:oT("CRF","Chapter_Customizing_Gen_Models_new16.html#wp34811");'>Programmer View Model Features</a> section contains the PV modeling aspects including model interface and parameters. The outline of the PV model, including defined classes' hierarchy and defined functions, is presented in <a href='javascript:oT("CRF","Chapter_Customizing_Gen_Models_new16.html#wp35007");'>PV Model Code Outline</a>.
+</p>
+
+<a name="MGCCIDPUART Visualization Middleware Features"></a>
+
+<a name="wp34794"></a><h5 class="pHeading4">
+  
+
+
+UART Visualization Middleware Features
+</h5>
+
+
+
+<a name="wp34795"></a><p class="pBody">
+The UART visualization object is a middleware that provides the ability to deliver input and output through standard Linux terminal, into and out of the design. The UART visualization object offers:
+</p>
+
+
+<a name="wp34796"></a>
+<ol start="1."><li class="LL1Seq">Communication in bytes with standard UART and standard Linux terminal.</li></ol>
+<a name="wp34797"></a>
+<ol start="2."><li class="LL1Seq">Xterm connectivity through dedicated API for reading and writing data. </li></ol>
+<a name="wp34798"></a>
+<ol start="3."><li class="LL1Seq">Hardware flow control. The object is connected to standard UART CTS and RTS control signals.</li></ol>
+<a name="wp34799"></a>
+<ol start="4."><li class="LL1Seq">On each transmission, received via UARTTX port, the visualization object will display the data on a terminal window <span style=" font-weight: bold;">(Console terminal)</span>.</li></ol>
+<a name="wp34800"></a>
+<ol start="5."><li class="LL1Seq">IF the visualization object is enabled, the availability of data from the terminal window <span style=" font-weight: bold;">(Console terminal)</span>, is checked repeatedly. Once that data is available it is sent via the UARTRX port for normal handling.</li></ol><a name="MGCCIDPProgrammer View Model Features"></a>
+
+<a name="wp34811"></a><h5 class="pHeading4">
+  
+
+
+Programmer View Model Features
+</h5>
+
+
+
+<a name="wp34812"></a><p class="pBody">
+The PV modeling aspects including model interface and declared parameters are highlighted in this section.
+</p>
+
+<a name="MGCCIDPInterface Modeling"></a>
+
+<a name="wp34813"></a><h6 class="pHeading5">
+  
+
+
+Interface Modeling
+</h6>
+
+
+
+<a name="wp34814"></a><p class="pBody">
+The hardware interface to port mapping for UART_Visulaization_Middleware model is illustrated in <a href='javascript:oT("CRF","Chapter_Customizing_Gen_Models_new16.html#wp34821");'>Table&#160;8&#8209;3</a>.
+</p>
+<div id="TableDivQz"></div>
+<div align="center">
+
+
+<a name="wp34821"></a><p class="pTableTitle">
+Table 8&#8209;3. 
+
+
+Interface Mapping To Ports&#160;
+</p>
+
+
+
+<table border="1" cellpadding="5" cellspacing="0" id="wp34821table34818">
+  <tr bgcolor="#CCCCCC"  align="center" valign="middle">
+    <th>
+
+<a name="wp34831"></a><p class="pTableHeading">
+Item
+</p>
+</th>
+
+    <th>
+
+<a name="wp34833"></a><p class="pTableHeading">
+Hardware Interface
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp34835"></a><p class="pTableHeading">
+Port name
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp34837"></a><p class="pTableHeading">
+Side
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp34839"></a><p class="pTableHeading">
+Width
+</p>
+
+
+</th>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="5" rowspan="1">
+
+<a name="wp34841"></a><p class="pTableCell">
+UART Transmitted/Received Serial Data
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp34851"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34853"></a><p class="pTableCell">
+Transmitted serial data
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34855"></a><p class="pTableCell">
+UARTTXD
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34857"></a><p class="pTableCell">
+Master
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34859"></a><p class="pTableCell">
+8
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp34861"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34863"></a><p class="pTableCell">
+Received serial data
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34865"></a><p class="pTableCell">
+UARTRXD
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34867"></a><p class="pTableCell">
+Slave
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34869"></a><p class="pTableCell">
+8
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="5" rowspan="1">
+
+<a name="wp34871"></a><p class="pTableCell">
+Flow Control Signals
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp34881"></a><p class="pTableCell">
+3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34883"></a><p class="pTableCell">
+Request To Send
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34885"></a><p class="pTableCell">
+nUARTRTS
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34887"></a><p class="pTableCell">
+Master
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34889"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp34891"></a><p class="pTableCell">
+4
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34893"></a><p class="pTableCell">
+Clear To Send
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34895"></a><p class="pTableCell">
+nUARTCTS
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34897"></a><p class="pTableCell">
+Slave
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34899"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="5" rowspan="1">
+
+<a name="wp34901"></a><p class="pTableCell">
+Visualization Enable Signal
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp34911"></a><p class="pTableCell">
+5
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34913"></a><p class="pTableCell">
+Enable
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34915"></a><p class="pTableCell">
+UARTEN
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34917"></a><p class="pTableCell">
+Slave
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34919"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+
+</tr>
+
+
+</table>
+
+</div>
+<div id='EndTable'> </div>
+<p class="pBody">
+<br clear='left' class='Blank4Table' />
+
+
+</p>
+
+<a name="MGCCIDPNotes:"></a>
+
+<a name="wp34920"></a><h6 class="pHeading5">
+  
+
+
+Notes:
+</h6>
+
+
+
+<a name="wp34921"></a>
+<ol start="1."><li class="LL1Seq">The prefix (n) in a signal's name indicates that it is an active low signal.</li></ol>
+<a name="wp34922"></a>
+<ol start="2."><li class="LL1Seq">The nUARTRTS are asserted low on reset.</li></ol>
+<a name="wp34923"></a>
+<ol start="3."><li class="LL1Seq">The model builder generic TLM protocol with width 8 bits is used to model the UARTTXD and UARTRXD interface ports. Unlike the 1-bit serial port of UART standard, 8 bits are defined for the data ports to improve simulation performance. The correct data transfer timing is accounted for to appropriately model the UART.</li></ol><a name="MGCCIDPParameters"></a>
+
+<a name="wp34924"></a><h6 class="pHeading5">
+  
+
+
+Parameters
+</h6>
+
+
+
+<a name="wp34982"></a><p class="pBody">
+The parameters which are declared in the model are listed in <a href='javascript:oT("CRF","Chapter_Customizing_Gen_Models_new16.html#wp34931");'>Table&#160;8&#8209;4</a>.
+</p>
+<div id="TableDivQz"></div>
+<div align="center">
+
+
+<a name="wp34931"></a><p class="pTableTitle">
+Table 8&#8209;4. 
+
+
+Declared Parameters&#160;
+</p>
+
+
+
+<table border="1" cellpadding="5" cellspacing="0" id="wp34931table34928">
+  <tr bgcolor="#CCCCCC"  align="center" valign="middle">
+    <th>
+
+<a name="wp34941"></a><p class="pTableHeading">
+Item
+</p>
+</th>
+
+    <th>
+
+<a name="wp34943"></a><p class="pTableHeading">
+Name
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp34945"></a><p class="pTableHeading">
+Type
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp34947"></a><p class="pTableHeading">
+Default value
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp34949"></a><p class="pTableHeading">
+Description
+</p>
+
+
+</th>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp34951"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34953"></a><p class="pTableCell">
+read_from_console_buffer_size
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34955"></a><p class="pTableCell">
+unsigned
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34957"></a><p class="pTableCell">
+256
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34959"></a><p class="pTableCell">
+<span class="cP12"><span style=" font-weight: regular; font-angle: normal; vertical-align: baseline; color:#000000;">Size of buffer used to hold data from the </span></span><span class="cP12"><span style=" font-weight: bold; font-angle: normal; vertical-align: baseline; color:#000000;">Console</span></span><span class="cP12"><span style=" font-weight: regular; font-angle: normal; vertical-align: baseline; color:#000000;"> terminal, in which you enter data, till you press enter.</span></span>
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp34961"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34963"></a><p class="pTableCell">
+read_from_console_latency
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34965"></a><p class="pTableCell">
+unsigned
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34967"></a><p class="pTableCell">
+1000
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34969"></a><p class="pTableCell">
+The period at which availability of data from user, <span style=" font-weight: bold;">Console</span> terminal, is checked. It is specified in time unit declared in item 3.
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp34971"></a><p class="pTableCell">
+3
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34973"></a><p class="pTableCell">
+read_from_console_latency_time_unit
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34975"></a><p class="pTableCell">
+string
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34977"></a><p class="pTableCell">
+&ldquo;NS&rdquo;
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp34979"></a><p class="pTableCell">
+Timer clock unit.
+
+</p>
+
+
+<a name="wp34980"></a><p class="pTableCell">
+Valid values are &ldquo;FS&rdquo;, &ldquo;PS&rdquo;, &ldquo;NS&rdquo;, &ldquo;US&rdquo;, &ldquo;MS&rdquo;, &ldquo;SEC&rdquo;. 
+
+</p>
+
+
+<a name="wp34981"></a><p class="pTableCell">
+Note: First letter (case-insensitive) is actually what matters in identifying clock unit.
+
+</p>
+
+</td>
+
+
+</tr>
+
+
+</table>
+
+</div>
+<div id='EndTable'> </div>
+<p class="pBody">
+<br clear='left' class='Blank4Table' />
+
+
+</p>
+
+<a name="MGCCIDPPV Model Code Outline"></a>
+
+<a name="wp35007"></a><h5 class="pHeading4">
+  
+
+
+PV Model Code Outline
+</h5>
+
+
+<a name="MGCCIDPClasses Hierarchy"></a>
+
+<a name="wp35008"></a><h6 class="pHeading5">
+  
+
+
+Classes Hierarchy
+</h6>
+
+
+
+<a name="wp35009"></a><p class="pBody">
+The relationship between the major PV model classes is illustrated in the following UML (Unified Modeling Language) diagram (<a href='javascript:oT("CRF","Chapter_Customizing_Gen_Models_new16.html#wp34792");'>Figure&#160;8&#8209;5</a>). Attributes and functions which are declared in UART_Visualization_Middleware class, other than those automatically declared by the model builder, are shown in <a href='javascript:oT("CRF","Chapter_Customizing_Gen_Models_new16.html#wp35030");'>Figure&#160;8&#8209;6</a>. The UART_Visulaization_Middleware instantiates a console from the mb::physical_io::console class to create <span style=" font-weight: bold;">Console</span> terminal.
+</p>
+
+
+
+
+
+<a name="wp34792"></a><p class="pFigureTitle">
+Figure 8&#8209;5. 
+
+
+UML Diagram For PV Model Classes
+
+
+</p>
+<div align="center"><img src="images/PV_UML_diagram.gif" id="wp153480" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+
+
+
+<a name="wp35030"></a><p class="pFigureTitle">
+Figure 8&#8209;6. 
+
+
+UART_Visualization_Middleware_PV Class
+
+
+</p>
+<div align="center"><img src="images/UART_Visulaization_Middleware_pv_class.gif" id="wp153524" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+<a name="MGCCIDPCallback Functions"></a>
+
+<a name="wp35060"></a><h6 class="pHeading5">
+  
+
+
+Callback Functions
+</h6>
+
+
+
+<a name="wp35097"></a><p class="pBody">
+The callback functions which are utilized in the model are listed in <a href='javascript:oT("CRF","Chapter_Customizing_Gen_Models_new16.html#wp35067");'>Table&#160;8&#8209;5</a>.
+</p>
+<div id="TableDivQz"></div>
+<div align="center">
+
+
+<a name="wp35067"></a><p class="pTableTitle">
+Table 8&#8209;5. 
+
+
+Callback Functions&#160;
+</p>
+
+
+
+<table border="1" cellpadding="5" cellspacing="0" id="wp35067table35064">
+  <tr bgcolor="#CCCCCC"  align="center" valign="middle">
+    <th>
+
+<a name="wp35073"></a><p class="pTableHeading">
+Item
+</p>
+</th>
+
+    <th>
+
+<a name="wp35075"></a><p class="pTableHeading">
+Name
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp35077"></a><p class="pTableHeading">
+Description
+</p>
+
+
+</th>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="3" rowspan="1">
+
+<a name="wp35079"></a><p class="pTableCell">
+<span class="cP12"><span style=" font-weight: bold; font-angle: normal; vertical-align: baseline; color:#000000;">Slave ports callback functions</span></span>
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp35085"></a><p class="pTableCell">
+1
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp35087"></a><p class="pTableCell">
+nUARTCTS_callback
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp35089"></a><p class="pTableCell">
+CTS signal indicates whether the connected UART accepts new data to be sent to it or not.
+
+</p>
+
+
+<a name="wp35090"></a><p class="pTableCell">
+If the signal is asserted, a message appears in <span style=" font-weight: bold;">Console</span> terminal asking you to stop entering data. If the signal is asserted, you can resume entering data at the terminal.
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp35092"></a><p class="pTableCell">
+2
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp35094"></a><p class="pTableCell">
+UARTRXD_callback_write
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp35096"></a><p class="pTableCell">
+This callback function (SC_METHOD) is executed whenever new data is sent from UART to display this data on the <span style=" font-weight: bold;">Console</span> terminal.
+
+</p>
+
+</td>
+
+
+</tr>
+
+
+</table>
+
+</div>
+<div id='EndTable'> </div>
+<p class="pBody">
+<br clear='left' class='Blank4Table' />
+
+
+</p>
+
+<a name="MGCCIDPDefined Functions"></a>
+
+<a name="wp35098"></a><h6 class="pHeading5">
+  
+
+
+Defined Functions
+</h6>
+
+
+
+<a name="wp35102"></a><p class="pBody">
+<a href='javascript:oT("CRF","Chapter_Customizing_Gen_Models_new16.html#wp35106");'>Table&#160;8&#8209;6</a> contains the defined functions other than those which are defined by the model builder convenience layer and callback functions. The carried out functionality, input parameters and return value are listed in the table. 
+</p>
+<div id="TableDivQz"></div>
+<div align="center">
+
+
+<a name="wp35106"></a><p class="pTableTitle">
+Table 8&#8209;6. 
+
+
+Defined Functions&#160;
+</p>
+
+
+
+<table border="1" cellpadding="5" cellspacing="0" id="wp35106table35103">
+  <tr bgcolor="#CCCCCC"  align="center" valign="middle">
+    <th>
+
+<a name="wp35116"></a><p class="pTableHeading">
+Class Scope
+</p>
+</th>
+
+    <th>
+
+<a name="wp35118"></a><p class="pTableHeading">
+Function name
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp35120"></a><p class="pTableHeading">
+Functionality
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp35122"></a><p class="pTableHeading">
+Input parameters
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp35124"></a><p class="pTableHeading">
+Return value
+</p>
+
+
+</th>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td colspan="1" rowspan="3">
+&#160;</td>
+
+    <td>
+
+
+<a name="wp35128"></a><p class="pTableCell">
+set_receive_from_console_polling_time
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp35130"></a><p class="pTableCell">
+Sets the periodic time for checking availability of data entered.
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp35138"></a><p class="pTableCell">
+receive_from_console
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp35140"></a><p class="pTableCell">
+SC_THREAD that periodically checks if new data was entered while UART visualization object is enabled.
+
+</p>
+
+</td>
+
+    <td>
+
+&#160;</td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp35148"></a><p class="pTableCell">
+to_UART
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp35150"></a><p class="pTableCell">
+Sends entered data to the UART.
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp35152"></a>
+<ul class="TableLists"><li class="LL1TableBulSolid">Data received. </li></ul>
+<a name="wp35153"></a>
+<ul class="TableLists"><li class="LL1TableBulSolid">Length of data (Number of characters)</li></ul></td>
+
+    <td>
+
+&#160;</td>
+
+
+</tr>
+
+
+</table>
+
+</div>
+<div id='EndTable'> </div>
+<p class="pBody">
+<br clear='left' class='Blank4Table' />
+
+
+</p>
+
+<a name="MGCCIDPDefined Compilation Directives"></a>
+
+<a name="wp35156"></a><h6 class="pHeading5">
+  
+
+
+
+
+
+Defined Compilation Directives
+
+</h6>
+
+<div id="TableDivQz"></div>
+
+<div align="center">
+
+
+
+
+
+<a name="wp35159"></a><p class="pTableTitle">
+
+Table 8&#8209;7. 
+
+
+
+
+
+Compilation Directives&#160;
+
+</p>
+
+
+
+
+
+
+
+<table border="1" cellpadding="5" cellspacing="0" id="wp35159table35157">
+
+  <tr bgcolor="#CCCCCC"  align="center" valign="middle">
+
+    <th>
+
+
+
+<a name="wp35165"></a><p class="pTableHeading">
+
+Item
+
+</p>
+
+</th>
+
+
+
+    <th>
+
+
+
+<a name="wp35167"></a><p class="pTableHeading">
+
+Compilation directive
+
+</p>
+
+
+
+
+
+</th>
+
+
+
+    <th>
+
+
+
+<a name="wp35169"></a><p class="pTableHeading">
+
+Description
+
+</p>
+
+
+
+
+
+</th>
+
+
+
+
+
+</tr>
+
+
+
+  <tr align="left" valign="top">
+
+    <td>
+
+
+
+
+
+<a name="wp35171"></a><p class="pTableCell">
+
+1
+
+
+
+</p>
+
+
+
+</td>
+
+
+
+    <td>
+
+
+
+
+
+<a name="wp35173"></a><p class="pTableCell">
+
+MB_DEBUG_VisualizationObject
+
+
+
+</p>
+
+
+
+</td>
+
+
+
+    <td>
+
+
+
+
+
+<a name="wp35175"></a><p class="pTableCell">
+
+If defined and set to value greater than 1, informative messages describing current UART visualization middleware module's activity are issued for better debugging.
+
+
+
+</p>
+
+
+
+</td>
+
+
+
+
+
+</tr>
+
+
+
+
+
+</table>
+
+
+
+</div>
+
+<div id='EndTable'> </div>
+
+<h6 class="pHeading5">
+
+<br clear='left' class='Blank4Table' />
+
+
+
+
+
+</h6>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "SystemC Model for UART Visualization Object \- Middleware model";
+   PDFLinkTitle = "SystemC.Model.for.UART.Visualization.Object..Middleware.model"
+   ThisTopic = "DefinedCompilationDirectives";
+   CurrentFile = "Chapter_Customizing_Gen_Models_new16.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

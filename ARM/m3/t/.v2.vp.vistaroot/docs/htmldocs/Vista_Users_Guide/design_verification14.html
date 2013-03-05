@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:06:18 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Working with Breakpoints</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(326);
+    // -->
+ </script>
+ 
+
+<!--313,326,0-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPWorking with Breakpoints"></a>
+
+<a name="wp7958"></a><h3 class="pHeading2">
+  
+
+
+Working with Breakpoints
+  </h3>
+
+
+
+<a name="wp7959"></a><p class="pBody">
+Breakpoints provide one of the main tools used in debugging a design. 
+</p>
+
+<a name="MGCCIDPDefining Breakpoints"></a>
+
+<a name="wp7961"></a><h4 class="pHeading3NoSplit">
+  
+
+
+Defining Breakpoints
+</h4>
+
+
+
+<a name="wp7962"></a><p class="pBody">
+Vista offers a number of ways to define breakpoints: 
+</p>
+
+
+<a name="wp7963"></a>
+<ul><li class="LL1BulSolid">attaching breakpoints to one or more lines in a file</li></ul>
+<a name="wp7964"></a>
+<ul><li class="LL1BulSolid">specifying a breakpoint at a given simulation time</li></ul>
+<a name="wp7965"></a>
+<ul><li class="LL1BulSolid">loading a pre-defined breakpoint file</li></ul><a name="MGCCIDPAttaching a Breakpoint to a Process or Function"></a>
+
+<a name="wp7966"></a><h5 class="pHeading4">
+  
+
+
+Attaching a Breakpoint to a Process or Function
+</h5>
+
+
+
+<a name="wp19160"></a><p class="pBody">
+You can attach a breakpoint to either a process or a function. A <span style=" font-style: italic;">break-on-process </span>is instance-specific. Thus, in a design unit containing multiple instances of a process, you can specify the specific instance where the break-point should occur. A <span style=" font-style: italic;">break-on-function</span> is not instance-specific. 
+</p>
+
+
+<a name="wp7967"></a><p class="pBody">
+To set a breakpoint at the specified line of the source code, or on selected processes in the browser:
+</p>
+
+
+<a name="wp7968"></a>
+<ol start="1."><li class="LL1Seq">Select the representation of the process or function in the browser.</li></ol>
+<a name="wp7969"></a>
+<ol start="2."><li class="LL1Seq">Choose the <span style=" font-weight: bold;">Simulation &gt; Breakpoints &gt; Set Breakpoint </span>menu command or the click the <span style=" font-weight: bold;">Set Breakpoint</span> icon: 
+
+
+<img src="images/set_breakpoint_button.gif" id="wp7971" border="0" hspace="0" vspace="0"/>
+
+
+
+</li></ol>
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg"><span class="cNotesBlack">Note</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp19144"></a><p class="pnoteNote">
+        	 You can set a break-on-function from the expanded header file (<span style=" font-weight: bold;">.h</span>) or source file (<span style=" font-weight: bold;">.cpp</span>). This is particularly important for firmware debugging.
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="right" /></td>
+    </tr>
+ </table><a name="MGCCIDPBreaking on Signals or Events"></a>
+
+<a name="wp25413"></a><h5 class="pHeading4">
+  
+
+
+Breaking on Signals or Events
+</h5>
+
+
+
+<a name="wp25414"></a><p class="pBody">
+Breaking on events is an essential part of event debugging, allowing for monitoring of the occurrences of events during simulation. 
+</p>
+
+
+<a name="wp22477"></a><p class="pBody">
+Break on event object (sc_event) is supported, as well as break on primitive channel (upon the event that caused the channel to change its value -- i.e., break on signal change).
+</p>
+
+
+<a name="wp22478"></a><p class="pBody">
+In cases where a port binds a primitive channel (but not a hierarchical channel), it is possible to specify the break on the port itself.
+</p>
+
+
+<a name="wp22479"></a><p class="pBody">
+Once such an event occurs, causing simulation to stop, Vista updates the text editor and highlights the line in the code that was the cause of the event (sc_event notification, or signal assignment).
+</p>
+
+<a name="MGCCIDPBreak on Port"></a>
+
+<a name="wp22480"></a><h6 class="pHeading5">
+  
+
+
+Break on Port
+</h6>
+
+
+
+<a name="wp22481"></a><p class="pBody">
+In cases where a port binds a primitive channel, it is possible to break on the port (which will actually break on the bound primitive channel). When the break occurs, the primitive channel assignment is shown.
+</p>
+
+<a name="MGCCIDPBreak on Signal Change"></a>
+
+<a name="wp22491"></a><h6 class="pHeading5">
+  
+
+
+Break on Signal Change
+</h6>
+
+
+
+<a name="wp25206"></a><p class="pBody">
+In the design browser, you can set breakpoints on hardware signals (any object derived from <span style=" font-weight: bold;">sc_prim_channel</span>) and on events. A signal&#39;s &ldquo;waiting list&rdquo; folder contains processes from which the event was activated (signal assignment).
+</p>
+
+<a name="MGCCIDPSpecifying a Breakpoint at a Given Simulation Time"></a>
+
+<a name="wp25225"></a><h5 class="pHeading4">
+  
+
+
+Specifying a Breakpoint at a Given Simulation Time<a name="MGCCIDMVISTA_HELP_DESIGN_VERIFICATION__BREAK_AT_TIME_COMMAND"></a><a name="MGCCIDM1017"></a>
+</h5>
+
+
+
+<a name="wp7976"></a><p class="pBody">
+To specify a breakpoint at a given simulation time:
+</p>
+
+
+<a name="wp7977"></a>
+<ol start="1."><li class="LL1Seq">Choose the <span style=" font-weight: bold;">Simulation &gt; Breakpoints &gt; Break at Time</span> menu command. </li></ol>
+<a name="wp7978"></a>
+<ol start="2."><li class="LL1Seq">In the <span style=" font-weight: bold;">Break at Time </span>text box now displayed, enter the time at which the break in simulation is to occur. </li></ol>
+<a name="wp7979"></a>
+<ol start="3."><li class="LL1Seq">Use the Time option buttons to indicate whether the specified time is Absolute, or Relative to the current simulation time. </li></ol><a name="MGCCIDPLoading a Pre-defined Breakpoint File"></a>
+
+<a name="wp7981"></a><h5 class="pHeading4">
+  
+
+
+Loading a Pre-defined Breakpoint File
+</h5>
+
+
+
+<a name="wp7982"></a><p class="pBody">
+To load a file of pre-defined breakpoints:
+</p>
+
+
+<a name="wp7983"></a>
+<ol start="1."><li class="LL1Seq">Choose the <span style=" font-weight: bold;">Simulation &gt; Breakpoints &gt; Load Breakpoints</span> command. </li></ol>
+<a name="wp7984"></a>
+<ol start="2."><li class="LL1Seq">In the Load Breakpoints from the File menu dialog box now displayed, select the name of the breakpoints file and click Open.</li></ol>
+<a name="wp7987"></a><p class="pBody">
+For a description of how to create a file of pre-defined breakpoints see <a href='javascript:oT("CRF","design_verification16.html");'>&quot;Saving a Set of Breakpoints&quot;</a>.
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Working with Breakpoints";
+   PDFLinkTitle = "Working.with.Breakpoints"
+   ThisTopic = "LoadingaPredefinedBreakpointFile";
+   CurrentFile = "design_verification14.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

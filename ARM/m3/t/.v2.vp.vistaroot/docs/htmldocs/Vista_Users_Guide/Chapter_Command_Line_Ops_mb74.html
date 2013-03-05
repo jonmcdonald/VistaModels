@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:07:38 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>vista_create_project</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(489);
+    // -->
+ </script>
+ 
+
+<!--416,486,489-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPvista_create_project"></a>
+
+<a name="wp16864"></a><p class="pzCmdFunc">
+
+
+
+vista_create_project
+</p>
+
+
+
+
+<a name="wp16865"></a><p class="pzShortDesc">
+This script performs batch creation of a new project incorporating the specified source files and settings. Upon completion, the new project file is printed to the standard output.
+</p>
+
+
+<a name="wp16869"></a><h6 class="pzHeading">
+  Syntax
+  </h6>
+
+
+<a name="wp16870"></a><p class="pzUsage">
+<span style=" font-weight: bold;">vista_create_project</span> [-name <span class="cOptRpl">project-name</span>] [<span class="cOptRpl">definitions-file</span>]
+</p>
+
+
+<a name="wp16871"></a><h6 class="pzHeading">
+  Arguments
+  </h6>
+
+
+<a name="wp16872"></a><ul class="ulSmSpace"><li class="LLzptArg">-name <span class="cOptRpl">project-name</span> </li></ul>
+
+
+<a name="wp18076"></a><div class="LLzArgDesc">The project name is the name assigned to the project.</div>
+<a name="wp16873"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cOptRpl">definitions-file</span></li></ul>
+
+
+<a name="wp18077"></a><div class="LLzArgDesc">A textual file that lists the source files and settings to be incorporated into the new project. If not designated, Vista will use the contents of a file named &ldquo;sources.sc&rdquo; that should be stored in the directory from which you invoke this script.</div>
+<a name="wp16877"></a><h6 class="pzHeading">
+  Definitions File Format
+  </h6>
+
+
+<a name="wp16878"></a><p class="pBody">
+Each line entry of this file should enumerate one of the following:
+</p>
+
+
+<a name="wp39644"></a>
+<ul><li class="LL1BulSolid">A path to a file to be included in the project. This path may contain references to path variables. If the path does not begin with either a path variable or a / (indicating that it is a full path), $PRJDIR/$PRJFILE_BASENAME using the path variable $PRJDIR (pointing to the location of the project file) and $PRJFILE_BASENAME will be pre&#8209;pended to the path. <br />The source files will be added to the appropriate Vista folder according to their respective suffixes:
+
+<div id="TableDivQz"></div>
+<div align="center">
+
+
+<a name="wp39654"></a><p class="pTableTitle">
+Table 18&#8209;6. 
+
+
+Vista Folders&#160;
+</p>
+
+
+
+<table border="1" cellpadding="5" cellspacing="0" id="wp39654table39645">
+  <tr bgcolor="#CCCCCC"  align="center" valign="middle">
+    <th>
+
+<a name="wp39658"></a><p class="pTableHeading">
+Vista Folder
+</p>
+</th>
+
+    <th>
+
+<a name="wp39660"></a><p class="pTableHeading">
+File Suffix
+</p>
+
+
+</th>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp39662"></a><p class="pTableCell">
+Sources
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp39664"></a><p class="pTableCell">
+*.c, *.cpp
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp39666"></a><p class="pTableCell">
+Public Headers
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp39668"></a><p class="pTableCell">
+*.h, *.hpp
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp39670"></a><p class="pTableCell">
+Documentation
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp39672"></a><p class="pTableCell">
+*.txt, *.doc
+
+</p>
+
+</td>
+
+
+</tr>
+
+
+</table>
+
+</div>
+<div id='EndTable'> </div>
+
+<br clear='left' class='Blank4Table' />
+
+</li></ul>
+<a name="wp16908"></a>
+<ul><li class="LL1BulSolid">-I followed by a directory path that is to be added to the project's include path. Note that the rules defined above are also applicable here.</li></ul>
+<a name="wp16909"></a>
+<ul><li class="LL1BulSolid">-D followed by a pre-processor definition either in the format -D&lt;name&gt; or <br />-D&lt;name&gt;=&lt;value&gt;.</li></ul>
+<a name="wp16910"></a>
+<ul><li class="LL1BulSolid">A line starting with -L or -l (lower-case L), which will be added to the project's link options.</li></ul>
+<a name="wp16911"></a>
+<ul><li class="LL1BulSolid">A file having the suffix *.o, *.a, or *.so, which will also be sent to the compiler as a link option.</li></ul>
+<a name="wp16912"></a>
+<ul><li class="LL1BulSolid">A path variable entry whose definition conforms to the format &lt;path_variable&gt;=&lt;value&gt;. </li></ul>
+<a name="wp16913"></a>
+<ul><li class="LL1BulSolid">The name of a Vista package to be linked with the project. This may be any of the following:</li></ul>
+<a name="wp16914"></a><ul><li class="LL2BulHollow">SCV</li></ul>
+<a name="wp16915"></a><ul><li class="LL2BulHollow">SystemArchitect</li></ul>
+<a name="wp16916"></a><ul><li class="LL2BulHollow">SAArbBusLib</li></ul>
+<a name="wp16917"></a><ul><li class="LL2BulHollow">SABusLib</li></ul>
+<a name="wp16918"></a><ul><li class="LL2BulHollow">SAGenericLib</li></ul>
+<a name="wp16919"></a><ul><li class="LL2BulHollow">SAGenericProcessorLib</li></ul>
+<a name="wp16920"></a><ul><li class="LL2BulHollow">SA_IEEE394Lib</li></ul>
+<a name="wp16921"></a><ul><li class="LL2BulHollow">SA_PCILib</li></ul>
+<a name="wp79678"></a><ul><li class="LL2BulHollow">SASchedulerLib</li></ul>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "vista_create_project";
+   PDFLinkTitle = "vistacreateproject"
+   ThisTopic = "vistacreateproject";
+   CurrentFile = "Chapter_Command_Line_Ops_mb74.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

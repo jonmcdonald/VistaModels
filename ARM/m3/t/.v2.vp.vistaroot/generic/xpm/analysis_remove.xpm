@@ -1,0 +1,37 @@
+/* XPM */
+static char *analysis_remove[] = {
+/* columns rows colors chars-per-pixel */
+"21 16 15 1",
+"  c black",
+". c #040404",
+"X c yellow",
+"o c #C0C0C0",
+"O c #D7D6D7",
+"+ c #E7EFDE",
+"@ c #ECE9D8",
+"# c #EBF0DD",
+"$ c #FFFFCC",
+"% c #F7F7D6",
+"& c #F1F1DD",
+"* c #F3F8DD",
+"= c #F6FADD",
+"- c #F7FCDD",
+"; c None",
+/* pixels */
+";;;;; $$$$$$$$$$$$$$@",
+";;;;; $$$$o$$$$$$$$$O",
+";;;;; $$$ooo$$$$$$$$O",
+";;;;; $$oo$oo%$$$oooO",
+";;XXX ooo$$$oo$$oo$$O",
+";XX.XXXXX$$$$oooo$$$O",
+"XX......X$$$$$oo$$$$O",
+"X.......X$$$$$$$$$$$O",
+"XX......X$$o$$$$$o&$O",
+";XX.XXXXX$ooo=$+ooo=O",
+";;XXX ---oo+oo$oo+ooO",
+";;;;; oooo$$#ooo$$$oO",
+";;;;; +++$$$*+o+$$$+O",
+";;;;; $$$$$$$$$$$$$$O",
+";;;;;               O",
+";;;;;;OOOOOOOOOOOOOOO"
+};

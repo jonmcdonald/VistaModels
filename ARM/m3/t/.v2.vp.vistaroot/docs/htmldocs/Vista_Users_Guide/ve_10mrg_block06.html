@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:04:35 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>The Attribute Dialog</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(229);
+    // -->
+ </script>
+ 
+
+<!--224,225,229-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPThe Attribute Dialog"></a>
+
+<a name="wp44058"></a><h4 class="pHeading3">
+  <a name="MGCCIDMVISTA_HELP_BLOCK_DIAGRAM_ATTRIBUTES"></a>
+
+
+The Attribute Dialog
+  </h4>
+
+
+<!--TheAttributeDialog-->
+
+
+<a name="wp44059"></a><p class="pBody">
+Each graphical object can be further refined using the Attribute dialog. Each object type has its own attributes that the you can configure to get your detailed design specifications.
+</p>
+
+<a name="MGCCIDPComponent Attributes"></a>
+
+<a name="wp44056"></a><h5 class="pHeading4">
+  <a name="MGCCIDMVISTA_HELP_BLOCK_DIAGRAM_ATTRIBUTES__COMPONENT"></a>
+
+
+Component Attributes
+</h5>
+
+
+
+
+
+
+<a name="wp44087"></a><p class="pFigureTitle">
+Figure 9&#8209;2. 
+
+
+Component Attributes
+
+
+</p>
+<div align="center"><img src="images/Attribute_dialog_and_associations.gif" id="wp63589" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp44091"></a><p class="pBody">
+The Component Attributes dialog enables you to specify the following:
+</p>
+
+
+<a name="wp44102"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Name</span> &#151;  Instance specific name of the design unit</li></ul>
+<a name="wp44093"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Visible</span> &#151;  Indicates the visibility of the Instance name.</li></ul>
+<a name="wp44095"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Create Instantiation as</span> &#151;  Select either &ldquo;Class pointer&rdquo; creating a pointer to the instance or &ldquo;Class object&rdquo; to create an object of the instance.</li></ul>
+<a name="wp37778"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Port Associations Table</span> &#151;  </li></ul>
+<a name="wp41863"></a><p class="pL1Body">Port associations are specified in Ports tab of the a component Attributes dialog.</p>
+
+<a name="wp41878"></a><p class="pL1Body">The Port Association table displays the bindings in the form of associations; for example:</p>
+
+<a name="wp41879"></a><ul><li class="LL2BulHollow"><span style=" font-weight: bold;">dma_inst.irq</span> associated with irq socket </li></ul>
+<a name="wp41880"></a><ul><li class="LL2BulHollow"><span style=" font-weight: bold;">bus_inst.CPUmaster </span>associated with master socket</li></ul>
+<a name="wp41867"></a><p class="pL1Body">The association table shows the actual Initiator -&gt; Target socket binding, or the channel that binds to the component port.</p>
+
+<a name="wp41868"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Show types &#151;  </span>Indicates whether to include the class type next to the Channel/Ports in the association table.</li></ul><a name="MGCCIDPInitiator/Target Socket Connector Attributes"></a>
+
+<a name="wp39122"></a><h5 class="pHeading4">
+  <a name="MGCCIDMVISTA_HELP_BLOCK_DIAGRAM_ATTRIBUTES__PORT_CONNECTOR"></a>
+
+
+Initiator/Target Socket Connector Attributes
+</h5>
+
+
+
+
+
+
+<a name="wp44180"></a><p class="pFigureTitle">
+Figure 9&#8209;3. 
+
+
+InitiatorSocket Connector Attributes Dialog
+
+
+</p>
+<div align="center"><img src="images/InitiatoSocket_Connector_Dialog.gif" id="wp44185" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp44259"></a><p class="pBody">
+When a binder is selected in a SystemC design, the InitiatorSocket dialog enables you to specify the Socket Target and Socket Initiator mode parameters:
+</p>
+
+
+<a name="wp44279"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Class Name</span> &#151;  Defines the type of C++ class member of the SystemC module that appears in the generated SystemC module. You can:</li></ul>
+<a name="wp44280"></a><ul><li class="LL2BulHollow">Select one of the standard TLM socket initiator/target classes.</li></ul>
+<a name="wp44281"></a><ul><li class="LL2BulHollow">Type a user-defined class, derived from a standard socket initiator/target class.</li></ul>
+<a name="wp44282"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Template Parameters</span> &#151;  If the option selected in the Class Name field is the C++ class/structure template, type the template parameters in this field.</li></ul>
+<a name="wp44283"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Initialization</span> &#151;  Type the constructor parameters to use for initialization of the C++ class member. These parameters are defined for each given connector. </li></ul>
+<a name="wp44284"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Bind-this</span> &#151;  Binds the selected connector to the parent SystemC module using the SystemC bind functionality.</li></ul><a name="MGCCIDPPort Connector Attributes"></a>
+
+<a name="wp44272"></a><h5 class="pHeading4">
+  
+
+
+Port Connector Attributes
+</h5>
+
+
+
+
+
+
+<a name="wp44187"></a><p class="pFigureTitle">
+Figure 9&#8209;4. 
+
+
+Port Connector Dialog
+
+
+</p>
+<div align="center"><img src="images/PortConnectorDialog.gif" id="wp44193" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp44233"></a><p class="pBody">
+The Port Connector dialog enables you to specify the following:
+</p>
+
+
+<a name="wp44200"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Name</span> &#151;  The name of the port/socket connector.</li></ul>
+<a name="wp44202"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Signal Name</span> &#151;  The name of the signal or channel to which the connector is attached.</li></ul>
+<a name="wp44204"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Port Class</span> &#151;  The name of the class, as defined for the port/socket</li></ul>
+<a name="wp44206"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Data Type</span> &#151;  The data type class name of the channel</li></ul>
+<a name="wp44208"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Visibility </span>&#151;  Indicates whether the name of the connector appears in the graphic diagram. </li></ul>
+<a name="wp44210"></a><p class="pL1Body">The appearance of a connector depends on the specified directionality. </p>
+<a name="MGCCIDPComponent Pin Attributes"></a>
+
+<a name="wp44191"></a><h5 class="pHeading4">
+  <a name="MGCCIDMVISTA_HELP_BLOCK_DIAGRAM_ATTRIBUTES__PORT_PIN"></a>
+
+
+Component Pin Attributes
+</h5>
+
+
+
+
+
+
+<a name="wp44385"></a><p class="pFigureTitle">
+Figure 9&#8209;5. 
+
+
+Component Pin Attributes Dialogs
+
+
+</p>
+<div align="center"><img src="images/ComponentPinAtrributesDialogs.gif" id="wp44393" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp44428"></a><p class="pBody">
+The Component Pin Attributes dialog displays the attributes of the selected pin (port) of a component. The dialog contains the following fields:
+</p>
+
+
+<a name="wp44429"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Name</span> &#151;  The name assigned to the pin.</li></ul>
+<a name="wp44431"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Port Class</span> &#151;  The name of the class defined for the port/socket.</li></ul>
+<a name="wp44433"></a>
+<ul><li class="LL1BulSolid">Data Type&#151;  The data type class name of the channel.</li></ul>
+<a name="wp44435"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Expression</span> fields (Ports only, not for Sockets) &#151;  </li></ul>
+<a name="wp44436"></a><p class="pL1Body">These fields enable you to associate a valid expression that is applicable to the instantiating unit of the selected pin. </p>
+
+<a name="wp44437"></a><p class="pL1Body">Note that a pin associated with an expression cannot be connected to a signal in the block diagram. Conversely, a pin already connected to a signal cannot be associated with an expression. </p>
+
+<a name="wp44438"></a><ul><li class="LL2BulHollow"><span style=" font-weight: bold;">Associate expression</span> &#151;  Indicates whether to associate an expression with the selected pin.</li></ul>
+<a name="wp44439"></a><ul><li class="LL2BulHollow"><span style=" font-weight: bold;">Expression</span> &#151;  The expression to be associated with the pin.</li></ul>
+<a name="wp44440"></a><ul><li class="LL2BulHollow"><span style=" font-weight: bold;">Visible</span> &#151;  Displays the associated expression in the block diagram.</li></ul><a name="MGCCIDPChannel Attributes"></a>
+
+<a name="wp44558"></a><h5 class="pHeading4">
+  <a name="MGCCIDMVISTA_HELP_BLOCK_DIAGRAM_ATTRIBUTES__CHANNEL"></a>
+
+
+Channel Attributes
+</h5>
+
+
+
+
+
+
+<a name="wp44575"></a><p class="pFigureTitle">
+Figure 9&#8209;6. 
+
+
+Channel Attributes Dialog
+
+
+</p>
+<div align="center"><img src="images/ChannelAttributesDialog.gif" id="wp44573" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp44585"></a><p class="pBody">
+The Channel Attributes dialog is used to assign attributes to a channel. The dialog contains the following fields:
+</p>
+
+
+<a name="wp44586"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Name</span> &#151;  The name of the channel.</li></ul>
+<a name="wp44588"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Channel Class</span> &#151;  The class of the channel.</li></ul>
+<a name="wp44590"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Data Type</span> &#151;  The type of data to be transmitted through the channel. </li></ul>
+<a name="wp44611"></a><p class="pL1Body">You can enter any of the standard C++ or SystemC types, or define your own types. Your types should be declared in one of the packages used by the unit.</p>
+
+<a name="wp44592"></a>
+<ul><li class="LL1BulSolid"><span style=" font-weight: bold;">Visibility</span> &#151;  </li></ul>
+<a name="wp44593"></a><ul><li class="LL2BulHollow"><span style=" font-weight: bold;">Name</span> &#151;  Displays the channel object name in the block diagram</li></ul>
+<a name="wp44595"></a><ul><li class="LL2BulHollow"><span style=" font-weight: bold;">All</span> &#151;  Displays the channel class name and data type (template) class name in the block diagram</li></ul><a name="MGCCIDPSignal Attributes"></a>
+
+<a name="wp44583"></a><h5 class="pHeading4">
+  <a name="MGCCIDMVISTA_HELP_BLOCK_DIAGRAM_ATTRIBUTES__SIGNAL"></a>
+
+
+Signal Attributes
+</h5>
+
+
+
+
+
+
+<a name="wp44677"></a><p class="pFigureTitle">
+Figure 9&#8209;7. 
+
+
+Signal Attributes Dialog
+
+
+</p>
+<div align="center"><img src="images/SignalAttributesDialog.gif" id="wp44675" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp44684"></a><p class="pBody">
+The Signal Attributes dialog is used to assign attributes to a SystemC signal created in a block diagram. The dialog contains the following fields:
+</p>
+
+
+<a name="wp44685"></a>
+<ul><li class="LL1BulSolid">Channel Class &#151;  sc_signal</li></ul>
+<a name="wp44686"></a>
+<ul><li class="LL1BulSolid">Name &#151;  The name of the signal. </li></ul>
+<a name="wp44701"></a>
+<ul><li class="LL1BulSolid">Visible &#151;  Displays the signal name in the block diagram. </li></ul>
+<a name="wp44688"></a>
+<ul><li class="LL1BulSolid">Data Type &#151;  The data type class of the signal being defined. </li></ul>
+<a name="wp44721"></a><p class="pL1Body">You can select from the list of C++ and SystemC types, or manually enter a name of a type defined in a SystemC package. If you are defining a signal that is a vector type, specify its width using brackets &lt; &gt;; or example, sc_int&lt;3&gt;.</p>
+
+<a name="wp44690"></a><p class="pL1Body">Line colors are assigned separately. Selecting the (&#0133;) option from the drop-down list opens a color table from which you can select a color to display in the Signal Attributes dialog. Click OK in the Signal Attributes dialog to assign the color(s) to the graphical object.</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "The Attribute Dialog";
+   PDFLinkTitle = "The.Attribute.Dialog"
+   ThisTopic = "FIGURESignalAttributesDialog";
+   CurrentFile = "ve_10mrg_block06.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

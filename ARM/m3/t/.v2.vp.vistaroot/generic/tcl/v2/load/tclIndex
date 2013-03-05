@@ -1,0 +1,6 @@
+set auto_index(view_graphics) [list summit_add_tclindex v2/load/init.tcl]
+set auto_index(onTraceErrorInfo) [list summit_add_tclindex v2/load/init.tcl]
+set auto_index(process_the_env) [list summit_add_tclindex v2/load/init.tcl]
+set auto_index(load_simulations_if_needed) [list summit_add_tclindex v2/load/init.tcl]
+set auto_index(run_exec_simulation_command_if_needed) [list summit_add_tclindex v2/load/init.tcl]
+set auto_index(mgc_get_simulation_document_by_simulation_directory) [list summit_add_tclindex v2/load/init.tcl]

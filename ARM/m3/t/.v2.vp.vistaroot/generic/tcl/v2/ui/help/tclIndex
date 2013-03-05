@@ -1,0 +1,2 @@
+set auto_index(::UI::help::get_help_command_line) [list summit_add_tclindex v2/ui/help/init.tcl]
+set auto_index(::UI::help::get_help_root) [list summit_add_tclindex v2/ui/help/init.tcl]

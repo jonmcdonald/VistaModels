@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:07:38 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>parse_protocol_source</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(447);
+    // -->
+ </script>
+ 
+
+<!--416,420,447-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPparse_protocol_source"></a>
+
+<a name="wp33284"></a><p class="pzCmdFunc">
+
+
+
+parse_protocol_source
+</p>
+
+
+
+
+<a name="wp33285"></a><p class="pzMiscInfo">
+Parses protocol source files into Vista model builder.
+</p>
+
+
+<a name="wp33286"></a><h6 class="pzHeading">
+  Syntax
+  </h6>
+
+
+<a name="wp33287"></a><p class="pzUsage">
+parse_protocol_source [-h | -help] [-usage] [{-i | -include-dir} <span class="cOptRpl">include_dir</span>] <br />[-s | -suppress-warnings] [-generate_ipxact] [-dest_library <span class="cOptRpl">string</span>] [-vendor <span class="cOptRpl">string</span>] [-version <span class="cOptRpl">string</span>] <span class="cReqRpl">source_file</span>
+</p>
+
+
+<a name="wp33303"></a><h6 class="pzHeading">
+  Arguments
+  </h6>
+
+
+<a name="wp33304"></a><h6 class="pzHeading2">
+  Common (Optional)
+</h6>
+
+
+
+<a name="wp33305"></a><ul class="ulSmSpace"><li class="LLzptArg">[-h | -help]</li></ul>
+
+
+<a name="wp33291"></a><div class="LLzArgDesc">Provides help.</div>
+<a name="wp33292"></a><ul class="ulSmSpace"><li class="LLzptArg">[-usage] </li></ul>
+
+
+<a name="wp33293"></a><div class="LLzArgDesc">Displays the syntax for this command.</div>
+<a name="wp33308"></a><h6 class="pzHeading2">
+  Optional
+</h6>
+
+
+
+<a name="wp33294"></a><ul class="ulSmSpace"><li class="LLzptArg">[-i | -include-dir <span class="cOptRpl">include_dir</span>]</li></ul>
+
+
+<a name="wp33295"></a><div class="LLzArgDesc">Path to the location of includes.</div>
+<a name="wp33296"></a><ul class="ulSmSpace"><li class="LLzptArg">[-s/-suppress-warnings]</li></ul>
+
+
+<a name="wp33297"></a><div class="LLzArgDesc">Causes warnings not to be displayed during the parsing process.</div>
+<a name="wp69475"></a><ul class="ulSmSpace"><li class="LLzptArg">[-generate_ipxact]</li></ul>
+
+
+<a name="wp69486"></a><div class="LLzArgDesc">If present, this will cause the generation of an IP-XACT Bus Definition named <span style=" font-style: italic;">&lt;protocol&gt;.xml </span>and an IP-XACT Abstraction Definition named <span style=" font-style: italic;">&lt;protocol&gt;_tlm20.xml</span>, describing the protocol. These definitions are at TLM 2.0 abstraction level, using transactional ports.</div>
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg"><span class="cNotesBlack">Note</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp69529"></a><p class="pnoteNote">
+        	Both <span style=" font-style: italic;">ahb_master</span> and <span style=" font-style: italic;">ahb_slave</span> protocols are represented by the same AMBA AHB bus definition (and AHB_tlm abstraction definition). These AMBA AHB definitions refer to a pair of AHB Lite IP-XACT bus definition and abstraction definition, which are created automatically.
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="right" /></td>
+    </tr>
+ </table>
+<a name="wp69487"></a><ul class="ulSmSpace"><li class="LLzptArg">[-dest_library <span class="cOptRpl">string</span>]</li></ul>
+
+
+<a name="wp69498"></a><div class="LLzArgDesc">Defines the library name for the generated IP-XACT descriptions. If not present, the name &ldquo;Library&rdquo; will be used as the default. This is only considered if the <span style=" font-style: italic;">-generate_ipxact</span> option is present.</div>
+<a name="wp69499"></a><ul class="ulSmSpace"><li class="LLzptArg">[-vendor <span class="cOptRpl">string</span>]</li></ul>
+
+
+<a name="wp69510"></a><div class="LLzArgDesc">Specifies the vendor name for the generated IP-XACT descriptions. If not present, the vendor name defaults to &ldquo;Mentor.com&rdquo;. This is only considered if the <span style=" font-style: italic;">-generate_ipxact</span> option is present.</div>
+<a name="wp69511"></a><ul class="ulSmSpace"><li class="LLzptArg">[-version <span class="cOptRpl">string</span>] </li></ul>
+
+
+<a name="wp69522"></a><div class="LLzArgDesc">Specifies the version string for the generated IP-XACT descriptions. If not present, the version string defaults to &ldquo;1.0&rdquo;. This is only considered if the <span style=" font-style: italic;">-generate_ipxact</span> option is present.</div>
+<a name="wp33309"></a><h6 class="pzHeading2">
+  Required
+</h6>
+
+
+
+<a name="wp33298"></a><ul class="ulSmSpace"><li class="LLzptArg"><span class="cReqRpl">source_file</span></li></ul>
+
+
+<a name="wp33299"></a><div class="LLzArgDesc">Name of the source file to be parsed.</div>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "parse_protocol_source";
+   PDFLinkTitle = "parseprotocolsource"
+   ThisTopic = "parseprotocolsource";
+   CurrentFile = "Chapter_Command_Line_Ops_mb32.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

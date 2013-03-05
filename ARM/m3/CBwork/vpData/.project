@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>vpData</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+		<nature>com.mentor.embedded.profiler.ProfilerNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>Session 1/vp_sim</name>
+			<type>2</type>
+			<location>/home/jon/VistaModels/ARM/m3/t/vp_sim</location>
+		</link>
+	</linkedResources>
+</projectDescription>

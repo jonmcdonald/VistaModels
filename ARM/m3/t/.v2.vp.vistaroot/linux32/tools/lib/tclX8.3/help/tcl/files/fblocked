@@ -1,0 +1,27 @@
+NAME
+       fblocked  -  Test whether the last input operation exhausted all avail-
+       able input
+
+SYNOPSIS
+       fblocked channelId
+
+
+DESCRIPTION
+       The fblocked command returns 1 if the most recent  input  operation  on
+       channelId  returned  less information than requested because all avail-
+       able input was exhausted.  For example, if gets is invoked  when  there
+       are  only  three  characters  available  for  input  and no end-of-line
+       sequence, gets returns  an  empty  string  and  a  subsequent  call  to
+       fblocked will return 1.
+
+       ChannelId must be an identifier for an open channel such as a Tcl stan-
+       dard channel (stdin, stdout, or stderr), the return value from an invo-
+       cation  of  open or socket, or the result of a channel creation command
+       provided by a Tcl extension.
+
+
+SEE ALSO
+       gets(n), open(n), read(n), Tcl_StandardChannels(3)
+
+
+KEYWORDS

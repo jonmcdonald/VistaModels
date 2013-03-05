@@ -1,0 +1,7 @@
+set auto_index(::v2::ui::memory::MemoryView) [list summit_add_tclindex v2/ui/memory/MemoryView.tcl]
+set auto_index(::UI::v2/ui/memory/MemoryView/DocumentLinker) [list summit_add_tclindex v2/ui/memory/MemoryView.tcl]
+set auto_index(::v2::ui::memory::MemoryViewWindow) [list summit_add_tclindex v2/ui/memory/MemoryViewWindow.tcl]
+set auto_index(::v2::ui::memory::StatusBar) [list summit_add_tclindex v2/ui/memory/StatusBar.tcl]
+set auto_index(::v2::ui::memory::Toolbar) [list summit_add_tclindex v2/ui/memory/Toolbar.tcl]
+set auto_index(::v2::ui::memory::ViewMenu) [list summit_add_tclindex v2/ui/memory/ViewMenu.tcl]
+set auto_index(::UI::v2/ui/memory/ViewMenu/DocumentLinker) [list summit_add_tclindex v2/ui/memory/ViewMenu.tcl]

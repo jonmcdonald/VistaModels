@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:06:58 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Viewing Bus Throughput Results</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(366);
+    // -->
+ </script>
+ 
+
+<!--355,366,0-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPViewing Bus Throughput Results"></a>
+
+<a name="wp36428"></a><h3 class="pHeading2">
+  
+
+
+Viewing Bus Throughput Results
+  </h3>
+
+
+
+<a name="wp36434"></a><p class="pBody">
+Upon selecting a bus master socket (or bus slave socket), and adding it to the graph (double clicking on it or selecting the &ldquo;Add to Graph&rdquo; option from the RMB popup menu), the &ldquo;Bus Throughput&rdquo; analysis view will open. Specific colors to all the slave sockets (or master sockets) that contribute to the bus master socket will automatically be set and colored areas (one on top of the other) will be shown. In addition, a regular throughput view of the selected socket will be displayed above its bus throughput view.
+</p>
+
+
+<a name="wp36435"></a>
+<ul><li class="LL1BulSolid">The &ldquo;Bus Throughput&rdquo; will be selected only if the bus master socket is from a component of type &ldquo;Bus&rdquo; configured from a generic bus, residing under the &ldquo;Generic Library&rdquo;.</li></ul>
+<a name="wp36436"></a>
+<ul><li class="LL1BulSolid">A Color will fill the specific area of the contributing sockets (unlike the current line's specification).</li></ul>
+<a name="wp36437"></a>
+<ul><li class="LL1BulSolid">Double clicking a different socket in the browser will replace the current view with the new socket view.</li></ul>
+<a name="wp36438"></a>
+<ul><li class="LL1BulSolid">Dynamic view will list slaves under each master (or masters under each slave).</li></ul>
+<a name="wp36439"></a>
+<ul><li class="LL1BulSolid">The bus master (or slave) path and its color will be displayed at the top of the view.</li></ul>
+<a name="wp36440"></a>
+<ul><li class="LL1BulSolid">&ldquo;Throughput Bytes&rdquo; and &ldquo;Throughput Trans&rdquo; will operate as usual.</li></ul>
+
+
+
+<a name="wp43010"></a><p class="pFigureTitle">
+Figure 14&#8209;10. 
+
+
+Bus Throughput Analysis View
+
+
+</p>
+<div align="center"><img src="images/BusThroughput.gif" id="wp43008" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+<a name="wp43011"></a>
+<ul><li class="LL1BulSolid">&ldquo;The Dynamic View&rdquo; will list the throughput socket contributors with values specified under each column. Note specifically the &ldquo;unused bytes/us&rdquo;.</li></ul>
+<a name="wp36458"></a>
+<ul><li class="LL1BulSolid">Unused Bytes &#151;  In case transaction data is less than the bus width, its amount is specified both in the graph (matrix fill style) and in the dynamic table below, under the &ldquo;unused bytes/time&rdquo; column.</li></ul>
+
+
+
+<a name="wp36689"></a><p class="pFigureTitle">
+Figure 14&#8209;11. 
+
+
+Unused Bytes/Time
+
+
+</p>
+<div align="center"><img src="images/UnusedBytesPerTime.gif" id="wp36687" border="0" hspace="0" vspace="0"/></div><p class="pFigureTitle">
+
+
+
+
+
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Viewing Bus Throughput Results";
+   PDFLinkTitle = "Viewing.Bus.Throughput.Results"
+   ThisTopic = "FIGUREUnusedBytesTime";
+   CurrentFile = "analysis_ssource12.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

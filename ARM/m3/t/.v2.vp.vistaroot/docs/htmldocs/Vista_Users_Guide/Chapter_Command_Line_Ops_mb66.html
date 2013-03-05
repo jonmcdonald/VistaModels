@@ -1,0 +1,523 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:07:38 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Simulation in Batch Mode</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(481);
+    // -->
+ </script>
+ 
+
+<!--416,481,0-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPSimulation in Batch Mode"></a>
+
+<a name="wp30467"></a><h3 class="pHeading2">
+  
+
+
+Simulation in Batch Mode
+  </h3>
+
+
+
+<a name="wp16637"></a><p class="pBody">
+Vista allows simulation in batch mode, executing multiple tracing and acquiring scenarios, primarily via scripts.
+</p>
+
+
+<a name="wp16638"></a><p class="pBody">
+The results of batch simulations can be analyzed through Vista post-simulation, where you can analyze multiple scenarios concurrently based on the tracing and acquiring commands specified in each batch simulation. 
+</p>
+
+<a name="MGCCIDPName"></a>
+
+<a name="wp16641"></a><h4 class="pHeading3NoSplit">
+  
+
+
+Name
+</h4>
+
+
+
+<a name="wp16642"></a><p class="pzUsage">
+Invoking Vista simulation in batch mode.
+</p>
+
+<a name="MGCCIDPSynopsis"></a>
+
+<a name="wp16645"></a><h4 class="pHeading3NoSplit">
+  
+
+
+Synopsis
+</h4>
+
+
+
+<a name="wp16646"></a><p class="pBody">
+To run Vista simulation in batch mode:
+</p>
+
+
+<a name="wp16647"></a><p class="pL1Body"><span class="cRequired">vista -batch</span> <span class="cReqRpl">VISTA_INVOCATION_FLAGS</span> <span class="cReqRpl">SIMULATION_FLAGS</span> <span class="cReqRpl">TARGET_SPECIFICATION</span> -- <span class="cReqRpl">EXECUTION_PARAMETERS</span></p>
+
+<a name="wp16648"></a><p class="pBody">
+To run with Questa:
+</p>
+
+
+<a name="wp16649"></a><p class="pL1Body"><span class="cRequired">vista_vsim -batch</span> <span class="cReqRpl">VISTA_INVOCATION_FLAGS</span> <span class="cReqRpl">SIMULATION_FLAGS<br /></span>-- <span class="cReqRpl">VSIM_PARAMETERS</span> -<span class="cRequired">c</span></p>
+
+<a name="wp16650"></a><p class="pBody">
+To run with Cadence NC simulators:
+</p>
+
+
+<a name="wp16651"></a><p class="pL1Body"><span class="cRequired">vista_ncsim -batch</span> <span class="cReqRpl">VISTA_INVOCATION_FLAGS</span> <span class="cReqRpl">SIMULATION_FLAGS</span> -ncsim <span class="cReqRpl">NCSIM_EXECUTABLE</span> -- <span class="cReqRpl">NCSIM_PARAMETERS</span></p>
+
+<a name="wp16652"></a><p class="pL3Body">or, alternatively,</p>
+
+<a name="wp16653"></a><p class="pL1Body"><span class="cRequired">vista_ncsc_run -batch</span> <span class="cReqRpl">VISTA_INVOCATION_FLAGS</span> <span class="cReqRpl">SIMULATION_FLAGS<br /></span>-- <span class="cReqRpl">NCSC_RUN_PARAMETERS</span></p>
+<a name="MGCCIDPDescription"></a>
+
+<a name="wp16656"></a><h4 class="pHeading3NoSplit">
+  
+
+
+Description
+</h4>
+
+
+
+<a name="wp16657"></a><p class="pBody">
+Vista simulation can be invoked in batch mode, using a simulation script to specify tracing requests.
+</p>
+
+
+<a name="wp16658"></a><p class="pBody">
+Simulation results are stored in the simulation directory, and can be then reviewed in Vista.
+</p>
+
+<a name="MGCCIDPParameters and Options"></a>
+
+<a name="wp16661"></a><h4 class="pHeading3NoSplit">
+  
+
+
+Parameters and Options
+</h4>
+
+
+
+<a name="wp16662"></a><p class="pBody">
+<span class="cReqRpl">TARGET_SPECIFICATION</span>
+</p>
+
+
+<a name="wp16663"></a><p class="pBody">
+A simulation target can be specified in one of the following ways:
+</p>
+
+
+<a name="wp16664"></a><p class="pzUsage">
+{[-exec] <span class="cReqRpl">executable_path</span>}<span class="cReqRpl"> {</span>[-project] (<span class="cReqRpl">project_name</span> | <span class="cReqRpl">project_file</span>)} [-design <span class="cOptRpl">design_name</span>]
+</p>
+
+
+<a name="wp16665"></a>
+<ul><li class="LL1BulSolid"><span class="cReqRpl">project_name</span> refers to a project existing in a &#39;vista.ini&#39; file;</li></ul>
+<a name="wp16666"></a>
+<ul><li class="LL1BulSolid"><span class="cReqRpl">project_file</span> is a Vista project file.</li></ul>
+<a name="wp16667"></a>
+<ul><li class="LL1BulSolid"><span class="cOptRpl">design_name</span> is the name of the design in the project.</li></ul>
+<a name="wp16668"></a><p class="pBody">
+The design executable must be built prior to invoking the simulation.
+</p>
+
+
+<a name="wp16669"></a><p class="pBody">
+If the -design option is omitted, the first available design in the project will be used.
+</p>
+
+
+<a name="wp16670"></a>
+<ul><li class="LL1BulSolid">[-exec] <span class="cReqRpl">executable_path</span></li></ul>
+<a name="wp16671"></a><p class="pL3Body"><span class="cReqRpl">executable_path</span> is a path to the simulation executable.</p>
+
+<br clear="all" />
+<table border="0" cellpadding="0" cellspacing="0" width="80%" align="center">
+  <tr valign="baseline">
+    <td width="50" valign="top" background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg">&#160;</td>
+    <td background="wwhelp/wwhimpl/common/images/nbrule_upper.jpg"><span class="cNotesBlack">Note</span></td>
+  </tr>
+  <tr valign="top">
+    <td width="50" valign="top"><img src="wwhelp/wwhimpl/common/images/nicon_note.jpg" /></td>
+    <td valign="top">
+            
+<a name="wp16679"></a><p class="pnoteNote">
+        	The [-simulate] option is an alias for the [-exec] option.<br />&#160;
+        </p>
+
+          </td>
+  </tr>
+  <tr height="2">
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="left" /></td>
+    <td height="2" background="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg"><img src="wwhelp/wwhimpl/common/images/nbrule_bottom.jpg" align="right" /></td>
+    </tr>
+ </table>
+<a name="wp16680"></a><p class="pBody">
+<span class="cReqRpl">SIMULATION_FLAGS</span>
+</p>
+
+
+<a name="wp16681"></a><p class="pL1Body">[-simdir] <span class="cReqRpl">directory</span></p>
+
+<a name="wp16682"></a><p class="pL1Body">[-simulation-results-directory] <span class="cReqRpl">directory</span></p>
+
+<a name="wp16683"></a><p class="pBody">
+The directory to store simulation results and simulation-related files. This includes the simulation history file, the wave files and simulation settings.
+</p>
+
+
+<a name="wp16684"></a><p class="pBody">
+This directory can be subsequently used to review the simulation results in Vista.
+</p>
+
+
+<a name="wp16685"></a><p class="pBody">
+The specified directory will be created automatically as needed.
+</p>
+
+
+<a name="wp16686"></a><p class="pBody">
+[-trace-all-signals]
+</p>
+
+
+<a name="wp16687"></a><p class="pL1Body">Causes Vista to trace all channels of the types</p>
+
+<a name="wp16688"></a><p class="pL2Body">sc_signal&lt;&gt;</p>
+
+<a name="wp16689"></a><p class="pL2Body">sc_clock</p>
+
+<a name="wp16690"></a><p class="pL2Body">sc_fifo&lt;&gt;.</p>
+
+<a name="wp16691"></a><p class="pBody">
+[-trace-delta-cycles]
+</p>
+
+
+<a name="wp16692"></a><p class="pL1Body">Causes Vista to trace data on each delta cycle (rather than on each time cycle).</p>
+
+<a name="wp16693"></a><p class="pL2Body">-tsv</p>
+
+<a name="wp16694"></a><p class="pL2Body">-with-tsv</p>
+
+<a name="wp16695"></a><p class="pBody">
+[-trace-transactions]
+</p>
+
+
+<a name="wp16696"></a><p class="pL1Body">Enables tracing of sequence of transactions on selected ports.</p>
+
+<a name="wp16697"></a><p class="pL2Body">-memory-profiling</p>
+
+<a name="wp16698"></a><p class="pL2Body">-with-memory-profiling</p>
+
+<a name="wp16699"></a><p class="pL2Body">-enable-memory-profiling</p>
+
+<a name="wp16700"></a><p class="pL1Body">Enables memory profiling.</p>
+
+<a name="wp16701"></a><p class="pBody">
+[-run-for] <span class="cReqRpl">time-specification</span>
+</p>
+
+
+<a name="wp16702"></a><p class="pBody">
+[-runfor] <span class="cReqRpl">time-specification</span>
+</p>
+
+
+<a name="wp16703"></a><p class="pL1Body">Runs the simulation for the specified time. For example, &#39;-runfor 10ns&#39;.</p>
+
+<a name="wp16704"></a><p class="pBody">
+[-simscript] <span class="cReqRpl">script-path</span>
+</p>
+
+
+<a name="wp16705"></a><p class="pBody">
+[-sim-script] <span class="cReqRpl">script-path</span>
+</p>
+
+
+<a name="wp16706"></a><p class="pBody">
+[-simulation-script] <span class="cReqRpl">script-path</span>
+</p>
+
+
+<a name="wp16707"></a><p class="pL1Body">Specifies the tracing script to be invoked after design elaboration.</p>
+
+<a name="wp16708"></a><p class="pL1Body">See the Vista tracing commands (file: <span style=" font-style: italic;">trace.txt</span>) for the description of simulation script syntax.</p>
+
+<a name="wp16709"></a><p class="pBody">
+[-params] <span class="cReqRpl">parameters-file</span>
+</p>
+
+
+<a name="wp16710"></a><p class="pBody">
+[-parameters-file] <span class="cReqRpl">parameters-file</span>
+</p>
+
+
+<a name="wp39737"></a><p class="pL1Body">Specifies the path to the parameters file. </p>
+
+<a name="wp39740"></a><p class="pBody">
+[-exec-input] <span class="cReqRpl">filename</span>
+</p>
+
+
+<a name="wp16715"></a><p class="pL1Body">Redirect the standard input of the simulation process to the specified file.</p>
+
+<a name="wp16716"></a><p class="pBody">
+[-exec-output] <span class="cReqRpl">filename</span>
+</p>
+
+
+<a name="wp16717"></a><p class="pL1Body">Redirect the standard output of the simulation process to the specified file.</p>
+
+<a name="wp16718"></a><p class="pBody">
+[-exec-error] <span class="cReqRpl">filename</span>
+</p>
+
+
+<a name="wp16719"></a><p class="pL1Body">Redirect the standard error stream of the simulation process to the specified file.</p>
+
+<a name="wp16720"></a><p class="pBody">
+<span class="cReqRpl">VISTA_INVOCATION_FLAGS</span>
+</p>
+
+
+<a name="wp16721"></a><p class="pL2Body">Any Vista invocation flags can be used.</p>
+
+<a name="wp16722"></a><p class="pBody">
+[--]
+</p>
+
+
+<a name="wp16723"></a><p class="pL1Body">Prevents Vista from processing the rest of the command-line, causing it to be passed as-is to the simulation process.</p>
+
+<a name="wp16724"></a><p class="pBody">
+<span class="cReqRpl">EXECUTION_PARAMETERS</span>
+</p>
+
+
+<a name="wp16725"></a><p class="pL1Body">All parameters not recognized by Vista, which follow the TARGET_SPECIFICATION part of the command line, are passed to the simulation process.</p>
+
+<a name="wp16726"></a><p class="pBody">
+<span class="cReqRpl">VSIM_PARAMETERS</span>
+</p>
+
+
+<a name="wp16727"></a><p class="pL1Body">These parameters are passed to vsim.</p>
+
+<a name="wp16728"></a><p class="pBody">
+<span class="cReqRpl">NCSIM_PARAMETERS</span>
+</p>
+
+
+<a name="wp16729"></a><p class="pL1Body">These parameters are passed to the NC simulator.</p>
+
+<a name="wp16730"></a><p class="pBody">
+<span class="cReqRpl">NCSC_RUN_PARAMETERS</span>
+</p>
+
+
+<a name="wp16731"></a><p class="pL1Body">These parameters are passed to ncsc_run.</p>
+<a name="MGCCIDPExamples"></a>
+
+<a name="wp16734"></a><h4 class="pHeading3NoSplit">
+  
+
+
+Examples
+</h4>
+
+
+
+<a name="wp16735"></a>
+<ul><li class="LL1BulSolid">(prompt) vista [-batch] [-wd /tmp/mywd] [-simdir ./sim1] [-simscript myscript.tcl] <br />[-exec] [-project Project.v2p] [-design simple_bus_main] [--] [-width 128]</li></ul>
+<a name="wp16736"></a>
+<ul><li class="LL1BulSolid">(prompt) vista [-batch] [-tsv] [-simdir sim2] [-simulation-script myscript.tcl] <br />[-exec-error err.log] [-exec my.exe] [--] [-fast]</li></ul>
+<a name="wp17137"></a>
+<ul><li class="LL1BulSolid">(prompt) vista -batch -simdir sim1 -simscript myscript.tcl -exec -project Project.v2p <br />-design simple_bus_main param1</li></ul>
+<a name="wp17146"></a>
+<ul><li class="LL1BulSolid">(prompt) vista -batch -simdir sim2 -simulation-script myscript.tcl -exec-error err.log <br />-exec my.exe param1 </li></ul><a name="MGCCIDPRunning with Questa"></a>
+
+<a name="wp16739"></a><h4 class="pHeading3NoSplit">
+  
+
+
+Running with Questa
+</h4>
+
+
+
+<a name="wp17111"></a><p class="pBody">
+The following are the three options for Questa simulations:
+</p>
+
+
+<a name="wp16740"></a>
+<ol start="1."><li class="LL1Seq">(prompt) vista_vsim [-batch] [-wd ~/with_questa] [-simdir sim3] [<br />-simulation-script myscript.tcl] [--] [-do run.do] [-c]</li></ol>
+<a name="wp16741"></a>
+<ol start="2."><li class="LL1Seq">Use a &#39;vista_run&#39; script to pass common Vista invocation flags and simulation parameters:</li></ol>
+<a name="wp16742"></a><p class="pL2Body">(prompt) vista_run [-batch] [-wd ~/with_questa -tsv] <br />[-simulation-script myscript.tcl] [-runfor 100ns tcsh]</p>
+
+<a name="wp16743"></a><p class="pL2Body">(tcsh-prompt) vista_vsim [-simdir test1] [--] [-do run1.do] [-c]</p>
+
+<a name="wp16744"></a><p class="pL2Body">(tcsh-prompt) vista_vsim [-simdir test2] [--] [-do run2.do] [-c]</p>
+
+<a name="wp16745"></a><p class="pL2Body">(tcsh-prompt) vista_vsim [-simdir test3] [--] [-do run3.do] [-c]</p>
+
+<a name="wp16746"></a><p class="pL2Body">(tcsh-prompt) exit</p>
+
+<a name="wp16747"></a>
+<ol start="3."><li class="LL1Seq">Run an existing script, which invokes Questa simulation, using &#39;vista_run&#39;:</li></ol>
+<a name="wp16748"></a><p class="pL2Body">(prompt) vista_run [-batch] [-wd ~/with_questa] [-tsv] <br />[-simulation-script myscript.tcl] [-simdir test4 -runfor 100ns run_questa.sh]</p>
+
+<a name="wp16749"></a><p class="pBody">
+In <span style=" font-style: italic;">run_questa.sh</span>, the command invoking simulation has the regular `vsim&#39; syntax, e.g.:
+</p>
+
+
+<a name="wp16750"></a><p class="pL2Body">vsim [-do run3.do] [-c}</p>
+
+<a name="wp16751"></a><p class="pBody">
+Running with Cadence NC simulators:
+</p>
+
+
+<a name="wp16752"></a><p class="pL2Body">(prompt) vista_ncsc_run -batch [-wd ~/with_nc] [-simdir simnc] [-simulation-script myscript.tcl] [--] [-sctop sctop]</p>
+
+<a name="wp16753"></a><p class="pBody">
+using &#39;vista_run&#39;:
+</p>
+
+
+<a name="wp16754"></a><p class="pL2Body">(prompt) vista_run [-batch] [-wd ~/with_nc] [-simulation-script myscript.tcl tcsh]</p>
+
+<a name="wp16755"></a><p class="pL2Body">(tcsh-prompt) vista_ncsc_run [-simdir simnc1] [--] [-sctop sctop ...]</p>
+
+<a name="wp16756"></a><p class="pL2Body">(tcsh-prompt) vista_ncsc_run [-simdir simnc2] [--] [-sctop sctop ...]</p>
+
+<a name="wp16757"></a><p class="pL2Body">(tcsh-prompt) vista_ncsc_run [-simdir simnc3] [--] [-sctop sctop ...]</p>
+
+<a name="wp16758"></a><p class="pL2Body">(tcsh-prompt) exit</p>
+
+<a name="wp16759"></a><p class="pBody">
+or
+</p>
+
+
+<a name="wp16760"></a><p class="pL2Body">running using an existing script:</p>
+
+<a name="wp16761"></a><p class="pBody">
+or
+</p>
+
+
+<a name="wp16762"></a><p class="pL2Body">(prompt) vista_run -batch [-wd ~/with_nc] [-simulation-script myscript.tcl] [-simdir simnc4 run_nc.sh]</p>
+
+<a name="wp16763"></a><p class="pBody">
+In <span style=" font-style: italic;">run_nc.sh</span>, the command invoking simulation has the regular NC syntax: e.g.:
+</p>
+
+
+<a name="wp16764"></a><p class="pL2Body">ncsc_run [-sctop sctop ...]</p>
+<a name="MGCCIDPSee also"></a>
+
+<a name="wp16767"></a><h4 class="pHeading3NoSplit">
+  
+
+
+See also
+</h4>
+
+
+
+<a name="wp16768"></a><p class="pBody">
+<a href='javascript:oT("CRF","Chapter_Command_Line_Ops_mb69.html");'>Vista Tracing Commands</a> 
+</p>
+
+
+<a name="wp17115"></a><p class="pBody">
+(file: <span style=" font-style: italic;">trace.txt</span>)
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Simulation in Batch Mode";
+   PDFLinkTitle = "Simulation.in.Batch.Mode"
+   ThisTopic = "Seealso99SimulationinBatchMode";
+   CurrentFile = "Chapter_Command_Line_Ops_mb66.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>

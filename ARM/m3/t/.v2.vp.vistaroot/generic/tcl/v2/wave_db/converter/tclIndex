@@ -1,0 +1,4 @@
+set auto_index(::v2::wave_db::converter::pop_requested_data) [list summit_add_tclindex v2/wave_db/converter/main.tcl]
+set auto_index(::v2::wave_db::converter::add_tracks) [list summit_add_tclindex v2/wave_db/converter/main.tcl]
+set auto_index(::v2::wave_db::converter::update) [list summit_add_tclindex v2/wave_db/converter/main.tcl]
+set auto_index(::v2::wave_db::converter::pooling) [list summit_add_tclindex v2/wave_db/converter/main.tcl]

@@ -1,0 +1,413 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 for FrameMaker 8.0.2.1385" />
+    <meta name="TEMPLATEBASE" content="mgc_ww_v2.1.078" />
+    <meta name="LASTUPDATED" content="Tue Nov 27 10:07:38 2012" />
+    <meta name="mgc_html_doctitle" content="Vista User's Manual" />
+    <title>Syntax Conventions - Modeling</title>
+<!-- Search Engine keywords -->
+    <meta name="attributes" content=" doc.type.documentation.user,doc.type.documentation.ref,product.version.v3.5,product.name.vista"/>
+<!-- JavaScript Files -->
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/file_list.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/breadcrumbs.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/js/docvars.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/topics.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhelp/wwhimpl/common/scripts/popup_window.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      // Set reference to top level help frame
+      //
+      if (( window.name != "SearchTopic") && ( window.name != "PopupTopic"))
+      {   var  WWHFrame = WWHGetWWHFrame(  ""); }
+      else
+      { var WWHFrame = eval("parent.parent"); }
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+    <!--
+    var  WWHFrame = eval("parent.parent");
+	document.write(MGCGetInternalStyleSheet(1));
+	document.write(MGCGetDocumentStyleSheet(0));
+	document.write(MGCGetPGFStyleSheet(0));
+    // -->
+    </script>
+  </head>
+
+
+<body class="body" rightmargin="25" onLoad="WWHUpdate();" onUnload="WWHUnload();" onKeyDown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onKeyPress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onKeyUp="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+
+
+
+
+
+ <script type="text/javascript" language="JavaScript1.2">
+    <!--
+      MGCInsertRTHeader(417);
+    // -->
+ </script>
+ 
+
+<!--416,417,0-->
+<!--EnDhEaDeR-->
+
+<a name="MGCCIDPSyntax Conventions - Modeling"></a>
+
+<a name="wp28156"></a><h3 class="pHeading2">
+  
+
+
+Syntax Conventions - Modeling
+  </h3>
+
+
+
+<a name="wp28157"></a><p class="pBody">
+Most commands within the Vista model builder are available either from the GUI or the command line. A tcl script and commands can be run.
+</p>
+
+
+<a name="wp7798"></a><p class="pBody">
+The following syntax conventions are used when describing commands;
+</p>
+
+
+<a name="wp7799"></a>
+<ul><li class="LL1BulSolid">The logical path to any model builder object should be specified in the following format:</li></ul>
+<a name="wp7800"></a><p class="pL1Body"><span style=" font-weight: bold;">root (TLM) library_name</span><span style=" font-weight: bold; font-angle: normal;"> object_name</span></p>
+
+<a name="wp7801"></a><p class="pL1Body">for example:</p>
+
+<a name="wp7802"></a><p class="pL1Body">/TLM/mymodules/ahb</p>
+
+<a name="wp12721"></a>
+<ul><li class="LL1BulSolid">Arguments preceded by a dash &#39;-&#39; are optional; For example:</li></ul>
+<a name="wp12722"></a><p class="pL1Body">-verbose</p>
+
+<a name="wp12723"></a>
+<ul><li class="LL1BulSolid">For a list argument, surround the list with &ldquo;&rdquo; or {}; For example: </li></ul>
+<a name="wp7806"></a><p class="pL1Body">{file1 file2}</p>
+
+<a name="wp82203"></a><p class="pL1Body">&quot;file1 file2&quot;</p>
+
+<a name="wp82283"></a>
+<ul><li class="LL1BulSolid">When entering an argument on the command line, unless otherwise indicated in the command usage statement, the first letter of argument can be used rather than typing the entire argument name; for example; you can type -h, instead of -help, to obtain help on a command. </li></ul>
+<a name="wp82278"></a><p class="pBody">
+This manual uses the following command usage line syntax conventions.
+</p>
+<div id="TableDivQz"></div>
+<div align="center">
+
+
+<a name="wp82219"></a><p class="pTableTitle">
+Table 18&#8209;1. 
+
+
+Conventions for Command Line Syntax&#160;
+</p>
+
+
+
+<table border="1" cellpadding="5" cellspacing="0" id="wp82219table82214">
+  <tr bgcolor="#CCCCCC"  align="center" valign="middle">
+    <th>
+
+<a name="wp82225"></a><p class="pTableHeading">
+Convention
+</p>
+</th>
+
+    <th>
+
+<a name="wp82227"></a><p class="pTableHeading">
+Example
+</p>
+
+
+</th>
+
+    <th>
+
+<a name="wp82229"></a><p class="pTableHeading">
+Usage
+</p>
+
+
+</th>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp82237"></a><p class="pTableCell">
+<span style=" font-weight: bold;">Boldface</span> 
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp82239"></a><p class="pTableCell">
+SET COMmand Editing &#8209;<span class="cRequired">Off</span> | -<span class="cRequired">Vi</span> | -<span class="cRequired">Emacs</span> | -<span class="cRequired">Gmacs</span>
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp82241"></a><p class="pTableCell">
+A boldface font indicates a required argument.
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp82243"></a><p class="pTableCell">
+[&#160;&#160;]
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp82245"></a><p class="pTableCell">
+EXIt [<span class="cOptional">-Discard</span>]
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp82247"></a><p class="pTableCell">
+Square brackets enclose optional arguments. Do not enter the brackets.
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp82249"></a><p class="pTableCell">
+<span class="cP12"><span style=" font-weight: regular; font-style: italic; vertical-align: baseline; color:#000000;">Italic</span></span>
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp82251"></a><p class="pTableCell">
+DOFile <span class="cReqRpl">filename</span>
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp82253"></a><p class="pTableCell">
+An italic font indicates a user-supplied argument.
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp82255"></a><p class="pTableCell">
+{&#160;&#160;}
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp82257"></a><p class="pTableCell">
+ADD LFsrs <span class="cReqRpl">lfsr_name</span> {<span class="cRequired">Prpg</span> | <span class="cRequired">Misr</span>} <span class="cReqRpl">length</span> <span class="cReqRpl">seed</span> [<span class="cOptional">&#8209;Out</span> | <span class="cOptional">&#8209;In</span>]
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp82259"></a><p class="pTableCell">
+Braces enclose arguments to show grouping. Do not enter the braces.
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp82261"></a><p class="pTableCell">
+|
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp82263"></a><p class="pTableCell">
+ADD LFsrs <span class="cReqRpl">lfsr_name</span> {<span class="cRequired">Prpg</span> | <span class="cRequired">Misr</span>} <span class="cReqRpl">length</span> <span class="cReqRpl">seed</span> [<span class="cOptional">&#8209;Out</span> | <span class="cOptional">&#8209;In</span>]
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp82265"></a><p class="pTableCell">
+The vertical bar indicates an either/or choice between items. Do not include the bar in the command.
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp82267"></a><p class="pTableCell">
+<span class="cOptDflt">Underline</span> 
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp82269"></a><p class="pTableCell">
+SET DOfile Abort <span class="cReqDflt">ON</span><span class="cRequired"> </span>| <span class="cRequired">OFf</span>
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp82271"></a><p class="pTableCell">
+An underlined item indicates either the default argument or the default value of an argument.
+
+</p>
+
+</td>
+
+
+</tr>
+
+  <tr align="left" valign="top">
+    <td>
+
+
+<a name="wp82273"></a><p class="pTableCell">
+&#0133;
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp82275"></a><p class="pTableCell">
+ADD LFsr Connections <span class="cReqRpl">primary_pin</span> <span class="cReqRpl">lfsr_name</span> <span class="cReqRpl">position</span>&#0133;
+
+</p>
+
+</td>
+
+    <td>
+
+
+<a name="wp82277"></a><p class="pTableCell">
+An ellipsis follows an argument that may appear more than once. Do not include the ellipsis when entering commands.
+
+</p>
+
+</td>
+
+
+</tr>
+
+
+</table>
+
+</div>
+<div id='EndTable'> </div>
+<p class="pBody">
+<br clear='left' class='Blank4Table' />
+
+
+</p>
+
+
+
+
+<script type="text/javascript" language="JavaScript1.2">
+<!--
+   PageTitle = "Syntax Conventions \- Modeling";
+   PDFLinkTitle = "Syntax.Conventions..Modeling"
+   ThisTopic = "SyntaxConventionsModeling";
+   CurrentFile = "Chapter_Command_Line_Ops_mb02.html";
+   MGCSetDocumentVariables();
+   MGCUpdateNavPane();
+      MGCInsertRTFooter();
+ // -->
+ </script>
+
+
+
+  </body>
+</html>
