@@ -2,6 +2,8 @@ ProjectName M3
 Files {
 	 Sources {
 		{$PRJDIR/main.cpp}
+		{$PRJDIR/Models/Rijndael.cpp}
+		{$PRJDIR/Models/Rijndael.h}
 	 } 
 	 {Public Headers} {
 		{$PRJDIR/Models/signal_protocol.h}
@@ -10,6 +12,7 @@ Files {
 	 } 
 	 Schematics {
 		{$PRJDIR/blocks_lib/simple.h}
+		{$PRJDIR/blocks_lib/rijndael_tb.h}
 	 } 
 	 Documentation {} 
 	 {Linked Binaries} {} 
@@ -22,10 +25,12 @@ Files {
 		{$PRJDIR/Models/m3Bus.mb}
 		{$PRJDIR/Models/extIn.mb}
 		{$PRJDIR/Models/sink.mb}
+		{$PRJDIR/Models/rijndael.mb}
+		{$PRJDIR/Models/ahb2apb.mb}
+		{$PRJDIR/Models/DriveEn.mb}
 	 } 
 }
 Designs {{$PRJDIR/main.cpp}}
-Simulations {/home/jon/work/arm/m3/M3/sim /home/jon/VistaModels/ARM/m3/M3/sim}
 VirtualPrototypes m3vp.prj
 Folders {
 	 Sources {*.c *.cpp *.cc} 
@@ -38,7 +43,7 @@ Folders {
 }
 GeneralCompilationOptions {-Wall -DARM}
 AlwaysCompileInCPPMode 1
-LinkPackages {model_builder sdParameters tlm}
+LinkPackages {model_builder sdParameters tlm models_catalogue}
 ProjectLibraryType archive
 ProjectComponentsLibraryPath {$PRJDIR/$PRJFILE_BASENAME/interfaces}
 ProjectWorkingDirectory {$PRJDIR/$PRJFILE_BASENAME/build}
