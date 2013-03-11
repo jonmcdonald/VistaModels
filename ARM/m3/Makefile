@@ -5,8 +5,8 @@ OPT    =
 OPT    = -O9 
 DEBUG  = -DMB_DEBUG -tsv -pg -fprofile-arcs -ftest-coverage
 DEBUG  = -g -DMB_DEBUG -tsv
-OTHER  = -Wall +model_builder -DARM
-OTHER  = +model_builder
+OTHER  = -Wall +model_builder -DARM +models_catalogue
+OTHER  = +model_builder +models_catalogue
 CFLAGS = $(DEBUG) $(OTHER)
 
 MODELS = Models
