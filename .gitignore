@@ -22,4 +22,6 @@ gmon.out
 *.template
 *.layout
 vista_power_transcript
-
+.*
+Debug
+*.log
