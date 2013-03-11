@@ -16,3 +16,7 @@ To build from scratch the following steps should reconstruct all files:
 	- General->Existing Projects into Workspace
 	- Select root directory -> Browse... select CBwork/<dirname> then OK
 	- Finish
+
+  For software the following projects are useful and are found under CBwork
+	demo - basic simple demo program
+	Vista-CM3 - similar basic program but uses ARM CMSIS configuration for peripheral definitions.

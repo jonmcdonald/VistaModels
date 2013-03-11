@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<sheet sessionPath="vpData/Session 1">
-  <layout>
-    <row height="300">
-      <widget file=".Session.Timeline.swd" width="1000"/>
-    </row>
-  </layout>
-</sheet>
