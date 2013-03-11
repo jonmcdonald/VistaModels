@@ -1,6 +1,0 @@
-summit_begin_package v2:ui:processes
-
-summit_package_require UI
-summit_package_require Widgets
-
-summit_end_package

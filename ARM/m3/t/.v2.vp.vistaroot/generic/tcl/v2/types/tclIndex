@@ -1,3 +1,0 @@
-set auto_index(::v2::types::global_variables_filter) [list summit_add_tclindex v2/types/Filter.tcl]
-set auto_index(::v2::types::functions_filter) [list summit_add_tclindex v2/types/Filter.tcl]
-set auto_index(::v2::types::types_filter) [list summit_add_tclindex v2/types/Filter.tcl]

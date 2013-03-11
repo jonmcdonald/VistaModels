@@ -1,1 +1,0 @@
-summit_package_require v2:systemc_editor:test

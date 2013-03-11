@@ -1,3 +1,0 @@
-       intersect lista listb
-              Procedure  to return the logical intersection of two lists.  The
-              returned list will be sorted.

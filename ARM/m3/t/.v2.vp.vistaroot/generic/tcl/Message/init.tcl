@@ -1,3 +1,0 @@
-summit_begin_package Message
-summit_package_require List
-summit_end_package

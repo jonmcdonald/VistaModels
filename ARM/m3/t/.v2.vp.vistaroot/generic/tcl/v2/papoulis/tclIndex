@@ -1,1 +1,0 @@
-set auto_index(::v2::papoulis::source/esl/core/user_procs.tcl) [list summit_add_tclindex v2/papoulis/init.tcl]

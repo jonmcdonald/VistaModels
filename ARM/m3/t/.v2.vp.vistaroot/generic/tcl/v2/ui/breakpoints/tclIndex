@@ -1,3 +1,0 @@
-set auto_index(::v2::ui::breakpoints::BreakpointsView) [list summit_add_tclindex v2/ui/breakpoints/BreakpointsView.tcl]
-set auto_index(::UI::v2/ui/breakpoints/BreakpointsView/DocumentLinker) [list summit_add_tclindex v2/ui/breakpoints/BreakpointsView.tcl]
-set auto_index(::v2::ui::breakpoints::PopupMenu) [list summit_add_tclindex v2/ui/breakpoints/PopupMenu.tcl]

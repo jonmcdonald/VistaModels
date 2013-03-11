@@ -1,5 +1,0 @@
-set auto_index(::v2::ui::catapult::CatapultTreeView) [list summit_add_tclindex v2/ui/catapult/CatapultTreeView.tcl]
-set auto_index(::UI::v2/ui/catapult/CatapultTreeView/DocumentLinker) [list summit_add_tclindex v2/ui/catapult/CatapultTreeView.tcl]
-set auto_index(::v2::ui::catapult::CatapultView) [list summit_add_tclindex v2/ui/catapult/CatapultView.tcl]
-set auto_index(::v2::ui::catapult::FifoTreeView) [list summit_add_tclindex v2/ui/catapult/FifoTreeView.tcl]
-set auto_index(::UI::v2/ui/catapult/FifoTreeView/DocumentLinker) [list summit_add_tclindex v2/ui/catapult/FifoTreeView.tcl]

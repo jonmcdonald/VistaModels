@@ -1,4 +1,0 @@
-summit_begin_package v2:systemc_editor
-summit_package_require Utilities
-summit_source parse.tcl
-summit_end_package

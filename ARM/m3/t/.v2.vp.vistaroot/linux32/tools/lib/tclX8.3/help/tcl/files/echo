@@ -1,3 +1,0 @@
-       echo ?str ...?
-              Writes  zero  or  more strings to standard output, followed by a
-              newline.

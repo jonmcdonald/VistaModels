@@ -1,4 +1,0 @@
-set auto_index(::v2::ui::analog_wave::PlotView) [list summit_add_tclindex v2/ui/analog_wave/PlotView.tcl]
-set auto_index(::v2::ui::analog_wave::PlotView::just_return_argument) [list summit_add_tclindex v2/ui/analog_wave/PlotView.tcl]
-set auto_index(::v2::ui::analog_wave::PlotView::just_return_empty_list) [list summit_add_tclindex v2/ui/analog_wave/PlotView.tcl]
-set auto_index(::v2::ui::analog_wave::PlotView::are_ticks_same) [list summit_add_tclindex v2/ui/analog_wave/PlotView.tcl]

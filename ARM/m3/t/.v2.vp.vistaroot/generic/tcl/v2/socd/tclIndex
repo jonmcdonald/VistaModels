@@ -1,1 +1,0 @@
-set auto_index(::v2::socd::is_socd_active) [list summit_add_tclindex v2/socd/utl.tcl]

@@ -1,3 +1,0 @@
-set auto_index(::v2::ui::watches::PopupMenu) [list summit_add_tclindex v2/ui/watches/PopupMenu.tcl]
-set auto_index(::v2::ui::watches::WatchesView) [list summit_add_tclindex v2/ui/watches/WatchesView.tcl]
-set auto_index(::UI::v2/ui/watches/WatchesView/DocumentLinker) [list summit_add_tclindex v2/ui/watches/WatchesView.tcl]

@@ -1,3 +1,0 @@
-summit_begin_package v2:ui:analysis_report_dialog
-
-summit_end_package

@@ -1,5 +1,0 @@
-set auto_index(::v2::systemc_editor::parser::init_language) [list summit_add_tclindex v2/systemc_editor/parse.tcl]
-set auto_index(::v2::systemc_editor::parser::my_regexp) [list summit_add_tclindex v2/systemc_editor/parse.tcl]
-set auto_index(::v2::systemc_editor::parser::listn) [list summit_add_tclindex v2/systemc_editor/parse.tcl]
-set auto_index(::v2::systemc_editor::parser::parse_file) [list summit_add_tclindex v2/systemc_editor/parse.tcl]
-set auto_index(::v2::systemc_editor::parser::parse) [list summit_add_tclindex v2/systemc_editor/parse.tcl]

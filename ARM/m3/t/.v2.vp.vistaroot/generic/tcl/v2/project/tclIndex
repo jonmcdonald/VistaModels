@@ -1,4 +1,0 @@
-set auto_index(::v2::project::find_packages) [list summit_add_tclindex v2/project/Utilities.tcl]
-set auto_index(::v2::project::get_project_document_id_by_name) [list summit_add_tclindex v2/project/Utilities.tcl]
-set auto_index(::v2::project::run_command_on_project) [list summit_add_tclindex v2/project/Utilities.tcl]
-set auto_index(::v2::project::recognize_schematics_h_file) [list summit_add_tclindex v2/project/Utilities.tcl]

@@ -1,3 +1,0 @@
-set auto_index(::v2::get_ui_simulation_document) [list summit_add_tclindex v2/main/simulation.tcl]
-set auto_index(::v2::attach_to_simulation_session) [list summit_add_tclindex v2/main/simulation.tcl]
-set auto_index(::v2::reuse_gdb_for_simulation_session) [list summit_add_tclindex v2/main/simulation.tcl]

@@ -1,3 +1,0 @@
-summit_begin_package Utilities:ns_tree
-summit_package_require Utilities
-summit_end_package

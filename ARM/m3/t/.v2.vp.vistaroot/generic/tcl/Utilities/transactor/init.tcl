@@ -1,3 +1,0 @@
-summit_begin_package Utilities:transactor
-summit_source transactor.tcl
-summit_end_package

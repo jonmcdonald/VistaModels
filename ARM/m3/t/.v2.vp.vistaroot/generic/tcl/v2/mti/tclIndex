@@ -1,2 +1,0 @@
-set auto_index(::v2::mti::is_mti_active) [list summit_add_tclindex v2/mti/utl.tcl]
-set auto_index(::v2::mti::get_modelsim_tcl_root) [list summit_add_tclindex v2/mti/utl.tcl]

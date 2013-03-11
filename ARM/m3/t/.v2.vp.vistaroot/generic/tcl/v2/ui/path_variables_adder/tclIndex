@@ -1,3 +1,0 @@
-set auto_index(::v2::ui::path_variables_adder::CreatePathVariableDialog) [list summit_add_tclindex v2/ui/path_variables_adder/CreatePathVariableDialog.tcl]
-set auto_index(::v2::ui::path_variables_adder::PathVariablesAdder) [list summit_add_tclindex v2/ui/path_variables_adder/PathVariablesAdder.tcl]
-set auto_index(::v2::ui::path_variables_adder::PathVariablesAdder::getComponents) [list summit_add_tclindex v2/ui/path_variables_adder/PathVariablesAdder.tcl]

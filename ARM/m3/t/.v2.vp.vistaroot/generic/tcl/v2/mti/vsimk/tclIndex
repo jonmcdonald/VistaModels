@@ -1,2 +1,0 @@
-set auto_index(::v2::mti::vsimk::reuse_gdb_for_simulation_session_if_needed) [list summit_add_tclindex v2/mti/vsimk/vsimk.tcl]
-set auto_index(::v2::mti::vsimk::on_status_changed) [list summit_add_tclindex v2/mti/vsimk/vsimk.tcl]

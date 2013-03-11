@@ -1,3 +1,0 @@
-set auto_index(::v2::ui::simulationdialog::BreakOnTimeDialog) [list summit_add_tclindex v2/ui/simulationdialog/BreakOnTimeDialog.tcl]
-set auto_index(::v2::ui::simulationdialog::RunForDialog) [list summit_add_tclindex v2/ui/simulationdialog/RunForDialog.tcl]
-set auto_index(::v2::ui::simulationdialog::StartSimulationDialog) [list summit_add_tclindex v2/ui/simulationdialog/StartSimulationDialog.tcl]

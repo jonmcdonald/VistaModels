@@ -1,8 +1,0 @@
-set auto_index(::v2::ui::simulation_control::Notebook) [list summit_add_tclindex v2/ui/simulation_control/Notebook.tcl]
-set auto_index(::UI::v2/ui/simulation_control/Notebook/DocumentLinker) [list summit_add_tclindex v2/ui/simulation_control/Notebook.tcl]
-set auto_index(::v2::ui::simulation_control::PopupMenu) [list summit_add_tclindex v2/ui/simulation_control/PopupMenu.tcl]
-set auto_index(::v2::ui::simulation_control::StatusBar) [list summit_add_tclindex v2/ui/simulation_control/StatusBar.tcl]
-set auto_index(::v2::ui::simulation_control::Toolbar) [list summit_add_tclindex v2/ui/simulation_control/Toolbar.tcl]
-set auto_index(::v2::ui::simulation_control::TopView) [list summit_add_tclindex v2/ui/simulation_control/TopView.tcl]
-set auto_index(::v2::ui::simulation_control::ViewMenu) [list summit_add_tclindex v2/ui/simulation_control/ViewMenu.tcl]
-set auto_index(::UI::v2/ui/simulation_control/ViewMenu/DocumentLinker) [list summit_add_tclindex v2/ui/simulation_control/ViewMenu.tcl]

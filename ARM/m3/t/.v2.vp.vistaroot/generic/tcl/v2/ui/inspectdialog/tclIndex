@@ -1,3 +1,0 @@
-set auto_index(::v2::ui::inspectdialog::InspectTree) [list summit_add_tclindex v2/ui/inspectdialog/InspectDialog.tcl]
-set auto_index(::v2::ui::inspectdialog::InspectDialog) [list summit_add_tclindex v2/ui/inspectdialog/InspectDialog.tcl]
-set auto_index(::UI::v2/ui/inspectdialog/InspectTree/DocumentLinker) [list summit_add_tclindex v2/ui/inspectdialog/InspectDialog.tcl]

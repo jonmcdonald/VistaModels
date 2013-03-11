@@ -1,3 +1,0 @@
-       umask ?octalmask?
-              Sets  file-creation  mode  mask to the octal value of octalmask.
-              If octalmask is omitted, the current mask is returned.
