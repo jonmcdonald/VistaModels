@@ -20,3 +20,13 @@ To build from scratch the following steps should reconstruct all files:
   For software the following projects are useful and are found under CBwork
 	demo - basic simple demo program
 	Vista-CM3 - similar basic program but uses ARM CMSIS configuration for peripheral definitions.
+	AES - Software implementation of AES encryption algorithm
+	AEShw - algorithm using HW accelerator block.  Requires rijndael_tb.h as top level block diagram
+
+To setup Vista project.
+> vista &
+	- File->Open Library Manager
+		Add Models and blocks_lib as libraries
+	- Project->Open Project
+		Open M3.v2p
+	The project should now build and simulate

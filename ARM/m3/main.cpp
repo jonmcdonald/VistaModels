@@ -2,7 +2,7 @@
 #include "rijndael_tb.h"
 #include <time.h>
 
-#define TOP simple
+#define TOP rijndael_tb
 
 int sc_main(int argc, char *argv[]) {
 
