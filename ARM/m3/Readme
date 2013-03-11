@@ -5,3 +5,14 @@ Create database
 
 Now there should be analysis_db_accessor.32.so and MGC_VISTA_SIM_histor.data.analysis.analog 
 in the vp_sim dir.
+
+To build from scratch the following steps should reconstruct all files:
+> make mb
+> make
+> sourcerygxx-ide -data CBwork
+	Build software projects.
+	To create the projects if they do not exist in CB execute the following:
+	- File->Import
+	- General->Existing Projects into Workspace
+	- Select root directory -> Browse... select CBwork/<dirname> then OK
+	- Finish

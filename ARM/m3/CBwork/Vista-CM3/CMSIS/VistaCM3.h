@@ -136,7 +136,7 @@ typedef struct
         __I uint32_t HalfF :1;              /*!< Status: Half or more full                     */
         __I uint32_t Many  :1;              /*!< Status: Many elements in the fifo (>= 14)     */
         __I uint32_t Full  :1;              /*!< Status: Full fifo flag                        */
-        __I uint32_t reserved:25            /*!< Status: Reserved bits                         */
+        __I uint32_t reserved:25;            /*!< Status: Reserved bits                         */
         __O uint32_t Reset :1;              /*!< Status: Reset the fifo when a 1 is written    */
       } b;
       __IO uint32_t Word;                   /*!< Offset: 0x0040 (R/W)  Status Register         */
