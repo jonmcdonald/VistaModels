@@ -27,3 +27,4 @@ Debug
 *.log
 t
 *.tgz
+*.exe
