@@ -1,0 +1,38 @@
+# Define Vista Properties
+java, ra_vista, setup
+
+# Import register information from CSV
+js, $(RA_EXAMPLES)/csv.js, top, input/regs.csv, input/mems.csv, input/blocks.csv, input/maps.csv, input/C_settings.csv
+
+# Update Vista Models
+java, ra_vista, generate, ../Models, ../parameters.txt
+
+# Generate C header output
+java, c_header, registers.h
+
+
+
+
+
+# Generate XML
+# java, ra_xml, ./output/registers.xml
+
+# Add default checks
+# java, addDefaultChecks
+# java, addScriptChecks, $(RA_EXAMPLES)/checkMap.tcl
+# js, $(RA_EXAMPLES)/checks.js
+
+# Run checks
+# java, check, dontStop
+
+# Generate UVM output
+# java, uvm, led_uvm.sv, 1.1
+
+# Generate RTL output
+# java, rtl
+
+# Generate all possible HTML Outputs
+# js, $(RA_EXAMPLES)/html.js
+
+
+

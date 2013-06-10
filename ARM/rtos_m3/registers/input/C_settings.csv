@@ -1,0 +1,2 @@
+Block Name,Project Parameter Name,Project Parameter Value,Project Parameter Description
+reg_block,c.TEMPLATE_PATH,../../../../../VistaModels/ARM/rtos_m3/registers/input/c_header.h,Path to the C header template.
