@@ -20,6 +20,7 @@
 //* 
 //* Model Builder version: 3.4.0
 //* Generated on: Jul. 04, 2012 04:34:00 PM, (user: markca)
+//* Automatically merged on: Jun. 10, 2013 01:18:31 PM, (user: markca)
 //*>
 
 
@@ -70,4 +71,4 @@ bool AHB_APB_pv::ahb_slave_get_direct_memory_ptr(mb_address_type address, tlm::t
   return false;
 }
 
-
+ 

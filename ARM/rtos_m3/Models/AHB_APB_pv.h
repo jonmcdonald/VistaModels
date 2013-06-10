@@ -21,6 +21,7 @@
 //* Model Builder version: 3.4.0
 //* Generated on: Jul. 04, 2012 04:34:00 PM, (user: markca)
 //* Automatically merged on: Nov. 20, 2012 02:12:49 PM, (user: markca)
+//* Automatically merged on: Jun. 10, 2013 01:18:31 PM, (user: markca)
 //*>
 
 
@@ -55,7 +56,7 @@ class AHB_APB_pv : public AHB_APB_pv_base {
   //////////////////////////////////////// 
   bool ahb_slave_callback_write(mb_address_type address, unsigned char* data, unsigned size);
   
-  unsigned ahb_slave_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size); 
+  unsigned ahb_slave_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size);  
   bool ahb_slave_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);   
 };
 

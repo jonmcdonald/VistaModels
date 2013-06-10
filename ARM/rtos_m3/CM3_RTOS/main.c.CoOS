@@ -18,6 +18,7 @@ void led_blink(void *pdata)
 
 int main( void )
 {
+    init_UART0();
     print_UART0("Initialising CoOS\n");
 	CoInitOS ( );
 

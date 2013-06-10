@@ -1,10 +1,17 @@
 
 #include "uart.h"
+#include "led.h"
 
 int main( void )
 {
+    init_UART0();
     print_UART0("Hello Bare Metal\n");
+    print_UART0("RED:ON - GREEN:OFF - BLUE:ON\n");
+    red_enable(1);
+    green_enable(0);
+    blue_enable(1);
     print_UART0("OK - Finishing\n");
+
     while (1); // Never return
     return 0;
 }

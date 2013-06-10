@@ -22,6 +22,8 @@
 //* Generated on: Sep. 20, 2012 04:49:24 PM, (user: markca)
 //* Automatically merged on: Sep. 21, 2012 01:19:48 PM, (user: markca)
 //* Automatically merged on: Nov. 20, 2012 02:12:51 PM, (user: markca)
+//* Automatically merged on: Jun. 10, 2013 01:18:32 PM, (user: markca)
+//* Automatically merged on: Jun. 10, 2013 01:37:36 PM, (user: markca)
 //*>
 
 
@@ -77,6 +79,9 @@ class rgb_led_pv : public rgb_led_pv_base {
   bool ahb_slave_callback_write(mb_address_type address, unsigned char* data, unsigned size);
   
   unsigned ahb_slave_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size); 
+  virtual void cb_transport_dbg_RED_EN(tlm::tlm_generic_payload& trans);
+  virtual void cb_transport_dbg_GREEN_EN(tlm::tlm_generic_payload& trans);
+  virtual void cb_transport_dbg_BLUE_EN(tlm::tlm_generic_payload& trans); 
   bool ahb_slave_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);   
 };
 

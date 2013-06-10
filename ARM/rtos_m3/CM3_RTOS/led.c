@@ -1,27 +1,20 @@
 
-#include <stdint.h>
+#include "led.h"
+#include "../registers/output/registers.h"
 
-typedef volatile struct {
- uint32_t RED_EN;     // 0x0000
- uint32_t GREEN_EN;   // 0x0004
- uint32_t BLUE_EN;    // 0x0008
-} LED_T;
+top_ptr regtop = TOP__BASE;
 
-
-LED_T* const led = (LED_T *) 0x4000D000;
-
-void red_enable(unsigned int value)
+void red_enable(uint32_t value)
 {
-  led->RED_EN = value;
+  (regtop->led).RED_EN = value;
 }
 
-void green_enable(unsigned int value)
+void green_enable(uint32_t value)
 {
-  led->GREEN_EN = value;
+  (regtop->led).GREEN_EN = value;
 }
 
-void blue_enable(unsigned int value)
+void blue_enable(uint32_t value)
 {
-  led->BLUE_EN = value;
+  (regtop->led).BLUE_EN = value;
 }
-

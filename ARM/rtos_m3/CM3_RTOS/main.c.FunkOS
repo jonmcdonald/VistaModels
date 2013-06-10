@@ -44,6 +44,7 @@ IDLE_TASK_STRUCT 	stIdleTask;					// Idle Task
 //---------------------------------------------------------------------------
 int main(void)
 {
+    init_UART0();
     print_UART0("Hello FunkRTOS\n");
 	Task_Init();									// Initialize the RTOS
 

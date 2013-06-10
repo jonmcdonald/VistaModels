@@ -142,4 +142,14 @@ bool rgb_led_pv::ahb_slave_get_direct_memory_ptr(mb_address_type address, tlm::t
   return false;
 }
 
+void rgb_led_pv::cb_transport_dbg_RED_EN(tlm::tlm_generic_payload& trans)
+{
+}
 
+void rgb_led_pv::cb_transport_dbg_GREEN_EN(tlm::tlm_generic_payload& trans)
+{
+}
+
+void rgb_led_pv::cb_transport_dbg_BLUE_EN(tlm::tlm_generic_payload& trans)
+{
+}

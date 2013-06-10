@@ -19,7 +19,6 @@ Files {
 		{$PRJDIR/Models/irq_src.mb}
 	 } 
 	 Models {
-		{$PRJDIR/Models/irq_src.mb}
 		{$PRJDIR/Models/High_MEM.mb}
 		{$PRJDIR/Models/Low_MEM.mb}
 		{$PRJDIR/Models/AHBBUS.mb}
@@ -32,7 +31,7 @@ Files {
 	 } 
 }
 Designs {{$PRJDIR/main.cpp}}
-Simulations /data/CortexM3_example/Project/sim
+Simulations /store/VistaModels/ARM/rtos_m3/Project/sim
 Folders {
 	 Sources {*.c *.cpp *.cc} 
 	 {Public Headers} *.h* 

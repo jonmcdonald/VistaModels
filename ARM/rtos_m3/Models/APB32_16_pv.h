@@ -22,6 +22,7 @@
 //* Generated on: Jul. 04, 2012 04:27:13 PM, (user: markca)
 //* Automatically merged on: Jul. 04, 2012 04:28:10 PM, (user: markca)
 //* Automatically merged on: Nov. 20, 2012 02:12:49 PM, (user: markca)
+//* Automatically merged on: Jun. 10, 2013 01:18:31 PM, (user: markca)
 //*>
 
 
@@ -56,7 +57,7 @@ class APB32_16_pv : public APB32_16_pv_base {
   //////////////////////////////////////// 
   bool apb_slave_callback_write(mb_address_type address, unsigned char* data, unsigned size);
   
-  unsigned apb_slave_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size); 
+  unsigned apb_slave_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size);  
   bool apb_slave_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);   
 };
 

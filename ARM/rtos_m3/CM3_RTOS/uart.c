@@ -1,40 +1,26 @@
 
-#include <stdint.h>
+#include "uart.h"
+#include "../registers/output/registers.h"
 
-typedef volatile struct {
- uint32_t DR;
- uint32_t RSR_ECR;
- uint8_t reserved1[0x10];
- const uint32_t FR;
- uint8_t reserved2[0x4];
- uint32_t LPR;
- uint32_t IBRD;
- uint32_t FBRD;
- uint32_t LCR_H;
- uint32_t CR;
- uint32_t IFLS;
- uint32_t IMSC;
- const uint32_t RIS;
- const uint32_t MIS;
- uint32_t ICR;
- uint32_t DMACR;
-} pl011_T;
+void init_UART0()
+{
+  top_ptr regtop = TOP__BASE;
 
-enum {
- RXFE = 0x10,
- TXFF = 0x20,
-};
-
-pl011_T* const UART0 = (pl011_T *) 0x4000C000;
+  // Enable the UART for transmit and recieve
+  (regtop->uart).UARTCR = (UARTCR__UARTCR_UARTEN__MASK |
+                           UARTCR__UARTCR_TXE__MASK |
+                           UARTCR__UARTCR_RXE__MASK);
+}
 
 void print_UART0(char *ptr)
 {
-  // Enable the UART for transmit and recieve
-  UART0->CR = 0b1100000001;
+  top_ptr regtop = TOP__BASE;
 
+  // Send characters to the UART when possible
   while (*ptr != '\0') {
-    while(UART0->FR & TXFF);
-    UART0->DR = *ptr++;
+    while(UARTFR__UARTFR_TXFF__GET((regtop->uart).UARTFR));
+    (regtop->uart).UARTDR = *ptr++;
   }
 }
+
 

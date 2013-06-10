@@ -11,3 +11,8 @@ top.flash.size_in_bytes   = 0x20000
 
 mem_high_base_address = 0x20000000
 
+# Register Assistant Declarations
+top.ahbbus.uart_base_address = 0x4000C000
+top.ahbbus.uart_subtract_base_address = 1
+top.ahbbus.rgb_led_base_address = 0x4000E000
+top.ahbbus.rgb_led_subtract_base_address = 1

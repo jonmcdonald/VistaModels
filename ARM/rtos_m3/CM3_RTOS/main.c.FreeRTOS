@@ -119,6 +119,8 @@ static void primeTask(void* pvParameters)
  
 int main( void )
 {
+    init_UART0();
+
     print_UART0("Initialising RTOS\n");
     print_UART0("Creating Tasks\n");
  

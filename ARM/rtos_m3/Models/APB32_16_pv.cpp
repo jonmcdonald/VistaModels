@@ -21,6 +21,7 @@
 //* Model Builder version: 3.4.0
 //* Generated on: Jul. 04, 2012 04:27:13 PM, (user: markca)
 //* Automatically merged on: Jul. 04, 2012 04:28:10 PM, (user: markca)
+//* Automatically merged on: Jun. 10, 2013 01:18:31 PM, (user: markca)
 //*>
 
 
@@ -69,4 +70,4 @@ bool APB32_16_pv::apb_slave_get_direct_memory_ptr(mb_address_type address, tlm::
   return false;
 }
 
-
+ 
