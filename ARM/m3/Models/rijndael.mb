@@ -6,16 +6,19 @@
 
 # === ports ===
 add_port "s" /TLM/protocols/ahb_slave slave 32 -bind_mode optional
+add_port "m" /TLM/protocols/ahb_master master 32 -bind_mode optional
 add_port "irq" /TLM/protocols/signal master 1 -bind_mode optional
 
 # === parameters ===
 add_parameter "InDelay" 3 uint32 {}
 add_parameter "OutDelay" 4 uint32 {}
+add_parameter "ProcDelay" 60 uint32 {}
 
 # === auto parameters ===
 set_auto_parameter_default "clock" {10 ns} time {}
 set_auto_parameter_default "ahb_slave_clock" clock time {}
 set_auto_parameter_default "signal_clock" clock time {}
+set_auto_parameter_default "ahb_master_clock" clock time {}
 set_auto_parameter_default "nominal_voltage" 1 double {}
 set_auto_parameter_default "mb_debug" false boolean {true false}
 set_auto_parameter_default "verbose_parameters" true boolean {true false}
@@ -29,21 +32,20 @@ set_auto_parameter_default "s_pipeline_length" 2 uint32 {}
 # example: add_generic "OUT_ACTIVE_VALUE" false
 
 # === machine architecture ===
-declare_register s d 0x0 {} -rw_access r/w -is_trigger -width 32
-declare_register s status 0x40 {} -rw_access r/w -is_trigger -width 32 -reset_value 0x5
-declare_register s count 0x44 {} -rw_access r/w -width 32 -reset_value 0x0
-declare_register s clrIRQ 0x50 {} -rw_access r/w -is_trigger -width 32
+declare_register s Source 0x0 {} -rw_access r/w -width 32
+declare_register s Destination 0x4 {} -rw_access r/w -width 32
+declare_register s Size 0x8 {} -rw_access r/w -width 32
+declare_register s status 0x10 {} -rw_access r/w -is_trigger -width 32 -reset_value 0x0
+declare_register s clrIRQ 0x14 {} -rw_access r/w -is_trigger -width 32
 set_sync_all 0
 add_delay_policy s.READ 0 -latency InDelay -sync 0 -power 2
 add_delay_policy s.WRITE 0 -latency OutDelay -sync 0 -power 13
-state_power .1 -condition_pairs {status 0x5}
-state_power 1 -condition_pairs {status 0x6}
-state_power 31 -condition_pairs {status 0x2}
-state_power 77 -condition_pairs {status 0xA}
-state_power 120 -condition_pairs {status 0x1A}
-state_power 201 -condition_pairs {status 0x3A}
+add_sequential_policy m.WRITE -cause m.READ -latency ProcDelay -sync 0 -power 120
+add_sequential_policy irq.WRITE -cause m.WRITE -latency 0 -sync 0 -power 0
+state_power 1 -condition_pairs {status 0x0}
+state_power 450 -condition_pairs {status 0x1}
+state_power 780 -condition_pairs {status 0x2}
 set_nominal_clock 100
-declare_variable Count -type int32
 
 # === generate options ===
 set_generate_kind "pvt" ;# should be one of: model|pv|pvt

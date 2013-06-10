@@ -37,3 +37,8 @@ A few useful git sequences:
    Next fetch from the repository and overwrite any local conflicts
    > git fetch origin master
    > git merge -s recursive -X theirs origin/master
+
+ - To cause a tracked file which changes local not to be checked in
+   > git update-index --assume-unchanged path/to/file.txt
+   To cause it to be checked in again
+   > git update-index --no-assume-unchanged path/to/file.txt

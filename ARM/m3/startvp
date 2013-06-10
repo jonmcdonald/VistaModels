@@ -2,6 +2,6 @@
 
 export V2_VP_PLUS=1
 export V2_IO_DEBUG_ENABLED=1
-export VISTA_PARAMETERS_FILE=none
+export VP_GENERATE_MESA_DATABASE_CSV=1
+export VISTA_PARAMETERS_FILE=params.gdb
 arm.x
-

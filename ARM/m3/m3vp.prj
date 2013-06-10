@@ -1,0 +1,8 @@
+for_windows 0
+env set V2_VP_PLUS 1
+env set V2_IO_DEBUG_ENABLED 1
+env set VP_GENERATE_MESA_DATABASE_CSV 1
+project M3
+top {$PRJDIR/main.cpp}
+use_top
+generate m3vp.x

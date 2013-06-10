@@ -5,7 +5,7 @@ generic_clock = 1 NS
 tlm_timing_model = AT
 
 top.driver_1.DriverFunction = datafile
-top.driver_1.DataFilePath = driver3_data.txt
+top.driver_1.DataFilePath = driver2_data.txt
 
 top.switch_1.PipelineStages = 1
 top.switch_1.InputFifoDepth = 1

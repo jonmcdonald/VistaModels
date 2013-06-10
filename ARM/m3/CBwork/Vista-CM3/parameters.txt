@@ -9,11 +9,8 @@ tlm_timing_model = LT
 io_debug_enabled = 1
 
 Top.cpu_inst.PV.core.elf_image_file = base/base.axf
-Top.cpu_inst.PV.core.elf_image_file = CBwork/demo/Debug/demo
-Top.cpu_inst.PV.core.elf_image_file = CBwork/AEShw/Debug/AEShw
-Top.cpu_inst.PV.core.elf_image_file = CBwork/Vista-CM3/Debug/Vista-CM3
+Top.cpu_inst.PV.core.elf_image_file = Debug/Vista-CM3
 
-Top.cpu_inst.PV.core.gdbstub_port = 0
 Top.cpu_inst.PV.core.gdbstub_port = 1234
 
 Top.bus_inst.s0_base_address = 0xFFFFFFFFFFFFFFFF

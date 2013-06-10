@@ -44,6 +44,16 @@ bool sink_pv::general_write(mb_address_type address, unsigned char* data, unsign
     if(tokenptr && tokenptr->hasField("CreateTime")) {
         cout << sc_simulation_time() << ":" << name() << " " << extra << " receiving data = " << d[0] << " *** ";
         cout << "Lifetime = " << sc_time_stamp() - tokenptr->getFieldAsTime("CreateTime") << endl;
+        switch (extra[1]) {
+        case '1' : LifeTime1 = (sc_time_stamp() - tokenptr->getFieldAsTime("CreateTime")) / clock; break;
+        case '2' : LifeTime2 = (sc_time_stamp() - tokenptr->getFieldAsTime("CreateTime")) / clock; break;
+        case '3' : LifeTime3 = (sc_time_stamp() - tokenptr->getFieldAsTime("CreateTime")) / clock; break;
+        case '4' : LifeTime4 = (sc_time_stamp() - tokenptr->getFieldAsTime("CreateTime")) / clock; break;
+        case '5' : LifeTime5 = (sc_time_stamp() - tokenptr->getFieldAsTime("CreateTime")) / clock; break;
+        case '6' : LifeTime6 = (sc_time_stamp() - tokenptr->getFieldAsTime("CreateTime")) / clock; break;
+        case '7' : LifeTime7 = (sc_time_stamp() - tokenptr->getFieldAsTime("CreateTime")) / clock; break;
+        case '8' : LifeTime8 = (sc_time_stamp() - tokenptr->getFieldAsTime("CreateTime")) / clock; break; }
+        
     }
     return true;
 }
