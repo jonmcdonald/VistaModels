@@ -19,15 +19,14 @@ Files {
 		{$PRJDIR/Models/irq_src.mb}
 	 } 
 	 Models {
-		{$PRJDIR/Models/High_MEM.mb}
-		{$PRJDIR/Models/Low_MEM.mb}
 		{$PRJDIR/Models/AHBBUS.mb}
 		{$VISTA_ROOT/generic/CPP/models_catalogue/UART_PL011.mb}
 		{$VISTA_ROOT/generic/CPP/models_catalogue/UART_Visualization_Middleware.mb}
-		{$PRJDIR/Models/APB32_16.mb}
 		{$PRJDIR/Models/AHB_APB.mb}
-		{$PRJDIR/Models/MC_CM3.mb}
 		{$PRJDIR/Models/rgb_led.mb}
+		{$PRJDIR/Models/MEMORY.mb}
+		{$PRJDIR/Models/CORTEX_M3.mb}
+		{$PRJDIR/Models/APBBUS.mb}
 	 } 
 }
 Designs {{$PRJDIR/main.cpp}}

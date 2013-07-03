@@ -1,18 +1,28 @@
 tlm_timing_model = LT
-clock = 50 NS
+clock = 10 NS
 
 #gdbstub_port = 2345
 
 elf_image_file = CM3_RTOS/image.axf
+#top.flash.PV.mb_memory_file_storage_load = /tmp/vista_nucleus_kernel_demo.bin
 
-mem_low_base_address      = 0x0
-mem_low_size              = 0x20000
-top.flash.size_in_bytes   = 0x20000
+top.ahb_bus.mem_low_base_address  = 0x0
+top.ahb_bus.mem_low_size          = 0x2000000
+top.flash.size_in_bytes           = 0x2000000
 
-mem_high_base_address = 0x20000000
+top.ahb_bus.mem_high_base_address = 0x20000000
+top.ahb_bus.mem_high_size         = 0x2000000
+top.sram.size_in_bytes            = 0x2000000
+
+top.ahb_bus.apb_base_address      = 0x40000000
+top.ahb_bus.apb_subtract_base_address = 0
+top.ahb_bus.apb_size              = 0x10000000
+
+top.apb_bus.uart_size             = 0x1000
+top.apb_bus.led_size              = 0x1000
 
 # Register Assistant Declarations
-top.ahbbus.uart_base_address = 0x4000C000
-top.ahbbus.uart_subtract_base_address = 1
-top.ahbbus.rgb_led_base_address = 0x4000E000
-top.ahbbus.rgb_led_subtract_base_address = 1
+top.apb_bus.uart_base_address = 0x4000C000
+top.apb_bus.uart_subtract_base_address = 1
+top.apb_bus.led_base_address = 0x4000E000
+top.apb_bus.led_subtract_base_address = 1

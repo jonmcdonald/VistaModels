@@ -5,7 +5,7 @@
 # ========================================================================
 
 # === ports ===
-add_port "ahb_slave" /TLM/protocols/ahb_slave slave 32 -bind_mode mandatory
+add_port "ahb_slave" /TLM/protocols/ahb_master slave 32 -bind_mode mandatory
 add_port "apb_master" /TLM/protocols/apb master 32 -bind_mode mandatory
 
 # === parameters ===
@@ -14,7 +14,7 @@ add_port "apb_master" /TLM/protocols/apb master 32 -bind_mode mandatory
 
 # === auto parameters ===
 set_auto_parameter_default "clock" {10 ns} time {}
-set_auto_parameter_default "ahb_slave_clock" clock time {}
+set_auto_parameter_default "ahb_master_clock" clock time {}
 set_auto_parameter_default "apb_clock" clock time {}
 set_auto_parameter_default "nominal_voltage" 1 double {}
 set_auto_parameter_default "mb_debug" false boolean {true false}

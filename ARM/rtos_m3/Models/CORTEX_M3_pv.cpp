@@ -11,22 +11,5 @@
 /*                                                            */
 /**************************************************************/
 
-#pragma once
 
-#include "model_builder.h"
-
-
-class MC_CM3_pv : public ::mb::models::arm::cortex_m3 {
-  
- public:
-  typedef mb::tlm20::irq_target_socket<> irq_target_socket;
-
-
-
- public:
-  MC_CM3_pv(sc_module_name name)  : 
-    ::mb::models::arm::cortex_m3(name, 0)
-
-  {
-  }
-};
+#include "CORTEX_M3_pv.h"

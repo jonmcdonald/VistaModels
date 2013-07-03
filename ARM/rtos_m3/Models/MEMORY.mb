@@ -13,7 +13,7 @@ add_port "slave" /TLM/protocols/ahb_slave slave 32 -bind_mode mandatory
 # example: add_parameter "parameter1" 12 unsigned
 
 # === auto parameters ===
-set_auto_parameter_default "clock" {1 ns} time {}
+set_auto_parameter_default "clock" {10 ns} time {}
 set_auto_parameter_default "ahb_slave_clock" clock time {}
 set_auto_parameter_default "nominal_voltage" 1 double {}
 set_auto_parameter_default "mb_debug" false boolean {true false}
@@ -22,20 +22,16 @@ set_auto_parameter_default "dmi_enabled" true boolean {true false}
 set_auto_parameter_default "warning_level" WARNING string {
       "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
 set_auto_parameter_default "slave_pipeline_length" 2 uint32 {}
-set_auto_parameter_default "size_in_bytes" 0x3E800 uint64 {}
-set_auto_parameter_default "endianness" target string {"host" "little" "big"}
+set_auto_parameter_default "size_in_bytes" 1024 uint64 {}
+set_auto_parameter_default "endianness" host string {"host" "little" "big"}
 
 # === generics ===
 # usage: add_generic <generic_name> <value>
 # example: add_generic "OUT_ACTIVE_VALUE" false
 
 # === machine architecture ===
-set_sync_all 0
-add_delay_policy slave.READ 3 -latency 0 -sync 0 -power 17 -disabled
-add_delay_policy slave.WRITE 5 -latency 0 -sync 0 -power 22 -disabled
-add_delay_policy slave.READ 1 -latency 0 -sync 0 -power 2 -disabled
-add_delay_policy slave.WRITE 2 -latency 0 -sync 0 -power 4 -disabled
-set_nominal_clock 100
+add_delay_policy slave.READ 3 -latency 0 -sync 0 -power 0
+add_delay_policy slave.WRITE 5 -latency 0 -sync 0 -power 0
 
 # === generate options ===
 set_generate_kind "pvt" ;# should be one of: model|pv|pvt

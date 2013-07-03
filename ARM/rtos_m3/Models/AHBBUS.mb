@@ -11,8 +11,7 @@ add_port "dcode" /TLM/protocols/ahb_master slave 32 -bind_mode mandatory
 add_port "system" /TLM/protocols/ahb_master slave 32 -bind_mode mandatory
 add_port "mem_low" /TLM/protocols/ahb_slave master 32 -bind_mode mandatory
 add_port "mem_high" /TLM/protocols/ahb_slave master 32 -bind_mode mandatory
-add_port "uart" /TLM/protocols/ahb_slave master 32 -bind_mode mandatory
-add_port "rgb_led" /TLM/protocols/ahb_slave master 32 -bind_mode mandatory
+add_port "apb" /TLM/protocols/ahb_slave master 32 -bind_mode mandatory
 
 # === parameters ===
 # usage: add_parameter <parameter_name> <default_value> <type:string|unsigned|int>
@@ -45,16 +44,11 @@ set_auto_parameter_default "mem_high_size" 0x20000000 uint64 {}
 set_auto_parameter_default "mem_high_subtract_base_address" 1 uint32 {0 1}
 set_auto_parameter_default "mem_high_additional_ranges" {""} string {}
 set_auto_parameter_default "mem_high_latency" 0 uint32 {}
-set_auto_parameter_default "uart_base_address" 0x4000C000 uint64 {}
-set_auto_parameter_default "uart_size" 0x1000 uint64 {}
-set_auto_parameter_default "uart_subtract_base_address" 1 uint32 {0 1}
-set_auto_parameter_default "uart_additional_ranges" {""} string {}
-set_auto_parameter_default "uart_latency" 0 uint32 {}
-set_auto_parameter_default "rgb_led_base_address" 0x4000D000 uint64 {}
-set_auto_parameter_default "rgb_led_size" 0x1000 uint64 {}
-set_auto_parameter_default "rgb_led_subtract_base_address" 1 uint32 {0 1}
-set_auto_parameter_default "rgb_led_additional_ranges" {""} string {}
-set_auto_parameter_default "rgb_led_latency" 0 uint32 {}
+set_auto_parameter_default "apb_base_address" 0 uint64 {}
+set_auto_parameter_default "apb_size" 0 uint64 {}
+set_auto_parameter_default "apb_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "apb_additional_ranges" {""} string {}
+set_auto_parameter_default "apb_latency" 0 uint32 {}
 
 # === generics ===
 # usage: add_generic <generic_name> <value>
@@ -65,18 +59,15 @@ set_sync_all 0
 add_delay_policy icode 0 -latency 0 -sync 1 -power 0
 add_pipeline_policy mem_low icode -latency mem_low_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy mem_high icode -latency mem_high_latency -buffer_size 0 -sync 1 -power 0
-add_pipeline_policy uart icode -latency uart_latency -buffer_size 0 -sync 1 -power 0
-add_pipeline_policy rgb_led icode -latency rgb_led_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy apb icode -latency apb_latency -buffer_size 0 -sync 1 -power 0
 add_delay_policy dcode 0 -latency 0 -sync 1 -power 0
 add_pipeline_policy mem_low dcode -latency mem_low_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy mem_high dcode -latency mem_high_latency -buffer_size 0 -sync 1 -power 0
-add_pipeline_policy uart dcode -latency uart_latency -buffer_size 0 -sync 1 -power 0
-add_pipeline_policy rgb_led dcode -latency rgb_led_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy apb dcode -latency apb_latency -buffer_size 0 -sync 1 -power 0
 add_delay_policy system 0 -latency 0 -sync 1 -power 0
 add_pipeline_policy mem_low system -latency mem_low_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy mem_high system -latency mem_high_latency -buffer_size 0 -sync 1 -power 0
-add_pipeline_policy uart system -latency uart_latency -buffer_size 0 -sync 1 -power 0
-add_pipeline_policy rgb_led system -latency rgb_led_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy apb system -latency apb_latency -buffer_size 0 -sync 1 -power 0
 
 # === generate options ===
 set_generate_kind "pvt" ;# should be one of: model|pv|pvt

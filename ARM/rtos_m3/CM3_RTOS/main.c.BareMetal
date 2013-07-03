@@ -12,7 +12,10 @@ int main( void )
     blue_enable(1);
     print_UART0("OK - Finishing\n");
 
-    while (1); // Never return
+    while (1) {
+        asm volatile ("wfi");
+    }
+
     return 0;
 }
 
