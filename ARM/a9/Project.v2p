@@ -1,0 +1,39 @@
+ProjectName Project
+Files {
+	 Sources {
+		{$PRJDIR/sc_main.cpp}
+	 } 
+	 {Public Headers} {} 
+	 Models {
+		{$PRJDIR/Models/AXI_BUS.mb}
+		{$PRJDIR/Models/PL110_LCD.mb}
+		{$PRJDIR/Models/MEMORY.mb}
+		{$PRJDIR/Models/CORTEX_A9_uni.mb}
+	 } 
+	 Schematics {
+		{$PRJDIR/Models/top.h}
+	 } 
+	 Documentation {} 
+	 {Linked Binaries} {} 
+	 {Other Binaries} {} 
+}
+Designs {{$PRJDIR/sc_main.cpp}}
+Folders {
+	 Sources {*.c *.cpp *.C *.cxx *.cc} 
+	 {Public Headers} {*.h *.hpp *.H *.hxx *.hh} 
+	 Models *.mb 
+	 Schematics {} 
+	 Documentation {*.txt *.TXT *.doc *.DOC *.pdf *.PDF *.html *.HTML *.htm *.HTM *.ps *.PS} 
+	 {Linked Binaries} {*.o *.a *.so} 
+	 {Other Binaries} {*.exe *.x} 
+}
+GeneralCompilationOptions -Wall
+AlwaysCompileInCPPMode 1
+LinkPackages model_builder
+ProjectLibraryType archive
+ProjectComponentsLibraryPath {$PRJDIR/$PRJFILE_BASENAME/interfaces}
+ProjectWorkingDirectory {$PRJDIR/$PRJFILE_BASENAME/build}
+HasTLMSupport 0
+CompiledWithTLMSupport 0
+IsUsePathVariables 1
+PlatformName Project

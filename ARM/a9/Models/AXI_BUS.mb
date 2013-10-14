@@ -1,0 +1,96 @@
+# ============================ TLM Model File ============================
+# You can create tlm model by one of the following ways:
+#   - load this file using 'load_model' API function
+#   - compile this file using "Modeling->Load Model File" menu command.
+# ========================================================================
+template "/TLM/Generic_Library/Bus"
+
+# === ports ===
+add_port "cpu_0" /TLM/protocols/axi slave 64 -bind_mode mandatory
+add_port "cpu_1" /TLM/protocols/axi slave 64 -bind_mode mandatory
+add_port "low_mem" /TLM/protocols/axi master 32 -bind_mode mandatory
+add_port "high_mem" /TLM/protocols/axi master 32 -bind_mode mandatory
+add_port "video_mem" /TLM/protocols/axi master 32 -bind_mode mandatory
+add_port "to_lcd" /TLM/protocols/axi master 32 -bind_mode mandatory
+add_port "from_lcd" /TLM/protocols/axi slave 32 -bind_mode mandatory
+
+# === parameters ===
+# usage: add_parameter <parameter_name> <default_value> <type:string|unsigned|int>
+# example: add_parameter "parameter1" 12 unsigned
+
+# === auto parameters ===
+set_auto_parameter_default "clock" {10 ns} time {}
+set_auto_parameter_default "axi_clock" clock time {}
+set_auto_parameter_default "nominal_voltage" 1 double {}
+set_auto_parameter_default "verbose_parameters" true boolean {true false}
+set_auto_parameter_default "dmi_enabled" true boolean {true false}
+set_auto_parameter_default "warning_level" WARNING string {
+      "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
+set_auto_parameter_default "layers" {""} string {}
+set_auto_parameter_default "slave_sets" {""} string {}
+set_auto_parameter_default "cpu_0_priority" 0 uint32 {}
+set_auto_parameter_default "cpu_0_vmap" {""} string {}
+set_auto_parameter_default "cpu_1_priority" 0 uint32 {}
+set_auto_parameter_default "cpu_1_vmap" {""} string {}
+set_auto_parameter_default "low_mem_priority" 0 uint32 {}
+set_auto_parameter_default "low_mem_base_address" 0 uint64 {}
+set_auto_parameter_default "low_mem_size" 0 uint64 {}
+set_auto_parameter_default "low_mem_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "low_mem_additional_ranges" {""} string {}
+set_auto_parameter_default "low_mem_latency" 0 uint32 {}
+set_auto_parameter_default "high_mem_priority" 0 uint32 {}
+set_auto_parameter_default "high_mem_base_address" 0 uint64 {}
+set_auto_parameter_default "high_mem_size" 0 uint64 {}
+set_auto_parameter_default "high_mem_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "high_mem_additional_ranges" {""} string {}
+set_auto_parameter_default "high_mem_latency" 0 uint32 {}
+set_auto_parameter_default "video_mem_priority" 0 uint32 {}
+set_auto_parameter_default "video_mem_base_address" 0 uint64 {}
+set_auto_parameter_default "video_mem_size" 0 uint64 {}
+set_auto_parameter_default "video_mem_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "video_mem_additional_ranges" {""} string {}
+set_auto_parameter_default "video_mem_latency" 0 uint32 {}
+set_auto_parameter_default "to_lcd_priority" 0 uint32 {}
+set_auto_parameter_default "to_lcd_base_address" 0 uint64 {}
+set_auto_parameter_default "to_lcd_size" 0 uint64 {}
+set_auto_parameter_default "to_lcd_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "to_lcd_additional_ranges" {""} string {}
+set_auto_parameter_default "to_lcd_latency" 0 uint32 {}
+set_auto_parameter_default "from_lcd_priority" 0 uint32 {}
+set_auto_parameter_default "from_lcd_vmap" {""} string {}
+
+# === generics ===
+# usage: add_generic <generic_name> <value>
+# example: add_generic "OUT_ACTIVE_VALUE" false
+
+# === machine architecture ===
+add_delay_policy cpu_0 0 -latency 0 -sync 1 -power 0
+add_pipeline_policy low_mem cpu_0 -latency low_mem_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy high_mem cpu_0 -latency high_mem_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy video_mem cpu_0 -latency video_mem_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy to_lcd cpu_0 -latency to_lcd_latency -buffer_size 0 -sync 1 -power 0
+add_delay_policy cpu_1 0 -latency 0 -sync 1 -power 0
+add_pipeline_policy low_mem cpu_1 -latency low_mem_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy high_mem cpu_1 -latency high_mem_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy video_mem cpu_1 -latency video_mem_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy to_lcd cpu_1 -latency to_lcd_latency -buffer_size 0 -sync 1 -power 0
+add_delay_policy from_lcd 0 -latency 0 -sync 1 -power 0
+add_pipeline_policy low_mem from_lcd -latency low_mem_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy high_mem from_lcd -latency high_mem_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy video_mem from_lcd -latency video_mem_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy to_lcd from_lcd -latency to_lcd_latency -buffer_size 0 -sync 1 -power 0
+
+# === generate options ===
+set_generate_kind "pvt" ;# should be one of: model|pv|pvt
+set_include_file ""
+set_external_pv_include ""
+set_pv_kind "template" ;# should be one of: template|external
+set_timing_kind "policies" ;# should be one of: policies|learned
+set_power_kind "policies" ;# should be one of: policies|learned
+set_class_name_external_pv ""
+set_max_parameters_of_pv_constructor 5
+set_overwrite 0
+set_generate_ipxact 0
+set_ipxact_vendor "Mentor.com"
+set_ipxact_version 1.0
+
