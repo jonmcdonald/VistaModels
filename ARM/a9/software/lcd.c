@@ -34,10 +34,27 @@ void init_lcd(void)
 		fb[x] = 0b1111100000000000; 
  }
 
-
 void swapBuffers(void)
 {
-	pl110_SwapBuffers();
+//	pl110_SwapBuffers();
+
+	// This is for the hardware double buffering
+	PL110MMIO	*plio;
+	GLContext        *gl_context;
+        pl110_Context *ctx;
+
+	gl_context = gl_get_context();
+	ctx = (pl110_Context *)gl_context->opaque;
+
+	plio = (PL110MMIO*) PL110_IOBASE;
+	if(ctx->gl_context->zb->pbuf     == (unsigned short*) 0x40000000) {
+		plio->upbase              = 0x40000000;
+		ctx->gl_context->zb->pbuf = (unsigned short*) 0x40400000;
+	}
+	else {
+		plio->upbase              = 0x40400000;
+		ctx->gl_context->zb->pbuf = (unsigned short*) 0x40000000;
+	}
 }
 
 int ui_loop()
@@ -45,6 +62,10 @@ int ui_loop()
 	pl110_Context *ctx = pl110_CreateContext();
 	pl110_MakeCurrent(ctx);
 	init();
+
+	// This is for the hardware double buffering
+	ctx->gl_context->zb->pbuf = (unsigned short*) 0x40400000;
+
 	reshape(640,480);
 
 	int done=0;
