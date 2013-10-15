@@ -1,5 +1,3 @@
-/* main.c - the entry point for the kernel */
- 
 #include <stdint.h>
 
 #define MB_CONTROL_PAGE_ADDRESS 0x00708000
