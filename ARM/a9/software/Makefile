@@ -10,10 +10,14 @@ SOURCES_C   := $(wildcard *.c)
 # object files
 OBJS        := $(patsubst %.S,%.o,$(SOURCES_ASM))
 OBJS        += $(patsubst %.c,%.o,$(SOURCES_C))
- 
+
+# find the Vista model builder include for the semi-hosting
+VISTA_BIN=${shell dirname `which vista`}
+VISTA_INCLUDE=${shell dirname $(VISTA_BIN)}/papoulis/include
+
 # Build flags
 DEPENDFLAGS :=
-INCLUDES    := -Itinygl/include -Itinygl
+INCLUDES    := -I$(VISTA_INCLUDE) -Itinygl/include -Itinygl
 BASEFLAGS   := -g -fpic -nostdlib
 BASEFLAGS   += -nostartfiles -ffreestanding -nodefaultlibs
 BASEFLAGS   += -fno-builtin -fomit-frame-pointer -mcpu=cortex-a9
