@@ -2,6 +2,7 @@
  
 #include <stdint.h>
 
+#define MB_CONTROL_PAGE_ADDRESS 0x00708000
 #include "mb/sw/control.h"
 
 #include "lcd.h"

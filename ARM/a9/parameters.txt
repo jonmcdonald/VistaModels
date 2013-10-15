@@ -7,6 +7,8 @@ clock = 50 NS
 #elf_image_file = software/mech.axf
 elf_image_file = software/cube.axf
 
+top.cpu.control_page_address        = 0x00708000   # For the Vista Semihosting
+
 top.axi.low_mem_base_address        = 0x00000000
 top.axi.low_mem_size                = 0x00800000   # 8Mb
 top.low_mem.size_in_bytes           = 0x00800000
