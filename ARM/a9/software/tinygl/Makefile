@@ -2,10 +2,14 @@ TINYGL_USE_PL110=y
 
 CC=arm-none-eabi-gcc
 
-CFLAGS   := -DTINYGL_USE_PL110 -g -fpic -nostdlib
+CFLAGS := -DTINYGL_USE_PL110 -g -fpic -nostdlib
 CFLAGS += -DNDEBUG -DNO_DEBUG_OUTPUT
-CFLAGS   += -nostartfiles -ffreestanding -nodefaultlibs
-CFLAGS   += -fno-builtin -fomit-frame-pointer -mcpu=cortex-a9
+CFLAGS += -nostartfiles -ffreestanding -nodefaultlibs
+CFLAGS += -fno-builtin -fomit-frame-pointer -mcpu=cortex-a9
+
+ifeq (${GPU}, 1)
+CFLAGS += -DGPU
+endif
 
 UI_LIBS=
 UI_INCLUDES=-I../src

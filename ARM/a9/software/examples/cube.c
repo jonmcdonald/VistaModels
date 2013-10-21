@@ -30,8 +30,7 @@ void reshape( int width, int height)
 /* general OpenGL initialization function */
 void init( void )
 {
-    /* Enable smooth shading */
-    glShadeModel( GL_SMOOTH);
+    glShadeModel( GL_FLAT);
 
     /* Set the background black */
     glClearColor(0, 0, 0, 0.5);
@@ -109,10 +108,9 @@ glVertex3f(-1,  1, -1);
 
 void idle(void)
 {
-    xrot += 3; /* X Axis Rotation */
-    yrot += 2; /* Y Axis Rotation */
-    zrot += 4; /* Z Axis Rotation */
-
+    xrot += 0.4; /* X Axis Rotation */
+    yrot += 0.3; /* Y Axis Rotation */
+    zrot += 0.5; /* Z Axis Rotation */
     draw();
 }
 

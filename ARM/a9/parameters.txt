@@ -1,11 +1,17 @@
 tlm_timing_model = LT
-clock = 50 NS
+
+clock = 10ns # 100 MHz
 
 #gdbstub_port = 2345
+#trace_script = tracing/trace.tcl
 
-#elf_image_file = software/gears.axf
+elf_image_file = software/gears.axf
+top.lcd.frame_refresh_rate          = 50ms  # 20 Hz
+
+#elf_image_file = software/cube.axf
+#top.lcd.frame_refresh_rate          = 10ms   # 100 Hz
 #elf_image_file = software/mech.axf
-elf_image_file = software/cube.axf
+#top.lcd.frame_refresh_rate          = 1000ms  # 1 Hz
 
 top.cpu.control_page_address        = 0x00708000   # For the Vista Semihosting
 
@@ -23,4 +29,8 @@ top.video_mem.size_in_bytes         = 0x00800000
 
 top.axi.to_lcd_base_address         = 0xC0000000
 top.axi.to_lcd_size                 = 0x00001000
+
+top.axi.to_gpu_base_address         = 0xD0000000
+top.axi.to_gpu_size                 = 0x00001000
+
 

@@ -9,6 +9,10 @@
 #include <string.h>
 #include "zbuffer.h"
 
+#ifdef GPU
+#include "gpu.h"
+#endif
+
 ZBuffer *ZB_open(int xsize, int ysize, int mode,
 		 int nb_colors,
 		 unsigned char *color_indexes,
@@ -508,33 +512,42 @@ void memset_RGB24(void *adr,int r, int v, int b,long count)
     }
 }
 
+
+#ifdef GPU
+
 void ZB_clear(ZBuffer * zb, int clear_z, int z,
 	      int clear_color, int r, int g, int b)
 {
-#if TGL_FEATURE_RENDER_BITS != 24
+    GPU_MMIO *gpu_mmio = (GPU_MMIO*) GPU_IOBASE;
+    gpu_mmio->GPU_ZERO_START = zb->pbuf;
+    gpu_mmio->GPU_ZERO_SIZE = (zb->xsize * zb->ysize * 2);
+    if (clear_z) {
+        gpu_mmio->GPU_ZERO_START = zb->zbuf;
+        gpu_mmio->GPU_ZERO_SIZE = (zb->xsize * zb->ysize * 2);
+    }
+    return;
+}
+
+#else 
+
+void ZB_clear(ZBuffer * zb, int clear_z, int z,
+	      int clear_color, int r, int g, int b)
+{
+    void *zbuf_adr = zb->zbuf;
+    void *pbuf_adr = zb->pbuf;
     int color;
-#endif
     int y;
     PIXEL *pp;
-
     if (clear_z) {
-	memset_s(zb->zbuf, z, zb->xsize * zb->ysize);
+	memset_s(zbuf_adr, z, zb->xsize * zb->ysize);
     }
     if (clear_color) {
-	pp = zb->pbuf;
+	pp = pbuf_adr;
 	for (y = 0; y < zb->ysize; y++) {
-#if TGL_FEATURE_RENDER_BITS == 15 || TGL_FEATURE_RENDER_BITS == 16
             color = RGB_TO_PIXEL(r, g, b);
 	    memset_s(pp, color, zb->xsize);
-#elif TGL_FEATURE_RENDER_BITS == 32
-            color = RGB_TO_PIXEL(r, g, b);
-	    memset_l(pp, color, zb->xsize);
-#elif TGL_FEATURE_RENDER_BITS == 24 
-            memset_RGB24(pp,r>>8,g>>8,b>>8,zb->xsize);
-#else
-#error TODO
-#endif
 	    pp = (PIXEL *) ((char *) pp + zb->linesize);
 	}
     }
 }
+#endif

@@ -6,6 +6,7 @@ $includes_begin;
 #include "MEMORY_model.h"
 #include "PL110_LCD_model.h"
 #include "CORTEX_A9_uni_model.h"
+#include "CUSTOM_GPU_model.h"
 $includes_end;
 
 $module_begin("top");
@@ -32,6 +33,9 @@ $end
 $init("lcd"),
 lcd(0)
 $end
+$init("gpu"),
+gpu(0)
+$end
     $initialization_end
 {
     $elaboration_begin;
@@ -53,6 +57,9 @@ $end;
 $create_component("lcd");
 lcd = new PL110_LCD_pvt("lcd");
 $end;
+$create_component("gpu");
+gpu = new CUSTOM_GPU_pvt("gpu");
+$end;
 $bind("axi->low_mem","low_mem->slave");
 vista_bind(axi->low_mem, low_mem->slave);
 $end;
@@ -73,6 +80,12 @@ vista_bind(cpu->insn_initiator, axi->cpu_1);
 $end;
 $bind("cpu->data_initiator","axi->cpu_0");
 vista_bind(cpu->data_initiator, axi->cpu_0);
+$end;
+$bind("axi->to_gpu","gpu->reg_access");
+vista_bind(axi->to_gpu, gpu->reg_access);
+$end;
+$bind("gpu->mem_access","axi->from_gpu");
+vista_bind(gpu->mem_access, axi->from_gpu);
 $end;
     $elaboration_end;
   $vlnv_assign_begin;
@@ -101,6 +114,9 @@ $end;
 $destruct_component("lcd");
 delete lcd; lcd = 0;
 $end;
+$destruct_component("gpu");
+delete gpu; gpu = 0;
+$end;
     $destructor_end;
   }
 public:
@@ -122,6 +138,9 @@ MEMORY_pvt *high_mem;
 $end;
 $component("lcd");
 PL110_LCD_pvt *lcd;
+$end;
+$component("gpu");
+CUSTOM_GPU_pvt *gpu;
 $end;
   $fields_end;
   $vlnv_decl_begin;

@@ -26,6 +26,10 @@ ASFLAGS     := -g -mcpu=cortex-a9 $(INCLUDES) $(DEPENDFLAGS) -D__ASSEMBLY__
 CFLAGS      := $(INCLUDES) $(DEPENDFLAGS) $(BASEFLAGS) $(WARNFLAGS)
 CFLAGS      += -std=gnu99
 
+ifeq (${GPU}, 1)
+CFLAGS += -DGPU
+endif
+
 LIBGCC=${shell $(ARMGNU)-gcc ${CFLAGS} -print-libgcc-file-name}
 LIBC=${shell $(ARMGNU)-gcc ${CFLAGS} -print-file-name=libc.a}
 LIBM=${shell $(ARMGNU)-gcc ${CFLAGS} -print-file-name=libm.a}

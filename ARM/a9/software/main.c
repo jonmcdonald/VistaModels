@@ -15,7 +15,11 @@ void kernel_main(uint32_t r0, uint32_t r1, uint32_t atags) {
     UNUSED(atags);
 
     // example of semi hosting print message
+#ifdef GPU
+    mb_core_message("*** ARM A9 OpenGL Platform - GPU ENABLED ***");
+#else
     mb_core_message("*** ARM A9 OpenGL Platform ***");
+#endif
 
     init_lcd();
   

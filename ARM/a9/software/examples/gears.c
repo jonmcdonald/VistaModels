@@ -189,10 +189,10 @@ void draw( void )
 
 void idle( void )
 {
-   angle += 5;
-   view_rotx += 3;
-   view_roty += 2;
-   view_rotz += 1;
+   angle += 4 / 2;
+   view_rotx += 3 / 2;
+   view_roty += 2 / 2;
+   view_rotz += 1 / 2;
    draw();
 }
 
