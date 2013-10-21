@@ -19,7 +19,6 @@ Files {
 	 {Other Binaries} {} 
 }
 Designs {{$PRJDIR/sc_main.cpp}}
-Simulations /store/VistaModels/ARM/a9/Project/sim
 VirtualPrototypes cortexa9.vppf
 Folders {
 	 Sources {*.c *.cpp *.C *.cxx *.cc} 
