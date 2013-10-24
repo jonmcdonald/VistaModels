@@ -18,7 +18,7 @@ insert_tracepoint tp3 -at-source main.c:38 -do-raw {
 
 #insert_tracepoint tp4 -at-source main.c:38 -do-print x
 
-insert_tracepoint tp5 -at-label my_label_2 -do-raw {
+insert_tracepoint tp5 -at-label my_function:my_label_2 -do-raw {
   printf("On host: my_label_2...\n");
 //  printf("y is %d\n", y);
 //  y = y * 2;

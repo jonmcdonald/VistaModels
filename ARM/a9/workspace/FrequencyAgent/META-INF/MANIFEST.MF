@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: FunctionRateAgent
+Bundle-SymbolicName: FunctionRateAgent;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: frequencyagent.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.ui.views,
+ com.mentor.embedded.profiler.core,
+ com.mentor.embedded.profiler.agent,
+ com.mentor.embedded.profiler.tmf,
+ com.mentor.embedded.profiler.jwdb,
+ com.mentor.embedded.profiler.agent.ust
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

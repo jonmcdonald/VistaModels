@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="com.mentor.embedded.profiler.core.eventAnalysis">
+      <analysis
+            name="Function Rate"
+            description="Frequency of a particular function call"
+            class="frequencyagent.FunctionRate"
+            outputType="WDB"
+            id="FrequencyAgent.agent.FunctionRate">
+      </analysis>
+   </extension>
+   <extension
+         point="com.mentor.embedded.profiler.core.systemConfiguration">
+      <analysis
+            name="Function Rate"
+            systemName="*"
+            image="icons/agent.png"
+            id="FrequencyAgent.agent.FunctionRate">
+      </analysis>
+   </extension>
+
+</plugin>
