@@ -15,7 +15,6 @@ import org.eclipse.linuxtools.tmf.event.TmfTimeRange;
 import com.mentor.embedded.profiler.agent.IDataAcqRequest;
 import com.mentor.embedded.profiler.agent.WidgetType;
 import com.mentor.embedded.profiler.agent.common.AgentAnalysis;
-import com.mentor.embedded.profiler.agent.ust.UstDataReq;
 import com.mentor.embedded.profiler.core.data.EventFilter;
 import com.mentor.embedded.profiler.extension.IEventAnalysisDetailInformation;
 import com.mentor.jeda.jwdb.JwdbEvent;
