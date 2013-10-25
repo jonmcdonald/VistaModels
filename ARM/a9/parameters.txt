@@ -33,4 +33,8 @@ top.axi.to_lcd_size                 = 0x00001000
 top.axi.to_gpu_base_address         = 0xD0000000
 top.axi.to_gpu_size                 = 0x00001000
 
+# To enable cache analysis in LT mode
+#top.cpu.dmi_enabled = 0
+#top.low_mem.disable_fast_memory = 1
+#top.low_mem.disable_dmi_memory = 1 
 
