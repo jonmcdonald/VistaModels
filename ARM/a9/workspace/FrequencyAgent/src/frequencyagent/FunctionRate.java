@@ -73,6 +73,10 @@ IEventAnalysisDetailInformation {
 		int hits = 0;
 		long backwards = 1000000000;
 		long forwards = 1000000000;
+		long extra = list.get(list.size() - 1) - time;
+		if(extra < 1000000000) {
+			backwards += 1000000000 - extra;
+		}
 		for (int keyIndex = 0; keyIndex < list.size(); keyIndex++) {
 			if (list.get(keyIndex) >= (time - backwards)
 					&& list.get(keyIndex) <= (time + forwards)) {
