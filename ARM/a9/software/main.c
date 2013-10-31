@@ -8,6 +8,15 @@
 
 #define UNUSED(x) (void)(x)
  
+static void* mem = (void*) 0x20000000;
+
+void *vista_malloc(int size)
+{
+	void *ret = mem;
+	mem += size;
+	return ret;
+}
+
 // kernel main function, it all begins here
 void kernel_main(uint32_t r0, uint32_t r1, uint32_t atags) {
     UNUSED(r0);
