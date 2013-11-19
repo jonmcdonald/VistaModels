@@ -27,6 +27,7 @@
 
 #include "CUSTOM_GPU_pv.h"
 #include <iostream>
+#include <stdlib.h>
 
 #include "../software/tinygl/zbuffer.h"
 
@@ -34,9 +35,13 @@ using namespace sc_core;
 using namespace sc_dt;
 using namespace std;
 
+#define BLANK_SIZE (640 * 480 * 3)
+
 //constructor
 CUSTOM_GPU_pv::CUSTOM_GPU_pv(sc_module_name module_name) 
   : CUSTOM_GPU_pv_base(module_name) {
+  _blank = (unsigned char*) malloc(BLANK_SIZE);
+  memset(_blank, 0, BLANK_SIZE);
 }   
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -62,9 +67,13 @@ CUSTOM_GPU_pv::getHostMemory(unsigned int inputAdr) {
 // Write callback for GPU_ZERO_SIZE register.
 // The newValue has been already assigned to the GPU_ZERO_SIZE register.
 void CUSTOM_GPU_pv::cb_write_GPU_ZERO_SIZE(unsigned int zero_size) {
+  POWER_STATE = 1;
   unsigned char* hostMem = (unsigned char*) getHostMemory(GPU_ZERO_START);
   if(hostMem) {
     memset(hostMem, 0, zero_size);
+  }
+  else {
+    mem_access_write(GPU_ZERO_START, _blank, zero_size, 0);
   }
 }
   

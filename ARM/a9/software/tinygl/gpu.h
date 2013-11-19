@@ -1,5 +1,5 @@
 
-#ifdef GPU
+#if defined(GPU) || defined(HWZERO)
 #define GPU_IOBASE 0xD0000000
 typedef struct _GPU_MMIO
 {

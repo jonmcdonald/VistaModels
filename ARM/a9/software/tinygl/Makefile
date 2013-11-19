@@ -10,6 +10,9 @@ CFLAGS += -fno-builtin -fomit-frame-pointer -mcpu=cortex-a9
 ifeq (${GPU}, 1)
 CFLAGS += -DGPU
 endif
+ifeq (${HWZERO}, 1)
+CFLAGS += -DHWZERO
+endif
 
 UI_LIBS=
 UI_INCLUDES=-I../src

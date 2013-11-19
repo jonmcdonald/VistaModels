@@ -42,7 +42,11 @@ declare_register reg_access GPU_TRIANGLE_P0 0xC {} -rw_access r/w -width 32
 declare_register reg_access GPU_TRIANGLE_P1 0x10 {} -rw_access r/w -width 32
 declare_register reg_access GPU_TRIANGLE_P2 0x14 {} -rw_access r/w -width 32
 declare_register reg_access GPU_TRIANGLE_DRAW 0x18 {} -rw_access r/w -trigger w -width 32
+state_power 5 -condition_pairs {POWER_STATE 0}
+state_power 10 -condition_pairs {POWER_STATE 1}
+state_power 20 -condition_pairs {POWER_STATE 2}
 set_nominal_clock 100
+declare_variable POWER_STATE -type int32
 
 # === generate options ===
 set_generate_kind "pvt" ;# should be one of: model|pv|pvt

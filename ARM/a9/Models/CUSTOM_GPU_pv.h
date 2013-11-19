@@ -68,5 +68,8 @@ class CUSTOM_GPU_pv : public CUSTOM_GPU_pv_base {
   virtual void cb_transport_dbg_GPU_ZERO_SIZE(tlm::tlm_generic_payload& trans); 
   virtual void cb_transport_dbg_GPU_TRIANGLE_DRAW(tlm::tlm_generic_payload& trans); 
   bool reg_access_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData); 
+
+private:
+  unsigned char* _blank;
 };
 

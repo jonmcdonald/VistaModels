@@ -9,7 +9,7 @@
 #include <string.h>
 #include "zbuffer.h"
 
-#ifdef GPU
+#if defined(GPU) || defined(HWZERO)
 #include "gpu.h"
 #endif
 
@@ -513,7 +513,7 @@ void memset_RGB24(void *adr,int r, int v, int b,long count)
 }
 
 
-#ifdef GPU
+#if defined(GPU) || defined(HWZERO)
 
 void ZB_clear(ZBuffer * zb, int clear_z, int z,
 	      int clear_color, int r, int g, int b)

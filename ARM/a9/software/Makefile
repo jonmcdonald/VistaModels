@@ -30,6 +30,10 @@ ifeq (${GPU}, 1)
 CFLAGS += -DGPU
 endif
 
+ifeq (${HWZERO}, 1)
+CFLAGS += -DHWZERO
+endif
+
 LIBGCC=${shell $(ARMGNU)-gcc ${CFLAGS} -print-libgcc-file-name}
 LIBC=${shell $(ARMGNU)-gcc ${CFLAGS} -print-file-name=libc.a}
 LIBM=${shell $(ARMGNU)-gcc ${CFLAGS} -print-file-name=libm.a}
@@ -41,7 +45,7 @@ DIRS:=tinygl examples
 # build rules
 all: 
 	( for f in $(DIRS); do ( cd $$f ; make all ) || exit 1 ; done )
-	make gears.axf mech.axf cube.axf
+	make gears.axf
 
 include $(wildcard *.d)
  
