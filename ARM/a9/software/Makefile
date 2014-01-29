@@ -45,7 +45,7 @@ DIRS:=tinygl examples
 # build rules
 all: 
 	( for f in $(DIRS); do ( cd $$f ; make all ) || exit 1 ; done )
-	make gears.axf
+	make gears.axf mech.axf
 
 include $(wildcard *.d)
  

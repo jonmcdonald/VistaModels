@@ -47,8 +47,7 @@ void ZB_fillTriangleFlat(ZBuffer *zb,
 #endif
 
 /*
- * Smooth filled triangle.
- * The code below is very tricky :)
+ * Smooth filled triangle functions
  */
 #ifdef GPU
 void ZB_fillTriangleSmooth(ZBuffer *zb,

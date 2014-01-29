@@ -13,12 +13,12 @@
  } 
  page  { w 11000 h 11000 type vhdstd orient portr  } 
 grid 10 
- } #idit - save unit (named top while saving) on Tue Jan 28 17:56:11 2014
+ } #idit - save unit (named top_base while saving) on Wed Jan 29 10:45:09 2014
 #SW version: 2008.12 v4.1.1.beta2 build 1. Date: Jan 21 2014. License: 1.1 
 version: 12 
 ipxactvendor Mentor.com 
 ipxactversion 1.0 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 404 -474 55 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 404 -473 52 18 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 406 -471 1 8 nil 
 AXI_BUS 
@@ -171,54 +171,16 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 387 -297 1 to_gpu
- angle 0
-fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 380 -290 } 
- {  end  360 -290  } 
  } 
-@spattr {
-@plist 1 
-{ @pdecl { { @n to_gpu @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 0
-} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
-@blist 1 { @cnt 0 } @flags 73 }
-
-sympinel {  text { 387 -277 1 from_gpu
- angle 0
-fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 380 -270 } 
- {  end  360 -270  } 
- } 
-@spattr {
-@plist 1 
-{ @pdecl { { @n from_gpu @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 0
-} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
-@blist 1 { @cnt 0 } @flags 73 }
-
- } 
-angle 0 bcol 'Empty' pcol 'Black' } 
+angle 0 bcol 'Pale Blue2' pcol 'Black' } 
  } 
 text { 427 -37 1 axi
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 471 -85 35 17 
+gnrtxt textbox { rect { 471 -84 34 18 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 473 -82 1 8 nil 
-  "axi"  
+  "axi" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -303,7 +265,7 @@ none @block -
 } @gr DEF @idx -1 } @blist 0 } !
 @useCtor -1 @freeCtrorAruments 1 %Name%
 L { @nvis } !
-@prtas 9 -
+@prtas 7 -
 0 sigIdx
 0 cpu_0
 -
@@ -324,12 +286,6 @@ L { @nvis } !
 -
 12 sigIdx
 0 from_lcd
--
-18 sigIdx
-0 from_gpu
--
-20 sigIdx
-0 to_gpu
 9 
 { @pdecl { { @n cpu_0 @t - @bnd -
 @das -
@@ -407,7 +363,7 @@ none @block -
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 585 -484 72 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 586 -483 68 17 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 587 -481 1 8 nil 
 PL110_LCD 
@@ -471,7 +427,7 @@ angle 0 bcol 'Lavender' pcol 'Black' }
 text { 612 -398 1 lcd
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 461 -435 34 18 
+gnrtxt textbox { rect { 461 -434 34 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 463 -432 1 8 nil 
   "lcd" 
@@ -530,7 +486,7 @@ none @block -
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 592 -114 58 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 592 -113 57 17 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 594 -111 1 8 nil 
 MEMORY 
@@ -575,7 +531,7 @@ angle 0 bcol 'Gray88' pcol 'Black' }
 text { 595 -39 1 low_mem
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 681 -25 71 18 
+gnrtxt textbox { rect { 682 -24 69 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 683 -22 1 8 nil 
   "low_mem" 
@@ -615,7 +571,7 @@ none @block -
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 592 -234 58 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 592 -234 57 18 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 594 -231 1 8 nil 
 MEMORY 
@@ -660,7 +616,7 @@ angle 0 bcol 'Gray88' pcol 'Black' }
 text { 589 -157 1 high_mem
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 681 -125 76 18 
+gnrtxt textbox { rect { 682 -124 74 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 683 -122 1 8 nil 
   "high_mem" 
@@ -700,7 +656,7 @@ none @block -
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 592 -354 58 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 592 -354 57 18 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 594 -351 1 8 nil 
 MEMORY 
@@ -745,7 +701,7 @@ angle 0 bcol 'Gray88' pcol 'Black' }
 text { 589 -278 1 video_mem
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 681 -225 82 18 
+gnrtxt textbox { rect { 682 -224 80 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 683 -222 1 8 nil 
   "video_mem" 
@@ -785,7 +741,7 @@ none @block -
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 201 -204 100 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 202 -203 95 17 
 bcol 'White' pcol 'Black' } 
 fmttext { 203 -201 1 8 nil 
 CORTEX_A9_uni 
@@ -849,7 +805,7 @@ angle 0 bcol 'Gold' pcol 'Black' }
 text { 239 -38 1 cpu
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 151 -425 38 18 
+gnrtxt textbox { rect { 151 -424 38 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 153 -422 1 8 nil 
   "cpu" 
@@ -1031,129 +987,6 @@ none @block -
 @ch -
 } @md socketInitiator @iv -
 @sysInt pvt_initiator_socket<1U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
-@multiport 1 @isTemplate 0
-} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
-0 L { @nvis @ctorsn 1 } !
-@hastemplparam
-{ @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 207 -334 89 18 
-bcol 'White' pcol 'Black' } 
-fmttext { 209 -331 1 8 nil 
-CUSTOM_GPU 
-angle 0 fn 0 0 0 2 5 0 0 0 0 }
- vis }  { fiv  @kind 9 
- } 
-groupobj { doset { rect { 190 -340 120 90 
-bcol 'Empty' pcol 'Black' } 
- } 
-clshapes { closeShape { lines { line { 190 -340 310 -340 } 
-line { 310 -340 310 -250 } 
-line { 310 -250 190 -250 } 
-line { 190 -250 190 -340 } 
-} 
-arcs { } 
-bcol 'Light Green'  } 
- } 
- } 
- } 
-pinset { sympinel {  text { 231 -277 1 mem_access
- angle 0
-fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 310 -270 } 
- {  end  330 -270  } 
- } 
-@spattr {
-@plist 1 
-{ @pdecl { { @n mem_access @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 0
-} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
-@blist 1 { @cnt 0 } @flags 73 }
-
-sympinel {  text { 240 -297 1 reg_access
- angle 0
-fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 310 -290 } 
- {  end  330 -290  } 
- } 
-@spattr {
-@plist 1 
-{ @pdecl { { @n reg_access @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 0
-} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
-@blist 1 { @cnt 0 } @flags 73 }
-
- } 
-angle 0 bcol 'Light Green' pcol 'Black' } 
- } 
-text { 237 -246 1 gpu
- angle 0
-fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 151 -305 39 18 
-bcol 'Empty' pcol 'Red' } 
-fmttext { 153 -302 1 8 nil 
-  "gpu" 
-angle 0 fn 0 0 0 2 5 0 0 0 0 }
- invis }  } 
-@conf
-- - @symname
-- @cmpattr
-@kwd @innm gpu @arch - @usl - @hrnm CUSTOM_GPU Models @dffs 0 0 @stt hier @gnras @cnt 0
-@templparamas @templparamcnt 0
-@portas @cnt 0
-@portlist 2 
-{ @port { @pdecl { { @n reg_access @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 0
-} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n mem_access @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 0
-} @gr DEF @idx -1 } @blist 0 } !
-@procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
-L { @nvis } !
-@prtas 2 -
-19 sigIdx
-0 mem_access
--
-21 sigIdx
-0 reg_access
-2 
-{ @pdecl { { @n reg_access @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 0
-} @gr DEF @idx -1 } { @pdecl { { @n mem_access @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 0 L { @nvis @ctorsn 1 } !
@@ -1488,104 +1321,10 @@ s6
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 330 -270  330 -270  360 -270 bcol 'Empty' pcol 'Black' 
- Firstpin {
-  blockpin {   nnvis  pnvis pin { 360 -270 } 
- } 
-10 18 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
-
- Secondpin {
-  blockpin {   nnvis  pnvis pin { 330 -270 } 
- } 
-11 19 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
- SourceIdx 6 
- DestIdx 0 
- } 
- } 
-@BIND
-@kwd
-@iv
--
-@strngth
-none @exprng
-none @dly
--
-@sidx
--1 @attr
-s9
-@newportclass
--
-@dt -
-@channeltype -
--
-0 
-signal { F bind line90 { 0 4 2 330 -290  330 -290  360 -290 bcol 'Empty' pcol 'Black' 
- Firstpin {
-  blockpin {   nnvis  pnvis pin { 360 -290 } 
- } 
-11 20 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
-
- Secondpin {
-  blockpin {   nnvis  pnvis pin { 330 -290 } 
- } 
-10 21 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
- SourceIdx 6 
- DestIdx 0 
- } 
- } 
-@BIND
-@kwd
-@iv
--
-@strngth
-none @exprng
-none @dly
--
-@sidx
--1 @attr
-s10
-@newportclass
--
-@dt -
-@channeltype -
--
-0 
 !
 
-@@VE@names@@ 16 @obj - low_mem 36 @obj - high_mem 36 @obj - lcd 36 @obj - video_mem 36 @obj - s0 13 @obj - s1 13 @obj - s2 13 @obj - s10 13 @obj - s3 13 @obj - s4 13 @obj - s5 13 
-@obj - s6 13 @obj - s9 13 @obj - cpu 36 @obj - axi 36 @obj - gpu 36 23 11 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 23 10 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 !
+@@VE@names@@ 13 @obj - low_mem 36 @obj - high_mem 36 @obj - lcd 36 @obj - video_mem 36 @obj - s0 13 @obj - s1 13 @obj - s2 13 @obj - s3 13 @obj - s4 13 @obj - s5 13 @obj - s6 13 
+@obj - cpu 36 @obj - axi 36 23 11 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 23 10 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 !
 
 @@VE@obj_u@@ axi AXI_BUS Models 0 
 lcd PL110_LCD Models 0 
@@ -1593,5 +1332,4 @@ low_mem MEMORY Models 0
 high_mem MEMORY Models 0 
 video_mem MEMORY Models 0 
 cpu CORTEX_A9_uni Models 0 
-gpu CUSTOM_GPU Models 0 
 !

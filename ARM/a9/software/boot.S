@@ -23,7 +23,7 @@ Start:
 	mov	r6, #0
 	mov	r7, #0
 	mov	r8, #0
-        b       2f
+	b       2f
  
 1:
 	// store multiple at r4.

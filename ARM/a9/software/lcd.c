@@ -36,23 +36,21 @@ void init_lcd(void)
 
 void swapBuffers(void)
 {
-//	pl110_SwapBuffers();
-
-	// This is for the hardware double buffering
-	PL110MMIO	*plio;
-	GLContext        *gl_context;
-        pl110_Context *ctx;
+	// This performs the hardware double buffering and is called every frame
+	PL110MMIO *plio;
+	GLContext *gl_context;
+    pl110_Context *ctx;
 
 	gl_context = gl_get_context();
-	ctx = (pl110_Context *)gl_context->opaque;
+	ctx = (pl110_Context *) gl_context->opaque;
 
 	plio = (PL110MMIO*) PL110_IOBASE;
-	if(ctx->gl_context->zb->pbuf     == (unsigned short*) 0x40000000) {
-		plio->upbase              = 0x40000000;
+	if(ctx->gl_context->zb->pbuf == (unsigned short*) 0x40000000) {
+		plio->upbase = 0x40000000;
 		ctx->gl_context->zb->pbuf = (unsigned short*) 0x40400000;
 	}
 	else {
-		plio->upbase              = 0x40400000;
+		plio->upbase = 0x40400000;
 		ctx->gl_context->zb->pbuf = (unsigned short*) 0x40000000;
 	}
 }

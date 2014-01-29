@@ -9,6 +9,7 @@ clock = 10ns # 100 MHz
 #trace_script = tracing/coverage.tcl
 
 elf_image_file = software/gears.axf
+#elf_image_file = software/mech.axf
 
 top.lcd.frame_refresh_rate          = 50ms  # 20 Hz
 
@@ -29,10 +30,11 @@ top.video_mem.size_in_bytes         = 0x00800000
 top.axi.to_lcd_base_address         = 0xC0000000
 top.axi.to_lcd_size                 = 0x00001000
 
+
+
+
+
+
 top.axi.to_gpu_base_address         = 0xD0000000
 top.axi.to_gpu_size                 = 0x00001000
-
-top.axi.to_ctl_base_address         = 0xE0000000
-top.axi.to_ctl_size                 = 0x00001000
-
 

@@ -12,8 +12,7 @@ add_raw_context {
 insert_tracepoint tp1_entry -at-function-entry swapBuffers -do-raw {
   // Stop simulation after 3 seconds
   if(get_time_stamp() > 3000000000) {
-     // Write to SYS_HALT register within the CUSTOM_CTL hardware to stop the platform
-     str32((uint32_t) 0xE0000000, 1);
+     exit(0);
   }
 
   if(! outputFile) {

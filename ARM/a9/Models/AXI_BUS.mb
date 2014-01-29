@@ -15,7 +15,6 @@ add_port "to_lcd" /TLM/protocols/axi master 32 -bind_mode mandatory
 add_port "from_lcd" /TLM/protocols/axi slave 32 -bind_mode mandatory
 add_port "to_gpu" /TLM/protocols/axi master 32 -bind_mode mandatory
 add_port "from_gpu" /TLM/protocols/axi slave 32 -bind_mode mandatory
-add_port "to_ctl" /TLM/protocols/axi master 32 -bind_mode mandatory
 
 # === parameters ===
 # usage: add_parameter <parameter_name> <default_value> <type:string|unsigned|int>
@@ -31,6 +30,7 @@ set_auto_parameter_default "warning_level" WARNING string {
       "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
 set_auto_parameter_default "layers" {""} string {}
 set_auto_parameter_default "slave_sets" {""} string {}
+set_auto_parameter_default "write_broadcast" 0 uint32 {}
 set_auto_parameter_default "cpu_0_priority" 0 uint32 {}
 set_auto_parameter_default "cpu_0_vmap" {""} string {}
 set_auto_parameter_default "cpu_1_priority" 0 uint32 {}
@@ -69,12 +69,6 @@ set_auto_parameter_default "to_gpu_additional_ranges" {""} string {}
 set_auto_parameter_default "to_gpu_latency" 0 uint32 {}
 set_auto_parameter_default "from_gpu_priority" 0 uint32 {}
 set_auto_parameter_default "from_gpu_vmap" {""} string {}
-set_auto_parameter_default "to_ctl_priority" 0 uint32 {}
-set_auto_parameter_default "to_ctl_base_address" 0 uint64 {}
-set_auto_parameter_default "to_ctl_size" 0 uint64 {}
-set_auto_parameter_default "to_ctl_subtract_base_address" 1 uint32 {0 1}
-set_auto_parameter_default "to_ctl_additional_ranges" {""} string {}
-set_auto_parameter_default "to_ctl_latency" 0 uint32 {}
 
 # === generics ===
 # usage: add_generic <generic_name> <value>
@@ -87,28 +81,24 @@ add_pipeline_policy high_mem cpu_0 -latency high_mem_latency -buffer_size 0 -syn
 add_pipeline_policy video_mem cpu_0 -latency video_mem_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy to_lcd cpu_0 -latency to_lcd_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy to_gpu cpu_0 -latency to_gpu_latency -buffer_size 0 -sync 1 -power 0
-add_pipeline_policy to_ctl cpu_0 -latency to_ctl_latency -buffer_size 0 -sync 1 -power 0
 add_delay_policy cpu_1 0 -latency 0 -sync 1 -power 0
 add_pipeline_policy low_mem cpu_1 -latency low_mem_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy high_mem cpu_1 -latency high_mem_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy video_mem cpu_1 -latency video_mem_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy to_lcd cpu_1 -latency to_lcd_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy to_gpu cpu_1 -latency to_gpu_latency -buffer_size 0 -sync 1 -power 0
-add_pipeline_policy to_ctl cpu_1 -latency to_ctl_latency -buffer_size 0 -sync 1 -power 0
 add_delay_policy from_lcd 0 -latency 0 -sync 1 -power 0
 add_pipeline_policy low_mem from_lcd -latency low_mem_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy high_mem from_lcd -latency high_mem_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy video_mem from_lcd -latency video_mem_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy to_lcd from_lcd -latency to_lcd_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy to_gpu from_lcd -latency to_gpu_latency -buffer_size 0 -sync 1 -power 0
-add_pipeline_policy to_ctl from_lcd -latency to_ctl_latency -buffer_size 0 -sync 1 -power 0
 add_delay_policy from_gpu 0 -latency 0 -sync 1 -power 0
 add_pipeline_policy low_mem from_gpu -latency low_mem_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy high_mem from_gpu -latency high_mem_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy video_mem from_gpu -latency video_mem_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy to_lcd from_gpu -latency to_lcd_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy to_gpu from_gpu -latency to_gpu_latency -buffer_size 0 -sync 1 -power 0
-add_pipeline_policy to_ctl from_gpu -latency to_ctl_latency -buffer_size 0 -sync 1 -power 0
 
 # === generate options ===
 set_generate_kind "pvt" ;# should be one of: model|pv|pvt
