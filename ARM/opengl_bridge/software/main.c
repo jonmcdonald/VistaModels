@@ -22,12 +22,6 @@ void kernel_main(uint32_t r0, uint32_t r1, uint32_t atags) {
  
     init();
    
-//    glOrtho(0.0, 4.0, 0.0, 3.0, -1.0, 1.0);
-
-//        glClear(GL_COLOR_BUFFER_BIT);
-//        glColor3f(0.7, 0.5, 0.8);
-//        glRectf(1.2, 1.0, 3.0, 2.0);
-
     while (1) {
         draw();
         sdl2Swap();
