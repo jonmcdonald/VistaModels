@@ -1,0 +1,5 @@
+for_windows 0
+project Project
+top {$PRJDIR/sc_main.cpp}
+use_top
+generate opengl

@@ -1,0 +1,17 @@
+tlm_timing_model = LT
+
+clock = 10ns # 100 MHz
+
+#gdbstub_port = 2345
+
+elf_image_file = software/bare.axf
+
+top.cpu.control_page_address    = 0x00708000   # Semihosting
+
+top.axi.mem_base_address    = 0x00000000
+top.axi.mem_size            = 0x00800000   # 8Mb
+top.low_mem.size_in_bytes       = 0x00800000
+
+top.axi.opengl_base_address     = 0xC0000000
+top.axi.opengl_size             = 0x00001000
+
