@@ -23,4 +23,9 @@ Build the software in the software folder.
 Run, and you should see the gears demo running using the host GPU
 with a very nice frame rate.
 
-
+*** NOTE ***
+Only a small subset of the OpenGL functions have been bridged, 
+see the software/opengl_bridge.c file for more info. The corresponding
+functions are caught in the SystemC model, and forwarded to 
+the host GPU using the SDL2 graphics library
+************
