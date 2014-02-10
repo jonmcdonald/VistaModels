@@ -182,10 +182,10 @@ void init( void )
 
 void draw( void )
 {
-   angle += 0.05;
-   view_rotx += 0.03;
-   view_roty += 0.02;
-   view_rotz += 0.01;
+   angle += 1;
+   view_rotx += 0.5;
+   view_roty += 0.4;
+   view_rotz += 0.3;
 
    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 

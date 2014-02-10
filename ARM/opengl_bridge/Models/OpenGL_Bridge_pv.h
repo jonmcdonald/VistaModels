@@ -69,6 +69,9 @@ class OpenGL_Bridge_pv : public OpenGL_Bridge_pv_base {
         SDL_GLContext mainGLContext;
 
         double args[8]; //, arg1, arg2, arg3, arg4, arg5, arg6, arg7;   
+        unsigned int lastTicks;
+        sc_time sysCTime;
+        unsigned int fps;
 
         void sdl2Open(void);
         void sdl2Swap(void);

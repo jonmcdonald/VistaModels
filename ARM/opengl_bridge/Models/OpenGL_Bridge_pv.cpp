@@ -180,6 +180,10 @@ void OpenGL_Bridge_pv::sdl2Open(void)
     mainWindow = SDL_CreateWindow("OpenGL Bridge", SDL_WINDOWPOS_UNDEFINED, 
                                   SDL_WINDOWPOS_UNDEFINED, 640, 480, flags);
     mainGLContext = SDL_GL_CreateContext(mainWindow);
+
+    sysCTime = sc_time_stamp();
+    lastTicks = 0;
+    fps = 0;
 }
 
 void OpenGL_Bridge_pv::sdl2Swap(void)
@@ -200,7 +204,28 @@ void OpenGL_Bridge_pv::sdl2Swap(void)
         } 
     } 
 
+    // We print how many times we have executed this during 1 simulated second
+    sc_time s1(1, SC_SEC);
+    if(sc_time_stamp() > (sysCTime + s1)) {
+      cout << "FPS (SystemC Simulated Time): " << std::dec << fps << endl;
+      sysCTime = sc_time_stamp();
+      fps = 0;
+    }
+    fps++;
+    
+    // Define the maximum number of frames we should display per second in HOST time
+    int maxFramesPerSecond = 50; // This is in HOST time
+
+    // Delay the host and the simulation time to keep things in sync
+    int delay = 1000 / maxFramesPerSecond - SDL_GetTicks() + lastTicks;
+    if(delay > 0) { 
+        SDL_Delay(delay);
+        wait(delay, SC_MS);
+    }
+
     SDL_GL_SwapWindow(mainWindow);
+
+    lastTicks = SDL_GetTicks();
 }
 
 void OpenGL_Bridge_pv::sdl2Close(void)

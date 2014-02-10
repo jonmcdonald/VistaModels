@@ -26,7 +26,6 @@ set_auto_parameter_default "warning_level" WARNING string {
       "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
 set_auto_parameter_default "layers" {""} string {}
 set_auto_parameter_default "slave_sets" {""} string {}
-set_auto_parameter_default "write_broadcast" 0 uint32 {}
 set_auto_parameter_default "cpu_d_priority" 0 uint32 {}
 set_auto_parameter_default "cpu_d_vmap" {""} string {}
 set_auto_parameter_default "cpu_i_priority" 0 uint32 {}
