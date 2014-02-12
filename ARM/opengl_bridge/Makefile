@@ -1,6 +1,7 @@
 #
 #  "make" with no arguments will generate code for all mb files and compile everything
 #  "make run" will compile iff needed and run the simulation
+#  "make clean" remove all generated/object data
 #
 
 MODELS = Models
@@ -27,4 +28,9 @@ COMMAND = "if {![does_tlm_library_exist $(MODELS)]} \
 
 mb:
 	if [ -e $(MODELS) ]; then vista_model_builder -c $(COMMAND); fi
+
+clean:
+	rm -rf vista_work $(PROJECT) sim papoulis_project
+	find . -name "*~" -exec rm {} \;
+	rm -rf vista_*
 
