@@ -42,10 +42,10 @@ all:
 
 include $(wildcard *.d)
 
-gears.axf: $(OBJS) link-arm-eabi.ld
+gears.axf: $(OBJS) examples/gears.o link-arm-eabi.ld
 	$(ARMGNU)-gcc $(OBJS) examples/gears.o $(EXTRALIBS) -Tlink-arm-eabi.ld -o $@
 
-mech.axf: $(OBJS) link-arm-eabi.ld
+mech.axf: $(OBJS) examples/mech.o link-arm-eabi.ld
 	$(ARMGNU)-gcc $(OBJS) examples/mech.o $(EXTRALIBS) -Tlink-arm-eabi.ld -o $@
  
 clean:
