@@ -77,6 +77,7 @@
 #define SOLID_MECH_ROCKET      	8
 #define SOLID_MECH_VULCAN	9
 #define SOLID_ENVIRO		10
+#define SOLID_MECH_LOWER_LEG   	11
 /* end of display list definitions */
 
 /* start of motion rate variables */
@@ -577,7 +578,6 @@ UpperLeg(char solid)
 void
 Foot(char solid)
 {
-
   glNewList(SOLID_MECH_FOOT, GL_COMPILE);
 #ifdef LIGHT
   SetMaterial(mat_specular2, mat_ambient2, mat_diffuse2, mat_shininess2);
@@ -592,6 +592,8 @@ Foot(char solid)
 void
 LowerLeg(char solid)
 {
+  glNewList(SOLID_MECH_LOWER_LEG, GL_COMPILE);
+
   float k, l;
   GLUquadricObj *ankle = gluNewQuadric();
   GLUquadricObj *ankle_face[2],*joints;
@@ -683,6 +685,7 @@ LowerLeg(char solid)
       glPopMatrix();
     }
   }
+  glEndList();
 }
 
 void
@@ -921,7 +924,10 @@ DrawMech(void)
       glRotatef((GLfloat) - hip22, 0.0, 0.0, 1.0);
     glTranslatef(-0.5, -0.85, -0.5);
 #ifdef LOWER_LEG
-    LowerLeg(1);
+//    LowerLeg(1);
+    glPushMatrix();
+    glCallList(SOLID_MECH_LOWER_LEG);
+    glPopMatrix();
 #endif
     glPopMatrix();
   }
@@ -995,6 +1001,7 @@ init(void)
   UpperArm(i);
   ForeArm(i);
   UpperLeg(i);
+  LowerLeg(i);
   Foot(i);
   VulcanGun(i);
   Enviro(i);
