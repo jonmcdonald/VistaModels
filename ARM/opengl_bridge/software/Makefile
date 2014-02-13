@@ -33,17 +33,20 @@ LIBM=${shell $(ARMGNU)-gcc ${CFLAGS} -print-file-name=libm.a}
  
 EXTRALIBS=-lm
 
-DIRS:=
+DIRS:= examples
 
 # build rules
 all: 
 	( for f in $(DIRS); do ( cd $$f ; make all ) || exit 1 ; done )
-	make bare.axf 
+	make gears.axf mech.axf 
 
 include $(wildcard *.d)
 
-bare.axf: $(OBJS) link-arm-eabi.ld
-	$(ARMGNU)-gcc $(OBJS) $(EXTRALIBS) -Tlink-arm-eabi.ld -o $@
+gears.axf: $(OBJS) link-arm-eabi.ld
+	$(ARMGNU)-gcc $(OBJS) examples/gears.o $(EXTRALIBS) -Tlink-arm-eabi.ld -o $@
+
+mech.axf: $(OBJS) link-arm-eabi.ld
+	$(ARMGNU)-gcc $(OBJS) examples/mech.o $(EXTRALIBS) -Tlink-arm-eabi.ld -o $@
  
 clean:
 	( for f in $(DIRS); do ( cd $$f ; make clean ) || exit 1 ; done )

@@ -1,6 +1,9 @@
 #include "opengl_bridge.h"
 #include "opengl_bridge_reg.h"
 
+#define MB_CONTROL_PAGE_ADDRESS 0x00708000
+#include "mb/sw/control.h"
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #define OPENGL_IOBASE		0xc0000000
@@ -44,12 +47,27 @@ GLAPI void GLAPIENTRY glClear( GLbitfield mask )
     opengl->glClear = 0x1;
 }
 
+GLAPI void GLAPIENTRY glClearColor( GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha )
+{
+    opengl->arg0 = (double) red;
+    opengl->arg1 = (double) green;
+    opengl->arg2 = (double) blue;
+    opengl->arg3 = (double) alpha;
+    opengl->glClearColor = 0x1;
+}
+
 GLAPI void GLAPIENTRY glColor3f( GLfloat red, GLfloat green, GLfloat blue )
 {
     opengl->arg0 = (double) red;
     opengl->arg1 = (double) green;
     opengl->arg2 = (double) blue;
     opengl->glColor3f = 0x1;
+}
+
+GLAPI void GLAPIENTRY glDisable( GLenum cap )
+{
+    opengl->arg0 = (double) cap;
+    opengl->glDisable = 0x1;
 }
 
 GLAPI void GLAPIENTRY glEnable( GLenum cap )
@@ -66,6 +84,11 @@ GLAPI void GLAPIENTRY glEnd( void )
 GLAPI void GLAPIENTRY glEndList( void )
 {
     opengl->glEndList = 0x1;
+}
+
+GLAPI void GLAPIENTRY glFlush( void )
+{
+    opengl->glFlush = 0x1;
 }
 
 GLAPI void GLAPIENTRY glFrustum( GLdouble left, GLdouble right,
@@ -88,6 +111,14 @@ GLAPI GLuint GLAPIENTRY glGenLists( GLsizei range )
     opengl->arg0 = (double) range;
     opengl->glGenLists = 0x1;
     return list++;
+}
+
+GLAPI void GLAPIENTRY glLightf( GLenum light, GLenum pname, GLfloat param )
+{
+    opengl->arg0 = (double) light;
+    opengl->arg1 = (double) pname;
+    opengl->arg2 = (double) param;
+    opengl->glLightf = 0x1;
 }
 
 GLAPI void GLAPIENTRY glLightfv( GLenum light, GLenum pname,
@@ -146,6 +177,13 @@ GLAPI void GLAPIENTRY glOrtho( GLdouble left, GLdouble right,
     opengl->glOrtho = 0x1;
 }
 
+GLAPI void GLAPIENTRY glPolygonMode( GLenum face, GLenum mode )
+{
+    opengl->arg0 = (double) face;
+    opengl->arg1 = (double) mode;
+    opengl->glPolygonMode = 0x1;
+}
+
 GLAPI void GLAPIENTRY glPopMatrix( void )
 {
     opengl->glPopMatrix = 0x1;
@@ -175,10 +213,25 @@ GLAPI void GLAPIENTRY glRotatef( GLfloat angle,
     opengl->glRotatef = 0x1;
 }
 
+GLAPI void GLAPIENTRY glScalef( GLfloat x, GLfloat y, GLfloat z )
+{
+    opengl->arg0 = (double) x;
+    opengl->arg1 = (double) y;
+    opengl->arg2 = (double) z;
+    opengl->glScalef = 0x1;
+}
+
 GLAPI void GLAPIENTRY glShadeModel( GLenum mode )
 {
     opengl->arg0 = (double) mode;
     opengl->glShadeModel = 0x1;
+}
+
+GLAPI void GLAPIENTRY glTexCoord2f( GLfloat s, GLfloat t )
+{
+    opengl->arg0 = (double) s;
+    opengl->arg1 = (double) t;
+    opengl->glTexCoord2f = 0x1;
 }
 
 GLAPI void GLAPIENTRY glTranslatef( GLfloat x, GLfloat y, GLfloat z )
@@ -187,6 +240,13 @@ GLAPI void GLAPIENTRY glTranslatef( GLfloat x, GLfloat y, GLfloat z )
     opengl->arg1 = (double) y;
     opengl->arg2 = (double) z;
     opengl->glTranslatef = 0x1;
+}
+
+GLAPI void GLAPIENTRY glVertex2f( GLfloat x, GLfloat y )
+{
+    opengl->arg0 = (double) x;
+    opengl->arg1 = (double) y;
+    opengl->glVertex2f = 0x1;
 }
 
 GLAPI void GLAPIENTRY glVertex3f( GLfloat x, GLfloat y, GLfloat z )

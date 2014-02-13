@@ -640,7 +640,11 @@ GLAPI void GLAPIENTRY glCallList( GLuint list );
 
 GLAPI void GLAPIENTRY glClear( GLbitfield mask );
 
+GLAPI void GLAPIENTRY glClearColor( GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha );
+
 GLAPI void GLAPIENTRY glColor3f( GLfloat red, GLfloat green, GLfloat blue );
+
+GLAPI void GLAPIENTRY glDisable( GLenum cap );
 
 GLAPI void GLAPIENTRY glEnable( GLenum cap );
 
@@ -648,11 +652,15 @@ GLAPI void GLAPIENTRY glEnd( void );
 
 GLAPI void GLAPIENTRY glEndList( void );
 
+GLAPI void GLAPIENTRY glFlush( void );
+
 GLAPI void GLAPIENTRY glFrustum( GLdouble left, GLdouble right,
                                    GLdouble bottom, GLdouble top,
                                    GLdouble near_val, GLdouble far_val );
 
 GLAPI GLuint GLAPIENTRY glGenLists( GLsizei range );
+
+GLAPI void GLAPIENTRY glLightf( GLenum light, GLenum pname, GLfloat param );
 
 GLAPI void GLAPIENTRY glLightfv( GLenum light, GLenum pname,
                                  const GLfloat *params );
@@ -671,6 +679,8 @@ GLAPI void GLAPIENTRY glOrtho( GLdouble left, GLdouble right,
                                  GLdouble bottom, GLdouble top,
                                  GLdouble near_val, GLdouble far_val );
 
+GLAPI void GLAPIENTRY glPolygonMode( GLenum face, GLenum mode );
+
 GLAPI void GLAPIENTRY glPopMatrix( void );
 
 GLAPI void GLAPIENTRY glPushMatrix( void );
@@ -680,9 +690,15 @@ GLAPI void GLAPIENTRY glRectf( GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2 );
 GLAPI void GLAPIENTRY glRotatef( GLfloat angle,
                                    GLfloat x, GLfloat y, GLfloat z );
 
+GLAPI void GLAPIENTRY glScalef( GLfloat x, GLfloat y, GLfloat z );
+
 GLAPI void GLAPIENTRY glShadeModel( GLenum mode );
 
+GLAPI void GLAPIENTRY glTexCoord2f( GLfloat s, GLfloat t );
+
 GLAPI void GLAPIENTRY glTranslatef( GLfloat x, GLfloat y, GLfloat z );
+
+GLAPI void GLAPIENTRY glVertex2f( GLfloat x, GLfloat y);
 
 GLAPI void GLAPIENTRY glVertex3f( GLfloat x, GLfloat y, GLfloat z );
 

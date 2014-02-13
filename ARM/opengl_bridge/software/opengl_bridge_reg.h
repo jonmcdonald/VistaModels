@@ -21,12 +21,16 @@ typedef struct _OPENGL_MMIO
     uint32 volatile glBegin;
     uint32 volatile glCallList;
     uint32 volatile glClear;
+    uint32 volatile glClearColor;
     uint32 volatile glColor3f;
+    uint32 volatile glDisable;    
     uint32 volatile glEnable;
     uint32 volatile glEnd;
     uint32 volatile glEndList;
+    uint32 volatile glFlush;
     uint32 volatile glFrustum;
     uint32 volatile glGenLists;
+    uint32 volatile glLightf;
     uint32 volatile glLightfv;
     uint32 volatile glLoadIdentity;
     uint32 volatile glMaterialfv;
@@ -34,12 +38,16 @@ typedef struct _OPENGL_MMIO
     uint32 volatile glNewList;
     uint32 volatile glNormal3f;
     uint32 volatile glOrtho;
+    uint32 volatile glPolygonMode;
     uint32 volatile glPopMatrix;
     uint32 volatile glPushMatrix;
     uint32 volatile glRectf;
     uint32 volatile glRotatef;
+    uint32 volatile glScalef;
     uint32 volatile glShadeModel;
+    uint32 volatile glTexCoord2f;
     uint32 volatile glTranslatef;
+    uint32 volatile glVertex2f;
     uint32 volatile glVertex3f;
     uint32 volatile glViewport;
 

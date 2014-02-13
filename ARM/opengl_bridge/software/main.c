@@ -19,7 +19,7 @@ void kernel_main(uint32_t r0, uint32_t r1, uint32_t atags) {
     mb_core_message("OpenGL Bridge - Proof of Concept");
 
     sdl2Open();
- 
+
     init();
    
     while (1) {

@@ -4,7 +4,8 @@ clock = 10ns # 100 MHz
 
 #gdbstub_port = 2345
 
-elf_image_file = software/bare.axf
+#elf_image_file = software/gears.axf
+elf_image_file = software/mech.axf
 
 top.cpu.control_page_address    = 0x00708000   # Semihosting
 

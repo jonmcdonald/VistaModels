@@ -87,8 +87,14 @@ bool OpenGL_Bridge_pv::slave_callback_write(mb_address_type address, unsigned ch
   else if(address == (mb_address_type) &(opengl->glClear)) {
       bglClear();
   }
+  else if(address == (mb_address_type) &(opengl->glClearColor)) {
+      bglClearColor();
+  }
   else if(address == (mb_address_type) &(opengl->glColor3f)) {
       bglColor3f();
+  }
+  else if(address == (mb_address_type) &(opengl->glDisable)) {
+      bglDisable();
   }
   else if(address == (mb_address_type) &(opengl->glEnable)) {
       bglEnable();
@@ -99,11 +105,17 @@ bool OpenGL_Bridge_pv::slave_callback_write(mb_address_type address, unsigned ch
   else if(address == (mb_address_type) &(opengl->glEndList)) {
       bglEndList();
   }
+  else if(address == (mb_address_type) &(opengl->glFlush)) {
+      bglFlush();
+  }
   else if(address == (mb_address_type) &(opengl->glFrustum)) {
       bglFrustum();
   }
   else if(address == (mb_address_type) &(opengl->glGenLists)) {
       bglGenLists();
+  }
+  else if(address == (mb_address_type) &(opengl->glLightf)) {
+      bglLightf();
   }
   else if(address == (mb_address_type) &(opengl->glLightfv)) {
       bglLightfv();
@@ -126,6 +138,9 @@ bool OpenGL_Bridge_pv::slave_callback_write(mb_address_type address, unsigned ch
   else if(address == (mb_address_type) &(opengl->glOrtho)) {
       bglOrtho();
   }
+  else if(address == (mb_address_type) &(opengl->glPolygonMode)) {
+      bglPolygonMode();
+  }
   else if(address == (mb_address_type) &(opengl->glPopMatrix)) {
       bglPopMatrix();
   }
@@ -138,11 +153,20 @@ bool OpenGL_Bridge_pv::slave_callback_write(mb_address_type address, unsigned ch
   else if(address == (mb_address_type) &(opengl->glRotatef)) {
       bglRotatef();
   }
+  else if(address == (mb_address_type) &(opengl->glScalef)) {
+      bglScalef();
+  }
   else if(address == (mb_address_type) &(opengl->glShadeModel)) {
       bglShadeModel();
   }
+  else if(address == (mb_address_type) &(opengl->glTexCoord2f)) {
+      bglTexCoord2f();
+  }
   else if(address == (mb_address_type) &(opengl->glTranslatef)) {
       bglTranslatef();
+  }
+  else if(address == (mb_address_type) &(opengl->glVertex2f)) {
+      bglVertex2f();
   }
   else if(address == (mb_address_type) &(opengl->glVertex3f)) {
       bglVertex3f();
@@ -249,8 +273,16 @@ void OpenGL_Bridge_pv::bglClear() {
   glClear((GLbitfield) args[0]);
 }
 
+void OpenGL_Bridge_pv::bglClearColor() {
+  glClearColor((GLclampf) args[0], (GLclampf) args[1], (GLclampf) args[2], (GLclampf) args[3]);
+}
+
 void OpenGL_Bridge_pv::bglColor3f() {
   glColor3f((GLfloat) args[0], (GLfloat) args[1], (GLfloat) args[2]);
+}
+
+void OpenGL_Bridge_pv::bglDisable() {
+  glDisable((GLenum) args[0]);
 }
 
 void OpenGL_Bridge_pv::bglEnable() {
@@ -265,6 +297,10 @@ void OpenGL_Bridge_pv::bglEndList() {
   glEndList();
 }
 
+void OpenGL_Bridge_pv::bglFlush() {
+  glFlush();
+}
+
 void OpenGL_Bridge_pv::bglFrustum() {
   glFrustum((GLdouble) args[0], (GLdouble) args[1], 
             (GLdouble) args[2], (GLdouble) args[3], 
@@ -273,6 +309,10 @@ void OpenGL_Bridge_pv::bglFrustum() {
 
 void OpenGL_Bridge_pv::bglGenLists() {
   GLuint list = glGenLists((GLsizei) args[0]);
+}
+
+void OpenGL_Bridge_pv::bglLightf() {
+    glLightf((GLenum) args[0], (GLenum) args[1], (GLfloat) args[2]);
 }
 
 void OpenGL_Bridge_pv::bglLightfv() {
@@ -311,6 +351,10 @@ void OpenGL_Bridge_pv::bglOrtho() {
           (GLdouble) args[4], (GLdouble) args[5]);
 }
 
+void OpenGL_Bridge_pv::bglPolygonMode() {
+  glPolygonMode((GLenum) args[0], (GLenum) args[1]);
+}
+
 void OpenGL_Bridge_pv::bglPopMatrix() {
   glPopMatrix();
 }
@@ -328,12 +372,24 @@ void OpenGL_Bridge_pv::bglRotatef() {
   glRotatef((GLfloat) args[0], (GLfloat) args[1], (GLfloat) args[2], (GLfloat) args[3]);
 }
 
+void OpenGL_Bridge_pv::bglScalef() {
+  glScalef((GLfloat) args[0], (GLfloat) args[1], (GLfloat) args[2]);
+}
+
 void OpenGL_Bridge_pv::bglShadeModel() {
   glShadeModel((GLenum) args[0]);
 }
 
+void OpenGL_Bridge_pv::bglTexCoord2f() {
+  glTexCoord2f((GLfloat) args[0], (GLfloat) args[1]);
+}
+
 void OpenGL_Bridge_pv::bglTranslatef() {
   glTranslatef((GLfloat) args[0], (GLfloat) args[1], (GLfloat) args[2]);
+}
+
+void OpenGL_Bridge_pv::bglVertex2f() {
+  glVertex2f((GLfloat) args[0], (GLfloat) args[1]);
 }
 
 void OpenGL_Bridge_pv::bglVertex3f() {
