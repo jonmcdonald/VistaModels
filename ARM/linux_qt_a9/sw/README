@@ -1,0 +1,51 @@
+0) Edit ./setup.sh 
+
+   This has been tested using the tool chain included with CB_VE_2013.11
+
+   For now, I've hardcoded QT to 4.8.5, and the patch for the USB device
+   tree support only seems to work in the very latest kernels.
+
+1) Run ./script/fetch.sh
+
+   This will download and uncompress the required packages.
+
+   Note that wget may fail when it tries to download dropbear,
+   if this is the case it means your wget has not been compiled
+   to support https protocol. You can manually get dropbear and
+   place it in the packages folder.
+
+2) Run ./script/build_kernel.sh
+
+   First the kernel_patches are applied, one to enable device tree for the 
+   LCD PL111, one to enable the device tree for the USB EHCI, and
+   finally a patch which includes support for our generic Vista 
+   based platform. You can issue a "grep +++ ./kernel_patches/vista.patch" to
+   list the files that are included in the patch and then examine them.
+
+   Then the kernel is configured and built.
+
+3) Run ./script/build_busybox.sh
+
+   Builds the busybox utilities.
+
+4) Run ./script/build_dropbear.sh
+
+   Builds the dropbear utilities which provide SSH server in our platform.
+
+5) Run ./script/build_qt.sh
+
+   Builds QT shared libraries and demos, this takes AGES!!! There may be a
+   way to reduce what actually gets compiled, need to investigate this...
+
+6) Run ./script/build_ramdisk.sh
+
+   This creates the ram disk image, based upon the "template" folder, it then
+   installs the c libraries from the tool-chain, the kernel stuff, busybox
+   and dropbear, and finally the QT libraries and a few demos.
+
+7) Run ./script/build_axf.sh
+
+   This is the black-art boot loader that creates a single axf image ready
+   for us to run on our Vista platform.
+
+

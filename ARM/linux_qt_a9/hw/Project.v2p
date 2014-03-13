@@ -1,0 +1,45 @@
+ProjectName Project
+Files {
+	 Sources {
+		{$PRJDIR/sc_main.cpp}
+	 } 
+	 {Public Headers} {} 
+	 Models {
+		{$PRJDIR/Models/AXI.mb}
+		{$PRJDIR/Models/MEMORY.mb}
+		{$PRJDIR/Models/AXI_APB.mb}
+		{$PRJDIR/Models/APB.mb}
+		{$PRJDIR/Models/A9x1.mb}
+		{$PRJDIR/Models/PL111.mb}
+		{$PRJDIR/Models/LAN9118.mb}
+		{$PRJDIR/Models/EHCI.mb}
+	 } 
+	 Schematics {
+		{$PRJDIR/Models/stock.h}
+	 } 
+	 Documentation {} 
+	 {Linked Binaries} {} 
+	 {Other Binaries} {} 
+}
+Designs {{$PRJDIR/sc_main.cpp}}
+Simulations /mnt/store/data/platforms/stock_linux/hw/Project/sim
+VirtualPrototypes stock.vppf
+Folders {
+	 Sources {*.c *.cpp *.C *.cxx *.cc} 
+	 {Public Headers} {*.h *.hpp *.H *.hxx *.hh} 
+	 Models *.mb 
+	 Schematics {} 
+	 Documentation {*.txt *.TXT *.doc *.DOC *.pdf *.PDF *.html *.HTML *.htm *.HTM *.ps *.PS} 
+	 {Linked Binaries} {*.o *.a *.so} 
+	 {Other Binaries} {*.exe *.x} 
+}
+GeneralCompilationOptions -Wall
+AlwaysCompileInCPPMode 1
+LinkPackages {model_builder models_catalogue}
+ProjectLibraryType archive
+ProjectComponentsLibraryPath {$PRJDIR/$PRJFILE_BASENAME/interfaces}
+ProjectWorkingDirectory {$PRJDIR/$PRJFILE_BASENAME/build}
+HasTLMSupport 0
+CompiledWithTLMSupport 0
+IsUsePathVariables 1
+PlatformName Project

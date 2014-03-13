@@ -1,0 +1,50 @@
+# ~~~~~~~~~~ GLOBAL OPTIONS
+
+#gdbstub_port = 2345
+
+tlm_timing_model = LT
+clock = 10 NS
+periph_base = 0x1013c000
+vlan:tcp_napt = :2022 => :22 # ssh support user:root passwd:root
+physical_io:host_time_sync = 1  # keyboard too fast without this
+
+# ~~~~~~~~~~ IMAGE
+
+stock.cpu.PV.cpu0.core.elf_image_file = ../sw/boot/linux-system.axf
+
+# ~~~~~~~~~~ MAP
+
+stock.axi_bus.ram_master_base_address      = 0x60000000
+stock.axi_bus.ram_master_size              = 0x40000000
+stock.ram.size_in_bytes                    = 0x40000000
+
+stock.axi_bus.lcd_master_base_address      = 0x10020000
+stock.axi_bus.lcd_master_size              = 0x00001000
+
+stock.axi_bus.usb_master_base_address      = 0x10021000
+stock.axi_bus.usb_master_size              = 0x00004000
+
+stock.axi_bus.ethernet_master_base_address = 0x4e000000
+stock.axi_bus.ethernet_master_size         = 0x02000000
+
+stock.axi_bus.bridge_master_base_address   = 0x10000000
+stock.axi_bus.bridge_master_size           = 0x00020000
+
+stock.apb_bus.uart0_master_base_address    = 0x00000000
+stock.apb_bus.uart0_master_size            = 0x00001000
+
+# ~~~~~~~~~~ PERIPH OPTIONS
+
+stock.lcd.frame_refresh_rate = 50 ms      # 20 FPS
+
+stock.usb.PV.devices = hid_keyboard hid_mouse
+
+stock.uart0.receive_FIFO_size_in_bytes = 1024
+stock.uart0.warning_level = IGNORE
+
+stock.console0.read_from_console_buffer_size = 1024
+stock.console0.read_from_console_latency = 5
+stock.console0.read_from_console_latency_time_unit = MS
+stock.console0.console_title = UART0
+
+

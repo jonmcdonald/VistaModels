@@ -1,0 +1,51 @@
+# ============================ TLM Model File ============================
+# You can create tlm model by one of the following ways:
+#   - load this file using 'load_model' API function
+#   - compile this file using "Modeling->Load Model File" menu command.
+# ========================================================================
+template "/TLM/Generic_Library/Peripherals/pl111-lcd"
+
+# === ports ===
+add_port "master" /TLM/protocols/axi master 64 -bind_mode mandatory -pv_bitness 32
+add_port "ctrl_slave" /TLM/protocols/axi slave 64 -bind_mode mandatory -pv_bitness 32
+
+# === parameters ===
+add_parameter "frame_refresh_rate" {20 ms} time {}
+add_parameter "connected" 1 boolean {0 1}
+
+# === auto parameters ===
+set_auto_parameter_default "clock" {10 ns} time {}
+set_auto_parameter_default "axi_clock" clock time {}
+set_auto_parameter_default "nominal_voltage" 1 double {}
+set_auto_parameter_default "mb_debug" false boolean {true false}
+set_auto_parameter_default "call_to_default_if" false boolean {true false}
+set_auto_parameter_default "verbose_parameters" true boolean {true false}
+set_auto_parameter_default "dmi_enabled" true boolean {true false}
+set_auto_parameter_default "warning_level" WARNING string {
+      "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
+set_auto_parameter_default "master_outstanding" 1 uint32 {}
+set_auto_parameter_default "master_read_data_queue_size" 0 uint32 {}
+set_auto_parameter_default "master_write_data_queue_size" 0 uint32 {}
+set_auto_parameter_default "ctrl_slave_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "ctrl_slave_outstanding" 1 uint32 {}
+set_auto_parameter_default "ctrl_slave_read_data_queue_size" 0 uint32 {}
+set_auto_parameter_default "ctrl_slave_write_data_queue_size" 0 uint32 {}
+
+# === generics ===
+add_generic SLAVE_PROTOCOL axi -values {generic axi ahb_slave apb}
+add_generic MASTER_PROTOCOL axi -values {generic axi ahb_master apb}
+
+# === generate options ===
+set_generate_kind "pvt" ;# should be one of: model|pv|pvt
+set_include_file ""
+set_external_pv_include ""
+set_pv_kind "template" ;# should be one of: template|external
+set_timing_kind "policies" ;# should be one of: policies|learned
+set_power_kind "policies" ;# should be one of: policies|learned
+set_class_name_external_pv ""
+set_max_parameters_of_pv_constructor 5
+set_overwrite 0
+set_generate_ipxact 0
+set_ipxact_vendor "Mentor.com"
+set_ipxact_version 1.0
+
