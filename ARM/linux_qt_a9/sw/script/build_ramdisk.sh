@@ -15,7 +15,7 @@ mkdir sysroot
 
 export SYSROOT=$SW_ROOT/ramdisk/sysroot
 
-mkdir template/root
+mkdir -p template/root
 
 cp -r template/* sysroot
 
