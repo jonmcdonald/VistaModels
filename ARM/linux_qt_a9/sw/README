@@ -2,7 +2,8 @@
 
    This has been tested using the tool chain included with CB_VE_2013.11
 
-   For now, I've hardcoded QT to 4.8.5, and the patch for the USB device
+   For now, this works better with QT 4.8.5 because it include a window manager
+   to manager the keyboard and mouse. The patch for the USB device
    tree support only seems to work in the very latest kernels.
 
 1) Run ./script/fetch.sh
@@ -26,7 +27,8 @@
 
 3) Run ./script/build_busybox.sh
 
-   Builds the busybox utilities.
+   Builds the busybox utilities. *NOTE* you may get an error about the maths
+   library, but this is safe to ignore.
 
 4) Run ./script/build_dropbear.sh
 
