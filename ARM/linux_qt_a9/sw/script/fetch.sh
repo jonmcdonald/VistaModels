@@ -21,10 +21,9 @@ if [ ! -f dropbear-$VER_DROPBEAR.tar.bz2 ]; then
 	wget https://matt.ucc.asn.au/dropbear/dropbear-$VER_DROPBEAR.tar.bz2 
 fi
 
-if [ ! -f qt-everywhere-opensource-src-4.8.5.tar.gz ]; then
-	wget http://download.qt-project.org/archive/qt/4.8/4.8.5/qt-everywhere-opensource-src-4.8.5.tar.gz
+if [ ! -f qt-everywhere-opensource-src-$VER_QT.tar.gz ]; then
+	wget http://download.qt-project.org/official_releases/qt/$VER_QT_MAJOR/$VER_QT/single/qt-everywhere-opensource-src-$VER_QT.tar.gz
 fi
-
 
 if [ ! -d linux-$VER_LINUX ]; then
 	tar xvf linux-$VER_LINUX.tar.xz
@@ -38,8 +37,8 @@ if [ ! -d dropbear-$VER_DROPBEAR ]; then
 	tar xvf dropbear-$VER_DROPBEAR.tar.bz2
 fi
 
-if [ ! -d qt-everywhere-opensource-src-4.8.5 ]; then
-	tar xvf qt-everywhere-opensource-src-4.8.5.tar.gz
+if [ ! -d qt-everywhere-opensource-src-$VER_QT ]; then
+	tar xvf qt-everywhere-opensource-src-$VER_QT.tar.gz
 fi
 
 

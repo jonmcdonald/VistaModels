@@ -1,8 +1,8 @@
 ::sysinit:/etc/init.d/rcS
 
-::respawn:/sbin/getty -L 115200 ttyAMA0 vt102
-::respawn:/sbin/getty -L 9600   tty1 vt102
-::respawn:/sbin/getty -L 38400  tty2 vt102
-::respawn:/sbin/getty -L 115200 tty4 vt102
-::respawn:/sbin/getty -L 230400 tty5 vt102
+::respawn:/sbin/getty -L 9600 ttyAMA0 vt102
+
+::respawn:/sbin/getty -L 9600    tty1 vt102 # LCD_CONSOLE
+
+
 

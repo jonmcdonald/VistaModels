@@ -35,12 +35,26 @@ cp ../packages/dropbear-$VER_DROPBEAR/dbclient $SYSROOT/sbin
 cp ../packages/dropbear-$VER_DROPBEAR/dropbearkey $SYSROOT/sbin
 cp ../packages/dropbear-$VER_DROPBEAR/scp $SYSROOT/bin
 
-QT=../packages/qt-4.8.5
+QT=../packages/qt-$VER_QT
 if [ ! -d $QT ]; then
 	echo "Please build the QT library: run 'script/build_qt.sh'"
 else
-	cp -r $QT/lib $SYSROOT/usr
-	cp -r $QT/demos/embedded $SYSROOT/root
+	mkdir -p $SYSROOT/qt
+	cp -r $QT/lib $SYSROOT/qt
+	if [ "$VER_QT_MAJOR" == "4.8" ]; then
+		mkdir -p $SYSROOT/qt/demos
+		mkdir -p $SYSROOT/qt/examples/widgets
+		mkdir -p $SYSROOT/qt/examples/painting
+		cp -r $QT/demos/embedded $SYSROOT/qt/demos
+		cp -r $QT/demos/deform $SYSROOT/qt/demos
+		cp -r $QT/demos/pathstroke $SYSROOT/qt/demos
+		cp -r $QT/examples/widgets/wiggly $SYSROOT/qt/examples/widgets
+		cp -r $QT/examples/painting/concentriccircles $SYSROOT/qt/examples/painting
+		sed -i 's/.*LCD_CONSOLE.*/tty1\:\:respawn\:sh \-c \"source \/etc\/profile\; cd \/qt\/demos\/embedded\/fluidlauncher\; \.\/fluidlauncher -qws"/' $SYSROOT/etc/inittab
+	else
+		cp -r $QT/plugins $SYSROOT/qt
+		cp -r $QT/examples $SYSROOT/qt
+	fi
 fi
 
 cd $SYSROOT 
@@ -51,11 +65,12 @@ cd $SYSROOT
 find . | grep -v '^./usr/' > ../sysroot.files
 echo "./usr/lib" >> ../sysroot.files
 find . | grep '^./usr/lib/lib.*\.so' >> ../sysroot.files
-find . | grep '^./usr/lib/fonts' >> ../sysroot.files
 find usr/bin usr/sbin -type d -o -type l -o -name 'gdb*' >> ../sysroot.files
 find usr/bin usr/sbin -type d -o -type l -o -name 'ldd*' >> ../sysroot.files
 
+#find qt >> ../../sysroot.files
+
 cat ../sysroot.files |  cpio -R root:root -o -H newc | gzip > ../initrd.cpio.gz
-rm ../sysroot.files
+#rm ../sysroot.files
 
 
