@@ -18,11 +18,11 @@ VISTA_INCLUDE=${shell dirname $(VISTA_BIN)}/papoulis/include
 # Build flags
 DEPENDFLAGS :=
 INCLUDES    := -I$(VISTA_INCLUDE) -Itinygl/include -Itinygl
-BASEFLAGS   := -g -fpic -nostdlib
+BASEFLAGS   := -gdwarf-3 -fpic -nostdlib
 BASEFLAGS   += -nostartfiles -ffreestanding -nodefaultlibs
 BASEFLAGS   += -fno-builtin -fomit-frame-pointer -mcpu=cortex-a9
 WARNFLAGS   :=
-ASFLAGS     := -g -mcpu=cortex-a9 $(INCLUDES) $(DEPENDFLAGS) -D__ASSEMBLY__
+ASFLAGS     := -gdwarf-3 -mcpu=cortex-a9 $(INCLUDES) $(DEPENDFLAGS) -D__ASSEMBLY__
 CFLAGS      := $(INCLUDES) $(DEPENDFLAGS) $(BASEFLAGS) $(WARNFLAGS)
 CFLAGS      += -std=gnu99
 
