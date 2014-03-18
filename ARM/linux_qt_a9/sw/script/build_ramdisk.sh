@@ -51,6 +51,7 @@ else
 		cp -r $QT/examples/widgets/wiggly $SYSROOT/qt/examples/widgets
 		cp -r $QT/examples/painting/concentriccircles $SYSROOT/qt/examples/painting
 		sed -i 's/.*LCD_CONSOLE.*/tty1\:\:respawn\:sh \-c \"source \/etc\/profile\; cd \/qt\/demos\/embedded\/fluidlauncher\; \.\/fluidlauncher -qws"/' $SYSROOT/etc/inittab
+		cp $SW_ROOT/ramdisk/misc/config.xml $SYSROOT/qt/demos/embedded/fluidlauncher
 	else
 		cp -r $QT/plugins $SYSROOT/qt
 		cp -r $QT/examples $SYSROOT/qt
