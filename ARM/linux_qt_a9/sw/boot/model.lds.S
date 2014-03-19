@@ -1,11 +1,3 @@
-/*
- * model.lds.S - simple linker script for stand-alone Linux booting
- *
- * Copyright (C) 2011 ARM Limited. All rights reserved.
- *
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE.txt file.
- */
 
 OUTPUT_FORMAT("elf32-littlearm")
 OUTPUT_ARCH(arm)
@@ -13,17 +5,9 @@ TARGET(binary)
 
 INPUT(./boot.o)
 INPUT(./KERNEL)
-#ifdef USE_INITRD
 INPUT(FILESYSTEM)
-#endif
 
-#ifdef MACH_MPS
-PHYS_OFFSET = 0x10000000;
-#elif defined (VEXPRESS)
 PHYS_OFFSET = 0x80000000;
-#else
-PHYS_OFFSET = 0x70000000;
-#endif
 
 SECTIONS
 {
@@ -36,11 +20,9 @@ SECTIONS
 
 	. = . + 0x2000000;
 
-#ifdef USE_INITRD
 	filesystem = .;
 	.filesystem : { FILESYSTEM }
 	fs_size = . - filesystem;
-#endif
 
 	.data : { *(.data) }
 	.bss : { *(.bss) }

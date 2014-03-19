@@ -9,7 +9,9 @@ _start:
 	cmp	r0, #0				@ primary CPU?
 	beq	2f
 
-	wfi
+1:						@ secondaries, just loop
+	wfe
+	b	1b
 
 2:
 	ldr	r0, =0x10000000			@ UART base 
