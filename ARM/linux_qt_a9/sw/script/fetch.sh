@@ -27,7 +27,11 @@ fi
 #fi
 
 if [ ! -f qt-everywhere-opensource-src-$VER_QT.tar.gz ]; then
-	wget http://download.qt-project.org/official_releases/qt/$VER_QT_MAJOR/$VER_QT/single/qt-everywhere-opensource-src-$VER_QT.tar.gz
+	if [ "$VER_QT_MAJOR" == "4.8" ]; then
+		wget http://download.qt-project.org/official_releases/qt/$VER_QT_MAJOR/$VER_QT/qt-everywhere-opensource-src-$VER_QT.tar.gz
+	else
+		wget http://download.qt-project.org/official_releases/qt/$VER_QT_MAJOR/$VER_QT/single/qt-everywhere-opensource-src-$VER_QT.tar.gz
+	fi
 fi
 
 if [ ! -d linux-$VER_LINUX ]; then
