@@ -35,7 +35,7 @@ cp ../packages/dropbear-$VER_DROPBEAR/dbclient $SYSROOT/sbin
 cp ../packages/dropbear-$VER_DROPBEAR/dropbearkey $SYSROOT/sbin
 cp ../packages/dropbear-$VER_DROPBEAR/scp $SYSROOT/bin
 
-QT=../packages/sysroot/qt-$VER_QT
+QT=../packages/release/qt-$VER_QT
 if [ -d $QT ]; then
 	echo "Including QT $VER_QT"
 	mkdir -p $SYSROOT/qt
