@@ -18,7 +18,7 @@ SECTIONS
 	kernel = . + KERNEL_HDR_SZ;
 	.kernel : { ./KERNEL }
 
-	. = . + 0x2000000;
+	. = . + 0x4000000;
 
 	filesystem = .;
 	.filesystem : { FILESYSTEM }

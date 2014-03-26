@@ -1,6 +1,7 @@
 #!/bin/bash
 
-SW_ROOT=$(dirname $0)/..
+SCRIPT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SW_ROOT="$(dirname "$SCRIPT")"
 
 source $SW_ROOT/setup.sh
 
@@ -21,16 +22,25 @@ if [ ! -f dropbear-$VER_DROPBEAR.tar.bz2 ]; then
 	wget https://matt.ucc.asn.au/dropbear/dropbear-$VER_DROPBEAR.tar.bz2 
 fi
 
-#if [ ! -f MesaLib-$VER_MESA3D.tar.bz2 ]; then
-#	wget ftp://ftp.freedesktop.org/pub/mesa/$VER_MESA3D/MesaLib-$VER_MESA3D.tar.bz2
-#	wget http://cgit.freedesktop.org/xorg/proto/glproto/snapshot/glproto-1.4.17.tar.gz
-#fi
+if [ ! -f MesaLib-$VER_MESA3D.tar.bz2 ]; then
+	wget ftp://ftp.freedesktop.org/pub/mesa/10.1/MesaLib-$VER_MESA3D.tar.bz2
+fi
 
-if [ ! -f qt-everywhere-opensource-src-$VER_QT.tar.gz ]; then
-	if [ "$VER_QT_MAJOR" == "4.8" ]; then
+if [ ! -f libdrm-$VER_DRM.tar.gz ]; then
+	wget http://dri.freedesktop.org/libdrm/libdrm-$VER_DRM.tar.gz 
+fi
+
+if [ ! -f expat-$VER_EXPAT.tar.gz ]; then
+	wget http://fossies.org/linux/www/expat-2.1.0.tar.gz
+fi
+
+if [ ! -f SDL-$VER_SDL.tar.gz ]; then
+	wget http://www.libsdl.org/release/SDL-$VER_SDL.tar.gz
+fi
+
+if [ "$VER_QT_MAJOR" == "4.8" ]; then
+	if [ ! -f qt-everywhere-opensource-src-$VER_QT.tar.gz ]; then
 		wget http://download.qt-project.org/official_releases/qt/$VER_QT_MAJOR/$VER_QT/qt-everywhere-opensource-src-$VER_QT.tar.gz
-	else
-		wget http://download.qt-project.org/official_releases/qt/$VER_QT_MAJOR/$VER_QT/single/qt-everywhere-opensource-src-$VER_QT.tar.gz
 	fi
 fi
 
@@ -46,13 +56,63 @@ if [ ! -d dropbear-$VER_DROPBEAR ]; then
 	tar xvf dropbear-$VER_DROPBEAR.tar.bz2
 fi
 
-#if [ ! -d Mesa-$VER_MESA3D ]; then
-#	tar xvf MesaLib-$VER_MESA3D.tar.bz2
-#	tar xvf glproto-1.4.17.tar.gz
-#fi
-
-if [ ! -d qt-everywhere-opensource-src-$VER_QT ]; then
-	tar xvf qt-everywhere-opensource-src-$VER_QT.tar.gz
+if [ ! -d Mesa-$VER_MESA3D ]; then
+	tar xvf MesaLib-$VER_MESA3D.tar.bz2
 fi
 
+if [ ! -d libdrm-$VER_DRM ]; then
+	tar xvf libdrm-$VER_DRM.tar.gz
+fi
+
+if [ ! -d expat-$VER_EXPAT ]; then
+	tar xvf expat-$VER_EXPAT.tar.gz
+fi
+
+if [ ! -d SDL-$VER_SDL ]; then
+	tar xvf SDL-$VER_SDL.tar.gz
+fi
+
+if [ "$VER_QT_MAJOR" == "4.8" ]; then
+	if [ ! -d qt-everywhere-opensource-src-$VER_QT ]; then
+		tar xvf qt-everywhere-opensource-src-$VER_QT.tar.gz
+	fi
+fi
+
+
+
+mkdir -p $SW_ROOT/tools
+
+cd $SW_ROOT/tools
+
+if [ ! -f autoconf-$VER_AUTOCONF.tar.xz ]; then
+	wget ftp://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.xz
+fi
+
+if [ ! -f automake-$VER_AUTOMAKE.tar.xz ]; then
+	wget ftp://ftp.gnu.org/gnu/automake/automake-$VER_AUTOMAKE.tar.xz
+fi
+
+if [ ! -f pkg-config-$VER_PKGCONFIG.tar.gz ]; then
+	wget http://pkgconfig.freedesktop.org/releases/pkg-config-0.28.tar.gz
+fi
+
+if [ ! -f libtool-$VER_LIBTOOL.tar.xz ]; then
+	wget ftp://ftp.gnu.org/gnu/libtool/libtool-$VER_LIBTOOL.tar.xz
+fi
+
+if [ ! -d autoconf-$VER_AUTOCONF ]; then
+	tar xvf autoconf-$VER_AUTOCONF.tar.xz
+fi
+
+if [ ! -d automake-$VER_AUTOMAKE ]; then
+	tar xvf automake-$VER_AUTOMAKE.tar.xz
+fi
+
+if [ ! -d pkg-config-$VER_PKGCONFIG ]; then
+	tar xvf pkg-config-0.28.tar.gz
+fi
+
+if [ ! -d libtool-$VER_LIBTOOL ]; then
+	tar xvf libtool-$VER_LIBTOOL.tar.xz
+fi
 

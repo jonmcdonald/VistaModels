@@ -1,6 +1,6 @@
 # ~~~~~~~~~~ GLOBAL OPTIONS
 
-#gdbstub_port = 2345
+#stock.cpu.PV.cpu0.core.gdbstub_port = 2345
 
 tlm_timing_model = LT
 clock = 10 NS
@@ -10,7 +10,7 @@ physical_io:host_time_sync = 1  # keyboard too fast without this
 
 # ~~~~~~~~~~ IMAGE
 
-stock.cpu.PV.cpu0.core.elf_image_file = ../sw/boot/linux-system.axf
+stock.cpu.elf_image_file = ../sw/boot/linux-system.axf
 
 # ~~~~~~~~~~ MAP
 
@@ -35,7 +35,7 @@ stock.apb_bus.uart0_master_size            = 0x00001000
 
 # ~~~~~~~~~~ PERIPH OPTIONS
 
-stock.lcd.frame_refresh_rate = 50 ms      # 20 FPS
+stock.lcd.frame_refresh_rate = 100 ms      # 10 FPS
 
 stock.usb.PV.devices = hid_keyboard hid_mouse
 

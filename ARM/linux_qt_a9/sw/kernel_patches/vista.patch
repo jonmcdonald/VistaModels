@@ -121,7 +121,7 @@ diff -rupN o/linux-3.14-rc6/arch/arm/boot/dts/vista.dts linux-3.14-rc6/arch/arm/
 +				reg = <0x10020000 0x1000>;
 +				clocks = <&apb_pclk>;
 +				clock-names = "apb_pclk";
-+				arm,pl11x,tft-r0g0b0-pads = <0 8 16>;
++				arm,pl11x,tft-r0g0b0-pads = <16 8 0>;
 +				display-timings {
 +					native-mode = <&v2m_clcd_timing0>;
 +					v2m_clcd_timing0: vga {

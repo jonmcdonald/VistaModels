@@ -34,16 +34,26 @@
 
    Builds the dropbear utilities which provide SSH server in our platform.
 
-5) Run ./script/build_qt.sh
+5) Run ./script/build_qt.sh 
 
-   Builds QT shared libraries and demos, this takes AGES!!! There may be a
-   way to reduce what actually gets compiled, need to investigate this...
+   This builds QT shared libraries and demos, this takes a little while. If you
+   build this then the ramdisk creation will modify the inittab to boot the qt
+   launcher, examine the script/build_ramdisk.sh.
+
+   Optionally, instead of QT you can build the following:
+
+	./script/build_tools.sh          # build tools needed for mesa3d
+	./script/build_drm.sh            # drm library needed for mesa3d
+	./script/build_expat.sh          # xml parsing needed for mesa3d
+	./script/build_mesa3d.sh         # builds openGL-ES1 and openGL-ES2 libraries
+	./script/build_gears.sh          # builds openGL-ES1 and openGL-ES2 demo's
+	./script/build_sdl.sh            # SDL library, quake3 uses this
 
 6) Run ./script/build_ramdisk.sh
 
    This creates the ram disk image, based upon the "template" folder, it then
    installs the c libraries from the tool-chain, the kernel stuff, busybox
-   and dropbear, and finally the QT libraries and a few demos.
+   and dropbear, and finally the QT libraries and a few demos
 
 7) Run ./script/build_axf.sh
 

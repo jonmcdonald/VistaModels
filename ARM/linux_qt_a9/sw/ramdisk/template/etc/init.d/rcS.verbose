@@ -28,6 +28,12 @@ mknod /dev/ttyAMA0     c 204 64
 echo "   tty0 tty1 tty console ptmx pts"
 mknod /dev/tty0        c 4 0
 mknod /dev/tty1        c 4 1
+mknod /dev/tty2        c 4 2
+mknod /dev/tty3        c 4 3
+mknod /dev/tty4        c 4 4
+mknod /dev/tty5        c 4 5
+mknod /dev/tty6        c 4 6
+mknod /dev/tty7        c 4 7
 mknod /dev/tty         c 5 0
 test -c /dev/console || mknod /dev/console     c 5 1
 mknod /dev/ptmx        c 5 2

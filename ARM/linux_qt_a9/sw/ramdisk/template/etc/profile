@@ -1,8 +1,12 @@
 # QT 4.8.5
-export QT_QWS_FONTDIR=/qt/lib/fonts
+if [ -d /qt ]; then
+	export QT_QWS_FONTDIR=/qt/lib/fonts
+	export LD_LIBRARY_PATH=/qt/lib
+fi
 
-# QT 5.2.1
-export QT_QPA_FONTDIR=/qt/lib/fonts
-export QT_QPA_PLATFORM_PLUGIN_PATH=/qt/plugins
-export LD_LIBRARY_PATH=/qt/lib\;$LD_LIBRARY_PATH
+# OPEN GL
+export LD_LIBRARY_PATH=/usr/local/lib\:$LD_LIBRARY_PATH
+export PATH=$PATH\:/usr/local/bin
+export EGL_DRIVERS_PATH=/usr/local/lib/egl
+export EGL_LOG_LEVEL=debug
 
