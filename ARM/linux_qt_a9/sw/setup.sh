@@ -20,7 +20,7 @@ export VER_EXPAT=2.1.0	     # expat XML parser
 export VER_SDL=1.2.15        # SDL
 
 # uncomment this to include QT
-#export VER_QT_MAJOR=4.8      # qt 4.8.5
-#export VER_QT_MINOR=5
-#export VER_QT=$VER_QT_MAJOR.$VER_QT_MINOR
+export VER_QT_MAJOR=4.8      # qt 4.8.5
+export VER_QT_MINOR=5
+export VER_QT=$VER_QT_MAJOR.$VER_QT_MINOR
 

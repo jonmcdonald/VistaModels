@@ -116,3 +116,6 @@ if [ ! -d libtool-$VER_LIBTOOL ]; then
 	tar xvf libtool-$VER_LIBTOOL.tar.xz
 fi
 
+
+echo "*** fetch.sh COMPLETED"
+

@@ -1,5 +1,7 @@
 0) Edit ./setup.sh 
 
+   Uncomment the VER_QT section if you want to download and build QT.
+
    This has been tested using the tool chain included with CB_VE_2013.11
 
    For now, this works better with QT 4.8.5 because it include a window manager
@@ -23,41 +25,49 @@
    based platform. You can issue a "grep +++ ./kernel_patches/vista.patch" to
    list the files that are included in the patch and then examine them.
 
-   Then the kernel is configured and built.
+   An important file is the device tree definition, which you can find at:
+   /packages/linux-$VER_LINUX/arch/arm/boot/dts/vista.dts
 
 3) Run ./script/build_busybox.sh
 
-   Builds the busybox utilities. *NOTE* you may get an error about the maths
-   library, but this is safe to ignore.
+   Builds the busybox utilities. *NOTE* you may get an warning about the maths
+   library at the end, but this is safe to ignore.
 
 4) Run ./script/build_dropbear.sh
 
-   Builds the dropbear utilities which provide SSH server in our platform.
+   Builds the dropbear utilities which provide a SSH server in our platform.
 
-5) Run ./script/build_qt.sh 
+5) Optionally, run ./script/build_qt.sh 
 
    This builds QT shared libraries and demos, this takes a little while. If you
    build this then the ramdisk creation will modify the inittab to boot the qt
    launcher, examine the script/build_ramdisk.sh.
 
-   Optionally, instead of QT you can build the following:
+6) Optionally, you can run the following:
 
 	./script/build_tools.sh          # build tools needed for mesa3d
 	./script/build_drm.sh            # drm library needed for mesa3d
 	./script/build_expat.sh          # xml parsing needed for mesa3d
-	./script/build_mesa3d.sh         # builds openGL-ES1 and openGL-ES2 libraries
-	./script/build_gears.sh          # builds openGL-ES1 and openGL-ES2 demo's
+	./script/build_mesa3d.sh         # OpenGL-ES1 and OpenGL-ES2 libraries
+	./script/build_gears.sh          # OpenGL-ES1 and OpenGL-ES2 demo's
 	./script/build_sdl.sh            # SDL library, quake3 uses this
 
-6) Run ./script/build_ramdisk.sh
+   If you build the gears demos, then when you boot the platform you can run
+   them from a console with "es1gears" or "es2gears" to exercise the different
+   OpenGL versions. Note that the OpenGL-ES libraries are pure software based.
+
+7) Run ./script/build_ramdisk.sh
 
    This creates the ram disk image, based upon the "template" folder, it then
    installs the c libraries from the tool-chain, the kernel stuff, busybox
    and dropbear, and finally the QT libraries and a few demos
 
-7) Run ./script/build_axf.sh
+8) Run ./script/build_axf.sh
 
    This is the black-art boot loader that creates a single axf image ready
    for us to run on our Vista platform.
 
+9) Run up the platform, go the the hw folder and then:
+ 
+   vista_simulate Project
 
