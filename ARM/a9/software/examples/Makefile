@@ -12,11 +12,11 @@ OBJS        += $(patsubst %.c,%.o,$(SOURCES_C))
 # Build flags
 DEPENDFLAGS :=
 INCLUDES    := -I../tinygl/include -I../tinygl
-BASEFLAGS   := -gdwarf-3 -fpic -nostdlib
+BASEFLAGS   := -g -fpic -nostdlib
 BASEFLAGS   += -nostartfiles -ffreestanding -nodefaultlibs
 BASEFLAGS   += -fno-builtin -fomit-frame-pointer -mcpu=cortex-a9
 WARNFLAGS   :=
-ASFLAGS     := -gdwarf-3 -mcpu=cortex-a9 $(INCLUDES) $(DEPENDFLAGS) -D__ASSEMBLY__
+ASFLAGS     := -mcpu=cortex-a9 $(INCLUDES) $(DEPENDFLAGS) -D__ASSEMBLY__
 CFLAGS      := $(INCLUDES) $(DEPENDFLAGS) $(BASEFLAGS) $(WARNFLAGS)
 CFLAGS      += -std=gnu99
 
