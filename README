@@ -48,7 +48,7 @@ A few useful git sequences:
    > git branch <branch-name>
    Do your work on the branch, commit changes and add files
    > git add <files>
-   > git commit -m "Comment message"
+   > git commit -m "Comment message" <files>
    To eliminate files that have been changed locally but not committed.  Such as .mb files that you don't want
    to check in, you can checkout a given directory to overwrite changes. This may be useful before rebasing.
    > git checkout .
@@ -61,12 +61,10 @@ A few useful git sequences:
    When ready to push changes to repository, first update local master to what is on repository
    > git checkout master
    > git pull origin master
-   > git checkout local
+   > git checkout <branch-name>
    > git rebase master
    Everything is up to date, now do a fast forward merge to move master up to all of the changes on <branch-name>
    > git checkout master
-   > git merge local
+   > git merge <branch-name>
    Assuming no problems, now push the changes
    > git push origin master
-
-
