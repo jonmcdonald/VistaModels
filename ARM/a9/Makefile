@@ -6,8 +6,8 @@
 
 MODELS = Models
 SC_MAIN = sc_main
-VISTA = linux32 vista
-VISTA_ARGS = -sc23 -gcc45
+VISTA ?= vista
+VISTA_ARGS = -m32 -sc23 -gcc45
 
 PROJECT = $(patsubst %.v2p,%,$(wildcard *.v2p))
 PROJECTEXE = $(PROJECT)/build/D_PRJDIR_/$(SC_MAIN).exe
@@ -26,8 +26,9 @@ T ?= tracing/sim.tcl
 P ?= parameters.txt
 S ?= sim
 
-batch: $(PROJECTEXE) $T
+batch: $(PROJECTEXE) $T swb
 	$(VISTA) $(VISTA_ARGS) -simscript $T -params $P -simdir $S -batch -exec -project $(PROJECT)
+	$(VISTA)_sw_tool -c ${SWCOVCOMMAND}
 
 COMMAND = "if {![does_tlm_library_exist $(MODELS)]} \
               {create_tlm_library $(MODELS) $(MODELS)}; \
@@ -51,7 +52,7 @@ swb:
 
 SWCOVCOMMAND = "use_coverage; \
                 load_design tracing/sw.dsn; \
-                load_test tracing/sw.tst; \
+                load_test tracing/sw_coverage.tst; \
                 cd sim; \
                 dump_report -output coverage.html -full -source-dir software"
 
