@@ -2,7 +2,7 @@ TINYGL_USE_PL110=y
 
 CC=arm-none-eabi-gcc
 
-CFLAGS := -DTINYGL_USE_PL110 -gdwarf-3 -fpic -nostdlib
+CFLAGS := -g -DTINYGL_USE_PL110 -fpic -nostdlib
 CFLAGS += -DNDEBUG -DNO_DEBUG_OUTPUT
 CFLAGS += -nostartfiles -ffreestanding -nodefaultlibs
 CFLAGS += -fno-builtin -fomit-frame-pointer -mcpu=cortex-a9

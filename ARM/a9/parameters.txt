@@ -4,7 +4,7 @@ clock = 10ns # 100 MHz
 
 #gdbstub_port = 2345
 
-#trace_script = tracing/trace.tcl
+trace_script = tracing/trace.tcl
 #trace_script = tracing/trace_gpu.tcl
 #trace_script = tracing/coverage.tcl
 

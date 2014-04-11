@@ -42,3 +42,29 @@ A few useful git sequences:
    > git update-index --assume-unchanged path/to/file.txt
    To cause it to be checked in again
    > git update-index --no-assume-unchanged path/to/file.txt
+
+ - Tentative flow
+   Create local branch.  This branch will not be pushed to the server
+   > git branch <branch-name>
+   Do your work on the branch, commit changes and add files
+   > git add <files>
+   > git commit -m "Comment message" <files>
+   To eliminate files that have been changed locally but not committed.  Such as .mb files that you don't want
+   to check in, you can checkout a given directory to overwrite changes. This may be useful before rebasing.
+   > git checkout .
+   Keep up with any changes on the server by rebasing.  First pull updates from master
+   > git checkout master
+   > git pull origin master
+   Then rebase.  This is done while you are on the <branch-name> you created.  Do this to keep up with master.
+   > git checkout <branch-name>
+   > git rebase master
+   When ready to push changes to repository, first update local master to what is on repository
+   > git checkout master
+   > git pull origin master
+   > git checkout <branch-name>
+   > git rebase master
+   Everything is up to date, now do a fast forward merge to move master up to all of the changes on <branch-name>
+   > git checkout master
+   > git merge <branch-name>
+   Assuming no problems, now push the changes
+   > git push origin master
