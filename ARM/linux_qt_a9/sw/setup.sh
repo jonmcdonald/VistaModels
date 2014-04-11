@@ -9,7 +9,7 @@ export VER_LIBTOOL=2.4.2
 
 # version of target software
 # kernel and base commands and ssh
-export VER_LINUX=3.14-rc8    # kernel version
+export VER_LINUX=3.14        # kernel version
 export VER_BUSYBOX=1.22.1    # base commands
 export VER_DROPBEAR=2014.63  # secure shell support
 

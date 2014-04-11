@@ -11,7 +11,7 @@ cd $SW_ROOT/packages
 
 
 if [ ! -f linux-$VER_LINUX.tar.xz ]; then
-	wget ftp://ftp.kernel.org/pub/linux/kernel/v3.x/testing/linux-$VER_LINUX.tar.xz
+	wget ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$VER_LINUX.tar.xz
 fi
 
 if [ ! -f busybox-$VER_BUSYBOX.tar.bz2 ]; then
