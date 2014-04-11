@@ -6,8 +6,14 @@
 
 MODELS = Models
 SC_MAIN = sc_main
+
+ifneq (,$(findstring Ubuntu,$(shell uname -a)))
+VISTA ?= LD_LIBRARY_PATH=/usr/lib32:/lib/i386-linux-gnu;LIBRARY_PATH=/usr/lib32:/lib/i386-linux-gnu;vista
+else
 VISTA ?= vista
-VISTA_ARGS = -m32 -sc23 -gcc45
+endif
+
+VISTA_ARGS = -m32
 
 PROJECT = $(patsubst %.v2p,%,$(wildcard *.v2p))
 PROJECTEXE = $(PROJECT)/build/D_PRJDIR_/$(SC_MAIN).exe
