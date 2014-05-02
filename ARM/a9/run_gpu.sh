@@ -7,7 +7,7 @@ cd ..
 rm -rf sim2
 
 vista_sw_tool tracing/begin.tcl
-vista_simulate -simdir sim2 Project
+vista_simulate -vp_plus -trace-cache -simdir sim2 Project
 
 cd sim2
 vista_sw_tool ../tracing/end.tcl
