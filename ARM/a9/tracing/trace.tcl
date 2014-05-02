@@ -1,25 +1,28 @@
 
-set current_core "top.cpu.PV.core"
-
+set current_core "top.cpu.PV.cpu0.core"
 add_default_symbol_file
 
-trace_function_calls trace_functions.csv
-trace_function_activity * -kind eff
-trace_attribute top.cpu.PV.core.core_state
+trace_function_calls -kind eff
+trace_attribute top.cpu.PV.cpu0.core.core_state -kind eff
 trace_current_function -kind eff
+trace_function_activity * -kind eff
 
-trace_socket top.gpu.mem_access
-trace_socket top.gpu.reg_access
+trace_socket top.cpu.master1 -kind eff
+trace_socket top.cpu.master0 -kind eff
+trace_socket top.sram.slave -kind eff 
 
-trace_register top.gpu.PV.GPU_ZERO_START
-trace_register top.gpu.PV.GPU_ZERO_SIZE
-trace_register top.gpu.PV.GPU_TRIANGLE_ZB
-trace_register top.gpu.PV.GPU_TRIANGLE_P0
-trace_register top.gpu.PV.GPU_TRIANGLE_P1
-trace_register top.gpu.PV.GPU_TRIANGLE_P2
-trace_register top.gpu.PV.GPU_TRIANGLE_DRAW
+enable_coverage -design tracing/data/gears.dgn -test tracing/data/gears.tst
 
-enable_coverage -design tracing/sw.dsn -test tracing/sw_coverage.tst
+start_profiling -cache L1/D cache_prof
+
+insert_tracepoint tp1 -at-function-entry ui_loop -do-raw {
+  tcl_eval("enable_profiling -all");
+  set_parameter("cache_modeling", "DYNAMIC");
+}
+
+insert_tracepoint tp2 -at-function-exit ui_loop -do-raw {
+  set_parameter("cache_modeling", "STATIC");
+}
 
 add_raw_context {
   void* outputFile = 0;

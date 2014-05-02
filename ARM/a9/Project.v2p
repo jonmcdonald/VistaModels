@@ -8,9 +8,8 @@ Files {
 		{$PRJDIR/Models/AXI_BUS.mb}
 		{$PRJDIR/Models/PL110_LCD.mb}
 		{$PRJDIR/Models/MEMORY.mb}
-		{$PRJDIR/Models/CORTEX_A9_uni.mb}
 		{$PRJDIR/Models/CUSTOM_GPU.mb}
-		{$PRJDIR/Models/CUSTOM_CTL.mb}
+		{$PRJDIR/Models/A9x1.mb}
 	 } 
 	 Schematics {
 		{$PRJDIR/Models/top.h}
@@ -20,7 +19,7 @@ Files {
 	 {Other Binaries} {} 
 }
 Designs {{$PRJDIR/sc_main.cpp}}
-Simulations /store/VistaModels/ARM/a9/Project/sim
+Simulations /mnt/store/data/VistaModels/ARM/a9/Project/sim
 VirtualPrototypes cortexa9.vppf
 Folders {
 	 Sources {*.c *.cpp *.C *.cxx *.cc} 
