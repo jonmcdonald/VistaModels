@@ -9,18 +9,20 @@ trace_function_activity * -kind eff
 trace_socket top.cpu.master1 -kind eff
 trace_socket top.cpu.master0 -kind eff
 trace_socket top.sram.slave -kind eff 
+trace_socket top.gpu.mem_access -kind eff 
+trace_socket top.gpu.reg_access -kind eff 
 
 enable_coverage -design tracing/data/gears.dgn -test tracing/data/gears.tst
 
-start_profiling -cache L1/D cache_prof
+start_profiling -cache L1/D tracing/data/cache_prof
 
 insert_tracepoint tp1 -at-function-entry ui_loop -do-raw {
   tcl_eval("enable_profiling -all");
-  set_parameter("lt_cache_modeling", "DYNAMIC");
+#  set_parameter("lt_cache_modeling", "DYNAMIC");
 }
 
 insert_tracepoint tp2 -at-function-exit ui_loop -do-raw {
-  set_parameter("lt_cache_modeling", "STATIC");
+#  set_parameter("lt_cache_modeling", "STATIC");
 }
 
 add_raw_context {
