@@ -24,7 +24,7 @@ int main(void)
   mmu_init();
 
   init_lcd();
-  ui_loop(10);  // do 10 frames then quit
+  ui_loop(3);  // do 10 frames then quit
 
   mb_flush_db();
   mb_stop(0);

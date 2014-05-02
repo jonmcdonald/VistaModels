@@ -6,9 +6,6 @@ cache_control = software
 dcache_size = 16384
 icache_size = 16384
 
-#top.cpu.PV.cpu0.dcache.verbose = MISS
-#top.cpu.PV.cpu0.icache.verbose = MISS
-
 trace_script = tracing/trace.tcl
 
 elf_image_file = sw_cache/gears.axf

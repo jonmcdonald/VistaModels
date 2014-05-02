@@ -1,4 +1,3 @@
-
 set current_core "top.cpu.PV.cpu0.core"
 add_default_symbol_file
 
@@ -17,11 +16,11 @@ start_profiling -cache L1/D cache_prof
 
 insert_tracepoint tp1 -at-function-entry ui_loop -do-raw {
   tcl_eval("enable_profiling -all");
-  set_parameter("cache_modeling", "DYNAMIC");
+  set_parameter("lt_cache_modeling", "DYNAMIC");
 }
 
 insert_tracepoint tp2 -at-function-exit ui_loop -do-raw {
-  set_parameter("cache_modeling", "STATIC");
+  set_parameter("lt_cache_modeling", "STATIC");
 }
 
 add_raw_context {
