@@ -4,7 +4,7 @@ cd sw_cache
 make clean
 make GPU=1
 cd ..
-rm -rf sim
+rm -rf sim2
 
 vista_sw_tool tracing/begin.tcl
 vista_simulate -simdir sim2 Project
