@@ -12,6 +12,9 @@ export VER_LIBTOOL=2.4.2
 export VER_LINUX=3.14        # kernel version
 export VER_BUSYBOX=1.22.1    # base commands
 export VER_DROPBEAR=2014.63  # secure shell support
+export VER_ZLIB=1.2.8        # zlib for sftp
+export VER_OPENSSL=1.0.1g    # open ssl
+export VER_OPENSSH=6.6p1     # sftp support
 
 # graphics
 export VER_MESA3D=10.1.0     # opengl

@@ -38,6 +38,18 @@ if [ ! -f SDL-$VER_SDL.tar.gz ]; then
 	wget http://www.libsdl.org/release/SDL-$VER_SDL.tar.gz
 fi
 
+if [ ! -f zlib-$VER_ZLIB.tar.gz ]; then
+	wget http://zlib.net/zlib-$VER_ZLIB.tar.gz
+fi
+
+if [ ! -f openssl-$VER_OPENSSL.tar.gz ]; then
+	wget https://www.openssl.org/source/openssl-$VER_OPENSSL.tar.gz
+fi
+
+if [ ! -f openssh-$VER_OPENSSH.tar.gz ]; then
+	wget http://mirror.ox.ac.uk/pub/OpenBSD/OpenSSH/portable/openssh-$VER_OPENSSH.tar.gz
+fi
+
 if [ "$VER_QT_MAJOR" == "4.8" ]; then
 	if [ ! -f qt-everywhere-opensource-src-$VER_QT.tar.gz ]; then
 		wget http://download.qt-project.org/official_releases/qt/$VER_QT_MAJOR/$VER_QT/qt-everywhere-opensource-src-$VER_QT.tar.gz
@@ -70,6 +82,18 @@ fi
 
 if [ ! -d SDL-$VER_SDL ]; then
 	tar xvf SDL-$VER_SDL.tar.gz
+fi
+
+if [ ! -d zlib-$VER_ZLIB ]; then
+	tar xvf zlib-$VER_ZLIB.tar.gz
+fi
+
+if [ ! -d openssl-$VER_OPENSSL ]; then
+	tar xvf openssl-$VER_OPENSSL.tar.gz
+fi
+
+if [ ! -d openssh-$VER_OPENSSH ]; then
+	tar xvf openssh-$VER_OPENSSH.tar.gz
 fi
 
 if [ "$VER_QT_MAJOR" == "4.8" ]; then

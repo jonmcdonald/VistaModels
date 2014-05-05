@@ -62,6 +62,10 @@ if [ -f $SW_ROOT/gears/es1gears ]; then
 	cp $SW_ROOT/gears/es*gears $SYSROOT/usr/local/bin
 fi
 
+mkdir -p $SYSROOT/usr/libexec
+cp ../packages/openssh-$VER_OPENSSH/sftp-server $SYSROOT/usr/libexec
+cp $SYSROOT/usr/local/lib/libz.so.1 $SYSROOT/lib
+
 cd $SYSROOT 
 
 # preserves links to busybox in /usr/bin /usr/sbin
@@ -74,6 +78,8 @@ find usr/bin usr/sbin -type d -o -type l -o -name 'gdb*' >> ../sysroot.files
 find usr/bin usr/sbin -type d -o -type l -o -name 'ldd*' >> ../sysroot.files
 
 find usr/local >> ../sysroot.files
+echo usr/libexec >> ../sysroot.files
+echo usr/libexec/sftp-server >> ../sysroot.files
 
 cat ../sysroot.files |  cpio -R root:root -o -H newc | gzip > ../initrd.cpio.gz
 rm ../sysroot.files
