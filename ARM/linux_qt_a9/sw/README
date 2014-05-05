@@ -34,8 +34,12 @@
    library at the end, but this is safe to ignore.
 
 4) Run ./script/build_dropbear.sh
+       ./script/build_ssl.sh
+       ./script/build_zlib.sh
+       ./script/build_sftp.sh
 
-   Builds the dropbear utilities which provide a SSH server in our platform.
+   Builds the dropbear utilities which provide a SSH and SFTP server in our platform.
+   SFTP is required so we can use codebench to upload binaries automatically
 
 5) Optionally, run ./script/build_qt.sh 
 
