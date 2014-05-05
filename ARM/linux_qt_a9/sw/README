@@ -8,6 +8,9 @@
    to manager the keyboard and mouse. The patch for the USB device
    tree support only seems to work in the very latest kernels.
 
+   NOTE: Instead of following the below, you can run "everything.sh" which builds
+   everything.
+
 1) Run ./script/fetch.sh
 
    This will download and uncompress the required packages.

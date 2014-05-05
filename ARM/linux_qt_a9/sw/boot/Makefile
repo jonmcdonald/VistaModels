@@ -1,7 +1,7 @@
 
 BOOTLOADER	= boot.S
-KERNEL		= uImage
-KERNEL_HDR_SZ	= 0x40	# 0x40 for uImage
+KERNEL		= zImage
+KERNEL_HDR_SZ	= 0x0	# 0x40 for uImage
 
 IMAGE		= linux-system.axf
 LD_SCRIPT	= model.lds.S
