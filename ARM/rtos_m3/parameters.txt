@@ -6,6 +6,8 @@ clock = 10 NS
 elf_image_file = CM3_RTOS/image.axf
 #top.flash.PV.mb_memory_file_storage_load = /tmp/vista_nucleus_kernel_demo.bin
 
+top.uart.warning_level = IGNORE
+
 top.ahb_bus.mem_low_base_address  = 0x0
 top.ahb_bus.mem_low_size          = 0x2000000
 top.flash.size_in_bytes           = 0x2000000

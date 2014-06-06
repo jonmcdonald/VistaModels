@@ -1,11 +1,11 @@
 # Define Vista Properties
-java, ra_vista, setup
+java, vista, setup
 
 # Import register information from CSV
 js, $(RA_EXAMPLES)/csv.js, top, input/regs.csv, input/mems.csv, input/blocks.csv, input/maps.csv, input/C_settings.csv
 
 # Update Vista Models
-java, ra_vista, generate, ../Models, ../parameters.txt
+java, vista, generate, ../Models, ../parameters.txt
 
 # Generate C header output
 java, c_header, registers.h

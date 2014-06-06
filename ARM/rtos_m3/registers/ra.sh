@@ -1,5 +1,5 @@
 #!/bin/sh
-export RA_HOME=/store/tools/HDS_2012.1/registerassistant
+export RA_HOME=/mnt/store/tools/HDS_2013.1b/registerassistant
 
 echo "Block Name,Project Parameter Name,Project Parameter Value,Project Parameter Description" > input/C_settings.csv
 echo -n "reg_block,c.TEMPLATE_PATH," >> input/C_settings.csv

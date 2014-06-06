@@ -16,6 +16,7 @@ set_auto_parameter_default "clock" {10 ns} time {}
 set_auto_parameter_default "ahb_slave_clock" clock time {}
 set_auto_parameter_default "nominal_voltage" 1 double {}
 set_auto_parameter_default "mb_debug" false boolean {true false}
+set_auto_parameter_default "call_to_default_if" false boolean {true false}
 set_auto_parameter_default "verbose_parameters" true boolean {true false}
 set_auto_parameter_default "dmi_enabled" true boolean {true false}
 set_auto_parameter_default "warning_level" WARNING string {
@@ -27,9 +28,6 @@ set_auto_parameter_default "ahb_slave_pipeline_length" 2 uint32 {}
 # example: add_generic "OUT_ACTIVE_VALUE" false
 
 # === machine architecture ===
-declare_register ahb_slave RED_EN 0x0 {} -rw_access r/w -is_trigger -width 32 -reset_value 0x0
-declare_register ahb_slave GREEN_EN 0x4 {} -rw_access r/w -is_trigger -width 32 -reset_value 0x0
-declare_register ahb_slave BLUE_EN 0x8 {} -rw_access r/w -is_trigger -width 32 -reset_value 0x0
 state_power 0 -condition_pairs {vre 0 vge 0 vbe 0}
 state_power 40 -condition_pairs {vre 0 vge 0 vbe 1}
 state_power 40 -condition_pairs {vre 0 vge 1 vbe 0}
@@ -57,3 +55,7 @@ set_generate_ipxact 0
 set_ipxact_vendor "Mentor.com"
 set_ipxact_version 1.0
 
+# Register Assistant Declarations
+declare_register ahb_slave RED_EN 0x0 {} -rw_access r/w -is_trigger -width 32 -reset_value 0x0
+declare_register ahb_slave GREEN_EN 0x4 {} -rw_access r/w -is_trigger -width 32 -reset_value 0x0
+declare_register ahb_slave BLUE_EN 0x8 {} -rw_access r/w -is_trigger -width 32 -reset_value 0x0

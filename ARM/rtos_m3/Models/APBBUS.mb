@@ -24,6 +24,7 @@ set_auto_parameter_default "warning_level" WARNING string {
       "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
 set_auto_parameter_default "layers" {""} string {}
 set_auto_parameter_default "slave_sets" {""} string {}
+set_auto_parameter_default "write_broadcast" 0 uint32 {}
 set_auto_parameter_default "bus_slave_priority" 0 uint32 {}
 set_auto_parameter_default "bus_slave_vmap" {""} string {}
 set_auto_parameter_default "uart_base_address" 0 uint64 {}

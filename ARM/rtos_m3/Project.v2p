@@ -20,8 +20,6 @@ Files {
 	 } 
 	 Models {
 		{$PRJDIR/Models/AHBBUS.mb}
-		{$VISTA_ROOT/generic/CPP/models_catalogue/UART_PL011.mb}
-		{$VISTA_ROOT/generic/CPP/models_catalogue/UART_Visualization_Middleware.mb}
 		{$PRJDIR/Models/AHB_APB.mb}
 		{$PRJDIR/Models/rgb_led.mb}
 		{$PRJDIR/Models/MEMORY.mb}

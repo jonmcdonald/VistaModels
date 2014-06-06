@@ -14,9 +14,11 @@
 #pragma once
 
 #include "model_builder.h"
+#include "CORTEX_M3_model.h"
 
 
-class CORTEX_M3_pv : public ::mb::models::arm::cortex_m3 {
+class CORTEX_M3_pv : public ::mb::models::arm::cortex_m3,
+                      public CORTEX_M3_pv_base_parameters {
   
  public:
   typedef mb::tlm20::irq_target_socket<> irq_target_socket;
@@ -27,7 +29,8 @@ class CORTEX_M3_pv : public ::mb::models::arm::cortex_m3 {
 
  public:
   CORTEX_M3_pv(sc_module_name name)  : 
-    ::mb::models::arm::cortex_m3(name, 2)
+    ::mb::models::arm::cortex_m3(name, 2),
+    CORTEX_M3_pv_base_parameters(this)
 , irq_0(irqs[0]), irq_1(irqs[1])
   {
   }
