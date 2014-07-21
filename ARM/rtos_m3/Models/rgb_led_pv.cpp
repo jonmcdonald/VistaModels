@@ -53,6 +53,7 @@ rgb_led_pv::rgb_led_pv(sc_module_name module_name)
   }
 
   if(pid){
+    sleep(1);
     close(commpipe[0]);
   }
   else {
@@ -87,6 +88,7 @@ unsigned int rgb_led_pv::cb_read_BLUE_EN()
 ////////////////////////////////////////// 
 void rgb_led_pv::cb_write_RED_EN(unsigned int newValue)
 {
+  printf("RED_EN %d\n", newValue);
   char cmd[10]; 
   sprintf(cmd,"r%d\n", newValue);
   write(commpipe[1], cmd, strlen(cmd));
@@ -95,6 +97,7 @@ void rgb_led_pv::cb_write_RED_EN(unsigned int newValue)
 
 void rgb_led_pv::cb_write_GREEN_EN(unsigned int newValue)
 {
+  printf("GREEN_EN %d\n", newValue);
   char cmd[10]; 
   sprintf(cmd,"g%d\n", newValue);
   write(commpipe[1], cmd, strlen(cmd));
@@ -103,6 +106,7 @@ void rgb_led_pv::cb_write_GREEN_EN(unsigned int newValue)
 
 void rgb_led_pv::cb_write_BLUE_EN(unsigned int newValue)
 {
+  printf("BLUE_EN %d\n", newValue);
   char cmd[10]; 
   sprintf(cmd,"b%d\n", newValue);
   write(commpipe[1], cmd, strlen(cmd));
