@@ -6,14 +6,16 @@
 #include "uart.h"
 #include "led.h"
 
+#include "mb/sw/control.h"
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#define red_on_TIME		( ( portTickType ) 1000 / portTICK_RATE_MS )
-#define red_off_TIME		( ( portTickType ) 3000 / portTICK_RATE_MS )
-#define green_on_TIME		( ( portTickType ) 2000 / portTICK_RATE_MS )
-#define green_off_TIME		( ( portTickType ) 2000 / portTICK_RATE_MS )
-#define blue_on_TIME		( ( portTickType ) 3000 / portTICK_RATE_MS )
-#define blue_off_TIME		( ( portTickType ) 1000 / portTICK_RATE_MS )
+#define red_on_TIME		( ( portTickType ) 10 / portTICK_RATE_MS )
+#define red_off_TIME		( ( portTickType ) 30 / portTICK_RATE_MS )
+#define green_on_TIME		( ( portTickType ) 20 / portTICK_RATE_MS )
+#define green_off_TIME		( ( portTickType ) 20 / portTICK_RATE_MS )
+#define blue_on_TIME		( ( portTickType ) 30 / portTICK_RATE_MS )
+#define blue_off_TIME		( ( portTickType ) 10 / portTICK_RATE_MS )
 
 #define primeDelay		( ( portTickType ) 10 / portTICK_RATE_MS )
 
@@ -78,7 +80,7 @@ static void blueTask(void* pvParameters)
  
 static void primeTask(void* pvParameters)
 {
-    int n=256, i = 3, count, c;
+    int n=10, i = 3, count, c;
  
     int* prime_store = pvPortMalloc(n * sizeof(int));
     int* prime_put = prime_store;
@@ -111,6 +113,9 @@ static void primeTask(void* pvParameters)
         i++;
     }
     print_UART0("\nCompleted Prime Calculations\n");
+    
+    mb_stop(0);
+    
     vTaskSuspend( NULL );
     for( ;; ) { }
 }

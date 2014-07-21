@@ -1,4 +1,5 @@
 tlm_timing_model = LT
+lt_policy_modeling = DYNAMIC
 clock = 10 NS
 
 #gdbstub_port = 2345
@@ -28,3 +29,7 @@ top.apb_bus.uart_base_address = 0x4000C000
 top.apb_bus.uart_subtract_base_address = 1
 top.apb_bus.led_base_address = 0x4000E000
 top.apb_bus.led_subtract_base_address = 1
+
+
+trace_script = tracing/trace.tcl
+

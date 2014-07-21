@@ -1,6 +1,7 @@
 
 #include "uart.h"
 #include "led.h"
+#include "mb/sw/control.h"
 
 int main( void )
 {
@@ -11,6 +12,8 @@ int main( void )
     green_enable(0);
     blue_enable(1);
     print_UART0("OK - Finishing\n");
+
+	mb_stop(0);
 
     while (1) {
         asm volatile ("wfi");

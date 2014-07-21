@@ -4,6 +4,11 @@ Check the cross compiler is in the PATH. For example:
 $ arm-none-eabi-gcc --version
 arm-none-eabi-gcc (Sourcery CodeBench Lite 2012.03-56) 4.6.3
 
+
+Check and define MODEL_BUILDER_HOME so that it points to the papoulis folder
+inside your Vista installation, for example:
+$ export MODEL_BUILDER_HOME=/mnt/store/tools/vista3.8.1.rnd2/papoulis
+
 Use make to build an image, the options are:
 
 $ make or make RTOS=BareMetal  =>  BareMetal.axf (main.c.BareMetal)
