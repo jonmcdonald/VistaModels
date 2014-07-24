@@ -1,0 +1,67 @@
+03.00 00 2B 
+@@VE@00000@@ 
+@@VE@names@@ 
+@@VE@00000@@ 
+@@VE@intfc@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@__eqs@@ 
+@@VE@00000@@ 
+@@VE@_uses@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@u_chs@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@cclss@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@c_usd@@ 
+@^@VE_hdr_end@^@ 
+
+@@VE@names@@ 0 23 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 !
+
+@@VE@intfc@@ 1 
+{ @pdecl { { @n ahb_slave @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@multiport 1 @isTemplate 0
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+
+@@VE@__eqs@@ -1 -17 @vis 1405956981 nil F @page 1 @ptxt 0 !
+
+@@VE@cclss@@ { @cnt 0 } 
+@@VE@_uses@@ 0 L { @nvis } !
+
+@@VE@c_usd@@ 0 L { @nvis } !
+
+@@VE@u_chs@@ 2 

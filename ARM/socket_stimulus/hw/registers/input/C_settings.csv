@@ -1,0 +1,2 @@
+Block Name,Project Parameter Name,Project Parameter Value,Project Parameter Description
+reg_block,c.TEMPLATE_PATH,../../../../../data/VistaModels/ARM/socket_stimulus/hw/registers/input/c_header.h,Path to the C header template.

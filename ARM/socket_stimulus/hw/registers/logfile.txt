@@ -1,0 +1,25 @@
+Register Assistant
+# Note: ra_vista: Setting up custom input columns for Vista data
+# Note: Running JavaScript file '/mnt/store/tools/HDS_2013.1b/registerassistant/examples/csv.js'
+# Note: Running CsvImporter on '[input/regs.csv, input/mems.csv, input/blocks.csv, input/maps.csv, input/C_settings.csv]'
+# Note: Running CsvImporter on 'input/regs.csv'
+# Note: Running CsvImporter on 'input/mems.csv'
+# Note: Running CsvImporter on 'input/blocks.csv'
+# Note: Running CsvImporter on 'input/maps.csv'
+# Note: Running CsvImporter on 'input/C_settings.csv'
+# Note: ra_vista: Skipping block instance uart
+# Note: ra_vista: Updated Vista model file '../Models/rgb_led.mb'
+# Note: ra_vista: Updated Vista model file '../Models/controller.mb'
+# Note: ra_vista: Updated Vista parameters file '../parameters.txt'
+# Note: C Header Generator running on project 'output'
+# Note: Running 6 C Headers generator specific checks.
+# Note:   Checking specified C parameters...
+# Note:   Checking supported input...
+# Note:   Checking instance definitions...
+# Note:   Checking Replication Offset input...
+# Note:   Checking register widths...
+# Note:   Checking register paddings...
+# Note: Generating C Header file.
+# Note: No output directory specified, using default directory './output' instead.
+# Note: Creating C-header file '/mnt/store/data/VistaModels/ARM/socket_stimulus/hw/registers/./output/registers.h'
+ Completed control file processing

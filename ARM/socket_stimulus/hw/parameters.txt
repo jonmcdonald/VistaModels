@@ -1,0 +1,32 @@
+tlm_timing_model = LT
+clock = 10 NS
+
+#gdbstub_port = 2345
+
+elf_image_file = ../sw/image.axf
+
+top.uart.warning_level = IGNORE
+
+top.ahb_bus.mem_low_base_address  = 0x0
+top.ahb_bus.mem_low_size          = 0x2000000
+top.flash.size_in_bytes           = 0x2000000
+
+top.ahb_bus.mem_high_base_address = 0x20000000
+top.ahb_bus.mem_high_size         = 0x2000000
+top.sram.size_in_bytes            = 0x2000000
+
+top.ahb_bus.apb_base_address      = 0x40000000
+top.ahb_bus.apb_subtract_base_address = 0
+top.ahb_bus.apb_size              = 0x10000000
+
+top.apb_bus.uart_size             = 0x1000
+top.apb_bus.led_size              = 0x1000
+top.apb_bus.ctl_size              = 0x1000
+
+# Register Assistant Declarations
+top.apb_bus.uart_base_address = 0x4000C000
+top.apb_bus.uart_subtract_base_address = 1
+top.apb_bus.led_base_address = 0x4000E000
+top.apb_bus.led_subtract_base_address = 1
+top.apb_bus.ctl_base_address = 0x4000F000
+top.apb_bus.ctl_subtract_base_address = 1
