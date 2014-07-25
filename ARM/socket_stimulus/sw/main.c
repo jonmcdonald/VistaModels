@@ -5,8 +5,6 @@
 
 #include "../hw/registers/output/registers.h"
 
-#include "mb/sw/control.h"
-
 int main( void )
 {
     init_UART0();

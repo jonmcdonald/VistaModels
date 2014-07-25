@@ -7,7 +7,7 @@ LD=arm-none-eabi-ld
 
 RM=rm -f $(1)
 
-CFLAGS=-g -mcpu=cortex-m3 -mthumb -I$(MODEL_BUILDER_HOME)/include -fpack-struct
+CFLAGS=-g -mcpu=cortex-m3 -mthumb -fpack-struct
 
 LIBGCC=${shell ${CC} -mthumb -march=armv6t2 -print-libgcc-file-name}
 LIBC=${shell ${CC} -mthumb -march=armv6t2 -print-file-name=libc.a}
