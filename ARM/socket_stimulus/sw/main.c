@@ -34,23 +34,24 @@ void irq0_Handler(void)
   NVIC_ClearPendingIRQ(0);
 
   top_ptr regtop = TOP__BASE;
-  if((regtop->controller).BUTTON_X) {
+
+  int state = (regtop->controller).STATE;
+  (regtop->controller).STATE = 0;
+
+  if(state & (1 << 0)) {
     print_UART0("Toggling Red LED\n");
     red = !red;
     red_enable(red);
-    (regtop->controller).BUTTON_X = 0;
   }
-  if((regtop->controller).BUTTON_Y) {
+  if(state & (1 << 1)) {
     print_UART0("Toggling Green LED\n");
     green = !green;
     green_enable(green);
-    (regtop->controller).BUTTON_Y = 0;
   }
-  if((regtop->controller).BUTTON_Z) {
+  if(state & (1 << 2)) {
     print_UART0("Toggling Blue LED\n");
     blue = !blue;
     blue_enable(blue);
-    (regtop->controller).BUTTON_Z = 0;
   }
 }
 

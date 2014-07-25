@@ -9,7 +9,7 @@ Register Assistant
 # Note: Running CsvImporter on 'input/C_settings.csv'
 # Note: ra_vista: Skipping block instance uart
 # Note: ra_vista: Updated Vista model file '../Models/rgb_led.mb'
-# Note: ra_vista: Updated Vista model file '../Models/controller.mb'
+# Note: ra_vista: Updated Vista model file '../Models/SystemControl.mb'
 # Note: ra_vista: Updated Vista parameters file '../parameters.txt'
 # Note: C Header Generator running on project 'output'
 # Note: Running 6 C Headers generator specific checks.

@@ -4,7 +4,7 @@
 int sc_main(int argc, char *argv[]) {
 
  top *inst_top = new top("top");
- sc_start(-1);
+ sc_start();
  delete inst_top;
 
  return 0;

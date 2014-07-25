@@ -26,6 +26,9 @@ Files {
 		{$PRJDIR/Models/APBBUS.mb}
 		{$PRJDIR/Models/controller.mb}
 		{$PRJDIR/Models/M3.mb}
+		{$PRJDIR/Models/server_sc23.mb}
+		{$PRJDIR/Models/ExternalEventHandler_sc23.mb}
+		{$PRJDIR/Models/SystemControl.mb}
 	 } 
 }
 Designs {{$PRJDIR/main.cpp}}

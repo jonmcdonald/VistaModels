@@ -15,10 +15,10 @@ SRCS = $(wildcard *.cpp) $(wildcard $(MODELS)/*.cpp)
 all: $(PROJECTEXE)
 
 $(PROJECTEXE): $(SRCS)
-	vista_build_project $(PROJECT)
+	vista_build_project -sc23 $(PROJECT)
 
 run: $(PROJECTEXE)
-	vista_simulate $(PROJECT)
+	vista_simulate -sc23 $(PROJECT)
 
 COMMAND = "if {![does_tlm_library_exist $(MODELS)]} \
               {create_tlm_library $(MODELS) $(MODELS)}; \

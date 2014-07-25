@@ -6,7 +6,7 @@
 // File            : registers.h
 //----------------------------------------------------------------------
 // Created by      : markca
-// Creation Date   : 24/07/14 18:33
+// Creation Date   : 25/07/14 15:59
 //----------------------------------------------------------------------
 // Title           : output
 //
@@ -136,38 +136,34 @@ typedef struct rgb_led_s
    __RW uint32_t   BLUE_EN;     /* 0xB:0x8 */
 } __RW rgb_led_s, *rgb_led_ptr;
 
-// controller (Size: 0xC)
-typedef struct controller_s
+// SystemControl (Size: 0x4)
+typedef struct SystemControl_s
 {
-   // BUTTON_X
-   __RW uint32_t   BUTTON_X;    /* 0x3:0x0 */
-   // BUTTON_Y
-   __RW uint32_t   BUTTON_Y;    /* 0x7:0x4 */
-   // BUTTON_Z
-   __RW uint32_t   BUTTON_Z;    /* 0xB:0x8 */
-} __RW controller_s, *controller_ptr;
+   // STATE
+   __RW uint32_t   STATE;    /* 0x3:0x0 */
+} __RW SystemControl_s, *SystemControl_ptr;
 
-// top (Size: 0x4000F00C)
+// top (Size: 0x4000F004)
 typedef struct top_s
 {
    // flash
-   __RW uint64_t       flash[16384];      /* 0x1FFFF:0x0           */
+   __RW uint64_t          flash[16384];      /* 0x1FFFF:0x0           */
    // Padding
-        uint64_t       pad0[67092480];    /* 0x1FFFFFFF:0x20000    */
+        uint64_t          pad0[67092480];    /* 0x1FFFFFFF:0x20000    */
    // sram
-   __RW uint64_t       sram[16384];       /* 0x2001FFFF:0x20000000 */
+   __RW uint64_t          sram[16384];       /* 0x2001FFFF:0x20000000 */
    // Padding
-        uint64_t       pad1[67098624];    /* 0x4000BFFF:0x20020000 */
+        uint64_t          pad1[67098624];    /* 0x4000BFFF:0x20020000 */
    // uart
-        UART_PL011_s   uart;              /* 0x4000CFFC:0x4000C000 */
+        UART_PL011_s      uart;              /* 0x4000CFFC:0x4000C000 */
    // Padding
-        uint8_t        pad2[4099];        /* 0x4000DFFF:0x4000CFFD */
+        uint8_t           pad2[4099];        /* 0x4000DFFF:0x4000CFFD */
    // led
-        rgb_led_s      led;               /* 0x4000E00B:0x4000E000 */
+        rgb_led_s         led;               /* 0x4000E00B:0x4000E000 */
    // Padding
-        uint32_t       pad3[1021];        /* 0x4000EFFF:0x4000E00C */
+        uint32_t          pad3[1021];        /* 0x4000EFFF:0x4000E00C */
    // controller
-        controller_s   controller;        /* 0x4000F00B:0x4000F000 */
+        SystemControl_s   controller;        /* 0x4000F003:0x4000F000 */
 } __RW top_s, *top_ptr;
 
 

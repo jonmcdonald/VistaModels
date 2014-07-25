@@ -8,8 +8,9 @@ $includes_begin;
 #include "rgb_led_model.h"
 #include "MEMORY_model.h"
 #include "APBBUS_model.h"
-#include "controller_model.h"
 #include "M3_model.h"
+#include "SystemControl_model.h"
+#include "ExternalEventHandler_sc23_model.h"
 $includes_end;
 
 $module_begin("top");
@@ -45,8 +46,11 @@ $end
 $init("ahb_apb"),
 ahb_apb(0)
 $end
-$init("ctl"),
-ctl(0)
+$init("handler"),
+handler(0)
+$end
+$init("control"),
+control(0)
 $end
     $initialization_end
 {
@@ -77,8 +81,11 @@ $end;
 $create_component("ahb_apb");
 ahb_apb = new AHB_APB_pvt("ahb_apb");
 $end;
-$create_component("ctl");
-ctl = new controller_pvt("ctl");
+$create_component("handler");
+handler = new ExternalEventHandler_sc23_pvt("handler");
+$end;
+$create_component("control");
+control = new SystemControl_pvt("control");
 $end;
 $bind("ahb_bus->mem_high","sram->slave");
 ahb_bus->mem_high.bind(sram->slave);
@@ -119,11 +126,14 @@ $end;
 $bind("apb_bus->led","led.slave");
 vista_bind(apb_bus->led, led.slave);
 $end;
-$bind("ctl->flag","cpu->irq_0");
-vista_bind(ctl->flag, cpu->irq_0);
+$bind("apb_bus->ctl","control->from_bus");
+vista_bind(apb_bus->ctl, control->from_bus);
 $end;
-$bind("apb_bus->ctl","ctl->slave");
-vista_bind(apb_bus->ctl, ctl->slave);
+$bind("control->flag","cpu->irq_0");
+vista_bind(control->flag, cpu->irq_0);
+$end;
+$bind("handler->master","control->from_event");
+vista_bind(handler->master, control->from_event);
 $end;
     $elaboration_end;
   $vlnv_assign_begin;
@@ -160,8 +170,11 @@ $end;
 $destruct_component("ahb_apb");
 delete ahb_apb; ahb_apb = 0;
 $end;
-$destruct_component("ctl");
-delete ctl; ctl = 0;
+$destruct_component("handler");
+delete handler; handler = 0;
+$end;
+$destruct_component("control");
+delete control; control = 0;
 $end;
     $destructor_end;
   }
@@ -194,8 +207,11 @@ $end;
 $component("ahb_apb");
 AHB_APB_pvt *ahb_apb;
 $end;
-$component("ctl");
-controller_pvt *ctl;
+$component("handler");
+ExternalEventHandler_sc23_pvt *handler;
+$end;
+$component("control");
+SystemControl_pvt *control;
 $end;
   $fields_end;
   $vlnv_decl_begin;

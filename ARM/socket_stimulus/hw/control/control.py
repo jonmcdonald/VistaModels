@@ -25,6 +25,8 @@ class simpleapp_tk(Tkinter.Tk):
         buttony.grid(column=1,row=0)
         buttonz = Tkinter.Button(self,text=u"Blue",command=self.OnButtonZClick)
         buttonz.grid(column=2,row=0)
+        buttonq = Tkinter.Button(self,text=u"End Simulation",command=self.OnButtonQClick)
+        buttonq.grid(column=0,row=1,sticky='EW',columnspan=3)
 
         self.protocol("WM_DELETE_WINDOW", self.shutDown)
         self.resizable(False,False)
@@ -37,6 +39,11 @@ class simpleapp_tk(Tkinter.Tk):
 
     def OnButtonZClick(self):
         comms.send("buttonZ")
+
+    def OnButtonQClick(self):
+        if tkMessageBox.askokcancel("Quit", "Do you really wish to quit?"):
+            comms.close()
+            self.destroy()
 
     def shutDown(self):
         if tkMessageBox.askokcancel("Quit", "Do you really wish to quit?"):

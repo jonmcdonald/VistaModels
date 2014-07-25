@@ -31,18 +31,6 @@ set_auto_parameter_default "slave_pipeline_length" 2 uint32 {}
 declare_register slave RED_EN 0x0 {} -rw_access r/w -is_trigger -width 32 -reset_value 0x0
 declare_register slave GREEN_EN 0x4 {} -rw_access r/w -is_trigger -width 32 -reset_value 0x0
 declare_register slave BLUE_EN 0x8 {} -rw_access r/w -is_trigger -width 32 -reset_value 0x0
-state_power 0 -condition_pairs {vre 0 vge 0 vbe 0}
-state_power 40 -condition_pairs {vre 0 vge 0 vbe 1}
-state_power 40 -condition_pairs {vre 0 vge 1 vbe 0}
-state_power 80 -condition_pairs {vre 0 vge 1 vbe 1}
-state_power 40 -condition_pairs {vre 1 vge 0 vbe 0}
-state_power 80 -condition_pairs {vre 1 vge 0 vbe 1}
-state_power 80 -condition_pairs {vre 1 vge 1 vbe 0}
-state_power 120 -condition_pairs {vre 1 vge 1 vbe 1}
-set_nominal_clock 100
-declare_variable vre -type int32
-declare_variable vge -type int32
-declare_variable vbe -type int32
 
 # === generate options ===
 set_generate_kind "pvt" ;# should be one of: model|pv|pvt
