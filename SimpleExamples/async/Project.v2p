@@ -1,0 +1,38 @@
+ProjectName Project
+Files {
+	 Sources {
+	 } 
+	 {Public Headers} {
+	 } 
+	 Documentation {
+		{$PRJDIR/parameters.txt}
+	 } 
+	 Others {
+		{$PRJDIR/traces.tcl} 
+	 } 
+	 {Linked Binaries} {
+		{$PRJDIR/libmodels.a}
+		{$PRJDIR/sc_main.o}
+	 } 
+	 {Other Binaries} {} 
+	 Schematics {
+	 } 
+}
+Folders {
+	 Sources {*.c *.cpp *.cc} 
+	 {Public Headers} *.h* 
+	 Documentation {*.txt *.doc} 
+	 Others * 
+	 {Linked Binaries} {*.o *.a *.so} 
+	 {Other Binaries} {*.exe .x} 
+}
+PathVariables { }
+GeneralCompilationOptions -Wall
+AlwaysCompileInCPPMode 1
+LinkPackages {model_builder sdParameters tlm}
+ProjectLibraryType archive
+ProjectComponentsLibraryPath {$PRJDIR/$PRJFILE_BASENAME/interfaces}
+ProjectWorkingDirectory {$PRJDIR/$PRJFILE_BASENAME/build}
+HasTLMSupport 1
+CompiledWithTLMSupport 1
+IsUsePathVariables 1

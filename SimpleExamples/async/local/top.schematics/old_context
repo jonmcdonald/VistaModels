@@ -1,0 +1,1 @@
+{add_element driver0 -kind component -pointer 1 -associated_unit models:driver -class driver_pvt -include ../models/driver_model.h} { add_bind driver0->y sink0->a } {add_element sink0 -kind component -pointer 1 -associated_unit models:sink -class sink_pvt -include ../models/sink_model.h}

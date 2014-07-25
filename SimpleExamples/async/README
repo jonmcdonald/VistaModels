@@ -1,0 +1,64 @@
+This directory contains an example Vista design which illustrates using the SystemC 2.3 capability
+of async_request_update() to create a thread_safe_event which is used to allow an external process
+to generate data and send it into the SystemC simulation.
+
+This example also includes an sc_module RealTimeStall which will slow the SystemC simulation down
+to some percent of real elapsed time.  This is useful in this case if the SystemC simulation should
+stay active and waiting for user input if there is no simulation activity.
+
+The following items are included:
+
+RealTimeStall  : include/RealTimeStall.h and models/RealTimeStall.cpp.  This sc_module is 
+                 instantiated in sc_main.cpp.  It slows the simulation to real elapsed time
+                 Parameters defined in the .h file control how much the simulation is slowed and
+                 how long this block will cause the simulation to run for.
+
+include/thread_safe_event.h defines the thread_safe_event class which uses async_request_update()
+                 to allow an event.notfiy() to be safely called from a pthread running outside
+                 the SystemC kernel.
+
+parameters.txt file defines the initial set of configuration parameters.  The main parameter to change
+                 would be the RealTimeSeconds parameter.  This defines how long the simulation will run
+                 both the real wall clock time and the simulated time will be synchronized.
+
+src/writer.c is a small c program which is invoked in an xterm by the driver block.  This program reads
+                 from stdin and writes the read lines to the named pipe passed in as a command line
+                 argument.
+
+models/driver* are the files which define the driver.  The driver will fork and exec the writer program in 
+                 a separate c++ pthread, this pthread will also read asynchronous data from the writer and
+                 notify a SystemC event in a thread safe way when data is available.  An input thread will
+                 take the input and put it into a tlm_fifo then an output thread will take the data from 
+                 the tlm_fifo and write it out the tlm y port.
+
+models/sink* are files which define the sink.  The sink receives the trasaction then prints out the data.
+
+
+Makefile       : Make targets for simplifying Vista usage.  Useful targets include:
+       "make mb"    : Load .mb files and generate code
+       "make"       : Compile all .cpp files and build the vista project.
+       "make vista" : Build any out of date files and start vista simulation in Gui
+       "make batch" : Build out of date files and run simulation in Vista batch
+       "make clean" : Remove all binary and intermediate files
+
+vista.ini      : Initial ini file for Vista which loads the Project.v2p and libraries.
+Project.v2p    : Initial project definition.  This will work with the files created
+                 and compiled by the Makefile
+
+parameters.txt : Initial parameters file.  Minimal contents
+sc_main.cpp    : Basic sc_main which instantiates one element "top" from "top.h"
+local          : Vista block diagram library containing inital blocks, "top" and "top2"
+                 which are instantiated by the sc_main.cpp
+
+emacs_vista    : Emacs initialization file which sets emacs to start in viper-mode.
+                 This is a vi emulation mode for those who like to work in vi.
+                 To use this file first type Alt-x in the emacs window under vista,
+                 answer the question you are prompted with, saving the answers.
+                 Then move the emacs_vista file to "$HOME/.emacs_vista". Now all editor
+                 windows under Vista will be started in vi mode.
+
+vista.preMakefile : Vista initialization makefile.  
+                    If desired move this file to "$HOME/.vista.preMakefile"
+                    It will be executed every time you build a project under Vista.  This
+                    is currently set to execute a Makefile in the users current working
+                    directory.  This works with the Makefile included in this directory.
