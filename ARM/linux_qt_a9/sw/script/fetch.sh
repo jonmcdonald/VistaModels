@@ -42,6 +42,15 @@ if [ ! -f zlib-$VER_ZLIB.tar.gz ]; then
 	wget http://zlib.net/zlib-$VER_ZLIB.tar.gz
 fi
 
+if [ ! -f libpng-$VER_PNG.tar.gz ]; then
+#	wget http://prdownloads.sourceforge.net/libpng/libpng-$VER_PNG.tar.gz
+	wget http://sourceforge.net/projects/libpng/files/libpng14/1.4.13/libpng-1.4.13.tar.gz
+fi
+
+if [ ! -f freetype-$VER_FREETYPE.tar.gz ]; then
+	wget http://download.savannah.gnu.org/releases/freetype/freetype-$VER_FREETYPE.tar.gz
+fi
+
 if [ ! -f openssl-$VER_OPENSSL.tar.gz ]; then
 	wget https://www.openssl.org/source/openssl-$VER_OPENSSL.tar.gz
 fi
@@ -86,6 +95,14 @@ fi
 
 if [ ! -d zlib-$VER_ZLIB ]; then
 	tar xvf zlib-$VER_ZLIB.tar.gz
+fi
+
+if [ ! -d libpng-$VER_PNG ]; then
+	tar xvf libpng-$VER_PNG.tar.gz
+fi
+
+if [ ! -d freetype-$VER_FREETYPE ]; then
+	tar xvf freetype-$VER_FREETYPE.tar.gz
 fi
 
 if [ ! -d openssl-$VER_OPENSSL ]; then

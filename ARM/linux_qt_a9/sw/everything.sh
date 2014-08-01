@@ -7,13 +7,19 @@
 ./script/build_ssl.sh
 ./script/build_zlib.sh
 ./script/build_sftp.sh
-./script/build_qt.sh 
+
+QT=../packages/release/qt-$VER_QT
+if [ -d $QT ]; then
+	./script/build_qt.sh 
+fi
+
 ./script/build_tools.sh     
 ./script/build_drm.sh 
 ./script/build_expat.sh 
 ./script/build_mesa3d.sh
 ./script/build_gears.sh 
-./script/build_sdl.sh 
+#./script/build_sdl.sh 
+./script/build_modules.sh
 ./script/build_ramdisk.sh
 ./script/build_axf.sh
 

@@ -16,6 +16,10 @@ export VER_ZLIB=1.2.8        # zlib for sftp
 export VER_OPENSSL=1.0.1g    # open ssl
 export VER_OPENSSH=6.6p1     # sftp support
 
+export VER_PNG=1.4.13
+export VER_FREETYPE=2.5.3
+
+
 # graphics
 export VER_MESA3D=10.1.0     # opengl
 export VER_DRM=2.4.52        # DRM
@@ -23,7 +27,7 @@ export VER_EXPAT=2.1.0	     # expat XML parser
 export VER_SDL=1.2.15        # SDL
 
 # uncomment this to include QT
-export VER_QT_MAJOR=4.8      # qt 4.8.5
-export VER_QT_MINOR=5
-export VER_QT=$VER_QT_MAJOR.$VER_QT_MINOR
+#export VER_QT_MAJOR=4.8      # qt 4.8.5
+#export VER_QT_MINOR=5
+#export VER_QT=$VER_QT_MAJOR.$VER_QT_MINOR
 

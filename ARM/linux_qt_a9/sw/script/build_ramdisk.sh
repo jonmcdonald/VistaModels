@@ -66,6 +66,11 @@ mkdir -p $SYSROOT/usr/libexec
 cp ../packages/openssh-$VER_OPENSSH/sftp-server $SYSROOT/usr/libexec
 cp $SYSROOT/usr/local/lib/libz.so.1 $SYSROOT/lib
 
+mkdir -p $SYSROOT/lib/modules/$VER_LINUX
+cp `find $SW_ROOT/kernel_modules -name "*.ko" -print` $SYSROOT/lib/modules/$VER_LINUX
+
+#cp /mnt/store/data/demos/cluster/iviv3-meibp-m6/bin/fbdev_imx6/instrumentcluster3d_demo $SYSROOT/root
+
 cd $SYSROOT 
 
 # preserves links to busybox in /usr/bin /usr/sbin
@@ -77,6 +82,7 @@ find . | grep '^./usr/lib/lib.*\.so' >> ../sysroot.files
 find usr/bin usr/sbin -type d -o -type l -o -name 'gdb*' >> ../sysroot.files
 find usr/bin usr/sbin -type d -o -type l -o -name 'ldd*' >> ../sysroot.files
 
+find lib >> ../sysroot.files
 find usr/local >> ../sysroot.files
 echo usr/libexec >> ../sysroot.files
 echo usr/libexec/sftp-server >> ../sysroot.files

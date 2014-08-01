@@ -59,7 +59,7 @@ atags:
 	.long	(1f - .) >> 2
 	.long	0x54410009
 
-	.asciz	"console=ttyAMA0 rdinit=/linuxrc mem=512M earlyprintk verbose debug ignore_loglevel"
+	.asciz	"console=ttyAMA0 rdinit=/linuxrc mem=512M earlyprintk verbose debug ignore_loglevel coherent_pool=4M" 
 	.align	2
 1:
 	@ ATAG_INITRD2
