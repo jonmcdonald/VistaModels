@@ -26,6 +26,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <sys/time.h>
+#include <linux/fb.h>
+#include <fcntl.h>
 
 #define EGL_EGLEXT_PROTOTYPES
 #include "EGL/egl.h"
@@ -40,9 +42,15 @@ static EGLModeMESA kms_mode;
 static EGLint kms_width, kms_height;
 
 void
-_eglutNativeInitDisplay(void)
+_eglutNativeInitDisplay(char* dev)
 {
-   _eglut->native_dpy = EGL_DEFAULT_DISPLAY;
+    _eglut->native_dpy = EGL_DEFAULT_DISPLAY;
+    if(dev != 0) {
+        int fb_fd = open(dev, O_RDWR);
+        if(fb_fd != -1) {
+	   _eglut->native_dpy = (EGLNativeDisplayType) fb_fd;
+        }
+    }
    _eglut->surface_type = EGL_SCREEN_BIT_MESA;
 }
 

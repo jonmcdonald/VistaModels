@@ -204,7 +204,7 @@ void
 eglutInit(int argc, char **argv)
 {
    int i;
-
+   _eglut->display_name = 0;
    for (i = 1; i < argc; i++) {
       if (strcmp(argv[i], "-display") == 0)
          _eglut->display_name = argv[++i];
@@ -213,7 +213,7 @@ eglutInit(int argc, char **argv)
       }
    }
 
-   _eglutNativeInitDisplay();
+   _eglutNativeInitDisplay(_eglut->display_name);
    _eglut->dpy = eglGetDisplay(_eglut->native_dpy);
 
    if (!eglInitialize(_eglut->dpy, &_eglut->major, &_eglut->minor))
