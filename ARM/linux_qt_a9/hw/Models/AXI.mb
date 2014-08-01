@@ -15,6 +15,8 @@ add_port "lcd_slave" /TLM/protocols/axi slave 64 -bind_mode mandatory
 add_port "ethernet_master" /TLM/protocols/axi master 32 -bind_mode mandatory
 add_port "usb_master" /TLM/protocols/axi master 32 -bind_mode mandatory
 add_port "usb_slave" /TLM/protocols/axi slave 32 -bind_mode mandatory
+add_port "fb_master" /TLM/protocols/axi master 32 -bind_mode mandatory
+add_port "fb_slave" /TLM/protocols/axi slave 32 -bind_mode mandatory
 
 # === parameters ===
 # usage: add_parameter <parameter_name> <default_value> <type:string|unsigned|int>
@@ -31,7 +33,6 @@ set_auto_parameter_default "warning_level" WARNING string {
 set_auto_parameter_default "layers" {""} string {}
 set_auto_parameter_default "slave_sets" {""} string {}
 set_auto_parameter_default "write_broadcast" 0 uint32 {}
-set_auto_parameter_default "bus_arbiter" 1 uint32 {}
 set_auto_parameter_default "a9_slave0_priority" 0 uint32 {}
 set_auto_parameter_default "a9_slave0_vmap" {""} string {}
 set_auto_parameter_default "a9_slave1_priority" 0 uint32 {}
@@ -70,6 +71,14 @@ set_auto_parameter_default "usb_master_additional_ranges" {""} string {}
 set_auto_parameter_default "usb_master_latency" 0 uint32 {}
 set_auto_parameter_default "usb_slave_priority" 0 uint32 {}
 set_auto_parameter_default "usb_slave_vmap" {""} string {}
+set_auto_parameter_default "fb_master_priority" 0 uint32 {}
+set_auto_parameter_default "fb_master_base_address" 0 uint64 {}
+set_auto_parameter_default "fb_master_size" 0 uint64 {}
+set_auto_parameter_default "fb_master_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "fb_master_additional_ranges" {""} string {}
+set_auto_parameter_default "fb_master_latency" 0 uint32 {}
+set_auto_parameter_default "fb_slave_priority" 0 uint32 {}
+set_auto_parameter_default "fb_slave_vmap" {""} string {}
 
 # === generics ===
 # usage: add_generic <generic_name> <value>
@@ -82,24 +91,35 @@ add_pipeline_policy bridge_master a9_slave0 -latency bridge_master_latency -buff
 add_pipeline_policy lcd_master a9_slave0 -latency lcd_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy ethernet_master a9_slave0 -latency ethernet_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy usb_master a9_slave0 -latency usb_master_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy fb_master a9_slave0 -latency fb_master_latency -buffer_size 0 -sync 1 -power 0
 add_delay_policy a9_slave1 0 -latency 0 -sync 1 -power 0
 add_pipeline_policy ram_master a9_slave1 -latency ram_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy bridge_master a9_slave1 -latency bridge_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy lcd_master a9_slave1 -latency lcd_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy ethernet_master a9_slave1 -latency ethernet_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy usb_master a9_slave1 -latency usb_master_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy fb_master a9_slave1 -latency fb_master_latency -buffer_size 0 -sync 1 -power 0
 add_delay_policy lcd_slave 0 -latency 0 -sync 1 -power 0
 add_pipeline_policy ram_master lcd_slave -latency ram_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy bridge_master lcd_slave -latency bridge_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy lcd_master lcd_slave -latency lcd_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy ethernet_master lcd_slave -latency ethernet_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy usb_master lcd_slave -latency usb_master_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy fb_master lcd_slave -latency fb_master_latency -buffer_size 0 -sync 1 -power 0
 add_delay_policy usb_slave 0 -latency 0 -sync 1 -power 0
 add_pipeline_policy ram_master usb_slave -latency ram_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy bridge_master usb_slave -latency bridge_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy lcd_master usb_slave -latency lcd_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy ethernet_master usb_slave -latency ethernet_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy usb_master usb_slave -latency usb_master_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy fb_master usb_slave -latency fb_master_latency -buffer_size 0 -sync 1 -power 0
+add_delay_policy fb_slave 0 -latency 0 -sync 1 -power 0
+add_pipeline_policy ram_master fb_slave -latency ram_master_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy bridge_master fb_slave -latency bridge_master_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy lcd_master fb_slave -latency lcd_master_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy ethernet_master fb_slave -latency ethernet_master_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy usb_master fb_slave -latency usb_master_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy fb_master fb_slave -latency fb_master_latency -buffer_size 0 -sync 1 -power 0
 
 # === generate options ===
 set_generate_kind "pvt" ;# should be one of: model|pv|pvt

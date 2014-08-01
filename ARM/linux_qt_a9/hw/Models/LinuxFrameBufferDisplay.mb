@@ -3,11 +3,10 @@
 #   - load this file using 'load_model' API function
 #   - compile this file using "Modeling->Load Model File" menu command.
 # ========================================================================
-template "/TLM/Generic_Library/Bus"
 
 # === ports ===
-add_port "bus_slave" /TLM/protocols/apb slave 32 -bind_mode mandatory
-add_port "uart0_master" /TLM/protocols/apb master 16 -bind_mode mandatory
+add_port "from_bus" /TLM/protocols/axi slave 32 -bind_mode mandatory
+add_port "to_bus" /TLM/protocols/axi master 32 -bind_mode mandatory
 
 # === parameters ===
 # usage: add_parameter <parameter_name> <default_value> <type:string|unsigned|int>
@@ -15,30 +14,32 @@ add_port "uart0_master" /TLM/protocols/apb master 16 -bind_mode mandatory
 
 # === auto parameters ===
 set_auto_parameter_default "clock" {10 ns} time {}
-set_auto_parameter_default "apb_clock" clock time {}
+set_auto_parameter_default "axi_clock" clock time {}
 set_auto_parameter_default "nominal_voltage" 1 double {}
+set_auto_parameter_default "mb_debug" false boolean {true false}
+set_auto_parameter_default "call_to_default_if" false boolean {true false}
 set_auto_parameter_default "verbose_parameters" true boolean {true false}
 set_auto_parameter_default "dmi_enabled" true boolean {true false}
 set_auto_parameter_default "warning_level" WARNING string {
       "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
-set_auto_parameter_default "layers" {""} string {}
-set_auto_parameter_default "slave_sets" {""} string {}
-set_auto_parameter_default "write_broadcast" 0 uint32 {}
-set_auto_parameter_default "bus_slave_priority" 0 uint32 {}
-set_auto_parameter_default "bus_slave_vmap" {""} string {}
-set_auto_parameter_default "uart0_master_base_address" 0 uint64 {}
-set_auto_parameter_default "uart0_master_size" 0 uint64 {}
-set_auto_parameter_default "uart0_master_subtract_base_address" 1 uint32 {0 1}
-set_auto_parameter_default "uart0_master_additional_ranges" {""} string {}
-set_auto_parameter_default "uart0_master_latency" 0 uint32 {}
+set_auto_parameter_default "from_bus_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "from_bus_outstanding" 1 uint32 {}
+set_auto_parameter_default "from_bus_read_data_queue_size" 0 uint32 {}
+set_auto_parameter_default "from_bus_write_data_queue_size" 0 uint32 {}
+set_auto_parameter_default "to_bus_outstanding" 1 uint32 {}
+set_auto_parameter_default "to_bus_read_data_queue_size" 0 uint32 {}
+set_auto_parameter_default "to_bus_write_data_queue_size" 0 uint32 {}
 
 # === generics ===
 # usage: add_generic <generic_name> <value>
 # example: add_generic "OUT_ACTIVE_VALUE" false
 
 # === machine architecture ===
-add_delay_policy bus_slave 0 -latency 0 -sync 1 -power 0
-add_pipeline_policy uart0_master bus_slave -latency uart0_master_latency -buffer_size 0 -sync 1 -power 0
+declare_register from_bus SMEM_START 0x0 {} -rw_access rw -width 32
+declare_register from_bus SMEM_LEN 0x4 {} -rw_access rw -trigger w -width 32
+declare_register from_bus XRES 0x8 {} -rw_access rw -width 32
+declare_register from_bus YRES 0xC {} -rw_access rw -width 32
+declare_register from_bus BITS_PER_PIXEL 0x10 {} -rw_access rw -width 32
 
 # === generate options ===
 set_generate_kind "pvt" ;# should be one of: model|pv|pvt

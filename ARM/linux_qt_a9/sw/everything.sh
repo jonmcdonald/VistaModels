@@ -15,8 +15,7 @@
 #./script/build_sdl.sh 
 ./script/build_modules.sh
 
-QT=../packages/release/qt-$VER_QT
-if [ -d $QT ]; then
+if [ "$VER_QT_MAJOR" == "4.8" ]; then
 	./script/build_qt.sh 
 fi
 

@@ -24,6 +24,9 @@ stock.axi_bus.lcd_master_size              = 0x00001000
 stock.axi_bus.usb_master_base_address      = 0x10021000
 stock.axi_bus.usb_master_size              = 0x00004000
 
+stock.axi_bus.fb_master_base_address       = 0x10025000
+stock.axi_bus.fb_master_size               = 0x00001000
+
 stock.axi_bus.ethernet_master_base_address = 0x4e000000
 stock.axi_bus.ethernet_master_size         = 0x02000000
 
@@ -46,5 +49,7 @@ stock.console0.read_from_console_buffer_size = 1024
 stock.console0.read_from_console_latency = 5
 stock.console0.read_from_console_latency_time_unit = MS
 stock.console0.console_title = UART0
+
+trace_script = trace.tcl
 
 

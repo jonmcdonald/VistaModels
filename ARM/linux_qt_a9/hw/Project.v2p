@@ -13,6 +13,7 @@ Files {
 		{$PRJDIR/Models/PL111.mb}
 		{$PRJDIR/Models/LAN9118.mb}
 		{$PRJDIR/Models/EHCI.mb}
+		{$PRJDIR/Models/LinuxFrameBufferDisplay.mb}
 	 } 
 	 Schematics {
 		{$PRJDIR/Models/stock.h}
@@ -22,7 +23,7 @@ Files {
 	 {Other Binaries} {} 
 }
 Designs {{$PRJDIR/sc_main.cpp}}
-Simulations /mnt/store/data/platforms/stock_linux/hw/Project/sim
+Simulations {/mnt/store/data/platforms/stock_linux/hw/Project/sim /mnt/store/data/VistaModels/ARM/linux_qt_a9/hw/Project/sim}
 VirtualPrototypes stock.vppf
 Folders {
 	 Sources {*.c *.cpp *.C *.cxx *.cc} 
@@ -36,6 +37,7 @@ Folders {
 GeneralCompilationOptions -Wall
 AlwaysCompileInCPPMode 1
 LinkPackages {model_builder models_catalogue}
+LinkOptions -lX11
 ProjectLibraryType archive
 ProjectComponentsLibraryPath {$PRJDIR/$PRJFILE_BASENAME/interfaces}
 ProjectWorkingDirectory {$PRJDIR/$PRJFILE_BASENAME/build}

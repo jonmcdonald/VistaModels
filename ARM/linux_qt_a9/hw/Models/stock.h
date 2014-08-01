@@ -11,6 +11,7 @@ $includes_begin;
 #include "A9x1_model.h"
 #include "LAN9118_model.h"
 #include "EHCI_model.h"
+#include "LinuxFrameBufferDisplay_model.h"
 $includes_end;
 
 $module_begin("stock");
@@ -49,6 +50,9 @@ $end
 $init("ethernet"),
 ethernet(0)
 $end
+$init("fb"),
+fb(0)
+$end
     $initialization_end
 {
     $elaboration_begin;
@@ -81,6 +85,9 @@ usb = new EHCI_pvt("usb");
 $end;
 $create_component("ethernet");
 ethernet = new LAN9118_pvt("ethernet");
+$end;
+$create_component("fb");
+fb = new LinuxFrameBufferDisplay_pvt("fb");
 $end;
 $bind("console0->nUARTRTS","uart0->nUARTCTS");
 vista_bind(console0->nUARTRTS, uart0->nUARTCTS);
@@ -136,6 +143,12 @@ $end;
 $bind("apb_bus->uart0_master","uart0->AMBA_APB");
 vista_bind(apb_bus->uart0_master, uart0->AMBA_APB);
 $end;
+$bind("axi_bus->fb_master","fb->from_bus");
+vista_bind(axi_bus->fb_master, fb->from_bus);
+$end;
+$bind("fb->to_bus","axi_bus->fb_slave");
+vista_bind(fb->to_bus, axi_bus->fb_slave);
+$end;
     $elaboration_end;
   $vlnv_assign_begin;
 m_library = "Models";
@@ -175,6 +188,9 @@ $end;
 $destruct_component("ethernet");
 delete ethernet; ethernet = 0;
 $end;
+$destruct_component("fb");
+delete fb; fb = 0;
+$end;
     $destructor_end;
   }
 public:
@@ -208,6 +224,9 @@ EHCI_pvt *usb;
 $end;
 $component("ethernet");
 LAN9118_pvt *ethernet;
+$end;
+$component("fb");
+LinuxFrameBufferDisplay_pvt *fb;
 $end;
   $fields_end;
   $vlnv_decl_begin;

@@ -43,8 +43,7 @@ if [ ! -f zlib-$VER_ZLIB.tar.gz ]; then
 fi
 
 if [ ! -f libpng-$VER_PNG.tar.gz ]; then
-#	wget http://prdownloads.sourceforge.net/libpng/libpng-$VER_PNG.tar.gz
-	wget http://sourceforge.net/projects/libpng/files/libpng14/1.4.13/libpng-1.4.13.tar.gz
+	wget http://sourceforge.net/projects/libpng/files/libpng14/$VER_PNG/libpng-$VER_PNG.tar.gz
 fi
 
 if [ ! -f freetype-$VER_FREETYPE.tar.gz ]; then

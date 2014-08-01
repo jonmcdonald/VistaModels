@@ -60,8 +60,9 @@ mknod /dev/input/event1 c 13 65
 mknod /dev/input/event2 c 13 66
 mknod /dev/input/event3 c 13 67
 
-echo "   fb0"
+echo "   fb"
 mknod /dev/fb0         c 29 0
+mknod /dev/fb1         c 29 1
 
 echo "Setting hostname to demo"
 hostname demo
