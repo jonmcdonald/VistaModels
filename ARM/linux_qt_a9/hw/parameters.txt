@@ -50,6 +50,6 @@ stock.console0.read_from_console_latency = 5
 stock.console0.read_from_console_latency_time_unit = MS
 stock.console0.console_title = UART0
 
-trace_script = trace.tcl
+#trace_script = trace.tcl
 
 
