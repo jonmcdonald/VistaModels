@@ -11,6 +11,8 @@
 ./script/build_drm.sh 
 ./script/build_expat.sh 
 ./script/build_mesa3d.sh
+./script/build_freetype.sh
+./script/build_libpng.sh
 ./script/build_gears.sh 
 #./script/build_sdl.sh 
 ./script/build_modules.sh
