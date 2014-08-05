@@ -5,15 +5,16 @@
 # ========================================================================
 
 # === ports ===
-add_port "from_bus" /TLM/protocols/axi slave 32 -bind_mode mandatory
-add_port "to_bus" /TLM/protocols/axi master 32 -bind_mode mandatory
+add_port "slave" /TLM/protocols/axi slave 32 -bind_mode mandatory
+add_port "interrupt" /TLM/protocols/signal master 1 -bind_mode mandatory
 
 # === parameters ===
-add_parameter "targetRefresh" 100 uint32 {}
-add_parameter "hostRefresh" 50 uint32 {}
+# usage: add_parameter <parameter_name> <default_value> <type:string|unsigned|int>
+# example: add_parameter "parameter1" 12 unsigned
 
 # === auto parameters ===
 set_auto_parameter_default "clock" {10 ns} time {}
+set_auto_parameter_default "signal_clock" clock time {}
 set_auto_parameter_default "axi_clock" clock time {}
 set_auto_parameter_default "nominal_voltage" 1 double {}
 set_auto_parameter_default "mb_debug" false boolean {true false}
@@ -22,24 +23,17 @@ set_auto_parameter_default "verbose_parameters" true boolean {true false}
 set_auto_parameter_default "dmi_enabled" true boolean {true false}
 set_auto_parameter_default "warning_level" WARNING string {
       "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
-set_auto_parameter_default "from_bus_pipeline_length" 2 uint32 {}
-set_auto_parameter_default "from_bus_outstanding" 1 uint32 {}
-set_auto_parameter_default "from_bus_read_data_queue_size" 0 uint32 {}
-set_auto_parameter_default "from_bus_write_data_queue_size" 0 uint32 {}
-set_auto_parameter_default "to_bus_outstanding" 1 uint32 {}
-set_auto_parameter_default "to_bus_read_data_queue_size" 0 uint32 {}
-set_auto_parameter_default "to_bus_write_data_queue_size" 0 uint32 {}
+set_auto_parameter_default "slave_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "slave_outstanding" 1 uint32 {}
+set_auto_parameter_default "slave_read_data_queue_size" 0 uint32 {}
+set_auto_parameter_default "slave_write_data_queue_size" 0 uint32 {}
 
 # === generics ===
 # usage: add_generic <generic_name> <value>
 # example: add_generic "OUT_ACTIVE_VALUE" false
 
 # === machine architecture ===
-declare_register from_bus SMEM_START 0x0 {} -rw_access rw -width 32
-declare_register from_bus SMEM_LEN 0x4 {} -rw_access rw -trigger w -width 32
-declare_register from_bus XRES 0x8 {} -rw_access rw -width 32
-declare_register from_bus YRES 0xC {} -rw_access rw -width 32
-declare_register from_bus BITS_PER_PIXEL 0x10 {} -rw_access rw -width 32
+declare_register slave SETUP 0x0 {} -rw_access rw -trigger w -width 32
 
 # === generate options ===
 set_generate_kind "pvt" ;# should be one of: model|pv|pvt

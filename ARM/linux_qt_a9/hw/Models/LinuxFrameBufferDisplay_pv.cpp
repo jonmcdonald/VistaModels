@@ -71,7 +71,7 @@ void
 LinuxFrameBufferDisplay_pv::grab_buffer()
 {
   while(1) {
-    wait(100, SC_MS); // 10 frames a second
+    wait(targetRefresh, SC_MS);
     if((SMEM_START != 0) && (SMEM_LEN != 0)) { 
       pthread_mutex_lock(&refresh_mutex);
       to_bus_read(SMEM_START, (unsigned char*) crtbuf, SMEM_LEN);
@@ -336,7 +336,7 @@ void*
 LinuxFrameBufferDisplay_pv::startX() {
   int x, y;
   while (1) {
-    usleep(20000); // microseconds = 1000000 / 20000 = 50 fps
+    usleep(hostRefresh * 1000); // microseconds = 1000000 / 50000 = 20 fps
 
     pthread_mutex_lock(&change_mutex);
     if(change) {

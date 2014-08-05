@@ -12,6 +12,7 @@ $includes_begin;
 #include "LAN9118_model.h"
 #include "EHCI_model.h"
 #include "LinuxFrameBufferDisplay_model.h"
+#include "CustomPeripheral_model.h"
 $includes_end;
 
 $module_begin("stock");
@@ -53,6 +54,9 @@ $end
 $init("fb"),
 fb(0)
 $end
+$init("peripheral"),
+peripheral(0)
+$end
     $initialization_end
 {
     $elaboration_begin;
@@ -88,6 +92,9 @@ ethernet = new LAN9118_pvt("ethernet");
 $end;
 $create_component("fb");
 fb = new LinuxFrameBufferDisplay_pvt("fb");
+$end;
+$create_component("peripheral");
+peripheral = new CustomPeripheral_pvt("peripheral");
 $end;
 $bind("console0->nUARTRTS","uart0->nUARTCTS");
 vista_bind(console0->nUARTRTS, uart0->nUARTCTS);
@@ -149,6 +156,12 @@ $end;
 $bind("fb->to_bus","axi_bus->fb_slave");
 vista_bind(fb->to_bus, axi_bus->fb_slave);
 $end;
+$bind("axi_bus->peripheral_master","peripheral->slave");
+vista_bind(axi_bus->peripheral_master, peripheral->slave);
+$end;
+$bind("peripheral->interrupt","cpu->irq_3");
+vista_bind(peripheral->interrupt, cpu->irq_3);
+$end;
     $elaboration_end;
   $vlnv_assign_begin;
 m_library = "Models";
@@ -191,6 +204,9 @@ $end;
 $destruct_component("fb");
 delete fb; fb = 0;
 $end;
+$destruct_component("peripheral");
+delete peripheral; peripheral = 0;
+$end;
     $destructor_end;
   }
 public:
@@ -227,6 +243,9 @@ LAN9118_pvt *ethernet;
 $end;
 $component("fb");
 LinuxFrameBufferDisplay_pvt *fb;
+$end;
+$component("peripheral");
+CustomPeripheral_pvt *peripheral;
 $end;
   $fields_end;
   $vlnv_decl_begin;
