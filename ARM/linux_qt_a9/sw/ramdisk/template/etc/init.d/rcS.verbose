@@ -82,3 +82,6 @@ mkdir /tmp
 echo "Running inetd"
 inetd
 
+echo "Starting Peripheral Driver"
+insmod /lib/modules/3.14.15/peripheral_driver.ko
+
