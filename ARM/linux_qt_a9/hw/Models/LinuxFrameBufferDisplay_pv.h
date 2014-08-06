@@ -23,6 +23,7 @@
 //* Automatically merged on: Jul. 30, 2014 11:59:01 AM, (user: markca)
 //* Automatically merged on: Jul. 30, 2014 12:54:26 PM, (user: markca)
 //* Automatically merged on: Jul. 30, 2014 10:16:52 PM, (user: markca)
+//* Automatically merged on: Aug. 06, 2014 10:08:47 AM, (user: markca)
 //*>
 
 
@@ -39,8 +40,6 @@
 #define CHUNKX 32
 #define CHUNKY 20
 
-#define SCREEN_ZOOM 1			        /* default zoom size*/
-
 using namespace tlm;
 
 //This class inherits from the LinuxFrameBufferDisplay_pv_base class
@@ -52,15 +51,7 @@ class LinuxFrameBufferDisplay_pv : public LinuxFrameBufferDisplay_pv_base {
   // Do not add parameters here.
   // To add parameters - use the Model Builder form (under PV->Parameters tab)
   SC_HAS_PROCESS(LinuxFrameBufferDisplay_pv);
-  LinuxFrameBufferDisplay_pv(sc_core::sc_module_name module_name);  
-  
- protected:
-  /////////////////////////////////////////
-  // write callbacks of registers
-  ////////////////////////////////////////// 
-  void cb_write_SMEM_LEN(unsigned int newValue); 
-
-  void grab_buffer();
+  LinuxFrameBufferDisplay_pv(sc_core::sc_module_name module_name);   
 
  protected:
   ////////////////////////////////////////
@@ -76,8 +67,7 @@ class LinuxFrameBufferDisplay_pv : public LinuxFrameBufferDisplay_pv_base {
   //////////////////////////////////////// 
   bool from_bus_callback_write(mb_address_type address, unsigned char* data, unsigned size);
   
-  unsigned from_bus_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size); 
-  virtual void cb_transport_dbg_SMEM_LEN(tlm::tlm_generic_payload& trans); 
+  unsigned from_bus_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size);  
   bool from_bus_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);   
 
 
@@ -91,23 +81,12 @@ private:
 
   pthread_t xThread;
 
-  int crtx;	
-  int crty;
-  int bit_depth;
-  int zoom;
-  
   uint32_t *crtbuf;
 
-  pthread_mutex_t refresh_mutex;
-  bool refresh;
-
-  pthread_mutex_t change_mutex;	
-  bool change;
-  
   Display *display;
   GC gc;
   Window window, root, parent;
-  int depth, screen, visibility;
+  int hostDepth, screen, visibility;
   int repaint;
   Pixmap pixmap;
   

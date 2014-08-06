@@ -51,36 +51,16 @@ using namespace std;
 LinuxFrameBufferDisplay_pv::LinuxFrameBufferDisplay_pv(sc_module_name module_name) 
   : LinuxFrameBufferDisplay_pv_base(module_name) {
 
-  zoom = SCREEN_ZOOM;
-
-  change = false;
   pixmap = 0;
   gc = 0;
   window = 0;
   display = 0;
   
-  crtbuf = (uint32_t*) malloc(MAX_CRTX * MAX_CRTY * 4);
+  crtbuf = (uint32_t*) malloc(width * height * (depth / 8));
   
   int r = pthread_create( &xThread, NULL, &LinuxFrameBufferDisplay_pv::call_startX, this);
   if (r ==0) pthread_detach(xThread);
-
-  SC_THREAD(grab_buffer);
-}   
-
-void
-LinuxFrameBufferDisplay_pv::grab_buffer()
-{
-  while(1) {
-    wait(targetRefresh, SC_MS);
-    if((SMEM_START != 0) && (SMEM_LEN != 0)) { 
-      pthread_mutex_lock(&refresh_mutex);
-      to_bus_read(SMEM_START, (unsigned char*) crtbuf, SMEM_LEN);
-      refresh = true;
-      pthread_mutex_unlock(&refresh_mutex);
-    }
-  }
 }
-
 
 /////////////////////////////////////////////////////////////////////////////////
 // Use these functions to define the behavior of your model when there is a 
@@ -88,31 +68,18 @@ LinuxFrameBufferDisplay_pv::grab_buffer()
 // These functions are called before the write callbacks on the port.
 ///////////////////////////////////////////////////////////////////////////////// 
 
-// Write callback for SMEM_LEN register.
-// The newValue has been already assigned to the SMEM_LEN register.
-void LinuxFrameBufferDisplay_pv::cb_write_SMEM_LEN(unsigned int newValue) {
-  pthread_mutex_lock(&change_mutex);
-  change = true;
-  pthread_mutex_unlock(&change_mutex);
-}
-
 
 // Read callback for from_bus port.
 // Returns true when successful.
 bool LinuxFrameBufferDisplay_pv::from_bus_callback_read(mb_address_type address, unsigned char* data, unsigned size) {
-
   return true;
 }
 
 // Write callback for from_bus port.
 // Returns true when successful.
 bool LinuxFrameBufferDisplay_pv::from_bus_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
-
   return true;
 } 
-
-
-
 
 unsigned LinuxFrameBufferDisplay_pv::from_bus_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size) {
   return 0;
@@ -123,10 +90,12 @@ unsigned LinuxFrameBufferDisplay_pv::from_bus_callback_write_dbg(mb_address_type
 } 
 
 bool LinuxFrameBufferDisplay_pv::from_bus_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData) {
-  return false;
+  dmiData.allow_read_write();
+  dmiData.set_dmi_ptr((unsigned char*) crtbuf);
+  dmiData.set_start_address(0);
+  dmiData.set_end_address(width * height * (depth / 8));
+  return true;
 }
-
-void LinuxFrameBufferDisplay_pv::cb_transport_dbg_SMEM_LEN(tlm::tlm_generic_payload& trans) {}
 
 void LinuxFrameBufferDisplay_pv::X11_init(void)
 {
@@ -145,18 +114,18 @@ void LinuxFrameBufferDisplay_pv::X11_init(void)
 
   screen = DefaultScreen(display);
   parent = root = RootWindow(display, screen);
-  depth = DefaultDepth(display, screen);
+  hostDepth = DefaultDepth(display, screen);
 
   XSelectInput(display, root, SubstructureNotifyMask);
 
   attr.event_mask = ExposureMask;
   attr.background_pixel = BlackPixel(display, screen);
 
-  window = XCreateWindow(display, root, 0, 0, crtx * zoom, crty * zoom,
-                         0, depth, InputOutput, DefaultVisual(display, screen),
+  window = XCreateWindow(display, root, 0, 0, width * zoom, height * zoom,
+                         0, hostDepth, InputOutput, DefaultVisual(display, screen),
                          CWEventMask | CWBackPixel, &attr);
 
-  sprintf(name, "LinuxFrameBuffer %dx%dx%dbpp", crtx, crty, bit_depth);
+  sprintf(name, "LinuxFrameBuffer %dx%dx%dbpp", width, height, depth);
 
   XChangeProperty(display, window, XA_WM_NAME, XA_STRING, 8,
                   PropModeReplace, (const unsigned char*) name, strlen(name));
@@ -171,7 +140,7 @@ void LinuxFrameBufferDisplay_pv::X11_init(void)
   XClearWindow(display, window);
   XSync(display, 0);
 
-  pixmap = XCreatePixmap(display, window, CHUNKX * zoom, CHUNKY * zoom, depth);
+  pixmap = XCreatePixmap(display, window, CHUNKX * zoom, CHUNKY * zoom, hostDepth);
 }
 
 void LinuxFrameBufferDisplay_pv::X11_close(void)
@@ -196,18 +165,18 @@ LinuxFrameBufferDisplay_pv::calc_patch_crc(int ix, int iy)
   uint32_t crc = 0x8154711;
   int x, y, off;
 
-  switch (bit_depth) {
+  switch (depth) {
   default:
     break;
   case 15:
   case 16:
-    off = (ix * CHUNKX + iy * CHUNKY * crtx) * 2;
+    off = (ix * CHUNKX + iy * CHUNKY * width) * 2;
     break;
   case 24:
-    off = (ix * CHUNKX + iy * CHUNKY * crtx) * 3;
+    off = (ix * CHUNKX + iy * CHUNKY * width) * 3;
     break;
   case 32:
-    off = (ix * CHUNKX + iy * CHUNKY * crtx) * 4;
+    off = (ix * CHUNKX + iy * CHUNKY * width) * 4;
     break;
   }
 
@@ -218,23 +187,23 @@ LinuxFrameBufferDisplay_pv::calc_patch_crc(int ix, int iy)
       unsigned char *data;
       unsigned char a, r, g, b, h, l;
 
-      switch (bit_depth) {
+      switch (depth) {
       case 15:
       case 16:
-        data = ((unsigned char *)crtbuf) + off + (x + y*crtx)*2;
+        data = ((unsigned char *)crtbuf) + off + (x + y*width)*2;
         l = *data++;
         h = *data;
         dat = l | (h<<16);
         break;
       case 24:
-        data = ((unsigned char *)crtbuf) + off + (x + y*crtx)*3;
+        data = ((unsigned char *)crtbuf) + off + (x + y*width)*3;
         b = *data++;
         g = *data++;
         r = *data;
         dat = b | (g<<8) | (r<<16);
         break;
       case 32:
-        data = ((unsigned char *)crtbuf) + off + (x + y*crtx)*4;
+        data = ((unsigned char *)crtbuf) + off + (x + y*width)*4;
         b = *data++;
         g = *data++;
         r = *data++;
@@ -259,18 +228,18 @@ LinuxFrameBufferDisplay_pv::check_and_paint(int ix, int iy)
     return;
   crcs[ix][iy] = crc;
 
-  switch (bit_depth) {
+  switch (depth) {
   default:
     break;
   case 15:
   case 16:
-    off = (ix * CHUNKX + iy * CHUNKY * crtx) * 2;
+    off = (ix * CHUNKX + iy * CHUNKY * width) * 2;
     break;
   case 24:
-    off = (ix * CHUNKX + iy * CHUNKY * crtx) * 3;
+    off = (ix * CHUNKX + iy * CHUNKY * width) * 3;
     break;
   case 32:
-    off = (ix * CHUNKX + iy * CHUNKY * crtx) * 4;
+    off = (ix * CHUNKX + iy * CHUNKY * width) * 4;
     break;
   }
 
@@ -283,9 +252,9 @@ LinuxFrameBufferDisplay_pv::check_and_paint(int ix, int iy)
       unsigned char a, r, g, b, h, l;
       uint32_t dat;
 
-      switch (bit_depth) {
+      switch (depth) {
       case 15:
-        data = ((unsigned char *)crtbuf) + off + (x + y*crtx)*2;
+        data = ((unsigned char *)crtbuf) + off + (x + y*width)*2;
         l = *data++;
         h = *data;
         dat = l | (h<<8);
@@ -295,7 +264,7 @@ LinuxFrameBufferDisplay_pv::check_and_paint(int ix, int iy)
         dat = b | (g<<8) | (r<<16);
         break;
       case 16:
-        data = ((unsigned char *)crtbuf) + off + (x + y*crtx)*2;
+        data = ((unsigned char *)crtbuf) + off + (x + y*width)*2;
         l = *data++;
         h = *data;
         dat = l | (h<<8);
@@ -305,14 +274,14 @@ LinuxFrameBufferDisplay_pv::check_and_paint(int ix, int iy)
         dat = b | (g<<8) | (r<<16);
         break;
       case 24:
-        data = ((unsigned char *)crtbuf) + off + (x + y*crtx)*3;
+        data = ((unsigned char *)crtbuf) + off + (x + y*width)*3;
         b = *data++;
         g = *data++;
         r = *data++;
         dat = b | (g<<8) | (r<<16);
         break;
       case 32:
-        data = ((unsigned char *)crtbuf) + off + (x + y*crtx)*4;
+        data = ((unsigned char *)crtbuf) + off + (x + y*width)*4;
         b = *data++;
         g = *data++;
         r = *data++;
@@ -334,37 +303,23 @@ LinuxFrameBufferDisplay_pv::check_and_paint(int ix, int iy)
 
 void*
 LinuxFrameBufferDisplay_pv::startX() {
-  int x, y;
+  unsigned int x, y;
+
+  X11_init();
+
   while (1) {
     usleep(hostRefresh * 1000); // microseconds = 1000000 / 50000 = 20 fps
-
-    pthread_mutex_lock(&change_mutex);
-    if(change) {
-      change = false;
-      X11_close();
-      if(SMEM_LEN) {
-        bit_depth = BITS_PER_PIXEL;
-        crtx = XRES;
-        crty = YRES;
-        X11_init();
-      }
-    }
-    pthread_mutex_unlock(&change_mutex);
     
-    pthread_mutex_lock(&refresh_mutex);
-    if(refresh && display) {
-      repaint = 0;
-      while ((XPending(display) > 0)) {
-        XEvent event;
-        XNextEvent(display, &event);
-        if (event.type == Expose)
-          repaint = 1;
-      }  
-      for (y = 0; y < crty / CHUNKY; y++)
-        for (x = 0; x < crtx / CHUNKX; x++)
-          check_and_paint(x, y);
-    }
-    pthread_mutex_unlock(&refresh_mutex);
+    repaint = 0;
+    while ((XPending(display) > 0)) {
+      XEvent event;
+      XNextEvent(display, &event);
+      if (event.type == Expose)
+        repaint = 1;
+    }  
+    for (y = 0; y < height / CHUNKY; y++)
+      for (x = 0; x < width / CHUNKX; x++)
+        check_and_paint(x, y);
   }
   return 0;
 }

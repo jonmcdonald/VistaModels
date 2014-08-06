@@ -13,25 +13,25 @@
  } 
  page  { w 11000 h 11000 type vhdstd orient portr  } 
 grid 10 
- } #idit - save unit (named stock while saving) on Tue Aug  5 12:29:14 2014
+ } #idit - save unit (named stock while saving) on Wed Aug  6 10:16:28 2014
 #SW version: 2008.12 v4.1.1.beta2 build 1. Date: Jul 20 2014. License: 1.1 
 version: 12 
 ipxactvendor Mentor.com 
 ipxactversion 1.0 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 393 -738 25 17 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 394 -704 25 17 
 bcol 'Empty' pcol 'Black' } 
-fmttext { 396 -731 1 8 nil 
+fmttext { 396 -701 1 8 nil 
 AXI 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  vis }  { fiv  @kind 9 
  } 
-groupobj { doset { rect { 360 -740 110 700 
+groupobj { doset { rect { 360 -710 110 670 
 bcol 'Empty' pcol 'Black' } 
  } 
-clshapes { closeShape { lines { line { 469 -740 578 -740 } 
-line { 469 -40 469 -740 } 
-line { 360 -40 469 -40 } 
-line { 360 -740 360 -1440 } 
+clshapes { closeShape { lines { line { 360 -710 470 -710 } 
+line { 470 -710 470 -40 } 
+line { 470 -40 360 -40 } 
+line { 360 -40 360 -710 } 
 } 
 arcs { } 
 bcol 'Pale Blue2'  } 
@@ -228,25 +228,6 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 416 -407 1 fb_slave
- angle 0
-fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 470 -400 } 
- {  end  490 -400  } 
- } 
-@spattr {
-@plist 1 
-{ @pdecl { { @n fb_slave @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 0
-} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
-@blist 1 { @cnt 0 } @flags 73 }
-
 sympinel {  text { 367 -487 1 peripheral_master
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
@@ -267,7 +248,7 @@ none @block -
 @blist 1 { @cnt 0 } @flags 73 }
 
  } 
-angle 0 bcol 'Empty' pcol 'Black' } 
+angle 0 bcol 'Pale Blue2' pcol 'Black' } 
  } 
 text { 392 -40 1 axi_bus
  angle 0
@@ -284,7 +265,7 @@ angle 0 fn 0 0 0 2 5 0 0 0 0 }
 @kwd @innm axi_bus @arch - @usl - @hrnm AXI Models @dffs 0 0 @stt hier @gnras @cnt 0
 @templparamas @templparamcnt 0
 @portas @cnt 0
-@portlist 12 
+@portlist 11 
 { @port { @pdecl { { @n a9_slave0 @t - @bnd -
 @das -
 @nregout @skind
@@ -365,14 +346,6 @@ none @block -
 } @md socketInitiator @iv -
 @sysInt pvt_initiator_socket<32U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
-} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n fb_slave @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n peripheral_master @t - @bnd -
 @das -
 @nregout @skind
@@ -384,7 +357,7 @@ none @block -
 } @gr DEF @idx -1 } @blist 0 } !
 @procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
 L { @nvis } !
-@prtas 12 -
+@prtas 11 -
 0 sigIdx
 0 a9_slave0
 -
@@ -415,12 +388,9 @@ L { @nvis } !
 89 sigIdx
 0 fb_master
 -
-90 sigIdx
-0 fb_slave
--
 97 sigIdx
 0 peripheral_master
-12 
+11 
 { @pdecl { { @n a9_slave0 @t - @bnd -
 @das -
 @nregout @skind
@@ -500,14 +470,6 @@ none @block -
 @ch -
 } @md socketInitiator @iv -
 @sysInt pvt_initiator_socket<32U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 0
-} @gr DEF @idx -1 } { @pdecl { { @n fb_slave @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } { @pdecl { { @n peripheral_master @t - @bnd -
 @das -
@@ -2883,46 +2845,27 @@ none @block -
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 500 -424 143 17 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 499 -448 143 17 
 bcol 'Empty' pcol 'Black' } 
-fmttext { 502 -421 1 8 nil 
+fmttext { 502 -411 1 8 nil 
 LinuxFrameBufferDisplay 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  vis }  { fiv  @kind 9 
  } 
-groupobj { doset { rect { 530 -430 80 80 
+groupobj { doset { rect { 530 -420 80 80 
 bcol 'Empty' pcol 'Black' } 
  } 
-clshapes { closeShape { lines { line { 609 -430 688 -430 } 
-line { 609 -350 609 -430 } 
-line { 530 -350 609 -350 } 
-line { 530 -430 530 -510 } 
+clshapes { closeShape { lines { line { 609 -420 688 -420 } 
+line { 609 -340 609 -420 } 
+line { 530 -340 609 -340 } 
+line { 530 -420 530 -500 } 
 } 
 arcs { } 
-bcol 'Pink'  } 
+bcol 'Sky Blue'  } 
  } 
  } 
  } 
-pinset { sympinel {  text { 537 -407 1 to_bus
- angle 0
-fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 530 -400 } 
- {  end  510 -400  } 
- } 
-@spattr {
-@plist 1 
-{ @pdecl { { @n to_bus @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<64U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 0
-} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
-@blist 1 { @cnt 0 } @flags 73 }
-
-sympinel {  text { 537 -387 1 from_bus
+pinset { sympinel {  text { 537 -387 1 from_bus
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
 invert FALSE visible TRUE typepin 0 pin { 530 -380 } 
@@ -2936,21 +2879,21 @@ invert FALSE visible TRUE typepin 0 pin { 530 -380 }
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<64U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@sysInt pvt_target_socket<32U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
  } 
-angle 0 bcol 'Pink' pcol 'Black' } 
+angle 0 bcol 'Sky Blue' pcol 'Black' } 
  } 
-text { 565 -348 1 fb
+text { 563 -340 1 fb
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 516 -606 32 17 
+gnrtxt textbox { rect { 516 -606 34 16 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 518 -603 1 8 nil 
-  "fb" 
+  "fb"  
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -2959,48 +2902,29 @@ angle 0 fn 0 0 0 2 5 0 0 0 0 }
 @kwd @innm fb @arch - @usl - @hrnm LinuxFrameBufferDisplay Models @dffs 0 0 @stt hier @gnras @cnt 0
 @templparamas @templparamcnt 0
 @portas @cnt 0
-@portlist 2 
+@portlist 1 
 { @port { @pdecl { { @n from_bus @t - @bnd -
 @das -
 @nregout @skind
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<64U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 0
-} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n to_bus @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<64U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@sysInt pvt_target_socket<32U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } @blist 0 } !
 @procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
 L { @nvis } !
-@prtas 2 -
+@prtas 1 -
 88 sigIdx
 0 from_bus
--
-91 sigIdx
-0 to_bus
-2 
+1 
 { @pdecl { { @n from_bus @t - @bnd -
 @das -
 @nregout @skind
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<64U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
-@multiport 1 @isTemplate 0
-} @gr DEF @idx -1 } { @pdecl { { @n to_bus @t - @bnd -
-@das -
-@nregout @skind
-none @block -
-@ch -
-} @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<64U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
+@sysInt pvt_target_socket<32U,axi_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 0 L { @nvis @ctorsn 1 } !
@@ -3022,7 +2946,7 @@ line { 210 -420 289 -420 }
 line { 210 -500 210 -580 } 
 } 
 arcs { } 
-bcol 'Light Yellow2'  } 
+bcol 'Sky Blue'  } 
  } 
  } 
  } 
@@ -3065,7 +2989,7 @@ none @block -
 @blist 1 { @cnt 0 } @flags 73 }
 
  } 
-angle 0 bcol 'Light Yellow2' pcol 'Black' } 
+angle 0 bcol 'Sky Blue' pcol 'Black' } 
  } 
 text { 220 -418 1 peripheral
  angle 0
@@ -4022,53 +3946,6 @@ fb_master
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 510 -400  510 -400  490 -400 bcol 'Empty' pcol 'Black' 
- Firstpin {
-  blockpin {   nnvis  pnvis pin { 490 -400 } 
- } 
-10 90 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
-
- Secondpin {
-  blockpin {   nnvis  pnvis pin { 510 -400 } 
- } 
-11 91 -1 -
--
-@intrfclass
--
-@initialization
-%Name%
-0 
-
- } 
- SourceIdx 10 
- DestIdx 0 
- } 
- } 
-@BIND
-@kwd
-@iv
--
-@strngth
-none @exprng
-none @dly
--
-@sidx
--1 @attr
-to_bus
-@newportclass
--
-@dt -
-@channeltype -
--
-0 
 signal { F bind line90 { 0 4 2 340 -480  340 -480  310 -480 bcol 'Empty' pcol 'Black' 
  Firstpin {
   blockpin {   nnvis  pnvis pin { 310 -480 } 
@@ -4165,10 +4042,10 @@ interrupt
 0 
 !
 
-@@VE@names@@ 34 @obj - peripheral_master 13 @obj - fb 36 @obj - interrupt 13 @obj - apb_bus 36 @obj - ethernet 36 @obj - irq 13 @obj - ram 36 @obj - lcd 36 @obj - console0 36 @obj - usb_slave 13 @obj - peripheral 36 
-@obj - bridge 36 @obj - uart0 36 @obj - to_bus 13 @obj - fb_master 13 @obj - s0 13 @obj - s1 13 @obj - s2 13 @obj - s4 13 @obj - s12 13 @obj - s5 13 
-@obj - usb 36 @obj - s6 13 @obj - s7 13 @obj - usb_master 13 @obj - s8 13 @obj - s17 13 @obj - cpu 36 @obj - axi_bus 36 @obj - s20 13 @obj - uart0_master 13 
-@obj - s21 13 @obj - s28 13 @obj - s29 13 23 49 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 99 19 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 !
+@@VE@names@@ 33 @obj - peripheral_master 13 @obj - fb 36 @obj - interrupt 13 @obj - apb_bus 36 @obj - ethernet 36 @obj - irq 13 @obj - ram 36 @obj - lcd 36 @obj - console0 36 @obj - usb_slave 13 @obj - peripheral 36 
+@obj - bridge 36 @obj - uart0 36 @obj - fb_master 13 @obj - s0 13 @obj - s1 13 @obj - s2 13 @obj - s4 13 @obj - s12 13 @obj - s5 13 @obj - usb 36 
+@obj - s6 13 @obj - s7 13 @obj - usb_master 13 @obj - s8 13 @obj - s17 13 @obj - cpu 36 @obj - axi_bus 36 @obj - s20 13 @obj - uart0_master 13 @obj - s21 13 
+@obj - s28 13 @obj - s29 13 23 49 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 99 19 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 !
 
 @@VE@obj_u@@ axi_bus AXI Models 0 
 ram MEMORY Models 0 

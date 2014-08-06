@@ -17,5 +17,5 @@ patch -p1 < ../../kernel_patches/vista.patch
 
 make vista_defconfig
 
-make -j 15
+make -j 20
 
