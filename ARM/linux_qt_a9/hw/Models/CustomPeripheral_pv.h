@@ -36,7 +36,10 @@
 #include <netinet/in.h>
 #include <deque>
 
+#ifdef __VISTA_OSCI23__
 #include "thread_safe_event.h"
+#endif
+
 #include "DataType.h"
 
 using namespace tlm;
@@ -70,7 +73,9 @@ class CustomPeripheral_pv : public CustomPeripheral_pv_base {
   pthread_t readerThread;
   pthread_mutex_t mutex;	// Used to safely pass data from startReader to input processes.
   
+#ifdef __VISTA_OSCI23__
   thread_safe_event safe_ev;	// Thread safe event used to notify from startReader to input processes.
+#endif
 
   std::deque<DataType *> q;	// queue holding data passed from startReader to input processes
   tlm::tlm_fifo<DataType *> fifo;  // queue holding data passed from input to output processes

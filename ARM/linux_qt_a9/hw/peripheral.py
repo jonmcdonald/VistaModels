@@ -7,6 +7,8 @@ import struct
 import os
 import time 
 
+import thread
+
 from Tkinter import *
 from time import sleep
 
@@ -67,7 +69,7 @@ class simpleapp_tk(Tkinter.Tk):
 	interruptButton.grid(column=0,row=1,sticky='EW',columnspan=3)
         self.protocol("WM_DELETE_WINDOW", self.shutDown)
         self.resizable(False,False)
-        tkinter.createfilehandler(comms, tkinter.READABLE, self.handler)
+        self.createfilehandler(comms, tkinter.READABLE, self.handler)
 
     def OnInterruptButtonClicked(self):
         comms.send("irq")

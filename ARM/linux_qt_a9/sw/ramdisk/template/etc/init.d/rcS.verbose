@@ -10,59 +10,9 @@ echo Mounting /sys
 mkdir -p /sys
 mount -t sysfs sys /sys
 
-# devices
-
-echo Devices:
-mkdir -p /dev
-
-echo "   mem kmem null zero urandom"
-mknod /dev/mem         c 1 1
-mknod /dev/kmem        c 1 2
-mknod /dev/null        c 1 3
-mknod /dev/zero        c 1 5
-mknod /dev/urandom     c 1 9
-
-echo "   ttyAMA0"
-mknod /dev/ttyAMA0     c 204 64
-
-echo "   tty0 tty1 tty console ptmx pts"
-mknod /dev/tty0        c 4 0
-mknod /dev/tty1        c 4 1
-mknod /dev/tty2        c 4 2
-mknod /dev/tty3        c 4 3
-mknod /dev/tty4        c 4 4
-mknod /dev/tty5        c 4 5
-mknod /dev/tty6        c 4 6
-mknod /dev/tty7        c 4 7
-mknod /dev/tty         c 5 0
-test -c /dev/console || mknod /dev/console     c 5 1
-mknod /dev/ptmx        c 5 2
-mkdir -p /dev/pts
-mount -t devpts devpts /dev/pts
-
-echo "   usb"
-mknod /dev/ttyUSB0 c 188 0
-mknod /dev/ttyUSB1 c 188 1
-mknod /dev/ttyUSB2 c 188 2
-mknod /dev/ttyUSB3 c 188 3
-
-echo "   psaux"
-mknod /dev/psaux       c 10 1
-
-mkdir -p /dev/input
-mknod /dev/input/mouse0 c 13 32
-mknod /dev/input/mouse1 c 13 33
-
-mknod /dev/input/mice c 13 63 
-
-mknod /dev/input/event0 c 13 64
-mknod /dev/input/event1 c 13 65 
-mknod /dev/input/event2 c 13 66
-mknod /dev/input/event3 c 13 67
-
-echo "   fb"
-mknod /dev/fb0         c 29 0
-mknod /dev/fb1         c 29 1
+# Devices
+echo /sbin/mdev > /proc/sys/kernel/hotplug
+mdev -s
 
 echo "Setting hostname to demo"
 hostname demo
@@ -72,10 +22,6 @@ ifconfig lo 127.0.0.1 up
 ifconfig eth0 10.0.2.15 up
 ip route add default via 10.0.2.2
 
-#echo "Sync date from host timeserver"
-#rdate 10.0.2.2
-#ntpd -d -p 1.centos.pool.ntp.org
-
 echo "Creating /tmp"
 mkdir /tmp
 
@@ -83,5 +29,5 @@ echo "Running inetd"
 inetd
 
 echo "Starting Peripheral Driver"
-insmod /lib/modules/3.14.15/peripheral_driver.ko
+insmod /lib/modules/VER_LINUX/peripheral_driver.ko
 

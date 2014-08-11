@@ -23,44 +23,61 @@
 //* Automatically merged on: Jul. 30, 2014 11:59:01 AM, (user: markca)
 //*>
 
-
-
 #include "LinuxFrameBufferDisplay_pv.h"
 #include <iostream>
-                                                 //#include <sys/mman.h>
 #include <stdlib.h>
-
-#define RGBDEF(r,g,b)	((uint32_t) ((b) | ((g)<<8) | ((r)<<16)))
-
-                                                                                      
-/* return 5/6/5 bit r, g or b component of 16 bit pixelval*/
-#define PIXEL565RED(pixelval)		(((pixelval) >> 11) & 0x1f)
-#define PIXEL565GREEN(pixelval)		(((pixelval) >> 5) & 0x3f)
-#define PIXEL565BLUE(pixelval)		((pixelval) & 0x1f)
-
-/* return 5/5/5 bit r, g or b component of 16 bit pixelval*/
-#define PIXEL555RED(pixelval)		(((pixelval) >> 10) & 0x1f)
-#define PIXEL555GREEN(pixelval)		(((pixelval) >> 5) & 0x1f)
-#define PIXEL555BLUE(pixelval)		((pixelval) & 0x1f)
 
 using namespace sc_core;
 using namespace sc_dt;
 using namespace std;
 
+namespace {
+class fb_sdl_client : public mb::physical_io::sdl_client {
+
+ public:
+  fb_sdl_client(const char* title)
+    : sdl_client(title) {
+  }
+
+  void kbd_put_keycode(int keycode) {
+    ::kbd_put_keycode(keycode);
+  }
+
+  int kbd_mouse_is_absolute() {
+    return ::kbd_mouse_is_absolute();
+  }
+
+  void kbd_mouse_event(int dx, int dy, int dz, int buttons_state) {
+    ::kbd_mouse_event(dx, dy, dz, buttons_state);
+  }
+};
+}
+
 //constructor
 LinuxFrameBufferDisplay_pv::LinuxFrameBufferDisplay_pv(sc_module_name module_name) 
-  : LinuxFrameBufferDisplay_pv_base(module_name) {
+  : LinuxFrameBufferDisplay_pv_base(module_name),
+    m_client(0) {
 
-  pixmap = 0;
-  gc = 0;
-  window = 0;
-  display = 0;
-  
-  crtbuf = (uint32_t*) malloc(width * height * (depth / 8));
-  
-  int r = pthread_create( &xThread, NULL, &LinuxFrameBufferDisplay_pv::call_startX, this);
-  if (r ==0) pthread_detach(xThread);
+  frame_refresh_rate = sc_core::sc_time(refresh, sc_core::SC_MS);
+
+  m_client = new fb_sdl_client("FrameBuffer & OpenGLESv2");
+  m_client->set_size(width, height);
+
+  SC_THREAD(updateDisplay);
 }
+
+void
+LinuxFrameBufferDisplay_pv::updateDisplay()
+{
+  while(1) {
+    sc_core::sc_time start = sc_core::sc_time_stamp();
+    m_client->update(0, 0, width, height);
+    sc_core::sc_time now = sc_core::sc_time_stamp();
+    if (now - start < frame_refresh_rate) {
+      wait(frame_refresh_rate - (now - start));
+    }
+  }
+} 
 
 /////////////////////////////////////////////////////////////////////////////////
 // Use these functions to define the behavior of your model when there is a 
@@ -91,235 +108,9 @@ unsigned LinuxFrameBufferDisplay_pv::from_bus_callback_write_dbg(mb_address_type
 
 bool LinuxFrameBufferDisplay_pv::from_bus_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData) {
   dmiData.allow_read_write();
-  dmiData.set_dmi_ptr((unsigned char*) crtbuf);
+  dmiData.set_dmi_ptr((unsigned char*) m_client->get_buffer());
   dmiData.set_start_address(0);
-  dmiData.set_end_address(width * height * (depth / 8));
+  dmiData.set_end_address(width * height * 4);
   return true;
 }
 
-void LinuxFrameBufferDisplay_pv::X11_init(void)
-{
-  XSetWindowAttributes attr;
-  char name[80];
-  XWMHints xwmhints;
-
-  char* host = NULL;
-  if ((host = (char *) getenv("DISPLAY")) == NULL)
-    fprintf(stderr, "%s", "Error: No environment variable DISPLAY\n");
-  
-  if ((display = XOpenDisplay(host)) == NULL) {
-    fprintf(stderr, "Error: Connection could not be made.\n");
-    exit(1);
-  }
-
-  screen = DefaultScreen(display);
-  parent = root = RootWindow(display, screen);
-  hostDepth = DefaultDepth(display, screen);
-
-  XSelectInput(display, root, SubstructureNotifyMask);
-
-  attr.event_mask = ExposureMask;
-  attr.background_pixel = BlackPixel(display, screen);
-
-  window = XCreateWindow(display, root, 0, 0, width * zoom, height * zoom,
-                         0, hostDepth, InputOutput, DefaultVisual(display, screen),
-                         CWEventMask | CWBackPixel, &attr);
-
-  sprintf(name, "LinuxFrameBuffer %dx%dx%dbpp", width, height, depth);
-
-  XChangeProperty(display, window, XA_WM_NAME, XA_STRING, 8,
-                  PropModeReplace, (const unsigned char*) name, strlen(name));
-  XMapWindow(display, window);
-
-  gc = XCreateGC(display, window, 0, NULL);
-
-  xwmhints.initial_state = NormalState;
-  xwmhints.flags = StateHint; /* | IconPixmapHint*/
-  XSetWMHints(display, window, &xwmhints);
-
-  XClearWindow(display, window);
-  XSync(display, 0);
-
-  pixmap = XCreatePixmap(display, window, CHUNKX * zoom, CHUNKY * zoom, hostDepth);
-}
-
-void LinuxFrameBufferDisplay_pv::X11_close(void)
-{
-  if(display) {
-    XFreePixmap(display, pixmap);
-    pixmap = 0;
-    XFreeGC(display, gc);
-    gc = 0;
-    XUnmapWindow(display, window);
-    XDestroyWindow(display, window);
-    window = 0;
-    XCloseDisplay(display);
-    display = 0;
-  }
-}
-
-
-uint32_t
-LinuxFrameBufferDisplay_pv::calc_patch_crc(int ix, int iy)
-{
-  uint32_t crc = 0x8154711;
-  int x, y, off;
-
-  switch (depth) {
-  default:
-    break;
-  case 15:
-  case 16:
-    off = (ix * CHUNKX + iy * CHUNKY * width) * 2;
-    break;
-  case 24:
-    off = (ix * CHUNKX + iy * CHUNKY * width) * 3;
-    break;
-  case 32:
-    off = (ix * CHUNKX + iy * CHUNKY * width) * 4;
-    break;
-  }
-
-  for (x = 0; x < CHUNKX; x++)
-    for (y = 0; y < CHUNKY; y++) {
-      uint32_t dat;
-
-      unsigned char *data;
-      unsigned char a, r, g, b, h, l;
-
-      switch (depth) {
-      case 15:
-      case 16:
-        data = ((unsigned char *)crtbuf) + off + (x + y*width)*2;
-        l = *data++;
-        h = *data;
-        dat = l | (h<<16);
-        break;
-      case 24:
-        data = ((unsigned char *)crtbuf) + off + (x + y*width)*3;
-        b = *data++;
-        g = *data++;
-        r = *data;
-        dat = b | (g<<8) | (r<<16);
-        break;
-      case 32:
-        data = ((unsigned char *)crtbuf) + off + (x + y*width)*4;
-        b = *data++;
-        g = *data++;
-        r = *data++;
-        a = *data;
-        dat = b | (g<<8) | (r<<16) | (a<<24);
-        break;
-      }
-      crc += (crc % 211 + dat);
-    }
-  return crc;
-}
-
-void
-LinuxFrameBufferDisplay_pv::check_and_paint(int ix, int iy)
-{
-  uint32_t crc;
-  int x, y, off;
-  int color;
-
-  crc = calc_patch_crc(ix, iy);
-  if (!repaint && crc == crcs[ix][iy])
-    return;
-  crcs[ix][iy] = crc;
-
-  switch (depth) {
-  default:
-    break;
-  case 15:
-  case 16:
-    off = (ix * CHUNKX + iy * CHUNKY * width) * 2;
-    break;
-  case 24:
-    off = (ix * CHUNKX + iy * CHUNKY * width) * 3;
-    break;
-  case 32:
-    off = (ix * CHUNKX + iy * CHUNKY * width) * 4;
-    break;
-  }
-
-  XSetForeground(display, gc, 0x000000);
-  XFillRectangle(display, pixmap, gc, 0, 0, CHUNKX * zoom, CHUNKY * zoom);
-
-  for (y = 0; y < CHUNKY; y++)
-    for (x = 0; x < CHUNKX; x++) {
-      unsigned char *data;
-      unsigned char a, r, g, b, h, l;
-      uint32_t dat;
-
-      switch (depth) {
-      case 15:
-        data = ((unsigned char *)crtbuf) + off + (x + y*width)*2;
-        l = *data++;
-        h = *data;
-        dat = l | (h<<8);
-        r = PIXEL555RED(dat) << 3;
-        g = PIXEL555GREEN(dat) << 3;
-        b = PIXEL555BLUE(dat) << 3;
-        dat = b | (g<<8) | (r<<16);
-        break;
-      case 16:
-        data = ((unsigned char *)crtbuf) + off + (x + y*width)*2;
-        l = *data++;
-        h = *data;
-        dat = l | (h<<8);
-        r = PIXEL565RED(dat) << 3;
-        g = PIXEL565GREEN(dat) << 2;
-        b = PIXEL565BLUE(dat) << 3;
-        dat = b | (g<<8) | (r<<16);
-        break;
-      case 24:
-        data = ((unsigned char *)crtbuf) + off + (x + y*width)*3;
-        b = *data++;
-        g = *data++;
-        r = *data++;
-        dat = b | (g<<8) | (r<<16);
-        break;
-      case 32:
-        data = ((unsigned char *)crtbuf) + off + (x + y*width)*4;
-        b = *data++;
-        g = *data++;
-        r = *data++;
-        a = *data;
-        dat = b | (g<<8) | (r<<16);
-        break;
-      }
-      XSetForeground(display, gc, dat);
-
-      if (zoom > 1)
-        XFillRectangle(display, pixmap, gc, x * zoom, y * zoom, 2, 2);
-      else
-        XDrawPoint(display, pixmap, gc, x, y);
-    }
-  
-  XCopyArea(display, pixmap, window, gc, 0, 0, CHUNKX * zoom, CHUNKY * zoom,
-            ix * CHUNKX * zoom, iy * CHUNKY * zoom);
-}
-
-void*
-LinuxFrameBufferDisplay_pv::startX() {
-  unsigned int x, y;
-
-  X11_init();
-
-  while (1) {
-    usleep(hostRefresh * 1000); // microseconds = 1000000 / 50000 = 20 fps
-    
-    repaint = 0;
-    while ((XPending(display) > 0)) {
-      XEvent event;
-      XNextEvent(display, &event);
-      if (event.type == Expose)
-        repaint = 1;
-    }  
-    for (y = 0; y < height / CHUNKY; y++)
-      for (x = 0; x < width / CHUNKX; x++)
-        check_and_paint(x, y);
-  }
-  return 0;
-}

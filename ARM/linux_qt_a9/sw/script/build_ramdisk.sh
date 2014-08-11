@@ -68,11 +68,14 @@ cp $SYSROOT/usr/local/lib/libz.so.1 $SYSROOT/lib
 
 mkdir -p $SYSROOT/lib/modules/$VER_LINUX
 cp `find $SW_ROOT/kernel_modules -name "*.ko" -print` $SYSROOT/lib/modules/$VER_LINUX
+sed -i 's/VER_LINUX/'"$VER_LINUX"'/' $SYSROOT/etc/init.d/rcS
 
-#cp /mnt/store/data/demos/cluster/iviv3-meibp-m6/bin/fbdev_imx6/instrumentcluster3d_demo $SYSROOT/root
+if [ -f /mnt/store/data/demos/cluster/iviv3-meibp-m6/bin/fbdev_imx6/instrumentcluster3d_demo ]; then
+cp /mnt/store/data/demos/cluster/iviv3-meibp-m6/bin/fbdev_imx6/instrumentcluster3d_demo $SYSROOT/root
+#sed -i 's/.*LCD_CONSOLE.*/tty1\:\:once\:sh \-c \"source \/etc\/profile\; cd \/root\; \.\/instrumentcluster3d_demo 2\>\&1 \> \/dev\/ttyAMA0"/' $SYSROOT/etc/inittab
+fi
 
 cd $SYSROOT 
-
 # preserves links to busybox in /usr/bin /usr/sbin
 # also preserves /usr/bin/gdb*
 

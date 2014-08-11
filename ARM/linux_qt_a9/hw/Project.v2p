@@ -10,7 +10,6 @@ Files {
 		{$PRJDIR/Models/AXI_APB.mb}
 		{$PRJDIR/Models/APB.mb}
 		{$PRJDIR/Models/A9x1.mb}
-		{$PRJDIR/Models/PL111.mb}
 		{$PRJDIR/Models/LAN9118.mb}
 		{$PRJDIR/Models/EHCI.mb}
 		{$PRJDIR/Models/LinuxFrameBufferDisplay.mb}

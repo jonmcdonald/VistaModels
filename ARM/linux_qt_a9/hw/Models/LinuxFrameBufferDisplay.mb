@@ -8,11 +8,9 @@
 add_port "from_bus" /TLM/protocols/axi slave 32 -bind_mode mandatory
 
 # === parameters ===
-add_parameter "hostRefresh" 50 uint32 {}
+add_parameter "refresh" 50 uint32 {}
 add_parameter "width" 640 uint32 {}
 add_parameter "height" 480 uint32 {}
-add_parameter "depth" 32 uint32 {}
-add_parameter "zoom" 1 uint32 {}
 
 # === auto parameters ===
 set_auto_parameter_default "clock" {10 ns} time {}

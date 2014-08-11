@@ -3,10 +3,11 @@
 #stock.cpu.PV.cpu0.core.gdbstub_port = 2345
 
 tlm_timing_model = LT
-clock = 10 NS
+clock = 2 NS  # 500Mhz
 periph_base = 0x1013c000
 vlan:tcp_napt = :2022 => :22 # ssh support user:root passwd:root
-physical_io:host_time_sync = 1  # keyboard too fast without this
+
+physical_io:host_time_sync = 1  # keyboard from FrameBuffer is too fast without this
 
 # ~~~~~~~~~~ IMAGE
 
@@ -19,9 +20,6 @@ stock.axi_bus.bridge_master_size             = 0x00020000
 
 stock.apb_bus.uart0_master_base_address      = 0x00000000
 stock.apb_bus.uart0_master_size              = 0x00001000
-
-stock.axi_bus.lcd_master_base_address        = 0x10020000
-stock.axi_bus.lcd_master_size                = 0x00001000
 
 stock.axi_bus.usb_master_base_address        = 0x10021000
 stock.axi_bus.usb_master_size                = 0x00004000
@@ -42,9 +40,7 @@ stock.ram.size_in_bytes                      = 0x40000000
 
 # ~~~~~~~~~~ PERIPH OPTIONS
 
-stock.lcd.connected = 0
-#stock.lcd.frame_refresh_rate = 100 ms      # 10 FPS
-# stock.usb.PV.devices = hid_keyboard hid_mouse
+stock.usb.PV.devices = hid_keyboard hid_mouse
 
 stock.uart0.receive_FIFO_size_in_bytes = 1024
 stock.uart0.warning_level = IGNORE
@@ -54,12 +50,9 @@ stock.console0.read_from_console_latency = 5
 stock.console0.read_from_console_latency_time_unit = MS
 stock.console0.console_title = UART0
 
-stock.fb.hostRefresh = 100    # MS = 10 frames per second
-stock.fb.width       = 640
+stock.fb.refresh     = 50    # MS = 20 frames per second
+stock.fb.width       = 1280
 stock.fb.height      = 480
-stock.fb.depth       = 32
-stock.fb.zoom        = 1
 
-#trace_script = trace.tcl
-
+#trace_script = trace.tcl 
 

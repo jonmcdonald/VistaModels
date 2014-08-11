@@ -7,7 +7,6 @@ $includes_begin;
 #include "MEMORY_model.h"
 #include "AXI_APB_model.h"
 #include "AXI_model.h"
-#include "PL111_model.h"
 #include "A9x1_model.h"
 #include "LAN9118_model.h"
 #include "EHCI_model.h"
@@ -41,9 +40,6 @@ axi_bus(0)
 $end
 $init("apb_bus"),
 apb_bus(0)
-$end
-$init("lcd"),
-lcd(0)
 $end
 $init("usb"),
 usb(0)
@@ -80,9 +76,6 @@ axi_bus = new AXI_pvt("axi_bus");
 $end;
 $create_component("apb_bus");
 apb_bus = new APB_pvt("apb_bus");
-$end;
-$create_component("lcd");
-lcd = new PL111_pvt("lcd");
 $end;
 $create_component("usb");
 usb = new EHCI_pvt("usb");
@@ -125,12 +118,6 @@ vista_bind(bridge->master, apb_bus->bus_slave);
 $end;
 $bind("uart0->UARTINTR","cpu->irq_0");
 vista_bind(uart0->UARTINTR, cpu->irq_0);
-$end;
-$bind("axi_bus->lcd_master","lcd->ctrl_slave");
-vista_bind(axi_bus->lcd_master, lcd->ctrl_slave);
-$end;
-$bind("lcd->master","axi_bus->lcd_slave");
-vista_bind(lcd->master, axi_bus->lcd_slave);
 $end;
 $bind("axi_bus->ethernet_master","ethernet->host");
 vista_bind(axi_bus->ethernet_master, ethernet->host);
@@ -189,9 +176,6 @@ $end;
 $destruct_component("apb_bus");
 delete apb_bus; apb_bus = 0;
 $end;
-$destruct_component("lcd");
-delete lcd; lcd = 0;
-$end;
 $destruct_component("usb");
 delete usb; usb = 0;
 $end;
@@ -228,9 +212,6 @@ AXI_pvt *axi_bus;
 $end;
 $component("apb_bus");
 APB_pvt *apb_bus;
-$end;
-$component("lcd");
-PL111_pvt *lcd;
 $end;
 $component("usb");
 EHCI_pvt *usb;

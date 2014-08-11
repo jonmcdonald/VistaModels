@@ -31,15 +31,6 @@
 
 #include "LinuxFrameBufferDisplay_model.h"
 
-#include <X11/Xatom.h>
-#include <X11/Xlib.h>
-#include <X11/Xutil.h>
-
-#define MAX_CRTX 1200
-#define MAX_CRTY 800
-#define CHUNKX 32
-#define CHUNKY 20
-
 using namespace tlm;
 
 //This class inherits from the LinuxFrameBufferDisplay_pv_base class
@@ -52,6 +43,8 @@ class LinuxFrameBufferDisplay_pv : public LinuxFrameBufferDisplay_pv_base {
   // To add parameters - use the Model Builder form (under PV->Parameters tab)
   SC_HAS_PROCESS(LinuxFrameBufferDisplay_pv);
   LinuxFrameBufferDisplay_pv(sc_core::sc_module_name module_name);   
+
+  void updateDisplay();
 
  protected:
   ////////////////////////////////////////
@@ -70,26 +63,8 @@ class LinuxFrameBufferDisplay_pv : public LinuxFrameBufferDisplay_pv_base {
   unsigned from_bus_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size);  
   bool from_bus_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);   
 
-
 private:
-  static void* call_startX(void *arg) { return ((LinuxFrameBufferDisplay_pv*)arg)->startX(); }
-  void X11_init(void);
-  void X11_close(void);
-  uint32_t calc_patch_crc(int ix, int iy);
-  void check_and_paint(int ix, int iy);
-  void *startX();
-
-  pthread_t xThread;
-
-  uint32_t *crtbuf;
-
-  Display *display;
-  GC gc;
-  Window window, root, parent;
-  int hostDepth, screen, visibility;
-  int repaint;
-  Pixmap pixmap;
-  
-  uint32_t crcs[MAX_CRTX / CHUNKX][MAX_CRTY / CHUNKY];
+  ::mb::physical_io::sdl_client* m_client;
+  sc_core::sc_time frame_refresh_rate;
 };
 

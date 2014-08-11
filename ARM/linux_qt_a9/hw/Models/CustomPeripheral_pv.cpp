@@ -36,8 +36,10 @@ using namespace std;
 
 //constructor
 CustomPeripheral_pv::CustomPeripheral_pv(sc_module_name module_name) 
-  : CustomPeripheral_pv_base(module_name),
-    safe_ev("safe_ev")
+  : CustomPeripheral_pv_base(module_name)
+#ifdef __VISTA_OSCI23__
+  ,safe_ev("safe_ev")
+#endif
 {
   int r;
   /* First call to socket() function */
@@ -123,7 +125,11 @@ void CustomPeripheral_pv::input() {
   DataType *data;
 
   while (1) {
+#ifdef __VISTA_OSCI23__
     wait(safe_ev.default_event());  	// Waits for data from startReader pthread
+#else
+    wait();
+#endif
 
     // To safely pass data a mutex must be used between startReader and input 
     // protecting each process' modifications of the shared q
@@ -156,7 +162,9 @@ void *CustomPeripheral_pv::startReader(void) {
           data = new DataType();	// Create new data structure then fill in values
           pthread_mutex_lock(&mutex);	// Use mutex to safely modify q
           q.push_back(data);
+#ifdef __VISTA_OSCI23__
           safe_ev.notify();			// input SystemC thread is waiting on safe_ev
+#endif
           pthread_mutex_unlock(&mutex);	// Release mutex when done modifying q
         } else if(bytes_read == 0) {
           cout << "CustomPeripheral: GUI disconnected, ending simulation" << endl;
