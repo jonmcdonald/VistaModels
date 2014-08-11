@@ -164,6 +164,8 @@ void *CustomPeripheral_pv::startReader(void) {
           q.push_back(data);
 #ifdef __VISTA_OSCI23__
           safe_ev.notify();			// input SystemC thread is waiting on safe_ev
+#else
+          cout << "CustomPeripheral: Error, GUI input requires SystemC 2.3" << endl;
 #endif
           pthread_mutex_unlock(&mutex);	// Release mutex when done modifying q
         } else if(bytes_read == 0) {
