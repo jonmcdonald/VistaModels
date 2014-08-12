@@ -22,7 +22,7 @@ _start:
 	ldmia	r2, {r3 - r7}			@ move the code to a location
 	stmia	r1, {r3 - r7}			@ less likely to be overridden
 
-//	ldr	r0, =0x10000030			@ RealView SYS_FLAGS register
+	ldr	r0, =0x10025000			@ SYSCTRL register
 
 	mov	pc, r1				@ branch to the relocated code
 1:

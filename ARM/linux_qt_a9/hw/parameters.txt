@@ -3,9 +3,9 @@
 #stock.cpu.PV.cpu0.core.gdbstub_port = 2345
 
 tlm_timing_model = LT
-clock = 2 NS  # 500Mhz
-periph_base = 0x1013c000
-vlan:tcp_napt = :2022 => :22 # ssh support user:root passwd:root
+clock = 2 NS                    # 500Mhz
+
+vlan:tcp_napt = :2022 => :22    # ssh support user:root passwd:root
 
 physical_io:host_time_sync = 1  # keyboard from FrameBuffer is too fast without this
 
@@ -13,19 +13,21 @@ physical_io:host_time_sync = 1  # keyboard from FrameBuffer is too fast without 
 
 stock.cpu.elf_image_file = ../sw/boot/linux-system.axf
 
-# ~~~~~~~~~~ MAP
+# ~~~~~~~~~~ AXI MAP
 
 stock.axi_bus.bridge_master_base_address     = 0x10000000
 stock.axi_bus.bridge_master_size             = 0x00020000
 
-stock.apb_bus.uart0_master_base_address      = 0x00000000
-stock.apb_bus.uart0_master_size              = 0x00001000
-
 stock.axi_bus.usb_master_base_address        = 0x10021000
 stock.axi_bus.usb_master_size                = 0x00004000
 
+stock.axi_bus.system_master_base_address     = 0x10025000
+stock.axi_bus.system_master_size             = 0x00001000
+
 stock.axi_bus.peripheral_master_base_address = 0x10026000
 stock.axi_bus.peripheral_master_size         = 0x00001000
+
+periph_base                                  = 0x1013c000
 
 stock.axi_bus.ethernet_master_base_address   = 0x4e000000
 stock.axi_bus.ethernet_master_size           = 0x02000000
@@ -37,6 +39,10 @@ stock.axi_bus.ram_master_base_address        = 0x60000000
 stock.axi_bus.ram_master_size                = 0x40000000
 stock.ram.size_in_bytes                      = 0x40000000
 
+# ~~~~~~~~~~ ABP MAP
+
+stock.apb_bus.uart0_master_base_address      = 0x00000000
+stock.apb_bus.uart0_master_size              = 0x00001000
 
 # ~~~~~~~~~~ PERIPH OPTIONS
 

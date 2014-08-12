@@ -34,9 +34,9 @@ if [ ! -f expat-$VER_EXPAT.tar.gz ]; then
 	wget http://fossies.org/linux/www/expat-2.1.0.tar.gz
 fi
 
-#if [ ! -f SDL-$VER_SDL.tar.gz ]; then
-#	wget http://www.libsdl.org/release/SDL-$VER_SDL.tar.gz
-#fi
+if [ ! -f SDL-$VER_SDL.tar.gz ]; then
+	wget http://www.libsdl.org/release/SDL-$VER_SDL.tar.gz
+fi
 
 if [ ! -f zlib-$VER_ZLIB.tar.gz ]; then
 	wget http://zlib.net/zlib-$VER_ZLIB.tar.gz
@@ -88,9 +88,9 @@ if [ ! -d expat-$VER_EXPAT ]; then
 	tar xvf expat-$VER_EXPAT.tar.gz
 fi
 
-#if [ ! -d SDL-$VER_SDL ]; then
-#	tar xvf SDL-$VER_SDL.tar.gz
-#fi
+if [ ! -d SDL-$VER_SDL ]; then
+	tar xvf SDL-$VER_SDL.tar.gz
+fi
 
 if [ ! -d zlib-$VER_ZLIB ]; then
 	tar xvf zlib-$VER_ZLIB.tar.gz

@@ -9,11 +9,12 @@ Files {
 		{$PRJDIR/Models/MEMORY.mb}
 		{$PRJDIR/Models/AXI_APB.mb}
 		{$PRJDIR/Models/APB.mb}
-		{$PRJDIR/Models/A9x1.mb}
 		{$PRJDIR/Models/LAN9118.mb}
 		{$PRJDIR/Models/EHCI.mb}
 		{$PRJDIR/Models/LinuxFrameBufferDisplay.mb}
 		{$PRJDIR/Models/CustomPeripheral.mb}
+		{$PRJDIR/Models/A9x2.mb}
+		{$PRJDIR/Models/SystemControl.mb}
 	 } 
 	 Schematics {
 		{$PRJDIR/Models/stock.h}

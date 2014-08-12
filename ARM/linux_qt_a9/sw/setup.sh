@@ -22,7 +22,7 @@ export VER_DRM=2.4.52        # DRM
 export VER_EXPAT=2.1.0	     # expat XML parser
 export VER_PNG=1.4.13        # gfx png support
 export VER_FREETYPE=2.5.3    # gfx font support
-#export VER_SDL=1.2.15        # SDL
+export VER_SDL=1.2.15        # SDL
 
 # uncomment this to include QT
 #export VER_QT_MAJOR=4.8      # qt 4.8.6

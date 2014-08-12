@@ -7,11 +7,12 @@ $includes_begin;
 #include "MEMORY_model.h"
 #include "AXI_APB_model.h"
 #include "AXI_model.h"
-#include "A9x1_model.h"
 #include "LAN9118_model.h"
 #include "EHCI_model.h"
 #include "LinuxFrameBufferDisplay_model.h"
 #include "CustomPeripheral_model.h"
+#include "A9x2_model.h"
+#include "SystemControl_model.h"
 $includes_end;
 
 $module_begin("stock");
@@ -53,6 +54,9 @@ $end
 $init("peripheral"),
 peripheral(0)
 $end
+$init("sysctrl"),
+sysctrl(0)
+$end
     $initialization_end
 {
     $elaboration_begin;
@@ -69,7 +73,7 @@ $create_component("uart0");
 uart0 = new UART_PL011_pvt("uart0");
 $end;
 $create_component("cpu");
-cpu = new A9x1_pvt("cpu");
+cpu = new A9x2_pvt("cpu");
 $end;
 $create_component("axi_bus");
 axi_bus = new AXI_pvt("axi_bus");
@@ -88,6 +92,9 @@ fb = new LinuxFrameBufferDisplay_pvt("fb");
 $end;
 $create_component("peripheral");
 peripheral = new CustomPeripheral_pvt("peripheral");
+$end;
+$create_component("sysctrl");
+sysctrl = new SystemControl_pvt("sysctrl");
 $end;
 $bind("console0->nUARTRTS","uart0->nUARTCTS");
 vista_bind(console0->nUARTRTS, uart0->nUARTCTS);
@@ -146,6 +153,9 @@ $end;
 $bind("peripheral->interrupt","cpu->irq_3");
 vista_bind(peripheral->interrupt, cpu->irq_3);
 $end;
+$bind("axi_bus->system_master","sysctrl->slave");
+vista_bind(axi_bus->system_master, sysctrl->slave);
+$end;
     $elaboration_end;
   $vlnv_assign_begin;
 m_library = "Models";
@@ -188,6 +198,9 @@ $end;
 $destruct_component("peripheral");
 delete peripheral; peripheral = 0;
 $end;
+$destruct_component("sysctrl");
+delete sysctrl; sysctrl = 0;
+$end;
     $destructor_end;
   }
 public:
@@ -205,7 +218,7 @@ $component("uart0");
 UART_PL011_pvt *uart0;
 $end;
 $component("cpu");
-A9x1_pvt *cpu;
+A9x2_pvt *cpu;
 $end;
 $component("axi_bus");
 AXI_pvt *axi_bus;
@@ -224,6 +237,9 @@ LinuxFrameBufferDisplay_pvt *fb;
 $end;
 $component("peripheral");
 CustomPeripheral_pvt *peripheral;
+$end;
+$component("sysctrl");
+SystemControl_pvt *sysctrl;
 $end;
   $fields_end;
   $vlnv_decl_begin;
