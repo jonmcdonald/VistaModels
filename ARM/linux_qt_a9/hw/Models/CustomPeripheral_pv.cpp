@@ -109,6 +109,7 @@ CustomPeripheral_pv::~CustomPeripheral_pv()
   if(child_pid) { 
     cout << "CustomPeripheral: Sending kill signal to forked Python script" << endl;
     kill(child_pid, SIGKILL);
+    child_pid = 0;
   }
 }
 
@@ -179,8 +180,10 @@ void *CustomPeripheral_pv::startReader(void) {
           pthread_mutex_unlock(&mutex);	// Release mutex when done modifying q
         } else if(bytes_read == 0) {
           cout << "CustomPeripheral: GUI disconnected, ending simulation" << endl;
-          child_pid = 0;
-          sc_stop();
+          if(child_pid) {
+            child_pid = 0;
+            sc_stop();
+          }
           return 0;
         }
       } while (bytes_read > 0);
