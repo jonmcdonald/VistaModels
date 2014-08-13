@@ -6,8 +6,8 @@ import tkMessageBox
 import struct
 import os
 import time 
-
-import thread
+import signal
+import sys
 
 from Tkinter import *
 from time import sleep
@@ -33,6 +33,7 @@ class simpleapp_tk(Tkinter.Tk):
         data = comms.recv(4)
         if (data == ''):
             comms.close()
+            self.destroy()
             return
         status = struct.unpack("=I", data)[0]
         if (status & ( 1 << 2)):
@@ -79,7 +80,13 @@ class simpleapp_tk(Tkinter.Tk):
             comms.close()
             self.destroy()
 
+def signal_handler(signal, frame):
+    print('peripheral.py: Closing down')
+    sys.exit(0)
+
 if __name__ == "__main__":
+    signal.signal(signal.SIGINT, signal_handler)
+
     app = simpleapp_tk(None)
     app.title('Peripheral')
 

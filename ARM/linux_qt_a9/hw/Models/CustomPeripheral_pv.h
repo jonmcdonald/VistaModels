@@ -54,7 +54,8 @@ class CustomPeripheral_pv : public CustomPeripheral_pv_base {
   // To add parameters - use the Model Builder form (under PV->Parameters tab)
   SC_HAS_PROCESS(CustomPeripheral_pv);
   CustomPeripheral_pv(sc_core::sc_module_name module_name);  
-  
+  virtual ~CustomPeripheral_pv();
+
  protected:
   /////////////////////////////////////////
   // write callbacks of registers
@@ -80,6 +81,7 @@ class CustomPeripheral_pv : public CustomPeripheral_pv_base {
   std::deque<DataType *> q;	// queue holding data passed from startReader to input processes
   tlm::tlm_fifo<DataType *> fifo;  // queue holding data passed from input to output processes
        
+  pid_t child_pid;  // process id of the python script
 
   int sockfd, newsockfd, portno;
   socklen_t clilen;

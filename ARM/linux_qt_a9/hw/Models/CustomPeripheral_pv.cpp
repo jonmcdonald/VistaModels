@@ -68,7 +68,7 @@ CustomPeripheral_pv::CustomPeripheral_pv(sc_module_name module_name)
       exit(0);
   }
   
-  pid_t child_pid;
+  child_pid = 0;
   if((child_pid = fork()) < 0 )  {
     perror("fork failure");
     exit(1);
@@ -102,6 +102,15 @@ CustomPeripheral_pv::CustomPeripheral_pv(sc_module_name module_name)
   if (r ==0) pthread_detach(readerThread);
 
 }    
+
+// Destructor cleans up the forked python script
+CustomPeripheral_pv::~CustomPeripheral_pv()
+{
+  if(child_pid) { 
+    cout << "CustomPeripheral: Sending kill signal to forked Python script" << endl;
+    kill(child_pid, SIGKILL);
+  }
+}
 
 
 // SystemC process which takes data from input and writes out through the tlm port
@@ -170,6 +179,7 @@ void *CustomPeripheral_pv::startReader(void) {
           pthread_mutex_unlock(&mutex);	// Release mutex when done modifying q
         } else if(bytes_read == 0) {
           cout << "CustomPeripheral: GUI disconnected, ending simulation" << endl;
+          child_pid = 0;
           sc_stop();
           return 0;
         }
