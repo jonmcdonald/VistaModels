@@ -108,8 +108,9 @@ CustomPeripheral_pv::~CustomPeripheral_pv()
 {
   if(child_pid) { 
     cout << "CustomPeripheral: Sending kill signal to forked Python script" << endl;
-    kill(child_pid, SIGKILL);
+    pid_t p = child_pid;
     child_pid = 0;
+    kill(p, SIGKILL);
   }
 }
 
