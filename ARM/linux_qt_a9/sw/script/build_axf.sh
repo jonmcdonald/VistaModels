@@ -16,3 +16,4 @@ cat ../packages/linux-$VER_LINUX/arch/arm/boot/zImage ../packages/linux-$VER_LIN
 
 make FILESYSTEM=../ramdisk/initrd.cpio.gz CROSS_COMPILE=$CROSS_COMPILE
 
+cp ../packages/linux-$VER_LINUX/vmlinux .
