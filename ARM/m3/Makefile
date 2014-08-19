@@ -1,6 +1,6 @@
 TARGET_ARCH = linux
 
-CC     = vista_c++ -gcc43 -sc22
+CC     = vista_c++ 
 OPT    = 
 OPT    = -O9 
 DEBUG  = -DMB_DEBUG -tsv -pg -fprofile-arcs -ftest-coverage
@@ -81,13 +81,13 @@ codeblocks:
 	codeblocks codeblocks.cbp 
 
 vista: $(EXE) $T
-	vista -sc22 -trace-delta-cycles -tsv -memory-profiling \
+	vista -trace-delta-cycles -tsv -memory-profiling \
 		-event-debugging -with-cause -trace-all-sockets \
 		-params $P -simdir $S -memory-profiling \
 		-exec $(EXE) -simscript $T
 
 batch: $(EXE) $T
-	vista -sc22 -tsv -simscript $T -params $P -simdir $S \
+	vista -tsv -simscript $T -params $P -simdir $S \
 		-trace-all-sockets -batch -exec $(EXE)
 #		-batch -exec $(EXE)
 
