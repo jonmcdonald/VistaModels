@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**************************************************************/
+/*                                                            */
+/*      Copyright Mentor Graphics Corporation 2006 - 2011     */
+/*                  All Rights Reserved                       */
+/*                                                            */
+/*       THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY      */
+/*         INFORMATION WHICH IS THE PROPERTY OF MENTOR        */
+/*         GRAPHICS CORPORATION OR ITS LICENSORS AND IS       */
+/*                 SUBJECT TO LICENSE TERMS.                  */
+/*                                                            */
+/**************************************************************/
+-->
+<spirit:abstractionDefinition xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.4"
+                              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                              xsi:schemaLocation="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.4 http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.4/index.xsd">
+        <spirit:vendor>Mentor.com</spirit:vendor>
+        <spirit:library>Lib_ipxact</spirit:library>
+        <spirit:name>AXI_tlm20</spirit:name>
+        <spirit:version>1.0</spirit:version>
+        <spirit:busType spirit:vendor="amba.com" spirit:library="AMBA3" spirit:name="AXI" spirit:version="r1p0_5"/>
+        <spirit:ports>
+	        <spirit:port>
+			<spirit:logicalName>TLM20_socket</spirit:logicalName>
+			<spirit:transactional>
+				<spirit:qualifier>
+					<spirit:isAddress>true</spirit:isAddress>
+					<spirit:isData>true</spirit:isData>
+				</spirit:qualifier>
+				<spirit:onMaster>
+					<spirit:presence>required</spirit:presence>
+					<spirit:service>
+						<spirit:initiative>requires</spirit:initiative>
+						<spirit:typeName spirit:implicit="true">TLM20_initiator_socket</spirit:typeName>
+					</spirit:service>
+				</spirit:onMaster>
+				<spirit:onSlave>
+					<spirit:presence>required</spirit:presence>
+					<spirit:service>
+						<spirit:initiative>provides</spirit:initiative>
+						<spirit:typeName spirit:implicit="true">TLM20_target_socket</spirit:typeName>
+					</spirit:service>
+				</spirit:onSlave>
+			</spirit:transactional>
+		</spirit:port>
+	</spirit:ports>
+</spirit:abstractionDefinition>

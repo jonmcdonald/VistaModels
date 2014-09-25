@@ -1,0 +1,41 @@
+ProjectName vp
+Files {
+	 Models {
+		{$PRJDIR/../pyex/models/CustomPeripheral.mb}
+		{$PRJDIR/../pyex/models/AXI_GPIO.mb}
+		{$PRJDIR/../pyex/models/drive.mb}
+	 } 
+	 Schematics {
+		{$PRJDIR/local/vptop.h}
+	 } 
+	 Sources {
+		{$PRJDIR/main.cpp}
+		{$PRJDIR/../pyex/RealTimeStall.cpp}
+	 } 
+	 {Public Headers} {
+		{$PRJDIR/../pyex/RealTimeStall.h}
+	 } 
+}
+Designs {{$PRJDIR/main.cpp}}
+Folders {
+	 Sources {*.c *.cpp *.C *.cxx *.cc} 
+	 {Public Headers} {*.h *.hpp *.H *.hxx *.hh} 
+	 Models *.mb 
+	 Schematics {} 
+	 Documentation {*.txt *.TXT *.doc *.DOC *.pdf *.PDF *.html *.HTML *.htm *.HTM *.ps *.PS} 
+	 {Linked Binaries} {*.o *.a *.so} 
+	 {Other Binaries} {*.exe *.x} 
+}
+GeneralCompilationOptions -Wall
+AlwaysCompileInCPPMode 1
+LinkDependencies {zynq zynq_catalogue}
+LinkPackages {model_builder models_catalogue}
+ProjectLibraryType archive
+ProjectComponentsLibraryPath {$PRJDIR/$PRJFILE_BASENAME/interfaces}
+ProjectWorkingDirectory {$PRJDIR/$PRJFILE_BASENAME/build}
+HasTLMSupport 0
+CompiledWithTLMSupport 0
+IsUsePathVariables 1
+PlatformName vp
+ProjectReadOnly 0
+ProjectBuildMultiPlatform 0

@@ -1,0 +1,1 @@
+../../../zynq/Software/boot-wrapper/build.sh
