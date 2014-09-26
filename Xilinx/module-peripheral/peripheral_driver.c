@@ -50,7 +50,7 @@ static irqreturn_t irq_handler(int irq, void *dev_id)
 static int 
 peripheral_show(struct seq_file *m, void *v)
 {
-     seq_printf(m, "peripheral driver, write value to /proc/peripheral to set status\nEg. echo \"101\" > /proc/peripheral\n");
+     seq_printf(m, "peripheral driver, write value to /proc/peripheral to set LEDs\nEg. echo \"1010\" > /proc/peripheral\n");
 
      return 0;
 }
@@ -59,25 +59,28 @@ static ssize_t
 peripheral_write (struct file *file,
 	   const char * buf, size_t size, loff_t * ppos)
 {
-  char mbuf[4];
-  uint32_t status = 0;
+  char mbuf[5];
+  uint32_t ledvals = 0;
 
-  if (copy_from_user (mbuf, buf, 4))
+  if (copy_from_user (mbuf, buf, 5))
     return -EFAULT;
 
-  if(mbuf[0] == '1') {
-    status |= (1 << 2);
-  } 
-  if(mbuf[1] == '1') {
-    status |= (1 << 1);
+  if(mbuf[3] == '1') {
+    ledvals |= (1 << 3);
   } 
   if(mbuf[2] == '1') {
-    status |= (1 << 0);
+    ledvals |= (1 << 2);
+  } 
+  if(mbuf[1] == '1') {
+    ledvals |= (1 << 1);
+  } 
+  if(mbuf[0] == '1') {
+    ledvals |= 1;
   } 
 
-  //iowrite32(status, peripheral_virt + PERIPHERAL_STATUS);
+  iowrite32(ledvals, peripheral_virt + GPIO_DATA_0);
 
-  return 4;
+  return 5;
 }
 
 static int

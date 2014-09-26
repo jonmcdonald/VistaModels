@@ -18,3 +18,10 @@ The file system is now mounted under ./mnt.  Modify as appropriate then execute:
 
 > sudo umount mnt
 > gzip arm_ramdisk.image.gz
+
+The Makefile in this directory has a number of targets to make the process easier:
+
+> make mount	# Uncompress and mount arm_ramdisk.image on ./mnt
+> make umount	# Unmount and compress arm_ramdisk.image
+> make build	# Calls build.sh $LINUX
+> make update	# Updates peripheral_driver.ko in linux-system.axf.  .ko must already exist

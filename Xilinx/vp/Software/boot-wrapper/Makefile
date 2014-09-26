@@ -47,3 +47,22 @@ boot.o: $(BOOTLOADER)
 
 model.lds: $(LD_SCRIPT)
 	$(CC) $(CPPFLAGS) -E -P -C -o $@ $<
+
+mount: arm_ramdisk.image
+	if [ ! -d mnt/bin ]; then sudo mount -o loop,rw,offset=0 arm_ramdisk.image mnt; fi
+
+arm_ramdisk.image:
+	gzip -d arm_ramdisk.image.gz
+
+umount:
+	sudo umount mnt
+	gzip arm_ramdisk.image
+
+update: mount ../../../module-peripheral/peripheral_driver.ko
+	sudo cp ../../../module-peripheral/peripheral_driver.ko mnt/lib/modules/3.6.0
+	sudo umount mnt
+	gzip arm_ramdisk.image
+	build.sh $(LINUX)
+
+build:
+	build.sh $(LINUX)

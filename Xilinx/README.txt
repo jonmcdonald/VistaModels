@@ -1,4 +1,4 @@
-README files for sub setup should be followed under:
+README files for each subdirectory's setup can be found under:
 
   pyex/README.txt
   module-peripheral/README.txt
