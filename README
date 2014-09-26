@@ -24,6 +24,7 @@ A few useful git sequences:
    > git push origin master
 
  - To reset your git area to what is on the server.  This will delete any files you've added.
+   > git fetch
    > git reset --hard HEAD
    > git clean -f -d
    > git pull

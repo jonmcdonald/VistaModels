@@ -9,6 +9,9 @@ Quick start:
 
 ./zynq must be a link to the Vista supplied zynq platform.
 This design requires Vista3.9 and SystemC 2.3
+> cd VistaModels/Xilinx
+> ln -s <path-to-Vista-Zynq>/zynq .
+The ./zynq/zynq Project must be compiled and ready to run.
 
 To run the virtual platform with the prebuilt linux-system.axf:
 > cd pyex

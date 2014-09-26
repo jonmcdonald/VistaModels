@@ -5,7 +5,7 @@ OPT    =
 DEBUG  = -DMB_DEBUG -tsv
 OTHER  = -Wall +model_builder 
 OTHER  = +model_builder 
-CFLAGS = -sc23 $(DEBUG) $(OTHER)
+CFLAGS = -sc23 -gcc45 $(DEBUG) $(OTHER)
 
 MODELS = models
 LOCAL  = local

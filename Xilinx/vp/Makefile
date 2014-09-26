@@ -8,7 +8,7 @@ MODELS = local
 BLOCKS = local
 SC_MAIN = main
 VISTA = vista
-ARGS = -sc23
+ARGS = -sc23 -gcc45
 
 PROJECT = $(patsubst %.v2p,%,$(wildcard *.v2p))
 PROJECTEXE = $(PROJECT)/build/D_PRJDIR_/$(SC_MAIN).exe
