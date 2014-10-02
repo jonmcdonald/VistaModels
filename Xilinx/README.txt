@@ -1,3 +1,8 @@
+
+#####################################################
+### This design requires Vista3.9 and SystemC 2.3 ###
+#####################################################
+
 README files for each subdirectory's setup can be found under:
 
   pyex/README.txt
