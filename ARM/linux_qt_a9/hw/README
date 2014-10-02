@@ -1,27 +1,23 @@
 
-1) make
+This is a simple ARM dual core Cortex A9 platform including a variety of useful peripherals.
+
+1) make clean; make mb; make 
 
 2) make run (once you've built the software image)
 
-3) login to LCD console as root, passwd="root"
+3) login as root, passwd="root"
 
-4) cd embedded/lightmaps
+4) es2gears
 
-5) ./lightmaps -qws
 
-6) Experiment with other demos :-)
-
+The custom peripheral GUI is created by the python script - peripheral.py. This gets launched
+automatically when the simulation is ran. It connects to the simulation via a socket.
 
 
 NOTE: If you are using VMWare then you will notice your mouse
       will not function.
-
-      This is because VMWare is grabbing the mouse and messing it up.
-
       There is a workaround for this, halt your VMWare machine, edit the 
       VMWare machine config file, for example: "Ubuntu.vmx", and make sure
       that this option is set to FALSE:
-
       vmmouse.present = "FALSE"
-
 

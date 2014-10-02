@@ -15,6 +15,7 @@ Files {
 		{$PRJDIR/Models/CustomPeripheral.mb}
 		{$PRJDIR/Models/A9x2.mb}
 		{$PRJDIR/Models/SystemControl.mb}
+		{$PRJDIR/Models/PL180_MCI.mb}
 	 } 
 	 Schematics {
 		{$PRJDIR/Models/stock.h}
@@ -24,7 +25,6 @@ Files {
 	 {Other Binaries} {} 
 }
 Designs {{$PRJDIR/sc_main.cpp}}
-Simulations {/mnt/store/data/platforms/stock_linux/hw/Project/sim /mnt/store/data/VistaModels/ARM/linux_qt_a9/hw/Project/sim}
 VirtualPrototypes stock.vppf
 Folders {
 	 Sources {*.c *.cpp *.C *.cxx *.cc} 
@@ -37,7 +37,7 @@ Folders {
 }
 GeneralCompilationOptions -Wall
 AlwaysCompileInCPPMode 1
-LinkPackages {model_builder models_catalogue}
+LinkPackages {model_builder models_catalogue SCV}
 LinkOptions -lX11
 ProjectLibraryType archive
 ProjectComponentsLibraryPath {$PRJDIR/$PRJFILE_BASENAME/interfaces}
@@ -46,3 +46,5 @@ HasTLMSupport 0
 CompiledWithTLMSupport 0
 IsUsePathVariables 1
 PlatformName Project
+ProjectReadOnly 0
+ProjectBuildMultiPlatform 0

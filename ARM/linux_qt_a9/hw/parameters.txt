@@ -1,17 +1,18 @@
 # ~~~~~~~~~~ GLOBAL OPTIONS
 
-#stock.cpu.PV.cpu0.core.gdbstub_port = 2345
+#stock.cpu.PV.cpu0.core.gdbstub_port         = 2345
 
-tlm_timing_model = LT
-clock = 2 NS                    # 500Mhz
+tlm_timing_model                             = LT
+clock                                        = 2 NS # 500Mhz
 
-vlan:tcp_napt = :2022 => :22    # ssh support user:root passwd:root
+vlan:tcp_napt                                = :2022 => :22 # ssh support user:root passwd:root
 
-physical_io:host_time_sync = 1  # keyboard from FrameBuffer is too fast without this
+physical_io:host_time_sync                   = 1  # keyboard from FrameBuffer is too fast without this
 
 # ~~~~~~~~~~ IMAGE
 
-stock.cpu.elf_image_file = ../sw/boot/linux-system.axf
+stock.cpu.elf_image_file                     = ../sw/boot/linux-kernel.axf
+stock.sdcard.image_file                      = ../sw/sdcard/sysroot.ext2
 
 # ~~~~~~~~~~ AXI MAP
 
@@ -26,6 +27,9 @@ stock.axi_bus.system_master_size             = 0x00001000
 
 stock.axi_bus.peripheral_master_base_address = 0x10026000
 stock.axi_bus.peripheral_master_size         = 0x00001000
+
+stock.axi_bus.sd_master_base_address         = 0x10027000
+stock.axi_bus.sd_master_size                 = 0x00001000
 
 periph_base                                  = 0x1013c000
 
@@ -46,19 +50,19 @@ stock.apb_bus.uart0_master_size              = 0x00001000
 
 # ~~~~~~~~~~ PERIPH OPTIONS
 
-stock.usb.PV.devices = hid_keyboard hid_mouse
+stock.usb.PV.devices                         = hid_keyboard hid_mouse
 
-stock.uart0.receive_FIFO_size_in_bytes = 1024
-stock.uart0.warning_level = IGNORE
+stock.uart0.receive_FIFO_size_in_bytes       = 1024
+stock.uart0.warning_level                    = IGNORE
 
 stock.console0.read_from_console_buffer_size = 1024
-stock.console0.read_from_console_latency = 5
+stock.console0.read_from_console_latency     = 5
 stock.console0.read_from_console_latency_time_unit = MS
-stock.console0.console_title = UART0
+stock.console0.console_title                 = UART0
 
-stock.fb.refresh     = 50    # MS = 20 frames per second
-stock.fb.width       = 1280
-stock.fb.height      = 480
+stock.fb.refresh                             = 50    # MS = 20 frames per second
+stock.fb.width                               = 800
+stock.fb.height                              = 600
 
 #trace_script = trace.tcl 
 

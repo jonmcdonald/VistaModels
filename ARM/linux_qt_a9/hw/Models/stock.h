@@ -13,6 +13,7 @@ $includes_begin;
 #include "CustomPeripheral_model.h"
 #include "A9x2_model.h"
 #include "SystemControl_model.h"
+#include "PL180_MCI_model.h"
 $includes_end;
 
 $module_begin("stock");
@@ -57,6 +58,9 @@ $end
 $init("sysctrl"),
 sysctrl(0)
 $end
+$init("sdcard"),
+sdcard(0)
+$end
     $initialization_end
 {
     $elaboration_begin;
@@ -96,6 +100,9 @@ $end;
 $create_component("sysctrl");
 sysctrl = new SystemControl_pvt("sysctrl");
 $end;
+$create_component("sdcard");
+sdcard = new PL180_MCI_pvt("sdcard");
+$end;
 $bind("console0->nUARTRTS","uart0->nUARTCTS");
 vista_bind(console0->nUARTRTS, uart0->nUARTCTS);
 $end;
@@ -108,14 +115,8 @@ $end;
 $bind("uart0->UARTTXD","console0->UARTRXD");
 vista_bind(uart0->UARTTXD, console0->UARTRXD);
 $end;
-$bind("cpu->master0","axi_bus->a9_slave0");
-vista_bind(cpu->master0, axi_bus->a9_slave0);
-$end;
 $bind("console0->UARTTXD","uart0->UARTRXD");
 vista_bind(console0->UARTTXD, uart0->UARTRXD);
-$end;
-$bind("cpu->master1","axi_bus->a9_slave1");
-vista_bind(cpu->master1, axi_bus->a9_slave1);
 $end;
 $bind("uart0->nUARTRTS","console0->nUARTCTS");
 vista_bind(uart0->nUARTRTS, console0->nUARTCTS);
@@ -155,6 +156,21 @@ vista_bind(axi_bus->system_master, sysctrl->slave);
 $end;
 $bind("uart0->UARTINTR","cpu->irq_0");
 vista_bind(uart0->UARTINTR, cpu->irq_0);
+$end;
+$bind("axi_bus->sd_master","sdcard->host");
+vista_bind(axi_bus->sd_master, sdcard->host);
+$end;
+$bind("sdcard->irq0","cpu->irq_4");
+vista_bind(sdcard->irq0, cpu->irq_4);
+$end;
+$bind("sdcard->irq1","cpu->irq_5");
+vista_bind(sdcard->irq1, cpu->irq_5);
+$end;
+$bind("cpu->master0","axi_bus->a9_slave0");
+vista_bind(cpu->master0, axi_bus->a9_slave0);
+$end;
+$bind("cpu->master1","axi_bus->a9_slave1");
+vista_bind(cpu->master1, axi_bus->a9_slave1);
 $end;
     $elaboration_end;
   $vlnv_assign_begin;
@@ -201,6 +217,9 @@ $end;
 $destruct_component("sysctrl");
 delete sysctrl; sysctrl = 0;
 $end;
+$destruct_component("sdcard");
+delete sdcard; sdcard = 0;
+$end;
     $destructor_end;
   }
 public:
@@ -240,6 +259,9 @@ CustomPeripheral_pvt *peripheral;
 $end;
 $component("sysctrl");
 SystemControl_pvt *sysctrl;
+$end;
+$component("sdcard");
+PL180_MCI_pvt *sdcard;
 $end;
   $fields_end;
   $vlnv_decl_begin;

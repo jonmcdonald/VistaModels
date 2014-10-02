@@ -16,6 +16,7 @@ add_port "usb_slave" /TLM/protocols/axi slave 32 -bind_mode mandatory
 add_port "fb_master" /TLM/protocols/axi master 32 -bind_mode mandatory
 add_port "peripheral_master" /TLM/protocols/axi master 32 -bind_mode mandatory
 add_port "system_master" /TLM/protocols/axi master 32 -bind_mode mandatory
+add_port "sd_master" /TLM/protocols/axi master 32 -bind_mode mandatory
 
 # === parameters ===
 # usage: add_parameter <parameter_name> <default_value> <type:string|unsigned|int>
@@ -80,6 +81,12 @@ set_auto_parameter_default "system_master_size" 0 uint64 {}
 set_auto_parameter_default "system_master_subtract_base_address" 1 uint32 {0 1}
 set_auto_parameter_default "system_master_additional_ranges" {""} string {}
 set_auto_parameter_default "system_master_latency" 0 uint32 {}
+set_auto_parameter_default "sd_master_priority" 0 uint32 {}
+set_auto_parameter_default "sd_master_base_address" 0 uint64 {}
+set_auto_parameter_default "sd_master_size" 0 uint64 {}
+set_auto_parameter_default "sd_master_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "sd_master_additional_ranges" {""} string {}
+set_auto_parameter_default "sd_master_latency" 0 uint32 {}
 
 # === generics ===
 # usage: add_generic <generic_name> <value>
@@ -94,6 +101,7 @@ add_pipeline_policy usb_master a9_slave0 -latency usb_master_latency -buffer_siz
 add_pipeline_policy fb_master a9_slave0 -latency fb_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy peripheral_master a9_slave0 -latency peripheral_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy system_master a9_slave0 -latency system_master_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy sd_master a9_slave0 -latency sd_master_latency -buffer_size 0 -sync 1 -power 0
 add_delay_policy a9_slave1 0 -latency 0 -sync 1 -power 0
 add_pipeline_policy ram_master a9_slave1 -latency ram_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy bridge_master a9_slave1 -latency bridge_master_latency -buffer_size 0 -sync 1 -power 0
@@ -102,6 +110,7 @@ add_pipeline_policy usb_master a9_slave1 -latency usb_master_latency -buffer_siz
 add_pipeline_policy fb_master a9_slave1 -latency fb_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy peripheral_master a9_slave1 -latency peripheral_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy system_master a9_slave1 -latency system_master_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy sd_master a9_slave1 -latency sd_master_latency -buffer_size 0 -sync 1 -power 0
 add_delay_policy usb_slave 0 -latency 0 -sync 1 -power 0
 add_pipeline_policy ram_master usb_slave -latency ram_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy bridge_master usb_slave -latency bridge_master_latency -buffer_size 0 -sync 1 -power 0
@@ -110,6 +119,7 @@ add_pipeline_policy usb_master usb_slave -latency usb_master_latency -buffer_siz
 add_pipeline_policy fb_master usb_slave -latency fb_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy peripheral_master usb_slave -latency peripheral_master_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy system_master usb_slave -latency system_master_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy sd_master usb_slave -latency sd_master_latency -buffer_size 0 -sync 1 -power 0
 
 # === generate options ===
 set_generate_kind "pvt" ;# should be one of: model|pv|pvt
