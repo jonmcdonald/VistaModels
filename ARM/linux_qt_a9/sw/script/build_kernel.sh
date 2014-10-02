@@ -15,6 +15,7 @@ if [ ! -f arch/arm/boot/dts/vista.dts ]; then
 	sed -i 's/.*CONFIG_ARCH_VEXPRESS.*/machine-$(CONFIG_ARCH_VISTA)\t\t+= vista\n&/' arch/arm/Makefile
 	echo -e "vista\t\t\tMACH_VISTA\t\tVISTA\t\t\t4576" >> arch/arm/tools/mach-types
 	sed -i '/global-timer: non support for this cpu version/,+1 s/^/\/\//' drivers/clocksource/arm_global_timer.c
+	sed -i "/.*ocr &= host->ocr_avail*/i return ocr;" drivers/mmc/core/core.c
 fi
 
 cp -rv $SW_ROOT/kernel_patches/src/* .

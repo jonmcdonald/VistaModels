@@ -5,15 +5,17 @@ SW_ROOT="$(dirname "$SCRIPT")"
 
 source $SW_ROOT/setup.sh
 
-cd $SW_ROOT/ramdisk
+cd $SW_ROOT/sdcard
 
 rm -f `find . -name "*~" -print`
-
+rm -rf sysroot.ext2
 rm -rf sysroot
-rm -f initrd.cpio.gz
+
 mkdir sysroot
 
-export SYSROOT=$SW_ROOT/ramdisk/sysroot
+export SYSROOT=$SW_ROOT/sdcard/sysroot
+mkdir -p $SYSROOT/dev
+mkdir -p $SYSROOT/tmp
 
 mkdir -p template/root
 
@@ -49,7 +51,7 @@ if [ -d $QT ]; then
 	cp -r $QT/examples/widgets/wiggly $SYSROOT/qt/examples/widgets
 	cp -r $QT/examples/painting/concentriccircles $SYSROOT/qt/examples/painting
 	sed -i 's/.*LCD_CONSOLE.*/tty1\:\:once\:sh \-c \"source \/etc\/profile\; cd \/qt\/demos\/embedded\/fluidlauncher\; \.\/fluidlauncher -qws"/' $SYSROOT/etc/inittab
-	cp $SW_ROOT/ramdisk/misc/config.xml $SYSROOT/qt/demos/embedded/fluidlauncher
+	cp $SW_ROOT/sdcard/misc/config.xml $SYSROOT/qt/demos/embedded/fluidlauncher
 fi
 
 RELEASE=../packages/sysroot
@@ -75,21 +77,5 @@ cp /mnt/store/data/demos/cluster/iviv3-meibp-m6/bin/fbdev_imx6/instrumentcluster
 #sed -i 's/.*LCD_CONSOLE.*/tty1\:\:once\:sh \-c \"source \/etc\/profile\; cd \/root\; \.\/instrumentcluster3d_demo 2\>\&1 \> \/dev\/ttyAMA0"/' $SYSROOT/etc/inittab
 fi
 
-cd $SYSROOT 
-# preserves links to busybox in /usr/bin /usr/sbin
-# also preserves /usr/bin/gdb*
-
-find . | grep -v '^./usr/' > ../sysroot.files
-echo "./usr/lib" >> ../sysroot.files
-find . | grep '^./usr/lib/lib.*\.so' >> ../sysroot.files
-find usr/bin usr/sbin -type d -o -type l -o -name 'gdb*' >> ../sysroot.files
-find usr/bin usr/sbin -type d -o -type l -o -name 'ldd*' >> ../sysroot.files
-
-find lib >> ../sysroot.files
-find usr/local >> ../sysroot.files
-echo usr/libexec >> ../sysroot.files
-echo usr/libexec/sftp-server >> ../sysroot.files
-
-cat ../sysroot.files |  cpio -R root:root -o -H newc | gzip > ../initrd.cpio.gz
-rm ../sysroot.files
+genext2fs -b 1000000 -d $SYSROOT $SW_ROOT/sdcard/sysroot.ext2
 

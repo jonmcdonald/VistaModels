@@ -108,6 +108,15 @@
 				interrupts = <0 2 0x4>;
 			};
 
+			mmc@10027000 {
+				compatible = "arm,pl180", "arm,primecell";
+				reg = <0x10027000 0x1000>;
+				bit_width = <32>;
+				interrupts = <0 4 0x4 0 5 0x4>;
+				clocks = <&dummy150m>, <&apb_pclk>;
+				clock-names = "dummy150m", "apb_pclk";
+			};
+
 			ethernet@4e000000 {
 				compatible = "smsc,lan9220", "smsc,lan9115";
 				reg = <0x4e000000 0x2000000>;
@@ -123,9 +132,9 @@
 			framebuffer@50000000 {
 				compatible = "simple-framebuffer";
 				reg = <0x50000000 0x10000000>;
-				width = <1280>;
-				height = <480>;
-				stride = <(1280 * 4)>;
+				width = <800>;
+				height = <600>;
+				stride = <(800 * 4)>;
 				format = "a8r8g8b8";
 			};
 		};

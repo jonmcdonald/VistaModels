@@ -12,8 +12,8 @@ make clean
 
 cat ../packages/linux-$VER_LINUX/arch/arm/boot/zImage ../packages/linux-$VER_LINUX/arch/arm/boot/dts/vista.dtb | dd of=zImage bs=4 conv=sync
 
-#cat ../packages/linux-$VER_LINUX/arch/arm/boot/uImage ../packages/linux-$VER_LINUX/arch/arm/boot/dts/vista.dtb | dd of=uImage bs=4 conv=sync
+make CROSS_COMPILE=$CROSS_COMPILE
 
-make FILESYSTEM=../ramdisk/initrd.cpio.gz CROSS_COMPILE=$CROSS_COMPILE
+rm -f vmlinux
+ln -s ../packages/linux-$VER_LINUX/vmlinux .
 
-cp ../packages/linux-$VER_LINUX/vmlinux .

@@ -1,4 +1,3 @@
-
 	.syntax	unified
 	.text
 
@@ -17,7 +16,7 @@ _start:
 	cmp	r0, #0				@ primary CPU?
 	beq	2f
 
-	ldr	r1, =filesystem - 0x100
+	ldr	r1, =endkernel - 0x100
 	adr	r2, 1f
 	ldmia	r2, {r3 - r7}			@ move the code to a location
 	stmia	r1, {r3 - r7}			@ less likely to be overridden
@@ -31,7 +30,6 @@ _start:
 	cmp	r1, #0
 	beq	1b
 	mov	pc, r1				@ branch to the given address
-
 
 2:
 	ldr	r0, =0x10000000			@ UART base 
@@ -59,15 +57,9 @@ atags:
 	.long	(1f - .) >> 2
 	.long	0x54410009
 
-	.asciz	"console=ttyAMA0 rdinit=/linuxrc mem=512M earlyprintk verbose debug ignore_loglevel" 
+	.asciz	"console=ttyAMA0 root=/dev/mmcblk0 rw rootwait mem=512M earlyprintk ignore_loglevel" 
 	.align	2
 1:
-	@ ATAG_INITRD2
-	.long	4
-	.long	0x54420005
-	.long	filesystem
-	.long	fs_size
-
 	@ ATAG_NONE
 	.long	0
 	.long	0x00000000

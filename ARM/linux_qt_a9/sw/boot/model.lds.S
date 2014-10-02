@@ -1,11 +1,9 @@
-
 OUTPUT_FORMAT("elf32-littlearm")
 OUTPUT_ARCH(arm)
 TARGET(binary)
 
 INPUT(./boot.o)
 INPUT(./KERNEL)
-INPUT(FILESYSTEM)
 
 PHYS_OFFSET = 0x80000000;
 
@@ -20,9 +18,7 @@ SECTIONS
 
 	. = . + 0x4000000;
 
-	filesystem = .;
-	.filesystem : { FILESYSTEM }
-	fs_size = . - filesystem;
+	endkernel = .;
 
 	.data : { *(.data) }
 	.bss : { *(.bss) }

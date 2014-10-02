@@ -21,6 +21,6 @@ if [ "$VER_QT_MAJOR" == "4.8" ]; then
 	./script/build_qt.sh 
 fi
 
-./script/build_ramdisk.sh
+./script/build_sdcard.sh
 ./script/build_axf.sh
 

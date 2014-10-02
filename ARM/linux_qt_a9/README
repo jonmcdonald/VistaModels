@@ -1,0 +1,16 @@
+
+This example shows how it is possible to build a simple platform and run
+a recent Linux kernel and home made file system upon it. It includes an 
+example to show how a Linux driver can be built to handle a LED peripheral.
+
+The platform includes:
+	Dual Core Cortex A9
+	Memory
+	FrameBuffer LCD (with support for GPU bridge)
+	UART
+	USB
+	Ethernet
+	SDCard (used for root filesystem)
+	LED Custom Peripheral with button to trigger interrupt
+
+

@@ -63,18 +63,18 @@
    them from a console with "es1gears" or "es2gears" to exercise the different
    OpenGL versions. Note that the OpenGL-ES libraries are pure software based.
 
-7) Run ./script/build_ramdisk.sh
+7) Run ./script/build_sdcard.sh
 
-   This creates the ram disk image, based upon the "template" folder, it then
+   This creates the sdcard image, based upon the "template" folder, it then
    installs the c libraries from the tool-chain, the kernel stuff, busybox
    and dropbear, and finally the QT libraries and a few demos
 
 8) Run ./script/build_axf.sh
 
-   This is the black-art boot loader that creates a single axf image ready
-   for us to run on our Vista platform.
+   This is the black-art boot loader that creates the kernel image ready to boot
 
 9) Run up the platform, go the the hw folder and then:
  
-   vista_simulate Project
+   make run
+
 
