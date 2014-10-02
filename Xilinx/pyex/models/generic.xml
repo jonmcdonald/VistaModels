@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**************************************************************/
+/*                                                            */
+/*      Copyright Mentor Graphics Corporation 2006 - 2011     */
+/*                  All Rights Reserved                       */
+/*                                                            */
+/*       THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY      */
+/*         INFORMATION WHICH IS THE PROPERTY OF MENTOR        */
+/*         GRAPHICS CORPORATION OR ITS LICENSORS AND IS       */
+/*                 SUBJECT TO LICENSE TERMS.                  */
+/*                                                            */
+/**************************************************************/
+-->
+<spirit:busDefinition xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.4"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.4 http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.4/index.xsd">
+   <spirit:vendor>Mentor.com</spirit:vendor>
+   <spirit:library>Lib_ipxact</spirit:library>
+   <spirit:name>generic</spirit:name>
+   <spirit:version>1.0</spirit:version>
+   <spirit:directConnection>false</spirit:directConnection>
+   <spirit:isAddressable>true</spirit:isAddressable>
+</spirit:busDefinition>

@@ -1,0 +1,12 @@
+
+// RealTimeSeconds defines how long the stall will continue.  The simulation will 
+// have events at least until RealTimeSeconds of simulation time.
+RealTimeSeconds = 20
+
+// RealTimeInterval defines the frequency in seconds at which the simulation is
+// checked against the wall clock time.  RealTimeInterval can be a fraction of a second.
+RealTimeInterval = 0.2
+
+// RealTimeFactor defines the correlation to realtime.  1 sets the simulation to run no
+// faster than realtime, 0.5 would allow the simulation to go 2x realtime.
+RealTimeFactor = 1.0

@@ -15,7 +15,7 @@ int sc_main(int argc, char *argv[]) {
   clock_t TimeStart = clock ();
 
 
-  sc_start(-1);
+  sc_start();
 
   clock_t TimeStop = clock ();
 

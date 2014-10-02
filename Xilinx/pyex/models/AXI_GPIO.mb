@@ -1,0 +1,76 @@
+# ============================ TLM Model File ============================
+# You can create tlm model by one of the following ways:
+#   - load this file using 'load_model' API function
+#   - compile this file using "Modeling->Load Model File" menu command.
+# ========================================================================
+
+# === ports ===
+add_port "AXI" /TLM/protocols/axi slave 32 -bind_mode mandatory
+add_port "GPIN0" /TLM/protocols/generic slave 32 -bind_mode optional
+add_port "GPOUT0" /TLM/protocols/generic master 32 -bind_mode optional
+add_port "GPIN1" /TLM/protocols/generic slave 32 -bind_mode optional
+add_port "GPOUT1" /TLM/protocols/generic master 32 -bind_mode optional
+add_port "Resetn" /TLM/protocols/signal slave 1 -bind_mode optional -reset_value 1
+add_port "IRQ" /TLM/protocols/signal master 1 -bind_mode optional -reset_value 0
+
+# === parameters ===
+add_parameter "report_error" 0 uint16 {}
+add_parameter "report_warning" false boolean {}
+add_parameter "write_data_latency" 1 uint32 {}
+add_parameter "read_data_latency" 1 uint32 {}
+add_parameter "C_TRI_DEFAULT" 0 uint32 {}
+add_parameter "C_TRI_DEFAULT_2" 0xFFFFFFFF uint32 {}
+
+# === auto parameters ===
+set_auto_parameter_default "clock" {10 ns} time {}
+set_auto_parameter_default "generic_clock" clock time {}
+set_auto_parameter_default "signal_clock" clock time {}
+set_auto_parameter_default "axi_clock" clock time {}
+set_auto_parameter_default "nominal_voltage" 1 double {}
+set_auto_parameter_default "mb_debug" false boolean {true false}
+set_auto_parameter_default "call_to_default_if" false boolean {true false}
+set_auto_parameter_default "verbose_parameters" true boolean {true false}
+set_auto_parameter_default "dmi_enabled" true boolean {true false}
+set_auto_parameter_default "warning_level" WARNING string {
+      "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
+set_auto_parameter_default "AXI_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "AXI_outstanding" 1 uint32 {}
+set_auto_parameter_default "AXI_read_data_queue_size" 0 uint32 {}
+set_auto_parameter_default "AXI_write_data_queue_size" 0 uint32 {}
+set_auto_parameter_default "GPIN0_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "GPIN1_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "Resetn_pipeline_length" 2 uint32 {}
+
+# === generics ===
+# usage: add_generic <generic_name> <value>
+# example: add_generic "OUT_ACTIVE_VALUE" false
+
+# === machine architecture ===
+declare_register AXI GPIO_DATA_0 0x0 {} -rw_access r/w -trigger w -width 32 -reset_value 0
+declare_register AXI GPIO_TRI_0 0x4 {} -rw_access r/w -width 32 -reset_value C_TRI_DEFAULT
+declare_register AXI GPIO_DATA_1 0x8 {} -rw_access r/w -trigger w -width 32 -reset_value 0
+declare_register AXI GPIO_TRI_1 0xC {} -rw_access r/w -width 32 -reset_value C_TRI_DEFAULT_2
+declare_register AXI GIER 0x11C {} -rw_access r/w -width 32 -reset_value 0
+declare_register AXI IP_IER 0x128 {} -rw_access r/w -width 32 -reset_value 0
+declare_register AXI IP_ISR 0x120 {} -rw_access r/w -is_trigger -width 32 -reset_value 0
+set_sync_all 0
+add_sequential_policy GPOUT0.WRITE -cause AXI.write -latency write_data_latency -sync 1 -power 0
+add_sequential_policy GPOUT1.WRITE -cause AXI.write -latency write_data_latency -sync 1 -power 0
+add_sequential_policy IRQ.write -cause GPIN0.WRITE -latency read_data_latency -sync 1 -power 0
+add_sequential_policy IRQ.write -cause GPIN1.WRITE -latency read_data_latency -sync 1 -power 0
+set_nominal_clock 100
+
+# === generate options ===
+set_generate_kind "pvt" ;# should be one of: model|pv|pvt
+set_include_file ""
+set_external_pv_include ""
+set_pv_kind "template" ;# should be one of: template|external
+set_timing_kind "policies" ;# should be one of: policies|learned
+set_power_kind "policies" ;# should be one of: policies|learned
+set_class_name_external_pv ""
+set_max_parameters_of_pv_constructor 5
+set_overwrite 0
+set_generate_ipxact 1
+set_ipxact_vendor "Mentor.com"
+set_ipxact_version 1.0
+

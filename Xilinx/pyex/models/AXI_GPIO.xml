@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**************************************************************/
+/*                                                            */
+/*      Copyright Mentor Graphics Corporation 2006 - 2011     */
+/*                  All Rights Reserved                       */
+/*                                                            */
+/*       THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY      */
+/*         INFORMATION WHICH IS THE PROPERTY OF MENTOR        */
+/*         GRAPHICS CORPORATION OR ITS LICENSORS AND IS       */
+/*                 SUBJECT TO LICENSE TERMS.                  */
+/*                                                            */
+/**************************************************************/
+-->
+<spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.4" 
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                  xsi:schemaLocation="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.4 http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.4/index.xsd">
+   <spirit:vendor>Mentor.com</spirit:vendor>
+   <spirit:library>models</spirit:library>
+   <spirit:name>AXI_GPIO</spirit:name>
+   <spirit:version>1.0</spirit:version>
+   <spirit:busInterfaces> 
+      <spirit:busInterface>
+         <spirit:name>GPOUT0</spirit:name>
+         <spirit:busType spirit:library="Lib_ipxact" spirit:name="generic" spirit:vendor="Mentor.com" spirit:version="1.0"/>
+         <spirit:abstractionType spirit:library="Lib_ipxact" spirit:name="generic_tlm20" spirit:vendor="Mentor.com" spirit:version="1.0"/>
+         <spirit:master/> 
+         <spirit:portMaps>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>TLM20_socket</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>GPOUT0</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+         </spirit:portMaps>
+      </spirit:busInterface>
+      <spirit:busInterface>
+         <spirit:name>GPOUT1</spirit:name>
+         <spirit:busType spirit:library="Lib_ipxact" spirit:name="generic" spirit:vendor="Mentor.com" spirit:version="1.0"/>
+         <spirit:abstractionType spirit:library="Lib_ipxact" spirit:name="generic_tlm20" spirit:vendor="Mentor.com" spirit:version="1.0"/>
+         <spirit:master/> 
+         <spirit:portMaps>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>TLM20_socket</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>GPOUT1</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+         </spirit:portMaps>
+      </spirit:busInterface>
+      <spirit:busInterface>
+         <spirit:name>IRQ</spirit:name>
+         <spirit:busType spirit:library="Lib_ipxact" spirit:name="signal" spirit:vendor="Mentor.com" spirit:version="1.0"/>
+         <spirit:abstractionType spirit:library="Lib_ipxact" spirit:name="signal_tlm20" spirit:vendor="Mentor.com" spirit:version="1.0"/>
+         <spirit:master/> 
+         <spirit:portMaps>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>TLM20_socket</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>IRQ</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+         </spirit:portMaps>
+      </spirit:busInterface>  
+      <spirit:busInterface>
+         <spirit:name>AXI</spirit:name>
+         <spirit:busType spirit:library="AMBA3" spirit:name="AXI" spirit:vendor="amba.com" spirit:version="r1p0_5"/>
+         <spirit:abstractionType spirit:library="Lib_ipxact" spirit:name="AXI_tlm20" spirit:vendor="Mentor.com" spirit:version="1.0"/>
+         <spirit:slave>  
+            <spirit:memoryMapRef spirit:memoryMapRef="AXI_memMap"/>  
+         </spirit:slave>  
+         <spirit:connectionRequired>true</spirit:connectionRequired> 
+         <spirit:portMaps>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>TLM20_socket</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>AXI</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+         </spirit:portMaps>
+      </spirit:busInterface>
+      <spirit:busInterface>
+         <spirit:name>GPIN0</spirit:name>
+         <spirit:busType spirit:library="Lib_ipxact" spirit:name="generic" spirit:vendor="Mentor.com" spirit:version="1.0"/>
+         <spirit:abstractionType spirit:library="Lib_ipxact" spirit:name="generic_tlm20" spirit:vendor="Mentor.com" spirit:version="1.0"/>
+         <spirit:slave/> 
+         <spirit:portMaps>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>TLM20_socket</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>GPIN0</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+         </spirit:portMaps>
+      </spirit:busInterface>
+      <spirit:busInterface>
+         <spirit:name>GPIN1</spirit:name>
+         <spirit:busType spirit:library="Lib_ipxact" spirit:name="generic" spirit:vendor="Mentor.com" spirit:version="1.0"/>
+         <spirit:abstractionType spirit:library="Lib_ipxact" spirit:name="generic_tlm20" spirit:vendor="Mentor.com" spirit:version="1.0"/>
+         <spirit:slave/> 
+         <spirit:portMaps>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>TLM20_socket</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>GPIN1</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+         </spirit:portMaps>
+      </spirit:busInterface>
+      <spirit:busInterface>
+         <spirit:name>Resetn</spirit:name>
+         <spirit:busType spirit:library="Lib_ipxact" spirit:name="signal" spirit:vendor="Mentor.com" spirit:version="1.0"/>
+         <spirit:abstractionType spirit:library="Lib_ipxact" spirit:name="signal_tlm20" spirit:vendor="Mentor.com" spirit:version="1.0"/>
+         <spirit:slave/> 
+         <spirit:portMaps>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>TLM20_socket</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>Resetn</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+         </spirit:portMaps>
+      </spirit:busInterface>   
+   </spirit:busInterfaces>   
+   <spirit:memoryMaps>
+      <spirit:memoryMap>
+         <spirit:name>AXI_memMap</spirit:name> 
+            <spirit:addressBlock>
+               <spirit:name>AXI0</spirit:name>
+               <spirit:baseAddress>0x0</spirit:baseAddress>
+               <spirit:range>16</spirit:range>
+               <spirit:width>32</spirit:width> 
+               <spirit:usage>register</spirit:usage>  
+               <spirit:access>read-write</spirit:access>  
+               <spirit:register>
+                  <spirit:name>GPIO_DATA_0</spirit:name>
+                  <spirit:addressOffset>0</spirit:addressOffset>
+                  <spirit:size>32</spirit:size>  
+                  <spirit:access>read-write</spirit:access>  
+                  <spirit:reset>
+                     <spirit:value>0</spirit:value>
+                  </spirit:reset>  
+               </spirit:register>
+               <spirit:register>
+                  <spirit:name>GPIO_TRI_0</spirit:name>
+                  <spirit:addressOffset>0x0004</spirit:addressOffset>
+                  <spirit:size>32</spirit:size>  
+                  <spirit:access>read-write</spirit:access>  
+                  <spirit:reset>
+                     <spirit:value>0</spirit:value>
+                  </spirit:reset>  
+               </spirit:register>
+               <spirit:register>
+                  <spirit:name>GPIO_DATA_1</spirit:name>
+                  <spirit:addressOffset>0x0008</spirit:addressOffset>
+                  <spirit:size>32</spirit:size>  
+                  <spirit:access>read-write</spirit:access>  
+                  <spirit:reset>
+                     <spirit:value>0</spirit:value>
+                  </spirit:reset>  
+               </spirit:register>
+               <spirit:register>
+                  <spirit:name>GPIO_TRI_1</spirit:name>
+                  <spirit:addressOffset>0x000c</spirit:addressOffset>
+                  <spirit:size>32</spirit:size>  
+                  <spirit:access>read-write</spirit:access>  
+                  <spirit:reset>
+                     <spirit:value>0</spirit:value>
+                  </spirit:reset>  
+               </spirit:register> 
+            </spirit:addressBlock>    
+            <spirit:addressBlock>
+               <spirit:name>AXI1</spirit:name>
+               <spirit:baseAddress>0x11C</spirit:baseAddress>
+               <spirit:range>8</spirit:range>
+               <spirit:width>32</spirit:width> 
+               <spirit:usage>register</spirit:usage>  
+               <spirit:access>read-write</spirit:access>  
+               <spirit:register>
+                  <spirit:name>GIER</spirit:name>
+                  <spirit:addressOffset>0</spirit:addressOffset>
+                  <spirit:size>32</spirit:size>  
+                  <spirit:access>read-write</spirit:access>  
+                  <spirit:reset>
+                     <spirit:value>0</spirit:value>
+                  </spirit:reset>  
+               </spirit:register>
+               <spirit:register>
+                  <spirit:name>IP_ISR</spirit:name>
+                  <spirit:addressOffset>0x0004</spirit:addressOffset>
+                  <spirit:size>32</spirit:size>  
+                  <spirit:access>read-write</spirit:access>  
+                  <spirit:reset>
+                     <spirit:value>0</spirit:value>
+                  </spirit:reset>  
+               </spirit:register> 
+            </spirit:addressBlock>    
+            <spirit:addressBlock>
+               <spirit:name>AXI2</spirit:name>
+               <spirit:baseAddress>0x128</spirit:baseAddress>
+               <spirit:range>4</spirit:range>
+               <spirit:width>32</spirit:width> 
+               <spirit:usage>register</spirit:usage>  
+               <spirit:access>read-write</spirit:access>  
+               <spirit:register>
+                  <spirit:name>IP_IER</spirit:name>
+                  <spirit:addressOffset>0</spirit:addressOffset>
+                  <spirit:size>32</spirit:size>  
+                  <spirit:access>read-write</spirit:access>  
+                  <spirit:reset>
+                     <spirit:value>0</spirit:value>
+                  </spirit:reset>  
+               </spirit:register> 
+            </spirit:addressBlock>   
+      </spirit:memoryMap>
+   </spirit:memoryMaps> 
+   <spirit:model>
+      <spirit:views>
+         <spirit:view>
+            <spirit:name>TLM2.0</spirit:name>
+            <spirit:envIdentifier>systemC:vista.mentor.com:MB.TLM2.0</spirit:envIdentifier>
+            <spirit:language>systemc</spirit:language>
+            <spirit:modelName>AXI_GPIO</spirit:modelName>
+            <spirit:fileSetRef>sourceCode</spirit:fileSetRef>
+         </spirit:view>
+      </spirit:views>
+      <spirit:ports>
+         <spirit:port>
+            <spirit:name>AXI</spirit:name>
+            <spirit:transactional>
+               <spirit:transTypeDef>
+                  <spirit:typeName spirit:constrained="true">esl::sc_sim::pvt_target_socket[32]</spirit:typeName>
+                  <spirit:typeDefinition>esl/sc_sim/pvt_target_socket.h</spirit:typeDefinition>
+               </spirit:transTypeDef>
+               <spirit:service>
+                  <spirit:initiative>provides</spirit:initiative>
+                  <spirit:serviceTypeDefs>
+                     <spirit:serviceTypeDef>
+                        <spirit:typeName spirit:implicit="true">tlm_fw_transport_if</spirit:typeName>
+                     </spirit:serviceTypeDef>
+                     <spirit:serviceTypeDef>
+                        <spirit:typeName spirit:implicit="true">tlm_bw_transport_if</spirit:typeName>
+                     </spirit:serviceTypeDef>
+                  </spirit:serviceTypeDefs>
+               </spirit:service>
+             </spirit:transactional>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>GPIN0</spirit:name>
+            <spirit:transactional>
+               <spirit:transTypeDef>
+                  <spirit:typeName spirit:constrained="true">esl::sc_sim::pvt_target_socket[32]</spirit:typeName>
+                  <spirit:typeDefinition>esl/sc_sim/pvt_target_socket.h</spirit:typeDefinition>
+               </spirit:transTypeDef>
+               <spirit:service>
+                  <spirit:initiative>provides</spirit:initiative>
+                  <spirit:serviceTypeDefs>
+                     <spirit:serviceTypeDef>
+                        <spirit:typeName spirit:implicit="true">tlm_fw_transport_if</spirit:typeName>
+                     </spirit:serviceTypeDef>
+                     <spirit:serviceTypeDef>
+                        <spirit:typeName spirit:implicit="true">tlm_bw_transport_if</spirit:typeName>
+                     </spirit:serviceTypeDef>
+                  </spirit:serviceTypeDefs>
+               </spirit:service>
+             </spirit:transactional>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>GPOUT0</spirit:name>
+            <spirit:transactional>
+               <spirit:transTypeDef>
+                  <spirit:typeName spirit:constrained="true">esl::sc_sim::pvt_initiator_socket[32]</spirit:typeName>
+                  <spirit:typeDefinition>esl/sc_sim/pvt_initiator_socket.h</spirit:typeDefinition>
+               </spirit:transTypeDef>
+               <spirit:service>
+                  <spirit:initiative>requires</spirit:initiative>
+                  <spirit:serviceTypeDefs>
+                     <spirit:serviceTypeDef>
+                        <spirit:typeName spirit:implicit="true">tlm_fw_transport_if</spirit:typeName>
+                     </spirit:serviceTypeDef>
+                     <spirit:serviceTypeDef>
+                        <spirit:typeName spirit:implicit="true">tlm_bw_transport_if</spirit:typeName>
+                     </spirit:serviceTypeDef>
+                  </spirit:serviceTypeDefs>
+               </spirit:service>
+             </spirit:transactional>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>GPIN1</spirit:name>
+            <spirit:transactional>
+               <spirit:transTypeDef>
+                  <spirit:typeName spirit:constrained="true">esl::sc_sim::pvt_target_socket[32]</spirit:typeName>
+                  <spirit:typeDefinition>esl/sc_sim/pvt_target_socket.h</spirit:typeDefinition>
+               </spirit:transTypeDef>
+               <spirit:service>
+                  <spirit:initiative>provides</spirit:initiative>
+                  <spirit:serviceTypeDefs>
+                     <spirit:serviceTypeDef>
+                        <spirit:typeName spirit:implicit="true">tlm_fw_transport_if</spirit:typeName>
+                     </spirit:serviceTypeDef>
+                     <spirit:serviceTypeDef>
+                        <spirit:typeName spirit:implicit="true">tlm_bw_transport_if</spirit:typeName>
+                     </spirit:serviceTypeDef>
+                  </spirit:serviceTypeDefs>
+               </spirit:service>
+             </spirit:transactional>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>GPOUT1</spirit:name>
+            <spirit:transactional>
+               <spirit:transTypeDef>
+                  <spirit:typeName spirit:constrained="true">esl::sc_sim::pvt_initiator_socket[32]</spirit:typeName>
+                  <spirit:typeDefinition>esl/sc_sim/pvt_initiator_socket.h</spirit:typeDefinition>
+               </spirit:transTypeDef>
+               <spirit:service>
+                  <spirit:initiative>requires</spirit:initiative>
+                  <spirit:serviceTypeDefs>
+                     <spirit:serviceTypeDef>
+                        <spirit:typeName spirit:implicit="true">tlm_fw_transport_if</spirit:typeName>
+                     </spirit:serviceTypeDef>
+                     <spirit:serviceTypeDef>
+                        <spirit:typeName spirit:implicit="true">tlm_bw_transport_if</spirit:typeName>
+                     </spirit:serviceTypeDef>
+                  </spirit:serviceTypeDefs>
+               </spirit:service>
+             </spirit:transactional>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>Resetn</spirit:name>
+            <spirit:transactional>
+               <spirit:transTypeDef>
+                  <spirit:typeName spirit:constrained="true">esl::sc_sim::pvt_target_socket[1]</spirit:typeName>
+                  <spirit:typeDefinition>esl/sc_sim/pvt_target_socket.h</spirit:typeDefinition>
+               </spirit:transTypeDef>
+               <spirit:service>
+                  <spirit:initiative>provides</spirit:initiative>
+                  <spirit:serviceTypeDefs>
+                     <spirit:serviceTypeDef>
+                        <spirit:typeName spirit:implicit="true">tlm_fw_transport_if</spirit:typeName>
+                     </spirit:serviceTypeDef>
+                     <spirit:serviceTypeDef>
+                        <spirit:typeName spirit:implicit="true">tlm_bw_transport_if</spirit:typeName>
+                     </spirit:serviceTypeDef>
+                  </spirit:serviceTypeDefs>
+               </spirit:service>
+             </spirit:transactional>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>IRQ</spirit:name>
+            <spirit:transactional>
+               <spirit:transTypeDef>
+                  <spirit:typeName spirit:constrained="true">esl::sc_sim::pvt_initiator_socket[1]</spirit:typeName>
+                  <spirit:typeDefinition>esl/sc_sim/pvt_initiator_socket.h</spirit:typeDefinition>
+               </spirit:transTypeDef>
+               <spirit:service>
+                  <spirit:initiative>requires</spirit:initiative>
+                  <spirit:serviceTypeDefs>
+                     <spirit:serviceTypeDef>
+                        <spirit:typeName spirit:implicit="true">tlm_fw_transport_if</spirit:typeName>
+                     </spirit:serviceTypeDef>
+                     <spirit:serviceTypeDef>
+                        <spirit:typeName spirit:implicit="true">tlm_bw_transport_if</spirit:typeName>
+                     </spirit:serviceTypeDef>
+                  </spirit:serviceTypeDefs>
+               </spirit:service>
+             </spirit:transactional>
+         </spirit:port>
+      </spirit:ports>
+      <spirit:modelParameters>
+         <spirit:modelParameter spirit:dataType="sc_time" spirit:usageType="nontyped">
+            <spirit:name>clock</spirit:name>
+            <spirit:value>10 ns</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="sc_time" spirit:usageType="nontyped">
+            <spirit:name>generic_clock</spirit:name>
+            <spirit:value>clock</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="sc_time" spirit:usageType="nontyped">
+            <spirit:name>signal_clock</spirit:name>
+            <spirit:value>clock</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="sc_time" spirit:usageType="nontyped">
+            <spirit:name>axi_clock</spirit:name>
+            <spirit:value>clock</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="double" spirit:usageType="nontyped">
+            <spirit:name>nominal_voltage</spirit:name>
+            <spirit:value>1</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="bool" spirit:usageType="nontyped">
+            <spirit:name>mb_debug</spirit:name>
+            <spirit:value>false</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="bool" spirit:usageType="nontyped">
+            <spirit:name>call_to_default_if</spirit:name>
+            <spirit:value>false</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="bool" spirit:usageType="nontyped">
+            <spirit:name>verbose_parameters</spirit:name>
+            <spirit:value>true</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="bool" spirit:usageType="nontyped">
+            <spirit:name>dmi_enabled</spirit:name>
+            <spirit:value>true</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="string" spirit:usageType="nontyped">
+            <spirit:name>warning_level</spirit:name>
+            <spirit:value>WARNING</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="unsigned" spirit:usageType="nontyped">
+            <spirit:name>AXI_pipeline_length</spirit:name>
+            <spirit:value>2</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="unsigned" spirit:usageType="nontyped">
+            <spirit:name>AXI_outstanding</spirit:name>
+            <spirit:value>1</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="unsigned" spirit:usageType="nontyped">
+            <spirit:name>AXI_read_data_queue_size</spirit:name>
+            <spirit:value>0</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="unsigned" spirit:usageType="nontyped">
+            <spirit:name>AXI_write_data_queue_size</spirit:name>
+            <spirit:value>0</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="unsigned" spirit:usageType="nontyped">
+            <spirit:name>GPIN0_pipeline_length</spirit:name>
+            <spirit:value>2</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="unsigned" spirit:usageType="nontyped">
+            <spirit:name>GPIN1_pipeline_length</spirit:name>
+            <spirit:value>2</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="unsigned" spirit:usageType="nontyped">
+            <spirit:name>Resetn_pipeline_length</spirit:name>
+            <spirit:value>2</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="uint16" spirit:usageType="nontyped">
+            <spirit:name>report_error</spirit:name>
+            <spirit:value>0</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="boolean" spirit:usageType="nontyped">
+            <spirit:name>report_warning</spirit:name>
+            <spirit:value>false</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="uint32" spirit:usageType="nontyped">
+            <spirit:name>write_data_latency</spirit:name>
+            <spirit:value>1</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="uint32" spirit:usageType="nontyped">
+            <spirit:name>read_data_latency</spirit:name>
+            <spirit:value>1</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="uint32" spirit:usageType="nontyped">
+            <spirit:name>C_TRI_DEFAULT</spirit:name>
+            <spirit:value>0</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="uint32" spirit:usageType="nontyped">
+            <spirit:name>C_TRI_DEFAULT_2</spirit:name>
+            <spirit:value>0xFFFFFFFF</spirit:value>
+         </spirit:modelParameter>
+      </spirit:modelParameters>
+   </spirit:model> 
+   <spirit:fileSets>
+      <spirit:fileSet>
+         <spirit:name>sourceCode</spirit:name>
+         <spirit:file>
+            <spirit:name>AXI_GPIO_model.cpp</spirit:name>
+            <spirit:fileType>systemCSource</spirit:fileType> 
+         </spirit:file>
+         <spirit:file>
+            <spirit:name>AXI_GPIO_pv.cpp</spirit:name>
+            <spirit:fileType>systemCSource</spirit:fileType> 
+         </spirit:file>
+         <spirit:file>
+            <spirit:name>AXI_GPIO_t.cpp</spirit:name>
+            <spirit:fileType>systemCSource</spirit:fileType> 
+         </spirit:file>
+         <spirit:file>
+            <spirit:name>AXI_GPIO_model.h</spirit:name>
+            <spirit:fileType>systemCSource</spirit:fileType> 
+            <spirit:isIncludeFile spirit:externalDeclarations="true">1</spirit:isIncludeFile> 
+         </spirit:file>
+         <spirit:file>
+            <spirit:name>AXI_GPIO_pvt.h</spirit:name>
+            <spirit:fileType>systemCSource</spirit:fileType> 
+            <spirit:isIncludeFile spirit:externalDeclarations="true">1</spirit:isIncludeFile> 
+         </spirit:file>
+         <spirit:file>
+            <spirit:name>AXI_GPIO_pv.h</spirit:name>
+            <spirit:fileType>systemCSource</spirit:fileType> 
+            <spirit:isIncludeFile spirit:externalDeclarations="true">1</spirit:isIncludeFile> 
+         </spirit:file>
+         <spirit:file>
+            <spirit:name>AXI_GPIO_t.h</spirit:name>
+            <spirit:fileType>systemCSource</spirit:fileType> 
+            <spirit:isIncludeFile spirit:externalDeclarations="true">1</spirit:isIncludeFile> 
+         </spirit:file>
+      </spirit:fileSet>
+   </spirit:fileSets> 
+</spirit:component>
