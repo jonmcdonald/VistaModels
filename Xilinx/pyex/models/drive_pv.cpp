@@ -26,7 +26,9 @@
 #include "drive_pv.h"
 #include <iostream>
 #define GPIO_DATA_0 0x0
+#define GPIO_DATA_1 0x8
 #define GPIO_TRI_0  0x4
+#define GPIO_TRI_1  0xC
 #define GIER        0x11C
 #define IP_IER      0x128
 #define IP_ISR      0x120
@@ -40,11 +42,12 @@ drive_pv::drive_pv(sc_module_name module_name)
 // This thread can be used to generate outgoing transactions
 void drive_pv::thread() {
 
-  // Set bits 0-3 as output, 4-7 as input
-  m_write(GPIO_TRI_0, 0xF0);
+  // Set data 0 as output, data 1 as input
+  m_write(GPIO_TRI_0, 0x0);
+  m_write(GPIO_TRI_1, 0xFFFFFFFF);
   m_write(GPIO_DATA_0, 0x0);
   m_write(GIER, 0x80000000);
-  m_write(IP_IER, 0x1);
+  m_write(IP_IER, 0x2);
 
 /*
   wait(1, SC_SEC);
@@ -66,11 +69,10 @@ void drive_pv::irq_callback() {
   unsigned int i, d;
   m_read(IP_ISR, i);
 
-  if (i & 0x1) {
-    m_read(GPIO_DATA_0, d);
-    d = d>>4;
+  if (i & 0x2) {
+    m_read(GPIO_DATA_1, d);
     m_write(GPIO_DATA_0, d);
-    m_write(IP_ISR, 0x1);
+    m_write(IP_ISR, 0x2);
   }
 }
 

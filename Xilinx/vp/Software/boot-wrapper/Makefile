@@ -5,6 +5,9 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE.txt file.
 
+LINUX ?= /home/jon/work/xilinx/linux-xlnx
+FILESYSTEM ?= arm_ramdisk.image.gz
+
 ZYNQBL		= ../../../zynq/Software/boot-wrapper
 BOOTLOADER	= $(ZYNQBL)/boot.S
 KERNEL		= $(ZYNQBL)/zImage
@@ -70,3 +73,6 @@ update: mount ../../../module-peripheral/peripheral_driver.ko
 
 build:
 	build.sh $(LINUX)
+
+arm_ramdisk.image.gz:
+	wget http://www.wiki.xilinx.com/file/view/arm_ramdisk.image.gz

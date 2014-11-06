@@ -122,6 +122,7 @@ void CustomPeripheral_pv::output() {
 
   while (1) {
     data = fifo.get();
+cout<< "sending data-v = "<< data->v <<endl;
     master_write(0x0, data->v);
     free(data);
   }
@@ -170,6 +171,7 @@ void *CustomPeripheral_pv::startReader(void) {
         if (bytes_read > 0) {
           string cmd(buffer);
           sscanf(buffer, "%x",  &v);
+cout << "val = "<< std::hex<<v << endl;
           data = new DataType();	// Create new data structure then fill in values
           data->v = v;
           pthread_mutex_lock(&mutex);	// Use mutex to safely modify q
