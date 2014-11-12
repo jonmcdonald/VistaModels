@@ -13,12 +13,12 @@
  } 
  page  { w 11000 h 11000 type vhdstd orient portr  } 
 grid 10 
- } #idit - save unit (named vptop while saving) on Thu Sep 25 07:47:33 2014
-#SW version: 2008.12 v4.1.1.beta2 build 1. Date: Sep 18 2014. License: 1.1 
+ } #idit - save unit (named vptop while saving) on Wed Nov  5 08:35:20 2014
+#SW version: 2008.12 v4.1.1.beta2 build 1. Date: Nov  3 2014. License: 1.1 
 version: 12 
 ipxactvendor Mentor.com 
 ipxactversion 1.0 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 832 -304 59 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 832 -303 59 17 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 834 -301 1 8 nil 
 AXI_GPIO 
@@ -177,7 +177,7 @@ angle 0 bcol 'Pale Blue2' pcol 'Black' }
 text { 833 -168 1 axi_gpio0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 841 -195 72 18 
+gnrtxt textbox { rect { 841 -194 69 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 843 -192 1 8 nil 
   "axi_gpio0" 
@@ -322,7 +322,7 @@ none @block -
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 1020 -274 103 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 1019 -272 99 16 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 1022 -271 1 8 nil 
 CustomPeripheral 
@@ -386,7 +386,7 @@ angle 0 bcol 'Pale Blue2' pcol 'Black' }
 text { 1019 -198 1 customperipheral0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 1061 -205 120 18 
+gnrtxt textbox { rect { 1061 -204 116 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 1063 -202 1 8 nil 
   "customperipheral0" 
@@ -445,31 +445,31 @@ none @block -
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 295 -573 62 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 305 -572 61 17 
 bcol 'White' pcol 'Black' } 
-fmttext { 297 -570 1 8 nil 
+fmttext { 307 -570 1 8 nil 
 Zynq_SoC 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  vis }  { fiv  @kind 9 
  } 
-groupobj { doset { rect { 130 -560 360 410 
+groupobj { doset { rect { 140 -560 360 410 
 bcol 'Empty' pcol 'Black' } 
  } 
-clshapes { closeShape { lines { line { 130 -560 490 -560 } 
-line { 490 -560 490 -150 } 
-line { 490 -150 130 -150 } 
-line { 130 -150 130 -560 } 
+clshapes { closeShape { lines { line { 140 -560 500 -560 } 
+line { 500 -560 500 -150 } 
+line { 500 -150 140 -150 } 
+line { 140 -150 140 -560 } 
 } 
 arcs { } 
 bcol 'Pale Blue2'  } 
  } 
  } 
  } 
-pinset { sympinel {  text { 137 -386 1 PL1_IRQ
+pinset { sympinel {  text { 147 -386 1 PL1_IRQ
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -380 } 
- {  end  110 -380  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -380 } 
+ {  end  120 -380  } 
  } 
 @spattr {
 @plist 1 
@@ -485,11 +485,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 433 -346 1 PL0_IRQ
+sympinel {  text { 443 -346 1 PL0_IRQ
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 490 -340 } 
- {  end  510 -340  } 
+invert FALSE visible TRUE typepin 0 pin { 500 -340 } 
+ {  end  520 -340  } 
  } 
 @spattr {
 @plist 1 
@@ -505,11 +505,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 137 -396 1 PL2_IRQ
+sympinel {  text { 147 -396 1 PL2_IRQ
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -390 } 
- {  end  110 -390  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -390 } 
+ {  end  120 -390  } 
  } 
 @spattr {
 @plist 1 
@@ -525,11 +525,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 137 -406 1 PL3_IRQ
+sympinel {  text { 147 -406 1 PL3_IRQ
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -400 } 
- {  end  110 -400  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -400 } 
+ {  end  120 -400  } 
  } 
 @spattr {
 @plist 1 
@@ -545,11 +545,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 137 -416 1 PL4_IRQ
+sympinel {  text { 147 -416 1 PL4_IRQ
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -410 } 
- {  end  110 -410  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -410 } 
+ {  end  120 -410  } 
  } 
 @spattr {
 @plist 1 
@@ -565,11 +565,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 137 -426 1 PL5_IRQ
+sympinel {  text { 147 -426 1 PL5_IRQ
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -420 } 
- {  end  110 -420  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -420 } 
+ {  end  120 -420  } 
  } 
 @spattr {
 @plist 1 
@@ -585,11 +585,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 137 -436 1 PL6_IRQ
+sympinel {  text { 147 -436 1 PL6_IRQ
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -430 } 
- {  end  110 -430  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -430 } 
+ {  end  120 -430  } 
  } 
 @spattr {
 @plist 1 
@@ -605,11 +605,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 137 -446 1 PL7_IRQ
+sympinel {  text { 147 -446 1 PL7_IRQ
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -440 } 
- {  end  110 -440  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -440 } 
+ {  end  120 -440  } 
  } 
 @spattr {
 @plist 1 
@@ -625,11 +625,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 137 -466 1 PL9_IRQ
+sympinel {  text { 147 -466 1 PL9_IRQ
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -460 } 
- {  end  110 -460  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -460 } 
+ {  end  120 -460  } 
  } 
 @spattr {
 @plist 1 
@@ -645,11 +645,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 137 -526 1 PL15_IRQ
+sympinel {  text { 147 -526 1 PL15_IRQ
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -520 } 
- {  end  110 -520  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -520 } 
+ {  end  120 -520  } 
  } 
 @spattr {
 @plist 1 
@@ -665,11 +665,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 137 -476 1 PL10_IRQ
+sympinel {  text { 147 -476 1 PL10_IRQ
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -470 } 
- {  end  110 -470  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -470 } 
+ {  end  120 -470  } 
  } 
 @spattr {
 @plist 1 
@@ -685,11 +685,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 137 -486 1 PL11_IRQ
+sympinel {  text { 147 -486 1 PL11_IRQ
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -480 } 
- {  end  110 -480  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -480 } 
+ {  end  120 -480  } 
  } 
 @spattr {
 @plist 1 
@@ -705,11 +705,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 137 -496 1 PL12_IRQ
+sympinel {  text { 147 -496 1 PL12_IRQ
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -490 } 
- {  end  110 -490  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -490 } 
+ {  end  120 -490  } 
  } 
 @spattr {
 @plist 1 
@@ -725,11 +725,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 137 -516 1 PL14_IRQ
+sympinel {  text { 147 -516 1 PL14_IRQ
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -510 } 
- {  end  110 -510  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -510 } 
+ {  end  120 -510  } 
  } 
 @spattr {
 @plist 1 
@@ -745,11 +745,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 137 -456 1 PL8_IRQ
+sympinel {  text { 147 -456 1 PL8_IRQ
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -450 } 
- {  end  110 -450  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -450 } 
+ {  end  120 -450  } 
  } 
 @spattr {
 @plist 1 
@@ -765,11 +765,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 137 -506 1 PL13_IRQ
+sympinel {  text { 147 -506 1 PL13_IRQ
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -500 } 
- {  end  110 -500  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -500 } 
+ {  end  120 -500  } 
  } 
 @spattr {
 @plist 1 
@@ -785,11 +785,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 137 -186 1 S_AXI_ACP
+sympinel {  text { 147 -186 1 S_AXI_ACP
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -180 } 
- {  end  110 -180  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -180 } 
+ {  end  120 -180  } 
  } 
 @spattr {
 @plist 1 
@@ -805,11 +805,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 409 -216 1 M_AXI_GP0
+sympinel {  text { 439 -216 1 M_AXI_GP0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 490 -210 } 
- {  end  510 -210  } 
+invert FALSE visible TRUE typepin 0 pin { 500 -210 } 
+ {  end  520 -210  } 
  } 
 @spattr {
 @plist 1 
@@ -825,11 +825,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 409 -236 1 M_AXI_GP1
+sympinel {  text { 439 -236 1 M_AXI_GP1
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 490 -230 } 
- {  end  510 -230  } 
+invert FALSE visible TRUE typepin 0 pin { 500 -230 } 
+ {  end  520 -230  } 
  } 
 @spattr {
 @plist 1 
@@ -845,11 +845,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 137 -236 1 S_AXI_GP1
+sympinel {  text { 147 -236 1 S_AXI_GP1
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -230 } 
- {  end  110 -230  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -230 } 
+ {  end  120 -230  } 
  } 
 @spattr {
 @plist 1 
@@ -865,11 +865,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 137 -266 1 S_AXI_HP0
+sympinel {  text { 147 -266 1 S_AXI_HP0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -260 } 
- {  end  110 -260  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -260 } 
+ {  end  120 -260  } 
  } 
 @spattr {
 @plist 1 
@@ -885,11 +885,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 137 -286 1 S_AXI_HP1
+sympinel {  text { 147 -286 1 S_AXI_HP1
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -280 } 
- {  end  110 -280  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -280 } 
+ {  end  120 -280  } 
  } 
 @spattr {
 @plist 1 
@@ -905,11 +905,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 137 -306 1 S_AXI_HP2
+sympinel {  text { 147 -306 1 S_AXI_HP2
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -300 } 
- {  end  110 -300  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -300 } 
+ {  end  120 -300  } 
  } 
 @spattr {
 @plist 1 
@@ -925,11 +925,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 137 -326 1 S_AXI_HP3
+sympinel {  text { 147 -326 1 S_AXI_HP3
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -320 } 
- {  end  110 -320  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -320 } 
+ {  end  120 -320  } 
  } 
 @spattr {
 @plist 1 
@@ -945,11 +945,11 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 137 -216 1 S_AXI_GP0
+sympinel {  text { 147 -216 1 S_AXI_GP0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 130 -210 } 
- {  end  110 -210  } 
+invert FALSE visible TRUE typepin 0 pin { 140 -210 } 
+ {  end  120 -210  } 
  } 
 @spattr {
 @plist 1 
@@ -968,19 +968,19 @@ none @block  1
  } 
 angle 0 bcol 'Pale Blue2' pcol 'Black' } 
  } 
-text { 269 -150 1 Zynq_SoC_inst
+text { 243 -150 1 Zynq_SoC_inst
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 2295 -649 102 18 
+gnrtxt textbox { rect { 2295 -648 103 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 2297 -646 1 8 nil 
-  "Zynq_SoC_inst" 
+  "Zynq_SoC_inst"  
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
 - - @symname
 - @cmpattr
-@kwd @innm Zynq_SoC_inst @arch - @usl - @hrnm Zynq_SoC blocks_lib @dffs 0 0 @stt hier @gnras @cnt 0
+@kwd @innm Zynq_SoC_inst @arch - @usl - @hrnm Zynq_SoC zynq_schematics @dffs 0 0 @stt hier @gnras @cnt 0
 @templparamas @templparamcnt 0
 @portas @cnt 0
 @portlist 25 
@@ -1210,7 +1210,7 @@ none @block  1
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } @blist 0 } !
-@procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
+@useCtor -1 @freeCtrorAruments 1 %Name%
 L { @nvis } !
 @prtas 2 -
 1 sigIdx
@@ -1448,7 +1448,7 @@ none @block  1
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-signal { F bind line90 { 0 4 2 510 -210  510 -210  780 -210 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 520 -210  520 -210  780 -210 bcol 'Empty' pcol 'Black' 
  Firstpin {
   blockpin {   nnvis  pnvis pin { 780 -210 } 
  } 
@@ -1463,7 +1463,7 @@ signal { F bind line90 { 0 4 2 510 -210  510 -210  780 -210 bcol 'Empty' pcol 'B
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 510 -210 } 
+  blockpin {   nnvis  pnvis pin { 520 -210 } 
  } 
 11 1 -1 -
 -
@@ -1495,7 +1495,7 @@ m
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 3 510 -340  620 -340  620 -250  780 -250 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 3 520 -340  600 -340  600 -250  780 -250 bcol 'Empty' pcol 'Black' 
  Firstpin {
   blockpin {   nnvis  pnvis pin { 780 -250 } 
  } 
@@ -1510,7 +1510,7 @@ signal { F bind line90 { 0 4 3 510 -340  620 -340  620 -250  780 -250 bcol 'Empt
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 510 -340 } 
+  blockpin {   nnvis  pnvis pin { 520 -340 } 
  } 
 10 3 -1 -
 -
@@ -1644,9 +1644,9 @@ GPIN0
 0 
 !
 
-@@VE@names@@ 7 @obj - GPIN0 13 @obj - m 13 @obj - Zynq_SoC_inst 36 @obj - irq 13 @obj - customperipheral0 36 @obj - GPOUT0 13 @obj - axi_gpio0 36 23 3 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 7 2 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 !
+@@VE@names@@ 7 @obj - m 13 @obj - GPIN0 13 @obj - Zynq_SoC_inst 36 @obj - irq 13 @obj - customperipheral0 36 @obj - GPOUT0 13 @obj - axi_gpio0 36 23 3 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 7 3 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 !
 
 @@VE@obj_u@@ axi_gpio0 AXI_GPIO pyex 0 
 customperipheral0 CustomPeripheral pyex 0 
-Zynq_SoC_inst Zynq_SoC blocks_lib 0 
+Zynq_SoC_inst Zynq_SoC zynq_schematics 0 
 !

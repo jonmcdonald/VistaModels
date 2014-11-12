@@ -13,8 +13,8 @@
  } 
  page  { w 11000 h 11000 type vhdstd orient portr  } 
 grid 10 
- } #idit - save unit (named untitled00 while saving) on Tue Sep 23 09:36:10 2014
-#SW version: 2008.12 v4.1.1.beta2 build 1. Date: Apr 29 2014. License: 1.1 
+ } #idit - save unit (named top while saving) on Mon Oct 20 16:58:02 2014
+#SW version: 2008.12 v4.1.1.beta2 build 1. Date: Oct  1 2014. License: 1.1 
 version: 12 
 ipxactvendor Mentor.com 
 ipxactversion 1.0 
@@ -177,10 +177,10 @@ angle 0 bcol 'Pale Blue2' pcol 'Black' }
 text { 343 -148 1 axi_gpio0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 221 -95 73 17 
+gnrtxt textbox { rect { 221 -95 72 18 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 223 -92 1 8 nil 
-  "axi_gpio0"  
+  "axi_gpio0" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -254,7 +254,7 @@ L { @nvis } !
 0 GPOUT0
 -
 3 sigIdx
-0 GPIN0
+0 GPIN1
 -
 4 sigIdx
 0 AXI
@@ -386,10 +386,10 @@ angle 0 bcol 'Pale Blue2' pcol 'Black' }
 text { 569 -148 1 periph0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 421 -105 61 17 
+gnrtxt textbox { rect { 421 -105 60 18 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 423 -102 1 8 nil 
-  "periph0"  
+  "periph0" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -509,10 +509,10 @@ angle 0 bcol 'Pale Blue2' pcol 'Black' }
 text { 143 -168 1 drive0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 111 -115 53 17 
+gnrtxt textbox { rect { 111 -115 52 18 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 113 -112 1 8 nil 
-  "drive0"  
+  "drive0" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -618,10 +618,10 @@ GPOUT0
 @channeltype -
 -
 0 
-signal { F bind nameset { text { 462 -198 0 GPIN0
+signal { F bind nameset { text { 462 -248 0 GPIN0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-} line90 { 0 4 2 450 -200  450 -200  510 -200 bcol 'Empty' pcol 'Black' 
+} line90 { 0 4 3 450 -250  460 -250  460 -200  510 -200 bcol 'Empty' pcol 'Black' 
  Firstpin {
   blockpin {   nnvis  pnvis pin { 510 -200 } 
  } 
@@ -636,7 +636,7 @@ fn 0 0 160 2 5 0 0 0 0 }
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 450 -200 } 
+  blockpin {   nnvis  pnvis pin { 450 -250 } 
  } 
 10 3 -1 -
 -

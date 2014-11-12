@@ -20,16 +20,16 @@ sw0val = 0
 sw1val = 0
 sw2val = 0
 sw3val = 0
-currentvals = int("0x0000", 16)
+currentvals = int("0x00000000", 16)
 
 l0 = 0
 l1 = 0
 l2 = 0
 l3 = 0
 
-colors = {0:"#000", 1:"#FFF"} 
+colors = {0:"#000", 1:"#FF0", 2:"#0F0", 3:"#F00"} 
 
-vals = {0:1, 1:0}
+vals = {0:1, 1:2, 2:3, 3:0}
 
 class simpleapp_tk(Tkinter.Tk):
     def __init__(self,parent):
@@ -50,23 +50,23 @@ class simpleapp_tk(Tkinter.Tk):
 	global l1
 	global l2
 	global l3
-        data = comms.recv(4)
+        data = comms.recv(8)
         if (data == ''):
             comms.close()
 	    self.destroy()
             return
         status = struct.unpack("=I", data)[0]
-	if (l0 != (status & 1)):
-	    l0 = vals[l0]
+	if (l0 != (status & 3)):
+	    l0 = status & 3
             lt0Canvas.itemconfigure(lt0LED, fill=colors[l0])
-	if (l1 != ((status>>1) & 1)):
-	    l1 = vals[l1]
+	if (l1 != ((status>>8) & 3)):
+	    l1 = (status>>8) & 3
             lt1Canvas.itemconfigure(lt1LED, fill=colors[l1])
-	if (l2 != ((status>>2) & 1)):
-	    l2 = vals[l2]
+	if (l2 != ((status>>16) & 3)):
+	    l2 = (status>>16) & 3
             lt2Canvas.itemconfigure(lt2LED, fill=colors[l2])
-	if (l3 != ((status>>3) & 1)):
-	    l3 = vals[l3]
+	if (l3 != ((status>>24) & 3)):
+	    l3 = (status>>24) & 3
             lt3Canvas.itemconfigure(lt3LED, fill=colors[l3])
 
     def initialize(self):
@@ -75,7 +75,7 @@ class simpleapp_tk(Tkinter.Tk):
 	global swvals
 	iswup = PhotoImage(file='gifs/swup.gif')
 	iswdn = PhotoImage(file='gifs/swdn.gif')
-	swvals = {0:iswdn, 1:iswup}
+	swvals = {0:iswdn, 1:iswup, 2:iswdn, 3:iswup}
         self.grid()
         global lt0Canvas
 	global lt0LED
@@ -120,36 +120,40 @@ class simpleapp_tk(Tkinter.Tk):
 	global sw0
 	global currentvals
 	sw0val = vals[sw0val]
-        currentvals = currentvals ^ int("0x0010", 16)
+        currentvals = (currentvals & int("0xFFFFFF00", 16)) | sw0val
 	sw0.config(image=swvals[sw0val])
-        comms.send(format(currentvals, '02x'))
+	print(format(currentvals, '08x'))
+        comms.send(format(currentvals, '08x'))
 
     def sw1Click(self):
 	global sw1val
 	global sw1
 	global currentvals
 	sw1val = vals[sw1val]
-        currentvals = currentvals ^ int("0x0020", 16)
+        currentvals = (currentvals & int("0xFFFF00FF", 16)) | (sw1val<<8)
 	sw1.config(image=swvals[sw1val])
-        comms.send(format(currentvals, '02x'))
+	print(format(currentvals, '08x'))
+        comms.send(format(currentvals, '08x'))
 
     def sw2Click(self):
 	global sw2val
 	global sw2
 	global currentvals
 	sw2val = vals[sw2val]
-        currentvals = currentvals ^ int("0x0040", 16)
+        currentvals = (currentvals & int("0xFF00FFFF", 16)) | (sw2val<<16)
 	sw2.config(image=swvals[sw2val])
-        comms.send(format(currentvals, '02x'))
+	print(format(currentvals, '08x'))
+        comms.send(format(currentvals, '08x'))
 
     def sw3Click(self):
 	global sw3val
 	global sw3
 	global currentvals
 	sw3val = vals[sw3val]
-        currentvals = currentvals ^ int("0x0080", 16)
+        currentvals = (currentvals & int("0x00FFFFFF", 16)) | (sw3val<<24)
 	sw3.config(image=swvals[sw3val])
-        comms.send(format(currentvals, '02x'))
+	print(format(currentvals, '08x'))
+        comms.send(format(currentvals, '08x'))
 
     def shutDown(self):
         comms.close()
