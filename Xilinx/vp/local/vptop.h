@@ -2,7 +2,7 @@
 #include "mgc_vista_schematics.h"
 $includes_begin;
 #include <systemc.h>
-#include "../../zynq/blocks_lib/Zynq_SoC.h"
+#include "../../zynq/zynq_schematics/Zynq_SoC.h"
 #include "../../pyex/models/AXI_GPIO_model.h"
 #include "../../pyex/models/CustomPeripheral_model.h"
 $includes_end;
