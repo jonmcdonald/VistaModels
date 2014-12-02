@@ -30,10 +30,14 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+
+#ifndef __WIN32__
 #include <pthread.h>
 #include <sys/types.h> 
 #include <sys/socket.h>
 #include <netinet/in.h>
+#endif
+
 #include <deque>
 
 #ifdef __VISTA_OSCI23__
@@ -70,22 +74,21 @@ class CustomPeripheral_pv : public CustomPeripheral_pv_base {
   static void* call_startReader(void *arg) { return ((CustomPeripheral_pv*)arg)->startReader(); }
   void *startReader();	// C++ pthread which will fork and exec the external process then wait for input
                         // from the external process.  It will forward and call notify on safe_ev
-
+#ifndef __WIN32__
   pthread_t readerThread;
   pthread_mutex_t mutex;	// Used to safely pass data from startReader to input processes.
+  pid_t child_pid;  // process id of the python script
+  int sockfd, newsockfd, portno;
+  socklen_t clilen;
+  struct sockaddr_in serv_addr, cli_addr;
+#endif
   
 #ifdef __VISTA_OSCI23__
   thread_safe_event safe_ev;	// Thread safe event used to notify from startReader to input processes.
 #endif
 
   std::deque<DataType *> q;	// queue holding data passed from startReader to input processes
-  tlm::tlm_fifo<DataType *> fifo;  // queue holding data passed from input to output processes
-       
-  pid_t child_pid;  // process id of the python script
-
-  int sockfd, newsockfd, portno;
-  socklen_t clilen;
-  struct sockaddr_in serv_addr, cli_addr;
+  tlm::tlm_fifo<DataType *> fifo;  // queue holding data passed from input to output processes     
 
  protected:
   ////////////////////////////////////////

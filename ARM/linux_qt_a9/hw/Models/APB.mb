@@ -29,6 +29,7 @@ set_auto_parameter_default "bus_slave_vmap" {""} string {}
 set_auto_parameter_default "uart0_master_base_address" 0 uint64 {}
 set_auto_parameter_default "uart0_master_size" 0 uint64 {}
 set_auto_parameter_default "uart0_master_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "uart0_master_secure" 0 uint32 {0 1}
 set_auto_parameter_default "uart0_master_additional_ranges" {""} string {}
 set_auto_parameter_default "uart0_master_latency" 0 uint32 {}
 

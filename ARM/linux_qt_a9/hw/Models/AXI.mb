@@ -41,24 +41,28 @@ set_auto_parameter_default "ram_master_priority" 0 uint32 {}
 set_auto_parameter_default "ram_master_base_address" 0 uint64 {}
 set_auto_parameter_default "ram_master_size" 0 uint64 {}
 set_auto_parameter_default "ram_master_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "ram_master_secure" 0 uint32 {0 1}
 set_auto_parameter_default "ram_master_additional_ranges" {""} string {}
 set_auto_parameter_default "ram_master_latency" 0 uint32 {}
 set_auto_parameter_default "bridge_master_priority" 0 uint32 {}
 set_auto_parameter_default "bridge_master_base_address" 0 uint64 {}
 set_auto_parameter_default "bridge_master_size" 0 uint64 {}
 set_auto_parameter_default "bridge_master_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "bridge_master_secure" 0 uint32 {0 1}
 set_auto_parameter_default "bridge_master_additional_ranges" {""} string {}
 set_auto_parameter_default "bridge_master_latency" 0 uint32 {}
 set_auto_parameter_default "ethernet_master_priority" 0 uint32 {}
 set_auto_parameter_default "ethernet_master_base_address" 0 uint64 {}
 set_auto_parameter_default "ethernet_master_size" 0 uint64 {}
 set_auto_parameter_default "ethernet_master_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "ethernet_master_secure" 0 uint32 {0 1}
 set_auto_parameter_default "ethernet_master_additional_ranges" {""} string {}
 set_auto_parameter_default "ethernet_master_latency" 0 uint32 {}
 set_auto_parameter_default "usb_master_priority" 0 uint32 {}
 set_auto_parameter_default "usb_master_base_address" 0 uint64 {}
 set_auto_parameter_default "usb_master_size" 0 uint64 {}
 set_auto_parameter_default "usb_master_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "usb_master_secure" 0 uint32 {0 1}
 set_auto_parameter_default "usb_master_additional_ranges" {""} string {}
 set_auto_parameter_default "usb_master_latency" 0 uint32 {}
 set_auto_parameter_default "usb_slave_priority" 0 uint32 {}
@@ -67,24 +71,28 @@ set_auto_parameter_default "fb_master_priority" 0 uint32 {}
 set_auto_parameter_default "fb_master_base_address" 0 uint64 {}
 set_auto_parameter_default "fb_master_size" 0 uint64 {}
 set_auto_parameter_default "fb_master_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "fb_master_secure" 0 uint32 {0 1}
 set_auto_parameter_default "fb_master_additional_ranges" {""} string {}
 set_auto_parameter_default "fb_master_latency" 0 uint32 {}
 set_auto_parameter_default "peripheral_master_priority" 0 uint32 {}
 set_auto_parameter_default "peripheral_master_base_address" 0 uint64 {}
 set_auto_parameter_default "peripheral_master_size" 0 uint64 {}
 set_auto_parameter_default "peripheral_master_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "peripheral_master_secure" 0 uint32 {0 1}
 set_auto_parameter_default "peripheral_master_additional_ranges" {""} string {}
 set_auto_parameter_default "peripheral_master_latency" 0 uint32 {}
 set_auto_parameter_default "system_master_priority" 0 uint32 {}
 set_auto_parameter_default "system_master_base_address" 0 uint64 {}
 set_auto_parameter_default "system_master_size" 0 uint64 {}
 set_auto_parameter_default "system_master_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "system_master_secure" 0 uint32 {0 1}
 set_auto_parameter_default "system_master_additional_ranges" {""} string {}
 set_auto_parameter_default "system_master_latency" 0 uint32 {}
 set_auto_parameter_default "sd_master_priority" 0 uint32 {}
 set_auto_parameter_default "sd_master_base_address" 0 uint64 {}
 set_auto_parameter_default "sd_master_size" 0 uint64 {}
 set_auto_parameter_default "sd_master_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "sd_master_secure" 0 uint32 {0 1}
 set_auto_parameter_default "sd_master_additional_ranges" {""} string {}
 set_auto_parameter_default "sd_master_latency" 0 uint32 {}
 
