@@ -7,17 +7,3 @@ This is a simple ARM dual core Cortex A9 platform including a variety of useful 
 
 3) login as root, passwd="root"
 
-4) es2gears
-
-
-The custom peripheral GUI is created by the python script - peripheral.py. This gets launched
-automatically when the simulation is ran. It connects to the simulation via a socket.
-
-
-NOTE: If you are using VMWare then you will notice your mouse
-      will not function.
-      There is a workaround for this, halt your VMWare machine, edit the 
-      VMWare machine config file, for example: "Ubuntu.vmx", and make sure
-      that this option is set to FALSE:
-      vmmouse.present = "FALSE"
-
