@@ -60,8 +60,8 @@ if [ -d $RELEASE ]; then
 	cp -r $RELEASE/* $SYSROOT/usr/local
 fi
 
-if [ -f $SW_ROOT/gears/es1gears ]; then
-	cp $SW_ROOT/gears/es*gears $SYSROOT/usr/local/bin
+if [ -f $SW_ROOT/gfx_examples/es1gears ]; then
+	cp $SW_ROOT/gfx_examples/es*gears $SYSROOT/usr/local/bin
 fi
 
 mkdir -p $SYSROOT/usr/libexec

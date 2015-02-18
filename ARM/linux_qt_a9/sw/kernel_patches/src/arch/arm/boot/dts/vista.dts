@@ -16,11 +16,12 @@
 			reg = <0x0>;
 		};
 
-		cpu@1 {
+/*		cpu@1 {
 			device_type = "cpu";
 			compatible = "arm,cortex-a9";
 			reg = <0x1>;
 		};
+*/
 	};
 
 	memory {
@@ -132,9 +133,9 @@
 			framebuffer@50000000 {
 				compatible = "simple-framebuffer";
 				reg = <0x50000000 0x10000000>;
-				width = <800>;
-				height = <600>;
-				stride = <(800 * 4)>;
+				width = <1280>;
+				height = <480>;
+				stride = <(1280 * 4)>;
 				format = "a8r8g8b8";
 			};
 		};

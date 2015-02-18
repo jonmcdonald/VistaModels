@@ -7,6 +7,6 @@ source $SW_ROOT/setup.sh
 
 source $SW_ROOT/script/setup_apps.sh
 
-cd $SW_ROOT/gears
+cd $SW_ROOT/gfx_examples
 make
 

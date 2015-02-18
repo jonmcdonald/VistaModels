@@ -64,6 +64,12 @@ if [ "$VER_QT_MAJOR" == "4.8" ]; then
 	fi
 fi
 
+if [ "$VER_QT_MAJOR" == "5.4" ]; then
+	if [ ! -f qt-everywhere-opensource-src-$VER_QT.tar.xz ]; then
+		wget http://download.qt-project.org/official_releases/qt/$VER_QT_MAJOR/$VER_QT/single/qt-everywhere-opensource-src-$VER_QT.tar.xz
+	fi
+fi
+
 if [ ! -d linux-$VER_LINUX ]; then
 	tar xvf linux-$VER_LINUX.tar.xz
 fi
@@ -118,6 +124,11 @@ if [ "$VER_QT_MAJOR" == "4.8" ]; then
 	fi
 fi
 
+if [ "$VER_QT_MAJOR" == "5.4" ]; then
+	if [ ! -d qt-everywhere-opensource-src-$VER_QT ]; then
+		tar xvf qt-everywhere-opensource-src-$VER_QT.tar.xz
+	fi
+fi
 
 
 mkdir -p $SW_ROOT/tools
