@@ -24,3 +24,6 @@ make vista_defconfig
 
 make -j 20
 
+export SYSROOT=$SW_ROOT/sdcard/sysroot
+make headers_install INSTALL_HDR_PATH=$SYSROOT/usr
+

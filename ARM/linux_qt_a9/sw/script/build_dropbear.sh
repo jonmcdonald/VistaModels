@@ -13,4 +13,9 @@ CC=$TARGET-gcc ./configure --host=$TARGET --disable-zlib
 
 CC=$TARGET-gcc make PROGRAMS="dropbear dbclient dropbearkey dropbearconvert scp"
 
+export SYSROOT=$SW_ROOT/sdcard/sysroot
+cp dropbear $SYSROOT/sbin
+cp dbclient $SYSROOT/sbin
+cp dropbearkey $SYSROOT/sbin
+cp scp $SYSROOT/bin
 

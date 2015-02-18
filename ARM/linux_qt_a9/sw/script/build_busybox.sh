@@ -13,3 +13,6 @@ make defconfig
 
 make -j 15
 
+export SYSROOT=$SW_ROOT/sdcard/sysroot
+make install CONFIG_PREFIX=$SYSROOT
+
