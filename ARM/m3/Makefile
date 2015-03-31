@@ -88,7 +88,7 @@ vista: $(EXE) $T
 
 batch: $(EXE) $T
 	vista -tsv -simscript $T -params $P -simdir $S \
-		-trace-all-sockets -batch -exec $(EXE)
+		-trace-all-sockets -vp-plus -batch -exec $(EXE)
 #		-batch -exec $(EXE)
 
 events: $S
