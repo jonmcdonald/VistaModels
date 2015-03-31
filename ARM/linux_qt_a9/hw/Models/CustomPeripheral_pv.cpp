@@ -28,7 +28,10 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
+
+#ifndef __WIN32__
 #include <strings.h>
+#endif
 
 using namespace sc_core;
 using namespace sc_dt;
@@ -41,6 +44,7 @@ CustomPeripheral_pv::CustomPeripheral_pv(sc_module_name module_name)
   ,safe_ev("safe_ev")
 #endif
 {
+#ifndef __WIN32__
   int r;
   /* First call to socket() function */
   sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -100,23 +104,26 @@ CustomPeripheral_pv::CustomPeripheral_pv(sc_module_name module_name)
 
   r = pthread_create( &readerThread, NULL, &CustomPeripheral_pv::call_startReader, this);
   if (r ==0) pthread_detach(readerThread);
-
+#endif
 }    
 
 // Destructor cleans up the forked python script
 CustomPeripheral_pv::~CustomPeripheral_pv()
 {
+#ifndef __WIN32__
   if(child_pid) { 
     cout << "CustomPeripheral: Sending kill signal to forked Python script" << endl;
     pid_t p = child_pid;
     child_pid = 0;
     kill(p, SIGKILL);
   }
+#endif
 }
 
 
 // SystemC process which takes data from input and writes out through the tlm port
 void CustomPeripheral_pv::output() {
+#ifndef __WIN32__
   DataType *data;
 
   while (1) {
@@ -129,10 +136,13 @@ void CustomPeripheral_pv::output() {
 
     free(data);
   }
+#endif
 }
 
 // SystemC process which waits for asynchronous input from external process
 void CustomPeripheral_pv::input() {
+#ifndef __WIN32__
+
   DataType *data;
 
   while (1) {
@@ -152,12 +162,14 @@ void CustomPeripheral_pv::input() {
     }
     pthread_mutex_unlock(&mutex);  // After all data is read from the q release the mutex
   }
+#endif
 }
  
 
 // C++ pthread which will read the socket and wait for input
 // from the external process.  It will forward and call notify on safe_ev
 void *CustomPeripheral_pv::startReader(void) {
+#ifndef __WIN32__
   char buffer[256];
   DataType *data;
   
@@ -189,6 +201,7 @@ void *CustomPeripheral_pv::startReader(void) {
         }
       } while (bytes_read > 0);
   }
+#endif
   return 0;
 }
 
@@ -196,10 +209,12 @@ void *CustomPeripheral_pv::startReader(void) {
 // Write callback for SETUP register.
 // The newValue has been already assigned to the SETUP register.
 void CustomPeripheral_pv::cb_write_SETUP(unsigned int newValue) {
+#ifndef __WIN32__
   interrupt.write(0);
   if(send(newsockfd, &newValue, sizeof(newValue), 0) < 0) {
     cout << "CustomPeripheral: Error, send data to Peripheral GUI failed" << endl;
   }
+#endif
 }
   
 

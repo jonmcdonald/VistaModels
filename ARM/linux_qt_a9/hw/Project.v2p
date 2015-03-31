@@ -12,10 +12,10 @@ Files {
 		{$PRJDIR/Models/LAN9118.mb}
 		{$PRJDIR/Models/EHCI.mb}
 		{$PRJDIR/Models/LinuxFrameBufferDisplay.mb}
-		{$PRJDIR/Models/CustomPeripheral.mb}
 		{$PRJDIR/Models/A9x2.mb}
 		{$PRJDIR/Models/SystemControl.mb}
 		{$PRJDIR/Models/PL180_MCI.mb}
+		{$PRJDIR/Models/CustomPeripheral.mb}
 	 } 
 	 Schematics {
 		{$PRJDIR/Models/stock.h}
@@ -25,7 +25,7 @@ Files {
 	 {Other Binaries} {} 
 }
 Designs {{$PRJDIR/sc_main.cpp}}
-VirtualPrototypes stock.vppf
+VirtualPrototypes {stock.vppf stock_win.vppf stockwin.vppf}
 Folders {
 	 Sources {*.c *.cpp *.C *.cxx *.cc} 
 	 {Public Headers} {*.h *.hpp *.H *.hxx *.hh} 
@@ -38,7 +38,6 @@ Folders {
 GeneralCompilationOptions -Wall
 AlwaysCompileInCPPMode 1
 LinkPackages {model_builder models_catalogue SCV}
-LinkOptions -lX11
 ProjectLibraryType archive
 ProjectComponentsLibraryPath {$PRJDIR/$PRJFILE_BASENAME/interfaces}
 ProjectWorkingDirectory {$PRJDIR/$PRJFILE_BASENAME/build}

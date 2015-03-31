@@ -111,10 +111,10 @@ peripheral_init(void)
         peripheral_virt = ioremap(PERIPHERAL_BASE, PERIPHERAL_SIZE);
 
 	// Set LEDs initially off, on, on, off
-	iowrite32(0xF0, peripheral_virt + GPIO_TRI_0);
-	iowrite32(0x06, peripheral_virt + GPIO_DATA_0);
-	iowrite32(0x80000000, peripheral_virt + GIER);
-	iowrite32(0x1, peripheral_virt + IP_IER);
+	iowrite32(0xF0, peripheral_virt + GPIO_TRI_0);  // 0b11110000 = 4 bits input, 4 bits output
+	iowrite32(0x06, peripheral_virt + GPIO_DATA_0); // 0b00000110 = initial led state
+	iowrite32(0x80000000, peripheral_virt + GIER);  // enable interrupts
+	iowrite32(0x1, peripheral_virt + IP_IER);       // channel 1 interrupt
 
 	ret = request_irq(PERIPHERAL_IRQ, irq_handler, 0, "peripheral_irq", (void *)(irq_handler));
 	if (ret < 0) {
