@@ -1,10 +1,10 @@
-/* Linker script for Vista-CM3 Vista-Cortex-M3
+/* Linker script for Vista-Cortex-M3
  *
- * Version: Sourcery CodeBench 2012.09-85
- * Support: https://support.codesourcery.com/GNUToolchain/
+ * Version: Sourcery CodeBench 2014.11-2014111700
+ * Support: https://sourcery.mentor.com/GNUToolchain/
  *
  * Copyright (c) 2007-2010 CodeSourcery, Inc.
- * Copyright (c) 2010-2012 Mentor Graphics, Inc.
+ * Copyright (c) 2010-2014 Mentor Graphics, Inc.
  *
  * The authors hereby grant permission to use, copy, modify, distribute,
  * and license this software and its documentation for any purpose, provided
@@ -86,6 +86,10 @@ SECTIONS
     *(.ARM.exidx* .gnu.linkonce.armexidx.*)
   } >ram
   PROVIDE_HIDDEN (__exidx_end = .);
+  .note.gnu.build-id : ALIGN (4)
+  {
+    KEEP (*(.note.gnu.build-id))
+  } >ram
   .rodata : ALIGN (4)
   {
     *(.rodata .rodata.* .gnu.linkonce.r.*)
@@ -224,4 +228,4 @@ SECTIONS
   .ARM.attributes 0 : { KEEP (*(.ARM.attributes)) }
   /DISCARD/ : { *(.note.GNU-stack) }
 }
-/* checksum: 705c24a612550b2454f6d3345e7d */
+/* checksum: e6f8a970452524558467249 */

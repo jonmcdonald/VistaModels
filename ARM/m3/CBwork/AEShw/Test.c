@@ -73,6 +73,9 @@ int main()
     while (!AESdone)
       asm volatile("wfi");
 
+    CharStr2HexStr(szDataOut, szHex, 2048);
+    printf("Encrypted:\n%s\n", szHex);
+
     AESdone = 0;
     hw_write(AESSOURCE, szDataOut);
     hw_write(AESDESTINATION, szDataT);

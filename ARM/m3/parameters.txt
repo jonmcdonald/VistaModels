@@ -4,7 +4,9 @@ ahb_master_clock = 10 NS
 ahb_slave_clock = 10 NS
 signal_clock = 10 NS
 
-tlm_timing_model = LT
+tlm_timing_model = AT
+
+trace_script = trace.tcl
 
 io_debug_enabled = 1
 

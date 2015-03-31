@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE board SYSTEM "board.dtd">
-<!-- Description for Vista-CM3 Vista-Cortex-M3
+<!-- Description for Vista-Cortex-M3
 
-     Version: Sourcery CodeBench 2012.09-85
-     Support: https://support.codesourcery.com/GNUToolchain/
+     Version: Sourcery CodeBench 2014.11-2014111700
+     Support: https://sourcery.mentor.com/GNUToolchain/
 
      Copyright (c) 2007-2010 CodeSourcery, Inc.
-     Copyright (c) 2010-2012 Mentor Graphics, Inc.
+     Copyright (c) 2010-2014 Mentor Graphics, Inc.
 
      THIS FILE CONTAINS PROPRIETARY, CONFIDENTIAL, AND TRADE SECRET
      INFORMATION OF CODESOURCERY AND/OR ITS LICENSORS.
@@ -18,7 +18,7 @@
 <board>
   <properties>
     <description>
-      Board:	Vista-CM3 Vista-Cortex-M3
+      Board:	Vista-Cortex-M3
 CPU:	cortexm3
     </description>
     <property name="system-v7-m"/>
@@ -39,4 +39,4 @@ CPU:	cortexm3
     </memory-device>
   </memory-map>
 </board>
-<!-- checksum: 0290ac70a2b17356f496c809 -->
+<!-- checksum: 8744645c2a4a43a0e600604f -->
