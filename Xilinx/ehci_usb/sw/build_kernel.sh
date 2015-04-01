@@ -4,9 +4,11 @@ export CROSS_COMPILE=$TOOL_CHAIN/bin/$TARGET-
 export ARCH=arm
 
 SCRIPT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-SW_ROOT="$(dirname "$SCRIPT")"
+SW_ROOT="$(dirname "$SCRIPT")"/sw
 
-if [ ! -f linux-xlnx ]; then
+cd $SW_ROOT
+
+if [ ! -d linux-xlnx ]; then
   git clone git://github.com/Xilinx/linux-xlnx.git
   cd $SW_ROOT/linux-xlnx
   git reset --hard f9d391370402f7428cd12e7aaa5c8ab768ba5332
@@ -14,6 +16,7 @@ if [ ! -f linux-xlnx ]; then
   cp $SW_ROOT/config .config
 fi
 
+cd $SW_ROOT/linux-xlnx
 make -j 15
 
 cd $SW_ROOT/boot-wrapper
