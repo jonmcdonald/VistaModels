@@ -44,7 +44,7 @@ none @block -
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } { @pdecl { { @n RX0 @t - @bnd -
 @das -
@@ -52,16 +52,16 @@ none @block -
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
  page  { w 11000 h 11000 type vhdstd orient portr  } 
- flags 25  } #idit - save unit (named min while saving) on Tue Mar 31 17:40:38 2015
+ flags 25  } #idit - save unit (named min while saving) on Wed Apr  1 13:23:48 2015
 #SW version: 2008.12 v4.1.1.beta2 build 1. Date: Nov 10 2014. License: 1.1 
 version: 12 
 ipxactvendor Mentor.com 
 ipxactversion 1.0 
-symbolel { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 88 -140 25 20 
+symbolel { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 89 -136 25 20 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 91 -131 1 8 nil 
 can 
@@ -152,7 +152,7 @@ invert FALSE visible TRUE typepin 0 pin { 80 -140 }
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
@@ -190,7 +190,7 @@ invert FALSE visible TRUE typepin 0 pin { 60 -140 }
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }

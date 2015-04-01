@@ -21,6 +21,9 @@
 //* Model Builder version: 3.9.0
 //* Generated on: Mar. 31, 2015 03:44:29 PM, (user: jon)
 //* Automatically merged on: Mar. 31, 2015 03:55:28 PM, (user: jon)
+//* Automatically merged on: Apr. 01, 2015 10:59:08 AM, (user: jon)
+//* Automatically merged on: Apr. 01, 2015 11:03:00 AM, (user: jon)
+//* Automatically merged on: Apr. 01, 2015 11:05:01 AM, (user: jon)
 //*>
 
 
@@ -39,19 +42,14 @@ class can_pv : public can_pv_base {
   // Do not add parameters here.
   // To add parameters - use the Model Builder form (under PV->Parameters tab)
   SC_HAS_PROCESS(can_pv);
-  can_pv(sc_core::sc_module_name module_name); 
-
- protected:
-  ////////////////////////////////////////
-  // read callbacks of registers
-  ////////////////////////////////////////// 
-  unsigned int cb_read_m_data(); 
+  can_pv(sc_core::sc_module_name module_name);  
   
  protected:
   /////////////////////////////////////////
   // write callbacks of registers
   ////////////////////////////////////////// 
-  void cb_write_m_data(unsigned int newValue); 
+  void cb_write_m_ident(unsigned int newValue);
+  void cb_write_m_ack(unsigned int newValue); 
 
  protected:
   ////////////////////////////////////////
@@ -74,8 +72,18 @@ class can_pv : public can_pv_base {
   bool RX0_callback_write(mb_address_type address, unsigned char* data, unsigned size);
   
   unsigned RX0_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size); 
-  virtual void cb_transport_dbg_m_data(tlm::tlm_generic_payload& trans); 
+  virtual void cb_transport_dbg_m_ident(tlm::tlm_generic_payload& trans);
+  virtual void cb_transport_dbg_m_ack(tlm::tlm_generic_payload& trans); 
   bool reg_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);  
   bool RX0_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);   
+
+ private:
+  struct CANDataType {
+    unsigned int ident;
+    unsigned int length;
+    unsigned int crc;
+    unsigned char d[9];
+  };
+
 };
 

@@ -21,6 +21,9 @@
 //* Model Builder version: 3.9.0
 //* Generated on: Mar. 31, 2015 03:44:29 PM, (user: jon)
 //* Automatically merged on: Mar. 31, 2015 03:55:28 PM, (user: jon)
+//* Automatically merged on: Apr. 01, 2015 10:59:08 AM, (user: jon)
+//* Automatically merged on: Apr. 01, 2015 11:03:00 AM, (user: jon)
+//* Automatically merged on: Apr. 01, 2015 11:05:01 AM, (user: jon)
 //*>
 
 
@@ -36,21 +39,7 @@ using namespace std;
 can_pv::can_pv(sc_module_name module_name) 
   : can_pv_base(module_name) {
   GI_Rx.initialize(0);
-} 
-
-/////////////////////////////////////////////////////////////////////////////////
-// Use these functions to define the behavior of your model when there is a 
-// read event on one of the registers as defined in the Model Builder form.
-// These functions are called before the read callbacks on the port.
-///////////////////////////////////////////////////////////////////////////////// 
-
-// Read callback for m_data register.
-// The value that this function returns, will be returned to the initiator port that requested its value.
-unsigned int can_pv::cb_read_m_data() {
-  GI_Rx.write(0);
-  return m_data;
-}
-  
+}   
 
 /////////////////////////////////////////////////////////////////////////////////
 // Use these functions to define the behavior of your model when there is a 
@@ -58,13 +47,28 @@ unsigned int can_pv::cb_read_m_data() {
 // These functions are called before the write callbacks on the port.
 ///////////////////////////////////////////////////////////////////////////////// 
 
-// Write callback for m_data register.
-// The newValue has been already assigned to the m_data register.
-void can_pv::cb_write_m_data(unsigned int newValue) {
-  TX0_write(0x0, newValue);
+// Write callback for m_ident register.
+// The newValue has been already assigned to the m_ident register.
+void can_pv::cb_write_m_ident(unsigned int newValue) {
+  unsigned char *d = new unsigned char ((m_size*8)+62);
+  unsigned char *m = (unsigned char *) &m_mem[0];
+  CANDataType *c = (CANDataType *) d;
+
+  c->ident = m_ident;
+  c->length = m_size;
+  c->crc = 0;
+  memcpy(c->d, m, m_size);
+  c->d[m_size] = '\0';
+  TX0_write(newValue, d, (m_size*8)+62);
+}
+ 
+
+// Write callback for m_ack register.
+// The newValue has been already assigned to the m_ack register.
+void can_pv::cb_write_m_ack(unsigned int newValue) {
+  GI_Rx.write(0);
 }
   
-
 // Read callback for reg port.
 // Returns true when successful.
 bool can_pv::reg_callback_read(mb_address_type address, unsigned char* data, unsigned size) {
@@ -83,15 +87,28 @@ bool can_pv::RX0_callback_read(mb_address_type address, unsigned char* data, uns
 // Write callback for reg port.
 // Returns true when successful.
 bool can_pv::reg_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
-  TX0_write(address, data, size);
+  unsigned char *d;
+cout << "reg_callback_write\n";
+  if (address == 0) {
+    d = (unsigned char *)&m_mem[0];
+    memcpy(d, data, size);
+    m_size = size;
+  }
   return true;
 } 
 
 // Write callback for RX0 port.
 // Returns true when successful.
 bool can_pv::RX0_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
-  unsigned int *d = (unsigned int *) data;
-  m_data = *d;
+  unsigned char * d;
+  unsigned int s = (size-62)/8;
+  CANDataType *c = (CANDataType *) data;
+  d = (unsigned char *)&m_rxmem[0];
+  memcpy(d, c->d, c->length);
+  m_rxsize = c->length;
+
+  cout<<sc_time_stamp()<<": "<<name()<<", "<<c->ident<<", "<<c->length<<", "<<c->d<<endl;
+  GI_Rx.write(1);
   return true;
 } 
 
@@ -127,4 +144,5 @@ bool can_pv::RX0_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dm
 }
 
  
-void can_pv::cb_transport_dbg_m_data(tlm::tlm_generic_payload& trans) {}
+void can_pv::cb_transport_dbg_m_ident(tlm::tlm_generic_payload& trans) {}
+void can_pv::cb_transport_dbg_m_ack(tlm::tlm_generic_payload& trans) {}

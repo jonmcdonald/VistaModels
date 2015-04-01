@@ -12,7 +12,7 @@
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } { @pdecl { { @n RXLS @t - @bnd -
@@ -21,7 +21,7 @@ none @block  1
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } { @pdecl { { @n RXHS @t - @bnd -
@@ -30,7 +30,7 @@ none @block  1
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } { @pdecl { { @n TXHS @t - @bnd -
@@ -39,17 +39,17 @@ none @block  1
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
  page  { w 11000 h 11000 type vhdstd orient portr  } 
- flags 25  } #idit - save unit (named min while saving) on Tue Mar 31 15:09:05 2015
+ flags 25  } #idit - save unit (named min while saving) on Wed Apr  1 13:28:56 2015
 #SW version: 2008.12 v4.1.1.beta2 build 1. Date: Nov 10 2014. License: 1.1 
 version: 12 
 ipxactvendor Mentor.com 
 ipxactversion 1.0 
-symbolel { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 53 -146 43 18 
+symbolel { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 53 -148 46 20 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 55 -143 1 8 nil 
 Cluster 
@@ -95,7 +95,7 @@ invert FALSE visible TRUE typepin 0 pin { 150 -80 }
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
@@ -115,7 +115,7 @@ invert FALSE visible TRUE typepin 0 pin { 150 -130 }
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
@@ -135,7 +135,7 @@ invert FALSE visible TRUE typepin 0 pin { 150 -60 }
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
@@ -155,7 +155,7 @@ invert FALSE visible TRUE typepin 0 pin { 150 -110 }
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !

@@ -93,8 +93,20 @@ COMMAND = "if {![does_tlm_library_exist $(MODELS)]} \
 	   foreach n [glob -directory $(MODELS) -tails *.mb] { \
 	     save_model -g TLM/$(MODELS)/[lindex [split \$$n .] 0] }"
 
-mb $(PAPOULISDIR):
+mb: $(PAPOULISDIR) Templates
 	@if [ -e $(MODELS) ]; then vista_model_builder -c $(COMMAND); fi
+
+TemplatesCOMMAND = \
+        "if {[ file exist protocols ]} \
+             {foreach p [glob -directory protocols -tails *.v] { \
+                parse_protocol_source protocols/\$$p } }; \
+         if {[ file exist templates ]} \
+           {foreach t [glob -directory templates -tails *] { \
+             add_template \"/TLM/Generic_Library/Custom/\$$t\" [file join [pwd] \"templates/\$$t\"]; \
+         }} "
+
+Templates:
+	vista_model_builder -c $(TemplatesCOMMAND);
 
 pa: $(EXE)
 	vista_analysis sim

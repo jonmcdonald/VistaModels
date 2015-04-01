@@ -1,3 +1,14 @@
+
+splatform directory contains a CAN bus example structure for performance and functional analysis.
+
+Under each CAN component is a CAN interface block and a driver.  The driver can write up to 8 bytes
+of data to the can if address 0x0, then write the length in bytes (0x18) and the CAN identifier (0x10).
+When the identifyer is written the can if block will send the can frame out.
+
+The can if will raise the GI_Rx interrupt line when data comes in.  The RX data length in bytes can
+be read from (0x1C) and the received data from (0x20).
+
+--------------------------------------------------------------------------------------------------
 This directory has been initialized with startup files to streamline the initial Vista
 usage.  These files can be used for any initial Vista working area.  The files are not
 specific to any particuar directory path or model names. 

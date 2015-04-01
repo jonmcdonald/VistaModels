@@ -1,6 +1,11 @@
 
-clock         = 10 NS
-generic_clock = 10 NS
+generic_hscan_clock = 1 US
+top.hscan0.generic_clock = 1 US
+generic_lscan_clock = 8 US
+top.lscan0.generic_clock = 8 US
+top.accelerator0.CanIF.generic_clock = 8 US
+top.cluster0.lscan.generic_clock = 8 US
+top.radio0.CanIF.generic_clock = 8 US
 
 tlm_timing_model = AT
 

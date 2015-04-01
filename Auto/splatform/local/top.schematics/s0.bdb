@@ -13,7 +13,7 @@
  } 
  page  { w 11000 h 11000 type vhdstd orient portr  } 
 grid 10 
- } #idit - save unit (named top while saving) on Tue Mar 31 15:27:08 2015
+ } #idit - save unit (named top while saving) on Wed Apr  1 13:33:51 2015
 #SW version: 2008.12 v4.1.1.beta2 build 1. Date: Nov 10 2014. License: 1.1 
 version: 12 
 ipxactvendor Mentor.com 
@@ -82,7 +82,7 @@ invert FALSE visible TRUE typepin 0 pin { 150 -240 }
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
@@ -102,7 +102,7 @@ invert FALSE visible TRUE typepin 0 pin { 150 -290 }
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
@@ -122,7 +122,7 @@ invert FALSE visible TRUE typepin 0 pin { 150 -220 }
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
@@ -142,14 +142,14 @@ invert FALSE visible TRUE typepin 0 pin { 150 -270 }
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
  } 
-angle 0 bcol 'Empty' pcol 'Black' } 
+angle 0 bcol 'Pale Blue2' pcol 'Black' } 
  } 
 text { 79 -208 1 cluster0
  angle 0
@@ -173,7 +173,7 @@ min @cmpattr
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n RXLS @t - @bnd -
@@ -182,7 +182,7 @@ none @block  1
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n TXHS @t - @bnd -
@@ -191,7 +191,7 @@ none @block  1
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n TXLS @t - @bnd -
@@ -200,7 +200,7 @@ none @block  1
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } @blist 0 } !
@@ -225,7 +225,7 @@ L { @nvis } !
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } { @pdecl { { @n RXLS @t - @bnd -
@@ -234,7 +234,7 @@ none @block  1
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } { @pdecl { { @n RXHS @t - @bnd -
@@ -243,7 +243,7 @@ none @block  1
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } { @pdecl { { @n TXHS @t - @bnd -
@@ -252,27 +252,27 @@ none @block  1
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 78 -444 66 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 78 -454 66 18 
 bcol 'Empty' pcol 'Black' } 
-fmttext { 80 -441 1 8 nil 
+fmttext { 80 -451 1 8 nil 
 Accelerator 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  vis }  { fiv  @kind 9 
  } 
-groupobj { doset { rect { 70 -450 80 80 
+groupobj { doset { rect { 70 -460 80 100 
 bcol 'Empty' pcol 'Black' } 
  } 
-clshapes { closeShape { lines { line { 70 -450 150 -450 } 
-line { 150 -450 150 -370 } 
-line { 150 -370 70 -370 } 
-line { 70 -370 70 -450 } 
+clshapes { closeShape { lines { line { 70 -460 150 -460 } 
+line { 150 -460 150 -360 } 
+line { 150 -360 70 -360 } 
+line { 70 -360 70 -460 } 
 } 
 arcs { } 
 bcol 'Pale Blue2'  } 
@@ -293,7 +293,7 @@ invert FALSE visible TRUE typepin 0 pin { 150 -420 }
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
@@ -313,7 +313,7 @@ invert FALSE visible TRUE typepin 0 pin { 150 -400 }
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
@@ -344,7 +344,7 @@ angle 0 fn 0 0 0 2 5 0 0 0 0 }
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n TX0 @t - @bnd -
@@ -353,7 +353,7 @@ none @block  1
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } @blist 0 } !
@@ -372,7 +372,7 @@ L { @nvis } !
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } { @pdecl { { @n TX0 @t - @bnd -
@@ -381,27 +381,27 @@ none @block  1
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 470 -194 37 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 470 -204 37 18 
 bcol 'Empty' pcol 'Black' } 
-fmttext { 472 -191 1 8 nil 
+fmttext { 472 -201 1 8 nil 
 Radio 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  vis }  { fiv  @kind 9 
  } 
-groupobj { doset { rect { 450 -200 80 80 
+groupobj { doset { rect { 450 -210 60 100 
 bcol 'Empty' pcol 'Black' } 
  } 
-clshapes { closeShape { lines { line { 530 -200 450 -200 } 
-line { 450 -200 450 -120 } 
-line { 450 -120 530 -120 } 
-line { 530 -120 530 -200 } 
+clshapes { closeShape { lines { line { 450 -210 510 -210 } 
+line { 510 -210 510 -110 } 
+line { 510 -110 450 -110 } 
+line { 450 -110 450 -210 } 
 } 
 arcs { } 
 bcol 'Pale Blue2'  } 
@@ -422,7 +422,7 @@ invert FALSE visible TRUE typepin 0 pin { 450 -170 }
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
@@ -442,7 +442,7 @@ invert FALSE visible TRUE typepin 0 pin { 450 -150 }
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
@@ -473,7 +473,7 @@ angle 0 fn 0 0 0 2 5 0 0 0 0 }
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n TX0 @t - @bnd -
@@ -482,7 +482,7 @@ none @block  1
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } @blist 0 } !
@@ -501,7 +501,7 @@ L { @nvis } !
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } { @pdecl { { @n TX0 @t - @bnd -
@@ -510,17 +510,17 @@ none @block  1
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 231 -517 39 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 231 -517 33 18 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 233 -514 1 8 nil 
-LScan 
+canls 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  vis }  { fiv  @kind 9 
  } 
@@ -551,7 +551,7 @@ invert FALSE visible TRUE typepin 0 pin { 270 -150 }
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
@@ -570,7 +570,7 @@ invert FALSE visible TRUE typepin 0 pin { 230 -400 }
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
@@ -589,7 +589,7 @@ invert FALSE visible TRUE typepin 0 pin { 230 -220 }
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
@@ -608,7 +608,7 @@ invert FALSE visible TRUE typepin 0 pin { 270 -170 }
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
@@ -627,7 +627,7 @@ invert FALSE visible TRUE typepin 0 pin { 230 -420 }
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
@@ -646,7 +646,7 @@ invert FALSE visible TRUE typepin 0 pin { 230 -240 }
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
@@ -666,7 +666,7 @@ angle 0 fn 0 0 0 2 5 0 0 0 0 }
 @conf
 - - @symname
 min @cmpattr
-@kwd @innm lscan0 @arch - @usl - @hrnm LScan models @dffs 0 0 @stt hier @gnras @cnt 0
+@kwd @innm lscan0 @arch - @usl - @hrnm canls models @dffs 0 0 @stt hier @gnras @cnt 0
 @templparamas @templparamcnt 0
 @portas @cnt 0
 @portlist 6 
@@ -676,7 +676,7 @@ min @cmpattr
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n ap_tx @t - @bnd -
 @das -
@@ -684,7 +684,7 @@ none @block -
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n c_rx @t - @bnd -
 @das -
@@ -692,7 +692,7 @@ none @block -
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n c_tx @t - @bnd -
 @das -
@@ -700,7 +700,7 @@ none @block -
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n r_rx @t - @bnd -
 @das -
@@ -708,7 +708,7 @@ none @block -
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n r_tx @t - @bnd -
 @das -
@@ -716,7 +716,7 @@ none @block -
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } @blist 0 } !
 @procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
@@ -746,7 +746,7 @@ L { @nvis } !
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } { @pdecl { { @n r_rx @t - @bnd -
 @das -
@@ -754,7 +754,7 @@ none @block -
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } { @pdecl { { @n ap_tx @t - @bnd -
 @das -
@@ -762,7 +762,7 @@ none @block -
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } { @pdecl { { @n ap_rx @t - @bnd -
 @das -
@@ -770,7 +770,7 @@ none @block -
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } { @pdecl { { @n c_tx @t - @bnd -
 @das -
@@ -778,7 +778,7 @@ none @block -
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } { @pdecl { { @n c_rx @t - @bnd -
 @das -
@@ -786,7 +786,7 @@ none @block -
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 0 L { @nvis @ctorsn 1 } !
@@ -799,13 +799,13 @@ SecurityAttack
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  vis }  { fiv  @kind 9 
  } 
-groupobj { doset { rect { 50 -610 100 80 
+groupobj { doset { rect { 50 -610 100 100 
 bcol 'Empty' pcol 'Black' } 
  } 
 clshapes { closeShape { lines { line { 50 -610 150 -610 } 
-line { 150 -610 150 -530 } 
-line { 150 -530 50 -530 } 
-line { 50 -530 50 -610 } 
+line { 150 -610 150 -510 } 
+line { 150 -510 50 -510 } 
+line { 50 -510 50 -610 } 
 } 
 arcs { } 
 bcol 'Red'  } 
@@ -826,7 +826,7 @@ invert FALSE visible TRUE typepin 0 pin { 150 -570 }
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
@@ -846,7 +846,7 @@ invert FALSE visible TRUE typepin 0 pin { 150 -550 }
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
@@ -877,7 +877,7 @@ angle 0 fn 0 0 0 2 5 0 0 0 0 }
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n TX0 @t - @bnd -
@@ -886,7 +886,7 @@ none @block  1
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } @blist 0 } !
@@ -905,7 +905,7 @@ L { @nvis } !
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } { @pdecl { { @n TX0 @t - @bnd -
@@ -914,7 +914,7 @@ none @block  1
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
@@ -928,13 +928,13 @@ EMU
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  vis }  { fiv  @kind 9 
  } 
-groupobj { doset { rect { 50 -130 100 80 
+groupobj { doset { rect { 50 -130 100 100 
 bcol 'Empty' pcol 'Black' } 
  } 
 clshapes { closeShape { lines { line { 50 -130 150 -130 } 
-line { 150 -130 150 -50 } 
-line { 150 -50 50 -50 } 
-line { 50 -50 50 -130 } 
+line { 150 -130 150 -30 } 
+line { 150 -30 50 -30 } 
+line { 50 -30 50 -130 } 
 } 
 arcs { } 
 bcol 'Red'  } 
@@ -955,7 +955,7 @@ invert FALSE visible TRUE typepin 0 pin { 150 -90 }
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
@@ -975,7 +975,7 @@ invert FALSE visible TRUE typepin 0 pin { 150 -70 }
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
@@ -1006,7 +1006,7 @@ angle 0 fn 0 0 0 2 5 0 0 0 0 }
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n TX0 @t - @bnd -
@@ -1015,7 +1015,7 @@ none @block  1
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } @blist 0 } !
@@ -1034,7 +1034,7 @@ L { @nvis } !
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } { @pdecl { { @n TX0 @t - @bnd -
@@ -1043,7 +1043,7 @@ none @block  1
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
@@ -1057,13 +1057,13 @@ ABS
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  vis }  { fiv  @kind 9 
  } 
-groupobj { doset { rect { 450 -520 100 80 
+groupobj { doset { rect { 450 -520 60 100 
 bcol 'Empty' pcol 'Black' } 
  } 
-clshapes { closeShape { lines { line { 550 -520 450 -520 } 
-line { 450 -520 450 -440 } 
-line { 450 -440 550 -440 } 
-line { 550 -440 550 -520 } 
+clshapes { closeShape { lines { line { 450 -520 510 -520 } 
+line { 510 -520 510 -420 } 
+line { 510 -420 450 -420 } 
+line { 450 -420 450 -520 } 
 } 
 arcs { } 
 bcol 'Red'  } 
@@ -1084,7 +1084,7 @@ invert FALSE visible TRUE typepin 0 pin { 450 -480 }
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
@@ -1104,7 +1104,7 @@ invert FALSE visible TRUE typepin 0 pin { 450 -460 }
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
@@ -1135,7 +1135,7 @@ angle 0 fn 0 0 0 2 5 0 0 0 0 }
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n TX0 @t - @bnd -
@@ -1144,7 +1144,7 @@ none @block  1
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } @blist 0 } !
@@ -1163,7 +1163,7 @@ L { @nvis } !
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } { @pdecl { { @n TX0 @t - @bnd -
@@ -1172,27 +1172,27 @@ none @block  1
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 489 -364 50 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 493 -368 50 18 
 bcol 'Empty' pcol 'Black' } 
-fmttext { 491 -361 1 8 nil 
+fmttext { 496 -361 1 8 nil 
 RestBus 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  vis }  { fiv  @kind 9 
  } 
-groupobj { doset { rect { 450 -370 100 80 
+groupobj { doset { rect { 450 -370 70 100 
 bcol 'Empty' pcol 'Black' } 
  } 
-clshapes { closeShape { lines { line { 550 -370 450 -370 } 
-line { 450 -370 450 -290 } 
-line { 450 -290 550 -290 } 
-line { 550 -290 550 -370 } 
+clshapes { closeShape { lines { line { 450 -270 519 -270 } 
+line { 519 -270 519 -370 } 
+line { 519 -370 588 -370 } 
+line { 450 -370 450 -470 } 
 } 
 arcs { } 
 bcol 'Red'  } 
@@ -1213,7 +1213,7 @@ invert FALSE visible TRUE typepin 0 pin { 450 -330 }
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
@@ -1233,7 +1233,7 @@ invert FALSE visible TRUE typepin 0 pin { 450 -310 }
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
@@ -1264,7 +1264,7 @@ angle 0 fn 0 0 0 2 5 0 0 0 0 }
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n TX0 @t - @bnd -
@@ -1273,7 +1273,7 @@ none @block  1
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } @blist 0 } !
@@ -1292,7 +1292,7 @@ L { @nvis } !
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } { @pdecl { { @n TX0 @t - @bnd -
@@ -1301,17 +1301,17 @@ none @block  1
 none @block  1
 @ch -
 } @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 325 -605 41 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 325 -605 37 18 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 327 -602 1 8 nil 
-HScan 
+canhs 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  vis }  { fiv  @kind 9 
  } 
@@ -1342,7 +1342,7 @@ invert FALSE visible TRUE typepin 0 pin { 320 -550 }
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
@@ -1361,7 +1361,7 @@ invert FALSE visible TRUE typepin 0 pin { 320 -270 }
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
@@ -1380,7 +1380,7 @@ invert FALSE visible TRUE typepin 0 pin { 370 -310 }
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
@@ -1399,7 +1399,7 @@ invert FALSE visible TRUE typepin 0 pin { 370 -460 }
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
@@ -1418,7 +1418,7 @@ invert FALSE visible TRUE typepin 0 pin { 320 -70 }
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
@@ -1437,7 +1437,7 @@ invert FALSE visible TRUE typepin 0 pin { 320 -570 }
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
@@ -1456,7 +1456,7 @@ invert FALSE visible TRUE typepin 0 pin { 320 -290 }
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
@@ -1475,7 +1475,7 @@ invert FALSE visible TRUE typepin 0 pin { 370 -330 }
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
@@ -1494,7 +1494,7 @@ invert FALSE visible TRUE typepin 0 pin { 370 -480 }
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
@@ -1513,7 +1513,7 @@ invert FALSE visible TRUE typepin 0 pin { 320 -90 }
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
@@ -1533,7 +1533,7 @@ angle 0 fn 0 0 0 2 5 0 0 0 0 }
 @conf
 - - @symname
 min @cmpattr
-@kwd @innm hscan0 @arch - @usl - @hrnm HScan models @dffs 0 0 @stt hier @gnras @cnt 0
+@kwd @innm hscan0 @arch - @usl - @hrnm canhs models @dffs 0 0 @stt hier @gnras @cnt 0
 @templparamas @templparamcnt 0
 @portas @cnt 0
 @portlist 10 
@@ -1543,7 +1543,7 @@ min @cmpattr
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n abs_tx @t - @bnd -
 @das -
@@ -1551,7 +1551,7 @@ none @block -
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n c_rx @t - @bnd -
 @das -
@@ -1559,7 +1559,7 @@ none @block -
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n c_tx @t - @bnd -
 @das -
@@ -1567,7 +1567,7 @@ none @block -
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n emu_rx @t - @bnd -
 @das -
@@ -1575,7 +1575,7 @@ none @block -
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n emu_tx @t - @bnd -
 @das -
@@ -1583,7 +1583,7 @@ none @block -
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n rbl_rx @t - @bnd -
 @das -
@@ -1591,7 +1591,7 @@ none @block -
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n rbl_tx @t - @bnd -
 @das -
@@ -1599,7 +1599,7 @@ none @block -
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n sa_rx @t - @bnd -
 @das -
@@ -1607,7 +1607,7 @@ none @block -
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n sa_tx @t - @bnd -
 @das -
@@ -1615,7 +1615,7 @@ none @block -
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } @blist 0 } !
 @procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
@@ -1657,7 +1657,7 @@ L { @nvis } !
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } { @pdecl { { @n sa_rx @t - @bnd -
 @das -
@@ -1665,7 +1665,7 @@ none @block -
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } { @pdecl { { @n c_tx @t - @bnd -
 @das -
@@ -1673,7 +1673,7 @@ none @block -
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } { @pdecl { { @n c_rx @t - @bnd -
 @das -
@@ -1681,7 +1681,7 @@ none @block -
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } { @pdecl { { @n rbl_tx @t - @bnd -
 @das -
@@ -1689,7 +1689,7 @@ none @block -
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } { @pdecl { { @n rbl_rx @t - @bnd -
 @das -
@@ -1697,7 +1697,7 @@ none @block -
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } { @pdecl { { @n abs_tx @t - @bnd -
 @das -
@@ -1705,7 +1705,7 @@ none @block -
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } { @pdecl { { @n abs_rx @t - @bnd -
 @das -
@@ -1713,7 +1713,7 @@ none @block -
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } { @pdecl { { @n emu_tx @t - @bnd -
 @das -
@@ -1721,7 +1721,7 @@ none @block -
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } { @pdecl { { @n emu_rx @t - @bnd -
 @das -
@@ -1729,7 +1729,7 @@ none @block -
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 0 L { @nvis @ctorsn 1 } !
@@ -2560,10 +2560,10 @@ s15
 @@VE@obj_u@@ cluster0 Cluster local 0 
 accelerator0 Accelerator local 0 
 radio0 Radio local 0 
-lscan0 LScan models 0 
+lscan0 canls models 0 
 securityattack0 SecurityAttack local 0 
 emu0 EMU local 0 
 abs0 ABS local 0 
 restbus0 RestBus local 0 
-hscan0 HScan models 0 
+hscan0 canhs models 0 
 !

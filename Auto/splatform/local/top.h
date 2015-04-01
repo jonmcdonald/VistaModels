@@ -4,13 +4,13 @@ $includes_begin;
 #include <systemc.h>
 #include "Cluster.h"
 #include "Accelerator.h"
-#include "../models/LScan_model.h"
 #include "Radio.h"
-#include "../models/HScan_model.h"
 #include "SecurityAttack.h"
 #include "ABS.h"
 #include "EMU.h"
 #include "RestBus.h"
+#include "../models/canls_model.h"
+#include "../models/canhs_model.h"
 $includes_end;
 
 $module_begin("top");
@@ -59,10 +59,10 @@ $create_component("accelerator0");
 accelerator0 = new Accelerator("accelerator0");
 $end;
 $create_component("lscan0");
-lscan0 = new LScan_pvt("lscan0");
+lscan0 = new canls_pvt("lscan0");
 $end;
 $create_component("hscan0");
-hscan0 = new HScan_pvt("hscan0");
+hscan0 = new canhs_pvt("hscan0");
 $end;
 $create_component("securityattack0");
 securityattack0 = new SecurityAttack("securityattack0");
@@ -174,10 +174,10 @@ $component("accelerator0");
 Accelerator *accelerator0;
 $end;
 $component("lscan0");
-LScan_pvt *lscan0;
+canls_pvt *lscan0;
 $end;
 $component("hscan0");
-HScan_pvt *hscan0;
+canhs_pvt *hscan0;
 $end;
 $component("securityattack0");
 SecurityAttack *securityattack0;

@@ -43,14 +43,29 @@ AccelDriver_pv::AccelDriver_pv(sc_module_name module_name)
 
 // callback for any change in signal: rxi of type: sc_in<bool>
 void AccelDriver_pv::rxi_callback() {
+  unsigned int s;
+  unsigned char d[9];
+
+  if (rxi.read() == 1) {
+    m_write(0x14, 0);     // ack reg
+    m_read(0x1C, s);      // length
+    m_read(0x20, d, s);   // RX data
+    d[s] = '\0';
+
+    cout << sc_time_stamp() <<": "<< name() << ", received "<< s << " ,"<< d <<endl;
+  }
 }
 
 void AccelDriver_pv::thread() {
-  unsigned int d = 0;
+  char s[30] = "abcdefghijklmnopqrstuvwxyz   ";
+  unsigned char *d = (unsigned char *) &s[0];
 
   while (myRunning) {
     wait (70, SC_MS);
-    m_write(0x0, d); 
+    m_write(0x0, d, 4);  //TX data
+    m_write(0x18, 4);    //size
+    m_write(0x10, 5);    //ident
     d++;
+    if (d == (unsigned char *)&s[25]) d = (unsigned char *) &s[0];
   }
 }

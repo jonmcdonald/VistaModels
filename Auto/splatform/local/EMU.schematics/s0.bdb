@@ -13,36 +13,36 @@
  } 
  page  { w 11000 h 11000 type vhdstd orient portr  } 
 grid 10 
- } #idit - save unit (named EMU while saving) on Tue Mar 31 17:42:21 2015
+ } #idit - save unit (named EMU while saving) on Wed Apr  1 13:25:27 2015
 #SW version: 2008.12 v4.1.1.beta2 build 1. Date: Nov 10 2014. License: 1.1 
 version: 12 
 ipxactvendor Mentor.com 
 ipxactversion 1.0 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 201 -214 64 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 211 -224 64 18 
 bcol 'Empty' pcol 'Black' } 
-fmttext { 203 -211 1 8 nil 
+fmttext { 213 -221 1 8 nil 
 EMUDriver 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  vis }  { fiv  @kind 9 
  } 
-groupobj { doset { rect { 190 -220 80 80 
+groupobj { doset { rect { 200 -230 80 80 
 bcol 'Empty' pcol 'Black' } 
  } 
-clshapes { closeShape { lines { line { 190 -220 270 -220 } 
-line { 270 -220 270 -140 } 
-line { 270 -140 190 -140 } 
-line { 190 -140 190 -220 } 
+clshapes { closeShape { lines { line { 200 -230 280 -230 } 
+line { 280 -230 280 -150 } 
+line { 280 -150 200 -150 } 
+line { 200 -150 200 -230 } 
 } 
 arcs { } 
 bcol 'Pale Blue2'  } 
  } 
  } 
  } 
-pinset { sympinel {  text { 253 -187 1 m
+pinset { sympinel {  text { 263 -197 1 m
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 270 -180 } 
- {  end  290 -180  } 
+invert FALSE visible TRUE typepin 0 pin { 280 -190 } 
+ {  end  300 -190  } 
  } 
 @spattr {
 @plist 1 
@@ -57,11 +57,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 250 -167 1 rxi
+sympinel {  text { 260 -177 1 rxi
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 270 -160 } 
- {  end  290 -160  } 
+invert FALSE visible TRUE typepin 0 pin { 280 -170 } 
+ {  end  300 -170  } 
  } 
 @spattr {
 @plist 1 
@@ -79,7 +79,7 @@ none @block -
  } 
 angle 0 bcol 'Pale Blue2' pcol 'Black' } 
  } 
-text { 199 -138 1 emudriver0
+text { 209 -148 1 emudriver0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
 gnrtxt textbox { rect { 211 -105 80 18 
@@ -239,7 +239,7 @@ invert FALSE visible TRUE typepin 0 pin { 360 -390 }
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
@@ -277,7 +277,7 @@ invert FALSE visible TRUE typepin 0 pin { 340 -390 }
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
@@ -339,7 +339,7 @@ none @block -
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n TX0 @t - @bnd -
 @das -
@@ -347,7 +347,7 @@ none @block -
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } @blist 0 } !
 @procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
@@ -403,7 +403,7 @@ none @block -
 none @block -
 @ch -
 } @md socketInitiator @iv -
-@sysInt pvt_initiator_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } { @pdecl { { @n RX0 @t - @bnd -
 @das -
@@ -411,13 +411,13 @@ none @block -
 none @block -
 @ch -
 } @md socketTarget @iv -
-@sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-signal { F bind line90 { 0 4 2 290 -180  350 -180  350 -300 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 300 -190  350 -190  350 -300 bcol 'Empty' pcol 'Black' 
  Firstpin {
   blockpin {   nnvis  pnvis pin { 350 -300 } 
  } 
@@ -434,7 +434,7 @@ tlm::tlm_target_socket<>
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 290 -180 } 
+  blockpin {   nnvis  pnvis pin { 300 -190 } 
  } 
 11 1 -1 -
 -
@@ -468,7 +468,7 @@ s0
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 290 -160  370 -160  370 -300 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 300 -170  370 -170  370 -300 bcol 'Empty' pcol 'Black' 
  Firstpin {
   blockpin {   nnvis  pnvis pin { 370 -300 } 
  } 
@@ -485,7 +485,7 @@ tlm::tlm_target_socket<>
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 290 -160 } 
+  blockpin {   nnvis  pnvis pin { 300 -170 } 
  } 
 10 3 -1 -
 -
@@ -531,7 +531,7 @@ RX0
 -
 @intrfclass
 { -name- 
-tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 0 0 withTemplate 0 0 multiport 1 } 
 @initialization
 %Name%
@@ -586,7 +586,7 @@ TX0
 -
 @intrfclass
 { -name- 
-tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 0 0 withTemplate 0 0 multiport 1 } 
 @initialization
 %Name%
