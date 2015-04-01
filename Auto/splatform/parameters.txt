@@ -1,0 +1,19 @@
+
+clock         = 10 NS
+generic_clock = 10 NS
+
+tlm_timing_model = AT
+
+top.hscan0.emu_rx_size = 0x1000
+top.hscan0.abs_rx_size = 0x1000
+top.hscan0.c_rx_size = 0x1000
+top.hscan0.rbl_rx_size = 0x1000
+top.hscan0.sa_rx_size = 0x1000
+
+top.lscan0.r_rx_size = 0x1000
+top.lscan0.c_rx_size = 0x1000
+top.lscan0.ap_rx_size = 0x1000
+
+top.hscan0.write_broadcast = 1
+top.lscan0.write_broadcast = 1
+
