@@ -1,0 +1,1057 @@
+# ============================ TLM Model File ============================
+# You can create tlm model by one of the following ways:
+#   - load this file using 'load_model' API function
+#   - compile this file using "Modeling->Load Model File" menu command.
+# ========================================================================
+
+# === ports ===
+add_port "reg" /TLM/protocols/generic slave 32 -bind_mode mandatory
+add_port "GI_Rx" /TLM/protocols/signal master 1 -bind_mode optional
+add_port "GI_err" /TLM/protocols/signal master 1 -bind_mode optional
+add_port "C0I_Tx" /TLM/protocols/signal master 1 -bind_mode optional
+add_port "C0I_err" /TLM/protocols/signal master 1 -bind_mode optional
+add_port "C0I_Rx" /TLM/protocols/signal master 1 -bind_mode optional
+add_port "C1I_Tx" /TLM/protocols/signal master 1 -bind_mode optional
+add_port "C1I_err" /TLM/protocols/signal master 1 -bind_mode optional
+add_port "C1I_Rx" /TLM/protocols/signal master 1 -bind_mode optional
+add_port "C2I_Tx" /TLM/protocols/signal master 1 -bind_mode optional
+add_port "C2I_err" /TLM/protocols/signal master 1 -bind_mode optional
+add_port "C2I_Rx" /TLM/protocols/signal master 1 -bind_mode optional
+add_port "C3I_Tx" /TLM/protocols/signal master 1 -bind_mode optional
+add_port "C3I_err" /TLM/protocols/signal master 1 -bind_mode optional
+add_port "C3I_Rx" /TLM/protocols/signal master 1 -bind_mode optional
+add_port "TX0" /TLM/protocols/generic master 32 -bind_mode optional
+add_port "RX0" /TLM/protocols/generic slave 32 -bind_mode optional
+add_port "TX1" /TLM/protocols/generic master 32 -bind_mode optional
+add_port "RX1" /TLM/protocols/generic slave 32 -bind_mode optional
+add_port "TX2" /TLM/protocols/generic master 32 -bind_mode optional
+add_port "RX2" /TLM/protocols/generic slave 32 -bind_mode optional
+add_port "TX3" /TLM/protocols/generic master 32 -bind_mode optional
+add_port "RX3" /TLM/protocols/generic slave 32 -bind_mode optional
+
+# === parameters ===
+add_parameter "report_warning" false boolean {}
+add_parameter "report_error" 0 uint32 {}
+add_parameter "pclk" clock time {}
+add_parameter "clkc" clock time {}
+add_parameter "clk_xincan" clock time {}
+
+# === auto parameters ===
+set_auto_parameter_default "clock" {10 ns} time {}
+set_auto_parameter_default "generic_clock" clock time {}
+set_auto_parameter_default "signal_clock" clock time {}
+set_auto_parameter_default "nominal_voltage" 1 double {}
+set_auto_parameter_default "mb_debug" false boolean {true false}
+set_auto_parameter_default "call_to_default_if" false boolean {true false}
+set_auto_parameter_default "verbose_parameters" true boolean {true false}
+set_auto_parameter_default "dmi_enabled" true boolean {true false}
+set_auto_parameter_default "warning_level" WARNING string {
+      "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
+set_auto_parameter_default "reg_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "RX0_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "RX1_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "RX2_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "RX3_pipeline_length" 2 uint32 {}
+
+# === generics ===
+# usage: add_generic <generic_name> <value>
+# example: add_generic "OUT_ACTIVE_VALUE" false
+
+# === machine architecture ===
+declare_register reg RSCAN0C0CFG 0x0000 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0C0CTR 0x0004 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000005
+declare_register reg RSCAN0C0STS 0x0008 {} -rw_access rw -width 32 -reset_value 0x00000005
+declare_register reg RSCAN0C0ERFL 0x000C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0C1CFG 0x0010 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0C1CTR 0x0014 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000005
+declare_register reg RSCAN0C1STS 0x0018 {} -rw_access rw -width 32 -reset_value 0x00000005
+declare_register reg RSCAN0C1ERFL 0x001C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0C2CFG 0x0020 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0C2CTR 0x0024 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000005
+declare_register reg RSCAN0C2STS 0x0028 {} -rw_access rw -width 32 -reset_value 0x00000005
+declare_register reg RSCAN0C2ERFL 0x002C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0C3CFG 0x0030 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0C3CTR 0x0034 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000005
+declare_register reg RSCAN0C3STS 0x0038 {} -rw_access rw -width 32 -reset_value 0x00000005
+declare_register reg RSCAN0C3ERFL 0x003C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GCFG 0x0084 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GCTR 0x0088 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000005
+declare_register reg RSCAN0GSTS 0x008C {} -rw_access rw -width 32 -reset_value 0x0000000D
+declare_register reg RSCAN0GERFL 0x0090 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GTSC 0x0094 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLECTR 0x0098 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLCFG0 0x009C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMNB 0x00A4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMND0 0x00A8 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMND1 0x00AC {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFCC0 0x00B8 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFCC1 0x00BC {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFCC2 0x00C0 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFCC3 0x00C4 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFCC4 0x00C8 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFCC5 0x00CC {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFCC6 0x00D0 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFCC7 0x00D4 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFSTS0 0x00D8 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0RFSTS1 0x00DC {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0RFSTS2 0x00E0 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0RFSTS3 0x00E4 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0RFSTS4 0x00E8 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0RFSTS5 0x00EC {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0RFSTS6 0x00F0 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0RFSTS7 0x00F4 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0RFPCTR0 0x00F8 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFPCTR1 0x00FC {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFPCTR2 0x0100 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFPCTR3 0x0104 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFPCTR4 0x0108 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFPCTR5 0x010C {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFPCTR6 0x0110 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFPCTR7 0x0114 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFCC0 0x0118 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFCC1 0x011C {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFCC2 0x0120 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFCC3 0x0124 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFCC4 0x0128 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFCC5 0x012C {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFCC6 0x0130 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFCC7 0x0134 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFCC8 0x0138 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFCC9 0x013C {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFCC10 0x0140 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFCC11 0x0144 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFSTS0 0x0178 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0CFSTS1 0x017C {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0CFSTS2 0x0180 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0CFSTS3 0x0184 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0CFSTS4 0x0188 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0CFSTS5 0x018C {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0CFSTS6 0x0190 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0CFSTS7 0x0194 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0CFSTS8 0x0198 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0CFSTS9 0x019C {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0CFSTS10 0x01A0 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0CFSTS11 0x01A4 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0CFPCTR0 0x01D8 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPCTR1 0x01DC {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPCTR2 0x01E0 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPCTR3 0x01E4 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPCTR4 0x01E8 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPCTR5 0x01EC {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPCTR6 0x01F0 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPCTR7 0x01F4 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPCTR8 0x01F8 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPCTR9 0x01FC {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPCTR10 0x0200 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPCTR11 0x0204 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0FESTS 0x0238 {} -rw_access rw -width 32 -reset_value 0x03FFFFFF
+declare_register reg RSCAN0FFSTS 0x023C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0FMSTS 0x0240 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFISTS 0x0244 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFRISTS 0x0248 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFTISTS 0x024C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMC0 0x0250 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC1 0x0251 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC2 0x0252 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC3 0x0253 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC4 0x0254 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC5 0x0255 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC6 0x0256 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC7 0x0257 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC8 0x0258 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC9 0x0259 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC10 0x025A {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC11 0x025B {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC12 0x025C {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC13 0x025D {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC14 0x025E {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC15 0x025F {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC16 0x0260 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC17 0x0261 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC18 0x0262 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC19 0x0263 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC20 0x0264 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC21 0x0265 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC22 0x0266 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC23 0x0267 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC24 0x0268 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC25 0x0269 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC26 0x026A {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC27 0x026B {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC28 0x026C {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC29 0x026D {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC30 0x026E {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC31 0x026F {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC32 0x0270 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC33 0x0271 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC34 0x0272 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC35 0x0273 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC36 0x0274 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC37 0x0275 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC38 0x0276 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC39 0x0277 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC40 0x0278 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC41 0x0279 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC42 0x027A {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC43 0x027B {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC44 0x027C {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC45 0x027D {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC46 0x027E {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC47 0x027F {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC48 0x0280 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC49 0x0281 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC50 0x0282 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC51 0x0283 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC52 0x0284 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC53 0x0285 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC54 0x0286 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC55 0x0287 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC56 0x0288 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC57 0x0289 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC58 0x028A {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC59 0x028B {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC60 0x028C {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC61 0x028D {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC62 0x028E {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMC63 0x028F {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS0 0x02D0 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS1 0x02D1 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS2 0x02D2 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS3 0x02D3 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS4 0x02D4 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS5 0x02D5 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS6 0x02D6 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS7 0x02D7 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS8 0x02D8 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS9 0x02D9 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS10 0x02DA {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS11 0x02DB {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS12 0x02DC {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS13 0x02DD {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS14 0x02DE {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS15 0x02DF {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS16 0x02E0 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS17 0x02E1 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS18 0x02E2 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS19 0x02E3 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS20 0x02E4 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS21 0x02E5 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS22 0x02E6 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS23 0x02E7 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS24 0x02E8 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS25 0x02E9 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS26 0x02EA {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS27 0x02EB {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS28 0x02EC {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS29 0x02ED {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS30 0x02EE {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS31 0x02EF {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS32 0x02F0 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS33 0x02F1 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS34 0x02F2 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS35 0x02F3 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS36 0x02F4 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS37 0x02F5 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS38 0x02F6 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS39 0x02F7 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS40 0x02F8 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS41 0x02F9 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS42 0x02FA {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS43 0x02FB {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS44 0x02FC {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS45 0x02FD {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS46 0x02FE {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS47 0x02FF {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS48 0x0300 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS49 0x0301 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS50 0x0302 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS51 0x0303 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS52 0x0304 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS53 0x0305 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS54 0x0306 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS55 0x0307 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS56 0x0308 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS57 0x0309 {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS58 0x030A {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS59 0x030B {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS60 0x030C {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS61 0x030D {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS62 0x030E {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMSTS63 0x030F {} -rw_access rw -trigger w -width 8 -reset_value 0x00
+declare_register reg RSCAN0TMTRSTS0 0x0350 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMTRSTS1 0x0354 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMTARSTS0 0x0360 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMTARSTS1 0x0364 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMTCSTS0 0x0370 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMTCSTS1 0x0374 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMTASTS0 0x0380 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMTASTS1 0x0384 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMIEC0 0x0390 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMIEC1 0x0394 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TXQCC0 0x03A0 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TXQCC1 0x03A4 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TXQCC2 0x03A8 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TXQCC3 0x03AC {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TXQSTS0 0x03C0 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0TXQSTS1 0x03C4 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0TXQSTS2 0x03C8 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0TXQSTS3 0x03CC {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0TXQPCTR0 0x03E0 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TXQPCTR1 0x03E4 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TXQPCTR2 0x03E8 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TXQPCTR3 0x03EC {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0THLCC0 0x0400 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0THLCC1 0x0404 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0THLCC2 0x0408 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0THLCC3 0x040C {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0THLSTS0 0x0420 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0THLSTS1 0x0424 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0THLSTS2 0x0428 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0THLSTS3 0x042C {} -rw_access rw -trigger w -width 32 -reset_value 0x00000001
+declare_register reg RSCAN0THLPCTR0 0x0440 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0THLPCTR1 0x0444 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0THLPCTR2 0x0448 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0THLPCTR3 0x044C {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GTINTSTS0 0x0460 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GTSTCFG 0x0468 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GTSTCTR 0x046C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GLOCKK 0x047C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLID0 0x0500 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLM0 0x0504 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP00 0x0508 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP10 0x050C {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLID1 0x0510 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLM1 0x0514 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP01 0x0518 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP11 0x051C {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLID2 0x0520 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLM2 0x0524 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP02 0x0528 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP12 0x052C {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLID3 0x0530 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLM3 0x0534 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP03 0x0538 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP13 0x053C {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLID4 0x0540 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLM4 0x0544 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP04 0x0548 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP14 0x054C {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLID5 0x0550 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLM5 0x0554 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP05 0x0558 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP15 0x055C {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLID6 0x0560 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLM6 0x0564 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP06 0x0568 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP16 0x056C {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLID7 0x0570 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLM7 0x0574 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP07 0x0578 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP17 0x057C {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLID8 0x0580 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLM8 0x0584 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP08 0x0588 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP18 0x058C {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLID9 0x0590 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLM9 0x0594 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP09 0x0598 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP19 0x059C {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLID10 0x05A0 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLM10 0x05A4 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP010 0x05A8 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP110 0x05AC {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLID11 0x05B0 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLM11 0x05B4 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP011 0x05B8 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP111 0x05BC {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLID12 0x05C0 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLM12 0x05C4 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP012 0x05C8 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP112 0x05CC {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLID13 0x05D0 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLM13 0x05D4 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP013 0x05D8 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP113 0x05DC {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLID14 0x05E0 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLM14 0x05E4 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP014 0x05E8 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP114 0x05EC {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLID15 0x05F0 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLM15 0x05F4 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP015 0x05F8 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0GAFLP115 0x05FC {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID0 0x0600 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR0 0x0604 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF00 0x0608 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF10 0x060C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID1 0x0610 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR1 0x0614 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF01 0x0618 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF11 0x061C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID2 0x0620 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR2 0x0624 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF02 0x0628 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF12 0x062C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID3 0x0630 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR3 0x0634 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF03 0x0638 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF13 0x063C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID4 0x0640 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR4 0x0644 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF04 0x0648 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF14 0x064C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID5 0x0650 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR5 0x0654 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF05 0x0658 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF15 0x065C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID6 0x0660 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR6 0x0664 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF06 0x0668 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF16 0x066C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID7 0x0670 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR7 0x0674 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF07 0x0678 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF17 0x067C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID8 0x0680 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR8 0x0684 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF08 0x0688 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF18 0x068C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID9 0x0690 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR9 0x0694 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF09 0x0698 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF19 0x069C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID10 0x06A0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR10 0x06A4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF010 0x06A8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF110 0x06AC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID11 0x06B0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR11 0x06B4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF011 0x06B8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF111 0x06BC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID12 0x06C0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR12 0x06C4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF012 0x06C8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF112 0x06CC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID13 0x06D0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR13 0x06D4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF013 0x06D8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF113 0x06DC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID14 0x06E0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR14 0x06E4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF014 0x06E8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF114 0x06EC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID15 0x06F0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR15 0x06F4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF015 0x06F8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF115 0x06FC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID16 0x0700 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR16 0x0704 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF016 0x0708 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF116 0x070C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID17 0x0710 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR17 0x0714 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF017 0x0718 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF117 0x071C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID18 0x0720 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR18 0x0724 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF018 0x0728 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF118 0x072C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID19 0x0730 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR19 0x0734 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF019 0x0738 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF119 0x073C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID20 0x0740 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR20 0x0744 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF020 0x0748 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF120 0x074C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID21 0x0750 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR21 0x0754 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF021 0x0758 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF121 0x075C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID22 0x0760 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR22 0x0764 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF022 0x0768 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF122 0x076C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID23 0x0770 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR23 0x0774 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF023 0x0778 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF123 0x077C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID24 0x0780 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR24 0x0784 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF024 0x0788 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF124 0x078C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID25 0x0790 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR25 0x0794 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF025 0x0798 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF125 0x079C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID26 0x07A0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR26 0x07A4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF026 0x07A8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF126 0x07AC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID27 0x07B0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR27 0x07B4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF027 0x07B8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF127 0x07BC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID28 0x07C0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR28 0x07C4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF028 0x07C8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF128 0x07CC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID29 0x07D0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR29 0x07D4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF029 0x07D8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF129 0x07DC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID30 0x07E0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR30 0x07E4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF030 0x07E8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF130 0x07EC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID31 0x07F0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR31 0x07F4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF031 0x07F8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF131 0x07FC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID32 0x0800 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR32 0x0804 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF032 0x0808 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF132 0x080C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID33 0x0810 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR33 0x0814 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF033 0x0818 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF133 0x081C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID34 0x0820 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR34 0x0824 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF034 0x0828 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF134 0x082C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID35 0x0830 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR35 0x0834 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF035 0x0838 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF135 0x083C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID36 0x0840 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR36 0x0844 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF036 0x0848 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF136 0x084C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID37 0x0850 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR37 0x0854 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF037 0x0858 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF137 0x085C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID38 0x0860 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR38 0x0864 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF038 0x0868 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF138 0x086C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID39 0x0870 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR39 0x0874 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF039 0x0878 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF139 0x087C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID40 0x0880 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR40 0x0884 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF040 0x0888 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF140 0x088C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID41 0x0890 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR41 0x0894 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF041 0x0898 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF141 0x089C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID42 0x08A0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR42 0x08A4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF042 0x08A8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF142 0x08AC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID43 0x08B0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR43 0x08B4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF043 0x08B8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF143 0x08BC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID44 0x08C0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR44 0x08C4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF044 0x08C8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF144 0x08CC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID45 0x08D0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR45 0x08D4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF045 0x08D8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF145 0x08DC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID46 0x08E0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR46 0x08E4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF046 0x08E8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF146 0x08EC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID47 0x08F0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR47 0x08F4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF047 0x08F8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF147 0x08FC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID48 0x0900 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR48 0x0904 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF048 0x0908 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF148 0x090C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID49 0x0910 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR49 0x0914 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF049 0x0918 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF149 0x091C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID50 0x0920 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR50 0x0924 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF050 0x0928 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF150 0x092C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID51 0x0930 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR51 0x0934 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF051 0x0938 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF151 0x093C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID52 0x0940 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR52 0x0944 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF052 0x0948 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF152 0x094C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID53 0x0950 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR53 0x0954 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF053 0x0958 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF153 0x095C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID54 0x0960 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR54 0x0964 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF054 0x0968 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF154 0x096C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID55 0x0970 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR55 0x0974 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF055 0x0978 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF155 0x097C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID56 0x0980 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR56 0x0984 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF056 0x0988 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF156 0x098C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID57 0x0990 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR57 0x0994 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF057 0x0998 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF157 0x099C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID58 0x09A0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR58 0x09A4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF058 0x09A8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF158 0x09AC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID59 0x09B0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR59 0x09B4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF059 0x09B8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF159 0x09BC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID60 0x09C0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR60 0x09C4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF060 0x09C8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF160 0x09CC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID61 0x09D0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR61 0x09D4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF061 0x09D8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF161 0x09DC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID62 0x09E0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR62 0x09E4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF062 0x09E8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF162 0x09EC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMID63 0x09F0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMPTR63 0x09F4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF063 0x09F8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RMDF163 0x09FC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFID0 0x0E00 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFPTR0 0x0E04 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFDF00 0x0E08 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFDF10 0x0E0C {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFID1 0x0E10 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFPTR1 0x0E14 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFDF01 0x0E18 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFDF11 0x0E1C {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFID2 0x0E20 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFPTR2 0x0E24 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFDF02 0x0E28 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFDF12 0x0E2C {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFID3 0x0E30 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFPTR3 0x0E34 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFDF03 0x0E38 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFDF13 0x0E3C {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFID4 0x0E40 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFPTR4 0x0E44 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFDF04 0x0E48 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFDF14 0x0E4C {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFID5 0x0E50 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFPTR5 0x0E54 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFDF05 0x0E58 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFDF15 0x0E5C {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFID6 0x0E60 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFPTR6 0x0E64 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFDF06 0x0E68 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFDF16 0x0E6C {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFID7 0x0E70 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFPTR7 0x0E74 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFDF07 0x0E78 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RFDF17 0x0E7C {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFID0 0x0E80 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPTR0 0x0E84 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF00 0x0E88 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF10 0x0E8C {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFID1 0x0E90 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPTR1 0x0E94 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF01 0x0E98 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF11 0x0E9C {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFID2 0x0EA0 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPTR2 0x0EA4 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF02 0x0EA8 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF12 0x0EAC {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFID3 0x0EB0 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPTR3 0x0EB4 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF03 0x0EB8 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF13 0x0EBC {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFID4 0x0EC0 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPTR4 0x0EC4 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF04 0x0EC8 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF14 0x0ECC {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFID5 0x0ED0 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPTR5 0x0ED4 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF05 0x0ED8 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF15 0x0EDC {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFID6 0x0EE0 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPTR6 0x0EE4 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF06 0x0EE8 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF16 0x0EEC {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFID7 0x0EF0 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPTR7 0x0EF4 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF07 0x0EF8 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF17 0x0EFC {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFID8 0x0F00 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPTR8 0x0F04 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF08 0x0F08 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF18 0x0F0C {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFID9 0x0F10 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPTR9 0x0F14 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF09 0x0F18 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF19 0x0F1C {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFID10 0x0F20 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPTR10 0x0F24 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF010 0x0F28 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF110 0x0F2C {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFID11 0x0F30 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFPTR11 0x0F34 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF011 0x0F38 {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0CFDF111 0x0F3C {} -rw_access rw -trigger r -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID0 0x1000 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR0 0x1004 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF00 0x1008 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF10 0x100C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID1 0x1010 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR1 0x1014 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF01 0x1018 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF11 0x101C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID2 0x1020 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR2 0x1024 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF02 0x1028 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF12 0x102C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID3 0x1030 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR3 0x1034 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF03 0x1038 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF13 0x103C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID4 0x1040 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR4 0x1044 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF04 0x1048 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF14 0x104C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID5 0x1050 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR5 0x1054 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF05 0x1058 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF15 0x105C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID6 0x1060 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR6 0x1064 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF06 0x1068 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF16 0x106C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID7 0x1070 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR7 0x1074 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF07 0x1078 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF17 0x107C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID8 0x1080 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR8 0x1084 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF08 0x1088 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF18 0x108C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID9 0x1090 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR9 0x1094 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF09 0x1098 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF19 0x109C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID10 0x10A0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR10 0x10A4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF010 0x10A8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF110 0x10AC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID11 0x10B0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR11 0x10B4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF011 0x10B8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF111 0x10BC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID12 0x10C0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR12 0x10C4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF012 0x10C8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF112 0x10CC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID13 0x10D0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR13 0x10D4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF013 0x10D8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF113 0x10DC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID14 0x10E0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR14 0x10E4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF014 0x10E8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF114 0x10EC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID15 0x10F0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR15 0x10F4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF015 0x10F8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF115 0x10FC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID16 0x1100 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR16 0x1104 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF016 0x1108 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF116 0x110C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID17 0x1110 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR17 0x1114 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF017 0x1118 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF117 0x111C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID18 0x1120 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR18 0x1124 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF018 0x1128 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF118 0x112C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID19 0x1130 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR19 0x1134 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF019 0x1138 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF119 0x113C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID20 0x1140 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR20 0x1144 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF020 0x1148 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF120 0x114C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID21 0x1150 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR21 0x1154 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF021 0x1158 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF121 0x115C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID22 0x1160 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR22 0x1164 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF022 0x1168 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF122 0x116C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID23 0x1170 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR23 0x1174 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF023 0x1178 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF123 0x117C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID24 0x1180 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR24 0x1184 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF024 0x1188 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF124 0x118C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID25 0x1190 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR25 0x1194 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF025 0x1198 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF125 0x119C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID26 0x11A0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR26 0x11A4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF026 0x11A8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF126 0x11AC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID27 0x11B0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR27 0x11B4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF027 0x11B8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF127 0x11BC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID28 0x11C0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR28 0x11C4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF028 0x11C8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF128 0x11CC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID29 0x11D0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR29 0x11D4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF029 0x11D8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF129 0x11DC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID30 0x11E0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR30 0x11E4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF030 0x11E8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF130 0x11EC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID31 0x11F0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR31 0x11F4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF031 0x11F8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF131 0x11FC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID32 0x1200 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR32 0x1204 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF032 0x1208 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF132 0x120C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID33 0x1210 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR33 0x1214 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF033 0x1218 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF133 0x121C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID34 0x1220 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR34 0x1224 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF034 0x1228 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF134 0x122C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID35 0x1230 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR35 0x1234 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF035 0x1238 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF135 0x123C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID36 0x1240 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR36 0x1244 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF036 0x1248 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF136 0x124C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID37 0x1250 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR37 0x1254 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF037 0x1258 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF137 0x125C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID38 0x1260 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR38 0x1264 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF038 0x1268 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF138 0x126C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID39 0x1270 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR39 0x1274 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF039 0x1278 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF139 0x127C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID40 0x1280 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR40 0x1284 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF040 0x1288 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF140 0x128C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID41 0x1290 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR41 0x1294 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF041 0x1298 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF141 0x129C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID42 0x12A0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR42 0x12A4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF042 0x12A8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF142 0x12AC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID43 0x12B0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR43 0x12B4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF043 0x12B8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF143 0x12BC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID44 0x12C0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR44 0x12C4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF044 0x12C8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF144 0x12CC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID45 0x12D0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR45 0x12D4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF045 0x12D8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF145 0x12DC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID46 0x12E0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR46 0x12E4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF046 0x12E8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF146 0x12EC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID47 0x12F0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR47 0x12F4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF047 0x12F8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF147 0x12FC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID48 0x1300 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR48 0x1304 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF048 0x1308 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF148 0x130C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID49 0x1310 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR49 0x1314 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF049 0x1318 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF149 0x131C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID50 0x1320 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR50 0x1324 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF050 0x1328 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF150 0x132C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID51 0x1330 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR51 0x1334 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF051 0x1338 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF151 0x133C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID52 0x1340 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR52 0x1344 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF052 0x1348 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF152 0x134C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID53 0x1350 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR53 0x1354 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF053 0x1358 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF153 0x135C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID54 0x1360 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR54 0x1364 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF054 0x1368 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF154 0x136C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID55 0x1370 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR55 0x1374 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF055 0x1378 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF155 0x137C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID56 0x1380 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR56 0x1384 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF056 0x1388 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF156 0x138C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID57 0x1390 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR57 0x1394 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF057 0x1398 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF157 0x139C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID58 0x13A0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR58 0x13A4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF058 0x13A8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF158 0x13AC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID59 0x13B0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR59 0x13B4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF059 0x13B8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF159 0x13BC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID60 0x13C0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR60 0x13C4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF060 0x13C8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF160 0x13CC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID61 0x13D0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR61 0x13D4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF061 0x13D8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF161 0x13DC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID62 0x13E0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR62 0x13E4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF062 0x13E8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF162 0x13EC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMID63 0x13F0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMPTR63 0x13F4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF063 0x13F8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0TMDF163 0x13FC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0THLACC0 0x1800 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0THLACC1 0x1804 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0THLACC2 0x1808 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0THLACC3 0x180C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC0 0x1900 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC1 0x1904 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC2 0x1908 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC3 0x190C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC4 0x1910 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC5 0x1914 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC6 0x1918 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC7 0x191C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC8 0x1920 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC9 0x1924 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC10 0x1928 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC11 0x192C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC12 0x1930 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC13 0x1934 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC14 0x1938 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC15 0x193C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC16 0x1940 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC17 0x1944 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC18 0x1948 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC19 0x194C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC20 0x1950 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC21 0x1954 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC22 0x1958 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC23 0x195C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC24 0x1960 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC25 0x1964 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC26 0x1968 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC27 0x196C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC28 0x1970 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC29 0x1974 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC30 0x1978 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC31 0x197C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC32 0x1980 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC33 0x1984 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC34 0x1988 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC35 0x198C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC36 0x1990 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC37 0x1994 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC38 0x1998 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC39 0x199C {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC40 0x19A0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC41 0x19A4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC42 0x19A8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC43 0x19AC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC44 0x19B0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC45 0x19B4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC46 0x19B8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC47 0x19BC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC48 0x19C0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC49 0x19C4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC50 0x19C8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC51 0x19CC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC52 0x19D0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC53 0x19D4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC54 0x19D8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC55 0x19DC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC56 0x19E0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC57 0x19E4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC58 0x19E8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC59 0x19EC {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC60 0x19F0 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC61 0x19F4 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC62 0x19F8 {} -rw_access rw -width 32 -reset_value 0x00000000
+declare_register reg RSCAN0RPGACC63 0x19FC {} -rw_access rw -width 32 -reset_value 0x00000000
+
+# === generate options ===
+set_generate_kind "pvt" ;# should be one of: model|pv|pvt
+set_include_file ""
+set_external_pv_include ""
+set_pv_kind "template" ;# should be one of: template|external
+set_timing_kind "policies" ;# should be one of: policies|learned
+set_power_kind "policies" ;# should be one of: policies|learned
+set_class_name_external_pv ""
+set_max_parameters_of_pv_constructor 5
+set_overwrite 0
+set_generate_ipxact 0
+set_ipxact_vendor "Mentor.com"
+set_ipxact_version 1.0
+

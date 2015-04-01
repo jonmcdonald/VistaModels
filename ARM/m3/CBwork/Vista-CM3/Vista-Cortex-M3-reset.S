@@ -1,10 +1,10 @@
-/* Reset code for Vista-CM3 Vista-Cortex-M3
+/* Reset code for Vista-Cortex-M3
  *
- * Version: Sourcery CodeBench 2012.09-85
- * Support: https://support.codesourcery.com/GNUToolchain/
+ * Version: Sourcery CodeBench 2014.11-2014111700
+ * Support: https://sourcery.mentor.com/GNUToolchain/
  *
  * Copyright (c) 2007-2010 CodeSourcery, Inc.
- * Copyright (c) 2010-2012 Mentor Graphics, Inc.
+ * Copyright (c) 2010-2014 Mentor Graphics, Inc.
  *
  * The authors hereby grant permission to use, copy, modify, distribute,
  * and license this software and its documentation for any purpose, provided
@@ -42,4 +42,4 @@ __cs3_reset_Vista_Cortex_M3:
 #endif
 	.pool
 	.size	__cs3_reset_Vista_Cortex_M3,.-__cs3_reset_Vista_Cortex_M3
-/* checksum: 2f52b52c56e092549fd34 */
+/* checksum: b463f01f7da7860ba1a1000 */
