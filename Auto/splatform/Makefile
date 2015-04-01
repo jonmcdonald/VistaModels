@@ -93,7 +93,7 @@ COMMAND = "if {![does_tlm_library_exist $(MODELS)]} \
 	   foreach n [glob -directory $(MODELS) -tails *.mb] { \
 	     save_model -g TLM/$(MODELS)/[lindex [split \$$n .] 0] }"
 
-mb: $(PAPOULISDIR) Templates
+mb $(PAPOULISDIR): Templates
 	@if [ -e $(MODELS) ]; then vista_model_builder -c $(COMMAND); fi
 
 TemplatesCOMMAND = \
