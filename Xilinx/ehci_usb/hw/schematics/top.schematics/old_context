@@ -1,0 +1,1 @@
+{add_element Zynq_SoC_inst -kind component -pointer 1 -associated_unit schematics:Zynq_SoC -class Zynq_SoC -include Zynq_SoC.h} { rename Zync_SoC_inst Zynq_SoC_inst }

@@ -1,0 +1,24 @@
+@include $VISTA_ROOT/platforms/zynq/parameters.txt
+
+top.Zynq_SoC_inst.cpu_inst0.CPU_INST0.PV.cpu0.core.elf_image_file = ../sw/boot-wrapper/linux-system.axf
+
+# USB0 & USB1 memory map range is 0xE0002000 - 0xE0004000
+# using spare socket on apb_bus_inst00 (0xE0000000)
+top.Zynq_SoC_inst.apb_bus_inst00.apb_master11_base_address = 0x2000
+top.Zynq_SoC_inst.apb_bus_inst00.apb_master11_size = 0x2000
+
+#USB0 0xE0002000 - IRQ 21
+top.Zynq_SoC_inst.apb_bus_usb.bus_master_0_base_address = 0x0000
+top.Zynq_SoC_inst.apb_bus_usb.bus_master_0_size = 0x1000
+
+#USB1 0xE0003000 - IRQ 44
+top.Zynq_SoC_inst.apb_bus_usb.bus_master_1_base_address = 0x1000
+top.Zynq_SoC_inst.apb_bus_usb.bus_master_1_size = 0x1000
+
+
+#top.Zynq_SoC_inst.USB0.PV.devices = hid_keyboard hid_mouse
+#top.Zynq_SoC_inst.USB1.PV.devices = 
+
+#top.Zynq_SoC_inst.USB0.PV.devices = 0204:6025
+#top.Zynq_SoC_inst.USB1.PV.devices = 090c:1000
+
