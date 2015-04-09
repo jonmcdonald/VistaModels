@@ -16,10 +16,12 @@ A few useful git sequences:
 
  - To add local changes to the repository
    First commit your local changes
+   > git add --dry-run * 			; This will list what will be added without doing it.
    > git add *
    > git commit -a -m "Comment changes"
    # Next fetch latest from repository, merge and push
    > git fetch origin
+   > git status                                 ; Tells you what is out of date or changed
    > git merge origin/master
    > git push origin master
 

@@ -99,6 +99,7 @@ void can_pv::cb_read_m_rxmem(uint64_t address, unsigned char* data, unsigned len
     tokenptr = tpff.get();
     c = (CANDataType *)tokenptr->getFieldAsVoidPtr("DataPtr");
     assert (c);
+    assert (length <= 8);
     memcpy(rxmem, c->d, c->length);
     memcpy(data, c->d, c->length);
     if ((count = tokenptr->getFieldAsInt("ReceiveCount")) == 1) {
