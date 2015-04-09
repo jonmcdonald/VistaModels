@@ -86,13 +86,20 @@ class canls_pv : public canls_pv_base {
     unsigned int m_length;
     unsigned int m_crc;
     unsigned int m_size;
-    char m_data[126];
+    mb::mb_token_ptr m_tokenptr;
+    unsigned char * m_data;
 
       DataType() {}
 
-      DataType(mb_address_type address, unsigned char * data, unsigned size) :
-        m_ident(address), m_size(size) {
-        memcpy(m_data, data, size);
+      DataType(mb_address_type address, unsigned size, mb::mb_token_ptr tokenptr)
+        : m_ident(address), m_size(size)
+      {
+        m_tokenptr = tokenptr;
+        if (m_tokenptr->hasField("DataPtr")) {
+          m_data = (unsigned char *) m_tokenptr->getFieldAsVoidPtr("DataPtr");
+        } else {
+          cout << "Error: canls_pv.h DataType constructor.\n";
+        }
       }
 
       bool operator() (const DataType* lhs, const DataType* rhs) const {

@@ -18,6 +18,7 @@ add_parameter "report_error" 0 uint32 {}
 add_parameter "pclk" clock time {}
 add_parameter "clkc" clock time {}
 add_parameter "clk_xincan" clock time {}
+add_parameter "Receivers" 1 uint32 {}
 
 # === auto parameters ===
 set_auto_parameter_default "clock" {10 ns} time {}
@@ -39,7 +40,7 @@ set_auto_parameter_default "RX0_pipeline_length" 2 uint32 {}
 
 # === machine architecture ===
 declare_memory m_mem reg 0x0 8
-declare_memory m_rxmem reg 0x20 8
+declare_memory m_rxmem reg 0x20 8 -is_virtual
 declare_register reg m_ident 0x10 {} -rw_access rw -trigger w -width 32 -reset_value 0x00000000
 declare_register reg m_ack 0x14 {} -rw_access rw -trigger w -width 32
 declare_register reg m_size 0x18 {} -rw_access rw -width 32

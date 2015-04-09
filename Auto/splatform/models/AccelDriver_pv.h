@@ -48,5 +48,7 @@ class AccelDriver_pv : public AccelDriver_pv_base {
   void rxi_callback(); 
 
   void thread();
+
+  static char s[30];
 };
 

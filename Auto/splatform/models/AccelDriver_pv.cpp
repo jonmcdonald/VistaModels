@@ -47,6 +47,7 @@ void AccelDriver_pv::rxi_callback() {
   unsigned char d[9];
 
   if (rxi.read() == 1) {
+    wait(SC_ZERO_TIME);	  // Needed to allow other receivers to block message.
     m_write(0x14, 0);     // ack reg
     m_read(0x1C, s);      // length
     m_read(0x20, d, s);   // RX data
@@ -57,7 +58,6 @@ void AccelDriver_pv::rxi_callback() {
 }
 
 void AccelDriver_pv::thread() {
-  char s[30] = "abcdefghijklmnopqrstuvwxyz   ";
   unsigned char *d = (unsigned char *) &s[0];
 
   while (myRunning) {
@@ -66,6 +66,8 @@ void AccelDriver_pv::thread() {
     m_write(0x18, 4);    //size
     m_write(0x10, 5);    //ident
     d++;
-    if (d == (unsigned char *)&s[25]) d = (unsigned char *) &s[0];
+    if (d == (unsigned char *)&s[26]) d = (unsigned char *) &s[0];
   }
 }
+
+char AccelDriver_pv::s[30] = "abcdefghijklmnopqrstuvwxyzabc";

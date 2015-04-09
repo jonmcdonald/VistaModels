@@ -38,7 +38,7 @@ T ?= traces.tcl
 
 .SUFFIXES: .cpp .cc .o .x .h
 
-$(EXE): $(PAPOULISDIR) $(OBJS) $(MBARCHIVE) 
+$(EXE): $(OBJS) $(MBARCHIVE) 
 	$(CC) $(CFLAGS) $(INCDIR) -o $@ $(OBJS) $(LIBS) 2>&1 | c++filt
 	if [ ! -n "$$V2_HOME" ] ; \
 	then vista_build_project $(Project); fi

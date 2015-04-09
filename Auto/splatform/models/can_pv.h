@@ -24,6 +24,7 @@
 //* Automatically merged on: Apr. 01, 2015 10:59:08 AM, (user: jon)
 //* Automatically merged on: Apr. 01, 2015 11:03:00 AM, (user: jon)
 //* Automatically merged on: Apr. 01, 2015 11:05:01 AM, (user: jon)
+//* Automatically merged on: Apr. 09, 2015 09:02:52 AM, (user: jon)
 //*>
 
 
@@ -49,7 +50,14 @@ class can_pv : public can_pv_base {
   // write callbacks of registers
   ////////////////////////////////////////// 
   void cb_write_m_ident(unsigned int newValue);
-  void cb_write_m_ack(unsigned int newValue); 
+  void cb_write_m_ack(unsigned int newValue);
+
+ protected:
+  /////////////////////////////////////////
+  // io_memory callbacks
+  ///////////////////////////////////////// 
+  virtual void cb_write_m_rxmem(uint64_t offset, unsigned char* data, unsigned length);
+  virtual void cb_read_m_rxmem(uint64_t offset, unsigned char* data, unsigned length); 
 
  protected:
   ////////////////////////////////////////
@@ -84,6 +92,9 @@ class can_pv : public can_pv_base {
     unsigned int crc;
     unsigned char d[9];
   };
+
+  mb::mb_fifo<mb::mb_token_ptr> tpff;
+  unsigned char rxmem[8];
 
 };
 

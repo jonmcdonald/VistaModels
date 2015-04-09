@@ -66,7 +66,8 @@ bool canls_pv::c_tx_callback_read(mb_address_type address, unsigned char* data, 
 // Write callback for r_tx port.
 // Returns true when successful.
 bool canls_pv::r_tx_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
-  DataType *d = new DataType(address, data, size);
+  mb::mb_token_ptr tokenptr = get_current_token();
+  DataType *d = new DataType(address, size, tokenptr);
   pq.push(d);
   iff.put(1);
   return true;
@@ -75,7 +76,8 @@ bool canls_pv::r_tx_callback_write(mb_address_type address, unsigned char* data,
 // Write callback for ap_tx port.
 // Returns true when successful.
 bool canls_pv::ap_tx_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
-  DataType *d = new DataType(address, data, size);
+  mb::mb_token_ptr tokenptr = get_current_token();
+  DataType *d = new DataType(address, size, tokenptr);
   pq.push(d);
   iff.put(1);
   return true;
@@ -84,7 +86,7 @@ bool canls_pv::ap_tx_callback_write(mb_address_type address, unsigned char* data
 // Write callback for c_tx port.
 // Returns true when successful.
 bool canls_pv::c_tx_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
-  DataType *d = new DataType(address, data, size);
+  DataType *d = new DataType(address, size, get_current_token());
   pq.push(d);
   iff.put(1);
   return true;
@@ -133,6 +135,7 @@ void canls_pv::thread() {
     wait(generic_clock);// One clock delay for the start bit.
     d = pq.top();	// Take the priority message at the end of the start bit.
     pq.pop();
+    set_current_token(d->m_tokenptr);
     cff.put(d);
     rff.put(d);
     apff.put(d);
