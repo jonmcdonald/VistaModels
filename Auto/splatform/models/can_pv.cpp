@@ -51,21 +51,19 @@ can_pv::can_pv(sc_module_name module_name)
 // Write callback for m_ident register.
 // The newValue has been already assigned to the m_ident register.
 void can_pv::cb_write_m_ident(unsigned int newValue) {
-  unsigned char *d = new unsigned char ((m_size*8)+61);
-cout << "Created CAN data packet at " << (unsigned long long) d << endl;
+  unsigned char *d = new unsigned char [(m_size*8)+61];
   unsigned char *m = (unsigned char *) &m_mem[0];
   CANDataType *c = (CANDataType *) d;
 
   mb::mb_token_ptr tokenptr = get_current_token();
-  if (!tokenptr) {
+  if (!tokenptr)
     tokenptr = new mb::mb_token;
-  }
   tokenptr->setField("DataPtr", (void *)d);
-  tokenptr->setField("ReceiveCount", Receivers);
 
   c->ident = m_ident;
+  c->rrem = false;
   c->length = m_size;
-  c->crc = 0;
+  c->calcCRC();
   memcpy(c->d, m, m_size);
   c->d[m_size] = '\0';
   // Writing one byte per bit to get proper timing less 1 to fix address cycle time of generic bus
@@ -93,23 +91,23 @@ void can_pv::cb_write_m_rxmem(uint64_t address, unsigned char* data, unsigned le
 // Read callback for m_rxmem memory range.
 void can_pv::cb_read_m_rxmem(uint64_t address, unsigned char* data, unsigned length) {
   mb::mb_token_ptr tokenptr;
+  unsigned char *d;
   CANDataType *c;
   unsigned count;
+  assert (length <= 8);
+
   if (tpff.nb_can_get()) {
     tokenptr = tpff.get();
     c = (CANDataType *)tokenptr->getFieldAsVoidPtr("DataPtr");
     assert (c);
-    assert (length <= 8);
     memcpy(rxmem, c->d, c->length);
     memcpy(data, c->d, c->length);
     if ((count = tokenptr->getFieldAsInt("ReceiveCount")) == 1) {
-      delete c;
+      d = (unsigned char *) c;
+      delete [] d;
     } else { tokenptr->setField("ReceiveCount", count-1); }
   } else {
-    if (length <= 8)
       memcpy(data, rxmem, length);
-    else
-      cout << sc_time_stamp() <<": "<< name() <<". Error, read too long.\n";
   }
 }
  

@@ -88,9 +88,15 @@ class can_pv : public can_pv_base {
  private:
   struct CANDataType {
     unsigned int ident;
+    bool rrem;
     unsigned int length;
-    unsigned int crc;
     unsigned char d[9];
+    unsigned int crc;
+
+    void calcCRC() {
+      // Calculation not implemented
+      crc = 0;
+    }
   };
 
   mb::mb_fifo<mb::mb_token_ptr> tpff;

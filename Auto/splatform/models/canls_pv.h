@@ -95,7 +95,7 @@ class canls_pv : public canls_pv_base {
         : m_ident(address), m_size(size)
       {
         m_tokenptr = tokenptr;
-        if (m_tokenptr->hasField("DataPtr")) {
+        if (m_tokenptr && m_tokenptr->hasField("DataPtr")) {
           m_data = (unsigned char *) m_tokenptr->getFieldAsVoidPtr("DataPtr");
         } else {
           cout << "Error: canls_pv.h DataType constructor.\n";
