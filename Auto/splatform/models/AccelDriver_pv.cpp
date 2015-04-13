@@ -27,6 +27,7 @@
 
 #include "AccelDriver_pv.h"
 #include <iostream>
+#include "MemoryMap.h"
 
 using namespace sc_core;
 using namespace sc_dt;
@@ -44,16 +45,18 @@ AccelDriver_pv::AccelDriver_pv(sc_module_name module_name)
 // callback for any change in signal: rxi of type: sc_in<bool>
 void AccelDriver_pv::rxi_callback() {
   unsigned int s;
+  unsigned int id;
   unsigned char d[9];
 
   if (rxi.read() == 1) {
-    wait(SC_ZERO_TIME);	  // Needed to allow other receivers to block message.
-    m_write(0x14, 0);     // ack reg
-    m_read(0x1C, s);      // length
-    m_read(0x20, d, s);   // RX data
+    m_write(CAN_ACK, 0);        // ack reg
+    m_read(CAN_RXSIZE, s);      // length
+    m_read(CAN_RXIDENT, id);    // ident
+    if (s > 0) 
+      m_read(CAN_RXDATA, d, s); // RX data
     d[s] = '\0';
 
-    cout << sc_time_stamp() <<": "<< name() << ", received "<< s << " ,"<< d <<endl;
+    cout << sc_time_stamp() <<": "<< name() << ", received 0x"<<hex<< id<<dec<< ", "<< s << " ,"<< d <<endl;
   }
 }
 
@@ -62,9 +65,9 @@ void AccelDriver_pv::thread() {
 
   while (myRunning) {
     wait (70, SC_MS);
-    m_write(0x0, d, 4);  //TX data
-    m_write(0x18, 4);    //size
-    m_write(0x10, 5);    //ident
+    m_write(CAN_DATA, d, 4);     //TX data
+    m_write(CAN_SIZE, 4);        //size
+    m_write(CAN_IDENT, 0x555);   //ident
     d++;
     if (d == (unsigned char *)&s[26]) d = (unsigned char *) &s[0];
   }

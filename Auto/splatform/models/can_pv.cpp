@@ -27,8 +27,6 @@
 //* Automatically merged on: Apr. 09, 2015 09:02:52 AM, (user: jon)
 //*>
 
-
-
 #include "can_pv.h"
 #include <iostream>
 
@@ -61,16 +59,17 @@ void can_pv::cb_write_m_ident(unsigned int newValue) {
   tokenptr->setField("DataPtr", (void *)d);
 
   c->ident = m_ident;
-  c->rrem = false;
+  c->rtr = false;
+  c->ide = false;
   c->length = m_size;
-  c->calcCRC();
-  memcpy(c->d, m, m_size);
+  if (m_size > 0) memcpy(c->d, m, m_size);
   c->d[m_size] = '\0';
+  c->crc = c->calcCRC();
+
   // Writing one byte per bit to get proper timing less 1 to fix address cycle time of generic bus
   set_current_token(tokenptr);
   TX0_write(newValue, d, (m_size*8)+61);
 }
- 
 
 // Write callback for m_ack register.
 // The newValue has been already assigned to the m_ack register.
@@ -85,7 +84,6 @@ void can_pv::cb_write_m_ack(unsigned int newValue) {
 
 // Write callback for m_rxmem memory range.
 void can_pv::cb_write_m_rxmem(uint64_t address, unsigned char* data, unsigned length) {
-  
 }
 
 // Read callback for m_rxmem memory range.
@@ -110,7 +108,6 @@ void can_pv::cb_read_m_rxmem(uint64_t address, unsigned char* data, unsigned len
       memcpy(data, rxmem, length);
   }
 }
- 
 
 // Read callback for reg port.
 // Returns true when successful.
@@ -118,7 +115,6 @@ bool can_pv::reg_callback_read(mb_address_type address, unsigned char* data, uns
   
   return true;
 }
-
 
 // Read callback for RX0 port.
 // Returns true when successful.
@@ -130,36 +126,28 @@ bool can_pv::RX0_callback_read(mb_address_type address, unsigned char* data, uns
 // Write callback for reg port.
 // Returns true when successful.
 bool can_pv::reg_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
-  unsigned char *d;
-// This function is not used and should not be called.
-cout << "*************** reg_callback_write ***************\n";
-  if (address == 0) {
-    d = (unsigned char *)&m_mem[0];
-    memcpy(d, data, size);
-    m_size = size;
-  }
+
   return true;
 } 
 
 // Write callback for RX0 port.
 // Returns true when successful.
 bool can_pv::RX0_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
-cout << "Received CAN data packet at " << (unsigned long long) data << endl;
   unsigned char *d;
   CANDataType *c = (CANDataType *) data;
   m_rxsize = c->length;
+  m_rxident = c->ident;
 
   mb::mb_token_ptr tokenptr = get_current_token();
   if (tokenptr && tokenptr->hasField("ReceiveCount")) {
     tpff.put(tokenptr);
   } else { cout << sc_time_stamp() <<": "<< name() <<". Error, tokenptr not set.\n"; }
-  cout<<sc_time_stamp()<<": "<<name()<<", "<<c->ident<<", "<<c->length<<", "<<c->d<<endl;
-  GI_Rx.write(1);
+
+  wait(SC_ZERO_TIME); // Allow other receivers to see message and potentially kill it.
+  if (c->calcCRC() == c->crc)
+    GI_Rx.write(1);
   return true;
 } 
-
-
-
 
 unsigned can_pv::reg_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size) {
   return 0;
@@ -173,10 +161,6 @@ bool can_pv::reg_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dm
   return false;
 }
 
-
-
-
-
 unsigned can_pv::RX0_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size) {
   return 0;
 } 
@@ -188,7 +172,6 @@ unsigned can_pv::RX0_callback_write_dbg(mb_address_type address, unsigned char* 
 bool can_pv::RX0_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData) {
   return false;
 }
-
  
 void can_pv::cb_transport_dbg_m_ident(tlm::tlm_generic_payload& trans) {}
 void can_pv::cb_transport_dbg_m_ack(tlm::tlm_generic_payload& trans) {}

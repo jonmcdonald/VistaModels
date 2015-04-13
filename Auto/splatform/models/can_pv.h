@@ -88,14 +88,33 @@ class can_pv : public can_pv_base {
  private:
   struct CANDataType {
     unsigned int ident;
-    bool rrem;
+    bool rtr;
+    bool ide;
     unsigned int length;
     unsigned char d[9];
     unsigned int crc;
 
-    void calcCRC() {
-      // Calculation not implemented
-      crc = 0;
+    unsigned int CRCstep(unsigned inp, unsigned num, unsigned c) {
+      int inv;
+      for (int i=num-1; i>=0; i--) {
+        inv = ((c >> 14) & 0x1) ^ ((inp >> i) & 0x1);
+        c = (c << 1) & 0x7FFF;
+        if (inv) c = c ^ 0x4599;
+      }
+      return c;
+    }
+
+    unsigned int calcCRC() {
+      unsigned int c = 0;
+      c = CRCstep(ident&0x7FF, 11, c);
+      c = CRCstep((unsigned) rtr, 1, c);
+      c = CRCstep((unsigned) ide, 1, c);
+      c = CRCstep(0x0, 1, c);
+      if (ide) c = CRCstep((ident>>11)&0x3FFFF, 18, c);
+      c = CRCstep(length, 4, c);
+      for (int i=0; i<length; i++)
+        c = CRCstep((unsigned) d[i], 8, c);
+      return c;
     }
   };
 
