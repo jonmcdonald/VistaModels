@@ -11,6 +11,10 @@ $includes_begin;
 #include "../cluster_models/AXI_model.h"
 #include "uart_with_console.h"
 #include "../cluster_models/AXI_APB_model.h"
+#include "../cluster_models/M4_model.h"
+#include "../cluster_models/AHB_model.h"
+#include "../cluster_models/SystemBridge_model.h"
+#include "../cluster_models/MicroMEMORY_model.h"
 $includes_end;
 
 $module_begin("cluster");
@@ -29,11 +33,11 @@ $end
 $init("ethernet"),
 ethernet(0)
 $end
-$init("sysctrl"),
-sysctrl(0)
+$init("a9ctrl"),
+a9ctrl(0)
 $end
-$init("axi_bus"),
-axi_bus(0)
+$init("a9_bus"),
+a9_bus(0)
 $end
 $init("a9_ram"),
 a9_ram(0)
@@ -47,6 +51,18 @@ $end
 $init("axi_apb"),
 axi_apb(0)
 $end
+$init("m4_ram"),
+m4_ram(0)
+$end
+$init("m4_bus"),
+m4_bus(0)
+$end
+$init("m4"),
+m4(0)
+$end
+$init("sysbridge"),
+sysbridge(0)
+$end
     $initialization_end
 {
     $elaboration_begin;
@@ -59,11 +75,11 @@ $end;
 $create_component("ethernet");
 ethernet = new LAN9118_pvt("ethernet");
 $end;
-$create_component("sysctrl");
-sysctrl = new SystemControl_pvt("sysctrl");
+$create_component("a9ctrl");
+a9ctrl = new SystemControl_pvt("a9ctrl");
 $end;
-$create_component("axi_bus");
-axi_bus = new AXI_pvt("axi_bus");
+$create_component("a9_bus");
+a9_bus = new AXI_pvt("a9_bus");
 $end;
 $create_component("a9_ram");
 a9_ram = new MEMORY_pvt("a9_ram");
@@ -77,41 +93,71 @@ $end;
 $create_component("axi_apb");
 axi_apb = new AXI_APB_pvt("axi_apb");
 $end;
+$create_component("m4_ram");
+m4_ram = new MicroMEMORY_pvt("m4_ram");
+$end;
+$create_component("m4_bus");
+m4_bus = new AHB_pvt("m4_bus");
+$end;
+$create_component("m4");
+m4 = new M4_pvt("m4");
+$end;
+$create_component("sysbridge");
+sysbridge = new SystemBridge_pvt("sysbridge");
+$end;
 $bind("sdcard->irq0","a9x2->irq_1");
 vista_bind(sdcard->irq0, a9x2->irq_1);
-$end;
-$bind("axi_bus->system_master","sysctrl->slave");
-vista_bind(axi_bus->system_master, sysctrl->slave);
 $end;
 $bind("sdcard->irq1","a9x2->irq_2");
 vista_bind(sdcard->irq1, a9x2->irq_2);
 $end;
-$bind("axi_bus->ram_master","a9_ram->slave");
-vista_bind(axi_bus->ram_master, a9_ram->slave);
-$end;
-$bind("a9x2->master0","axi_bus->a9_slave");
-vista_bind(a9x2->master0, axi_bus->a9_slave);
-$end;
-$bind("axi_bus->ethernet_master","ethernet->host");
-vista_bind(axi_bus->ethernet_master, ethernet->host);
-$end;
-$bind("axi_bus->sd_master","sdcard->host");
-vista_bind(axi_bus->sd_master, sdcard->host);
-$end;
-$bind("axi_bus->fb_master","fb->from_bus");
-vista_bind(axi_bus->fb_master, fb->from_bus);
-$end;
 $bind("ethernet->irq","a9x2->irq_0");
 vista_bind(ethernet->irq, a9x2->irq_0);
-$end;
-$bind("axi_bus->bridge_master","axi_apb->slave");
-vista_bind(axi_bus->bridge_master, axi_apb->slave);
 $end;
 $bind("a9_uart->irq","a9x2->irq_3");
 vista_bind(a9_uart->irq, a9x2->irq_3);
 $end;
 $bind("axi_apb->master","a9_uart->slave");
 vista_bind(axi_apb->master, a9_uart->slave);
+$end;
+$bind("a9_bus->ethernet","ethernet->host");
+vista_bind(a9_bus->ethernet, ethernet->host);
+$end;
+$bind("a9_bus->system","a9ctrl->slave");
+vista_bind(a9_bus->system, a9ctrl->slave);
+$end;
+$bind("a9_bus->sd","sdcard->host");
+vista_bind(a9_bus->sd, sdcard->host);
+$end;
+$bind("a9x2->master0","a9_bus->a9");
+vista_bind(a9x2->master0, a9_bus->a9);
+$end;
+$bind("a9_bus->ram","a9_ram->slave");
+vista_bind(a9_bus->ram, a9_ram->slave);
+$end;
+$bind("a9_bus->fb","fb->from_bus");
+vista_bind(a9_bus->fb, fb->from_bus);
+$end;
+$bind("a9_bus->bridge","sysbridge->a9_slave");
+vista_bind(a9_bus->bridge, sysbridge->a9_slave);
+$end;
+$bind("a9_bus->apb","axi_apb->slave");
+vista_bind(a9_bus->apb, axi_apb->slave);
+$end;
+$bind("m4_bus->ram","m4_ram->slave");
+vista_bind(m4_bus->ram, m4_ram->slave);
+$end;
+$bind("m4->dcode","m4_bus->dcode");
+vista_bind(m4->dcode, m4_bus->dcode);
+$end;
+$bind("m4->system","m4_bus->system");
+vista_bind(m4->system, m4_bus->system);
+$end;
+$bind("m4->icode","m4_bus->icode");
+vista_bind(m4->icode, m4_bus->icode);
+$end;
+$bind("m4_bus->bridge","sysbridge->m4_slave");
+vista_bind(m4_bus->bridge, sysbridge->m4_slave);
 $end;
     $elaboration_end;
   $vlnv_assign_begin;
@@ -131,11 +177,11 @@ $end;
 $destruct_component("ethernet");
 delete ethernet; ethernet = 0;
 $end;
-$destruct_component("sysctrl");
-delete sysctrl; sysctrl = 0;
+$destruct_component("a9ctrl");
+delete a9ctrl; a9ctrl = 0;
 $end;
-$destruct_component("axi_bus");
-delete axi_bus; axi_bus = 0;
+$destruct_component("a9_bus");
+delete a9_bus; a9_bus = 0;
 $end;
 $destruct_component("a9_ram");
 delete a9_ram; a9_ram = 0;
@@ -148,6 +194,18 @@ delete a9_uart; a9_uart = 0;
 $end;
 $destruct_component("axi_apb");
 delete axi_apb; axi_apb = 0;
+$end;
+$destruct_component("m4_ram");
+delete m4_ram; m4_ram = 0;
+$end;
+$destruct_component("m4_bus");
+delete m4_bus; m4_bus = 0;
+$end;
+$destruct_component("m4");
+delete m4; m4 = 0;
+$end;
+$destruct_component("sysbridge");
+delete sysbridge; sysbridge = 0;
 $end;
     $destructor_end;
   }
@@ -162,11 +220,11 @@ $end;
 $component("ethernet");
 LAN9118_pvt *ethernet;
 $end;
-$component("sysctrl");
-SystemControl_pvt *sysctrl;
+$component("a9ctrl");
+SystemControl_pvt *a9ctrl;
 $end;
-$component("axi_bus");
-AXI_pvt *axi_bus;
+$component("a9_bus");
+AXI_pvt *a9_bus;
 $end;
 $component("a9_ram");
 MEMORY_pvt *a9_ram;
@@ -179,6 +237,18 @@ uart_with_console *a9_uart;
 $end;
 $component("axi_apb");
 AXI_APB_pvt *axi_apb;
+$end;
+$component("m4_ram");
+MicroMEMORY_pvt *m4_ram;
+$end;
+$component("m4_bus");
+AHB_pvt *m4_bus;
+$end;
+$component("m4");
+M4_pvt *m4;
+$end;
+$component("sysbridge");
+SystemBridge_pvt *sysbridge;
 $end;
   $fields_end;
   $vlnv_decl_begin;

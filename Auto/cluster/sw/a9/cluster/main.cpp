@@ -1,3 +1,4 @@
+#include <stdint.h>
 #include <iostream>
 
 #include <QtGui/QtGui>
@@ -9,11 +10,11 @@
 
 #include "rasterwindow.h"
 
-
 class DialWindow : public RasterWindow
 {
 public:
-	DialWindow(double limit, double step, double minor, const QString& name, QWindow *parent = 0);
+	DialWindow(const char* procName,
+                   double limit, double step, double minor, double textscale, const QString& name, QWindow *parent = 0);
 
 	double target;
 
@@ -29,21 +30,27 @@ private:
 	double lim;
 	double step;
 	double min;
+	double textscale;
 	QString name;
 
 	double value;
 
 	QImage *backImage;
 	QPainter* p;
+
+        FILE *procFile;
+const char * procName;
 };
 
-DialWindow::DialWindow(double limit, double step, double minor, const QString& name, QWindow *parent) :
+DialWindow::DialWindow(const char* procName, double limit, double step, double minor, double textscale, const QString& name, QWindow *parent) :
 		RasterWindow(parent),
 		lim(limit),
 		step(step),
 		min(minor),
+	textscale(textscale),
 		name(name),
-		value(0)
+		value(0),
+procName(procName)
 {
 	resize(320, 320);
 	target = 0;
@@ -52,6 +59,8 @@ DialWindow::DialWindow(double limit, double step, double minor, const QString& n
 	backImage = new QImage(width(), height(), QImage::Format_ARGB32);
 	p = new QPainter();
 	renderStatic();
+
+
 }
 
 void DialWindow::timerEvent(QTimerEvent *event)
@@ -124,7 +133,7 @@ void DialWindow::renderStatic()
 		QPoint tp(pointOnCircle(radius - 38, current, center));
 		tp-=QPoint(20,16);
 		QRect r(tp, QSize(40, 32));
-		p->drawText(r, Qt::AlignCenter, QString::number(i * step));
+		p->drawText(r, Qt::AlignCenter, QString::number((i * step) / textscale));
 
 		current += anglestep;
 
@@ -139,7 +148,7 @@ void DialWindow::renderStatic()
 	QPoint tp(pointOnCircle(radius - 38, current, center));
 	tp-=QPoint(20,16);
 	QRect r(tp, QSize(40, 32));
-	p->drawText(r, Qt::AlignCenter, QString::number(i * step));
+	p->drawText(r, Qt::AlignCenter, QString::number((i * step) / textscale));
 
 
 	QLinearGradient gradient2((width() / 2) - 20, (height() / 2) - 20,
@@ -164,6 +173,18 @@ void DialWindow::render(QPainter *p, QBackingStore* backingStore)
 
 	double oldvalue=value;
 
+        procFile = fopen(procName, "r+");
+if(procFile) {
+ uint32_t newValue;
+rewind (procFile);
+ size_t result = fread (&newValue,4,1,procFile);
+if(result == 1) {
+ value = newValue;
+}
+fclose(procFile);
+}
+
+/*
 	if(target > value) {
 		value += (lim / 50);
 		if(value > target) {
@@ -180,7 +201,7 @@ void DialWindow::render(QPainter *p, QBackingStore* backingStore)
 	if(value == target) {
 		target = (qrand() % (((int) lim + 1)));
 	}
-
+*/
 
 	if(value > lim) {
 		value = lim;
@@ -334,8 +355,8 @@ int main(int argc, char **argv)
 
 	RasterWindow top;
 
-	DialWindow dial1(8, 1 , 5, "1/min x 1000", &top);
-	DialWindow dial2(140, 10, 2, "km/h", &top);
+	DialWindow dial1("/proc/bridge_revs", 8000, 1000, 5, 1000, "1/min x 1000", &top);
+	DialWindow dial2("/proc/bridge_speed", 140, 10, 2, 1, "km/h", &top);
 	dial2.setFramePosition(QPoint(480, 0));
 
 	InfoWindow info1(&top);
@@ -346,6 +367,8 @@ int main(int argc, char **argv)
 	info1.show();
 
 	top.show();
+
+
 
 	return app.exec();
 }
