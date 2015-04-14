@@ -2,8 +2,8 @@
 #include "mgc_vista_schematics.h"
 $includes_begin;
 #include <systemc.h>
-#include "../models/SecAttackDriver_model.h"
 #include "../models/can_model.h"
+#include "../models/FileCanData_model.h"
 $includes_end;
 
 $module_begin("SecurityAttack");
@@ -32,7 +32,7 @@ $create_component("CanIF");
 CanIF = new can_pvt("CanIF");
 $end;
 $create_component("securityattackdriver0");
-securityattackdriver0 = new SecAttackDriver_pvt("securityattackdriver0");
+securityattackdriver0 = new FileCanData_pvt("securityattackdriver0");
 $end;
 $bind("CanIF->GI_Rx","securityattackdriver0->rxi");
 vista_bind(CanIF->GI_Rx, securityattackdriver0->rxi);
@@ -75,7 +75,7 @@ $component("CanIF");
 can_pvt *CanIF;
 $end;
 $component("securityattackdriver0");
-SecAttackDriver_pvt *securityattackdriver0;
+FileCanData_pvt *securityattackdriver0;
 $end;
   $fields_end;
   $vlnv_decl_begin;

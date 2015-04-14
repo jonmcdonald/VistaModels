@@ -27,6 +27,7 @@
 
 #include "ClusterDriver_pv.h"
 #include <iostream>
+#include "MemoryMap.h"
 
 using namespace sc_core;
 using namespace sc_dt;
@@ -41,8 +42,54 @@ ClusterDriver_pv::ClusterDriver_pv(sc_module_name module_name)
 
 // callback for any change in signal: hsrx of type: sc_in<bool>
 void ClusterDriver_pv::hsrx_callback() {
+  unsigned int s, id, rtr, ide;
+  unsigned char d[9];
+
+  if (hsrx.read() == 1) {
+    hs_write(CAN_ACK, 0);
+    hs_read(CAN_RXSIZE, s);
+    hs_read(CAN_RXIDENT, id);
+    hs_read(CAN_RXRTR, rtr);
+    hs_read(CAN_RXIDE, ide);
+    if (s > 0) 
+      hs_read(CAN_RXDATA, d, s);
+    d[s] = '\0';
+
+    cout << sc_time_stamp() <<": "<< name() << ", received hs 0x"<<hex<< id<<dec<< ", "<< s << ", "<< d <<endl;
+
+    if (id < 0x1000) {
+      ls_write(CAN_DATA, d, s);
+      ls_write(CAN_SIZE, s);
+      ls_write(CAN_RTR, rtr);
+      ls_write(CAN_IDE, ide);
+      ls_write(CAN_IDENT, id);
+    }
+  }
 }
 
 // callback for any change in signal: lsrx of type: sc_in<bool>
 void ClusterDriver_pv::lsrx_callback() {
+  unsigned int s, id, rtr, ide;
+  unsigned char d[9];
+
+  if (lsrx.read() == 1) {
+    ls_write(CAN_ACK, 0);
+    ls_read(CAN_RXSIZE, s);
+    ls_read(CAN_RXIDENT, id);
+    ls_read(CAN_RXRTR, rtr);
+    ls_read(CAN_RXIDE, ide);
+    if (s > 0) 
+      ls_read(CAN_RXDATA, d, s);
+    d[s] = '\0';
+
+    cout << sc_time_stamp() <<": "<< name() << ", received ls 0x"<<hex<< id<<dec<< ", "<< s << " ,"<< d <<endl;
+
+    if (id >= 0x1000) {
+      hs_write(CAN_DATA, d, s);
+      hs_write(CAN_SIZE, s);
+      hs_write(CAN_RTR, rtr);
+      hs_write(CAN_IDE, ide);
+      hs_write(CAN_IDENT, id);
+    }
+  }
 }

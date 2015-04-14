@@ -59,13 +59,17 @@ void can_pv::cb_write_m_ident(unsigned int newValue) {
   tokenptr->setField("DataPtr", (void *)d);
 
   c->ident = m_ident;
-  c->rtr = false;
-  c->ide = false;
+  c->rtr = m_rtr;
+  c->ide = m_ide;
   c->length = m_size;
   if (m_size > 0) memcpy(c->d, m, m_size);
   c->d[m_size] = '\0';
   c->crc = c->calcCRC();
 
+  if (EnableSecurity) {
+    securityff.put(c);
+    identmap[m_ident] = c;
+  }
   // Writing one byte per bit to get proper timing less 1 to fix address cycle time of generic bus
   set_current_token(tokenptr);
   TX0_write(newValue, d, (m_size*8)+61);
@@ -137,15 +141,34 @@ bool can_pv::RX0_callback_write(mb_address_type address, unsigned char* data, un
   CANDataType *c = (CANDataType *) data;
   m_rxsize = c->length;
   m_rxident = c->ident;
+  m_rxrtr = c->rtr;
+  m_rxide = c->ide;
 
   mb::mb_token_ptr tokenptr = get_current_token();
-  if (tokenptr && tokenptr->hasField("ReceiveCount")) {
-    tpff.put(tokenptr);
-  } else { cout << sc_time_stamp() <<": "<< name() <<". Error, tokenptr not set.\n"; }
+
+  if (EnableSecurity && tokenptr && tokenptr->hasField("DataPtr")) {
+    c = (CANDataType *) tokenptr->getFieldAsVoidPtr("DataPtr");
+    CANDataType *cdsent;
+    securityff.nb_get(cdsent);
+    if (identmap.count(c->ident) == 1 && c != cdsent) {
+      // Message with ident that we have sent seen on bus.  Corrupt checksum to kill message.
+      c->crc = 0;
+cout<< sc_time_stamp()<<": "<<name()<<". Identified security breach, corrupting checksum\n";
+    }
+  }
 
   wait(SC_ZERO_TIME); // Allow other receivers to see message and potentially kill it.
-  if (c->calcCRC() == c->crc)
+  if (c->calcCRC() == c->crc) {
+    if (tokenptr && tokenptr->hasField("ReceiveCount")) {
+      tpff.put(tokenptr);
+    } else { cout << sc_time_stamp() <<": "<< name() <<". Error, tokenptr not set.\n"; }
     GI_Rx.write(1);
+  } else {
+    // Remove from our sent identmap iff not sent correctly
+    if (identmap.count(c->ident) == 1 && c == identmap[c->ident]) {
+      identmap.erase(c->ident);
+    }
+  }
   return true;
 } 
 

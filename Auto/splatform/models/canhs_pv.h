@@ -40,6 +40,14 @@ class canhs_pv : public canhs_pv_base {
   SC_HAS_PROCESS(canhs_pv);
   canhs_pv(sc_core::sc_module_name module_name);   
 
+  void thread();
+  void thread_emu();
+  void thread_sa();
+  void thread_rbl();
+  void thread_c();
+  void thread_abs();
+
+
  protected:
   ////////////////////////////////////////
   // target ports read callbacks
@@ -84,5 +92,39 @@ class canhs_pv : public canhs_pv_base {
   bool rbl_tx_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);  
   bool abs_tx_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);  
   bool emu_tx_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);   
-};
 
+ private:
+  class DataType {
+    public:
+    unsigned int m_ident;
+    unsigned int m_length;
+    unsigned int m_crc;
+    unsigned int m_size;
+    mb::mb_token_ptr m_tokenptr;
+    unsigned char * m_data;
+
+      DataType() {}
+
+      DataType(mb_address_type address, unsigned size, mb::mb_token_ptr tokenptr)
+        : m_ident(address), m_size(size)
+      {
+        m_tokenptr = tokenptr;
+        if (m_tokenptr && m_tokenptr->hasField("DataPtr")) {
+          m_data = (unsigned char *) m_tokenptr->getFieldAsVoidPtr("DataPtr");
+        } else {
+          cout << "Error: canls_pv.h DataType constructor.\n";
+        }
+      }
+
+      bool operator() (const DataType* lhs, const DataType* rhs) const {
+        return lhs->m_ident < rhs->m_ident; }
+  };
+
+  tlm_fifo<int> iff;
+  mb::mb_fifo<DataType*> emuff;
+  mb::mb_fifo<DataType*> rblff;
+  mb::mb_fifo<DataType*> cff;
+  mb::mb_fifo<DataType*> absff;
+  mb::mb_fifo<DataType*> saff;
+  priority_queue<DataType*, vector<DataType*>, DataType> pq;
+};

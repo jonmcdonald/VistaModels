@@ -22,3 +22,5 @@ top.lscan0.ap_rx_size = 0x1000
 top.hscan0.write_broadcast = 1
 top.lscan0.write_broadcast = 1
 
+EnableSecurity = 1
+top.securityattack0.CanIF.EnableSecurity = 0

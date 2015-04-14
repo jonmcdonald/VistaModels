@@ -13,15 +13,15 @@
  } 
  page  { w 11000 h 11000 type vhdstd orient portr  } 
 grid 10 
- } #idit - save unit (named RestBus while saving) on Wed Apr  1 13:27:59 2015
-#SW version: 2008.12 v4.1.1.beta2 build 1. Date: Nov 10 2014. License: 1.1 
+ } #idit - save unit (named RestBus while saving) on Tue Apr 14 14:47:13 2015
+#SW version: 2008.12 v4.1.1.beta2 build 1. Date: Apr  8 2015. License: 1.1 
 version: 12 
 ipxactvendor Mentor.com 
 ipxactversion 1.0 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 191 -214 83 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 191 -214 73 18 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 193 -211 1 8 nil 
-RestBusDriver 
+FileCanData 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  vis }  { fiv  @kind 9 
  } 
@@ -77,21 +77,21 @@ none @block -
 @blist 1 { @cnt 0 } @flags 73 }
 
  } 
-angle 0 bcol 'Pale Blue2' pcol 'Black' } 
+angle 0 bcol 'Empty' pcol 'Black' } 
  } 
 text { 181 -138 1 restbusdriver0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 211 -105 96 18 
+gnrtxt textbox { rect { 211 -105 97 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 213 -102 1 8 nil 
-  "restbusdriver0" 
+  "restbusdriver0"  
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
 - - @symname
 - @cmpattr
-@kwd @innm restbusdriver0 @arch - @usl - @hrnm RestBusDriver models @dffs 0 0 @stt hier @gnras @cnt 0
+@kwd @innm restbusdriver0 @arch - @usl - @hrnm FileCanData models @dffs 0 0 @stt hier @gnras @cnt 0
 @templparamas @templparamcnt 0
 @portas @cnt 0
 @portlist 2 
@@ -288,10 +288,10 @@ angle 0 bcol 'Pale Blue2' pcol 'Black' }
 text { 366 -407 1 CanIF
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 361 -265 52 17 
+gnrtxt textbox { rect { 361 -265 51 18 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 363 -262 1 8 nil 
-  "CanIF"  
+  "CanIF" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -633,6 +633,6 @@ s3
 
 @@VE@names@@ 8 @obj - restbusdriver0 36 @obj - CanIF 36 @obj - RX0 13 @obj - TX0 13 @obj - s0 13 @obj - s1 13 @obj - s2 13 @obj - s3 13 23 3 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 7 1 -1 -1 -1 -1 -1 -1 -1 -1 -1 7 !
 
-@@VE@obj_u@@ restbusdriver0 RestBusDriver models 0 
+@@VE@obj_u@@ restbusdriver0 FileCanData models 0 
 CanIF can models 0 
 !

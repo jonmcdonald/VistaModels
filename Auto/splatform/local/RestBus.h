@@ -2,8 +2,8 @@
 #include "mgc_vista_schematics.h"
 $includes_begin;
 #include <systemc.h>
-#include "../models/RestBusDriver_model.h"
 #include "../models/can_model.h"
+#include "../models/FileCanData_model.h"
 $includes_end;
 
 $module_begin("RestBus");
@@ -32,7 +32,7 @@ $create_component("CanIF");
 CanIF = new can_pvt("CanIF");
 $end;
 $create_component("restbusdriver0");
-restbusdriver0 = new RestBusDriver_pvt("restbusdriver0");
+restbusdriver0 = new FileCanData_pvt("restbusdriver0");
 $end;
 $bind("CanIF->GI_Rx","restbusdriver0->rxi");
 vista_bind(CanIF->GI_Rx, restbusdriver0->rxi);
@@ -75,7 +75,7 @@ $component("CanIF");
 can_pvt *CanIF;
 $end;
 $component("restbusdriver0");
-RestBusDriver_pvt *restbusdriver0;
+FileCanData_pvt *restbusdriver0;
 $end;
   $fields_end;
   $vlnv_decl_begin;

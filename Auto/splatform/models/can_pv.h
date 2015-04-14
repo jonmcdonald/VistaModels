@@ -31,6 +31,7 @@
 #pragma once
 
 #include "can_model.h"
+#include <map>
 
 using namespace tlm;
 
@@ -93,6 +94,7 @@ class can_pv : public can_pv_base {
     unsigned int length;
     unsigned char d[9];
     unsigned int crc;
+    bool ack;
 
     unsigned int CRCstep(unsigned inp, unsigned num, unsigned c) {
       int inv;
@@ -119,6 +121,8 @@ class can_pv : public can_pv_base {
   };
 
   mb::mb_fifo<mb::mb_token_ptr> tpff;
+  tlm_fifo<CANDataType *> securityff;
+  map<unsigned int, CANDataType *> identmap;
   unsigned char rxmem[8];
 
 };

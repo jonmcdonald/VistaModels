@@ -33,7 +33,13 @@ using namespace std;
 
 //constructor
 canhs_pv::canhs_pv(sc_module_name module_name) 
-  : canhs_pv_base(module_name) {
+  : canhs_pv_base(module_name), iff(5) {
+  SC_THREAD(thread);
+  SC_THREAD(thread_c);
+  SC_THREAD(thread_emu);
+  SC_THREAD(thread_sa);
+  SC_THREAD(thread_abs);
+  SC_THREAD(thread_rbl);
 }    
 
 // Read callback for sa_tx port.
@@ -78,35 +84,45 @@ bool canhs_pv::emu_tx_callback_read(mb_address_type address, unsigned char* data
 // Write callback for sa_tx port.
 // Returns true when successful.
 bool canhs_pv::sa_tx_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
-  
+  DataType *d = new DataType(address, size, get_current_token());
+  pq.push(d);
+  iff.put(1);
   return true;
 } 
 
 // Write callback for c_tx port.
 // Returns true when successful.
 bool canhs_pv::c_tx_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
-  
+  DataType *d = new DataType(address, size, get_current_token());
+  pq.push(d);
+  iff.put(1);
   return true;
 } 
 
 // Write callback for rbl_tx port.
 // Returns true when successful.
 bool canhs_pv::rbl_tx_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
-  
+  DataType *d = new DataType(address, size, get_current_token());
+  pq.push(d);
+  iff.put(1);
   return true;
 } 
 
 // Write callback for abs_tx port.
 // Returns true when successful.
 bool canhs_pv::abs_tx_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
-  
+  DataType *d = new DataType(address, size, get_current_token());
+  pq.push(d);
+  iff.put(1);
   return true;
 } 
 
 // Write callback for emu_tx port.
 // Returns true when successful.
 bool canhs_pv::emu_tx_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
-  
+  DataType *d = new DataType(address, size, get_current_token());
+  pq.push(d);
+  iff.put(1);
   return true;
 } 
 
@@ -190,3 +206,54 @@ bool canhs_pv::emu_tx_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dm
 }
 
  
+void canhs_pv::thread() {
+  DataType *d;
+  while(iff.get()) {
+    wait(generic_clock);// One clock delay for the start bit.
+    d = pq.top();	// Take the priority message at the end of the start bit.
+    pq.pop();
+    // ReceiveCount used to know when data pointer can be deleted. Must be set to number of receivers.
+    d->m_tokenptr->setField("ReceiveCount", 5);
+    set_current_token(d->m_tokenptr);
+    cff.put(d);
+    emuff.put(d);
+    saff.put(d);
+    absff.put(d);
+    rblff.put(d);
+  }
+}
+
+void canhs_pv::thread_c() {
+  DataType *d;
+  while(d = cff.get()) {
+    c_rx_write(d->m_ident, d->m_data, d->m_size);
+  }
+}
+
+void canhs_pv::thread_emu() {
+  DataType *d;
+  while(d = emuff.get()) {
+    emu_rx_write(d->m_ident, d->m_data, d->m_size);
+  }
+}
+
+void canhs_pv::thread_sa() {
+  DataType *d;
+  while(d = saff.get()) {
+    sa_rx_write(d->m_ident, d->m_data, d->m_size);
+  }
+}
+
+void canhs_pv::thread_abs() {
+  DataType *d;
+  while(d = absff.get()) {
+    abs_rx_write(d->m_ident, d->m_data, d->m_size);
+  }
+}
+
+void canhs_pv::thread_rbl() {
+  DataType *d;
+  while(d = rblff.get()) {
+    rbl_rx_write(d->m_ident, d->m_data, d->m_size);
+  }
+}

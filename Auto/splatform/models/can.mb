@@ -18,7 +18,7 @@ add_parameter "report_error" 0 uint32 {}
 add_parameter "pclk" clock time {}
 add_parameter "clkc" clock time {}
 add_parameter "clk_xincan" clock time {}
-add_parameter "Receivers" 1 uint32 {}
+add_parameter "EnableSecurity" 0 uint32 {}
 
 # === auto parameters ===
 set_auto_parameter_default "clock" {10 ns} time {}

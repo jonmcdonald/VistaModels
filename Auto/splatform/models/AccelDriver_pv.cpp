@@ -56,7 +56,7 @@ void AccelDriver_pv::rxi_callback() {
       m_read(CAN_RXDATA, d, s); // RX data
     d[s] = '\0';
 
-    cout << sc_time_stamp() <<": "<< name() << ", received 0x"<<hex<< id<<dec<< ", "<< s << " ,"<< d <<endl;
+    cout << sc_time_stamp() <<": "<< name() << ", received 0x"<<hex<< id<<dec<< ", "<< s << ", "<< d <<endl;
   }
 }
 

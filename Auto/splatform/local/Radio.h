@@ -2,8 +2,8 @@
 #include "mgc_vista_schematics.h"
 $includes_begin;
 #include <systemc.h>
-#include "../models/RadioDriver_model.h"
 #include "../models/can_model.h"
+#include "../models/FileCanData_model.h"
 $includes_end;
 
 $module_begin("Radio");
@@ -32,7 +32,7 @@ $create_component("CanIF");
 CanIF = new can_pvt("CanIF");
 $end;
 $create_component("radiodriver0");
-radiodriver0 = new RadioDriver_pvt("radiodriver0");
+radiodriver0 = new FileCanData_pvt("radiodriver0");
 $end;
 $bind("CanIF->GI_Rx","radiodriver0->rxi");
 vista_bind(CanIF->GI_Rx, radiodriver0->rxi);
@@ -75,7 +75,7 @@ $component("CanIF");
 can_pvt *CanIF;
 $end;
 $component("radiodriver0");
-RadioDriver_pvt *radiodriver0;
+FileCanData_pvt *radiodriver0;
 $end;
   $fields_end;
   $vlnv_decl_begin;

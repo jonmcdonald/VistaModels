@@ -13,8 +13,8 @@
  } 
  page  { w 11000 h 11000 type vhdstd orient portr  } 
 grid 10 
- } #idit - save unit (named top while saving) on Wed Apr  1 13:33:51 2015
-#SW version: 2008.12 v4.1.1.beta2 build 1. Date: Nov 10 2014. License: 1.1 
+ } #idit - save unit (named top while saving) on Tue Apr 14 14:39:39 2015
+#SW version: 2008.12 v4.1.1.beta2 build 1. Date: Apr  8 2015. License: 1.1 
 version: 12 
 ipxactvendor Mentor.com 
 ipxactversion 1.0 
@@ -154,10 +154,10 @@ angle 0 bcol 'Pale Blue2' pcol 'Black' }
 text { 79 -208 1 cluster0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 251 -115 62 17 
+gnrtxt textbox { rect { 251 -115 61 18 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 253 -112 1 8 nil 
-  "cluster0"  
+  "cluster0" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -325,10 +325,10 @@ angle 0 bcol 'Pale Blue2' pcol 'Black' }
 text { 76 -368 1 accelerator0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 241 -295 87 17 
+gnrtxt textbox { rect { 241 -295 86 18 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 243 -292 1 8 nil 
-  "accelerator0"  
+  "accelerator0" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -454,10 +454,10 @@ angle 0 fliplr bcol 'Pale Blue2' pcol 'Black' }
 text { 453 -118 1 radio0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 101 -435 54 17 
+gnrtxt textbox { rect { 101 -435 53 18 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 103 -432 1 8 nil 
-  "radio0"  
+  "radio0" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -492,7 +492,7 @@ L { @nvis } !
 0 sigIdx
 0 RX0
 -
-2 sigIdx
+33 sigIdx
 0 TX0
 2 
 { @pdecl { { @n RX0 @t - @bnd -
@@ -657,10 +657,10 @@ angle 0 bcol 'Sky Blue' pcol 'Black' }
 text { 232 -130 1 lscan0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 321 -285 55 17 
+gnrtxt textbox { rect { 321 -285 54 18 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 323 -282 1 8 nil 
-  "lscan0"  
+  "lscan0" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -722,12 +722,6 @@ none @block -
 @procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
 L { @nvis } !
 @prtas 6 -
-1 sigIdx
-0 r_rx
--
-3 sigIdx
-0 r_tx
--
 4 sigIdx
 0 c_rx
 -
@@ -739,6 +733,12 @@ L { @nvis } !
 -
 10 sigIdx
 0 ap_tx
+-
+1 sigIdx
+0 r_rx
+-
+32 sigIdx
+0 r_tx
 6 
 { @pdecl { { @n r_tx @t - @bnd -
 @das -
@@ -858,10 +858,10 @@ angle 0 bcol 'Red' pcol 'Black' }
 text { 60 -528 1 securityattack0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 81 -515 100 17 
+gnrtxt textbox { rect { 81 -515 99 18 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 83 -512 1 8 nil 
-  "securityattack0"  
+  "securityattack0" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -987,10 +987,10 @@ angle 0 bcol 'Red' pcol 'Black' }
 text { 85 -48 1 emu0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 81 -515 50 17 
+gnrtxt textbox { rect { 81 -515 49 18 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 83 -512 1 8 nil 
-  "emu0"  
+  "emu0" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -1116,10 +1116,10 @@ angle 0 fliplr bcol 'Red' pcol 'Black' }
 text { 467 -438 1 abs0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 81 -515 46 17 
+gnrtxt textbox { rect { 81 -515 45 18 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 83 -512 1 8 nil 
-  "abs0"  
+  "abs0" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -1179,7 +1179,7 @@ none @block  1
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 493 -368 50 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 494 -364 50 18 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 496 -361 1 8 nil 
 RestBus 
@@ -1245,10 +1245,10 @@ angle 0 fliplr bcol 'Red' pcol 'Black' }
 text { 457 -288 1 restbus0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 81 -515 66 17 
+gnrtxt textbox { rect { 81 -515 65 18 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 83 -512 1 8 nil 
-  "restbus0"  
+  "restbus0" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -1524,10 +1524,10 @@ angle 0 bcol 'Rose1' pcol 'Black' }
 text { 324 -40 1 hscan0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 361 -255 59 17 
+gnrtxt textbox { rect { 361 -255 58 18 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 363 -252 1 8 nil 
-  "hscan0"  
+  "hscan0" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -1780,57 +1780,6 @@ none @dly
 @sidx
 -1 @attr
 s0
-@newportclass
--
-@dt -
-@channeltype -
--
-0 
-signal { F bind line90 { 0 4 2 290 -170  290 -170  430 -170 bcol 'Empty' pcol 'Black' 
- Firstpin {
-  blockpin {   nnvis  pnvis pin { 430 -170 } 
- } 
-11 2 -1 -
--
-@intrfclass
-{ -name- 
-tlm::tlm_target_socket<>
-0 0 withTemplate 1 0 multiport 1 } 
-@initialization
-%Name%
-0 
-
- } 
-
- Secondpin {
-  blockpin {   nnvis  pnvis pin { 290 -170 } 
- } 
-10 3 -1 -
--
-@intrfclass
-{ -name- 
-tlm::tlm_initiator_socket<>
-0 0 withTemplate 1 0 multiport 1 } 
-@initialization
-%Name%
-0 
-
- } 
- SourceIdx 3 
- DestIdx 2 
- } 
- } 
-@BIND
-@kwd
-@iv
--
-@strngth
-none @exprng
-none @dly
--
-@sidx
--1 @attr
-s1
 @newportclass
 -
 @dt -
@@ -2551,11 +2500,61 @@ s15
 @channeltype -
 -
 0 
+signal { F bind nameset { text { 349 -168 1 TX0
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+} line90 { 0 4 2 430 -170  430 -170  290 -170 bcol 'Empty' pcol 'Black' 
+ Firstpin {
+  blockpin {   nnvis  pnvis pin { 290 -170 } 
+ } 
+10 32 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+
+ Secondpin {
+  blockpin {   nnvis  pnvis pin { 430 -170 } 
+ } 
+11 33 -1 -
+-
+@intrfclass
+-
+@initialization
+%Name%
+0 
+
+ } 
+ SourceIdx 2 
+ DestIdx 3 
+ } 
+ } 
+@BIND
+@kwd
+@iv
+-
+@strngth
+none @exprng
+none @dly
+-
+@sidx
+-1 @attr
+TX0
+@newportclass
+-
+@dt -
+@channeltype -
+-
+0 
 !
 
-@@VE@names@@ 25 @obj - accelerator0 36 @obj - emu0 36 @obj - radio0 36 @obj - cluster0 36 @obj - lscan0 36 @obj - hscan0 36 @obj - s0 13 @obj - s1 13 @obj - s2 13 @obj - s10 13 @obj - s3 13 
+@@VE@names@@ 25 @obj - accelerator0 36 @obj - emu0 36 @obj - TX0 13 @obj - radio0 36 @obj - cluster0 36 @obj - lscan0 36 @obj - hscan0 36 @obj - s0 13 @obj - s2 13 @obj - s10 13 @obj - s3 13 
 @obj - s11 13 @obj - s4 13 @obj - s12 13 @obj - s5 13 @obj - s13 13 @obj - s6 13 @obj - s14 13 @obj - s7 13 @obj - securityattack0 36 @obj - s15 13 
-@obj - s8 13 @obj - s9 13 @obj - restbus0 36 @obj - abs0 36 23 15 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 31 8 -1 -1 -1 -1 -1 -1 -1 -1 -1 31 !
+@obj - s8 13 @obj - s9 13 @obj - restbus0 36 @obj - abs0 36 23 16 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 33 8 -1 -1 -1 -1 -1 -1 -1 -1 -1 31 !
 
 @@VE@obj_u@@ cluster0 Cluster local 0 
 accelerator0 Accelerator local 0 
