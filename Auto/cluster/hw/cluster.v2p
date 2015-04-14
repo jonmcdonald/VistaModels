@@ -1,0 +1,44 @@
+ProjectName cluster
+Files {
+	 Schematics {
+		{$PRJDIR/cluster_local/uart_with_console.h}
+		{$PRJDIR/cluster_local/cluster.h}
+	 } 
+	 Models {
+		{$PRJDIR/cluster_models/A9x2.mb}
+		{$PRJDIR/cluster_models/AXI.mb}
+		{$PRJDIR/cluster_models/LinuxFrameBufferDisplay.mb}
+		{$PRJDIR/cluster_models/SystemControl.mb}
+		{$PRJDIR/cluster_models/LAN9118.mb}
+		{$PRJDIR/cluster_models/AXI_APB.mb}
+		{$PRJDIR/cluster_models/PL180_MCI.mb}
+		{$PRJDIR/cluster_models/MEMORY.mb}
+		{$PRJDIR/cluster_models/APB.mb}
+		{$PRJDIR/cluster_models/M4.mb}
+	 } 
+	 Sources {
+		{$PRJDIR/sc_main.cpp}
+	 } 
+}
+Designs {{$PRJDIR/sc_main.cpp}}
+Folders {
+	 Sources {*.c *.cpp *.C *.cxx *.cc} 
+	 {Public Headers} {*.h *.hpp *.H *.hxx *.hh} 
+	 Models *.mb 
+	 Schematics {} 
+	 Documentation {*.txt *.TXT *.doc *.DOC *.pdf *.PDF *.html *.HTML *.htm *.HTM *.ps *.PS} 
+	 {Linked Binaries} {*.o *.a *.so} 
+	 {Other Binaries} {*.exe *.x} 
+}
+GeneralCompilationOptions -Wall
+AlwaysCompileInCPPMode 1
+LinkPackages {model_builder models_catalogue}
+ProjectLibraryType archive
+ProjectComponentsLibraryPath {$PRJDIR/$PRJFILE_BASENAME/interfaces}
+ProjectWorkingDirectory {$PRJDIR/$PRJFILE_BASENAME/build}
+HasTLMSupport 0
+CompiledWithTLMSupport 0
+IsUsePathVariables 1
+PlatformName cluster
+ProjectReadOnly 0
+ProjectBuildMultiPlatform 0
