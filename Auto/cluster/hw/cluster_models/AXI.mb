@@ -1,0 +1,112 @@
+# ============================ TLM Model File ============================
+# You can create tlm model by one of the following ways:
+#   - load this file using 'load_model' API function
+#   - compile this file using "Modeling->Load Model File" menu command.
+# ========================================================================
+template "/TLM/Generic_Library/Bus"
+
+# === ports ===
+add_port "a9" /TLM/protocols/axi slave 64 -bind_mode mandatory
+add_port "ram" /TLM/protocols/axi master 64 -bind_mode mandatory
+add_port "apb" /TLM/protocols/axi master 32 -bind_mode mandatory
+add_port "ethernet" /TLM/protocols/axi master 32 -bind_mode mandatory
+add_port "fb" /TLM/protocols/axi master 32 -bind_mode mandatory
+add_port "system" /TLM/protocols/axi master 32 -bind_mode mandatory
+add_port "sd" /TLM/protocols/axi master 32 -bind_mode mandatory
+add_port "bridge" /TLM/protocols/axi master 32 -bind_mode mandatory
+
+# === parameters ===
+# usage: add_parameter <parameter_name> <default_value> <type:string|unsigned|int>
+# example: add_parameter "parameter1" 12 unsigned
+
+# === auto parameters ===
+set_auto_parameter_default "clock" {10 ns} time {}
+set_auto_parameter_default "axi_clock" clock time {}
+set_auto_parameter_default "nominal_voltage" 1 double {}
+set_auto_parameter_default "verbose_parameters" true boolean {true false}
+set_auto_parameter_default "dmi_enabled" true boolean {true false}
+set_auto_parameter_default "warning_level" WARNING string {
+      "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
+set_auto_parameter_default "layers" {""} string {}
+set_auto_parameter_default "slave_sets" {""} string {}
+set_auto_parameter_default "write_broadcast" 0 uint32 {}
+set_auto_parameter_default "a9_priority" 0 uint32 {}
+set_auto_parameter_default "a9_vmap" {""} string {}
+set_auto_parameter_default "ram_priority" 0 uint32 {}
+set_auto_parameter_default "ram_base_address" 0 uint64 {}
+set_auto_parameter_default "ram_size" 0 uint64 {}
+set_auto_parameter_default "ram_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "ram_secure" 0 uint32 {0 1}
+set_auto_parameter_default "ram_additional_ranges" {""} string {}
+set_auto_parameter_default "ram_latency" 0 uint32 {}
+set_auto_parameter_default "apb_priority" 0 uint32 {}
+set_auto_parameter_default "apb_base_address" 0 uint64 {}
+set_auto_parameter_default "apb_size" 0 uint64 {}
+set_auto_parameter_default "apb_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "apb_secure" 0 uint32 {0 1}
+set_auto_parameter_default "apb_additional_ranges" {""} string {}
+set_auto_parameter_default "apb_latency" 0 uint32 {}
+set_auto_parameter_default "ethernet_priority" 0 uint32 {}
+set_auto_parameter_default "ethernet_base_address" 0 uint64 {}
+set_auto_parameter_default "ethernet_size" 0 uint64 {}
+set_auto_parameter_default "ethernet_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "ethernet_secure" 0 uint32 {0 1}
+set_auto_parameter_default "ethernet_additional_ranges" {""} string {}
+set_auto_parameter_default "ethernet_latency" 0 uint32 {}
+set_auto_parameter_default "fb_priority" 0 uint32 {}
+set_auto_parameter_default "fb_base_address" 0 uint64 {}
+set_auto_parameter_default "fb_size" 0 uint64 {}
+set_auto_parameter_default "fb_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "fb_secure" 0 uint32 {0 1}
+set_auto_parameter_default "fb_additional_ranges" {""} string {}
+set_auto_parameter_default "fb_latency" 0 uint32 {}
+set_auto_parameter_default "system_priority" 0 uint32 {}
+set_auto_parameter_default "system_base_address" 0 uint64 {}
+set_auto_parameter_default "system_size" 0 uint64 {}
+set_auto_parameter_default "system_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "system_secure" 0 uint32 {0 1}
+set_auto_parameter_default "system_additional_ranges" {""} string {}
+set_auto_parameter_default "system_latency" 0 uint32 {}
+set_auto_parameter_default "sd_priority" 0 uint32 {}
+set_auto_parameter_default "sd_base_address" 0 uint64 {}
+set_auto_parameter_default "sd_size" 0 uint64 {}
+set_auto_parameter_default "sd_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "sd_secure" 0 uint32 {0 1}
+set_auto_parameter_default "sd_additional_ranges" {""} string {}
+set_auto_parameter_default "sd_latency" 0 uint32 {}
+set_auto_parameter_default "bridge_priority" 0 uint32 {}
+set_auto_parameter_default "bridge_base_address" 0 uint64 {}
+set_auto_parameter_default "bridge_size" 0 uint64 {}
+set_auto_parameter_default "bridge_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "bridge_secure" 0 uint32 {0 1}
+set_auto_parameter_default "bridge_additional_ranges" {""} string {}
+set_auto_parameter_default "bridge_latency" 0 uint32 {}
+
+# === generics ===
+# usage: add_generic <generic_name> <value>
+# example: add_generic "OUT_ACTIVE_VALUE" false
+
+# === machine architecture ===
+add_delay_policy a9 0 -latency 0 -sync 1 -power 0
+add_pipeline_policy ram a9 -latency ram_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy apb a9 -latency apb_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy ethernet a9 -latency ethernet_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy fb a9 -latency fb_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy system a9 -latency system_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy sd a9 -latency sd_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy bridge a9 -latency bridge_latency -buffer_size 0 -sync 1 -power 0
+
+# === generate options ===
+set_generate_kind "pvt" ;# should be one of: model|pv|pvt
+set_include_file ""
+set_external_pv_include ""
+set_pv_kind "template" ;# should be one of: template|external
+set_timing_kind "policies" ;# should be: policies
+set_power_kind "policies" ;# should be: policies
+set_class_name_external_pv ""
+set_max_parameters_of_pv_constructor 5
+set_overwrite 0
+set_generate_ipxact 0
+set_ipxact_vendor "Mentor.com"
+set_ipxact_version 1.0
+

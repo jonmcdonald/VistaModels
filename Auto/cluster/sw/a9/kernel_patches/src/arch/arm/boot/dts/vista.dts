@@ -1,0 +1,137 @@
+
+/dts-v1/;
+#include "skeleton.dtsi"
+/ {
+	compatible = "mentor,vista";
+	model = "vista";
+	interrupt-parent = <&gic>;
+
+	cpus {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a9";
+			reg = <0x0>;
+		};
+
+		cpu@1 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a9";
+			reg = <0x1>;
+		};
+
+	};
+
+	memory {
+		device_type = "memory";
+		reg = <0x60000000 0x40000000>;
+	};
+
+	clocks {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges;
+
+		apb_pclk: apb_pclk {
+			compatible = "fixed-clock";
+			#clock-cells = <0>;
+			clock-frequency = <24000000>;
+			clock-output-names = "clk24mhz";
+		};
+
+		dummy150m: dummy150m {
+			compatible = "fixed-clock";
+			clock-frequency = <50000000>;
+			#clock-cells = <0>;
+		};
+	};
+
+	soc {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		compatible = "simple-bus";
+		ranges;
+
+		gic: interrupt-controller@1013d000 {
+			compatible = "arm,cortex-a9-gic";
+			interrupt-controller;
+			#interrupt-cells = <3>;
+			reg = <0x1013d000 0x1000>,
+			      <0x1013c100 0x0100>;
+		};
+
+		global-timer@1013c200 {
+			compatible = "arm,cortex-a9-global-timer";
+			reg = <0x1013c200 0x20>;
+			interrupts = <1 11 0xf04>;			
+			clocks = <&dummy150m>;
+		};
+
+		local-timer@1013c600 {
+			compatible = "arm,cortex-a9-twd-timer";
+			reg = <0x1013c600 0x20>;
+			interrupts = <1 13 0xf04>;
+			clocks = <&dummy150m>;
+		};
+
+		watchdog@1013c620 {
+			compatible = "arm,cortex-a9-twd-wdt";
+			reg = <0x1013c620 0x20>;
+			interrupts = <1 14 0xf04>;
+			clocks = <&dummy150m>;
+		};
+
+		scu@1013c000 {
+			compatible = "arm,cortex-a9-scu";
+			reg = <0x1013c000 0x58>;
+		};
+
+		amba {
+			compatible = "arm,amba-bus";
+			#address-cells = <1>;
+			#size-cells = <1>;
+			ranges;
+
+			uart0@10000000 {
+				compatible = "arm,pl011", "arm,primecell";
+				arm,primecell-periphid = <0x00241011>;
+				reg = <0x10000000 0x1000>;
+				interrupts = <0 3 0x4>;
+				clocks = <&apb_pclk>;
+				clock-names = "apb_pclk";
+			};
+
+			mmc@10027000 {
+				compatible = "arm,pl180", "arm,primecell";
+				reg = <0x10027000 0x1000>;
+//				bit_width = <32>;
+				interrupts = <0 1 0x4 0 2 0x4>;
+				clocks = <&dummy150m>, <&apb_pclk>;
+				clock-names = "dummy150m", "apb_pclk";
+			};
+
+			ethernet@4e000000 {
+				compatible = "smsc,lan9220", "smsc,lan9115";
+				reg = <0x4e000000 0x2000000>;
+				clocks = <&apb_pclk>;
+				phy-mode = "mii";
+				interrupts = <0 0 0x4>;
+				reg-io-width = <4>;
+				smsc,irq-active-high;
+				smsc,irq-push-pull;
+				smsc,force-internal-phy;
+			};
+
+			framebuffer@50000000 {
+				compatible = "simple-framebuffer";
+				reg = <0x50000000 0x10000000>;
+				width = <800>;
+				height = <320>;
+				stride = <(800 * 4)>;
+				format = "a8r8g8b8";
+			};
+		};
+	};
+};

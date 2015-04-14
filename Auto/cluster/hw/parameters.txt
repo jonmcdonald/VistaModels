@@ -1,0 +1,92 @@
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~ GLOBAL OPTIONS
+
+#cluster.a9x2.PV.cpu0.core.gdbstub_port         = 2345
+
+tlm_timing_model                               = LT
+physical_io:host_time_sync                     = 0
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~ A9 IMAGE
+
+cluster.a9x2.elf_image_file                    = ../sw/a9/boot/linux-kernel.axf
+cluster.a9x2.clock                             = 2 NS # 500Mhz
+
+# ~~~~~~~~~~ A9 AXI MAP
+
+cluster.a9_bus.apb_base_address                = 0x10000000
+cluster.a9_bus.apb_size                        = 0x00020000
+
+cluster.a9_bus.system_base_address             = 0x10025000
+cluster.a9_bus.system_size                     = 0x00001000
+
+cluster.a9_bus.bridge_base_address             = 0x10026000
+cluster.a9_bus.bridge_size                     = 0x00001000
+
+cluster.a9_bus.sd_base_address                 = 0x10027000
+cluster.a9_bus.sd_size                         = 0x00001000
+
+cluster.a9x2.PV.periph_base                    = 0x1013c000
+
+cluster.a9_bus.ethernet_base_address           = 0x4e000000
+cluster.a9_bus.ethernet_size                   = 0x02000000
+
+cluster.a9_bus.fb_base_address                 = 0x50000000
+cluster.a9_bus.fb_size                         = 0x10000000
+
+cluster.a9_bus.ram_base_address                = 0x60000000
+cluster.a9_bus.ram_size                        = 0x40000000
+
+# ~~~~~~~~~~ A9 PERIPH OPTIONS
+
+cluster.a9_ram.size_in_bytes                   = 0x40000000
+
+cluster.a9_uart.uart.receive_FIFO_size_in_bytes       = 1024
+cluster.a9_uart.uart.warning_level                    = IGNORE
+
+cluster.a9_uart.console.read_from_console_buffer_size = 1024
+cluster.a9_uart.console.read_from_console_latency     = 5
+cluster.a9_uart.console.read_from_console_latency_time_unit = MS
+cluster.a9_uart.console.connected = 1
+cluster.a9_uart.console.console_title                 = Linux UART
+
+cluster.fb.displayName                         = Linux Qt Cluster
+cluster.fb.refresh                             = 50 
+cluster.fb.width                               = 800
+cluster.fb.height                              = 320
+
+cluster.sdcard.image_file                      = ../sw/a9/sdcard/sysroot.ext2
+
+vlan:host = 10.0.2.2
+vlan:hostname = host
+vlan:dhcpstart = 10.0.2.15
+vlan:dns = 10.0.2.3
+vlan:net = 10.0.2.0
+vlan:tcp_napt                                  = :2022 => :22
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~ M4 IMAGE
+
+cluster.m4.elf_image_file                      = ../sw/m4/image.axf
+cluster.m4.clock                               = 200000 NS # very slow!
+
+# ~~~~~~~~~~ M4 AHB MAP
+
+cluster.m4_bus.ram_base_address                = 0x00000000
+cluster.m4_bus.ram_size                        = 0x10000000
+
+cluster.m4_bus.bridge_base_address             = 0x10000000
+cluster.m4_bus.bridge_size                     = 0x00001000
+
+
+# ~~~~~~~~~~ M4 PERIPH OPTIONS
+
+cluster.m4_ram.size_in_bytes                   = 0x10000000
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~ TRACING
+
+#trace_script = trace.tcl 
+
