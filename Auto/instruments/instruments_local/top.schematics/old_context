@@ -1,0 +1,1 @@
+{add_element instruments -kind component -pointer 1 -associated_unit instruments_models:Instruments -class Instruments_pvt -include ../instruments_models/Instruments_model.h} {add_element dummyDriver -kind component -pointer 1 -associated_unit instruments_local:DummyDriver -class DummyDriver_pvt -include DummyDriver_model.h}
