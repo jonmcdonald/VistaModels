@@ -4,13 +4,14 @@
 #  "make clean" remove all generated/object data
 #
 
-MODELS = Models
+MODELS = instruments_models
+LOCAL = instruments_local
 SC_MAIN = sc_main
 
 PROJECT = $(patsubst %.v2p,%,$(wildcard *.v2p))
 PROJECTEXE = $(PROJECT)/build/D_PRJDIR_/$(SC_MAIN).exe
 
-SRCS = $(wildcard *.cpp) $(wildcard $(MODELS)/*.cpp)
+SRCS = $(wildcard *.cpp) $(wildcard $(MODELS)/*.cpp) $(wildcard $(LOCAL)/*cpp)
 
 all: $(PROJECTEXE)
 
@@ -24,7 +25,12 @@ COMMAND = "if {![does_tlm_library_exist $(MODELS)]} \
               {create_tlm_library $(MODELS) $(MODELS)}; \
            reload_tlm_library $(MODELS);\
            foreach n [glob -directory $(MODELS) -tails *.mb] { \
-             save_model -g TLM/$(MODELS)/[lindex [split \$$n .] 0] }"
+             save_model -g TLM/$(MODELS)/[lindex [split \$$n .] 0] }; \
+           if {![does_tlm_library_exist $(LOCAL)]} \
+              {create_tlm_library $(LOCAL) $(LOCAL)}; \
+           reload_tlm_library $(LOCAL);\
+           foreach n [glob -directory $(LOCAL) -tails *.mb] { \
+             save_model -g TLM/$(LOCAL)/[lindex [split \$$n .] 0] }"
 
 mb:
 	if [ -e $(MODELS) ]; then vista_model_builder -c $(COMMAND); fi

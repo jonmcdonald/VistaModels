@@ -20,6 +20,7 @@
 //* 
 //* Model Builder version: 3.9.0
 //* Generated on: Apr. 01, 2015 08:18:19 AM, (user: jon)
+//* Automatically merged on: Apr. 17, 2015 09:10:31 AM, (user: jon)
 //*>
 
 
@@ -33,10 +34,11 @@ using namespace std;
 
 //constructor
 canls_pv::canls_pv(sc_module_name module_name) 
-  : canls_pv_base(module_name), iff(3) {
+  : canls_pv_base(module_name), iff(4) {
   SC_THREAD(thread);
   SC_THREAD(thread_c);
   SC_THREAD(thread_r);
+  SC_THREAD(thread_b);
   SC_THREAD(thread_ap);
 }    
 
@@ -59,6 +61,14 @@ bool canls_pv::ap_tx_callback_read(mb_address_type address, unsigned char* data,
 // Read callback for c_tx port.
 // Returns true when successful.
 bool canls_pv::c_tx_callback_read(mb_address_type address, unsigned char* data, unsigned size) {
+  
+  return true;
+}
+
+
+// Read callback for b_tx port.
+// Returns true when successful.
+bool canls_pv::b_tx_callback_read(mb_address_type address, unsigned char* data, unsigned size) {
   
   return true;
 }
@@ -87,6 +97,16 @@ bool canls_pv::ap_tx_callback_write(mb_address_type address, unsigned char* data
 // Returns true when successful.
 bool canls_pv::c_tx_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
   DataType *d = new DataType(address, size, get_current_token());
+  pq.push(d);
+  iff.put(1);
+  return true;
+} 
+
+// Write callback for b_tx port.
+// Returns true when successful.
+bool canls_pv::b_tx_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
+  mb::mb_token_ptr tokenptr = get_current_token();
+  DataType *d = new DataType(address, size, tokenptr);
   pq.push(d);
   iff.put(1);
   return true;
@@ -128,6 +148,22 @@ bool canls_pv::c_tx_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi&
   return false;
 }
 
+
+
+
+
+unsigned canls_pv::b_tx_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size) {
+  return 0;
+} 
+
+unsigned canls_pv::b_tx_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size) {
+  return 0;
+} 
+
+bool canls_pv::b_tx_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData) {
+  return false;
+}
+
  
 void canls_pv::thread() {
   DataType *d;
@@ -140,6 +176,7 @@ void canls_pv::thread() {
     set_current_token(d->m_tokenptr);
     cff.put(d);
     rff.put(d);
+    bff.put(d);
     apff.put(d);
   }
 }
@@ -155,6 +192,13 @@ void canls_pv::thread_r() {
   DataType *d;
   while(d = rff.get()) {
     r_rx_write(d->m_ident, d->m_data, d->m_size);
+  }
+}
+
+void canls_pv::thread_b() {
+  DataType *d;
+  while(d = bff.get()) {
+    b_rx_write(d->m_ident, d->m_data, d->m_size);
   }
 }
 

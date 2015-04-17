@@ -11,6 +11,8 @@ add_port "ap_tx" /TLM/protocols/generic slave 8 -bind_mode optional
 add_port "ap_rx" /TLM/protocols/generic master 8 -bind_mode optional
 add_port "c_tx" /TLM/protocols/generic slave 8 -bind_mode optional
 add_port "c_rx" /TLM/protocols/generic master 8 -bind_mode optional
+add_port "b_tx" /TLM/protocols/generic slave 8 -bind_mode optional
+add_port "b_rx" /TLM/protocols/generic master 8 -bind_mode optional
 
 # === parameters ===
 # usage: add_parameter <parameter_name> <default_value> <type:string|unsigned|int>
@@ -29,6 +31,7 @@ set_auto_parameter_default "warning_level" WARNING string {
 set_auto_parameter_default "r_tx_pipeline_length" 2 uint32 {}
 set_auto_parameter_default "ap_tx_pipeline_length" 2 uint32 {}
 set_auto_parameter_default "c_tx_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "b_tx_pipeline_length" 2 uint32 {}
 
 # === generics ===
 # usage: add_generic <generic_name> <value>
@@ -39,6 +42,7 @@ set_sync_all 0
 add_sequential_policy ap_rx.WRITE -cause tp1.write -latency 0 -sync 0 -power 0
 add_sequential_policy c_rx.WRITE -cause tp1.write -latency 0 -sync 0 -power 0
 add_sequential_policy r_rx.WRITE -cause tp1.write -latency 0 -sync 0 -power 0
+add_sequential_policy b_rx.WRITE -cause tp1.write -latency 0 -sync 0 -power 0
 set_nominal_clock 100
 
 # === generate options ===

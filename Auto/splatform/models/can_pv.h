@@ -32,6 +32,7 @@
 
 #include "can_model.h"
 #include <map>
+class AccelDriver_pv;
 
 using namespace tlm;
 

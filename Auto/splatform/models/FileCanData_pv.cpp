@@ -27,29 +27,49 @@
 #include "FileCanData_pv.h"
 #include "MemoryMap.h"
 
+
 using namespace sc_core;
 using namespace sc_dt;
 using namespace std;
 
 //constructor
 FileCanData_pv::FileCanData_pv(sc_module_name module_name) 
-  : FileCanData_pv_base(module_name) {
+  : FileCanData_pv_base(module_name),
+    inff(NULL)
+{
   string fname("data/");
   fname.append(name());
-cout<<"fname = "<<fname<<endl;
   ifile.open(fname.c_str(), std::ifstream::in);
 
-  SC_THREAD(thread);
+  SC_THREAD(file_thread);
+  SC_THREAD(fifo_thread);
 }    
 
 // callback for any change in signal: rxi of type: sc_in<bool>
 void FileCanData_pv::rxi_callback() {
 }
 
-void FileCanData_pv::thread() {
+void FileCanData_pv::fifo_thread() {
+  unsigned int data_32;
+
+  if (inff != NULL) {
+    while (1) {
+      data_32 = inff->get();
+      while (inff->nb_can_get())
+        data_32 = inff->get();
+      m_write(CAN_SIZE, 4);
+      m_write(CAN_RTR, 0);
+      m_write(CAN_IDE, 1);
+      m_write(CAN_DATA, data_32);
+      m_write(CAN_IDENT, P_IDENT);
+    }
+  }
+}
+
+void FileCanData_pv::file_thread() {
   string s;
   unsigned int t_us, ident, size, rtr, ide;
-  long long data;
+  unsigned long long data;
   sc_time ctime = sc_time_stamp();
 
   ifile >> s;
@@ -59,7 +79,7 @@ void FileCanData_pv::thread() {
       ifile >> s;
     } else {
       ifile >> dec >> t_us >> hex >> ident >> size >> rtr >> ide >> data;
-cout << dec << t_us<<" 0x"<<hex<<ident<<" "<<size<<" "<<rtr<<" "<<ide<<" 0x"<<data<<endl;
+      //cout << dec << t_us<<" 0x"<<hex<<ident<<" "<<size<<" "<<rtr<<" "<<ide<<" 0x"<<data<<endl;
       ifile >> s;
 
       ctime = sc_time_stamp();

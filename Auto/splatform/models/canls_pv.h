@@ -20,6 +20,7 @@
 //* 
 //* Model Builder version: 3.9.0
 //* Generated on: Apr. 01, 2015 08:18:19 AM, (user: jon)
+//* Automatically merged on: Apr. 17, 2015 09:10:31 AM, (user: jon)
 //*>
 
 
@@ -44,6 +45,7 @@ class canls_pv : public canls_pv_base {
 
   void thread();
   void thread_r();
+  void thread_b();
   void thread_c();
   void thread_ap();
 
@@ -59,7 +61,10 @@ class canls_pv : public canls_pv_base {
   unsigned ap_tx_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size);
   bool c_tx_callback_read(mb_address_type address, unsigned char* data, unsigned size);
   
-  unsigned c_tx_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size); 
+  unsigned c_tx_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size);
+  bool b_tx_callback_read(mb_address_type address, unsigned char* data, unsigned size);
+  
+  unsigned b_tx_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size); 
 
  protected:
   ////////////////////////////////////////
@@ -73,10 +78,14 @@ class canls_pv : public canls_pv_base {
   unsigned ap_tx_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size);
   bool c_tx_callback_write(mb_address_type address, unsigned char* data, unsigned size);
   
-  unsigned c_tx_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size);  
+  unsigned c_tx_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size);
+  bool b_tx_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+  
+  unsigned b_tx_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size);  
   bool r_tx_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);  
   bool ap_tx_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);  
-  bool c_tx_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);   
+  bool c_tx_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);  
+  bool b_tx_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);   
 
  private:
 
@@ -108,6 +117,7 @@ class canls_pv : public canls_pv_base {
 
   tlm_fifo<int> iff;
   mb::mb_fifo<DataType*> rff;
+  mb::mb_fifo<DataType*> bff;
   mb::mb_fifo<DataType*> cff;
   mb::mb_fifo<DataType*> apff;
   priority_queue<DataType*, vector<DataType*>, DataType> pq;

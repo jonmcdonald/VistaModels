@@ -37,6 +37,8 @@ Instruments_pv::Instruments_pv(sc_module_name module_name)
 #ifdef __VISTA_OSCI23__
   ,safe_ev("safe_ev")
 #endif
+  ,acceleratorFifo(-1)
+  ,brakeFifo(-1)
 {
   int r;
   /* First call to socket() function */

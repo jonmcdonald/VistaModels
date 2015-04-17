@@ -24,3 +24,7 @@ top.lscan0.write_broadcast = 1
 
 EnableSecurity = 1
 top.securityattack0.CanIF.EnableSecurity = 0
+
+RealTimeSeconds = 10
+RealTimeInterval = 0.1
+RealTimeFactor = 1.0

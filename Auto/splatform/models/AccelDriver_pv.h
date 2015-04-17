@@ -27,6 +27,8 @@
 #pragma once
 
 #include "AccelDriver_model.h"
+#include "top.h"
+#include "can_pv.h"
 
 using namespace tlm;
 
@@ -50,5 +52,6 @@ class AccelDriver_pv : public AccelDriver_pv_base {
   void thread();
 
   static char s[30];
+
 };
 

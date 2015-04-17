@@ -49,8 +49,12 @@ class FileCanData_pv : public FileCanData_pv_base {
   //////////////////////////////////////// 
   void rxi_callback(); 
 
-  void thread();
+  void fifo_thread();
+  void file_thread();
 
   ifstream ifile;
+
+ public:
+  tlm::tlm_fifo<uint> *inff;
 };
 

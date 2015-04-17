@@ -5,7 +5,7 @@
 @@VE@00000@@ 
 @^@VE_hdr_end@^@ 
 
-@@VE@_body@@  attrib {  plist 6 
+@@VE@_body@@  attrib {  plist 8 
 { @pdecl { { @n r_tx @t - @bnd -
 @das -
 @nregout @skind
@@ -54,10 +54,26 @@ none @block -
 } @md socketInitiator @iv -
 @sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
+} @gr DEF @idx -1 } { @pdecl { { @n b_tx @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@multiport 1 @isTemplate 0
+} @gr DEF @idx -1 } { @pdecl { { @n b_rx @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
  page  { w 11000 h 11000 type vhdstd orient portr  } 
- flags 25  } #idit - save unit (named min while saving) on Wed Apr  1 13:32:19 2015
-#SW version: 2008.12 v4.1.1.beta2 build 1. Date: Nov 10 2014. License: 1.1 
+ flags 25  } #idit - save unit (named min while saving) on Fri Apr 17 09:07:31 2015
+#SW version: 2008.12 v4.1.1.beta2 build 1. Date: Apr  8 2015. License: 1.1 
 version: 12 
 ipxactvendor Mentor.com 
 ipxactversion 1.0 
@@ -100,11 +116,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 77 -327 1 ap_rx
+sympinel {  text { 77 -357 1 ap_rx
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 70 -320 } 
- {  end  50 -320  } 
+invert FALSE visible TRUE typepin 0 pin { 70 -350 } 
+ {  end  50 -350  } 
  } 
 @spattr {
 @plist 1 
@@ -157,11 +173,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 77 -347 1 ap_tx
+sympinel {  text { 77 -377 1 ap_tx
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 70 -340 } 
- {  end  50 -340  } 
+invert FALSE visible TRUE typepin 0 pin { 70 -370 } 
+ {  end  50 -370  } 
  } 
 @spattr {
 @plist 1 
@@ -191,6 +207,44 @@ none @block -
 @ch -
 } @md socketTarget @iv -
 @sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@multiport 1 @isTemplate 0
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 77 -287 1 b_tx
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 70 -280 } 
+ {  end  50 -280  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n b_tx @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketTarget @iv -
+@sysInt pvt_target_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+@multiport 1 @isTemplate 0
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 77 -307 1 b_rx
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 70 -300 } 
+ {  end  50 -300  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n b_rx @t - @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @md socketInitiator @iv -
+@sysInt pvt_initiator_socket<8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }

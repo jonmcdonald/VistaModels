@@ -11,6 +11,7 @@ $includes_begin;
 #include "RestBus.h"
 #include "../models/canls_model.h"
 #include "../models/canhs_model.h"
+#include "Brake.h"
 $includes_end;
 
 $module_begin("top");
@@ -46,6 +47,9 @@ $end
 $init("abs0"),
 abs0(0)
 $end
+$init("brake0"),
+brake0(0)
+$end
     $initialization_end
 {
     $elaboration_begin;
@@ -75,6 +79,9 @@ restbus0 = new RestBus("restbus0");
 $end;
 $create_component("abs0");
 abs0 = new ABS("abs0");
+$end;
+$create_component("brake0");
+brake0 = new Brake("brake0");
 $end;
 $bind("lscan0->c_rx","cluster0->RXLS");
 vista_bind(lscan0->c_rx, cluster0->RXLS);
@@ -124,6 +131,12 @@ $end;
 $bind("securityattack0->TX0","hscan0->sa_tx");
 vista_bind(securityattack0->TX0, hscan0->sa_tx);
 $end;
+$bind("lscan0->b_rx","brake0->RX0");
+vista_bind(lscan0->b_rx, brake0->RX0);
+$end;
+$bind("brake0->TX0","lscan0->b_tx");
+vista_bind(brake0->TX0, lscan0->b_tx);
+$end;
     $elaboration_end;
   $vlnv_assign_begin;
 m_library = "local";
@@ -160,6 +173,9 @@ $end;
 $destruct_component("abs0");
 delete abs0; abs0 = 0;
 $end;
+$destruct_component("brake0");
+delete brake0; brake0 = 0;
+$end;
     $destructor_end;
   }
 public:
@@ -190,6 +206,9 @@ RestBus *restbus0;
 $end;
 $component("abs0");
 ABS *abs0;
+$end;
+$component("brake0");
+Brake *brake0;
 $end;
   $fields_end;
   $vlnv_decl_begin;

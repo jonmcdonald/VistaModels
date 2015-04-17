@@ -13,36 +13,36 @@
  } 
  page  { w 11000 h 11000 type vhdstd orient portr  } 
 grid 10 
- } #idit - save unit (named Accelerator while saving) on Fri Apr 17 09:00:50 2015
+ } #idit - save unit (named Radio while saving) on Fri Apr 17 09:03:12 2015
 #SW version: 2008.12 v4.1.1.beta2 build 1. Date: Apr  8 2015. License: 1.1 
 version: 12 
 ipxactvendor Mentor.com 
 ipxactversion 1.0 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 208 -216 72 20 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 136 -264 73 18 
 bcol 'Empty' pcol 'Black' } 
-fmttext { 210 -211 1 8 nil 
-AccelDriver 
+fmttext { 138 -261 1 8 nil 
+FileCanData 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  vis }  { fiv  @kind 9 
  } 
-groupobj { doset { rect { 200 -220 80 100 
+groupobj { doset { rect { 130 -270 80 80 
 bcol 'Empty' pcol 'Black' } 
  } 
-clshapes { closeShape { lines { line { 200 -220 280 -220 } 
-line { 280 -220 280 -120 } 
-line { 280 -120 200 -120 } 
-line { 200 -120 200 -220 } 
+clshapes { closeShape { lines { line { 130 -270 210 -270 } 
+line { 210 -270 210 -190 } 
+line { 210 -190 130 -190 } 
+line { 130 -190 130 -270 } 
 } 
 arcs { } 
 bcol 'Pale Blue2'  } 
  } 
  } 
  } 
-pinset { sympinel {  text { 263 -177 1 m
+pinset { sympinel {  text { 193 -237 1 m
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 280 -170 } 
- {  end  300 -170  } 
+invert FALSE visible TRUE typepin 0 pin { 210 -230 } 
+ {  end  230 -230  } 
  } 
 @spattr {
 @plist 1 
@@ -57,11 +57,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 260 -157 1 rxi
+sympinel {  text { 190 -217 1 rxi
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 280 -150 } 
- {  end  300 -150  } 
+invert FALSE visible TRUE typepin 0 pin { 210 -210 } 
+ {  end  230 -210  } 
  } 
 @spattr {
 @plist 1 
@@ -79,19 +79,19 @@ none @block -
  } 
 angle 0 bcol 'Pale Blue2' pcol 'Black' } 
  } 
-text { 217 -118 1 acceldriver0
+text { 136 -188 1 brakedriver0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 221 -87 92 20 
+gnrtxt textbox { rect { 211 -145 88 17 
 bcol 'Empty' pcol 'Red' } 
-fmttext { 223 -82 1 8 nil 
-  "acceldriver0" 
+fmttext { 213 -142 1 8 nil 
+  "brakedriver0"  
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
 - - @symname
 - @cmpattr
-@kwd @innm acceldriver0 @arch - @usl - @hrnm AccelDriver models @dffs 0 0 @stt hier @gnras @cnt 0
+@kwd @innm brakedriver0 @arch - @usl - @hrnm FileCanData models @dffs 0 0 @stt hier @gnras @cnt 0
 @templparamas @templparamcnt 0
 @portas @cnt 0
 @portlist 2 
@@ -118,7 +118,7 @@ L { @nvis } !
 1 sigIdx
 0 m
 -
-7 sigIdx
+3 sigIdx
 0 rxi
 2 
 { @pdecl { { @n m @t - @bnd -
@@ -141,38 +141,38 @@ none @block -
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 389 -376 25 20 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 299 -434 24 18 
 bcol 'Empty' pcol 'Black' } 
-fmttext { 391 -371 1 8 nil 
+fmttext { 301 -431 1 8 nil 
 can 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  vis }  { fiv  @kind 9 
  } 
-groupobj { doset { rect { 350 -380 100 70 
+groupobj { doset { rect { 260 -440 100 70 
 bcol 'Empty' pcol 'Black' } 
  } 
-clshapes { closeShape { lines { line { 350 -310 449 -310 } 
-line { 449 -310 449 -380 } 
-line { 449 -380 548 -380 } 
-line { 350 -380 350 -450 } 
+clshapes { closeShape { lines { line { 260 -370 359 -370 } 
+line { 359 -370 359 -440 } 
+line { 359 -440 458 -440 } 
+line { 260 -440 260 -510 } 
 } 
 arcs { } 
 bcol 'Pale Blue2'  } 
-closeShape { lines { line { 350 -380 450 -380 } 
-line { 450 -380 450 -310 } 
-line { 450 -310 350 -310 } 
-line { 350 -310 350 -380 } 
+closeShape { lines { line { 260 -440 360 -440 } 
+line { 360 -440 360 -370 } 
+line { 360 -370 260 -370 } 
+line { 260 -370 260 -440 } 
 } 
 arcs { } 
 bcol 'Empty'  } 
  } 
  } 
  } 
-pinset { sympinel {  text { 380 -369 1 GI_Rx
+pinset { sympinel {  text { 290 -429 1 GI_Rx
  angle 900
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 390 -310 } 
- {  end  390 -290  } 
+invert FALSE visible TRUE typepin 0 pin { 300 -370 } 
+ {  end  300 -350  } 
  } 
 @spattr {
 @plist 1 
@@ -187,11 +187,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 400 -374 1 C0I_Tx
+sympinel {  text { 310 -434 1 C0I_Tx
  angle 900
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 410 -310 } 
- {  end  410 -290  } 
+invert FALSE visible TRUE typepin 0 pin { 320 -370 } 
+ {  end  320 -350  } 
  } 
 @spattr {
 @plist 1 
@@ -206,11 +206,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 420 -376 1 C0I_Rx
+sympinel {  text { 330 -436 1 C0I_Rx
  angle 900
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 430 -310 } 
- {  end  430 -290  } 
+invert FALSE visible TRUE typepin 0 pin { 340 -370 } 
+ {  end  340 -350  } 
  } 
 @spattr {
 @plist 1 
@@ -225,11 +225,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 373 -390 1 TX0
+sympinel {  text { 283 -450 1 TX0
  angle 900
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 380 -380 } 
- {  end  380 -400  } 
+invert FALSE visible TRUE typepin 0 pin { 290 -440 } 
+ {  end  290 -460  } 
  } 
 @spattr {
 @plist 1 
@@ -244,11 +244,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 363 -354 1 reg
+sympinel {  text { 273 -414 1 reg
  angle 900
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 370 -310 } 
- {  end  370 -290  } 
+invert FALSE visible TRUE typepin 0 pin { 280 -370 } 
+ {  end  280 -350  } 
  } 
 @spattr {
 @plist 1 
@@ -263,11 +263,11 @@ none @block -
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 350 -391 1 RX0
+sympinel {  text { 260 -451 1 RX0
  angle 900
 fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 360 -380 } 
- {  end  360 -400  } 
+invert FALSE visible TRUE typepin 0 pin { 270 -440 } 
+ {  end  270 -460  } 
  } 
 @spattr {
 @plist 1 
@@ -285,12 +285,12 @@ none @block -
  } 
 angle 0 bcol 'Pale Blue2' pcol 'Black' } 
  } 
-text { 397 -405 1 CanIF
+text { 296 -456 1 CanIF
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 381 -207 55 20 
+gnrtxt textbox { rect { 291 -315 51 18 
 bcol 'Empty' pcol 'Red' } 
-fmttext { 383 -202 1 8 nil 
+fmttext { 293 -312 1 8 nil 
   "CanIF" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
@@ -356,14 +356,14 @@ L { @nvis } !
 0 sigIdx
 0 reg
 -
-3 sigIdx
-0 RX0
+2 sigIdx
+0 GI_Rx
 -
 5 sigIdx
-0 TX0
+0 RX0
 -
-6 sigIdx
-0 GI_Rx
+7 sigIdx
+0 TX0
 6 
 { @pdecl { { @n reg @t - @bnd -
 @das -
@@ -417,9 +417,9 @@ none @block -
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-signal { F bind line90 { 0 4 2 300 -170  370 -170  370 -290 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 230 -230  280 -230  280 -350 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 370 -290 } 
+  blockpin {   nnvis  pnvis pin { 280 -350 } 
  } 
 10 0 -1 -
 -
@@ -434,7 +434,7 @@ tlm::tlm_target_socket<>
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 300 -170 } 
+  blockpin {   nnvis  pnvis pin { 230 -230 } 
  } 
 11 1 -1 -
 -
@@ -468,20 +468,16 @@ s0
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 360 -400  360 -400  360 -440 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 230 -210  300 -210  300 -350 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {  text { 342 -459 1 RX0
- angle 0
-fn 0 0 160 2 5 0 0 0 0 }
- nvis  pnvis pin { 360 -440 } 
+  blockpin {   nnvis  pnvis pin { 300 -350 } 
  } 
 11 2 -1 -
-RX0
 -
 @intrfclass
 { -name- 
-tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
-0 0 withTemplate 0 0 multiport 1 } 
+tlm::tlm_target_socket<>
+0 0 withTemplate 1 0 multiport 1 } 
 @initialization
 %Name%
 0 
@@ -489,7 +485,7 @@ tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MO
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 360 -400 } 
+  blockpin {   nnvis  pnvis pin { 230 -210 } 
  } 
 10 3 -1 -
 -
@@ -502,8 +498,8 @@ tlm::tlm_initiator_socket<>
 0 
 
  } 
- SourceIdx 1 
- DestIdx -1 
+ SourceIdx 0 
+ DestIdx 1 
  } 
  } 
 @BIND
@@ -523,19 +519,19 @@ s1
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 380 -400  380 -400  380 -440 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 270 -460  270 -460  270 -520 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {  text { 374 -459 1 TX0
+  blockpin {  text { 252 -540 1 RX0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
- nvis  pnvis pin { 380 -440 } 
+ nvis  pnvis pin { 270 -520 } 
  } 
-10 4 -1 -
-TX0
+11 4 -1 -
+RX0
 -
 @intrfclass
 { -name- 
-tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 0 0 withTemplate 0 0 multiport 1 } 
 @initialization
 %Name%
@@ -544,9 +540,9 @@ tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 380 -400 } 
+  blockpin {   nnvis  pnvis pin { 270 -460 } 
  } 
-11 5 -1 -
+10 5 -1 -
 -
 @intrfclass
 { -name- 
@@ -578,16 +574,20 @@ s2
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 300 -150  390 -150  390 -290 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 290 -460  290 -460  290 -520 bcol 'Empty' pcol 'Black' 
  Firstpin {
-  blockpin {   nnvis  pnvis pin { 390 -290 } 
+  blockpin {  text { 286 -540 1 TX0
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+ nvis  pnvis pin { 290 -520 } 
  } 
-11 6 -1 -
+10 6 -1 -
+TX0
 -
 @intrfclass
 { -name- 
-tlm::tlm_target_socket<>
-0 0 withTemplate 1 0 multiport 1 } 
+tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+0 0 withTemplate 0 0 multiport 1 } 
 @initialization
 %Name%
 0 
@@ -595,9 +595,9 @@ tlm::tlm_target_socket<>
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 300 -150 } 
+  blockpin {   nnvis  pnvis pin { 290 -460 } 
  } 
-10 7 -1 -
+11 7 -1 -
 -
 @intrfclass
 { -name- 
@@ -608,8 +608,8 @@ tlm::tlm_initiator_socket<>
 0 
 
  } 
- SourceIdx 0 
- DestIdx 1 
+ SourceIdx 1 
+ DestIdx -1 
  } 
  } 
 @BIND
@@ -631,8 +631,8 @@ s3
 0 
 !
 
-@@VE@names@@ 8 @obj - CanIF 36 @obj - RX0 13 @obj - TX0 13 @obj - acceldriver0 36 @obj - s0 13 @obj - s1 13 @obj - s2 13 @obj - s3 13 23 3 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 7 1 -1 -1 -1 -1 -1 -1 -1 -1 -1 7 !
+@@VE@names@@ 8 @obj - CanIF 36 @obj - RX0 13 @obj - TX0 13 @obj - s0 13 @obj - s1 13 @obj - s2 13 @obj - s3 13 @obj - brakedriver0 36 23 3 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 7 1 -1 -1 -1 -1 -1 -1 -1 -1 -1 7 !
 
-@@VE@obj_u@@ acceldriver0 AccelDriver models 0 
+@@VE@obj_u@@ brakedriver0 FileCanData models 0 
 CanIF can models 0 
 !

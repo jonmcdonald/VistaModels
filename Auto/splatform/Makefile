@@ -12,6 +12,7 @@ VISTAVER = $(strip $(patsubst Vista,,$(shell vista -version)))
 PAPOULISDIR = vista_work/papoulis_project$(VISTAVER)
 
 MODELS = models
+IMODELS = ../instruments/instruments_models
 LOCAL  = local
 MODULE = run
 Project = Project
@@ -19,14 +20,14 @@ Project = Project
 VISTA_HOME = $(dir $(dir $(shell which vista)))
 MODEL_BUILDER_HOME = $(VISTA_HOME)papoulis
 
-SRCS = $(wildcard *.cpp)
+SRCS = $(wildcard *.cpp) $(wildcard include/*.cpp)
 OBJS = $(SRCS:.cpp=.o)
 
-MBSRCS = $(wildcard $(MODELS)/*.cpp)
+MBSRCS = $(wildcard $(MODELS)/*.cpp) $(wildcard $(IMODELS)/*.cpp)
 MBOBJS = $(MBSRCS:.cpp=.o)
 MBARCHIVE = lib$(MODELS).a
 
-INCDIR = -I. -Iinclude -I$(LOCAL) -I$(MODELS)
+INCDIR = -I. -Iinclude -I$(LOCAL) -I$(MODELS) -I$(IMODELS)
 
 LIBS   = $(EXTRA_LIBS) -L. -l$(MODELS) 
 EXE    = $(MODULE).x
