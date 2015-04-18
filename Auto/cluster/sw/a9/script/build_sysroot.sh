@@ -9,7 +9,7 @@ source $SW_ROOT/script/setup_apps.sh
 cd $SW_ROOT/sdcard
 
 rm -f `find . -name "*~" -print`
-rm -rf sysroot
+#rm -rf sysroot
 
 mkdir sysroot
 
@@ -20,6 +20,7 @@ mkdir -p $SYSROOT/tmp
 mkdir -p template/root
 cp -r template/* sysroot
 
+cp -ar $TOOL_CHAIN/$TARGET/include/c++/4.9.1 $SYSROOT/usr
 cp -ar $TOOL_CHAIN/$TARGET/libc/etc $SYSROOT
 cp -ar $TOOL_CHAIN/$TARGET/libc/lib $SYSROOT
 cp -ar $TOOL_CHAIN/$TARGET/libc/sbin $SYSROOT
