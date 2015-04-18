@@ -20,11 +20,11 @@ mkdir -p $SYSROOT/tmp
 mkdir -p template/root
 cp -r template/* sysroot
 
-cp -ar $TOOL_CHAIN/$TARGET/include/c++/4.9.1 $SYSROOT/usr
 cp -ar $TOOL_CHAIN/$TARGET/libc/etc $SYSROOT
 cp -ar $TOOL_CHAIN/$TARGET/libc/lib $SYSROOT
 cp -ar $TOOL_CHAIN/$TARGET/libc/sbin $SYSROOT
 cp -ar $TOOL_CHAIN/$TARGET/libc/usr $SYSROOT
-
+mkdir -p $SYSROOT/usr/include/c++
+cp -ar $TOOL_CHAIN/$TARGET/include/c++/* $SYSROOT/usr/include/c++
 
 
