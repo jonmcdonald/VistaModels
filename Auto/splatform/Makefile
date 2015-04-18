@@ -5,7 +5,7 @@ CC     = vista_c++
 OPT    = 
 DEBUG  = -DMB_DEBUG -tsv
 OTHER  = -Wall +model_builder 
-OTHER  = +model_builder 
+OTHER  = +model_builder -sc23
 CFLAGS = $(DEBUG) $(OTHER)
 
 VISTAVER = $(strip $(patsubst Vista,,$(shell vista -version)))
