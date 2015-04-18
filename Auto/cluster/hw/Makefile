@@ -4,17 +4,19 @@
 #  "make clean" remove all generated/object data
 #
 
-MODELS = Models
+MODELS = cluster_models
+LOCAL = cluster_local
 SC_MAIN = sc_main
 
 PROJECT = $(patsubst %.v2p,%,$(wildcard *.v2p))
 PROJECTEXE = $(PROJECT)/build/D_PRJDIR_/$(SC_MAIN).exe
 
-SRCS = $(wildcard *.cpp) $(wildcard $(MODELS)/*.cpp)
+SRCS = $(wildcard *.cpp) $(wildcard $(MODELS)/*.cpp) $(wildcard $(LOCAL)/*.cpp)
+HEADERS = $(wildcard *.h) $(wildcard $(MODELS)/*.h) $(wildcard $(LOCAL)/*.h)
 
 all: $(PROJECTEXE)
 
-$(PROJECTEXE): $(SRCS)
+$(PROJECTEXE): $(SRCS) $(HEADERS)
 	vista_build_project -sc23 $(PROJECT)
 
 run: $(PROJECTEXE)
