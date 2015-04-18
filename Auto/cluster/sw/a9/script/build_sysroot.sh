@@ -11,7 +11,7 @@ cd $SW_ROOT/sdcard
 rm -f `find . -name "*~" -print`
 #rm -rf sysroot
 
-mkdir sysroot
+mkdir -p sysroot
 
 export SYSROOT=$SW_ROOT/sdcard/sysroot
 mkdir -p $SYSROOT/dev
