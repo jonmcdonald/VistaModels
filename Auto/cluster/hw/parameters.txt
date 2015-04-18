@@ -4,7 +4,7 @@
 #cluster.a9x2.PV.cpu0.core.gdbstub_port         = 2345
 
 tlm_timing_model                               = LT
-physical_io:host_time_sync                     = 0
+physical_io:host_time_sync                     = 1
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~ A9 IMAGE
