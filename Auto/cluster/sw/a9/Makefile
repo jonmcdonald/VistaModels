@@ -1,7 +1,9 @@
 
 all: fetch tools sysroot kernel modules busybox dropbear zlib ssl openssh qt cluster sdcard axf
 
-.PHONY: fetch tools sysroot kernel modules busybox dropbear zlib ssl openssh qt cluster sdcard axf
+linux: fetch tools sysroot kernel modules busybox dropbear zlib ssl openssh sdcard axf
+
+.PHONY: fetch tools sysroot kernel modules busybox dropbear zlib ssl openssh qt cluster sdcard axf clean
 
 fetch:
 	./script/fetch.sh

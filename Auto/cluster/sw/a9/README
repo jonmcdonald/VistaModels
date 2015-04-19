@@ -1,0 +1,19 @@
+TODO...
+
+quick notes, on a fresh Ubuntu 12.04-5 64 bit I did this:
+
+sudo apt-get upgrade
+
+sudo reboot
+
+sudo apt-get install libsdl1.2debian build-essential lib32z1 lib32ncurses5 lib32bz2-1.0 libxpm4:i386 libxmu6:i386 libice6:i386 libxext6:i386 libsm6:i386 libx11-6:i386 libxt6:i386 libxi6:i386 libxaw7:i386 libxtst6:i386 libxau6:i386 libxp6:i386 libstdc++6:i386 debian-keyring g++-multilib g++-4.6-multilib git
+
+sudo ln -s /usr/lib/x86_64-linux-gnu /usr/lib64
+
+sudo mkdir -p /usr/local/qt5
+sudo chmod 777 /usr/local/qt5
+
+
+...and then in this folder:
+
+make all

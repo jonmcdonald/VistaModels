@@ -7,6 +7,10 @@ source $SW_ROOT/setup.sh
 
 echo "*** clean.sh cleaning"
 
+source $SW_ROOT/script/setup_kernel.sh
+cd $SW_ROOT/kernel_modules/bridge_driver
+make -C ../../packages/linux-$VER_LINUX M=`pwd` clean
+
 cd $SW_ROOT/packages
 rm -rf linux-$VER_LINUX
 rm -rf busybox-$VER_BUSYBOX
@@ -19,16 +23,13 @@ rm -rf genext2fs-1.4.1
 
 cd $SW_ROOT/sdcard
 rm -rf sysroot
+rm -f sysroot.ext2
 
 cd $SW_ROOT/boot
 make clean
 
 cd $SW_ROOT/cluster
 make -f Makefile.arm clean
-
-source $SW_ROOT/script/setup_kernel.sh
-cd $SW_ROOT/kernel_modules/bridge_driver
-make -C ../../packages/linux-$VER_LINUX M=`pwd` clean
 
 echo "*** clean.sh COMPLETE"
 
