@@ -1,13 +1,15 @@
 
 all: fetch tools sysroot kernel modules busybox dropbear zlib ssl openssh qt cluster sdcard axf
 
+.PHONY: fetch tools sysroot kernel modules busybox dropbear zlib ssl openssh qt cluster sdcard axf
+
 fetch:
 	./script/fetch.sh
 
 tools: fetch
 	./script/build_tools.sh
 
-sysroot:
+sysroot: fetch
 	./script/build_sysroot.sh
 
 kernel: fetch
@@ -43,6 +45,6 @@ sdcard:
 axf:
 	./script/build_axf.sh
 
-clean: 
+clean:
 	./script/clean.sh
 
