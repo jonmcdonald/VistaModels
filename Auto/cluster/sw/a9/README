@@ -2,18 +2,28 @@ TODO...
 
 quick notes, on a fresh Ubuntu 12.04-5 64 bit I did this:
 
-sudo apt-get upgrade
 
+sudo apt-get upgrade
 sudo reboot
+
+# This is mostly for Vista, the block diagram requires 32bit X libraries...
 
 sudo apt-get install libsdl1.2debian build-essential lib32z1 lib32ncurses5 lib32bz2-1.0 libxpm4:i386 libxmu6:i386 libice6:i386 libxext6:i386 libsm6:i386 libx11-6:i386 libxt6:i386 libxi6:i386 libxaw7:i386 libxtst6:i386 libxau6:i386 libxp6:i386 libstdc++6:i386 debian-keyring g++-multilib g++-4.6-multilib git
 
+# This is for compiling 64 bit executables...
 sudo ln -s /usr/lib/x86_64-linux-gnu /usr/lib64
 
-sudo mkdir -p /usr/local/qt5
-sudo chmod 777 /usr/local/qt5
+#sudo mkdir -p /usr/local/qt5
+#sudo chmod 777 /usr/local/qt5
+
+# This is to update to a newer g++, which is required to build Qt...
+sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+sudo apt-get  update
+sudo apt-get install g++-4.8
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 40 --slave /usr/bin/g++ g++ /usr/bin/g++-4.8
 
 
-...and then in this folder:
+...and then in the Auto/cluster/sw/a9 folder:
 
 make all
+
