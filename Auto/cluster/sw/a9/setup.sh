@@ -1,7 +1,7 @@
 
 export TOOL_CHAIN=$(dirname $(dirname `which arm-none-eabi-gcc`))
 
-export VER_LINUX=3.18.8      # kernel version
+export VER_LINUX=3.18.11     # kernel version
 export VER_BUSYBOX=1.23.2    # base commands
 export VER_DROPBEAR=2015.67  # secure shell support
 export VER_ZLIB=1.2.8        # zlib for sftp
