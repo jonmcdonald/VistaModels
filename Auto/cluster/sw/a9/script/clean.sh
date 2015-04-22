@@ -7,9 +7,14 @@ source $SW_ROOT/setup.sh
 
 echo "*** clean.sh cleaning"
 
+cd $SW_ROOT
+rm `find . -name "*~" -print`
+
 source $SW_ROOT/script/setup_kernel.sh
 cd $SW_ROOT/kernel_modules/bridge_driver
-make -C ../../packages/linux-$VER_LINUX M=`pwd` clean
+if [ -d ../../packages/linux-$VER_LINUX ]; then
+  make -C ../../packages/linux-$VER_LINUX M=`pwd` clean
+fi
 
 cd $SW_ROOT/packages
 rm -rf linux-$VER_LINUX
@@ -29,7 +34,9 @@ cd $SW_ROOT/boot
 make clean
 
 cd $SW_ROOT/cluster
-make -f Makefile.arm clean
+if [ -f Makefile ]; then
+  make -f Makefile clean
+fi
 
 echo "*** clean.sh COMPLETE"
 
