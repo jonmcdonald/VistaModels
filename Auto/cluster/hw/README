@@ -1,0 +1,19 @@
+
+You must have vista in your PATH, to check this type this:
+
+$ which vista
+
+
+Then, to build type:
+
+$ make clean
+$ make mb
+$ make 
+
+Once complete you can run the cluster platform by typing:
+
+$ make run
+
+
+Note, the software images for the a9 and m4 have to be built prior to running.
+
