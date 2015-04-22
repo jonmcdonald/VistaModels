@@ -3,6 +3,10 @@ You must have vista in your PATH, to check this type this:
 
 $ which vista
 
+You also need the bare metal ARM cross compiler installed, to confirm type:
+
+$ arm-none-eabi-gcc --version
+
 
 Then, to build simply type:
 
@@ -10,5 +14,8 @@ $ make clean
 $ make
 
 
-If it works you will find a file named "image.axf" has been created.
+Once complete you should expect to find this file:
+
+image.axf
+
 

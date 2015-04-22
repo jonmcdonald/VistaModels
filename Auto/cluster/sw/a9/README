@@ -1,18 +1,18 @@
 
 To build Qt you need gcc 4.8.x or higher in your PATH, to confirm type:
 
-> gcc --version
+$ gcc --version
 
 You need ARM cross compilers installed for bare metal and linux, to confirm type:
 
-> arm-none-eabi-gcc --version
-> arm-none-linux-gnueabi-gcc --version
+$ arm-none-eabi-gcc --version
+$ arm-none-linux-gnueabi-gcc --version
 
 
 To build, please type:
 
-make clean  : cleans everything
-make all    : builds linux, Qt, and the filesystem tools
+$ make clean  : cleans everything
+$ make all    : builds linux, Qt, and the filesystem tools
 
 
 Once complete you should expect to find these files:
