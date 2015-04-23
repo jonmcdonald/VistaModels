@@ -39,13 +39,19 @@ T ?= traces.tcl
 
 .SUFFIXES: .cpp .cc .o .x .h
 
-$(EXE): $(OBJS) $(MBARCHIVE) 
+all	: instruments mb $(EXE)
+
+instruments:
+	cd ../instruments && $(MAKE) mb && $(MAKE)
+
+$(EXE) : $(OBJS) $(MBARCHIVE) 
 	$(CC) $(CFLAGS) $(INCDIR) -o $@ $(OBJS) $(LIBS) 2>&1 | c++filt
 	if [ ! -n "$$V2_HOME" ] ; \
 	then vista_build_project $(Project); fi
 
-vistagui:
 
+
+vistagui:
 $(MBARCHIVE): $(MBOBJS)
 	ar rcs $@ $(MBOBJS)
 
@@ -72,6 +78,7 @@ clean:
 	find . -name "*_model.cpp" -exec rm -f {} \;
 	rm -f $(OBJS) $(MBOBJS) $(MBARCHIVE) $(EXE)
 	rm -rf vista_power_transcript visualhl.ini
+	cd ../instruments && $(MAKE) clean
 
 vista: $(EXE) $T
 	vista -sc22 -trace-delta-cycles -tsv -memory-profiling \
@@ -93,7 +100,7 @@ COMMAND = "if {![does_tlm_library_exist $(MODELS)]} \
 	   reload_tlm_library $(MODELS);\
 	   foreach n [glob -directory $(MODELS) -tails *.mb] { \
 	     save_model -g TLM/$(MODELS)/[lindex [split \$$n .] 0] }"
-
+models:
 mb $(PAPOULISDIR): Templates
 	@if [ -e $(MODELS) ]; then vista_model_builder -c $(COMMAND); fi
 

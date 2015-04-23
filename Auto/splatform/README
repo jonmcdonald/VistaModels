@@ -13,15 +13,18 @@ This directory has been initialized with startup files to streamline the initial
 usage.  These files can be used for any initial Vista working area.  The files are not
 specific to any particuar directory path or model names. 
 
+
+
 The following items are included:
 
 Makefile	: Make targets for simplifying Vista usage.  Useful targets include:
 	"make"	: Create and load .mb files into papoulis_project directory if it does not exist
 		  Compile all .cpp files
+		  Will build the  ../instruments directory, make mb; make.
 		  Build the vista project.
 	"make vista" : Build any out of date files and start vista simulation in Gui
 	"make batch" : Build out of date files and run simulation in Vista batch
-	"make clean" : Remove all binary and intermediate files
+	"make clean" : Remove all binary and intermediate files, from this and the ../instruments directory
 
 vista.ini	: Initial ini file for Vista which loads the Project.v2p and libraries.
 Project.v2p	: Initial project definition.  This will work with the files created
