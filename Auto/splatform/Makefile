@@ -39,11 +39,6 @@ T ?= traces.tcl
 
 .SUFFIXES: .cpp .cc .o .x .h
 
-all	: instruments mb $(EXE)
-
-instruments:
-	cd ../instruments && $(MAKE) mb && $(MAKE)
-
 $(EXE) : $(OBJS) $(MBARCHIVE) 
 	$(CC) $(CFLAGS) $(INCDIR) -o $@ $(OBJS) $(LIBS) 2>&1 | c++filt
 	if [ ! -n "$$V2_HOME" ] ; \
@@ -101,8 +96,10 @@ COMMAND = "if {![does_tlm_library_exist $(MODELS)]} \
 	   foreach n [glob -directory $(MODELS) -tails *.mb] { \
 	     save_model -g TLM/$(MODELS)/[lindex [split \$$n .] 0] }"
 models:
+
 mb $(PAPOULISDIR): Templates
 	@if [ -e $(MODELS) ]; then vista_model_builder -c $(COMMAND); fi
+	cd ../instruments && $(MAKE) mb 
 
 TemplatesCOMMAND = \
         "if {[ file exist protocols ]} \
