@@ -8,7 +8,7 @@ source $SW_ROOT/setup.sh
 echo "*** clean.sh cleaning"
 
 cd $SW_ROOT
-rm `find . -name "*~" -print`
+rm -f `find . -name "*~" -print`
 
 source $SW_ROOT/script/setup_kernel.sh
 cd $SW_ROOT/kernel_modules/bridge_driver
