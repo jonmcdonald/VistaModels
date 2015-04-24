@@ -98,8 +98,8 @@ COMMAND = "if {![does_tlm_library_exist $(MODELS)]} \
 models:
 
 mb $(PAPOULISDIR): Templates
-	@if [ -e $(MODELS) ]; then vista_model_builder -c $(COMMAND); fi
 	cd ../instruments && $(MAKE) mb 
+	@if [ -e $(MODELS) ]; then vista_model_builder -c $(COMMAND); fi
 
 TemplatesCOMMAND = \
         "if {[ file exist protocols ]} \
