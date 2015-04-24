@@ -1046,8 +1046,8 @@ set_generate_kind "pvt" ;# should be one of: model|pv|pvt
 set_include_file ""
 set_external_pv_include ""
 set_pv_kind "template" ;# should be one of: template|external
-set_timing_kind "policies" ;# should be one of: policies|learned
-set_power_kind "policies" ;# should be one of: policies|learned
+set_timing_kind "policies" ;# should be: policies
+set_power_kind "policies" ;# should be: policies
 set_class_name_external_pv ""
 set_max_parameters_of_pv_constructor 5
 set_overwrite 0
