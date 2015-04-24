@@ -28,6 +28,7 @@ A few useful git commands follow
    > git config --global user.name "gitHubUserName"
    > git config --global user.email your_name@email.com
 
+
 ***   PLEASE EMAIL jon_mcdonald@mentor.com that you will wish to commit changes to the repository ****
 
  - To add local changes to the repository
@@ -43,7 +44,6 @@ A few useful git commands follow
    > git push origin master			; pushes your changes into the master repository for all to use
 
 *** Optional ssh **********************************************************************************
-
 Create load a ssh key on your machine and store in github
 	- See https://help.github.com/articles/generating-ssh-keys
 
