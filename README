@@ -1,37 +1,62 @@
-   This repository will contain Vista Architect model libraries and projects.
+This repository will contain Vista Architect model libraries and projects.
+
 To create a new area, make a directory then run vista under that directory.  Any data 
 you create should stay under the created directory.  You should be able to point at 
 libraries in other directories within this repository as well as make modifications 
 to elements in those other directories.
-   To get started with git using this repository execute:
+
+To get started with git using this repository execute:
+
 > git clone git@github.com:jonmcdonald/VistaModels.git
-   Documentation on using git can be found at: http://www.git-scm.com/documentation
-   Note you will also have to load an ssh key into github (https://help.github.com/articles/generating-ssh-keys)
 
-A few useful git sequences:
+  Documentation on git can be found at: http://www.git-scm.com/documentation 
 
- - To set user name.  Needed to push changes, not to fetch.
-   > git config --global user.name "Your Name"
-   > git config --global user.email your_name@email.com
+A few useful git commands follow
 
- - To add local changes to the repository
-   First commit your local changes
-   > git add --dry-run * 			; This will list what will be added without doing it.
-   > git add *
-   > git commit -a -m "Comment changes"
-   # Next fetch latest from repository, merge and push
-   > git fetch origin
-   > git status                                 ; Tells you what is out of date or changed
-   > git merge origin/master
-   > git push origin master
-
- - To reset your git area to what is on the server.  This will delete any files you've added.
+- To reset your git area to what is on the server.  This will delete any files you've added.
    > git fetch
    > git reset --hard HEAD
    > git clean -f -d
    > git pull
    Note that git clean will accept a path and only clean that path.
 
+- To PUSH changes to git, a number of steps need to be followed
+   - Note this is not needed to fetch/clone the repository 
+   - Create a github account via https://github.com/
+
+   - In your cloned git workspace, set your git user name and email
+   > git config --global user.name "gitHubUserName"
+   > git config --global user.email your_name@email.com
+
+
+***   PLEASE EMAIL jon_mcdonald@mentor.com that you will wish to commit changes to the repository ****
+
+ - To add local changes to the repository
+   First commit your local changes
+   > git add --dry-run * 			; This will list what will be added without doing it.
+   > git add *
+   > git commit -a -m "Comment changes"
+
+   # Next fetch latest from repository, merge and push
+   > git fetch origin
+   > git status                                 ; Tells you what is out of date or changed
+   > git merge origin/master
+   > git push origin master			; pushes your changes into the master repository for all to use
+
+*** Optional ssh **********************************************************************************
+Create load a ssh key on your machine and store in github
+	- See https://help.github.com/articles/generating-ssh-keys
+
+- if ssh has been configured and errors are encountered pushing your local commits to the repository you may need to edit the .git/config's url to use ssh://git@github...., if the error is similar to http://stackoverflow.com/questions/7438313/pushing-to-git-returning-error-code-403-fatal-http-request-failed
+
+.git/config
+	....
+	[remote "origin"]
+		fetch = +refs/heads/*:refs/remotes/origin/*
+	xxxxxx	url = https://github.com/jonmcdonald/VistaModels.git ;# Did not work, use below xxxxxxxx
+		url = ssh://git@github.com/jonmcdonald/VistaModels.git 
+	....
+***************************************************************************************************
  - To add all of your new files and then update from the repository, taking the repository as the correct file.
    You will loose any changes you have made that conflict with what is in the repository.
    First commit your local changes
