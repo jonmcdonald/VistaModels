@@ -1,0 +1,27 @@
+Ubuntu 14.04.2-64
+~~~~~~~~~~~~~~~~~
+*** For a smooth Vista experience install these extra packages: 
+
+sudo apt-get install aptitude blt bluez-alsa build-essential csh default-jre e2fslibs gcc-4.8-base gcc-4.9-base gcc-multilib git gstreamer0.10-alsa gstreamer1.0-alsa hunspell-en-ca hyphen-en-us lib32bz2-1.0 lib32ncurses5 lib32stdc++6 lib32z1 libacl1 libapt-inst1.5 libapt-pkg4.12 libatk-adaptor libattr1 libaudit1 libblkid1 libbsd0 libbz2-1.0 libc6 libc6:i386 libcap2 libcgmanager0 libcomerr2 libdb5.3 libdbus-1-3 libdebconfclient0 libdevmapper1.02.1 libdrm2 libegl1-mesa-drivers-lts-utopic libexpat1 libffi6 libfribidi0 libgcc1 libgcrypt11 libgdbm3 libgl1-mesa-dev libgnutls26 libgnutls-openssl27 libgpg-error0 libice6:i386 libjpeg62 libjpeg62:i386 libjson0 libjson-c2 libkmod2 liblockfile1 liblzma5 liblzo2-2 libmagic1 libmount1 libmpdec2 libncurses5 libncurses5-dev libncurses5:i386 libncursesw5 libnewt0.52 libnih1 libnih-dbus1 libp11-kit0 libpam0g libpam-cap libpam-modules libpcre3 libplymouth2 libpng12-0 libpng12-0:i386 libpopt0 libprocps3 libproxy1-plugin-gsettings libproxy1-plugin-networkmanager libpython3.4-minimal libpython3.4-stdlib libpython3-stdlib libqt4-sql-sqlite libreadline5 libreadline6 libreoffice-help-en-gb libreoffice-l10n-en-gb libreoffice-l10n-en-za libsdl1.2debian libselinux1 libsemanage1 libsepol1 libslang2 libsm6:i386 libsqlite3-0 libss2 libssl1.0.0 libstdc++5 libstdc++6 libstdc++6:i386 libtasn1-6 libtcl8.4 libtcl8.4:i386 libtinfo5 libtk8.4 libtk8.4:i386 libudev1 libusb-0.1-4 libustr-1.0-1 libuuid1 libx11-6:i386 libxau6:i386 libxaw7:i386 libxext6:i386 libxi6:i386 libxmu6:i386 libxp6 libxp6:i386 libxpm4:i386 libxt6:i386 libxtst6:i386 linux-headers-3.16.0-34 linux-headers-3.16.0-34-generic linux-image-3.16.0-34-generic linux-image-extra-3.16.0-34-generic mesa-common-dev mesa-utils myspell-en-au myspell-en-gb myspell-en-za mythes-en-au mythes-en-us ncftp openoffice.org-hyphenation python-tk qt-at-spi sni-qt thunderbird-locale-en thunderbird-locale-en-gb thunderbird-locale-en-us tk-table vim wbritish xfonts-100dpi xfonts-75dpi xfonts-traditional zlib1g
+
+~~~~~~~~~~~~~~~~~
+*** To fix the Vista dialog input issue, please rename the tcl and tk library that is supplied within the Vista installation folder:
+
+cd <VISTA_INSTALLATION>/linux64/tools.64bit/lib
+mv libtcl8.4.so libtcl8.4.so.orig
+mv libtk8.4.so libtk8.4.so.orig
+
+~~~~~~~~~~~~~~~~~
+*** To improve the fonts that Vista uses, you can update your X font path:
+
+xset +fp /usr/share/fonts/X11/75dpi
+xset +fp /usr/share/fonts/X11/100dpi
+
+~~~~~~~~~~~~~~~~~
+*** Note, to list the extra packages installed against the default installation:
+
+aptitude search '~i !~M' -F '%p' --disable-columns | sort -u > currentlyinstalled.txt
+wget -qO - http://mirror.pnl.gov/releases/precise/ubuntu-14.04.2-desktop-amd64.manifest | cut -f1 | sort -u > defaultinstalled.txt
+comm -23 currentlyinstalled.txt defaultinstalled.txt 
+
+
