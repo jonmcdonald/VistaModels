@@ -3,28 +3,25 @@
 
 #include <QtGui/QtGui>
 
-class RasterWindow : public QWindow
-{
-	Q_OBJECT
+class RasterWindow: public QWindow {
+Q_OBJECT
 public:
 	explicit RasterWindow(QWindow *parent = 0);
 
-	virtual void render(QPainter *, QBackingStore*) { };
+	virtual void render();
 
-	public slots:
+public slots:
 	void renderLater();
 	void renderNow();
 
-	protected:
+protected:
 	bool event(QEvent *event) Q_DECL_OVERRIDE;
 
 	void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
 	void exposeEvent(QExposeEvent *event) Q_DECL_OVERRIDE;
 
-
-
-	public:
-	QBackingStore *m_backingStore;
+public:
+	QBackingStore *_backingStore;
 	QPainter* _painter;
 	bool m_update_pending;
 public:
