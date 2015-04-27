@@ -2,8 +2,8 @@
 #include "mgc_vista_schematics.h"
 $includes_begin;
 #include <systemc.h>
-#include "../models/AccelDriver_model.h"
 #include "../models/can_model.h"
+#include "../models/FileCanData_model.h"
 $includes_end;
 
 $module_begin("Accelerator");
@@ -32,7 +32,7 @@ $create_component("CanIF");
 CanIF = new can_pvt("CanIF");
 $end;
 $create_component("acceldriver0");
-acceldriver0 = new AccelDriver_pvt("acceldriver0");
+acceldriver0 = new FileCanData_pvt("acceldriver0");
 $end;
 $bind("CanIF->TX0","TX0");
 vista_bind(CanIF->TX0, TX0);
@@ -75,7 +75,7 @@ $component("CanIF");
 can_pvt *CanIF;
 $end;
 $component("acceldriver0");
-AccelDriver_pvt *acceldriver0;
+FileCanData_pvt *acceldriver0;
 $end;
   $fields_end;
   $vlnv_decl_begin;

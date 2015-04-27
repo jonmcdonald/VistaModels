@@ -172,7 +172,7 @@ void canls_pv::thread() {
     d = pq.top();	// Take the priority message at the end of the start bit.
     pq.pop();
     // ReceiveCount used to know when data pointer can be deleted. Must be set to number of receivers.
-    d->m_tokenptr->setField("ReceiveCount", 3);
+    d->m_tokenptr->setField("ReceiveCount", 4);
     set_current_token(d->m_tokenptr);
     cff.put(d);
     rff.put(d);

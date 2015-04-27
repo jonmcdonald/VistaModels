@@ -1,10 +1,9 @@
 #include "systemc.h"
-#include "top.h"
 #include "model_builder.h"
-#include "FileCanData_pv.h"
-#include "Instruments_model.h"
-#include "Instruments_pv.h"
 #include "RealTimeStall.h"
+#include "top.h"
+#include "FileCanData_pv.h"
+#include "Instruments_pv.h"
 
 bool myRunning = true;
 

@@ -47,6 +47,23 @@ FileCanData_pv::FileCanData_pv(sc_module_name module_name)
 
 // callback for any change in signal: rxi of type: sc_in<bool>
 void FileCanData_pv::rxi_callback() {
+  unsigned int s;
+  unsigned int id;
+  unsigned char d[9];
+  unsigned long long data;
+
+  if (rxi.read() == 1) {
+cout<<name()<<" rxi_callback starting done\n";
+    m_write(CAN_ACK, 0);        // ack reg
+    m_read(CAN_RXSIZE, s);      // length
+    m_read(CAN_RXIDENT, id);    // ident
+    data = 0;
+    if (s > 0) 
+      m_read(CAN_RXDATA, (unsigned char *) &data, s); // RX data
+
+    cout << sc_time_stamp() <<": "<< name() << ", received 0x"<<hex<< id<<dec<< ", "<< s << ", "
+         << hex <<" 0x"<< data << dec << endl;
+  }
 }
 
 void FileCanData_pv::fifo_thread() {
@@ -89,8 +106,9 @@ void FileCanData_pv::file_thread() {
       m_write(CAN_SIZE, size);
       m_write(CAN_RTR, rtr);
       m_write(CAN_IDE, ide);
-      m_write(CAN_DATA, data);
+      m_write(CAN_DATA, (unsigned char *) &data, size);
       m_write(CAN_IDENT, ident);
+cout<<name()<<" m_write done\n";
     }
   }
 }
