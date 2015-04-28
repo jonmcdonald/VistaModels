@@ -8,6 +8,7 @@ to elements in those other directories.
 To get started with git using this repository execute:
 
 > git clone git@github.com:jonmcdonald/VistaModels.git
+> Or git clone https://github.com/jonmcdonald/VistaModels.git
 
   Documentation on git can be found at: http://www.git-scm.com/documentation 
 
