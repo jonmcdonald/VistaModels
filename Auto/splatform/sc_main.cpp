@@ -1,9 +1,11 @@
 #include "systemc.h"
 #include "model_builder.h"
 #include "RealTimeStall.h"
-#include "top.h"
+#include "splatform.h"
 #include "FileCanData_pv.h"
 #include "Instruments_pv.h"
+
+#define TOP splatform
 
 bool myRunning = true;
 
@@ -26,7 +28,7 @@ int sc_main(int argc, char *argv[]) {
 
  int seconds;
 
- top *inst_top = new top("top");
+ TOP *inst_top = new TOP("top");
  Instruments_pvt *instruments = new Instruments_pvt("Instruments");
  RealTimeStall *stall = new RealTimeStall("stall");
 
@@ -36,7 +38,10 @@ int sc_main(int argc, char *argv[]) {
  } else
    mycontrol ci("controlinst");
 
- inst_top->brake0->brakedriver0->getPV()->inff = &(instruments->getPV()->brakeFifo);
+ inst_top->brakesensor->inff = &(instruments->getPV()->brakeFifo);
+ inst_top->accelsensor->inff = &(instruments->getPV()->acceleratorFifo);
+
+ srand(47);
 
  sc_start();
 

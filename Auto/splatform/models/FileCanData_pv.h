@@ -54,6 +54,10 @@ class FileCanData_pv : public FileCanData_pv_base {
 
   ifstream ifile;
 
+  unsigned m_ident;
+  unsigned m_size;
+  unsigned long long m_data;
+
  public:
   tlm::tlm_fifo<uint> *inff;
 };

@@ -63,6 +63,9 @@ $(MBARCHIVE): $(MBOBJS)
 	@sed -e 's|.*:|$*.o:|' < $*.d > $*.d.tmp
 	@mv $*.d.tmp $*.d
 
+run: $(EXE)
+	vista_run ./$(EXE)
+
 clean:
 	rm -rf vista_work Project Source Object sim work papoulis_project
 	find . -name "*~" -exec rm {} \;

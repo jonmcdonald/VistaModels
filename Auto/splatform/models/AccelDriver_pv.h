@@ -27,7 +27,6 @@
 #pragma once
 
 #include "AccelDriver_model.h"
-#include "top.h"
 #include "can_pv.h"
 
 using namespace tlm;

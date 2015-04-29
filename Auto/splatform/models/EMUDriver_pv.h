@@ -40,6 +40,8 @@ class EMUDriver_pv : public EMUDriver_pv_base {
   SC_HAS_PROCESS(EMUDriver_pv);
   EMUDriver_pv(sc_core::sc_module_name module_name);       
 
+  void thread();
+
  protected:
   ////////////////////////////////////////
   // signals callbacks

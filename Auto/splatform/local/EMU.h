@@ -4,6 +4,7 @@ $includes_begin;
 #include <systemc.h>
 #include "../models/EMUDriver_model.h"
 #include "../models/can_model.h"
+#include "pull_if.h"
 $includes_end;
 
 $module_begin("EMU");
@@ -18,6 +19,9 @@ RX0("RX0")
 $end
 $init("TX0"),
 TX0("TX0")
+$end
+$init("s"),
+s("s")
 $end
 $init("CanIF"),
 CanIF(0)
@@ -46,6 +50,9 @@ $end;
 $bind("emudriver0->m","CanIF->reg");
 vista_bind(emudriver0->m, CanIF->reg);
 $end;
+$bind("emudriver0->s","s");
+vista_bind(emudriver0->s, s);
+$end;
     $elaboration_end;
   $vlnv_assign_begin;
 m_library = "local";
@@ -70,6 +77,9 @@ tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MO
 $end;
 $socket("TX0");
 tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND > TX0;
+$end;
+$port("s");
+sc_port<pull_if<unsigned int> > s;
 $end;
 $component("CanIF");
 can_pvt *CanIF;

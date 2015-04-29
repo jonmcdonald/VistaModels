@@ -47,22 +47,28 @@ FileCanData_pv::FileCanData_pv(sc_module_name module_name)
 
 // callback for any change in signal: rxi of type: sc_in<bool>
 void FileCanData_pv::rxi_callback() {
-  unsigned int s;
-  unsigned int id;
-  unsigned char d[9];
   unsigned long long data;
+  mb::mb_token_ptr tokenptr = get_current_token();
+  double nstime;
 
   if (rxi.read() == 1) {
-cout<<name()<<" rxi_callback starting done\n";
     m_write(CAN_ACK, 0);        // ack reg
-    m_read(CAN_RXSIZE, s);      // length
-    m_read(CAN_RXIDENT, id);    // ident
+    m_read(CAN_RXSIZE, m_size);      // length
+    m_read(CAN_RXIDENT, m_ident);    // ident
     data = 0;
-    if (s > 0) 
-      m_read(CAN_RXDATA, (unsigned char *) &data, s); // RX data
+    if (m_size > 0) {
+      m_read(CAN_RXDATA, (unsigned char *) &data, m_size); // RX data
+      m_data = data;
+    }
 
-    cout << sc_time_stamp() <<": "<< name() << ", received 0x"<<hex<< id<<dec<< ", "<< s << ", "
-         << hex <<" 0x"<< data << dec << endl;
+    if (tokenptr && tokenptr->hasField("CreationTime")) {
+      nstime = (sc_time_stamp() - tokenptr->getFieldAsTime("CreationTime")) / sc_time(1, SC_NS);
+      LifeTime_usec = nstime / 1000.0;
+      cout << "LifeTime_usec = " << LifeTime_usec << endl;
+    }
+    if (0)
+      cout << sc_time_stamp() <<": "<< name() << ", received 0x"<<hex<< m_ident<<dec<< ", "<< m_size << ", "
+           << hex <<" 0x"<< data << dec << endl;
   }
 }
 

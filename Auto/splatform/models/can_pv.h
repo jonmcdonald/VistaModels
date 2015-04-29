@@ -32,6 +32,7 @@
 
 #include "can_model.h"
 #include <map>
+#include <queue>
 class AccelDriver_pv;
 
 using namespace tlm;
@@ -123,6 +124,7 @@ class can_pv : public can_pv_base {
 
   mb::mb_fifo<mb::mb_token_ptr> tpff;
   tlm_fifo<CANDataType *> securityff;
+  queue<CANDataType *> securityq;
   map<unsigned int, CANDataType *> identmap;
   unsigned char rxmem[8];
 

@@ -3,6 +3,8 @@ Files {
 	 Sources {
 	 } 
 	 {Public Headers} {
+		{$PRJDIR/include/sensor.h}
+		{$PRJDIR/include/pull_if.h}
 	 } 
 	 Documentation {
 		{$PRJDIR/parameters.txt}
@@ -10,10 +12,7 @@ Files {
 	 Others {
 		{$PRJDIR/traces.tcl} 
 	 } 
-	 {Linked Binaries} {
-		{$PRJDIR/libmodels.a}
-		{$PRJDIR/sc_main.o}
-	 } 
+	 {Linked Binaries} {} 
 	 {Other Binaries} {} 
 	 Schematics {
 	 } 
@@ -25,8 +24,6 @@ Folders {
 	 Others * 
 	 {Linked Binaries} {*.o *.a *.so} 
 	 {Other Binaries} {*.exe .x} 
-}
-PathVariables {
 }
 GeneralCompilationOptions -Wall
 AlwaysCompileInCPPMode 1

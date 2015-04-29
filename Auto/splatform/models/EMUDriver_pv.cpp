@@ -25,19 +25,50 @@
 
 
 #include "EMUDriver_pv.h"
+#include "MemoryMap.h"
 #include <iostream>
 
 using namespace sc_core;
 using namespace sc_dt;
 using namespace std;
 
+extern bool myRunning;
+
 //constructor
 EMUDriver_pv::EMUDriver_pv(sc_module_name module_name) 
   : EMUDriver_pv_base(module_name) {
+  SC_THREAD(thread);
 }    
 
  
 
 // callback for any change in signal: rxi of type: sc_in<bool>
 void EMUDriver_pv::rxi_callback() {
+  unsigned s;
+  unsigned id;
+  unsigned char d[9];
+
+  if (rxi.read() == 1) {
+    m_write(CAN_ACK, 0);
+    m_read(CAN_RXSIZE, s);
+    m_read(CAN_RXIDENT, id);
+    if (s > 0)
+      m_read(CAN_RXDATA, d, s);
+  }
+}
+
+void EMUDriver_pv::thread() {
+  unsigned d;
+  mb::mb_token_ptr tokenptr;
+
+  while(myRunning) {
+    wait (70, SC_MS);
+    d = s->pull();
+    tokenptr = new mb::mb_token();
+    tokenptr->setField("CreationTime", sc_time_stamp());
+    set_current_token(tokenptr);
+    m_write(CAN_DATA, d);
+    m_write(CAN_SIZE, 4);
+    m_write(CAN_IDENT, ACCELERATORID);
+  }
 }

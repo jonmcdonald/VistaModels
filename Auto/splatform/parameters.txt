@@ -1,30 +1,29 @@
 
-generic_hscan_clock = 1 US
-top.hscan0.generic_clock = 1 US
-generic_lscan_clock = 8 US
-top.lscan0.generic_clock = 8 US
-top.accelerator0.CanIF.generic_clock = 8 US
-top.cluster0.lscan.generic_clock = 8 US
-top.radio0.CanIF.generic_clock = 8 US
-
 tlm_timing_model = AT
 
-top.hscan0.emu_rx_size = 0x1000
-top.hscan0.abs_rx_size = 0x1000
-top.hscan0.c_rx_size = 0x1000
-top.hscan0.rbl_rx_size = 0x1000
-top.hscan0.sa_rx_size = 0x1000
+top.chassiscan0.generic_clock = 1 US
+top.propcan0.generic_clock = 1 US
+top.bodycan0.generic_clock = 8 US
 
-top.lscan0.r_rx_size = 0x1000
-top.lscan0.c_rx_size = 0x1000
-top.lscan0.ap_rx_size = 0x1000
+top.cem0.chassiscan.generic_clock = 1 US
+top.cem0.propcan.generic_clock = 1 US
+top.cem0.bodycan.generic_clock = 8 US
 
-top.hscan0.write_broadcast = 1
-top.lscan0.write_broadcast = 1
+top.secattack0.CanIF.generic_clock = 8 US
+top.radio0.CanIF.generic_clock = 8 US
+
+top.cluster0.CanIF.generic_clock = 1 US
+top.restbus0.CanIF.generic_clock = 1 US
+top.absfl.CanIF.generic_clock = 1 US
+top.absfr.CanIF.generic_clock = 1 US
+top.absbl.CanIF.generic_clock = 1 US
+top.absbr.CanIF.generic_clock = 1 US
+top.emu0.CanIF.generic_clock = 1 US
+top.ebm0.CanIF.generic_clock = 1 US
 
 EnableSecurity = 1
 top.securityattack0.CanIF.EnableSecurity = 0
 
-RealTimeSeconds = 10
+RealTimeSeconds = 1
 RealTimeInterval = 0.1
 RealTimeFactor = 1.0

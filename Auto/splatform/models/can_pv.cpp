@@ -36,8 +36,9 @@ using namespace std;
 
 //constructor
 can_pv::can_pv(sc_module_name module_name) 
-  : can_pv_base(module_name), tpff("tpff", -1) {
+  : can_pv_base(module_name) {
   GI_Rx.initialize(0);
+  tpff.nb_unbound();
 }   
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -53,10 +54,15 @@ void can_pv::cb_write_m_ident(unsigned int newValue) {
   unsigned char *m = (unsigned char *) &m_mem[0];
   CANDataType *c = (CANDataType *) d;
 
-  mb::mb_token_ptr tokenptr = get_current_token();
-  if (!tokenptr)
-    tokenptr = new mb::mb_token;
-  tokenptr->setField("DataPtr", (void *)d);
+  mb::mb_token_ptr ctp = get_current_token();
+  mb::mb_token_ptr tokenptr;
+  if (ctp) { 
+    tokenptr = new mb::mb_token(ctp);
+  } else {
+    tokenptr = new mb::mb_token();
+  }
+
+  tokenptr->setField("CANDataPtr", (void *)d);
 
   c->ident = m_ident;
   c->rtr = m_rtr;
@@ -100,7 +106,7 @@ void can_pv::cb_read_m_rxmem(uint64_t address, unsigned char* data, unsigned len
 
   if (tpff.nb_can_get()) {
     tokenptr = tpff.get();
-    c = (CANDataType *)tokenptr->getFieldAsVoidPtr("DataPtr");
+    c = (CANDataType *)tokenptr->getFieldAsVoidPtr("CANDataPtr");
     assert (c);
     memcpy(rxmem, c->d, c->length);
     memcpy(data, c->d, c->length);
@@ -146,12 +152,13 @@ bool can_pv::RX0_callback_write(mb_address_type address, unsigned char* data, un
 
   mb::mb_token_ptr tokenptr = get_current_token();
 
-  if (EnableSecurity && tokenptr && tokenptr->hasField("DataPtr")) {
-    c = (CANDataType *) tokenptr->getFieldAsVoidPtr("DataPtr");
+  if (EnableSecurity && tokenptr && tokenptr->hasField("CANDataPtr")) {
+    c = (CANDataType *) tokenptr->getFieldAsVoidPtr("CANDataPtr");
     CANDataType *cdsent;
     securityff.nb_get(cdsent);
     if (identmap.count(c->ident) == 1 && c != cdsent) {
       // Message with ident that we have sent seen on bus.  Corrupt checksum to kill message.
+cout<<sc_time_stamp()<<": "<<name()<<", Breach "<<c->ident<<" "<<c->crc<<", "<<hex<<(unsigned long long)c<<", "<<(unsigned long long)cdsent<<", "<<(unsigned long long)&securityff<<endl;
       c->crc = 0;
 cout<< sc_time_stamp()<<": "<<name()<<". Identified security breach, corrupting checksum\n";
     }

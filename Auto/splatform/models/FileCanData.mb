@@ -27,6 +27,9 @@ set_auto_parameter_default "rxi_pipeline_length" 2 uint32 {}
 # usage: add_generic <generic_name> <value>
 # example: add_generic "OUT_ACTIVE_VALUE" false
 
+# === machine architecture ===
+declare_variable LifeTime_usec -type config::real80
+
 # === generate options ===
 set_generate_kind "pvt" ;# should be one of: model|pv|pvt
 set_include_file ""

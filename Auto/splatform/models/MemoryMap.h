@@ -12,3 +12,7 @@
 #define CAN_RXSIZE  0x3C
 
 #define CAN_ACK 0x40
+
+#define BRAKEID 0x100
+#define ACCELERATORID 0x200
+

@@ -1,0 +1,6 @@
+# === Model Interface File ===
+# ============================
+
+class sensor
+include ../include/sensor.h
+port -name p -kind export -class pull_if<unsigned>

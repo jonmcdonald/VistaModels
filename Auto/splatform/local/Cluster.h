@@ -2,72 +2,49 @@
 #include "mgc_vista_schematics.h"
 $includes_begin;
 #include <systemc.h>
-#include "../models/ClusterDriver_model.h"
 #include "../models/can_model.h"
+#include "../models/FileCanData_model.h"
 $includes_end;
 
 $module_begin("Cluster");
 SC_MODULE(Cluster) {
 public:
+  typedef Cluster SC_CURRENT_USER_MODULE;
   Cluster(::sc_core::sc_module_name name):
     ::sc_core::sc_module(name)
     $initialization_begin
-$init("RXLS"),
-RXLS("RXLS")
+$init("RX0"),
+RX0("RX0")
 $end
-$init("RXHS"),
-RXHS("RXHS")
+$init("TX0"),
+TX0("TX0")
 $end
-$init("TXLS"),
-TXLS("TXLS")
-$end
-$init("TXHS"),
-TXHS("TXHS")
+$init("CanIF"),
+CanIF(0)
 $end
 $init("clusterdriver0"),
 clusterdriver0(0)
 $end
-$init("hscan"),
-hscan(0)
-$end
-$init("lscan"),
-lscan(0)
-$end
     $initialization_end
 {
     $elaboration_begin;
+$create_component("CanIF");
+CanIF = new can_pvt("CanIF");
+$end;
 $create_component("clusterdriver0");
-clusterdriver0 = new ClusterDriver_pvt("clusterdriver0");
+clusterdriver0 = new FileCanData_pvt("clusterdriver0");
 $end;
-$create_component("hscan");
-hscan = new can_pvt("hscan");
+$bind("CanIF->GI_Rx","clusterdriver0->rxi");
+vista_bind(CanIF->GI_Rx, clusterdriver0->rxi);
 $end;
-$create_component("lscan");
-lscan = new can_pvt("lscan");
+$bind("CanIF->TX0","TX0");
+vista_bind(CanIF->TX0, TX0);
 $end;
-$bind("RXHS","hscan->RX0");
-vista_bind(RXHS, hscan->RX0);
+$bind("RX0","CanIF->RX0");
+vista_bind(RX0, CanIF->RX0);
 $end;
-$bind("lscan->TX0","TXLS");
-vista_bind(lscan->TX0, TXLS);
-$end;
-$bind("clusterdriver0->hs","hscan->reg");
-vista_bind(clusterdriver0->hs, hscan->reg);
-$end;
-$bind("hscan->TX0","TXHS");
-vista_bind(hscan->TX0, TXHS);
-$end;
-$bind("hscan->GI_Rx","clusterdriver0->hsrx");
-vista_bind(hscan->GI_Rx, clusterdriver0->hsrx);
-$end;
-$bind("lscan->GI_Rx","clusterdriver0->lsrx");
-vista_bind(lscan->GI_Rx, clusterdriver0->lsrx);
-$end;
-$bind("clusterdriver0->ls","lscan->reg");
-vista_bind(clusterdriver0->ls, lscan->reg);
-$end;
-$bind("RXLS","lscan->RX0");
-vista_bind(RXLS, lscan->RX0);
+$bind("clusterdriver0->m","CanIF->reg");
+vista_bind(clusterdriver0->m, CanIF->reg);
 $end;
     $elaboration_end;
   $vlnv_assign_begin;
@@ -78,39 +55,27 @@ m_version = "";
   }
   ~Cluster() {
     $destructor_begin;
+$destruct_component("CanIF");
+delete CanIF; CanIF = 0;
+$end;
 $destruct_component("clusterdriver0");
 delete clusterdriver0; clusterdriver0 = 0;
-$end;
-$destruct_component("hscan");
-delete hscan; hscan = 0;
-$end;
-$destruct_component("lscan");
-delete lscan; lscan = 0;
 $end;
     $destructor_end;
   }
 public:
   $fields_begin;
-$socket("RXLS");
-tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND > RXLS;
+$socket("RX0");
+tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND > RX0;
 $end;
-$socket("RXHS");
-tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND > RXHS;
+$socket("TX0");
+tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND > TX0;
 $end;
-$socket("TXLS");
-tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND > TXLS;
-$end;
-$socket("TXHS");
-tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND > TXHS;
+$component("CanIF");
+can_pvt *CanIF;
 $end;
 $component("clusterdriver0");
-ClusterDriver_pvt *clusterdriver0;
-$end;
-$component("hscan");
-can_pvt *hscan;
-$end;
-$component("lscan");
-can_pvt *lscan;
+FileCanData_pvt *clusterdriver0;
 $end;
   $fields_end;
   $vlnv_decl_begin;

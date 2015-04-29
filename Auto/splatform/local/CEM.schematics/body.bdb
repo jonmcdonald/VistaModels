@@ -1,0 +1,130 @@
+03.00 00 2B 
+@@VE@00000@@ 
+@@VE@names@@ 
+@@VE@00000@@ 
+@@VE@intfc@@ 
+@@VE@_sigs@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@_uses@@ 
+@@VE@00000@@ 
+@@VE@_gens@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@attrs@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@u_chs@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@00000@@ 
+@@VE@hdrde@@ 
+@@VE@00000@@ 
+@@VE@_impl@@ 
+@@VE@tmplt@@ 
+@@VE@00000@@ 
+@@VE@c_usd@@ 
+@^@VE_hdr_end@^@ 
+
+@@VE@names@@ 0 23 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 !
+
+@@VE@intfc@@ 6 
+{ @pdecl { { @n TXprop @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketInitiator @iv -
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@multiport 1 @isTemplate 0
+@initzConstruct %Name%
+} @gr DEF @idx -1 } { @pdecl { { @n RXprop @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketTarget @iv -
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@multiport 1 @isTemplate 0
+@initzConstruct %Name%
+} @gr DEF @idx -1 } { @pdecl { { @n RXchassis @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketTarget @iv -
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@multiport 1 @isTemplate 0
+@initzConstruct %Name%
+} @gr DEF @idx -1 } { @pdecl { { @n TXchassis @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketInitiator @iv -
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@multiport 1 @isTemplate 0
+@initzConstruct %Name%
+} @gr DEF @idx -1 } { @pdecl { { @n TXbody @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketInitiator @iv -
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@multiport 1 @isTemplate 0
+@initzConstruct %Name%
+} @gr DEF @idx -1 } { @pdecl { { @n RXbody @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketTarget @iv -
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@multiport 1 @isTemplate 0
+@initzConstruct %Name%
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+
+@@VE@_sigs@@ 0 L { @nvis @ctorsn 1 } !
+
+@@VE@hdrde@@ -1 -17 @ufc @ufs @vis 1288353179 nil F @page 1 @ptxt 5 SC_MODULE(top) 
+{ 
+public: 
+ SC_CTOR(top); 
+}; // end_of_class 
+!
+
+@@VE@_impl@@ -1 -17 @ufc @ufs @vis 1288353179 nil F @page 1 @ptxt 4 top::top(sc_module_name name) 
+ :sc_module(name) 
+{ 
+} 
+!
+
+@@VE@tmplt@@ { @cnt 0 } 
+@@VE@_uses@@ 0 L { @nvis } !
+
+@@VE@c_usd@@ 0 L { @nvis } !
+
+@@VE@_gens@@ 0 L { @nvis @ctorsn 1 } !
+
+@@VE@attrs@@ -1 -17 @ufc @ufs @vis 0 nil F @page 1 @ptxt 0 !
+
+@@VE@u_chs@@ 2 
