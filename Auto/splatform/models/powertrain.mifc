@@ -1,0 +1,11 @@
+# === Model Interface File ===
+# ============================
+
+class powertrain
+include ../include/powertrain.h
+port -name eng -kind export -class pushpull_if<unsigned>
+port -name brk -kind export -class push_if<unsigned>
+port -name wfl -kind export -class pull_if<unsigned>
+port -name wfr -kind export -class pull_if<unsigned>
+port -name wbl -kind export -class pull_if<unsigned>
+port -name wbr -kind export -class pull_if<unsigned>

@@ -36,7 +36,7 @@ int sc_main(int argc, char *argv[]) {
    sscanf(argv[1], "%d", &seconds);
    mycontrol ci("controlinst", seconds);
  } else
-   mycontrol ci("controlinst");
+   mycontrol ci("controlinst", 10);
 
  inst_top->brakesensor->inff = &(instruments->getPV()->brakeFifo);
  inst_top->accelsensor->inff = &(instruments->getPV()->acceleratorFifo);

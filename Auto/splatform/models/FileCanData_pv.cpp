@@ -64,9 +64,10 @@ void FileCanData_pv::rxi_callback() {
     if (tokenptr && tokenptr->hasField("CreationTime")) {
       nstime = (sc_time_stamp() - tokenptr->getFieldAsTime("CreationTime")) / sc_time(1, SC_NS);
       LifeTime_usec = nstime / 1000.0;
-      cout << "LifeTime_usec = " << LifeTime_usec << endl;
+    } else {
+      cout << sc_time_stamp() << ": " << name() << ", received token with no CreationTime\n";
     }
-    if (0)
+    if (PRINT_MESSAGE && (m_ident == SPEEDID || m_ident == RPMID))
       cout << sc_time_stamp() <<": "<< name() << ", received 0x"<<hex<< m_ident<<dec<< ", "<< m_size << ", "
            << hex <<" 0x"<< data << dec << endl;
   }
@@ -94,6 +95,7 @@ void FileCanData_pv::file_thread() {
   unsigned int t_us, ident, size, rtr, ide;
   unsigned long long data;
   sc_time ctime = sc_time_stamp();
+  mb::mb_token_ptr tokenptr;
 
   ifile >> s;
   while (ifile.good()) {
@@ -109,12 +111,14 @@ void FileCanData_pv::file_thread() {
       if (ctime < sc_time(t_us, SC_US))
         wait(sc_time(t_us, SC_US) - ctime);
 
+      tokenptr = new mb::mb_token();
+      tokenptr->setField("CreationTime", sc_time_stamp());
+      set_current_token(tokenptr);
       m_write(CAN_SIZE, size);
       m_write(CAN_RTR, rtr);
       m_write(CAN_IDE, ide);
       m_write(CAN_DATA, (unsigned char *) &data, size);
       m_write(CAN_IDENT, ident);
-cout<<name()<<" m_write done\n";
     }
   }
 }

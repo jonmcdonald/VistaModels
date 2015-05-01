@@ -64,11 +64,14 @@ void EMUDriver_pv::thread() {
   while(myRunning) {
     wait (70, SC_MS);
     d = s->pull();
+    e->push(d);
+    d = e->pull(0);
+    RPM = d;
     tokenptr = new mb::mb_token();
     tokenptr->setField("CreationTime", sc_time_stamp());
     set_current_token(tokenptr);
     m_write(CAN_DATA, d);
     m_write(CAN_SIZE, 4);
-    m_write(CAN_IDENT, ACCELERATORID);
+    m_write(CAN_IDENT, RPMID);
   }
 }

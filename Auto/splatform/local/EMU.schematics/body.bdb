@@ -46,12 +46,20 @@
 
 @@VE@names@@ 0 23 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 !
 
-@@VE@intfc@@ 3 
-{ @pdecl { { @n s @t - @bnd -
+@@VE@intfc@@ 4 
+{ @pdecl { { @n e @t - @bnd -
 @das -
 @nregout @skind
 none @block  1
-@ch { @ s { } { sc_port<pull_if<unsigned int> > } - 0 } 
+@ch { @ e { } { sc_port<pushpull_if<unsigned> > } - 0 } 
+@ischnl } @md out @iv -
+@sysInt sc_port<pushpull_if<unsigned> >
+@multiport 1 @isTemplate 0
+} @gr DEF @idx -1 } { @pdecl { { @n s @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch { @ s { } { sc_port<pull_if<unsigned int> > } 0 0 } 
 @ischnl } @md in @iv -
 @sysInt sc_port<pull_if<unsigned int> >
 @multiport 1 @isTemplate 0

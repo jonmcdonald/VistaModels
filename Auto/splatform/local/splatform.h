@@ -14,6 +14,8 @@ $includes_begin;
 #include "../models/BodyCan_model.h"
 #include "Cluster.h"
 #include "Radio.h"
+#include "powertrain.h"
+#include "../include/powertrain.h"
 $includes_end;
 
 $module_begin("splatform");
@@ -71,6 +73,9 @@ $end
 $init("restbus0"),
 restbus0(0)
 $end
+$init("powertrain0"),
+powertrain0(0)
+$end
     $initialization_end
 {
     $elaboration_begin;
@@ -121,6 +126,9 @@ absbl = new ABS("absbl");
 $end;
 $create_component("restbus0");
 restbus0 = new RestBus("restbus0");
+$end;
+$create_component("powertrain0");
+powertrain0 = new powertrain("powertrain0");
 $end;
 $bind("bodycan0->RX1","radio0->RX0");
 vista_bind(bodycan0->RX1, radio0->RX0);
@@ -212,6 +220,13 @@ m_library = "local";
 m_vendor = "";
 m_version = "";
   $vlnv_assign_end;
+    // User connections
+    emu0->e(powertrain0->eng);
+    ebm0->b(powertrain0->brk);
+    absfl->s(powertrain0->wfl);
+    absfr->s(powertrain0->wfr);
+    absbl->s(powertrain0->wbl);
+    absbr->s(powertrain0->wbr);
   }
   ~splatform() {
     $destructor_begin;
@@ -262,6 +277,9 @@ delete absbl; absbl = 0;
 $end;
 $destruct_component("restbus0");
 delete restbus0; restbus0 = 0;
+$end;
+$destruct_component("powertrain0");
+delete powertrain0; powertrain0 = 0;
 $end;
     $destructor_end;
   }
@@ -314,6 +332,9 @@ ABS *absbl;
 $end;
 $component("restbus0");
 RestBus *restbus0;
+$end;
+$component("powertrain0");
+powertrain *powertrain0;
 $end;
   $fields_end;
   $vlnv_decl_begin;

@@ -127,6 +127,6 @@ class can_pv : public can_pv_base {
   queue<CANDataType *> securityq;
   map<unsigned int, CANDataType *> identmap;
   unsigned char rxmem[8];
-
+  unsigned int corruptId;
 };
 

@@ -15,4 +15,14 @@
 
 #define BRAKEID 0x100
 #define ACCELERATORID 0x200
+#define SPEEDID 0x300
+#define SPEEDIDFL 0x310
+#define SPEEDIDFR 0x320
+#define SPEEDIDBL 0x330
+#define SPEEDIDBR 0x340
+#define RPMID 0x400
 
+#define WHEEL_FL 0
+#define WHEEL_FR 1
+#define WHEEL_BL 2
+#define WHEEL_BR 3

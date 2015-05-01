@@ -23,6 +23,9 @@ $end
 $init("s"),
 s("s")
 $end
+$init("b"),
+b("b")
+$end
 $init("CanIF"),
 CanIF(0)
 $end
@@ -53,6 +56,9 @@ $end;
 $bind("ebmdriver0->s","s");
 vista_bind(ebmdriver0->s, s);
 $end;
+$bind("ebmdriver0->b","b");
+vista_bind(ebmdriver0->b, b);
+$end;
     $elaboration_end;
   $vlnv_assign_begin;
 m_library = "local";
@@ -80,6 +86,9 @@ tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR
 $end;
 $port("s");
 sc_port<pull_if<unsigned int> > s;
+$end;
+$port("b");
+sc_port<push_if<unsigned int> > b;
 $end;
 $component("CanIF");
 can_pvt *CanIF;

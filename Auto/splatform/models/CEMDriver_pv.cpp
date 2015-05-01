@@ -34,7 +34,14 @@ using namespace std;
 
 //constructor
 CEMDriver_pv::CEMDriver_pv(sc_module_name module_name) 
-  : CEMDriver_pv_base(module_name) {
+  : CEMDriver_pv_base(module_name),
+    bodyff("bodyff", 4),
+    propff("propff", 4),
+    chassisff("chassisff", 4)
+{
+  SC_THREAD(body_thread);
+  SC_THREAD(chassis_thread);
+  SC_THREAD(prop_thread);
 }    
 
  
@@ -44,6 +51,8 @@ void CEMDriver_pv::propRXI_callback() {
   unsigned s;
   unsigned id;
   unsigned char d[9];
+  DataType *dt;
+
   if (propRXI.read() == 1) {
     propB_write(CAN_ACK, 0);
     propB_read(CAN_RXSIZE, s);
@@ -52,12 +61,10 @@ void CEMDriver_pv::propRXI_callback() {
       propB_read(CAN_RXDATA, d, s);
 
     if (id == ACCELERATORID && s > 0) {
-      bodyB_write(CAN_DATA, d, s);
-      bodyB_write(CAN_SIZE, s);
-      bodyB_write(CAN_IDENT, id);
-      chassisB_write(CAN_DATA, d, s);
-      chassisB_write(CAN_SIZE, s);
-      chassisB_write(CAN_IDENT, id);
+      dt = new DataType(id, s, d);
+      bodyff.put(dt);
+      dt = new DataType(id, s, d);
+      chassisff.put(dt);
     }
   }
 }
@@ -67,6 +74,8 @@ void CEMDriver_pv::chassisRXI_callback() {
   unsigned s;
   unsigned id;
   unsigned char d[9];
+  DataType *dt;
+
   if (chassisRXI.read() == 1) {
     chassisB_write(CAN_ACK, 0);
     chassisB_read(CAN_RXSIZE, s);
@@ -74,14 +83,46 @@ void CEMDriver_pv::chassisRXI_callback() {
     if (s > 0)
       chassisB_read(CAN_RXDATA, d, s);
 
-    if (id == BRAKEID && s > 0) {
-      propB_write(CAN_DATA, d, s);
-      propB_write(CAN_SIZE, s);
-      propB_write(CAN_IDENT, id);
+    if ((id == SPEEDID || id == BRAKEID) && s > 0) {
+      dt = new DataType(id, s, d);
+      propff.put(dt);
     }
   }
 }
 
 // callback for any change in signal: bodyRXI of type: sc_in<bool>
 void CEMDriver_pv::bodyRXI_callback() {
+}
+
+void CEMDriver_pv::body_thread() {
+  DataType * dt;
+  while (dt = bodyff.peek()) {
+    bodyB_write(CAN_DATA, dt->d, dt->s);
+    bodyB_write(CAN_SIZE, dt->s);
+    bodyB_write(CAN_IDENT, dt->id);
+    bodyff.get();
+    delete dt;
+  }
+}
+
+void CEMDriver_pv::prop_thread() {
+  DataType * dt;
+  while (dt = propff.peek()) {
+    propB_write(CAN_DATA, dt->d, dt->s);
+    propB_write(CAN_SIZE, dt->s);
+    propB_write(CAN_IDENT, dt->id);
+    propff.get();
+    delete dt;
+  }
+}
+
+void CEMDriver_pv::chassis_thread() {
+  DataType * dt;
+  while (dt = chassisff.peek()) {
+    chassisB_write(CAN_DATA, dt->d, dt->s);
+    chassisB_write(CAN_SIZE, dt->s);
+    chassisB_write(CAN_IDENT, dt->id);
+    chassisff.get();
+    delete dt;
+  }
 }

@@ -22,7 +22,7 @@
 //* Generated on: Apr. 28, 2015 09:48:17 AM, (user: jon)
 //*>
 
-
+extern bool myRunning;
 
 #include "ABSDriver_pv.h"
 #include <iostream>
@@ -34,10 +34,25 @@ using namespace std;
 //constructor
 ABSDriver_pv::ABSDriver_pv(sc_module_name module_name) 
   : ABSDriver_pv_base(module_name) {
-}    
 
- 
+  if (rxi.read() == 1) {
+    m_write(CAN_ACK, 0);
+  }
+}    
 
 // callback for any change in signal: rxi of type: sc_in<bool>
 void ABSDriver_pv::rxi_callback() {
+  unsigned d;
+  mb::mb_token_ptr tokenptr;
+
+  while(myRunning) {
+    wait (70, SC_MS);
+    d = s->pull();
+    tokenptr = new mb::mb_token();
+    tokenptr->setField("CreationTime", sc_time_stamp());
+    set_current_token(tokenptr);
+    m_write(CAN_DATA, d);
+    m_write(CAN_SIZE, 4);
+    m_write(CAN_IDENT, m_SPEEDID);
+  }
 }

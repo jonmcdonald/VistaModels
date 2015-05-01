@@ -7,11 +7,10 @@
 # === ports ===
 add_port "m" /TLM/protocols/generic master 32 -bind_mode optional
 add_port "rxi" /TLM/protocols/signal slave 1 -bind_mode optional
-port -name s -class {sc_port<pull_if<unsigned int> >}
+port -name s -class {sc_port<pull_if<unsigned> >}
 
 # === parameters ===
-# usage: add_parameter <parameter_name> <default_value> <type:string|unsigned|int>
-# example: add_parameter "parameter1" 12 unsigned
+add_parameter "m_SPEEDID" 0 uint32 {}
 
 # === auto parameters ===
 set_auto_parameter_default "clock" {10 ns} time {}
@@ -31,7 +30,7 @@ set_auto_parameter_default "rxi_pipeline_length" 2 uint32 {}
 
 # === generate options ===
 set_generate_kind "pvt" ;# should be one of: model|pv|pvt
-set_include_file "pull_if.h"
+set_include_file "pull_if.h MemoryMap.h"
 set_external_pv_include ""
 set_pv_kind "template" ;# should be one of: template|external
 set_timing_kind "policies" ;# should be: policies

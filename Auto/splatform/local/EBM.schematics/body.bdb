@@ -46,12 +46,12 @@
 
 @@VE@names@@ 0 23 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 !
 
-@@VE@intfc@@ 3 
+@@VE@intfc@@ 4 
 { @pdecl { { @n s @t - @bnd -
 @das -
 @nregout @skind
 none @block  1
-@ch { @ s { } { sc_port<pull_if<unsigned int> > } - 0 } 
+@ch { @ s { } { sc_port<pull_if<unsigned int> > } 0 0 } 
 @ischnl } @md in @iv -
 @sysInt sc_port<pull_if<unsigned int> >
 @multiport 1 @isTemplate 0
@@ -73,6 +73,14 @@ none @block  1
 @sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 0
 @initzConstruct %Name%
+} @gr DEF @idx -1 } { @pdecl { { @n b @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch { @ b { } { sc_port<push_if<unsigned int> > } - 0 } 
+@ischnl } @md out @iv -
+@sysInt sc_port<push_if<unsigned int> >
+@multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 
 @@VE@_sigs@@ 0 L { @nvis @ctorsn 1 } !

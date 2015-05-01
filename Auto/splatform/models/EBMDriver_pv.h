@@ -41,11 +41,29 @@ class EBMDriver_pv : public EBMDriver_pv_base {
   EBMDriver_pv(sc_core::sc_module_name module_name);       
 
   void thread();
+  void output_thread();
 
  protected:
   ////////////////////////////////////////
   // signals callbacks
   //////////////////////////////////////// 
   void rxi_callback(); 
+
+ private:
+  struct DataType {
+    unsigned int id;
+    unsigned int s;
+    unsigned char d[9];
+
+    DataType(unsigned int n_id, unsigned int n_s, unsigned char *n_d) :
+      id(n_id),
+      s(n_s)
+    {
+      memcpy(d, n_d, 9);
+    }
+  };
+
+  mb::mb_fifo<DataType*> outputff;
+
 };
 

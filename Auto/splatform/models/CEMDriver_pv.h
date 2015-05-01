@@ -40,6 +40,10 @@ class CEMDriver_pv : public CEMDriver_pv_base {
   SC_HAS_PROCESS(CEMDriver_pv);
   CEMDriver_pv(sc_core::sc_module_name module_name);       
 
+  void body_thread();
+  void prop_thread();
+  void chassis_thread();
+
  protected:
   ////////////////////////////////////////
   // signals callbacks
@@ -47,5 +51,23 @@ class CEMDriver_pv : public CEMDriver_pv_base {
   void propRXI_callback();
   void chassisRXI_callback();
   void bodyRXI_callback(); 
+
+ private:
+  struct DataType {
+    unsigned int id;
+    unsigned int s;
+    unsigned char d[9];
+
+    DataType(unsigned int n_id, unsigned int n_s, unsigned char *n_d) :
+      id(n_id),
+      s(n_s)
+    {
+      memcpy(d, n_d, 9);
+    }
+  };
+
+  mb::mb_fifo<DataType*> bodyff;
+  mb::mb_fifo<DataType*> propff;
+  mb::mb_fifo<DataType*> chassisff;
 };
 

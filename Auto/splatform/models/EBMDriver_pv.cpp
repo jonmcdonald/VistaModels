@@ -38,10 +38,12 @@ extern bool myRunning;
 EBMDriver_pv::EBMDriver_pv(sc_module_name module_name) 
   : EBMDriver_pv_base(module_name) {
   SC_THREAD(thread);
+  SC_THREAD(output_thread);
 }    
 
 // callback for any change in signal: rxi of type: sc_in<bool>
 void EBMDriver_pv::rxi_callback() {
+  DataType * dt;
   unsigned s;
   unsigned id;
   unsigned char d[9];
@@ -52,6 +54,23 @@ void EBMDriver_pv::rxi_callback() {
     m_read(CAN_RXIDENT, id);
     if (s > 0)
       m_read(CAN_RXDATA, d, s);
+
+    if (id == SPEEDIDBL && s > 0) {
+      dt = new DataType(SPEEDID, s, d);
+      SPEED = *(unsigned *)d;
+      outputff.put(dt);
+    }
+  }
+}
+
+void EBMDriver_pv::output_thread() {
+  DataType * dt;
+  while (dt = outputff.peek()) {
+    m_write(CAN_DATA, dt->d, dt->s);
+    m_write(CAN_SIZE, dt->s);
+    m_write(CAN_IDENT, dt->id);
+    outputff.get();
+    delete dt;
   }
 }
 
@@ -62,6 +81,7 @@ void EBMDriver_pv::thread() {
   while(myRunning) {
     wait (70, SC_MS);
     d = s->pull();
+    b->push(d);
     tokenptr = new mb::mb_token();
     tokenptr->setField("CreationTime", sc_time_stamp());
     set_current_token(tokenptr);

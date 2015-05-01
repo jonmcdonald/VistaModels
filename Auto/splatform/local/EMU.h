@@ -23,6 +23,9 @@ $end
 $init("s"),
 s("s")
 $end
+$init("e"),
+e("e")
+$end
 $init("CanIF"),
 CanIF(0)
 $end
@@ -53,6 +56,9 @@ $end;
 $bind("emudriver0->s","s");
 vista_bind(emudriver0->s, s);
 $end;
+$bind("emudriver0->e","e");
+vista_bind(emudriver0->e, e);
+$end;
     $elaboration_end;
   $vlnv_assign_begin;
 m_library = "local";
@@ -80,6 +86,9 @@ tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR
 $end;
 $port("s");
 sc_port<pull_if<unsigned int> > s;
+$end;
+$port("e");
+sc_port<pushpull_if<unsigned> > e;
 $end;
 $component("CanIF");
 can_pvt *CanIF;

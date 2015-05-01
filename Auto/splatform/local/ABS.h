@@ -4,7 +4,6 @@ $includes_begin;
 #include <systemc.h>
 #include "../models/can_model.h"
 #include "../models/ABSDriver_model.h"
-#include "../include/sensor.h"
 #include "pull_if.h"
 $includes_end;
 
@@ -21,14 +20,14 @@ $end
 $init("TX0"),
 TX0("TX0")
 $end
+$init("s"),
+s("s")
+$end
 $init("CanIF"),
 CanIF(0)
 $end
 $init("absdriver0"),
 absdriver0(0)
-$end
-$init("sensor0"),
-sensor0(0)
 $end
     $initialization_end
 {
@@ -38,9 +37,6 @@ CanIF = new can_pvt("CanIF");
 $end;
 $create_component("absdriver0");
 absdriver0 = new ABSDriver_pvt("absdriver0");
-$end;
-$create_component("sensor0");
-sensor0 = new sensor("sensor0");
 $end;
 $bind("CanIF->GI_Rx","absdriver0->rxi");
 vista_bind(CanIF->GI_Rx, absdriver0->rxi);
@@ -54,8 +50,8 @@ $end;
 $bind("absdriver0->m","CanIF->reg");
 vista_bind(absdriver0->m, CanIF->reg);
 $end;
-$bind("absdriver0->s","sensor0->p");
-vista_bind(absdriver0->s, sensor0->p);
+$bind("absdriver0->s","s");
+vista_bind(absdriver0->s, s);
 $end;
     $elaboration_end;
   $vlnv_assign_begin;
@@ -72,9 +68,6 @@ $end;
 $destruct_component("absdriver0");
 delete absdriver0; absdriver0 = 0;
 $end;
-$destruct_component("sensor0");
-delete sensor0; sensor0 = 0;
-$end;
     $destructor_end;
   }
 public:
@@ -85,14 +78,14 @@ $end;
 $socket("TX0");
 tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND > TX0;
 $end;
+$port("s");
+sc_port<pull_if<unsigned> > s;
+$end;
 $component("CanIF");
 can_pvt *CanIF;
 $end;
 $component("absdriver0");
 ABSDriver_pvt *absdriver0;
-$end;
-$component("sensor0");
-sensor *sensor0;
 $end;
   $fields_end;
   $vlnv_decl_begin;

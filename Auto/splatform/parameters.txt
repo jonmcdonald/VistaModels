@@ -24,6 +24,13 @@ top.ebm0.CanIF.generic_clock = 1 US
 EnableSecurity = 1
 top.securityattack0.CanIF.EnableSecurity = 0
 
-RealTimeSeconds = 1
+top.absfl.absdriver0.m_SPEEDID = 0x310
+top.absfr.absdriver0.m_SPEEDID = 0x320
+top.absbl.absdriver0.m_SPEEDID = 0x330
+top.absbr.absdriver0.m_SPEEDID = 0x340
+
+top.cluster0.clusterdriver0.PRINT_MESSAGE = 1
+
+RealTimeSeconds = 10
 RealTimeInterval = 0.1
 RealTimeFactor = 1.0

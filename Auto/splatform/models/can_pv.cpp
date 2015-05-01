@@ -155,12 +155,14 @@ bool can_pv::RX0_callback_write(mb_address_type address, unsigned char* data, un
   if (EnableSecurity && tokenptr && tokenptr->hasField("CANDataPtr")) {
     c = (CANDataType *) tokenptr->getFieldAsVoidPtr("CANDataPtr");
     CANDataType *cdsent;
-    securityff.nb_get(cdsent);
-    if (identmap.count(c->ident) == 1 && c != cdsent) {
+    securityff.nb_peek(cdsent);
+    if (c == cdsent) {
+      securityff.get();
+    } else if (identmap.count(c->ident) == 1) {
       // Message with ident that we have sent seen on bus.  Corrupt checksum to kill message.
-cout<<sc_time_stamp()<<": "<<name()<<", Breach "<<c->ident<<" "<<c->crc<<", "<<hex<<(unsigned long long)c<<", "<<(unsigned long long)cdsent<<", "<<(unsigned long long)&securityff<<endl;
       c->crc = 0;
-cout<< sc_time_stamp()<<": "<<name()<<". Identified security breach, corrupting checksum\n";
+      cout<< sc_time_stamp()<<": "<<name()<<". Identified security breach, corrupting checksum. ID "
+          << hex << c->ident << endl;
     }
   }
 

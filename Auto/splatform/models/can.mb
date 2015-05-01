@@ -50,6 +50,9 @@ declare_register reg m_rxrtr CAN_RXRTR {} -rw_access rw -width 32
 declare_register reg m_rxide CAN_RXIDE {} -rw_access rw -width 32
 declare_register reg m_rxsize CAN_RXSIZE {} -rw_access rw -width 32
 declare_register reg m_ack CAN_ACK {} -rw_access rw -trigger w -width 32
+set_sync_all 0
+add_delay_policy reg 0 -latency 0 -sync 1 -power 0
+set_nominal_clock 100
 
 # === generate options ===
 set_generate_kind "pvt" ;# should be one of: model|pv|pvt

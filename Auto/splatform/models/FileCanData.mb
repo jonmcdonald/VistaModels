@@ -10,6 +10,7 @@ add_port "rxi" /TLM/protocols/signal slave 1 -bind_mode optional
 
 # === parameters ===
 add_parameter "P_IDENT" 0xFFF uint32 {}
+add_parameter "PRINT_MESSAGE" false boolean {}
 
 # === auto parameters ===
 set_auto_parameter_default "clock" {10 ns} time {}
