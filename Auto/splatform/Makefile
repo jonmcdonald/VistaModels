@@ -76,6 +76,7 @@ clean:
 	find . -name "*_model.cpp" -exec rm -f {} \;
 	rm -f $(OBJS) $(MBOBJS) $(MBARCHIVE) $(EXE)
 	rm -rf vista_power_transcript visualhl.ini
+	rm -rf models/canls* models/canhs* models/HScan* models/LScan* models/RH8*
 	cd ../instruments && $(MAKE) clean
 
 vista: $(EXE) $T
