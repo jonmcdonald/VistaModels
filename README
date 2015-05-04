@@ -34,8 +34,8 @@ A few useful git commands follow
 
  - To add local changes to the repository
    First commit your local changes
-   > git add --dry-run * 			; This will list what will be added without doing it.
-   > git add *
+   > git add --dry-run . 			; This will list what will be added without doing it.
+   > git add .
    > git commit -a -m "Comment changes"
 
    # Next fetch latest from repository, merge and push
