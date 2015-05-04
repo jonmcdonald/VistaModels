@@ -5,6 +5,8 @@ Files {
 	 {Public Headers} {
 		{$PRJDIR/include/sensor.h}
 		{$PRJDIR/include/pull_if.h}
+		{$PRJDIR/include/push_if.h}
+		{$PRJDIR/include/powertrain.h}
 	 } 
 	 Documentation {
 		{$PRJDIR/parameters.txt}

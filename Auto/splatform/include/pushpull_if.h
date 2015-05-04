@@ -3,11 +3,11 @@
 
 #include "systemc.h"
 
-template <class DT>
+template <class DT, class CT>
 class pushpull_if: virtual public sc_interface {
 public:
-  virtual DT pull (unsigned index) = 0;
-  virtual bool push (DT data) = 0;
+  virtual DT pull (CT command) = 0;
+  virtual bool push (DT data, CT command) = 0;
 };
 
 #endif

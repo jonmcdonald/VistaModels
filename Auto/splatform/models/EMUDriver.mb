@@ -8,7 +8,7 @@
 add_port "m" /TLM/protocols/generic master 32 -bind_mode optional
 add_port "rxi" /TLM/protocols/signal slave 1 -bind_mode optional
 port -name s -class {sc_port<pull_if<unsigned> >}
-port -name e -class {sc_port<pushpull_if<unsigned> >}
+port -name e -class {sc_port<pushpull_if<unsigned,unsigned> >}
 
 # === parameters ===
 # usage: add_parameter <parameter_name> <default_value> <type:string|unsigned|int>

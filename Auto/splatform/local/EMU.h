@@ -88,7 +88,7 @@ $port("s");
 sc_port<pull_if<unsigned int> > s;
 $end;
 $port("e");
-sc_port<pushpull_if<unsigned> > e;
+sc_port<pushpull_if<unsigned,unsigned> > e;
 $end;
 $component("CanIF");
 can_pvt *CanIF;

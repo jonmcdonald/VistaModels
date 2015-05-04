@@ -64,7 +64,7 @@ void EMUDriver_pv::thread() {
   while(myRunning) {
     wait (70, SC_MS);
     d = s->pull();
-    e->push(d);
+    e->push(d,0);
     d = e->pull(0);
     RPM = d;
     tokenptr = new mb::mb_token();

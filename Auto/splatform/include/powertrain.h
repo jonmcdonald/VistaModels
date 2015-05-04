@@ -12,7 +12,7 @@ using namespace std;
 
 class powertrain: sc_module {
 public:
-  sc_export<pushpull_if<unsigned> > eng;
+  sc_export<pushpull_if<unsigned,unsigned> > eng;
   sc_export<push_if<unsigned> > brk;
   sc_export<pull_if<unsigned> > wfl;
   sc_export<pull_if<unsigned> > wfr;
@@ -41,7 +41,7 @@ public:
 
 private:
   // pull_if interface support class
-  class targetpull: public pull_if<unsigned int >, sc_channel {
+  class targetpull: public pull_if<unsigned>, sc_channel {
   public:
     targetpull(sc_module_name name, powertrain *parent, int wheel) : 
       sc_module(name), parent(parent), wheel(wheel) {}
@@ -56,7 +56,7 @@ private:
   } tfl, tfr, tbl, tbr;
 
   // push_if interface support class
-  class targetpushpull: public pushpull_if<unsigned>, public push_if<unsigned>,  sc_channel {
+  class targetpushpull: public pushpull_if<unsigned,unsigned>, public push_if<unsigned>,  sc_channel {
   public:
     targetpushpull(sc_module_name name, powertrain *parent, int f) : 
       sc_module(name), parent(parent), function(f) {}
@@ -69,7 +69,14 @@ private:
       return true;
     }
 
-    unsigned int pull(unsigned index) {
+    // Implement to push different types of values
+    bool push(unsigned val, unsigned index=0) {
+      parent->processThrottle(val);
+      return true;
+    }
+
+    // Index allows function to return different types of data
+    unsigned pull(unsigned index=0) {
       return parent->processEngineInfo(index); }
 
   private:
