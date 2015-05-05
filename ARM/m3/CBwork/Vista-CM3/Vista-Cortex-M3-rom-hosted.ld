@@ -1,6 +1,6 @@
 /* Linker script for Vista-Cortex-M3
  *
- * Version: Sourcery CodeBench 2014.11-2014111700
+ * Version: Sourcery CodeBench 2014.11-36
  * Support: https://sourcery.mentor.com/GNUToolchain/
  *
  * Copyright (c) 2007-2010 CodeSourcery, Inc.
@@ -220,4 +220,4 @@ SECTIONS
   .ARM.attributes 0 : { KEEP (*(.ARM.attributes)) }
   /DISCARD/ : { *(.note.GNU-stack) }
 }
-/* checksum: 7a325c547ca642a57f46253d */
+/* checksum: 01222b5445955041c4396d2d52 */

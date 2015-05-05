@@ -45,7 +45,7 @@ N ?= top
 
 .SUFFIXES: .cpp .cc .o .x .h
 
-$(EXE): $(OBJS) $(MBARCHIVE)
+$(EXE): $(OBJS) $(MBARCHIVE) AES.dgn AEShw.dgn
 	$(CC) $(CFLAGS) $(INCDIR) -o $@ $(OBJS) $(LIBS) 2>&1 | c++filt
 #	if [ ! -n "$$V2_HOME" ] ; \
 #	then vista_build_project $(Project); fi
@@ -54,6 +54,15 @@ vistagui: $(EXE)
 
 $(MBARCHIVE): $(MBOBJS)
 	ar rcs $@ $(MBOBJS)
+
+run:
+	./arm.x
+
+AES.cov:
+	vista_sw_tool -c "use_coverage; load_design AES.dgn; load_test AES.tst; dump_report -output ./AES_cov.html -full -source-dir CBwork/AES"
+
+AEShw.cov:
+	vista_sw_tool -c "use_coverage; load_design AEShw.dgn; load_test AEShw.tst; dump_report -output ./AEShw_cov.html -full -source-dir CBwork/AEShw"
 
 .cpp.o:
 	$(CC) $(CFLAGS) $(INCDIR) -c $< -o $*.o
@@ -117,10 +126,9 @@ papoulis_project:
 pa: $(EXE)
 	vista_analysis sim
 
-cov: $(EXE)
-	lcov -d . -z
-	vista_run run.x
-	lcov -d . -c -o app.info
-	genhtml app.info
+dgn: AES.dgn AEShw.dgn
+
+AES.dgn AEShw.dgn: CBwork/AES/Debug/AES CBwork/AEShw/Debug/AEShw
+	vista_sw_tool -c "use_coverage; create_design CBwork/AEShw/Debug/AEShw -output AEShw.dgn -limit 100; create_design CBwork/AES/Debug/AES -output AES.dgn -limit 100"
 
 -include $(DFILES)

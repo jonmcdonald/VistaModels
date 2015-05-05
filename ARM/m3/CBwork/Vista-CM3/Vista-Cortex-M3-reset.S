@@ -1,6 +1,6 @@
 /* Reset code for Vista-Cortex-M3
  *
- * Version: Sourcery CodeBench 2014.11-2014111700
+ * Version: Sourcery CodeBench 2014.11-36
  * Support: https://sourcery.mentor.com/GNUToolchain/
  *
  * Copyright (c) 2007-2010 CodeSourcery, Inc.
@@ -42,4 +42,4 @@ __cs3_reset_Vista_Cortex_M3:
 #endif
 	.pool
 	.size	__cs3_reset_Vista_Cortex_M3,.-__cs3_reset_Vista_Cortex_M3
-/* checksum: b463f01f7da7860ba1a1000 */
+/* checksum: 26526560ac723b251dc452a2 */

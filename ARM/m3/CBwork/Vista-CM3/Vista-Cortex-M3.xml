@@ -2,7 +2,7 @@
 <!DOCTYPE board SYSTEM "board.dtd">
 <!-- Description for Vista-Cortex-M3
 
-     Version: Sourcery CodeBench 2014.11-2014111700
+     Version: Sourcery CodeBench 2014.11-36
      Support: https://sourcery.mentor.com/GNUToolchain/
 
      Copyright (c) 2007-2010 CodeSourcery, Inc.
@@ -39,4 +39,4 @@ CPU:	cortexm3
     </memory-device>
   </memory-map>
 </board>
-<!-- checksum: 8744645c2a4a43a0e600604f -->
+<!-- checksum: 2e4ed0a0b6463f708b12802 -->
