@@ -4,8 +4,7 @@ VISTAPLATFORMS ?= /home/jon/work/vistagit
 CC     = vista_c++
 OPT    = 
 DEBUG  = -DMB_DEBUG -tsv
-OTHER  = -Wall +model_builder 
-OTHER  = +model_builder -sc23
+OTHER  = +model_builder +models_catalogue -sc23
 CFLAGS = $(DEBUG) $(OTHER)
 
 VISTAVER = $(strip $(patsubst Vista,,$(shell vista -version)))
@@ -13,6 +12,7 @@ PAPOULISDIR = vista_work/papoulis_project$(VISTAVER)
 
 MODELS = models
 IMODELS = ../instruments/instruments_models
+CMODELS = ../cluster/hw/cluster_models
 LOCAL  = local
 MODULE = run
 Project = Project
@@ -23,11 +23,11 @@ MODEL_BUILDER_HOME = $(VISTA_HOME)papoulis
 SRCS = $(wildcard *.cpp) $(wildcard include/*.cpp)
 OBJS = $(SRCS:.cpp=.o)
 
-MBSRCS = $(wildcard $(MODELS)/*.cpp) $(wildcard $(IMODELS)/*.cpp)
+MBSRCS = $(wildcard $(MODELS)/*.cpp) $(wildcard $(IMODELS)/*.cpp) $(wildcard $(CMODELS)/*.cpp)
 MBOBJS = $(MBSRCS:.cpp=.o)
 MBARCHIVE = lib$(MODELS).a
 
-INCDIR = -I. -Iinclude -I$(LOCAL) -I$(MODELS) -I$(IMODELS)
+INCDIR = -I. -Iinclude -I$(LOCAL) -I$(MODELS) -I$(IMODELS) -I$(CMODELS)
 
 LIBS   = $(EXTRA_LIBS) -L. -l$(MODELS) 
 EXE    = $(MODULE).x
@@ -41,8 +41,8 @@ T ?= traces.tcl
 
 $(EXE) : $(OBJS) $(MBARCHIVE) 
 	$(CC) $(CFLAGS) $(INCDIR) -o $@ $(OBJS) $(LIBS) 2>&1 | c++filt
-	if [ ! -n "$$V2_HOME" ] ; \
-	then vista_build_project $(Project); fi
+#	if [ ! -n "$$V2_HOME" ] ; \
+#	then vista_build_project $(Project); fi
 
 
 
@@ -78,6 +78,7 @@ clean:
 	rm -rf vista_power_transcript visualhl.ini
 	rm -rf models/canls* models/canhs* models/HScan* models/LScan* models/RH8*
 	cd ../instruments && $(MAKE) clean
+	cd ../cluster/hw && $(MAKE) clean
 
 vista: $(EXE) $T
 	vista -sc22 -trace-delta-cycles -tsv -memory-profiling \
@@ -103,6 +104,7 @@ models:
 
 mb $(PAPOULISDIR): Templates
 	cd ../instruments && $(MAKE) mb 
+	cd ../cluster/hw && $(MAKE) mb 
 	@if [ -e $(MODELS) ]; then vista_model_builder -c $(COMMAND); fi
 
 TemplatesCOMMAND = \

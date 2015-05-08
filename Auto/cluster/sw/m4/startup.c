@@ -19,6 +19,10 @@ void WEAK SVC_Handler(void);
 void WEAK DebugMon_Handler(void);
 void WEAK PendSV_Handler(void);
 void WEAK SysTick_Handler(void);
+void WEAK irq0_Handler(void);
+void WEAK irq1_Handler(void);
+void WEAK irq2_Handler(void);
+void WEAK irq3_Handler(void);
 
 //*****************************************************************************
 //
@@ -63,7 +67,11 @@ void (* const g_pfnVectors[])(void) =
     DebugMon_Handler,           /* Debug Monitor Handler */
     0,                          /* Reserved */
     PendSV_Handler,             /* PendSV Handler */
-    SysTick_Handler             /* SysTick Handler */
+    SysTick_Handler,            /* SysTick Handler */
+    irq0_Handler,               /* IRQ0 Handler */
+    irq1_Handler,               /* IRQ1 Handler */
+    irq2_Handler,               /* IRQ2 Handler */
+    irq3_Handler                /* IRQ3 Handler */
 };
 
 //*****************************************************************************
@@ -134,6 +142,11 @@ Reset_Handler(void)
 #pragma weak DebugMon_Handler = Default_Handler
 #pragma weak PendSV_Handler = Default_Handler
 #pragma weak SysTick_Handler = Default_Handler
+
+#pragma weak irq0_Handler = Default_Handler
+#pragma weak irq1_Handler = Default_Handler
+#pragma weak irq2_Handler = Default_Handler
+#pragma weak irq3_Handler = Default_Handler
 
 /**
  * @brief  This is the code that gets called when the processor receives an 

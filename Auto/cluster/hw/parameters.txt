@@ -79,6 +79,8 @@ top.cluster1.clusterdriver0.m4_bus.ram_size                        = 0x10000000
 top.cluster1.clusterdriver0.m4_bus.bridge_base_address             = 0x10000000
 top.cluster1.clusterdriver0.m4_bus.bridge_size                     = 0x00001000
 
+top.cluster1.clusterdriver0.m4_bus.extension_port_base_address     = 0x20000000
+top.cluster1.clusterdriver0.m4_bus.extension_port_size             = 0x00001000
 
 # ~~~~~~~~~~ M4 PERIPH OPTIONS
 

@@ -42,14 +42,14 @@ class simpleapp_tk(Tkinter.Tk):
 
     def initialize(self):
         self.grid()
-        global accelerator
-	accelerator = Scale(self, from_=100, to=0, showvalue=1, command=self.changeAccelerator)
-	accelerator.grid(column=0,row=0,sticky='NS',rowspan=1)
         global brake
-	brake = Scale(self, from_=100, to=0, showvalue=1, command=self.changeBrake)
-	brake.grid(column=1,row=0,sticky='NS',rowspan=1)
+	brake = Scale(self, from_=100, to=0, label="B", showvalue=1, command=self.changeBrake)
+	brake.grid(column=0,row=0,sticky='NS',rowspan=1)
+        global accelerator
+	accelerator = Scale(self, from_=100, to=0, label="A", showvalue=1, command=self.changeAccelerator)
+	accelerator.grid(column=1,row=0,sticky='NS',rowspan=1)
         global radio
-	radio = Tkinter.Canvas(self, width=640, height=240)
+	radio = Tkinter.Canvas(self, width=320, height=240)
         radio.grid(column=2,row=0)
         global volume
 	volume = Scale(self, from_=10, to=0, showvalue=1, command=self.changeVolume)

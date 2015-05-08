@@ -1,12 +1,16 @@
 ProjectName Project
 Files {
 	 Sources {
+		{$PRJDIR/sc_main.cpp}
+		{$PRJDIR/include/RealTimeStall.cpp}
 	 } 
 	 {Public Headers} {
 		{$PRJDIR/include/sensor.h}
 		{$PRJDIR/include/pull_if.h}
 		{$PRJDIR/include/push_if.h}
 		{$PRJDIR/include/powertrain.h}
+		{$PRJDIR/include/pushpull_if.h}
+		{$PRJDIR/include/RealTimeStall.h}
 	 } 
 	 Documentation {
 		{$PRJDIR/parameters.txt}
@@ -17,8 +21,38 @@ Files {
 	 {Linked Binaries} {} 
 	 {Other Binaries} {} 
 	 Schematics {
+		{$PRJDIR/local/A9M4Cluster.h}
+		{$PRJDIR/local/EMU.h}
+		{$PRJDIR/local/CEM.h}
+		{$PRJDIR/local/Accelerator.h}
+		{$PRJDIR/local/EBM.h}
+		{$PRJDIR/local/splatform.h}
+		{$PRJDIR/local/Brake.h}
+		{$PRJDIR/local/ABS.h}
+		{$PRJDIR/local/SecurityAttack.h}
+		{$PRJDIR/local/Cluster.h}
+		{$PRJDIR/local/RestBus.h}
+		{$PRJDIR/local/Radio.h}
+	 } 
+	 Models {
+		{$PRJDIR/models/ClusterDriver.mb}
+		{$PRJDIR/models/ABSDriver.mb}
+		{$PRJDIR/models/SecAttackDriver.mb}
+		{$PRJDIR/models/PropCan.mb}
+		{$PRJDIR/models/RadioDriver.mb}
+		{$PRJDIR/models/CEMDriver.mb}
+		{$PRJDIR/models/AccelDriver.mb}
+		{$PRJDIR/models/EBMDriver.mb}
+		{$PRJDIR/models/BodyCan.mb}
+		{$PRJDIR/models/RestBusDriver.mb}
+		{$PRJDIR/models/ChassisCan.mb}
+		{$PRJDIR/models/FileCanData.mb}
+		{$PRJDIR/models/can.mb}
+		{$PRJDIR/models/EMUDriver.mb}
 	 } 
 }
+Designs {{$PRJDIR/sc_main.cpp}}
+Simulations /mnt/store/data/VistaModels/Auto/splatform/Project/sim
 Folders {
 	 Sources {*.c *.cpp *.cc} 
 	 {Public Headers} *.h* 
@@ -27,9 +61,11 @@ Folders {
 	 {Linked Binaries} {*.o *.a *.so} 
 	 {Other Binaries} {*.exe .x} 
 }
+IncludePaths {{$PRJDIR/include} {$PRJDIR/../instruments/instruments_models} {$PRJDIR/../cluster/hw/cluster_models}}
 GeneralCompilationOptions -Wall
 AlwaysCompileInCPPMode 1
-LinkPackages {model_builder sdParameters tlm}
+LinkPackages {model_builder sdParameters tlm models_catalogue}
+LinkObjects {{$PRJDIR/../instruments/instruments/build/instruments.a} {$PRJDIR/../cluster/hw/cluster/build/cluster.a}}
 ProjectLibraryType archive
 ProjectComponentsLibraryPath {$PRJDIR/$PRJFILE_BASENAME/interfaces}
 ProjectWorkingDirectory {$PRJDIR/$PRJFILE_BASENAME/build}
