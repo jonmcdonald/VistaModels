@@ -1,0 +1,149 @@
+03.00 00 04 
+@@VE@_body@@ 
+@@VE@names@@ 
+@@VE@obj_u@@ 
+@@VE@00000@@ 
+@^@VE_hdr_end@^@ 
+
+@@VE@_body@@  attrib {  globvis  {  blkunit  blk  {  prefix b  name 1  act 0  gen 0  prior 0  } 
+ sig  {  prefix s  name 1  act 1  } 
+ pin  {  prefix XXX  name 0  act 0  } 
+ comp  {  prefix c  name 1  gen 0  } 
+ tap  {  prefix T  name 0  act 0  } 
+ } 
+ page  { w 11000 h 11000 type vhdstd orient portr  } 
+grid 10 
+ } #idit - save unit (named top while saving) on Fri May  8 13:10:50 2015
+#SW version: 2008.12 v4.1.1.beta2 build 1. Date: Apr  8 2015. License: 1.1 
+version: 12 
+ipxactvendor Mentor.com 
+ipxactversion 1.0 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 269 -214 84 17 
+bcol 'Empty' pcol 'Black' } 
+fmttext { 271 -211 1 8 nil 
+DummyCluster 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ vis }  { fiv  @kind 9 
+ } 
+groupobj { doset { rect { 160 -220 300 80 
+bcol 'Empty' pcol 'Black' } 
+ } 
+clshapes { closeShape { lines { line { 160 -220 460 -220 } 
+line { 460 -220 460 -140 } 
+line { 460 -140 160 -140 } 
+line { 160 -140 160 -220 } 
+} 
+arcs { } 
+bcol 'Pale Blue2'  } 
+ } 
+ } 
+ } 
+pinset { sympinel {  text { 300 -187 1 dummy_M4_Bus_Extension
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 460 -180 } 
+ {  end  480 -180  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n dummy_M4_Bus_Extension @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketInitiator @iv -
+@sysInt tlm::tlm_initiator_socket< 1U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@multiport 1 @isTemplate 1
+@initzConstruct %Name%
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 167 -187 1 dummy_M4_IRQ_0
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 160 -180 } 
+ {  end  140 -180  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n dummy_M4_IRQ_0 @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketTarget @iv -
+@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@multiport 1 @isTemplate 1
+@initzConstruct %Name%
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+ } 
+angle 0 bcol 'Pale Blue2' pcol 'Black' } 
+ } 
+text { 288 -138 1 cluster1
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+gnrtxt textbox { rect { 260 -128 66 17 
+bcol 'Empty' pcol 'Red' } 
+fmttext { 262 -125 1 8 nil 
+  "cluster1" 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ invis }  } 
+@conf
+- - @symname
+- @cmpattr
+@kwd @innm cluster1 @arch - @usl - @hrnm DummyCluster cluster_local @dffs 0 0 @stt hier @gnras @cnt 0
+@templparamas @templparamcnt 0
+@portas @cnt 0
+@portlist 2 
+{ @port { @pdecl { { @n dummy_M4_Bus_Extension @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketInitiator @iv -
+@sysInt tlm::tlm_initiator_socket< 1U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@multiport 1 @isTemplate 1
+@initzConstruct %Name%
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n dummy_M4_IRQ_0 @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketTarget @iv -
+@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@multiport 1 @isTemplate 1
+@initzConstruct %Name%
+} @gr DEF @idx -1 } @blist 0 } !
+@procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
+L { @nvis } !
+@prtas 0 2 
+{ @pdecl { { @n dummy_M4_Bus_Extension @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketInitiator @iv -
+@sysInt tlm::tlm_initiator_socket< 1U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@multiport 1 @isTemplate 1
+@initzConstruct %Name%
+} @gr DEF @idx -1 } { @pdecl { { @n dummy_M4_IRQ_0 @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketTarget @iv -
+@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@multiport 1 @isTemplate 1
+@initzConstruct %Name%
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+0 L { @nvis @ctorsn 1 } !
+@hastemplparam
+{ @cnt 0 } @instanceAs 1 
+!
+
+@@VE@names@@ 1 @obj - cluster1 36 23 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 !
+
+@@VE@obj_u@@ cluster1 DummyCluster cluster_local 0 
+!

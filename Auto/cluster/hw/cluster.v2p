@@ -1,8 +1,10 @@
 ProjectName cluster
 Files {
 	 Schematics {
-		{$PRJDIR/cluster_local/uart_with_console.h}
-		{$PRJDIR/cluster_local/cluster.h}
+		{$PRJDIR/cluster_models/uart_with_console.h}
+		{$PRJDIR/cluster_models/cluster.h}
+		{$PRJDIR/cluster_local/DummyCluster.h}
+		{$PRJDIR/cluster_local/top.h}
 	 } 
 	 Models {
 		{$PRJDIR/cluster_models/A9x2.mb}

@@ -46,8 +46,26 @@
 
 @@VE@names@@ 0 23 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 !
 
-@@VE@intfc@@ 0 
-L { @bl -1 @el -1 @il -1 @nvis } !
+@@VE@intfc@@ 2 
+{ @pdecl { { @n M4_IRQ_0 @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketTarget @iv -
+@sysInt tlm::tlm_target_socket< 1U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@multiport 1 @isTemplate 1
+@initzConstruct %Name%
+} @gr DEF @idx -1 } { @pdecl { { @n M4_Bus_Extension @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketInitiator @iv -
+@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@multiport 1 @isTemplate 1
+@initzConstruct %Name%
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 
 @@VE@_sigs@@ 0 L { @nvis @ctorsn 1 } !
 

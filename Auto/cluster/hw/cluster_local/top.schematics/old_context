@@ -1,0 +1,1 @@
+{add_element cluster1 -kind component -pointer 1 -associated_unit cluster_local:DummyCluster -class DummyCluster -include DummyCluster.h}

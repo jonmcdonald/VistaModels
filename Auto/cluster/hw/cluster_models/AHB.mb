@@ -11,6 +11,7 @@ add_port "dcode" /TLM/protocols/ahb_master slave 32 -bind_mode mandatory
 add_port "system" /TLM/protocols/ahb_master slave 32 -bind_mode mandatory
 add_port "ram" /TLM/protocols/ahb_slave master 32 -bind_mode mandatory
 add_port "bridge" /TLM/protocols/ahb_slave master 32 -bind_mode mandatory
+add_port "extension_port" /TLM/protocols/ahb_slave master 32 -bind_mode optional
 
 # === parameters ===
 # usage: add_parameter <parameter_name> <default_value> <type:string|unsigned|int>
@@ -46,6 +47,12 @@ set_auto_parameter_default "bridge_subtract_base_address" 1 uint32 {0 1}
 set_auto_parameter_default "bridge_secure" 0 uint32 {0 1}
 set_auto_parameter_default "bridge_additional_ranges" {""} string {}
 set_auto_parameter_default "bridge_latency" 0 uint32 {}
+set_auto_parameter_default "extension_port_base_address" 0 uint64 {}
+set_auto_parameter_default "extension_port_size" 0 uint64 {}
+set_auto_parameter_default "extension_port_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "extension_port_secure" 0 uint32 {0 1}
+set_auto_parameter_default "extension_port_additional_ranges" {""} string {}
+set_auto_parameter_default "extension_port_latency" 0 uint32 {}
 
 # === generics ===
 # usage: add_generic <generic_name> <value>
@@ -55,12 +62,15 @@ set_auto_parameter_default "bridge_latency" 0 uint32 {}
 add_delay_policy icode 0 -latency 0 -sync 1 -power 0
 add_pipeline_policy ram icode -latency ram_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy bridge icode -latency bridge_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy extension_port icode -latency extension_port_latency -buffer_size 0 -sync 1 -power 0
 add_delay_policy dcode 0 -latency 0 -sync 1 -power 0
 add_pipeline_policy ram dcode -latency ram_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy bridge dcode -latency bridge_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy extension_port dcode -latency extension_port_latency -buffer_size 0 -sync 1 -power 0
 add_delay_policy system 0 -latency 0 -sync 1 -power 0
 add_pipeline_policy ram system -latency ram_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy bridge system -latency bridge_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy extension_port system -latency extension_port_latency -buffer_size 0 -sync 1 -power 0
 
 # === generate options ===
 set_generate_kind "pvt" ;# should be one of: model|pv|pvt
