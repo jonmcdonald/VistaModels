@@ -15,6 +15,7 @@ $includes_begin;
 #include "AXI_model.h"
 #include "MEMORY_model.h"
 #include "uart_with_console.h"
+#include "GENERIC_SIGNAL_model.h"
 $includes_end;
 
 $module_begin("cluster");
@@ -24,8 +25,8 @@ public:
   cluster(::sc_core::sc_module_name name):
     ::sc_core::sc_module(name)
     $initialization_begin
-$init("M4_IRQ_0"),
-M4_IRQ_0("M4_IRQ_0")
+$init("m4_irq0"),
+m4_irq0("m4_irq0")
 $end
 $init("M4_Bus_Extension"),
 M4_Bus_Extension("M4_Bus_Extension")
@@ -69,6 +70,9 @@ $end
 $init("sysbridge"),
 sysbridge(0)
 $end
+$init("gen_sig"),
+gen_sig(0)
+$end
     $initialization_end
 {
     $elaboration_begin;
@@ -110,6 +114,9 @@ m4 = new M4_pvt("m4");
 $end;
 $create_component("sysbridge");
 sysbridge = new SystemBridge_pvt("sysbridge");
+$end;
+$create_component("gen_sig");
+gen_sig = new GENERIC_SIGNAL_pvt("gen_sig");
 $end;
 $bind("sdcard->irq0","a9x2->irq_1");
 vista_bind(sdcard->irq0, a9x2->irq_1);
@@ -165,11 +172,14 @@ $end;
 $bind("a9_uart->irq","a9x2->irq_3");
 vista_bind(a9_uart->irq, a9x2->irq_3);
 $end;
-$bind("M4_IRQ_0","m4->irq_0");
-vista_bind(M4_IRQ_0, m4->irq_0);
-$end;
 $bind("m4_bus->extension_port","M4_Bus_Extension");
 vista_bind(m4_bus->extension_port, M4_Bus_Extension);
+$end;
+$bind("m4_irq0","gen_sig->slave");
+vista_bind(m4_irq0, gen_sig->slave);
+$end;
+$bind("gen_sig->master","m4->irq_0");
+vista_bind(gen_sig->master, m4->irq_0);
 $end;
     $elaboration_end;
   $vlnv_assign_begin;
@@ -219,12 +229,15 @@ $end;
 $destruct_component("sysbridge");
 delete sysbridge; sysbridge = 0;
 $end;
+$destruct_component("gen_sig");
+delete gen_sig; gen_sig = 0;
+$end;
     $destructor_end;
   }
 public:
   $fields_begin;
-$socket("M4_IRQ_0");
-tlm::tlm_target_socket< 1U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND > M4_IRQ_0;
+$socket("m4_irq0");
+tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND > m4_irq0;
 $end;
 $socket("M4_Bus_Extension");
 tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND > M4_Bus_Extension;
@@ -267,6 +280,9 @@ M4_pvt *m4;
 $end;
 $component("sysbridge");
 SystemBridge_pvt *sysbridge;
+$end;
+$component("gen_sig");
+GENERIC_SIGNAL_pvt *gen_sig;
 $end;
   $fields_end;
   $vlnv_decl_begin;

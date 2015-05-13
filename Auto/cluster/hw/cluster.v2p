@@ -20,6 +20,7 @@ Files {
 		{$PRJDIR/cluster_models/AHB.mb}
 		{$PRJDIR/cluster_models/SystemBridge.mb}
 		{$PRJDIR/cluster_models/MicroMEMORY.mb}
+		{$PRJDIR/cluster_models/GENERIC_SIGNAL.mb}
 	 } 
 	 Sources {
 		{$PRJDIR/sc_main.cpp}

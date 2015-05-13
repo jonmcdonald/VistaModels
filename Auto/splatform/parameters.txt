@@ -6,7 +6,7 @@ top.cluster1.clusterdriver0.m4.elf_image_file   = ../cluster/sw/m4/image.axf
 top.cluster1.clusterdriver0.sdcard.image_file   = ../cluster/sw/a9/sdcard/sysroot.ext2
 
 call_to_default_if = 1
-tlm_timing_model = AT
+tlm_timing_model = LT
 
 top.chassiscan0.generic_clock = 1 US
 top.propcan0.generic_clock = 1 US
@@ -39,6 +39,6 @@ top.absbr.absdriver0.m_SPEEDID = 0x340
 
 top.cluster0.clusterdriver0.PRINT_MESSAGE = 1
 
-RealTimeSeconds = 10
+RealTimeSeconds = 1000
 RealTimeInterval = 0.1
 RealTimeFactor = 1.0
