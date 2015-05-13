@@ -2,19 +2,19 @@
 #include "mgc_vista_schematics.h"
 $includes_begin;
 #include <systemc.h>
-#include "../cluster_models/A9x2_model.h"
-#include "../cluster_models/PL180_MCI_model.h"
-#include "../cluster_models/LinuxFrameBufferDisplay_model.h"
-#include "../cluster_models/LAN9118_model.h"
-#include "../cluster_models/SystemControl_model.h"
-#include "../cluster_models/MEMORY_model.h"
-#include "../cluster_models/AXI_model.h"
+#include "SystemBridge_model.h"
+#include "AHB_model.h"
+#include "LinuxFrameBufferDisplay_model.h"
+#include "SystemControl_model.h"
+#include "MicroMEMORY_model.h"
+#include "PL180_MCI_model.h"
+#include "M4_model.h"
+#include "A9x2_model.h"
+#include "AXI_APB_model.h"
+#include "LAN9118_model.h"
+#include "AXI_model.h"
+#include "MEMORY_model.h"
 #include "uart_with_console.h"
-#include "../cluster_models/AXI_APB_model.h"
-#include "../cluster_models/M4_model.h"
-#include "../cluster_models/AHB_model.h"
-#include "../cluster_models/SystemBridge_model.h"
-#include "../cluster_models/MicroMEMORY_model.h"
 $includes_end;
 
 $module_begin("cluster");
@@ -24,6 +24,12 @@ public:
   cluster(::sc_core::sc_module_name name):
     ::sc_core::sc_module(name)
     $initialization_begin
+$init("M4_IRQ_0"),
+M4_IRQ_0("M4_IRQ_0")
+$end
+$init("M4_Bus_Extension"),
+M4_Bus_Extension("M4_Bus_Extension")
+$end
 $init("a9x2"),
 a9x2(0)
 $end
@@ -114,12 +120,6 @@ $end;
 $bind("ethernet->irq","a9x2->irq_0");
 vista_bind(ethernet->irq, a9x2->irq_0);
 $end;
-$bind("a9_uart->irq","a9x2->irq_3");
-vista_bind(a9_uart->irq, a9x2->irq_3);
-$end;
-$bind("axi_apb->master","a9_uart->slave");
-vista_bind(axi_apb->master, a9_uart->slave);
-$end;
 $bind("a9_bus->ethernet","ethernet->host");
 vista_bind(a9_bus->ethernet, ethernet->host);
 $end;
@@ -159,9 +159,21 @@ $end;
 $bind("m4_bus->bridge","sysbridge->m4_slave");
 vista_bind(m4_bus->bridge, sysbridge->m4_slave);
 $end;
+$bind("axi_apb->master","a9_uart->slave");
+vista_bind(axi_apb->master, a9_uart->slave);
+$end;
+$bind("a9_uart->irq","a9x2->irq_3");
+vista_bind(a9_uart->irq, a9x2->irq_3);
+$end;
+$bind("M4_IRQ_0","m4->irq_0");
+vista_bind(M4_IRQ_0, m4->irq_0);
+$end;
+$bind("m4_bus->extension_port","M4_Bus_Extension");
+vista_bind(m4_bus->extension_port, M4_Bus_Extension);
+$end;
     $elaboration_end;
   $vlnv_assign_begin;
-m_library = "cluster_local";
+m_library = "cluster_models";
 m_vendor = "";
 m_version = "";
   $vlnv_assign_end;
@@ -211,6 +223,12 @@ $end;
   }
 public:
   $fields_begin;
+$socket("M4_IRQ_0");
+tlm::tlm_target_socket< 1U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND > M4_IRQ_0;
+$end;
+$socket("M4_Bus_Extension");
+tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND > M4_Bus_Extension;
+$end;
 $component("a9x2");
 A9x2_pvt *a9x2;
 $end;

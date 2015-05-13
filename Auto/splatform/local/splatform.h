@@ -12,10 +12,10 @@ $includes_begin;
 #include "EMU.h"
 #include "../models/ChassisCan_model.h"
 #include "../models/BodyCan_model.h"
-#include "Cluster.h"
 #include "Radio.h"
 #include "powertrain.h"
 #include "../include/powertrain.h"
+#include "A9M4Cluster.h"
 $includes_end;
 
 $module_begin("splatform");
@@ -30,9 +30,6 @@ absfr(0)
 $end
 $init("absbr"),
 absbr(0)
-$end
-$init("cluster0"),
-cluster0(0)
 $end
 $init("chassiscan0"),
 chassiscan0(0)
@@ -76,6 +73,9 @@ $end
 $init("powertrain0"),
 powertrain0(0)
 $end
+$init("cluster1"),
+cluster1(0)
+$end
     $initialization_end
 {
     $elaboration_begin;
@@ -84,9 +84,6 @@ absfr = new ABS("absfr");
 $end;
 $create_component("absbr");
 absbr = new ABS("absbr");
-$end;
-$create_component("cluster0");
-cluster0 = new Cluster("cluster0");
 $end;
 $create_component("chassiscan0");
 chassiscan0 = new ChassisCan_pvt("chassiscan0");
@@ -130,6 +127,9 @@ $end;
 $create_component("powertrain0");
 powertrain0 = new powertrain("powertrain0");
 $end;
+$create_component("cluster1");
+cluster1 = new A9M4Cluster("cluster1");
+$end;
 $bind("bodycan0->RX1","radio0->RX0");
 vista_bind(bodycan0->RX1, radio0->RX0);
 $end;
@@ -165,12 +165,6 @@ vista_bind(chassiscan0->RX3, absfr->RX0);
 $end;
 $bind("cem0->TXchassis","chassiscan0->TX0");
 vista_bind(cem0->TXchassis, chassiscan0->TX0);
-$end;
-$bind("propcan0->RX1","cluster0->RX0");
-vista_bind(propcan0->RX1, cluster0->RX0);
-$end;
-$bind("cluster0->TX0","propcan0->TX1");
-vista_bind(cluster0->TX0, propcan0->TX1);
 $end;
 $bind("absfl->TX0","chassiscan0->TX2");
 vista_bind(absfl->TX0, chassiscan0->TX2);
@@ -214,6 +208,12 @@ $end;
 $bind("ebm0->s","brakesensor->p");
 vista_bind(ebm0->s, brakesensor->p);
 $end;
+$bind("cluster1->TX0","propcan0->TX1");
+vista_bind(cluster1->TX0, propcan0->TX1);
+$end;
+$bind("propcan0->RX1","cluster1->RX0");
+vista_bind(propcan0->RX1, cluster1->RX0);
+$end;
     $elaboration_end;
   $vlnv_assign_begin;
 m_library = "local";
@@ -235,9 +235,6 @@ delete absfr; absfr = 0;
 $end;
 $destruct_component("absbr");
 delete absbr; absbr = 0;
-$end;
-$destruct_component("cluster0");
-delete cluster0; cluster0 = 0;
 $end;
 $destruct_component("chassiscan0");
 delete chassiscan0; chassiscan0 = 0;
@@ -281,6 +278,9 @@ $end;
 $destruct_component("powertrain0");
 delete powertrain0; powertrain0 = 0;
 $end;
+$destruct_component("cluster1");
+delete cluster1; cluster1 = 0;
+$end;
     $destructor_end;
   }
 public:
@@ -290,9 +290,6 @@ ABS *absfr;
 $end;
 $component("absbr");
 ABS *absbr;
-$end;
-$component("cluster0");
-Cluster *cluster0;
 $end;
 $component("chassiscan0");
 ChassisCan_pvt *chassiscan0;
@@ -335,6 +332,9 @@ RestBus *restbus0;
 $end;
 $component("powertrain0");
 powertrain *powertrain0;
+$end;
+$component("cluster1");
+A9M4Cluster *cluster1;
 $end;
   $fields_end;
   $vlnv_decl_begin;

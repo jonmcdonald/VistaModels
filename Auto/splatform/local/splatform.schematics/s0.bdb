@@ -13,12 +13,12 @@
  } 
  page  { w 11000 h 11000 type vhdstd orient portr  } 
 grid 10 
- } #idit - save unit (named splatform while saving) on Fri May  1 14:37:26 2015
+ } #idit - save unit (named splatform while saving) on Thu May  7 15:19:23 2015
 #SW version: 2008.12 v4.1.1.beta2 build 1. Date: Apr  8 2015. License: 1.1 
 version: 12 
 ipxactvendor Mentor.com 
 ipxactversion 1.0 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 229 -66 81 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 229 -66 85 17 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 231 -63 1 8 nil 
 SecurityAttack 
@@ -84,7 +84,7 @@ angle 0 flipbu bcol 'Sky Blue' pcol 'Black' }
 text { 240 -38 1 secattack0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 160 -8 76 18 
+gnrtxt textbox { rect { 160 -8 82 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 162 -5 1 8 nil 
   "secattack0" 
@@ -147,7 +147,7 @@ none @block  1
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 543 -66 37 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 543 -66 36 17 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 545 -63 1 8 nil 
 Radio 
@@ -213,7 +213,7 @@ angle 0 flipbu bcol 'Sky Blue' pcol 'Black' }
 text { 543 -38 1 radio0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 400 -8 53 18 
+gnrtxt textbox { rect { 400 -8 57 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 402 -5 1 8 nil 
   "radio0" 
@@ -276,7 +276,7 @@ none @block  1
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 163 -407 31 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 163 -407 32 17 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 165 -404 1 8 nil 
 CEM 
@@ -488,7 +488,7 @@ angle 0 bcol 'Pale Blue2' pcol 'Black' }
 text { 109 -261 1 cem0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 160 -248 48 18 
+gnrtxt textbox { rect { 160 -248 52 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 162 -245 1 8 nil 
   "cem0" 
@@ -635,136 +635,7 @@ none @block  1
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 410 -346 43 18 
-bcol 'Empty' pcol 'Black' } 
-fmttext { 412 -343 1 8 nil 
-Cluster 
-angle 0 fn 0 0 0 2 5 0 0 0 0 }
- vis }  { fiv  @kind 9 
- } 
-groupobj { doset { rect { 390 -400 80 80 
-bcol 'Empty' pcol 'Black' } 
- } 
-clshapes { closeShape { lines { line { 390 -320 470 -320 } 
-line { 470 -320 470 -400 } 
-line { 470 -400 390 -400 } 
-line { 390 -400 390 -320 } 
-} 
-arcs { } 
-bcol 'Orange'  } 
- } 
- } 
- } 
-pinset { sympinel {  text { 433 -409 1 TX0
- angle 900
-fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 440 -400 } 
- {  end  440 -420  } 
- } 
-@spattr {
-@plist 1 
-{ @pdecl { { @n TX0 @t - @bnd -
-@das -
-@nregout @skind
-none @block  1
-@ch -
-} @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
-@multiport 1 @isTemplate 0
-@initzConstruct %Name%
-} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
-@blist 1 { @cnt 0 } @flags 73 }
-
-sympinel {  text { 417 -410 1 RX0
- angle 900
-fn 0 0 160 2 5 0 0 0 0 }
-invert FALSE visible TRUE typepin 0 pin { 420 -400 } 
- {  end  420 -420  } 
- } 
-@spattr {
-@plist 1 
-{ @pdecl { { @n RX0 @t - @bnd -
-@das -
-@nregout @skind
-none @block  1
-@ch -
-} @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
-@multiport 1 @isTemplate 0
-@initzConstruct %Name%
-} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
-@blist 1 { @cnt 0 } @flags 73 }
-
- } 
-angle 0 flipbu bcol 'Orange' pcol 'Black' } 
- } 
-text { 408 -318 1 cluster0
- angle 0
-fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 410 -288 61 18 
-bcol 'Empty' pcol 'Red' } 
-fmttext { 412 -285 1 8 nil 
-  "cluster0" 
-angle 0 fn 0 0 0 2 5 0 0 0 0 }
- invis }  } 
-@conf
-- - @symname
-- @cmpattr
-@kwd @innm cluster0 @arch - @usl - @hrnm Cluster local @dffs 0 0 @stt hier @gnras @cnt 0
-@templparamas @templparamcnt 0
-@portas @cnt 0
-@portlist 2 
-{ @port { @pdecl { { @n RX0 @t - @bnd -
-@das -
-@nregout @skind
-none @block  1
-@ch -
-} @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
-@multiport 1 @isTemplate 0
-@initzConstruct %Name%
-} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n TX0 @t - @bnd -
-@das -
-@nregout @skind
-none @block  1
-@ch -
-} @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
-@multiport 1 @isTemplate 0
-@initzConstruct %Name%
-} @gr DEF @idx -1 } @blist 0 } !
-@procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
-L { @nvis } !
-@prtas 2 -
-45 sigIdx
-0 TX0
--
-47 sigIdx
-0 RX0
-2 
-{ @pdecl { { @n RX0 @t - @bnd -
-@das -
-@nregout @skind
-none @block  1
-@ch -
-} @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
-@multiport 1 @isTemplate 0
-@initzConstruct %Name%
-} @gr DEF @idx -1 } { @pdecl { { @n TX0 @t - @bnd -
-@das -
-@nregout @skind
-none @block  1
-@ch -
-} @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
-@multiport 1 @isTemplate 0
-@initzConstruct %Name%
-} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
-0 L { @nvis @ctorsn 1 } !
-@hastemplparam
-{ @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 956 -326 31 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 956 -326 31 17 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 958 -323 1 8 nil 
 EMU 
@@ -862,7 +733,7 @@ invert FALSE visible TRUE typepin 0 pin { 1000 -340 }
 @das -
 @nregout @skind
 none @block  1
-@ch { @ e { } { sc_port<pushpull_if<unsigned> > } - 0 } 
+@ch { @ e { } { sc_port<pushpull_if<unsigned>> } - 0 } 
 @ischnl } @md out @iv -
 @sysInt sc_port<pushpull_if<unsigned> >
 @multiport 1 @isTemplate 0
@@ -870,15 +741,15 @@ none @block  1
 @blist 1 { @cnt 0 } @flags 73 }
 
  } 
-angle 0 flipbu bcol 'Empty' pcol 'Black' } 
+angle 0 flipbu bcol 'Pale Blue2' pcol 'Black' } 
  } 
 text { 945 -299 1 emu0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 940 -258 50 17 
+gnrtxt textbox { rect { 940 -258 52 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 942 -255 1 8 nil 
-  "emu0"  
+  "emu0" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -892,7 +763,7 @@ angle 0 fn 0 0 0 2 5 0 0 0 0 }
 @das -
 @nregout @skind
 none @block  1
-@ch { @ e { } { sc_port<pushpull_if<unsigned> > } - 0 } 
+@ch { @ e { } { sc_port<pushpull_if<unsigned>> } - 0 } 
 @ischnl } @md out @iv -
 @sysInt sc_port<pushpull_if<unsigned> >
 @multiport 1 @isTemplate 0
@@ -900,7 +771,7 @@ none @block  1
 @das -
 @nregout @skind
 none @block  1
-@ch { @ s { } { sc_port<pull_if<unsigned int> > } 0 0 } 
+@ch { @ s { } { sc_port<pull_if<unsignedint>> } 0 0 } 
 @ischnl } @md in @iv -
 @sysInt sc_port<pull_if<unsigned int> >
 @multiport 1 @isTemplate 0
@@ -939,7 +810,7 @@ L { @nvis } !
 @das -
 @nregout @skind
 none @block  1
-@ch { @ e { } { sc_port<pushpull_if<unsigned> > } - 0 } 
+@ch { @ e { } { sc_port<pushpull_if<unsigned>> } - 0 } 
 @ischnl } @md out @iv -
 @sysInt sc_port<pushpull_if<unsigned> >
 @multiport 1 @isTemplate 0
@@ -947,7 +818,7 @@ none @block  1
 @das -
 @nregout @skind
 none @block  1
-@ch { @ s { } { sc_port<pull_if<unsigned int> > } 0 0 } 
+@ch { @ s { } { sc_port<pull_if<unsignedint>> } 0 0 } 
 @ischnl } @md in @iv -
 @sysInt sc_port<pull_if<unsigned int> >
 @multiport 1 @isTemplate 0
@@ -973,7 +844,7 @@ none @block  1
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 347 -684 50 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 347 -684 49 17 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 349 -681 1 8 nil 
 RestBus 
@@ -1039,7 +910,7 @@ angle 0 bcol 'Lime' pcol 'Black' }
 text { 348 -705 1 restbus0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 340 -558 65 18 
+gnrtxt textbox { rect { 340 -558 69 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 342 -555 1 8 nil 
   "restbus0" 
@@ -1102,7 +973,7 @@ none @block  1
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 537 -664 28 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 537 -664 29 17 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 539 -661 1 8 nil 
 ABS 
@@ -1174,7 +1045,7 @@ invert FALSE visible TRUE typepin 0 pin { 590 -650 }
 @das -
 @nregout @skind
 none @block  1
-@ch { @ s { } { sc_port<pull_if<unsigned> > } - 0 } 
+@ch { @ s { } { sc_port<pull_if<unsigned>> } - 0 } 
 @ischnl } @md out @iv -
 @sysInt sc_port<pull_if<unsigned> >
 @multiport 1 @isTemplate 0
@@ -1182,15 +1053,15 @@ none @block  1
 @blist 1 { @cnt 0 } @flags 73 }
 
  } 
-angle 0 bcol 'Empty' pcol 'Black' } 
+angle 0 bcol 'Pale Blue2' pcol 'Black' } 
  } 
 text { 499 -687 1 absfl
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 560 -558 45 17 
+gnrtxt textbox { rect { 560 -558 48 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 562 -555 1 8 nil 
-  "absfl"  
+  "absfl" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -1204,7 +1075,7 @@ angle 0 fn 0 0 0 2 5 0 0 0 0 }
 @das -
 @nregout @skind
 none @block  1
-@ch { @ s { } { sc_port<pull_if<unsigned> > } - 0 } 
+@ch { @ s { } { sc_port<pull_if<unsigned>> } - 0 } 
 @ischnl } @md out @iv -
 @sysInt sc_port<pull_if<unsigned> >
 @multiport 1 @isTemplate 0
@@ -1240,7 +1111,7 @@ L { @nvis } !
 @das -
 @nregout @skind
 none @block  1
-@ch { @ s { } { sc_port<pull_if<unsigned> > } - 0 } 
+@ch { @ s { } { sc_port<pull_if<unsigned>> } - 0 } 
 @ischnl } @md out @iv -
 @sysInt sc_port<pull_if<unsigned> >
 @multiport 1 @isTemplate 0
@@ -1266,7 +1137,7 @@ none @block  1
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 836 -704 30 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 836 -704 31 17 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 838 -701 1 8 nil 
 EBM 
@@ -1357,7 +1228,7 @@ invert FALSE visible TRUE typepin 0 pin { 890 -650 }
 @das -
 @nregout @skind
 none @block  1
-@ch { @ b { } { sc_port<push_if<unsigned int> > } - 0 } 
+@ch { @ b { } { sc_port<push_if<unsignedint>> } - 0 } 
 @ischnl } @md out @iv -
 @sysInt sc_port<push_if<unsigned int> >
 @multiport 1 @isTemplate 0
@@ -1365,15 +1236,15 @@ none @block  1
 @blist 1 { @cnt 0 } @flags 73 }
 
  } 
-angle 0 bcol 'Empty' pcol 'Black' } 
+angle 0 bcol 'Pale Blue2' pcol 'Black' } 
  } 
 text { 837 -725 1 ebm0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 820 -558 50 17 
+gnrtxt textbox { rect { 820 -558 52 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 822 -555 1 8 nil 
-  "ebm0"  
+  "ebm0" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -1387,7 +1258,7 @@ angle 0 fn 0 0 0 2 5 0 0 0 0 }
 @das -
 @nregout @skind
 none @block  1
-@ch { @ s { } { sc_port<pull_if<unsigned int> > } 0 0 } 
+@ch { @ s { } { sc_port<pull_if<unsignedint>> } 0 0 } 
 @ischnl } @md in @iv -
 @sysInt sc_port<pull_if<unsigned int> >
 @multiport 1 @isTemplate 0
@@ -1413,7 +1284,7 @@ none @block  1
 @das -
 @nregout @skind
 none @block  1
-@ch { @ b { } { sc_port<push_if<unsigned int> > } - 0 } 
+@ch { @ b { } { sc_port<push_if<unsignedint>> } - 0 } 
 @ischnl } @md out @iv -
 @sysInt sc_port<push_if<unsigned int> >
 @multiport 1 @isTemplate 0
@@ -1434,7 +1305,7 @@ L { @nvis } !
 @das -
 @nregout @skind
 none @block  1
-@ch { @ s { } { sc_port<pull_if<unsigned int> > } 0 0 } 
+@ch { @ s { } { sc_port<pull_if<unsignedint>> } 0 0 } 
 @ischnl } @md in @iv -
 @sysInt sc_port<pull_if<unsigned int> >
 @multiport 1 @isTemplate 0
@@ -1460,7 +1331,7 @@ none @block  1
 @das -
 @nregout @skind
 none @block  1
-@ch { @ b { } { sc_port<push_if<unsigned int> > } - 0 } 
+@ch { @ b { } { sc_port<push_if<unsignedint>> } - 0 } 
 @ischnl } @md out @iv -
 @sysInt sc_port<push_if<unsigned int> >
 @multiport 1 @isTemplate 0
@@ -1468,7 +1339,7 @@ none @block  1
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 1018 -468 53 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 1018 -468 53 17 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 1020 -465 1 8 nil 
 PropCan 
@@ -1590,7 +1461,7 @@ angle 0 bcol 'Pale Blue2' pcol 'Black' }
 text { 1016 -497 1 propcan0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 620 -348 70 18 
+gnrtxt textbox { rect { 620 -348 75 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 622 -345 1 8 nil 
   "propcan0" 
@@ -1725,7 +1596,7 @@ none @block -
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 655 -188 55 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 655 -188 56 17 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 657 -185 1 8 nil 
 BodyCan 
@@ -1847,7 +1718,7 @@ angle 0 bcol 'Pale Blue2' pcol 'Black' }
 text { 657 -218 1 bodycan0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 540 -98 72 18 
+gnrtxt textbox { rect { 540 -98 78 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 542 -95 1 8 nil 
   "bodycan0" 
@@ -1982,7 +1853,7 @@ none @block -
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 950 -529 71 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 950 -529 71 17 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 952 -526 1 8 nil 
 ChassisCan 
@@ -2232,7 +2103,7 @@ angle 0 bcol 'Pale Blue2' pcol 'Black' }
 text { 950 -557 1 chassiscan0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 996 -408 86 18 
+gnrtxt textbox { rect { 996 -408 92 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 998 -405 1 8 nil 
   "chassiscan0" 
@@ -2519,7 +2390,7 @@ none @block -
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 711 -374 41 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 711 -374 41 17 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 713 -371 1 8 nil 
 sensor 
@@ -2564,7 +2435,7 @@ angle 0 bcol 'Pale Blue2' pcol 'Black' }
 text { 706 -298 1 accelsensor
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 796 -268 84 18 
+gnrtxt textbox { rect { 796 -268 90 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 798 -265 1 8 nil 
   "accelsensor" 
@@ -2604,7 +2475,7 @@ none @block -
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 1038 -704 41 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 1038 -704 41 17 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 1040 -701 1 8 nil 
 sensor 
@@ -2649,7 +2520,7 @@ angle 0 fliplr bcol 'Pale Blue2' pcol 'Black' }
 text { 1016 -628 1 brakesensor
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 1126 -578 86 18 
+gnrtxt textbox { rect { 1126 -578 90 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 1128 -575 1 8 nil 
   "brakesensor" 
@@ -2689,7 +2560,7 @@ none @block -
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 577 -674 28 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 577 -674 29 17 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 579 -671 1 8 nil 
 ABS 
@@ -2761,7 +2632,7 @@ invert FALSE visible TRUE typepin 0 pin { 630 -660 }
 @das -
 @nregout @skind
 none @block  1
-@ch { @ s { } { sc_port<pull_if<unsigned> > } - 0 } 
+@ch { @ s { } { sc_port<pull_if<unsigned>> } - 0 } 
 @ischnl } @md out @iv -
 @sysInt sc_port<pull_if<unsigned> >
 @multiport 1 @isTemplate 0
@@ -2769,15 +2640,15 @@ none @block  1
 @blist 1 { @cnt 0 } @flags 73 }
 
  } 
-angle 0 bcol 'Empty' pcol 'Black' } 
+angle 0 bcol 'Pale Blue2' pcol 'Black' } 
  } 
 text { 540 -697 1 absfr
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 560 -558 46 17 
+gnrtxt textbox { rect { 560 -558 49 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 562 -555 1 8 nil 
-  "absfr"  
+  "absfr" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -2791,7 +2662,7 @@ angle 0 fn 0 0 0 2 5 0 0 0 0 }
 @das -
 @nregout @skind
 none @block  1
-@ch { @ s { } { sc_port<pull_if<unsigned> > } - 0 } 
+@ch { @ s { } { sc_port<pull_if<unsigned>> } - 0 } 
 @ischnl } @md out @iv -
 @sysInt sc_port<pull_if<unsigned> >
 @multiport 1 @isTemplate 0
@@ -2827,7 +2698,7 @@ L { @nvis } !
 @das -
 @nregout @skind
 none @block  1
-@ch { @ s { } { sc_port<pull_if<unsigned> > } - 0 } 
+@ch { @ s { } { sc_port<pull_if<unsigned>> } - 0 } 
 @ischnl } @md out @iv -
 @sysInt sc_port<pull_if<unsigned> >
 @multiport 1 @isTemplate 0
@@ -2853,7 +2724,7 @@ none @block  1
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 617 -684 28 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 617 -684 29 17 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 619 -681 1 8 nil 
 ABS 
@@ -2925,7 +2796,7 @@ invert FALSE visible TRUE typepin 0 pin { 670 -670 }
 @das -
 @nregout @skind
 none @block  1
-@ch { @ s { } { sc_port<pull_if<unsigned> > } - 0 } 
+@ch { @ s { } { sc_port<pull_if<unsigned>> } - 0 } 
 @ischnl } @md out @iv -
 @sysInt sc_port<pull_if<unsigned> >
 @multiport 1 @isTemplate 0
@@ -2933,15 +2804,15 @@ none @block  1
 @blist 1 { @cnt 0 } @flags 73 }
 
  } 
-angle 0 bcol 'Empty' pcol 'Black' } 
+angle 0 bcol 'Pale Blue2' pcol 'Black' } 
  } 
 text { 581 -707 1 absbl
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 560 -558 49 17 
+gnrtxt textbox { rect { 560 -558 52 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 562 -555 1 8 nil 
-  "absbl"  
+  "absbl" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -2955,7 +2826,7 @@ angle 0 fn 0 0 0 2 5 0 0 0 0 }
 @das -
 @nregout @skind
 none @block  1
-@ch { @ s { } { sc_port<pull_if<unsigned> > } - 0 } 
+@ch { @ s { } { sc_port<pull_if<unsigned>> } - 0 } 
 @ischnl } @md out @iv -
 @sysInt sc_port<pull_if<unsigned> >
 @multiport 1 @isTemplate 0
@@ -2991,7 +2862,7 @@ L { @nvis } !
 @das -
 @nregout @skind
 none @block  1
-@ch { @ s { } { sc_port<pull_if<unsigned> > } - 0 } 
+@ch { @ s { } { sc_port<pull_if<unsigned>> } - 0 } 
 @ischnl } @md out @iv -
 @sysInt sc_port<pull_if<unsigned> >
 @multiport 1 @isTemplate 0
@@ -3017,7 +2888,7 @@ none @block  1
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 657 -694 28 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 657 -694 29 17 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 659 -691 1 8 nil 
 ABS 
@@ -3089,7 +2960,7 @@ invert FALSE visible TRUE typepin 0 pin { 710 -680 }
 @das -
 @nregout @skind
 none @block  1
-@ch { @ s { } { sc_port<pull_if<unsigned> > } - 0 } 
+@ch { @ s { } { sc_port<pull_if<unsigned>> } - 0 } 
 @ischnl } @md out @iv -
 @sysInt sc_port<pull_if<unsigned> >
 @multiport 1 @isTemplate 0
@@ -3097,15 +2968,15 @@ none @block  1
 @blist 1 { @cnt 0 } @flags 73 }
 
  } 
-angle 0 bcol 'Empty' pcol 'Black' } 
+angle 0 bcol 'Pale Blue2' pcol 'Black' } 
  } 
 text { 619 -716 1 absbr
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 560 -558 50 17 
+gnrtxt textbox { rect { 560 -558 53 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 562 -555 1 8 nil 
-  "absbr"  
+  "absbr" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -3119,7 +2990,7 @@ angle 0 fn 0 0 0 2 5 0 0 0 0 }
 @das -
 @nregout @skind
 none @block  1
-@ch { @ s { } { sc_port<pull_if<unsigned> > } - 0 } 
+@ch { @ s { } { sc_port<pull_if<unsigned>> } - 0 } 
 @ischnl } @md out @iv -
 @sysInt sc_port<pull_if<unsigned> >
 @multiport 1 @isTemplate 0
@@ -3155,7 +3026,7 @@ L { @nvis } !
 @das -
 @nregout @skind
 none @block  1
-@ch { @ s { } { sc_port<pull_if<unsigned> > } - 0 } 
+@ch { @ s { } { sc_port<pull_if<unsigned>> } - 0 } 
 @ischnl } @md out @iv -
 @sysInt sc_port<pull_if<unsigned> >
 @multiport 1 @isTemplate 0
@@ -3181,7 +3052,7 @@ none @block  1
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 910 -164 62 18 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 910 -164 62 17 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 912 -161 1 8 nil 
 powertrain 
@@ -3213,7 +3084,7 @@ invert FALSE visible TRUE typepin 0 pin { 900 -130 }
 @das -
 @nregout @skind
 none @block -
-@ch { @ eng {  } { pushpull_if<unsigned> } - 0 } 
+@ch { @ eng { } { pushpull_if<unsigned> } - 0 } 
 @ischnl } @md export @iv -
 @sysInt pushpull_if<unsigned>
 @multiport 1 @isTemplate 0
@@ -3232,7 +3103,7 @@ invert FALSE visible TRUE typepin 0 pin { 1090 -100 }
 @das -
 @nregout @skind
 none @block -
-@ch { @ wfl {  } { pull_if<unsigned> } - 0 } 
+@ch { @ wfl { } { pull_if<unsigned> } - 0 } 
 @ischnl } @md export @iv -
 @sysInt pull_if<unsigned>
 @multiport 1 @isTemplate 0
@@ -3251,7 +3122,7 @@ invert FALSE visible TRUE typepin 0 pin { 1090 -120 }
 @das -
 @nregout @skind
 none @block -
-@ch { @ wfr {  } { pull_if<unsigned> } - 0 } 
+@ch { @ wfr { } { pull_if<unsigned> } - 0 } 
 @ischnl } @md export @iv -
 @sysInt pull_if<unsigned>
 @multiport 1 @isTemplate 0
@@ -3270,7 +3141,7 @@ invert FALSE visible TRUE typepin 0 pin { 1090 -140 }
 @das -
 @nregout @skind
 none @block -
-@ch { @ wbl {  } { pull_if<unsigned> } - 0 } 
+@ch { @ wbl { } { pull_if<unsigned> } - 0 } 
 @ischnl } @md export @iv -
 @sysInt pull_if<unsigned>
 @multiport 1 @isTemplate 0
@@ -3289,7 +3160,7 @@ invert FALSE visible TRUE typepin 0 pin { 1090 -160 }
 @das -
 @nregout @skind
 none @block -
-@ch { @ wbr {  } { pull_if<unsigned> } - 0 } 
+@ch { @ wbr { } { pull_if<unsigned> } - 0 } 
 @ischnl } @md export @iv -
 @sysInt pull_if<unsigned>
 @multiport 1 @isTemplate 0
@@ -3308,7 +3179,7 @@ invert FALSE visible TRUE typepin 0 pin { 900 -110 }
 @das -
 @nregout @skind
 none @block -
-@ch { @ brk {  } { push_if<unsigned> } - 0 } 
+@ch { @ brk { } { push_if<unsigned> } - 0 } 
 @ischnl } @md export @iv -
 @sysInt push_if<unsigned>
 @multiport 1 @isTemplate 0
@@ -3321,10 +3192,10 @@ angle 0 bcol 'Gray75' pcol 'Black' }
 text { 959 -113 1 powertrain0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 907 -35 84 17 
+gnrtxt textbox { rect { 907 -35 87 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 909 -32 1 8 nil 
-  "powertrain0"  
+  "powertrain0" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -3338,7 +3209,7 @@ angle 0 fn 0 0 0 2 5 0 0 0 0 }
 @das -
 @nregout @skind
 none @block -
-@ch { @ eng {  } { pushpull_if<unsigned> } - 0 } 
+@ch { @ eng { } { pushpull_if<unsigned> } - 0 } 
 @ischnl } @md export @iv -
 @sysInt pushpull_if<unsigned>
 @multiport 1 @isTemplate 0
@@ -3346,7 +3217,7 @@ none @block -
 @das -
 @nregout @skind
 none @block -
-@ch { @ brk {  } { push_if<unsigned> } - 0 } 
+@ch { @ brk { } { push_if<unsigned> } - 0 } 
 @ischnl } @md export @iv -
 @sysInt push_if<unsigned>
 @multiport 1 @isTemplate 0
@@ -3354,7 +3225,7 @@ none @block -
 @das -
 @nregout @skind
 none @block -
-@ch { @ wfl {  } { pull_if<unsigned> } - 0 } 
+@ch { @ wfl { } { pull_if<unsigned> } - 0 } 
 @ischnl } @md export @iv -
 @sysInt pull_if<unsigned>
 @multiport 1 @isTemplate 0
@@ -3362,7 +3233,7 @@ none @block -
 @das -
 @nregout @skind
 none @block -
-@ch { @ wfr {  } { pull_if<unsigned> } - 0 } 
+@ch { @ wfr { } { pull_if<unsigned> } - 0 } 
 @ischnl } @md export @iv -
 @sysInt pull_if<unsigned>
 @multiport 1 @isTemplate 0
@@ -3370,7 +3241,7 @@ none @block -
 @das -
 @nregout @skind
 none @block -
-@ch { @ wbl {  } { pull_if<unsigned> } - 0 } 
+@ch { @ wbl { } { pull_if<unsigned> } - 0 } 
 @ischnl } @md export @iv -
 @sysInt pull_if<unsigned>
 @multiport 1 @isTemplate 0
@@ -3378,7 +3249,7 @@ none @block -
 @das -
 @nregout @skind
 none @block -
-@ch { @ wbr {  } { pull_if<unsigned> } - 0 } 
+@ch { @ wbr { } { pull_if<unsigned> } - 0 } 
 @ischnl } @md export @iv -
 @sysInt pull_if<unsigned>
 @multiport 1 @isTemplate 0
@@ -3390,7 +3261,7 @@ L { @nvis } !
 @das -
 @nregout @skind
 none @block -
-@ch { @ eng {  } { pushpull_if<unsigned> } - 0 } 
+@ch { @ eng { } { pushpull_if<unsigned> } - 0 } 
 @ischnl } @md export @iv -
 @sysInt pushpull_if<unsigned>
 @multiport 1 @isTemplate 0
@@ -3398,7 +3269,7 @@ none @block -
 @das -
 @nregout @skind
 none @block -
-@ch { @ brk {  } { push_if<unsigned> } - 0 } 
+@ch { @ brk { } { push_if<unsigned> } - 0 } 
 @ischnl } @md export @iv -
 @sysInt push_if<unsigned>
 @multiport 1 @isTemplate 0
@@ -3406,7 +3277,7 @@ none @block -
 @das -
 @nregout @skind
 none @block -
-@ch { @ wfl {  } { pull_if<unsigned> } - 0 } 
+@ch { @ wfl { } { pull_if<unsigned> } - 0 } 
 @ischnl } @md export @iv -
 @sysInt pull_if<unsigned>
 @multiport 1 @isTemplate 0
@@ -3414,7 +3285,7 @@ none @block -
 @das -
 @nregout @skind
 none @block -
-@ch { @ wfr {  } { pull_if<unsigned> } - 0 } 
+@ch { @ wfr { } { pull_if<unsigned> } - 0 } 
 @ischnl } @md export @iv -
 @sysInt pull_if<unsigned>
 @multiport 1 @isTemplate 0
@@ -3422,7 +3293,7 @@ none @block -
 @das -
 @nregout @skind
 none @block -
-@ch { @ wbl {  } { pull_if<unsigned> } - 0 } 
+@ch { @ wbl { } { pull_if<unsigned> } - 0 } 
 @ischnl } @md export @iv -
 @sysInt pull_if<unsigned>
 @multiport 1 @isTemplate 0
@@ -3430,10 +3301,139 @@ none @block -
 @das -
 @nregout @skind
 none @block -
-@ch { @ wbr {  } { pull_if<unsigned> } - 0 } 
+@ch { @ wbr { } { pull_if<unsigned> } - 0 } 
 @ischnl } @md export @iv -
 @sysInt pull_if<unsigned>
 @multiport 1 @isTemplate 0
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+0 L { @nvis @ctorsn 1 } !
+@hastemplparam
+{ @cnt 0 } @instanceAs 1 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 398 -336 77 17 
+bcol 'White' pcol 'Black' } 
+fmttext { 400 -331 1 8 nil 
+A9M4Cluster 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ vis }  { fiv  @kind 9 
+ } 
+groupobj { doset { rect { 390 -380 90 80 
+bcol 'Empty' pcol 'Black' } 
+ } 
+clshapes { closeShape { lines { line { 390 -380 480 -380 } 
+line { 480 -380 480 -300 } 
+line { 480 -300 390 -300 } 
+line { 390 -300 390 -380 } 
+} 
+arcs { } 
+bcol 'Orange'  } 
+ } 
+ } 
+ } 
+pinset { sympinel {  text { 433 -389 1 TX0
+ angle 900
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 440 -380 } 
+ {  end  440 -400  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n TX0 @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketInitiator @iv -
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@multiport 1 @isTemplate 0
+@initzConstruct %Name%
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+sympinel {  text { 411 -390 1 RX0
+ angle 900
+fn 0 0 160 2 5 0 0 0 0 }
+invert FALSE visible TRUE typepin 0 pin { 420 -380 } 
+ {  end  420 -400  } 
+ } 
+@spattr {
+@plist 1 
+{ @pdecl { { @n RX0 @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketTarget @iv -
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@multiport 1 @isTemplate 0
+@initzConstruct %Name%
+} @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+@blist 1 { @cnt 0 } @flags 73 }
+
+ } 
+angle 0 bcol 'Orange' pcol 'Black' } 
+ } 
+text { 412 -296 1 cluster1
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+gnrtxt textbox { rect { 536 -288 68 16 
+bcol 'Empty' pcol 'Red' } 
+fmttext { 538 -285 1 8 nil 
+  "cluster1"  
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ invis }  } 
+@conf
+- - @symname
+- @cmpattr
+@kwd @innm cluster1 @arch - @usl - @hrnm A9M4Cluster local @dffs 0 0 @stt hier @gnras @cnt 0
+@templparamas @templparamcnt 0
+@portas @cnt 0
+@portlist 2 
+{ @port { @pdecl { { @n RX0 @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketTarget @iv -
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@multiport 1 @isTemplate 0
+@initzConstruct %Name%
+} @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n TX0 @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketInitiator @iv -
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@multiport 1 @isTemplate 0
+@initzConstruct %Name%
+} @gr DEF @idx -1 } @blist 0 } !
+@procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
+L { @nvis } !
+@prtas 2 -
+47 sigIdx
+0 RX0
+-
+45 sigIdx
+0 TX0
+2 
+{ @pdecl { { @n RX0 @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketTarget @iv -
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@multiport 1 @isTemplate 0
+@initzConstruct %Name%
+} @gr DEF @idx -1 } { @pdecl { { @n TX0 @t - @bnd -
+@das -
+@nregout @skind
+none @block  1
+@ch -
+} @md socketInitiator @iv -
+@sysInt tlm::tlm_initiator_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@multiport 1 @isTemplate 0
+@initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
@@ -3469,7 +3469,7 @@ tlm::tlm_initiator_socket<>
 
  } 
  SourceIdx 0 
- DestIdx 9 
+ DestIdx 8 
  } 
  } 
 @BIND
@@ -3520,7 +3520,7 @@ tlm::tlm_initiator_socket<>
 
  } 
  SourceIdx 0 
- DestIdx 9 
+ DestIdx 8 
  } 
  } 
 @BIND
@@ -3571,7 +3571,7 @@ tlm::tlm_initiator_socket<>
 
  } 
  SourceIdx 1 
- DestIdx 9 
+ DestIdx 8 
  } 
  } 
 @BIND
@@ -3622,7 +3622,7 @@ tlm::tlm_initiator_socket<>
 
  } 
  SourceIdx 1 
- DestIdx 9 
+ DestIdx 8 
  } 
  } 
 @BIND
@@ -3672,7 +3672,7 @@ tlm::tlm_initiator_socket<>
 0 
 
  } 
- SourceIdx 9 
+ SourceIdx 8 
  DestIdx 2 
  } 
  } 
@@ -3723,7 +3723,7 @@ tlm::tlm_initiator_socket<>
 0 
 
  } 
- SourceIdx 9 
+ SourceIdx 8 
  DestIdx 2 
  } 
  } 
@@ -3774,8 +3774,8 @@ tlm::tlm_initiator_socket<>
 0 
 
  } 
- SourceIdx 10 
- DestIdx 5 
+ SourceIdx 9 
+ DestIdx 4 
  } 
  } 
 @BIND
@@ -3825,8 +3825,8 @@ tlm::tlm_initiator_socket<>
 0 
 
  } 
- SourceIdx 10 
- DestIdx 5 
+ SourceIdx 9 
+ DestIdx 4 
  } 
  } 
 @BIND
@@ -3876,8 +3876,8 @@ tlm::tlm_initiator_socket<>
 0 
 
  } 
- SourceIdx 10 
- DestIdx 6 
+ SourceIdx 9 
+ DestIdx 5 
  } 
  } 
 @BIND
@@ -3927,8 +3927,8 @@ tlm::tlm_initiator_socket<>
 0 
 
  } 
- SourceIdx 10 
- DestIdx 6 
+ SourceIdx 9 
+ DestIdx 5 
  } 
  } 
 @BIND
@@ -3978,8 +3978,8 @@ tlm::tlm_initiator_socket<>
 0 
 
  } 
- SourceIdx 10 
- DestIdx 13 
+ SourceIdx 9 
+ DestIdx 12 
  } 
  } 
 @BIND
@@ -4029,8 +4029,8 @@ tlm::tlm_initiator_socket<>
 0 
 
  } 
- SourceIdx 10 
- DestIdx 13 
+ SourceIdx 9 
+ DestIdx 12 
  } 
  } 
 @BIND
@@ -4080,8 +4080,8 @@ tlm::tlm_initiator_socket<>
 0 
 
  } 
- SourceIdx 10 
- DestIdx 14 
+ SourceIdx 9 
+ DestIdx 13 
  } 
  } 
 @BIND
@@ -4131,8 +4131,8 @@ tlm::tlm_initiator_socket<>
 0 
 
  } 
- SourceIdx 10 
- DestIdx 14 
+ SourceIdx 9 
+ DestIdx 13 
  } 
  } 
 @BIND
@@ -4182,8 +4182,8 @@ tlm::tlm_initiator_socket<>
 0 
 
  } 
- SourceIdx 10 
- DestIdx 15 
+ SourceIdx 9 
+ DestIdx 14 
  } 
  } 
 @BIND
@@ -4233,8 +4233,8 @@ tlm::tlm_initiator_socket<>
 0 
 
  } 
- SourceIdx 10 
- DestIdx 15 
+ SourceIdx 9 
+ DestIdx 14 
  } 
  } 
 @BIND
@@ -4284,8 +4284,8 @@ tlm::tlm_initiator_socket<>
 0 
 
  } 
- SourceIdx 10 
- DestIdx 7 
+ SourceIdx 9 
+ DestIdx 6 
  } 
  } 
 @BIND
@@ -4335,8 +4335,8 @@ tlm::tlm_initiator_socket<>
 0 
 
  } 
- SourceIdx 10 
- DestIdx 7 
+ SourceIdx 9 
+ DestIdx 6 
  } 
  } 
 @BIND
@@ -4386,8 +4386,8 @@ tlm::tlm_initiator_socket<>
 0 
 
  } 
- SourceIdx 4 
- DestIdx 8 
+ SourceIdx 3 
+ DestIdx 7 
  } 
  } 
 @BIND
@@ -4437,8 +4437,8 @@ tlm::tlm_initiator_socket<>
 0 
 
  } 
- SourceIdx 4 
- DestIdx 8 
+ SourceIdx 3 
+ DestIdx 7 
  } 
  } 
 @BIND
@@ -4458,7 +4458,7 @@ s21
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 440 -420  440 -420  440 -450 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 440 -400  440 -400  440 -450 bcol 'Empty' pcol 'Black' 
  Firstpin {
   blockpin {   nnvis  pnvis pin { 440 -450 } 
  } 
@@ -4475,7 +4475,7 @@ tlm::tlm_target_socket<>
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 440 -420 } 
+  blockpin {   nnvis  pnvis pin { 440 -400 } 
  } 
 11 45 -1 -
 -
@@ -4488,8 +4488,8 @@ tlm::tlm_initiator_socket<>
 0 
 
  } 
- SourceIdx 3 
- DestIdx 8 
+ SourceIdx 16 
+ DestIdx 7 
  } 
  } 
 @BIND
@@ -4509,7 +4509,7 @@ s22
 @channeltype -
 -
 0 
-signal { F bind line90 { 0 4 2 420 -420  420 -420  420 -450 bcol 'Empty' pcol 'Black' 
+signal { F bind line90 { 0 4 2 420 -400  420 -400  420 -450 bcol 'Empty' pcol 'Black' 
  Firstpin {
   blockpin {   nnvis  pnvis pin { 420 -450 } 
  } 
@@ -4526,7 +4526,7 @@ tlm::tlm_target_socket<>
  } 
 
  Secondpin {
-  blockpin {   nnvis  pnvis pin { 420 -420 } 
+  blockpin {   nnvis  pnvis pin { 420 -400 } 
  } 
 10 47 -1 -
 -
@@ -4539,8 +4539,8 @@ tlm::tlm_initiator_socket<>
 0 
 
  } 
- SourceIdx 3 
- DestIdx 8 
+ SourceIdx 16 
+ DestIdx 7 
  } 
  } 
 @BIND
@@ -4591,7 +4591,7 @@ tlm::tlm_initiator_socket<>
 
  } 
  SourceIdx 2 
- DestIdx 8 
+ DestIdx 7 
  } 
  } 
 @BIND
@@ -4642,7 +4642,7 @@ tlm::tlm_initiator_socket<>
 
  } 
  SourceIdx 2 
- DestIdx 8 
+ DestIdx 7 
  } 
  } 
 @BIND
@@ -4693,7 +4693,7 @@ tlm::tlm_initiator_socket<>
 
  } 
  SourceIdx 2 
- DestIdx 10 
+ DestIdx 9 
  } 
  } 
 @BIND
@@ -4744,7 +4744,7 @@ tlm::tlm_initiator_socket<>
 
  } 
  SourceIdx 2 
- DestIdx 10 
+ DestIdx 9 
  } 
  } 
 @BIND
@@ -4788,8 +4788,8 @@ pull_if<unsigned>
 0 
 
  } 
- SourceIdx 11 
- DestIdx 4 
+ SourceIdx 10 
+ DestIdx 3 
  } 
  } 
 @BIND
@@ -4837,8 +4837,8 @@ pull_if<unsigned>
 
 
  } 
- SourceIdx 7 
- DestIdx 12 
+ SourceIdx 6 
+ DestIdx 11 
  } 
  } 
 @BIND
@@ -4864,16 +4864,15 @@ sc_port<pull_if<unsignedint>>
 0 
 !
 
-@@VE@names@@ 45 @obj - secattack0 36 @obj - powertrain0 36 @obj - ebm0 36 @obj - emu0 36 @obj - chassiscan0 36 @obj - accelsensor 36 @obj - radio0 36 @obj - cluster0 36 @obj - absfl 36 @obj - absfr 36 @obj - cem0 36 
+@@VE@names@@ 45 @obj - secattack0 36 @obj - powertrain0 36 @obj - ebm0 36 @obj - emu0 36 @obj - chassiscan0 36 @obj - accelsensor 36 @obj - radio0 36 @obj - cluster1 36 @obj - absfl 36 @obj - absfr 36 @obj - cem0 36 
 @obj - s2 13 @obj - s10 13 @obj - s3 13 @obj - brakesensor 36 @obj - s11 13 @obj - s4 13 @obj - s12 13 @obj - s5 13 @obj - s13 13 @obj - s6 13 
 @obj - s14 13 @obj - s7 13 @obj - s15 13 @obj - s8 13 @obj - s16 13 @obj - s9 13 @obj - s17 13 @obj - propcan0 36 @obj - s18 13 @obj - restbus0 36 
 @obj - s19 13 @obj - s20 13 @obj - s21 13 @obj - s22 13 @obj - s23 13 @obj - s24 13 @obj - s25 13 @obj - absbl 36 @obj - s26 13 @obj - s27 13 
-@obj - s28 13 @obj - s29 13 @obj - absbr 36 @obj - bodycan0 36 23 29 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 59 16 -1 -1 -1 -1 -1 -1 -1 -1 -1 55 !
+@obj - s28 13 @obj - s29 13 @obj - absbr 36 @obj - bodycan0 36 23 29 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 59 17 -1 -1 -1 -1 -1 -1 -1 -1 -1 55 !
 
 @@VE@obj_u@@ secattack0 SecurityAttack local 0 
 radio0 Radio local 0 
 cem0 CEM local 0 
-cluster0 Cluster local 0 
 emu0 EMU local 0 
 restbus0 RestBus local 0 
 absfl ABS local 0 
@@ -4887,4 +4886,5 @@ absfr ABS local 0
 absbl ABS local 0 
 absbr ABS local 0 
 powertrain0 powertrain models 0 
+cluster1 A9M4Cluster local 0 
 !

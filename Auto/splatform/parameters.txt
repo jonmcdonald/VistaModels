@@ -1,5 +1,12 @@
+
+@include ../cluster/hw/parameters.txt
+
+top.cluster1.clusterdriver0.a9x2.elf_image_file = ../cluster/sw/a9/boot/linux-kernel.axf
+top.cluster1.clusterdriver0.m4.elf_image_file   = ../cluster/sw/m4/image.axf
+top.cluster1.clusterdriver0.sdcard.image_file   = ../cluster/sw/a9/sdcard/sysroot.ext2
+
 call_to_default_if = 1
-tlm_timing_model = LT
+tlm_timing_model = AT
 
 top.chassiscan0.generic_clock = 1 US
 top.propcan0.generic_clock = 1 US
@@ -13,6 +20,7 @@ top.secattack0.CanIF.generic_clock = 8 US
 top.radio0.CanIF.generic_clock = 8 US
 
 top.cluster0.CanIF.generic_clock = 1 US
+top.cluster1.CanIF.generic_clock = 1 US
 top.restbus0.CanIF.generic_clock = 1 US
 top.absfl.CanIF.generic_clock = 1 US
 top.absfr.CanIF.generic_clock = 1 US
