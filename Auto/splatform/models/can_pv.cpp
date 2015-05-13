@@ -184,7 +184,7 @@ bool can_pv::RX0_callback_write(mb_address_type address, unsigned char* data, un
       tpff.put(tokenptr);
     } else { cout << sc_time_stamp() <<": "<< name() <<". Warning: ReceiveCount not set.\n"; }
     //GI_Rx.write(1);
-    GI_Rx_write(1, (unsigned char)0);
+    GI_Rx_write(0, (unsigned char)1);
   } else {
     // Remove from our sent identmap iff not sent correctly
     if (identmap.count(c->ident) == 1 && c == identmap[c->ident]) {
