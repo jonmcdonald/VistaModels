@@ -20,6 +20,7 @@
 //* 
 //* Model Builder version: 4.1beta2
 //* Generated on: Apr. 28, 2015 09:59:38 AM, (user: jon)
+//* Automatically merged on: May. 13, 2015 12:47:23 PM, (user: jon)
 //*>
 
 
@@ -44,11 +45,23 @@ CEMDriver_pv::CEMDriver_pv(sc_module_name module_name)
   SC_THREAD(prop_thread);
 }    
 
- 
+// Read callback for propRXI port.
+// Returns true when successful.
+bool CEMDriver_pv::propRXI_callback_read(mb_address_type address, unsigned char* data, unsigned size) {
+  
+  return true;
+}
+
+// Read callback for chassisRXI port.
+// Returns true when successful.
+bool CEMDriver_pv::chassisRXI_callback_read(mb_address_type address, unsigned char* data, unsigned size) {
+  
+  return true;
+}
 
 // callback for any change in signal: propRXI of type: sc_in<bool>
 void CEMDriver_pv::propRXI_callback() {
-  unsigned s;
+  /*unsigned s;
   unsigned id;
   unsigned char d[9];
   DataType *dt;
@@ -66,12 +79,20 @@ void CEMDriver_pv::propRXI_callback() {
       dt = new DataType(id, s, d);
       chassisff.put(dt);
     }
-  }
+  }*/
+}
+
+
+// Read callback for bodyRXI port.
+// Returns true when successful.
+bool CEMDriver_pv::bodyRXI_callback_read(mb_address_type address, unsigned char* data, unsigned size) {
+  
+  return true;
 }
 
 // callback for any change in signal: chassisRXI of type: sc_in<bool>
 void CEMDriver_pv::chassisRXI_callback() {
-  unsigned s;
+  /*unsigned s;
   unsigned id;
   unsigned char d[9];
   DataType *dt;
@@ -87,11 +108,98 @@ void CEMDriver_pv::chassisRXI_callback() {
       dt = new DataType(id, s, d);
       propff.put(dt);
     }
-  }
+  }*/
 }
 
-// callback for any change in signal: bodyRXI of type: sc_in<bool>
-void CEMDriver_pv::bodyRXI_callback() {
+// Write callback for propRXI port.
+// Returns true when successful.
+bool CEMDriver_pv::propRXI_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
+  unsigned s;
+  unsigned id;
+  unsigned char d[9];
+  DataType *dt;
+
+  if (*data == 1) {
+    propB_write(CAN_ACK, 0);
+    propB_read(CAN_RXSIZE, s);
+    propB_read(CAN_RXIDENT, id);
+    if (s > 0)
+      propB_read(CAN_RXDATA, d, s);
+
+    if (id == ACCELERATORID && s > 0) {
+      dt = new DataType(id, s, d);
+      bodyff.put(dt);
+      dt = new DataType(id, s, d);
+      chassisff.put(dt);
+    }
+  }
+  return true;
+} 
+
+// Write callback for chassisRXI port.
+// Returns true when successful.
+bool CEMDriver_pv::chassisRXI_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
+  unsigned s;
+  unsigned id;
+  unsigned char d[9];
+  DataType *dt;
+
+  if (*data == 1) {
+    chassisB_write(CAN_ACK, 0);
+    chassisB_read(CAN_RXSIZE, s);
+    chassisB_read(CAN_RXIDENT, id);
+    if (s > 0)
+      chassisB_read(CAN_RXDATA, d, s);
+
+    if ((id == SPEEDID || id == BRAKEID) && s > 0) {
+      dt = new DataType(id, s, d);
+      propff.put(dt);
+    }
+  }
+  return true;
+} 
+
+// Write callback for bodyRXI port.
+// Returns true when successful.
+bool CEMDriver_pv::bodyRXI_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
+  
+  return true;
+} 
+
+unsigned CEMDriver_pv::propRXI_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size) {
+  return 0;
+} 
+
+unsigned CEMDriver_pv::propRXI_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size) {
+  return 0;
+} 
+
+bool CEMDriver_pv::propRXI_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData) {
+  return false;
+}
+
+unsigned CEMDriver_pv::chassisRXI_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size) {
+  return 0;
+} 
+
+unsigned CEMDriver_pv::chassisRXI_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size) {
+  return 0;
+} 
+
+bool CEMDriver_pv::chassisRXI_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData) {
+  return false;
+}
+
+unsigned CEMDriver_pv::bodyRXI_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size) {
+  return 0;
+} 
+
+unsigned CEMDriver_pv::bodyRXI_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size) {
+  return 0;
+} 
+
+bool CEMDriver_pv::bodyRXI_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData) {
+  return false;
 }
 
 void CEMDriver_pv::body_thread() {

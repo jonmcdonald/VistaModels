@@ -20,6 +20,7 @@
 //* 
 //* Model Builder version: 3.9.0
 //* Generated on: Mar. 31, 2015 03:29:12 PM, (user: jon)
+//* Automatically merged on: May. 13, 2015 12:42:16 PM, (user: jon)
 //*>
 
 
@@ -40,10 +41,34 @@ EMUDriver_pv::EMUDriver_pv(sc_module_name module_name)
   SC_THREAD(thread);
 }    
 
- 
+// Read callback for rxi port.
+// Returns true when successful.
+bool EMUDriver_pv::rxi_callback_read(mb_address_type address, unsigned char* data, unsigned size) {
+  
+  return true;
+}
+
+// Write callback for rxi port.
+// Returns true when successful.
+bool EMUDriver_pv::rxi_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
+  
+  return true;
+} 
+
+unsigned EMUDriver_pv::rxi_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size) {
+  return 0;
+} 
+
+unsigned EMUDriver_pv::rxi_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size) {
+  return 0;
+} 
+
+bool EMUDriver_pv::rxi_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData) {
+  return false;
+}
 
 // callback for any change in signal: rxi of type: sc_in<bool>
-void EMUDriver_pv::rxi_callback() {
+/*void EMUDriver_pv::rxi_callback() {
   unsigned s;
   unsigned id;
   unsigned char d[9];
@@ -55,7 +80,7 @@ void EMUDriver_pv::rxi_callback() {
     if (s > 0)
       m_read(CAN_RXDATA, d, s);
   }
-}
+}*/
 
 void EMUDriver_pv::thread() {
   unsigned d;
@@ -75,3 +100,5 @@ void EMUDriver_pv::thread() {
     m_write(CAN_IDENT, RPMID);
   }
 }
+
+ 

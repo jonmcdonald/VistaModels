@@ -51,7 +51,7 @@
 @das -
 @nregout @skind
 none @block  1
-@ch { @ s { } { sc_port<pull_if<unsigned> > } - 0 } 
+@ch { @ s { } { sc_port<pull_if<unsigned> > } 0 0 } 
 @ischnl } @md out @iv -
 @sysInt sc_port<pull_if<unsigned> >
 @multiport 1 @isTemplate 0

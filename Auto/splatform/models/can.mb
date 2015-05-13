@@ -6,7 +6,7 @@
 
 # === ports ===
 add_port "reg" /TLM/protocols/generic slave 32 -bind_mode mandatory
-add_port "GI_Rx" /TLM/protocols/signal master 1 -bind_mode optional
+add_port "GI_Rx" /TLM/protocols/generic master 8 -bind_mode optional
 add_port "C0I_Tx" /TLM/protocols/signal master 1 -bind_mode optional
 add_port "C0I_Rx" /TLM/protocols/signal master 1 -bind_mode optional
 add_port "TX0" /TLM/protocols/generic master 8 -bind_mode optional

@@ -77,7 +77,7 @@ none @block  1
 @das -
 @nregout @skind
 none @block  1
-@ch { @ b { } { sc_port<push_if<unsigned int> > } - 0 } 
+@ch { @ b { } { sc_port<push_if<unsigned int> > } 0 0 } 
 @ischnl } @md out @iv -
 @sysInt sc_port<push_if<unsigned int> >
 @multiport 1 @isTemplate 0

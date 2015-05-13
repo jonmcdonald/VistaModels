@@ -20,6 +20,7 @@
 //* 
 //* Model Builder version: 3.9.0
 //* Generated on: Mar. 31, 2015 03:29:10 PM, (user: jon)
+//* Automatically merged on: May. 12, 2015 06:43:07 PM, (user: jon)
 //*>
 
 
@@ -41,13 +42,27 @@ class FileCanData_pv : public FileCanData_pv_base {
   // Do not add parameters here.
   // To add parameters - use the Model Builder form (under PV->Parameters tab)
   SC_HAS_PROCESS(FileCanData_pv);
-  FileCanData_pv(sc_core::sc_module_name module_name);       
+  FileCanData_pv(sc_core::sc_module_name module_name);   
 
  protected:
   ////////////////////////////////////////
-  // signals callbacks
+  // target ports read callbacks
   //////////////////////////////////////// 
-  void rxi_callback(); 
+
+  bool rxi_callback_read(mb_address_type address, unsigned char* data, unsigned size);
+  
+  unsigned rxi_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size); 
+
+ protected:
+  ////////////////////////////////////////
+  // target ports write callbacks
+  //////////////////////////////////////// 
+  bool rxi_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+  
+  unsigned rxi_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size);  
+  bool rxi_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);   
+
+  void m_rxi_callback(); 
 
   void fifo_thread();
   void file_thread();
@@ -61,4 +76,3 @@ class FileCanData_pv : public FileCanData_pv_base {
  public:
   tlm::tlm_fifo<uint> *inff;
 };
-

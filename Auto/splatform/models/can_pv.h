@@ -88,6 +88,8 @@ class can_pv : public can_pv_base {
   bool reg_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);  
   bool RX0_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);   
 
+  mb::mb_token_ptr get_current_token_from_payload(tlm::tlm_generic_payload* payload_for_token);
+
  private:
   struct CANDataType {
     unsigned int ident;

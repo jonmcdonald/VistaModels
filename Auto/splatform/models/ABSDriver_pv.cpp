@@ -20,6 +20,7 @@
 //* 
 //* Model Builder version: 4.1beta2
 //* Generated on: Apr. 28, 2015 09:48:17 AM, (user: jon)
+//* Automatically merged on: May. 13, 2015 12:44:20 PM, (user: jon)
 //*>
 
 extern bool myRunning;
@@ -35,13 +36,36 @@ using namespace std;
 ABSDriver_pv::ABSDriver_pv(sc_module_name module_name) 
   : ABSDriver_pv_base(module_name) {
 
-  if (rxi.read() == 1) {
-    m_write(CAN_ACK, 0);
-  }
 }    
 
+// Read callback for rxi port.
+// Returns true when successful.
+bool ABSDriver_pv::rxi_callback_read(mb_address_type address, unsigned char* data, unsigned size) {
+  
+  return true;
+}
+
+// Write callback for rxi port.
+// Returns true when successful.
+bool ABSDriver_pv::rxi_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
+  
+  return true;
+} 
+
+unsigned ABSDriver_pv::rxi_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size) {
+  return 0;
+} 
+
+unsigned ABSDriver_pv::rxi_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size) {
+  return 0;
+} 
+
+bool ABSDriver_pv::rxi_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData) {
+  return false;
+}
+
 // callback for any change in signal: rxi of type: sc_in<bool>
-void ABSDriver_pv::rxi_callback() {
+/*void ABSDriver_pv::rxi_callback() {
   unsigned d;
   mb::mb_token_ptr tokenptr;
 
@@ -56,3 +80,6 @@ void ABSDriver_pv::rxi_callback() {
     m_write(CAN_IDENT, m_SPEEDID);
   }
 }
+*/
+
+ 

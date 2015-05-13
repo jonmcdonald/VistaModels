@@ -1,4 +1,3 @@
-
 /**************************************************************/
 /*                                                            */
 /*      Copyright Mentor Graphics Corporation 2006 - 2012     */
@@ -20,9 +19,8 @@
 //* 
 //* Model Builder version: 4.1beta2
 //* Generated on: Apr. 28, 2015 09:46:18 AM, (user: jon)
+//* Automatically merged on: May. 13, 2015 12:46:10 PM, (user: jon)
 //*>
-
-
 
 #include "EBMDriver_pv.h"
 #include "MemoryMap.h"
@@ -41,9 +39,52 @@ EBMDriver_pv::EBMDriver_pv(sc_module_name module_name)
   SC_THREAD(output_thread);
 }    
 
+// Read callback for rxi port.
+// Returns true when successful.
+bool EBMDriver_pv::rxi_callback_read(mb_address_type address, unsigned char* data, unsigned size) {
+  
+  return true;
+}
+
+// Write callback for rxi port.
+// Returns true when successful.
+bool EBMDriver_pv::rxi_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
+  DataType * dt;
+  unsigned s;
+  unsigned id;
+  unsigned char d[9];
+
+  if (*data == 1) {
+    m_write(CAN_ACK, 0);
+    m_read(CAN_RXSIZE, s);
+    m_read(CAN_RXIDENT, id);
+    if (s > 0)
+      m_read(CAN_RXDATA, d, s);
+
+    if (id == SPEEDIDBL && s > 0) {
+      dt = new DataType(SPEEDID, s, d);
+      SPEED = *(unsigned *)d;
+      outputff.put(dt);
+    }
+  }
+  return true;
+} 
+
+unsigned EBMDriver_pv::rxi_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size) {
+  return 0;
+} 
+
+unsigned EBMDriver_pv::rxi_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size) {
+  return 0;
+} 
+
+bool EBMDriver_pv::rxi_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData) {
+  return false;
+}
+
 // callback for any change in signal: rxi of type: sc_in<bool>
 void EBMDriver_pv::rxi_callback() {
-  DataType * dt;
+/*  DataType * dt;
   unsigned s;
   unsigned id;
   unsigned char d[9];
@@ -60,7 +101,7 @@ void EBMDriver_pv::rxi_callback() {
       SPEED = *(unsigned *)d;
       outputff.put(dt);
     }
-  }
+  }*/
 }
 
 void EBMDriver_pv::output_thread() {

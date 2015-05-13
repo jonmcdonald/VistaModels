@@ -37,7 +37,7 @@ using namespace std;
 //constructor
 can_pv::can_pv(sc_module_name module_name) 
   : can_pv_base(module_name) {
-  GI_Rx.initialize(0);
+  //GI_Rx.initialize(0);
   tpff.nb_unbound();
 }   
 
@@ -53,14 +53,21 @@ void can_pv::cb_write_m_ident(unsigned int newValue) {
   unsigned char *d = new unsigned char [(m_size*8)+61];
   unsigned char *m = (unsigned char *) &m_mem[0];
   CANDataType *c = (CANDataType *) d;
+//cout<<"*****  "<<hex<<(unsigned long long)d<<", "<<sc_time_stamp()<<": "<<name()<<", created "<<endl;
 
-  mb::mb_token_ptr ctp = get_current_token();
+  mb::mb_token_ptr ctp = get_current_token_from_payload(m_ident.get_current_payload());
   mb::mb_token_ptr tokenptr;
   if (ctp) { 
     tokenptr = new mb::mb_token(ctp);
+cout<<"*****  "<<sc_time_stamp()<<": "<<name()<<": Token associated with cb_write_m_ident copied"<<endl;
   } else {
     tokenptr = new mb::mb_token();
+cout<<"*****  "<<sc_time_stamp()<<": "<<name()<<": Error: no token associated with cb_write_m_ident"<<endl;
   }
+
+  if (tokenptr && tokenptr->hasField("CreationTime")) cout<<"tokenptr has creationtime\n";
+  if (ctp && ctp->hasField("CreationTime")) cout<<"ctp has creationtime\n";
+
 
   tokenptr->setField("CANDataPtr", (void *)d);
 
@@ -84,7 +91,8 @@ void can_pv::cb_write_m_ident(unsigned int newValue) {
 // Write callback for m_ack register.
 // The newValue has been already assigned to the m_ack register.
 void can_pv::cb_write_m_ack(unsigned int newValue) {
-  GI_Rx.write(0);
+  //GI_Rx.write(0);
+  GI_Rx_write(0, (unsigned char)0);
 }
   
 /////////////////////////////////////////////////////////////////////////////////
@@ -112,8 +120,12 @@ void can_pv::cb_read_m_rxmem(uint64_t address, unsigned char* data, unsigned len
     memcpy(data, c->d, c->length);
     if ((count = tokenptr->getFieldAsInt("ReceiveCount")) == 1) {
       d = (unsigned char *) c;
+//cout<<"*****  "<<hex<<(unsigned long long)d<<", "<<sc_time_stamp()<<": "<<name()<<", deleting "<<endl;
       delete [] d;
-    } else { tokenptr->setField("ReceiveCount", count-1); }
+    } else { 
+      tokenptr->setField("ReceiveCount", count-1); 
+//cout<<"*****  "<<hex<<(unsigned long long)c<<", "<<sc_time_stamp()<<": "<<name()<<", decrimenting "<<endl;
+    }
   } else {
       memcpy(data, rxmem, length);
   }
@@ -170,8 +182,9 @@ bool can_pv::RX0_callback_write(mb_address_type address, unsigned char* data, un
   if (c->calcCRC() == c->crc) {
     if (tokenptr && tokenptr->hasField("ReceiveCount")) {
       tpff.put(tokenptr);
-    } else { cout << sc_time_stamp() <<": "<< name() <<". Error, tokenptr not set.\n"; }
-    GI_Rx.write(1);
+    } else { cout << sc_time_stamp() <<": "<< name() <<". Warning: ReceiveCount not set.\n"; }
+    //GI_Rx.write(1);
+    GI_Rx_write(1, (unsigned char)0);
   } else {
     // Remove from our sent identmap iff not sent correctly
     if (identmap.count(c->ident) == 1 && c == identmap[c->ident]) {
@@ -207,3 +220,19 @@ bool can_pv::RX0_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dm
  
 void can_pv::cb_transport_dbg_m_ident(tlm::tlm_generic_payload& trans) {}
 void can_pv::cb_transport_dbg_m_ack(tlm::tlm_generic_payload& trans) {}
+
+mb::mb_token_ptr can_pv::get_current_token_from_payload(tlm::tlm_generic_payload* payload_for_token) {
+
+  mb::mb_token_ptr token_ptr = get_current_token();
+  if (token_ptr) return token_ptr;
+  
+  if (payload_for_token) {
+    mb::tlm20::pvt_ext* extension = mb::tlm20::setup_pvt_ext(*payload_for_token);
+    if (extension) {
+      mb_module::set_current_token(extension->getToken());
+      return extension->getToken();
+    }
+  }
+  return 0;
+}
+

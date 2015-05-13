@@ -1,5 +1,5 @@
-
-tlm_timing_model = AT
+call_to_default_if = 1
+tlm_timing_model = LT
 
 top.chassiscan0.generic_clock = 1 US
 top.propcan0.generic_clock = 1 US

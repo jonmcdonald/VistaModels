@@ -6,7 +6,7 @@
 
 # === ports ===
 add_port "m" /TLM/protocols/generic master 32 -bind_mode optional
-add_port "rxi" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "rxi" /TLM/protocols/generic slave 8 -bind_mode optional
 port -name s -class {sc_port<pull_if<unsigned> >}
 port -name e -class {sc_port<pushpull_if<unsigned,unsigned> >}
 
@@ -17,9 +17,9 @@ port -name e -class {sc_port<pushpull_if<unsigned,unsigned> >}
 # === auto parameters ===
 set_auto_parameter_default "clock" {10 ns} time {}
 set_auto_parameter_default "generic_clock" clock time {}
-set_auto_parameter_default "signal_clock" clock time {}
 set_auto_parameter_default "nominal_voltage" 1 double {}
 set_auto_parameter_default "mb_debug" false boolean {true false}
+set_auto_parameter_default "call_to_default_if" false boolean {true false}
 set_auto_parameter_default "verbose_parameters" true boolean {true false}
 set_auto_parameter_default "dmi_enabled" true boolean {true false}
 set_auto_parameter_default "warning_level" WARNING string {

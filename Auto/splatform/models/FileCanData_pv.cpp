@@ -20,6 +20,7 @@
 //* 
 //* Model Builder version: 3.9.0
 //* Generated on: Mar. 31, 2015 03:29:10 PM, (user: jon)
+//* Automatically merged on: May. 12, 2015 06:43:07 PM, (user: jon)
 //*>
 
 
@@ -45,8 +46,61 @@ FileCanData_pv::FileCanData_pv(sc_module_name module_name)
   SC_THREAD(fifo_thread);
 }    
 
+// Read callback for rxi port.
+// Returns true when successful.
+bool FileCanData_pv::rxi_callback_read(mb_address_type address, unsigned char* data, unsigned size) {
+  
+  return true;
+}
+
+// Write callback for rxi port.
+// Returns true when successful.
+bool FileCanData_pv::rxi_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
+  unsigned long long l_data;
+  mb::mb_token_ptr tokenptr = get_current_token();
+  double nstime;
+
+  if (*data == 1) {
+    m_write(CAN_ACK, 0);        // ack reg
+    m_read(CAN_RXSIZE, m_size);      // length
+    m_read(CAN_RXIDENT, m_ident);    // ident
+    l_data = 0;
+    if (m_size > 0) {
+      m_read(CAN_RXDATA, (unsigned char *) &l_data, m_size); // RX data
+      m_data = l_data;
+    }
+
+    if (tokenptr && tokenptr->hasField("CreationTime")) {
+      nstime = (sc_time_stamp() - tokenptr->getFieldAsTime("CreationTime")) / sc_time(1, SC_NS);
+      LifeTime_usec = nstime / 1000.0;
+    } else {
+      cout << sc_time_stamp() << ": " << name() << ", received token with no CreationTime\n";
+    }
+    if (PRINT_MESSAGE && (m_ident == SPEEDID || m_ident == RPMID))
+      cout << sc_time_stamp() <<": "<< name() << ", received 0x"<<hex<< m_ident<<dec<< ", "<< m_size << ", "
+           << hex <<" 0x"<< l_data << dec << endl;
+  }
+  return true;
+} 
+
+
+
+
+unsigned FileCanData_pv::rxi_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size) {
+  return 0;
+} 
+
+unsigned FileCanData_pv::rxi_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size) {
+  return 0;
+} 
+
+bool FileCanData_pv::rxi_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData) {
+  return false;
+}
+
 // callback for any change in signal: rxi of type: sc_in<bool>
-void FileCanData_pv::rxi_callback() {
+void FileCanData_pv::m_rxi_callback() {
+/*
   unsigned long long data;
   mb::mb_token_ptr tokenptr = get_current_token();
   double nstime;
@@ -71,6 +125,7 @@ void FileCanData_pv::rxi_callback() {
       cout << sc_time_stamp() <<": "<< name() << ", received 0x"<<hex<< m_ident<<dec<< ", "<< m_size << ", "
            << hex <<" 0x"<< data << dec << endl;
   }
+*/
 }
 
 void FileCanData_pv::fifo_thread() {
@@ -104,7 +159,7 @@ void FileCanData_pv::file_thread() {
       ifile >> s;
     } else {
       ifile >> dec >> t_us >> hex >> ident >> size >> rtr >> ide >> data;
-      //cout << dec << t_us<<" 0x"<<hex<<ident<<" "<<size<<" "<<rtr<<" "<<ide<<" 0x"<<data<<endl;
+      cout <<sc_time_stamp()<<": "<<name()<<", "<< dec << t_us<<" 0x"<<hex<<ident<<" "<<size<<" "<<rtr<<" "<<ide<<" 0x"<<data<<endl;
       ifile >> s;
 
       ctime = sc_time_stamp();
@@ -122,3 +177,5 @@ void FileCanData_pv::file_thread() {
     }
   }
 }
+
+ 

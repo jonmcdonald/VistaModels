@@ -20,6 +20,7 @@
 //* 
 //* Model Builder version: 4.1beta2
 //* Generated on: Apr. 28, 2015 09:59:38 AM, (user: jon)
+//* Automatically merged on: May. 13, 2015 12:47:23 PM, (user: jon)
 //*>
 
 
@@ -38,7 +39,7 @@ class CEMDriver_pv : public CEMDriver_pv_base {
   // Do not add parameters here.
   // To add parameters - use the Model Builder form (under PV->Parameters tab)
   SC_HAS_PROCESS(CEMDriver_pv);
-  CEMDriver_pv(sc_core::sc_module_name module_name);       
+  CEMDriver_pv(sc_core::sc_module_name module_name);   
 
   void body_thread();
   void prop_thread();
@@ -46,8 +47,36 @@ class CEMDriver_pv : public CEMDriver_pv_base {
 
  protected:
   ////////////////////////////////////////
-  // signals callbacks
+  // target ports read callbacks
   //////////////////////////////////////// 
+
+  bool propRXI_callback_read(mb_address_type address, unsigned char* data, unsigned size);
+  
+  unsigned propRXI_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size);
+  bool chassisRXI_callback_read(mb_address_type address, unsigned char* data, unsigned size);
+  
+  unsigned chassisRXI_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size);
+  bool bodyRXI_callback_read(mb_address_type address, unsigned char* data, unsigned size);
+  
+  unsigned bodyRXI_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size); 
+
+ protected:
+  ////////////////////////////////////////
+  // target ports write callbacks
+  //////////////////////////////////////// 
+  bool propRXI_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+  
+  unsigned propRXI_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size);
+  bool chassisRXI_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+  
+  unsigned chassisRXI_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size);
+  bool bodyRXI_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+  
+  unsigned bodyRXI_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size);  
+  bool propRXI_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);  
+  bool chassisRXI_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);  
+  bool bodyRXI_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);   
+
   void propRXI_callback();
   void chassisRXI_callback();
   void bodyRXI_callback(); 

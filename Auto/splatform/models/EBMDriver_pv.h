@@ -20,6 +20,7 @@
 //* 
 //* Model Builder version: 4.1beta2
 //* Generated on: Apr. 28, 2015 09:46:18 AM, (user: jon)
+//* Automatically merged on: May. 13, 2015 12:46:10 PM, (user: jon)
 //*>
 
 
@@ -38,15 +39,29 @@ class EBMDriver_pv : public EBMDriver_pv_base {
   // Do not add parameters here.
   // To add parameters - use the Model Builder form (under PV->Parameters tab)
   SC_HAS_PROCESS(EBMDriver_pv);
-  EBMDriver_pv(sc_core::sc_module_name module_name);       
+  EBMDriver_pv(sc_core::sc_module_name module_name);   
 
   void thread();
   void output_thread();
 
  protected:
   ////////////////////////////////////////
-  // signals callbacks
+  // target ports read callbacks
   //////////////////////////////////////// 
+
+  bool rxi_callback_read(mb_address_type address, unsigned char* data, unsigned size);
+  
+  unsigned rxi_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size); 
+
+ protected:
+  ////////////////////////////////////////
+  // target ports write callbacks
+  //////////////////////////////////////// 
+  bool rxi_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+  
+  unsigned rxi_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size);  
+  bool rxi_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);   
+
   void rxi_callback(); 
 
  private:
@@ -64,6 +79,5 @@ class EBMDriver_pv : public EBMDriver_pv_base {
   };
 
   mb::mb_fifo<DataType*> outputff;
-
 };
 

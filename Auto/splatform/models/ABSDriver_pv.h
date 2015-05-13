@@ -20,6 +20,7 @@
 //* 
 //* Model Builder version: 4.1beta2
 //* Generated on: Apr. 28, 2015 09:48:17 AM, (user: jon)
+//* Automatically merged on: May. 13, 2015 12:44:20 PM, (user: jon)
 //*>
 
 
@@ -38,12 +39,23 @@ class ABSDriver_pv : public ABSDriver_pv_base {
   // Do not add parameters here.
   // To add parameters - use the Model Builder form (under PV->Parameters tab)
   SC_HAS_PROCESS(ABSDriver_pv);
-  ABSDriver_pv(sc_core::sc_module_name module_name);       
+  ABSDriver_pv(sc_core::sc_module_name module_name);   
 
  protected:
   ////////////////////////////////////////
-  // signals callbacks
+  // target ports read callbacks
   //////////////////////////////////////// 
-  void rxi_callback(); 
+  bool rxi_callback_read(mb_address_type address, unsigned char* data, unsigned size);
+  
+  unsigned rxi_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size); 
+
+ protected:
+  ////////////////////////////////////////
+  // target ports write callbacks
+  //////////////////////////////////////// 
+  bool rxi_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+  
+  unsigned rxi_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size);  
+  bool rxi_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);   
 };
 
