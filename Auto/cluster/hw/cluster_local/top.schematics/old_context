@@ -1,1 +1,1 @@
-{add_element cluster1 -kind component -pointer 1 -associated_unit cluster_local:DummyCluster -class DummyCluster -include DummyCluster.h}
+{add_element cluster1 -kind component -pointer 1 -associated_unit cluster_local:DummyCluster -class DummyCluster -include DummyCluster.h} { add_bind cluster1->dummy_M4_Bus_Extension tb->slave } {add_element tb -kind component -pointer 1 -associated_unit cluster_local:TestBench -class TestBench_pvt -include TestBench_model.h} { add_bind tb->irq cluster1->dummy_M4_IRQ_0 }

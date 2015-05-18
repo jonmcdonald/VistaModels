@@ -27,11 +27,11 @@ $end
 $create_component("clusterdriver0");
 clusterdriver0 = new cluster("clusterdriver0");
 $end;
-$bind("dummy_M4_IRQ_0","clusterdriver0->M4_IRQ_0");
-vista_bind(dummy_M4_IRQ_0, clusterdriver0->M4_IRQ_0);
-$end;
 $bind("clusterdriver0->M4_Bus_Extension","dummy_M4_Bus_Extension");
 vista_bind(clusterdriver0->M4_Bus_Extension, dummy_M4_Bus_Extension);
+$end;
+$bind("dummy_M4_IRQ_0","clusterdriver0->m4_irq0");
+vista_bind(dummy_M4_IRQ_0, clusterdriver0->m4_irq0);
 $end;
     $elaboration_end;
   $vlnv_assign_begin;
@@ -50,7 +50,7 @@ $end;
 public:
   $fields_begin;
 $socket("dummy_M4_IRQ_0");
-tlm::tlm_target_socket< 1U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND > dummy_M4_IRQ_0;
+tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND > dummy_M4_IRQ_0;
 $end;
 $socket("dummy_M4_Bus_Extension");
 tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND > dummy_M4_Bus_Extension;

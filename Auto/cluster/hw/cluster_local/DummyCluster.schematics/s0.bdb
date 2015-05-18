@@ -13,25 +13,25 @@
  } 
  page  { w 11000 h 11000 type vhdstd orient portr  } 
 grid 10 
- } #idit - save unit (named DummyCluster while saving) on Fri May  8 13:10:47 2015
+ } #idit - save unit (named DummyCluster while saving) on Mon May 18 08:59:16 2015
 #SW version: 2008.12 v4.1.1.beta2 build 1. Date: Apr  8 2015. License: 1.1 
 version: 12 
 ipxactvendor Mentor.com 
 ipxactversion 1.0 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 281 -274 41 17 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 281 -294 41 17 
 bcol 'Empty' pcol 'Black' } 
-fmttext { 283 -271 1 8 nil 
+fmttext { 283 -291 1 8 nil 
 cluster 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  vis }  { fiv  @kind 9 
  } 
-groupobj { doset { rect { 200 -280 200 80 
+groupobj { doset { rect { 200 -300 200 100 
 bcol 'Empty' pcol 'Black' } 
  } 
-clshapes { closeShape { lines { line { 200 -280 400 -280 } 
-line { 400 -280 400 -200 } 
+clshapes { closeShape { lines { line { 200 -300 400 -300 } 
+line { 400 -300 400 -200 } 
 line { 400 -200 200 -200 } 
-line { 200 -200 200 -280 } 
+line { 200 -200 200 -300 } 
 } 
 arcs { } 
 bcol 'Pale Blue2'  } 
@@ -58,7 +58,7 @@ none @block  1
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
 @blist 1 { @cnt 0 } @flags 73 }
 
-sympinel {  text { 207 -247 1 M4_IRQ_0
+sympinel {  text { 207 -247 1 m4_irq0
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
 invert FALSE visible TRUE typepin 0 pin { 200 -240 } 
@@ -66,13 +66,13 @@ invert FALSE visible TRUE typepin 0 pin { 200 -240 }
  } 
 @spattr {
 @plist 1 
-{ @pdecl { { @n M4_IRQ_0 @t - @bnd -
+{ @pdecl { { @n m4_irq0 @t - @bnd -
 @das -
 @nregout @skind
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 1U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 1
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
@@ -97,13 +97,13 @@ angle 0 fn 0 0 0 2 5 0 0 0 0 }
 @templparamas @templparamcnt 0
 @portas @cnt 0
 @portlist 2 
-{ @port { @pdecl { { @n M4_IRQ_0 @t - @bnd -
+{ @port { @pdecl { { @n m4_irq0 @t - @bnd -
 @das -
 @nregout @skind
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 1U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 1
 @initzConstruct %Name%
 } @gr DEF @idx -1 } @blist 0 } { @port { @pdecl { { @n M4_Bus_Extension @t - @bnd -
@@ -119,19 +119,19 @@ none @block  1
 @procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
 L { @nvis } !
 @prtas 2 -
-0 sigIdx
-0 M4_IRQ_0
--
 3 sigIdx
 0 M4_Bus_Extension
+-
+0 sigIdx
+0 m4_irq0
 2 
-{ @pdecl { { @n M4_IRQ_0 @t - @bnd -
+{ @pdecl { { @n m4_irq0 @t - @bnd -
 @das -
 @nregout @skind
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 1U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 1
 @initzConstruct %Name%
 } @gr DEF @idx -1 } { @pdecl { { @n M4_Bus_Extension @t - @bnd -
@@ -172,7 +172,7 @@ dummy_M4_IRQ_0
 -
 @intrfclass
 { -name- 
-tlm::tlm_target_socket< 1U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+tlm::tlm_target_socket< 8U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 0 0 withTemplate 1 0 multiport 1 } 
 @initialization
 %Name%

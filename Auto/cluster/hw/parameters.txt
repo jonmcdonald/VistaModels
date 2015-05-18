@@ -69,7 +69,7 @@ vlan:tcp_napt                                  = :2022 => :22
 # ~~~~~~~~~~ M4 IMAGE
 
 top.cluster1.clusterdriver0.m4.elf_image_file                      = ../sw/m4/image.axf
-top.cluster1.clusterdriver0.m4.clock                               = 200000 NS # very slow!
+top.cluster1.clusterdriver0.m4.clock                               = 2500 NS 
 
 # ~~~~~~~~~~ M4 AHB MAP
 
