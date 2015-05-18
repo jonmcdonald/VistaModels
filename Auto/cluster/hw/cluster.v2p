@@ -28,6 +28,7 @@ Files {
 	 } 
 }
 Designs {{$PRJDIR/sc_main.cpp}}
+Simulations /mnt/store/data/VistaModels/Auto/cluster/hw/cluster/sim
 Folders {
 	 Sources {*.c *.cpp *.C *.cxx *.cc} 
 	 {Public Headers} {*.h *.hpp *.H *.hxx *.hh} 

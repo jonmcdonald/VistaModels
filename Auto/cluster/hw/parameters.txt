@@ -2,9 +2,10 @@
 # ~~~~~~~~~~ GLOBAL OPTIONS
 
 #top.cluster1.clusterdriver0.a9x2.PV.cpu0.core.gdbstub_port         = 2345
+#top.cluster1.clusterdriver0.m4.PV.core.gdbstub_port                = 2346
 
 tlm_timing_model                               = LT
-#physical_io:host_time_sync                     = 1
+physical_io:host_time_sync                     = 1
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~ A9 IMAGE
@@ -62,7 +63,7 @@ vlan:hostname = host
 vlan:dhcpstart = 10.0.2.15
 vlan:dns = 10.0.2.3
 vlan:net = 10.0.2.0
-vlan:tcp_napt                                  = :2022 => :22
+vlan:tcp_napt                                  = :2022 => :22, :10000 => :10000, :10001 => :10001
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -23,12 +23,12 @@
 
 void irq0_Handler(void) 
 {
-    mb_core_message("irq!\n");
+//    mb_core_message("irq!\n");
     CAN_ACK_REG = 0;
     uint32_t id = CAN_RXIDENT_REG;
-    mb_core_print(id);
-    uint32_t data = CAN_RXDATA_REG;
-    mb_core_print(data);
+//    mb_core_print(id);
+//    uint32_t data = CAN_RXDATA_REG;
+//    mb_core_print(data);
     switch(id) {
       case SPEEDID:
         SPEED_REG = CAN_RXDATA_REG;
@@ -49,7 +49,7 @@ int main( void )
     NVIC_EnableIRQ(0);
 
     while (1) {
-        mb_core_message("waiting for interrupt!\n");
+//        mb_core_message("waiting for interrupt!\n");
         asm volatile ("wfi");
     }
 
