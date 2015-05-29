@@ -1,0 +1,4 @@
+@include $VISTA_ROOT/platforms/zynq/parameters.txt
+
+top.Zynq_SoC_inst.cpu_inst0.CPU_INST0.PV.cpu0.core.elf_image_file = secure_demo.out
+

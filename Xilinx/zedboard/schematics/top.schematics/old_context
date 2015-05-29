@@ -1,0 +1,1 @@
+{add_element Zynq_SoC_inst -kind component -pointer 1 -associated_unit zynq_schematics:Zynq_SoC -class Zynq_SoC -include zynq_schematics/Zynq_SoC.h} { add_bind Zynq_SoC_inst->GPOUT0 leds->slave } {add_element leds -kind component -pointer 1 -associated_unit models:LEDs -class LEDs_pvt -include ../models/LEDs_model.h} { rename zynq Zynq_SoC_inst }
