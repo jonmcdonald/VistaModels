@@ -4,7 +4,7 @@
 #  "make clean" remove all generated/object data
 #
 
-MODELS = Models
+MODELS = models
 SC_MAIN = sc_main
 
 PROJECT = $(patsubst %.v2p,%,$(wildcard *.v2p))

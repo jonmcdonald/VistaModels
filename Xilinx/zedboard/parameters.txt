@@ -1,8 +1,10 @@
 @include $VISTA_ROOT/platforms/zynq/parameters.txt
 
-top.Zynq_SoC_inst.cpu_inst0.CPU_INST0.PV.cpu0.core.elf_image_file = /mnt/store/data/customers/selex/nuc_secure/output/csgnu_arm/zedboard/Debug_s.zedboard/bin/secure_demo.out
+top.Zynq_SoC_inst.cpu_inst0.CPU_INST0.PV.cpu0.core.elf_image_file = nuc_secure/output/csgnu_arm/zedboard/Debug_s.zedboard/bin/secure_demo.out
 
 top.Zynq_SoC_inst.cpu_inst0.CPU_INST0.smp_cluster =
-top.Zynq_SoC_inst.cpu_inst0.CPU_INST0.PV.cpu0.core.gdbstub_port = 1024
-top.Zynq_SoC_inst.cpu_inst0.CPU_INST0.PV.cpu1.core.gdbstub_port = 1025
+#top.Zynq_SoC_inst.cpu_inst0.CPU_INST0.PV.cpu0.core.gdbstub_port = 1024
+#top.Zynq_SoC_inst.cpu_inst0.CPU_INST0.PV.cpu1.core.gdbstub_port = 1025
+
+#trace_script = trace.tcl
 
