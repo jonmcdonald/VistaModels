@@ -1,0 +1,4 @@
+::sysinit:/etc/init.d/rcS
+
+::respawn:/sbin/getty -L ttymxc1 115200 vt102
+

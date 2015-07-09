@@ -1,0 +1,40 @@
+ProjectName iMX6_Extension
+Files {
+	 Schematics {
+		{$PRJDIR/schematics/top.h}
+		{$PRJDIR/schematics/iMX6_SoC.h}
+	 } 
+	 Sources {
+		{$PRJDIR/sc_main.cpp}
+	 } 
+	 Models {
+		{$PRJDIR/models/FPGA_I2C_custom.mb}
+		{$PRJDIR/models/I2C_Switch.mb}
+		{$PRJDIR/models/FPGA_SPI_custom.mb}
+		{$PRJDIR/models/CustomPeripheral.mb}
+	 } 
+}
+Designs {{$PRJDIR/sc_main.cpp}}
+Simulations /mnt/store/data/customers/barco/hw/iMX6_Extension/sim
+VirtualPrototypes extended_iMX6.vppf
+Folders {
+	 Sources {*.c *.cpp *.C *.cxx *.cc} 
+	 {Public Headers} {*.h *.hpp *.H *.hxx *.hh} 
+	 Models *.mb 
+	 Schematics {} 
+	 Documentation {*.txt *.TXT *.doc *.DOC *.pdf *.PDF *.html *.HTML *.htm *.HTM *.ps *.PS} 
+	 {Linked Binaries} {*.o *.a *.so} 
+	 {Other Binaries} {*.exe *.x} 
+}
+GeneralCompilationOptions -Wall
+AlwaysCompileInCPPMode 1
+LinkPackages {model_builder iMX6_catalogue iMX6}
+ProjectLibraryType archive
+ProjectComponentsLibraryPath {$PRJDIR/$PRJFILE_BASENAME/interfaces}
+ProjectWorkingDirectory {$PRJDIR/$PRJFILE_BASENAME/build}
+HasTLMSupport 0
+CompiledWithTLMSupport 0
+IsUsePathVariables 1
+PlatformName iMX6_Extension
+ProjectReadOnly 0
+ProjectBuildMultiPlatform 0

@@ -1,0 +1,3 @@
+tftp            69/tcp
+tftp            69/udp
+

@@ -1,0 +1,18 @@
+@include parameters_iMX6.txt
+
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file = $VISTA_ROOT/platforms/iMX6/Software/linux/fsbl/boot.elf /mnt/store/data/customers/barco/sw/boot-wrapper/linux-imx6.elf
+
+top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file = $VISTA_ROOT/platforms/iMX6/Software/linux/fsbl/boot.elf ../sw/boot-wrapper/linux-imx6.elf
+top.iMX6_inst.uSDHC3.image_file = ../sw/sdcard/sysroot.ext2
+
+top.iMX6_inst.IPU1.connected = 0
+top.iMX6_inst.UART1.connected = 0
+
+vlan:host = 10.0.2.2
+vlan:hostname = demo
+vlan:dhcpstart = 10.0.2.15
+vlan:dns = 10.0.2.3
+vlan:net = 10.0.2.0
+vlan:tcp_napt  = :2022 => :22 ; :6666 => :6666
+
+

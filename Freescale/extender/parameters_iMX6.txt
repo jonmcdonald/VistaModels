@@ -1,0 +1,541 @@
+###############################
+##         LT | AT          ###
+###############################
+tlm_timing_model = LT
+
+###############################
+##         Clocks           ###
+###############################
+clock = 2 NS
+axi_clock = 2 NS
+signal_clock = 2 NS
+generic_clock = 8 NS
+periph_clock = 4 NS
+ahb_master_clock = 8 NS
+ahb_slave_clock = 8 NS
+
+physical_io:host_time_sync = 1
+
+###############################
+##         Debugging        ###
+###############################
+mb_debug = 0
+verbose_parameters = 0
+warning_level = IGNORE
+#verbose_file = cache.log
+report_warning = 0
+report_error = 0
+ignore_warnings = 1
+
+###############################
+##         DMI Interface    ###
+###############################
+dmi_enabled = 1
+
+###############################
+##         Cortex A9        ###
+###############################
+cache_control = software
+#control_page_address = 0
+top.iMX6_inst.CORTEX_A9MP.periph_base = 0x00A00000
+
+top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file = $DIRNAME/Software/bare-metal/Factorial
+
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file = $DIRNAME/Software/bare-metal/stop_watch
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file =   $DIRNAME/Software/linux/fsbl/boot.elf $DIRNAME/Software/uboot/u-boot_latest 
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file =  $DIRNAME/Software/linux/fsbl/boot.elf  $DIRNAME/Software/linux/boot-wrapper/linux-imx6.elf  
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file =  $DIRNAME/Software/linux/fsbl/boot.elf $DIRNAME/Software/linux/boot-wrapper/linux-imx6_MEL.elf  
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file = $DIRNAME/Software/demos/Nucleus_NetServer.out
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file = $DIRNAME/Software/demos/Nucleus_Directory.out
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file = $DIRNAME/Software/demos/Nucleus_Networking.out
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file = $DIRNAME/Software/demos/Nucleus_hello.out
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file = $DIRNAME/Software/demos/Nucleus_Kernel.out
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file = $DIRNAME/Software/demos/Nucleus_Serial.out
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file = $DIRNAME/Software/demos/Nucleus_File.out
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file = $DIRNAME/Software/demos/Nucleus_KernelPower.out
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file = $DIRNAME/Software/demos/Nucleus_Qt_hello.out
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file = $DIRNAME/Software/demos/Nucleus_Qt_blurpicker.out
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file = $DIRNAME/Software/demos/Nucleus_Qt_digitalclock.out
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file = $DIRNAME/Software/demos/Nucleus_Qt_collidingmice.out
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file = $DIRNAME/Software/demos/Nucleus_Qt_basicdrawing.out
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file = $DIRNAME/Software/demos/Nucleus_Qt_imageviewer.out
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.elf_image_file = $DIRNAME/Software/bare-metal/basic_test.axf
+
+#top.iMX6_inst.CORTEX_A9MP.PV.scu.control = 0x10
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.verbose = AT_CALLBACK
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.dcache.verbose = MISS | HIT
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.icache.verbose = MISS | HIT
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.lt_synch_quantum = 50000 NS
+#uncomment the following line to run with Vista 3.7.0
+#top.iMX6_inst.CORTEX_A9MP.dmi_enabled = 0
+
+###############################
+##      L2 Cache            ###
+###############################
+top.iMX6_inst.L2C_PL310.mem_level = 1
+top.iMX6_inst.L2C_PL310.cacheID = 0
+top.iMX6_inst.L2C_PL310.cache_size = 256
+top.iMX6_inst.L2C_PL310.line_size = 32
+top.iMX6_inst.L2C_PL310.associativity = 16
+top.iMX6_inst.L2C_PL310.virtual_indexing = 0
+top.iMX6_inst.L2C_PL310.write_hit_policy = WRITE_BACK
+top.iMX6_inst.L2C_PL310.write_miss_policy = ALLOC
+top.iMX6_inst.L2C_PL310.read_miss_policy = ALLOC
+top.iMX6_inst.L2C_PL310.replacement_policy = ROUND_ROBIN
+top.iMX6_inst.L2C_PL310.critical_word_first = DEFAULT
+top.iMX6_inst.L2C_PL310.address_filter_enable = 0
+top.iMX6_inst.L2C_PL310.address_filter_start = 63
+top.iMX6_inst.L2C_PL310.address_filter_end = 4095
+top.iMX6_inst.L2C_PL310.reset_latency = 1
+top.iMX6_inst.L2C_PL310.clear_interrupt_latency = 1
+top.iMX6_inst.L2C_PL310.transaction_start_latency = 3
+top.iMX6_inst.L2C_PL310.master_split_latency = 1
+top.iMX6_inst.L2C_PL310.store_buffer_latency = 1
+top.iMX6_inst.L2C_PL310.linefill_buffer_latency = 2
+top.iMX6_inst.L2C_PL310.nonBufferable_write_latency = 4
+
+###############################
+##      AXI Bus             ###
+###############################
+
+#PCIe
+top.iMX6_inst.AXI_BUS.bus_master7_base_address = 0x01000000
+top.iMX6_inst.AXI_BUS.bus_master7_size = 0x1000000
+top.iMX6_inst.AXI_BUS.bus_master7_subtract_base_address = 0x1
+
+#SATA
+top.iMX6_inst.AXI_BUS.bus_master6_base_address = 0x02200000
+top.iMX6_inst.AXI_BUS.bus_master6_size = 0x4000
+top.iMX6_inst.AXI_BUS.bus_master6_subtract_base_address = 0x1
+
+#HDMI
+top.iMX6_inst.AXI_BUS.bus_master8_base_address = 0x120000
+top.iMX6_inst.AXI_BUS.bus_master8_size = 0x9000
+top.iMX6_inst.AXI_BUS.bus_master8_subtract_base_address = 0x1
+
+#AXI2AHB - IPS
+top.iMX6_inst.AXI_BUS.bus_master0_base_address = 0x02000000
+top.iMX6_inst.AXI_BUS.bus_master0_size = 0x200000
+top.iMX6_inst.AXI_BUS.bus_master0_subtract_base_address = 0x0
+
+#AXI2AHB - ROM
+top.iMX6_inst.AXI_BUS.bus_master4_base_address = 0x00000000
+top.iMX6_inst.AXI_BUS.bus_master4_size = 0x112000
+top.iMX6_inst.AXI_BUS.bus_master4_subtract_base_address = 0x0
+
+#OCRAM
+top.iMX6_inst.AXI_BUS.bus_master3_base_address = 0x00900000
+top.iMX6_inst.AXI_BUS.bus_master3_size = 0x40000
+top.iMX6_inst.OCRAM.size_in_bytes = 0x40000
+top.iMX6_inst.AXI_BUS.bus_master3_subtract_base_address = 0x1
+
+#DDR_MEM
+top.iMX6_inst.AXI_BUS.bus_master2_base_address = 0x10000000
+top.iMX6_inst.AXI_BUS.bus_master2_size = 0xF0000000
+top.iMX6_inst.DDR_MEM.size_in_bytes = 0xF0000000
+top.iMX6_inst.AXI_BUS.bus_master2_subtract_base_address = 0x1
+
+#EXT_MEM
+top.iMX6_inst.AXI_BUS.bus_master1_base_address = 0x08000000
+top.iMX6_inst.AXI_BUS.bus_master1_size = 0x08000000
+top.iMX6_inst.EXT_MEM.size_in_bytes = 0x08000000
+top.iMX6_inst.AXI_BUS.bus_master1_subtract_base_address = 0x1
+
+#IPU1
+top.iMX6_inst.AXI_BUS.bus_master5_base_address = 0x02400000
+top.iMX6_inst.AXI_BUS.bus_master5_size = 0x400000
+top.iMX6_inst.AXI_BUS.bus_master5_subtract_base_address = 0x1
+top.iMX6_inst.IPU1.connected = 1
+top.iMX6_inst.IPU1.verbose_parameters = 1
+
+#IPU2
+top.iMX6_inst.AXI_BUS.bus_master9_base_address = 0x02800000
+top.iMX6_inst.AXI_BUS.bus_master9_size = 0x400000
+top.iMX6_inst.AXI_BUS.bus_master9_subtract_base_address = 0x1
+top.iMX6_inst.IPU2.connected = 0
+top.iMX6_inst.IPU2.verbose_parameters = 1
+
+###############################
+##      AHB Bus             ###
+###############################
+
+#AHB2IP
+top.iMX6_inst.AHB_BUS.bus_master0_base_address = 0x02000000
+top.iMX6_inst.AHB_BUS.bus_master0_size = 0x200000
+top.iMX6_inst.AHB_BUS.bus_master0_subtract_base_address = 0x0
+
+#ROM
+top.iMX6_inst.AHB_BUS.bus_master1_base_address = 0x00000000
+top.iMX6_inst.AHB_BUS.bus_master1_size = 0x18000
+top.iMX6_inst.ROM.size_in_bytes = 0x18000
+top.iMX6_inst.AHB_BUS.bus_master1_subtract_base_address = 0x1
+
+
+#AHB2APBH
+top.iMX6_inst.AHB_BUS.bus_master2_base_address = 0x110000
+top.iMX6_inst.AHB_BUS.bus_master2_size = 0x2000
+top.iMX6_inst.AHB_BUS.bus_master2_subtract_base_address = 0x0
+
+
+###############################
+##      IP Bus              ###
+###############################
+
+#uSDHC1
+top.iMX6_inst.IP_BUS.bus_master0_base_address = 0x02190000
+top.iMX6_inst.IP_BUS.bus_master0_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master0_subtract_base_address = 0x1
+top.iMX6_inst.uSDHC1.NU = 0
+#uSDHC2
+top.iMX6_inst.IP_BUS.bus_master1_base_address = 0x02194000
+top.iMX6_inst.IP_BUS.bus_master1_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master1_subtract_base_address = 0x1
+top.iMX6_inst.uSDHC2.NU = 0
+#uSDHC3
+top.iMX6_inst.IP_BUS.bus_master2_base_address = 0x02198000
+top.iMX6_inst.IP_BUS.bus_master2_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master2_subtract_base_address = 0x1
+top.iMX6_inst.uSDHC3.report_warning=1
+top.iMX6_inst.uSDHC3.NU = 0
+#uSDHC4
+top.iMX6_inst.IP_BUS.bus_master3_base_address = 0x0219C000
+top.iMX6_inst.IP_BUS.bus_master3_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master3_subtract_base_address = 0x1
+top.iMX6_inst.uSDHC4.report_warning=1
+top.iMX6_inst.uSDHC4.NU = 0
+
+#GPIO1
+top.iMX6_inst.IP_BUS.bus_master4_base_address = 0x0209C000
+top.iMX6_inst.IP_BUS.bus_master4_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master4_subtract_base_address = 0x1
+
+#GPIO2
+top.iMX6_inst.IP_BUS.bus_master6_base_address = 0x020A0000
+top.iMX6_inst.IP_BUS.bus_master6_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master6_subtract_base_address = 0x1
+
+#GPIO3
+top.iMX6_inst.IP_BUS.bus_master7_base_address = 0x020A4000
+top.iMX6_inst.IP_BUS.bus_master7_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master7_subtract_base_address = 0x1
+
+#GPIO4
+top.iMX6_inst.IP_BUS.bus_master8_base_address = 0x020A8000
+top.iMX6_inst.IP_BUS.bus_master8_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master8_subtract_base_address = 0x1
+
+#GPIO5
+top.iMX6_inst.IP_BUS.bus_master5_base_address = 0x020AC000
+top.iMX6_inst.IP_BUS.bus_master5_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master5_subtract_base_address = 0x1
+
+#GPIO6
+top.iMX6_inst.IP_BUS.bus_master30_base_address = 0x020B0000
+top.iMX6_inst.IP_BUS.bus_master30_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master30_subtract_base_address = 0x1
+
+#GPIO7
+top.iMX6_inst.IP_BUS.bus_master31_base_address = 0x020B4000
+top.iMX6_inst.IP_BUS.bus_master31_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master31_subtract_base_address = 0x1
+
+#USB_HOST1
+top.iMX6_inst.IP_BUS.bus_master9_base_address = 0x02184200
+top.iMX6_inst.IP_BUS.bus_master9_size = 0x200
+top.iMX6_inst.IP_BUS.bus_master9_subtract_base_address = 0x1
+
+#USB_HOST2
+top.iMX6_inst.IP_BUS.bus_master11_base_address = 0x02184400
+top.iMX6_inst.IP_BUS.bus_master11_size = 0x200
+top.iMX6_inst.IP_BUS.bus_master11_subtract_base_address = 0x1
+
+#USB_HOST3
+top.iMX6_inst.IP_BUS.bus_master33_base_address = 0x02184600
+top.iMX6_inst.IP_BUS.bus_master33_size = 0x200
+top.iMX6_inst.IP_BUS.bus_master33_subtract_base_address = 0x1
+
+#USBNC
+top.iMX6_inst.IP_BUS.bus_master56_base_address = 0x02184800
+top.iMX6_inst.IP_BUS.bus_master56_size = 0x200
+top.iMX6_inst.IP_BUS.bus_master56_subtract_base_address = 0x1
+
+#ASRC
+top.iMX6_inst.IP_BUS.bus_master57_base_address = 0x2034000
+top.iMX6_inst.IP_BUS.bus_master57_size = 0x200
+top.iMX6_inst.IP_BUS.bus_master57_subtract_base_address = 0x1
+
+
+#USB_OTG
+top.iMX6_inst.IP_BUS.bus_master10_base_address = 0x02184000
+top.iMX6_inst.IP_BUS.bus_master10_size = 0x200
+top.iMX6_inst.IP_BUS.bus_master10_subtract_base_address = 0x1
+
+#GPT
+top.iMX6_inst.IP_BUS.bus_master12_base_address = 0x02098000
+top.iMX6_inst.IP_BUS.bus_master12_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master12_subtract_base_address = 0x1
+
+#WDOG1
+top.iMX6_inst.IP_BUS.bus_master13_base_address = 0x020BC000
+top.iMX6_inst.IP_BUS.bus_master13_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master13_subtract_base_address = 0x1
+
+#WDOG2
+top.iMX6_inst.IP_BUS.bus_master14_base_address = 0x020C0000
+top.iMX6_inst.IP_BUS.bus_master14_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master14_subtract_base_address = 0x1
+
+#ENET
+top.iMX6_inst.IP_BUS.bus_master15_base_address = 0x02188000
+top.iMX6_inst.IP_BUS.bus_master15_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master15_subtract_base_address = 0x1
+top.iMX6_inst.ENET.connected = 1
+
+#UART1
+top.iMX6_inst.IP_BUS.bus_master16_base_address = 0x02020000
+top.iMX6_inst.IP_BUS.bus_master16_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master16_subtract_base_address = 0x1
+
+#UART2
+#top.iMX6_inst.IP_BUS.bus_master17_base_address = 0x02024000
+top.iMX6_inst.IP_BUS.bus_master17_base_address = 0x021E8000
+top.iMX6_inst.IP_BUS.bus_master17_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master17_subtract_base_address = 0x1
+
+
+#UART3
+top.iMX6_inst.IP_BUS.bus_master18_base_address = 0x021EC000
+top.iMX6_inst.IP_BUS.bus_master18_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master18_subtract_base_address = 0x1
+
+
+#UART4
+top.iMX6_inst.IP_BUS.bus_master19_base_address = 0x021F0000
+top.iMX6_inst.IP_BUS.bus_master19_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master19_subtract_base_address = 0x1
+
+#UART5
+top.iMX6_inst.IP_BUS.bus_master20_base_address = 0x021F4000
+top.iMX6_inst.IP_BUS.bus_master20_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master20_subtract_base_address = 0x1
+
+#I2C1
+top.iMX6_inst.IP_BUS.bus_master21_base_address = 0x021A0000
+top.iMX6_inst.IP_BUS.bus_master21_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master21_subtract_base_address = 0x1
+
+#I2C2
+top.iMX6_inst.IP_BUS.bus_master22_base_address = 0x021A4000
+top.iMX6_inst.IP_BUS.bus_master22_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master22_subtract_base_address = 0x1
+
+#I2C3
+top.iMX6_inst.IP_BUS.bus_master23_base_address = 0x021A8000
+top.iMX6_inst.IP_BUS.bus_master23_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master23_subtract_base_address = 0x1
+
+#OCOTP_CTRL
+top.iMX6_inst.IP_BUS.bus_master44_base_address = 0x021BC000
+top.iMX6_inst.IP_BUS.bus_master44_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master44_subtract_base_address = 0x1
+
+#SDMA
+top.iMX6_inst.IP_BUS.bus_master24_base_address = 0x020EC000
+top.iMX6_inst.IP_BUS.bus_master24_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master24_subtract_base_address = 0x1
+
+#SPDIF
+top.iMX6_inst.IP_BUS.bus_master25_base_address = 0x02004000
+top.iMX6_inst.IP_BUS.bus_master25_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master25_subtract_base_address = 0x1
+
+#EPIT1
+top.iMX6_inst.IP_BUS.bus_master27_base_address = 0x020D0000
+top.iMX6_inst.IP_BUS.bus_master27_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master27_subtract_base_address = 0x1
+top.iMX6_inst.EPIT1.High_freq_clock = 15151
+
+#EPIT2
+top.iMX6_inst.IP_BUS.bus_master28_base_address = 0x020D4000
+top.iMX6_inst.IP_BUS.bus_master28_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master28_subtract_base_address = 0x1
+top.iMX6_inst.EPIT2.High_freq_clock = 15151
+#CCM
+top.iMX6_inst.IP_BUS.bus_master29_base_address = 0x020C4000
+top.iMX6_inst.IP_BUS.bus_master29_size = 0x5000
+top.iMX6_inst.IP_BUS.bus_master29_subtract_base_address = 0x1
+
+#IOMUX
+top.iMX6_inst.IP_BUS.bus_master32_base_address = 0x020E0000
+top.iMX6_inst.IP_BUS.bus_master32_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master32_subtract_base_address = 0x1
+
+#ECSPI1
+top.iMX6_inst.IP_BUS.bus_master39_base_address = 0x02008000
+top.iMX6_inst.IP_BUS.bus_master39_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master39_subtract_base_address = 0x1
+
+#ECSPI2
+top.iMX6_inst.IP_BUS.bus_master40_base_address = 0x0200C000
+top.iMX6_inst.IP_BUS.bus_master40_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master40_subtract_base_address = 0x1
+
+#ECSPI3
+top.iMX6_inst.IP_BUS.bus_master41_base_address = 0x02010000
+top.iMX6_inst.IP_BUS.bus_master41_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master41_subtract_base_address = 0x1
+
+#ECSPI4
+top.iMX6_inst.IP_BUS.bus_master42_base_address = 0x02014000
+top.iMX6_inst.IP_BUS.bus_master42_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master42_subtract_base_address = 0x1
+
+#ECSPI5
+top.iMX6_inst.IP_BUS.bus_master43_base_address = 0x02018000
+top.iMX6_inst.IP_BUS.bus_master43_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master43_subtract_base_address = 0x1
+
+#SRC
+top.iMX6_inst.IP_BUS.bus_master34_base_address = 0x020D8000
+top.iMX6_inst.IP_BUS.bus_master34_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master34_subtract_base_address = 0x1
+
+#PWM1
+top.iMX6_inst.IP_BUS.bus_master35_base_address = 0x02080000
+top.iMX6_inst.IP_BUS.bus_master35_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master35_subtract_base_address = 0x1
+
+#PWM2
+top.iMX6_inst.IP_BUS.bus_master36_base_address = 0x02084000
+top.iMX6_inst.IP_BUS.bus_master36_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master36_subtract_base_address = 0x1
+
+#PWM3
+top.iMX6_inst.IP_BUS.bus_master37_base_address = 0x02088000
+top.iMX6_inst.IP_BUS.bus_master37_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master37_subtract_base_address = 0x1
+
+#PWM4
+top.iMX6_inst.IP_BUS.bus_master38_base_address = 0x0208C000
+top.iMX6_inst.IP_BUS.bus_master38_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master38_subtract_base_address = 0x1
+
+#GPC
+top.iMX6_inst.IP_BUS.bus_master46_base_address = 0x020DC000
+top.iMX6_inst.IP_BUS.bus_master46_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master46_subtract_base_address = 0x1
+
+#MMDC1
+top.iMX6_inst.IP_BUS.bus_master47_base_address = 0x021B0000
+top.iMX6_inst.IP_BUS.bus_master47_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master47_subtract_base_address = 0x1
+
+#MMDC2
+top.iMX6_inst.IP_BUS.bus_master48_base_address = 0x021B4000
+top.iMX6_inst.IP_BUS.bus_master48_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master48_subtract_base_address = 0x1
+
+#SNVS
+top.iMX6_inst.IP_BUS.bus_master49_base_address = 0x020CC000
+top.iMX6_inst.IP_BUS.bus_master49_size = 0x4000
+top.iMX6_inst.SNVS.size_in_bytes = 0x4000
+top.iMX6_inst.IP_BUS.bus_master49_subtract_base_address = 0x1
+
+#USB PHY1
+top.iMX6_inst.IP_BUS.bus_master51_base_address = 0x020C9000
+top.iMX6_inst.IP_BUS.bus_master51_size = 0x1000
+top.iMX6_inst.IP_BUS.bus_master51_subtract_base_address = 0x1
+
+#USB PHY2
+top.iMX6_inst.IP_BUS.bus_master50_base_address = 0x020CA000
+top.iMX6_inst.IP_BUS.bus_master50_size = 0x1000
+top.iMX6_inst.IP_BUS.bus_master50_subtract_base_address = 0x1
+
+#AUDMUX
+top.iMX6_inst.IP_BUS.bus_master52_base_address = 0x021D8000
+top.iMX6_inst.IP_BUS.bus_master52_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master52_subtract_base_address = 0x1
+
+#SSI1
+top.iMX6_inst.IP_BUS.bus_master53_base_address = 0x02028000
+top.iMX6_inst.IP_BUS.bus_master53_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master53_subtract_base_address = 0x1
+
+#SSI2
+top.iMX6_inst.IP_BUS.bus_master54_base_address = 0x0202C000
+top.iMX6_inst.IP_BUS.bus_master54_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master54_subtract_base_address = 0x1
+
+#SSI3
+top.iMX6_inst.IP_BUS.bus_master55_base_address = 0x02030000
+top.iMX6_inst.IP_BUS.bus_master55_size = 0x4000
+top.iMX6_inst.IP_BUS.bus_master55_subtract_base_address = 0x1
+
+
+##################################
+##       	  VLAN	           ###
+##################################
+vlan:macstart = 52:54:00:12:34:90
+vlan:net = 192.168.0.0/24
+vlan:host = 192.168.0.1
+vlan:hostname = host
+vlan:dns = 192.168.0.3
+vlan:dhcpstart = 192.168.0.9
+vlan:tcp_napt = :8080 => :8080 ; :8023 => :23 ;:8069 => :69 ; :8022 => :22
+ 
+pmr_reset_value = 0xFF
+
+
+top.iMX6_inst.UART1.connected = 1
+top.iMX6_inst.UART2.connected = 1
+top.iMX6_inst.UART1.console_title = Console1
+top.iMX6_inst.UART2.console_title = Console2
+
+
+top.iMX6_inst.UART1.read_from_console_latency = 5
+top.iMX6_inst.UART1.read_from_console_latency_time_unit = MS
+top.iMX6_inst.UART2.read_from_console_latency = 5
+top.iMX6_inst.UART2.read_from_console_latency_time_unit = MS
+top.iMX6_inst.UART3.read_from_console_latency = 5
+top.iMX6_inst.UART3.read_from_console_latency_time_unit = MS
+top.iMX6_inst.UART4.read_from_console_latency = 5
+top.iMX6_inst.UART4.read_from_console_latency_time_unit = MS
+
+#trace_script=trace.tcl 
+#trace_script=trace_imx6.tcl
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu0.core.gdbstub_port = 1234
+#top.iMX6_inst.CORTEX_A9MP.PV.cpu1.core.gdbstub_port = 1235
+
+top.iMX6_inst.USB_HOST1.PV.devices = hid_keyboard hid_tablet
+
+#top.iMX6_inst.uSDHC4.image_file = $DIRNAME/Software/linux/boot-wrapper/i.MX6_sdcard.img
+#top.iMX6_inst.uSDHC3.image_file = $DIRNAME/Software/linux/boot-wrapper/i.MX6_sdcard.img
+
+#top.iMX6_inst.uSDHC4.image_file = $DIRNAME/Software/linux/boot-wrapper/i.MX6_sdcard_MEL2014_05.img
+#top.iMX6_inst.uSDHC3.image_file = $DIRNAME/Software/linux/boot-wrapper/i.MX6_sdcard_MEL2014_05.img
+
+#top.iMX6_inst.uSDHC4.image_file = $DIRNAME/Software/linux/boot-wrapper/board_ATP_2013_11.img
+#top.iMX6_inst.uSDHC3.image_file = $DIRNAME/Software/linux/boot-wrapper/board_ATP_2013_11.img
+
+
+#top.iMX6_inst.uSDHC4.image_file = $DIRNAME/Software/linux/boot-wrapper/3.8.13-mel-fsl-imx6-image
+#top.iMX6_inst.uSDHC3.image_file = $DIRNAME/Software/linux/boot-wrapper/3.8.13-mel-fsl-imx6-image
+
+#top.iMX6_inst.uSDHC4.image_file = $DIRNAME/Software/linux/boot-wrapper/3.10-mel-fsl-imx6-image-boot
+#top.iMX6_inst.uSDHC3.image_file = $DIRNAME/Software/linux/boot-wrapper/3.10-mel-fsl-imx6-image-boot
+
+#top.iMX6_inst.uSDHC4.image_file = $DIRNAME/Software/linux/boot-wrapper/bosch_sdimage_1G_new
+#top.iMX6_inst.uSDHC3.image_file = $DIRNAME/Software/linux/boot-wrapper/3.8.13-mel-fsl-imx6-image-data
+
+
+
+#top.iMX6_inst.uSDHC4.image_file = $DIRNAME/Software/linux/boot-wrapper/myimage.img
+#top.iMX6_inst.uSDHC3.image_file = $DIRNAME/Software/linux/boot-wrapper/myimage.img
+
+
+
+######################################################
+##         Redirect Console to Console.txt        ###
+#####################################################
+redirect_console_enable = 0
+redirect_console_file_name = Console.txt
