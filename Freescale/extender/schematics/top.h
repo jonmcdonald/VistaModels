@@ -5,7 +5,6 @@ $includes_begin;
 #include "../models/FPGA_I2C_custom_model.h"
 #include "iMX6_SoC.h"
 #include "../models/I2C_Switch_model.h"
-#include "../models/FPGA_SPI_custom_model.h"
 #include "../models/CustomPeripheral_model.h"
 $includes_end;
  
@@ -31,18 +30,6 @@ $end
 $init("i2c_0x05"),
 i2c_0x05(0)
 $end
-$init("spi0_0"),
-spi0_0(0)
-$end
-$init("spi0_1"),
-spi0_1(0)
-$end
-$init("spi0_3"),
-spi0_3(0)
-$end
-$init("spi0_2"),
-spi0_2(0)
-$end
 $init("led_switch"),
 led_switch(0)
 $end
@@ -64,18 +51,6 @@ $end;
 $create_component("i2c_0x05");
 i2c_0x05 = new FPGA_I2C_custom_pvt("i2c_0x05");
 $end;
-$create_component("spi0_0");
-spi0_0 = new FPGA_SPI_custom_pvt("spi0_0");
-$end;
-$create_component("spi0_1");
-spi0_1 = new FPGA_SPI_custom_pvt("spi0_1");
-$end;
-$create_component("spi0_3");
-spi0_3 = new FPGA_SPI_custom_pvt("spi0_3");
-$end;
-$create_component("spi0_2");
-spi0_2 = new FPGA_SPI_custom_pvt("spi0_2");
-$end;
 $create_component("led_switch");
 led_switch = new CustomPeripheral_pvt("led_switch");
 $end;
@@ -88,38 +63,14 @@ $end;
 $bind("I2C_Switch_inst->device_0x04","i2c_0x04->slave");
 vista_bind(I2C_Switch_inst->device_0x04, i2c_0x04->slave);
 $end;
-$bind("iMX6_inst->ECSPI0_OUT2","spi0_2->slave");
-vista_bind(iMX6_inst->ECSPI0_OUT2, spi0_2->slave);
-$end;
-$bind("spi0_0->master","iMX6_inst->ECSPI0_IN0");
-vista_bind(spi0_0->master, iMX6_inst->ECSPI0_IN0);
-$end;
-$bind("iMX6_inst->ECSPI0_OUT0","spi0_0->slave");
-vista_bind(iMX6_inst->ECSPI0_OUT0, spi0_0->slave);
-$end;
-$bind("spi0_2->master","iMX6_inst->ECSPI0_IN2");
-vista_bind(spi0_2->master, iMX6_inst->ECSPI0_IN2);
-$end;
-$bind("iMX6_inst->ECSPI0_OUT1","spi0_1->slave");
-vista_bind(iMX6_inst->ECSPI0_OUT1, spi0_1->slave);
-$end;
-$bind("spi0_1->master","iMX6_inst->ECSPI0_IN1");
-vista_bind(spi0_1->master, iMX6_inst->ECSPI0_IN1);
-$end;
 $bind("led_switch->out","iMX6_inst->GPIO0_IN1");
 vista_bind(led_switch->out, iMX6_inst->GPIO0_IN1);
 $end;
 $bind("iMX6_inst->GPIO0_OUT0","led_switch->in");
 vista_bind(iMX6_inst->GPIO0_OUT0, led_switch->in);
 $end;
-$bind("iMX6_inst->ECSPI0_OUT3","spi0_3->slave");
-vista_bind(iMX6_inst->ECSPI0_OUT3, spi0_3->slave);
-$end;
 $bind("I2C_Switch_inst->device_0x05","i2c_0x05->slave");
 vista_bind(I2C_Switch_inst->device_0x05, i2c_0x05->slave);
-$end;
-$bind("spi0_3->master","iMX6_inst->ECSPI0_IN3");
-vista_bind(spi0_3->master, iMX6_inst->ECSPI0_IN3);
 $end;
     $elaboration_end;
   $vlnv_assign_begin;
@@ -145,18 +96,6 @@ $end;
 $destruct_component("i2c_0x05");
 delete i2c_0x05; i2c_0x05 = 0;
 $end;
-$destruct_component("spi0_0");
-delete spi0_0; spi0_0 = 0;
-$end;
-$destruct_component("spi0_1");
-delete spi0_1; spi0_1 = 0;
-$end;
-$destruct_component("spi0_3");
-delete spi0_3; spi0_3 = 0;
-$end;
-$destruct_component("spi0_2");
-delete spi0_2; spi0_2 = 0;
-$end;
 $destruct_component("led_switch");
 delete led_switch; led_switch = 0;
 $end;
@@ -178,18 +117,6 @@ FPGA_I2C_custom_pvt *i2c_0x04;
 $end;
 $component("i2c_0x05");
 FPGA_I2C_custom_pvt *i2c_0x05;
-$end;
-$component("spi0_0");
-FPGA_SPI_custom_pvt *spi0_0;
-$end;
-$component("spi0_1");
-FPGA_SPI_custom_pvt *spi0_1;
-$end;
-$component("spi0_3");
-FPGA_SPI_custom_pvt *spi0_3;
-$end;
-$component("spi0_2");
-FPGA_SPI_custom_pvt *spi0_2;
 $end;
 $component("led_switch");
 CustomPeripheral_pvt *led_switch;

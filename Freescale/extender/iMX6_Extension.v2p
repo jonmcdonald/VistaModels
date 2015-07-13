@@ -15,7 +15,7 @@ Files {
 	 } 
 }
 Designs {{$PRJDIR/sc_main.cpp}}
-Simulations /mnt/store/data/customers/barco/hw/iMX6_Extension/sim
+Simulations {/mnt/store/data/customers/barco/hw/iMX6_Extension/sim /mnt/store/data/VistaModels/Freescale/extender/iMX6_Extension/sim}
 VirtualPrototypes extended_iMX6.vppf
 Folders {
 	 Sources {*.c *.cpp *.C *.cxx *.cc} 

@@ -46,14 +46,14 @@
 
 @@VE@names@@ 0 23 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 !
 
-@@VE@intfc@@ 15 
-{ @pdecl { { @n ECSPI0_IN0 @t - @bnd -
+@@VE@intfc@@ 3 
+{ @pdecl { { @n GPIO0_IN1 @t - @bnd -
 @das -
 @nregout @skind
 none @block  1
 @ch -
 } @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
+@sysInt tlm::tlm_target_socket< 1U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 1
 @initzConstruct %Name%
 } @gr DEF @idx -1 } { @pdecl { { @n I2C1_Bus @t - @bnd -
@@ -65,96 +65,6 @@ none @block  1
 @sysInt tlm::tlm_initiator_socket< 8U,i2c_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 1
 @initzConstruct %Name%
-} @gr DEF @idx -1 } { @pdecl { { @n I2C2_Bus @t - @bnd -
-@das -
-@nregout @skind
-none @block  1
-@ch -
-} @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 8U,i2c_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
-@multiport 1 @isTemplate 1
-@initzConstruct %Name%
-} @gr DEF @idx -1 } { @pdecl { { @n ECSPI0_OUT0 @t - @bnd -
-@das -
-@nregout @skind
-none @block  1
-@ch -
-} @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
-@multiport 1 @isTemplate 1
-@initzConstruct %Name%
-} @gr DEF @idx -1 } { @pdecl { { @n ECSPI0_IN1 @t - @bnd -
-@das -
-@nregout @skind
-none @block  1
-@ch -
-} @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
-@multiport 1 @isTemplate 1
-@initzConstruct %Name%
-} @gr DEF @idx -1 } { @pdecl { { @n ECSPI0_IN2 @t - @bnd -
-@das -
-@nregout @skind
-none @block  1
-@ch -
-} @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
-@multiport 1 @isTemplate 1
-@initzConstruct %Name%
-} @gr DEF @idx -1 } { @pdecl { { @n ECSPI0_IN3 @t - @bnd -
-@das -
-@nregout @skind
-none @block  1
-@ch -
-} @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
-@multiport 1 @isTemplate 1
-@initzConstruct %Name%
-} @gr DEF @idx -1 } { @pdecl { { @n GPIO0_IN0 @t - @bnd -
-@das -
-@nregout @skind
-none @block  1
-@ch -
-} @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 1U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
-@multiport 1 @isTemplate 1
-@initzConstruct %Name%
-} @gr DEF @idx -1 } { @pdecl { { @n GPIO0_IN1 @t - @bnd -
-@das -
-@nregout @skind
-none @block  1
-@ch -
-} @md socketTarget @iv -
-@sysInt tlm::tlm_target_socket< 1U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
-@multiport 1 @isTemplate 1
-@initzConstruct %Name%
-} @gr DEF @idx -1 } { @pdecl { { @n ECSPI0_OUT1 @t - @bnd -
-@das -
-@nregout @skind
-none @block  1
-@ch -
-} @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
-@multiport 1 @isTemplate 1
-@initzConstruct %Name%
-} @gr DEF @idx -1 } { @pdecl { { @n ECSPI0_OUT2 @t - @bnd -
-@das -
-@nregout @skind
-none @block  1
-@ch -
-} @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
-@multiport 1 @isTemplate 1
-@initzConstruct %Name%
-} @gr DEF @idx -1 } { @pdecl { { @n ECSPI0_OUT3 @t - @bnd -
-@das -
-@nregout @skind
-none @block  1
-@ch -
-} @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
-@multiport 1 @isTemplate 1
-@initzConstruct %Name%
 } @gr DEF @idx -1 } { @pdecl { { @n GPIO0_OUT0 @t - @bnd -
 @das -
 @nregout @skind
@@ -162,24 +72,6 @@ none @block  1
 @ch -
 } @md socketInitiator @iv -
 @sysInt tlm::tlm_initiator_socket< 1U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
-@multiport 1 @isTemplate 1
-@initzConstruct %Name%
-} @gr DEF @idx -1 } { @pdecl { { @n GPIO0_OUT1 @t - @bnd -
-@das -
-@nregout @skind
-none @block  1
-@ch -
-} @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 1U,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
-@multiport 1 @isTemplate 1
-@initzConstruct %Name%
-} @gr DEF @idx -1 } { @pdecl { { @n I2C3_Bus @t - @bnd -
-@das -
-@nregout @skind
-none @block  1
-@ch -
-} @md socketInitiator @iv -
-@sysInt tlm::tlm_initiator_socket< 8U,i2c_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND >
 @multiport 1 @isTemplate 1
 @initzConstruct %Name%
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !

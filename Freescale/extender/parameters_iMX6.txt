@@ -147,6 +147,8 @@ top.iMX6_inst.AXI_BUS.bus_master5_size = 0x400000
 top.iMX6_inst.AXI_BUS.bus_master5_subtract_base_address = 0x1
 top.iMX6_inst.IPU1.connected = 1
 top.iMX6_inst.IPU1.verbose_parameters = 1
+top.iMX6_inst.IPU1.baremetal = 0
+top.iMX6_inst.IPU1.NU = 0
 
 #IPU2
 top.iMX6_inst.AXI_BUS.bus_master9_base_address = 0x02800000
