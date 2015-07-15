@@ -16,4 +16,5 @@ export SYSROOT=$SW_ROOT/sdcard/sysroot
 cp gpiotest $SYSROOT/root
 cp i2ctest $SYSROOT/root
 cp spitest $SYSROOT/root
-
+cp client $SYSROOT/root
+cp server $SYSROOT/root

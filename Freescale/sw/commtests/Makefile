@@ -5,7 +5,13 @@ CFLAGS    += -g -I$(SW_ROOT)/sdcard/sysroot/include
 LDLAGS    += 
 
 # build rules
-all:  i2ctest spitest gpiotest
+all:  i2ctest spitest gpiotest client server
+
+client: client.o
+	$(TARGET)-gcc $(CFLAGS) client.o $(LDLAGS) -o $@
+
+server: server.o
+	$(TARGET)-gcc $(CFLAGS) server.o $(LDLAGS) -o $@
 
 i2ctest: linux-i2c-test.o
 	$(TARGET)-gcc $(CFLAGS) linux-i2c-test.o $(LDLAGS) -o $@
