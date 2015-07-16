@@ -19,9 +19,9 @@ int main(){
   /* Address family = Internet */
   serverAddr.sin_family = AF_INET;
   /* Set port number, using htons function to use proper byte order */
-  serverAddr.sin_port = htons(7777);
+  serverAddr.sin_port = htons(8888);
   /* Set IP address to localhost */
-  serverAddr.sin_addr.s_addr = inet_addr("10.0.2.2");
+  serverAddr.sin_addr.s_addr = inet_addr("127.0.0.1");
   /* Set all bits of the padding field to 0 */
   memset(serverAddr.sin_zero, '\0', sizeof serverAddr.sin_zero);  
 
@@ -29,11 +29,15 @@ int main(){
   addr_size = sizeof serverAddr;
   connect(clientSocket, (struct sockaddr *) &serverAddr, addr_size);
 
+  /*---- Write a message to the server ----*/
+  strcpy(buffer, "Hello World!");
+  write(clientSocket, buffer, strlen(buffer));
+
   /*---- Read the message from the server into the buffer ----*/
   recv(clientSocket, buffer, 1024, 0);
 
   /*---- Print the received message ----*/
-  printf("Data received: %s",buffer);   
+  printf("Data received: %s\n",buffer);   
 
   return 0;
 }
