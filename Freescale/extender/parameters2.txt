@@ -8,12 +8,13 @@ top.iMX6_inst.uSDHC3.image_file = ../sw/sdcard/sysroot.ext2
 top.iMX6_inst.IPU1.connected = 0
 top.iMX6_inst.UART1.connected = 0
 
+top.led_switch.DISABLE = 1
+
 vlan:host = 10.0.2.2
 vlan:hostname = demo
 vlan:dhcpstart = 10.0.2.15
 vlan:dns = 10.0.2.3
 vlan:net = 10.0.2.0
-#vlan:tcp_napt  = :2022 => :22 ; :6666 => :6666 ; :7777 => :7777 ; :8888 => :8888
-vlan:tcp_napt  = :2022 => :22 ; :6666 => :6666 ; :7777 => :7777 
+vlan:tcp_napt  = :3022 => :22 ; :8888 => :8888 ; :10100 => :10100
 
 

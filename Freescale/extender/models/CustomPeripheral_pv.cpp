@@ -41,6 +41,7 @@ CustomPeripheral_pv::CustomPeripheral_pv(sc_module_name module_name)
   ,safe_ev("safe_ev")
 #endif
 {
+ if (!DISABLE) {
   int r;
   /* First call to socket() function */
   sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -51,7 +52,7 @@ CustomPeripheral_pv::CustomPeripheral_pv(sc_module_name module_name)
     }
   /* Initialize socket structure */
   bzero((char *) &serv_addr, sizeof(serv_addr));
-  portno = 5005;
+  portno = PORTNUMBER;
   serv_addr.sin_family = AF_INET;
   serv_addr.sin_addr.s_addr = INADDR_ANY;
   serv_addr.sin_port = htons(portno);
@@ -100,7 +101,7 @@ CustomPeripheral_pv::CustomPeripheral_pv(sc_module_name module_name)
 
   r = pthread_create( &readerThread, NULL, &CustomPeripheral_pv::call_startReader, this);
   if (r ==0) pthread_detach(readerThread);
-
+ }
 }    
 
 // Destructor cleans up the forked python script
