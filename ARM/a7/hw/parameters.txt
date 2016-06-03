@@ -1,0 +1,52 @@
+# ~~~~~~~~~~ GLOBAL OPTIONS
+
+tlm_timing_model                 = LT
+smp_sync_fast                    = 1
+clock                            = 2 NS
+physical_io:host_time_sync       = 1
+
+# ~~~~~~~~~~ CPU
+
+#top.cpu.PV.cpu0.core.gdbstub_port     = 2345
+top.cpu.smp_cluster =
+top.cpu.elf_image_file           = ../sw/boot-wrapper/A7/linux-system.axf
+
+# ~~~~~~~~~~ AXI MAP
+
+top.axi.memory_base_address      = 0x80000000
+top.axi.memory_size              = 0x80000000
+top.mem.size_in_bytes            = 0x80000000
+
+top.axi.peripherals_base_address = 0x1C000000
+top.axi.peripherals_size         = 0x20000000
+
+top.axi.ethernet_base_address    = 0x1A000000
+top.axi.ethernet_size            = 0x01000000
+
+
+# ~~~~~~~~~~ APB MAP
+
+top.apb.uart0_base_address      = 0x00090000
+top.apb.uart0_size              = 0x00001000
+
+top.apb.uart1_base_address      = 0x000A0000
+top.apb.uart1_size              = 0x00001000
+
+top.apb.mci_base_address        = 0x00050000
+top.apb.mci_size                = 0x00001000
+
+
+# ~~~~~~~~~~ PERIPH OPTIONS
+
+top.uart0.receive_FIFO_size_in_bytes       = 1024
+top.uart0.warning_level                    = IGNORE
+
+top.console0.read_from_console_buffer_size = 1024
+top.console0.read_from_console_latency     = 5
+top.console0.read_from_console_latency_time_unit = MS
+top.console0.console_title                 = UART0
+
+vlan:tcp_napt                              = :2022 => :22 # ssh support user:root passwd:root
+
+top.mci.image_file               = ../sw/buildroot-2016.05/output/images/rootfs.ext2
+

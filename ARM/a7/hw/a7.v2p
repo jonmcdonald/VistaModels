@@ -1,0 +1,45 @@
+ProjectName a7
+Files {
+	 Models {
+		{$PRJDIR/models/DualCortexA7.mb}
+		{$PRJDIR/models/AXIBus.mb}
+		{$PRJDIR/models/RAM.mb}
+		{$PRJDIR/models/APBBus.mb}
+		{$PRJDIR/models/AXI_APB.mb}
+		{$PRJDIR/models/AXIAPB.mb}
+		{$PRJDIR/models/PL180.mb}
+		{$PRJDIR/models/LAN9118.mb}
+	 } 
+	 Schematics {
+		{$PRJDIR/schematics/top.h}
+	 } 
+	 Sources {
+		{$PRJDIR/sc_main.cpp}
+	 } 
+	 {Model Sources} {} 
+}
+Designs {{$PRJDIR/sc_main.cpp}}
+Folders {
+	 Sources {*.c *.cpp *.C *.cxx *.cc} 
+	 {Public Headers} {*.h *.hpp *.H *.hxx *.hh} 
+	 Models *.mb 
+	 Schematics {} 
+	 Documentation {*.txt *.TXT *.doc *.DOC *.pdf *.PDF *.html *.HTML *.htm *.HTM *.ps *.PS} 
+	 {Linked Binaries} {*.o *.a *.so} 
+	 {Other Binaries} {*.exe *.x} 
+}
+PreProcessorDefinitions {
+	 MB_DEBUG_UART 1 
+}
+GeneralCompilationOptions -Wall
+AlwaysCompileInCPPMode 1
+LinkPackages {model_builder models_catalogue}
+ProjectLibraryType archive
+ProjectComponentsLibraryPath {$PRJDIR/$PRJFILE_BASENAME/interfaces}
+ProjectWorkingDirectory {$PRJDIR/$PRJFILE_BASENAME/build}
+HasTLMSupport 0
+CompiledWithTLMSupport 0
+IsUsePathVariables 1
+PlatformName a7
+ProjectReadOnly 0
+ProjectBuildMultiPlatform 0
