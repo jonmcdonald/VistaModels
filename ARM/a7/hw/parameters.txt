@@ -46,7 +46,7 @@ top.console0.read_from_console_latency     = 5
 top.console0.read_from_console_latency_time_unit = MS
 top.console0.console_title                 = UART0
 
-vlan:tcp_napt                              = :2022 => :22 # ssh support user:root passwd:root
+vlan:tcp_napt                              = :2022 => :22 ; :5555 => :5555
 
 top.mci.image_file               = ../sw/buildroot-2016.05/output/images/rootfs.ext2
 
