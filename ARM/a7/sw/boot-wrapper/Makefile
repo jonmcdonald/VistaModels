@@ -1,16 +1,10 @@
-# Makefile - build a kernel+filesystem image for stand-alone Linux booting
-#
-# Copyright (C) 2011 ARM Limited. All rights reserved.
-#
-# Use of this source code is governed by a BSD-style license that can be
-# found in the LICENSE.txt file.
 
-PLATFORM        = A9
+PLATFORM        = A7
 BOOTLOADER	= boot.S
 BOOT_O          = $(PLATFORM)/boot.o
 KERNEL		= $(PLATFORM)/zImage
-KERNEL_HDR_SZ	= 0x0	# 0x40 for uImage
-FILESYSTEM	= filesystem.cpio.gz
+KERNEL_HDR_SZ	= 0x0	
+
 
 IMAGE		= $(PLATFORM)/linux-system.axf
 LD_SCRIPT	= model.lds.S
@@ -23,9 +17,7 @@ LD		= $(CROSS_COMPILE)ld
 CPPFLAGS	+= -DBOOT_O=$(BOOT_O)
 CPPFLAGS	+= -DKERNEL=$(KERNEL)
 CPPFLAGS	+= -DKERNEL_HDR_SZ=$(KERNEL_HDR_SZ)
-CPPFLAGS	+= -DFILESYSTEM=\"$(FILESYSTEM)\"
 CPPFLAGS	+= -march=armv7-a
-
 
 all: $(IMAGE)
 
