@@ -1,0 +1,152 @@
+
+/dts-v1/;
+
+/memreserve/ 0xff000000 0x01000000;
+
+/ {
+	compatible = "mentor,vista";
+	model = "vista";
+	interrupt-parent = <&gic>;
+	#address-cells = <2>;
+	#size-cells = <2>;
+	cpus {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a7";
+			reg = <0x0>;
+		};
+	};
+
+	memory@80000000 {
+		device_type = "memory";
+		reg = <0 0x80000000 0 0x80000000>;
+	};
+
+	clocks {
+		apb_pclk: apb_pclk {
+			compatible = "fixed-clock";
+			#clock-cells = <0>;
+			clock-frequency = <24000000>;
+			clock-output-names = "clk24mhz";
+		};
+
+		dummy: dummy {
+			compatible = "fixed-clock";
+			clock-frequency = <47500000>;
+			#clock-cells = <0>;
+		};
+	};
+
+	gic: interrupt-controller@2c001000 {
+		compatible = "arm,cortex-a7-gic";
+
+		#interrupt-cells = <3>;
+		#address-cells = <0>;
+		interrupt-controller;
+		reg = <0 0x2C001000 0 0x1000>,
+		      <0 0x2C002000 0 0x1000>,
+		      <0 0x2C004000 0 0x2000>,
+		      <0 0x2C006000 0 0x2000>;
+		interrupts = <1 9 0xf04>;
+	};
+
+	timer {
+		compatible = "arm,armv7-timer";
+		interrupts = <1 13 0xf08>,
+			     <1 14 0xf08>,
+			     <1 11 0xf08>,
+			     <1 10 0xf08>;
+		clock-frequency = <24000000>;
+	};
+
+	pmu {
+		compatible = "arm,cortex-a7-pmu";
+		interrupts = <0 60 4>,
+			     <0 61 4>;
+	};
+
+	smb {
+		compatible = "simple-bus";
+
+		#address-cells = <2>;
+		#size-cells = <1>;
+		ranges = <0 0 0 0x08000000 0x04000000>,
+			 <1 0 0 0x14000000 0x04000000>,
+			 <2 0 0 0x18000000 0x04000000>,
+			 <3 0 0 0x1c000000 0x04000000>,
+			 <4 0 0 0x0c000000 0x04000000>,
+			 <5 0 0 0x10000000 0x04000000>;
+
+		#interrupt-cells = <1>;
+		interrupt-map-mask = <0 0 63>;
+		interrupt-map = <0 0  0 &gic 0  0 4>,
+				<0 0  1 &gic 0  1 4>,
+				<0 0  2 &gic 0  2 4>,
+				<0 0  3 &gic 0  3 4>,
+				<0 0  4 &gic 0  4 4>,
+				<0 0  5 &gic 0  5 4>,
+				<0 0  6 &gic 0  6 4>,
+				<0 0  7 &gic 0  7 4>,
+				<0 0  8 &gic 0  8 4>,
+				<0 0  9 &gic 0  9 4>,
+				<0 0 10 &gic 0 10 4>,
+				<0 0 11 &gic 0 11 4>,
+				<0 0 12 &gic 0 12 4>,
+				<0 0 13 &gic 0 13 4>,
+				<0 0 14 &gic 0 14 4>,
+				<0 0 15 &gic 0 15 4>,
+				<0 0 16 &gic 0 16 4>;
+
+		motherboard {
+			model = "V2M-P1";
+			arm,hbi = <0x190>;
+			arm,vexpress,site = <0>;
+			arm,v2m-memory-map = "rs1";
+			compatible = "arm,vexpress,v2m-p1", "simple-bus";
+			#address-cells = <2>; 
+			#size-cells = <1>;
+			#interrupt-cells = <1>;
+			ranges;
+
+			ethernet@2,02000000 {
+				compatible = "smsc,lan9118", "smsc,lan9115";
+				reg = <2 0x02000000 0x10000>;
+				interrupts = <15>;
+				phy-mode = "mii";
+				reg-io-width = <4>;
+				smsc,irq-active-high;
+				smsc,irq-push-pull;
+//				vdd33a-supply = <&v2m_fixed_3v3>;
+//				vddvario-supply = <&v2m_fixed_3v3>;
+			};
+
+			apb@3,00000000 {
+				compatible = "arm,amba-bus", "simple-bus";
+				#address-cells = <1>;
+				#size-cells = <1>;
+				ranges = <0 3 0 0x200000>;
+
+				mmci@050000 {
+					compatible = "arm,pl180", "arm,primecell";
+					reg = <0x050000 0x1000>;
+					interrupts = <9 10>;
+					max-frequency = <12000000>;
+					clocks = <&dummy>, <&apb_pclk>;
+					clock-names = "dummy", "apb_pclk";
+				};
+
+				v2m_serial0: uart@090000 {
+					compatible = "arm,pl011", "arm,primecell";
+					reg = <0x090000 0x1000>;
+					interrupts = <5>;
+					clocks = <&apb_pclk>;
+					clock-names = "apb_pclk";
+				};
+			};
+		};
+	};
+};
+
