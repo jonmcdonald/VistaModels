@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot 2016.05-g90aed0a Configuration
+# Buildroot 2016.05-gdd76947-dirty Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 
@@ -1978,7 +1978,7 @@ BR2_PACKAGE_DROPBEAR_SMALL=y
 #
 # freeswitch needs a toolchain w/ C++, dynamic library, threads, wchar
 #
-# BR2_PACKAGE_GESFTPSERVER is not set
+BR2_PACKAGE_GESFTPSERVER=y
 
 #
 # hans needs a toolchain w/ C++
@@ -2094,7 +2094,7 @@ BR2_PACKAGE_MONGREL2_LIBC_SUPPORTS=y
 # BR2_PACKAGE_OPEN_PLC_UTILS is not set
 # BR2_PACKAGE_OPENNTPD is not set
 # BR2_PACKAGE_OPENOBEX is not set
-BR2_PACKAGE_OPENSSH=y
+# BR2_PACKAGE_OPENSSH is not set
 # BR2_PACKAGE_OPENSWAN is not set
 # BR2_PACKAGE_OPENVPN is not set
 # BR2_PACKAGE_P910ND is not set
