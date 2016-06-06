@@ -12,6 +12,7 @@ Files {
 	 } 
 	 Schematics {
 		{$PRJDIR/schematics/top.h}
+		{$PRJDIR/schematics/UARTSubSystem.h}
 	 } 
 	 Sources {
 		{$PRJDIR/sc_main.cpp}

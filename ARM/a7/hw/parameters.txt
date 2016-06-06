@@ -38,13 +38,19 @@ top.apb.mci_size                = 0x00001000
 
 # ~~~~~~~~~~ PERIPH OPTIONS
 
-top.uart0.receive_FIFO_size_in_bytes       = 1024
-top.uart0.warning_level                    = IGNORE
+top.serial0.uart.receive_FIFO_size_in_bytes       = 1024
+top.serial0.uart.warning_level                    = IGNORE
+top.serial0.console.read_from_console_buffer_size = 1024
+top.serial0.console.read_from_console_latency     = 5
+top.serial0.console.read_from_console_latency_time_unit = MS
+top.serial0.console.console_title                 = UART0
 
-top.console0.read_from_console_buffer_size = 1024
-top.console0.read_from_console_latency     = 5
-top.console0.read_from_console_latency_time_unit = MS
-top.console0.console_title                 = UART0
+top.serial1.uart.receive_FIFO_size_in_bytes       = 1024
+top.serial1.uart.warning_level                    = IGNORE
+top.serial1.console.read_from_console_buffer_size = 1024
+top.serial1.console.read_from_console_latency     = 5
+top.serial1.console.read_from_console_latency_time_unit = MS
+top.serial1.console.console_title                 = UART1
 
 vlan:tcp_napt                              = :2022 => :22 ; :5555 => :5555
 
