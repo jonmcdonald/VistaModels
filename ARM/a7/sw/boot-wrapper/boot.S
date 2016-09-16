@@ -64,7 +64,7 @@ atags:
 	.long	(1f - .) >> 2
 	.long	0x54410009
 
-	.asciz	"console=ttyAMA0 root=/dev/mmcblk0 maxcpus=1 rw rootwait mem=512M earlyprintk ignore_loglevel" 
+	.asciz	"console=ttyAMA0 root=/dev/mmcblk0 maxcpus=1 rw rootwait mem=512M earlyprintk ignore_loglevel uio_pdrv_genirq.of_id=fpgafabric" 
 
 	.align	2
 1:

@@ -18,6 +18,7 @@
 			compatible = "arm,cortex-a7";
 			reg = <0x0>;
 		};
+
 	};
 
 	memory@80000000 {
@@ -110,6 +111,13 @@
 			#size-cells = <1>;
 			#interrupt-cells = <1>;
 			ranges;
+
+			sm@10000000 {
+				compatible = "fpgafabric";
+				status = "okay";
+				reg = <5 0x00000000 0x00001000>;
+				interrupts = <11>;
+			};
 
 			ethernet@2,02000000 {
 				compatible = "smsc,lan9118", "smsc,lan9115";
