@@ -9,6 +9,7 @@ Files {
 		{$PRJDIR/models/AXIAPB.mb}
 		{$PRJDIR/models/PL180.mb}
 		{$PRJDIR/models/LAN9118.mb}
+		{$PRJDIR/models/supermodel.mb}
 	 } 
 	 Schematics {
 		{$PRJDIR/schematics/top.h}

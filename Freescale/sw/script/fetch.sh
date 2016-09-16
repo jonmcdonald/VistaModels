@@ -19,7 +19,7 @@ if [ ! -f busybox-$VER_BUSYBOX.tar.bz2 ]; then
 fi
 
 if [ ! -f dropbear-$VER_DROPBEAR.tar.bz2 ]; then
-	wget https://matt.ucc.asn.au/dropbear/dropbear-$VER_DROPBEAR.tar.bz2 
+	wget https://matt.ucc.asn.au/dropbear/releases/dropbear-$VER_DROPBEAR.tar.bz2 
 fi
 
 if [ ! -f zlib-$VER_ZLIB.tar.gz ]; then

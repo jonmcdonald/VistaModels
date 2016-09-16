@@ -10,6 +10,7 @@ $includes_begin;
 #include "../models/PL180_model.h"
 #include "../models/LAN9118_model.h"
 #include "UARTSubSystem.h"
+#include "../models/supermodel_model.h"
 $includes_end;
 
 $module_begin("top");
@@ -46,6 +47,9 @@ $end
 $init("serial1"),
 serial1(0)
 $end
+$init("sm"),
+sm(0)
+$end
     $initialization_end
 {
     $elaboration_begin;
@@ -75,6 +79,9 @@ serial0 = new UARTSubSystem("serial0");
 $end;
 $create_component("serial1");
 serial1 = new UARTSubSystem("serial1");
+$end;
+$create_component("sm");
+sm = new supermodel_pvt("sm");
 $end;
 $bind("cpu->master0","axi->cpu");
 vista_bind(cpu->master0, axi->cpu);
@@ -115,6 +122,12 @@ $end;
 $bind("serial0->UARTINTR","cpu->irq_5");
 vista_bind(serial0->UARTINTR, cpu->irq_5);
 $end;
+$bind("sm->irq","cpu->irq_11");
+vista_bind(sm->irq, cpu->irq_11);
+$end;
+$bind("axi->sm","sm->slave");
+vista_bind(axi->sm, sm->slave);
+$end;
     $elaboration_end;
   $vlnv_assign_begin;
 m_library = "schematics";
@@ -151,6 +164,9 @@ $end;
 $destruct_component("serial1");
 delete serial1; serial1 = 0;
 $end;
+$destruct_component("sm");
+delete sm; sm = 0;
+$end;
     $destructor_end;
   }
 public:
@@ -181,6 +197,9 @@ UARTSubSystem *serial0;
 $end;
 $component("serial1");
 UARTSubSystem *serial1;
+$end;
+$component("sm");
+supermodel_pvt *sm;
 $end;
   $fields_end;
   $vlnv_decl_begin;

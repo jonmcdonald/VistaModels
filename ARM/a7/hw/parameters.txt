@@ -1,14 +1,13 @@
 # ~~~~~~~~~~ GLOBAL OPTIONS
 
 tlm_timing_model                 = LT
-smp_sync_fast                    = 1
 clock                            = 2 NS
 physical_io:host_time_sync       = 1
 
 # ~~~~~~~~~~ CPU
 
 #top.cpu.PV.cpu0.core.gdbstub_port     = 2345
-top.cpu.smp_cluster =
+top.cpu.smp_cluster = A7_X2
 top.cpu.elf_image_file           = ../sw/boot-wrapper/A7/linux-system.axf
 
 # ~~~~~~~~~~ AXI MAP
@@ -23,6 +22,8 @@ top.axi.peripherals_size         = 0x20000000
 top.axi.ethernet_base_address    = 0x1A000000
 top.axi.ethernet_size            = 0x01000000
 
+top.axi.sm_base_address          = 0x10000000
+top.axi.sm_size                  = 0x00001000
 
 # ~~~~~~~~~~ APB MAP
 
@@ -51,8 +52,13 @@ top.serial1.console.read_from_console_buffer_size = 1024
 top.serial1.console.read_from_console_latency     = 5
 top.serial1.console.read_from_console_latency_time_unit = MS
 top.serial1.console.console_title                 = UART1
+top.serial1.console.connected                     = 0
 
 vlan:tcp_napt                              = :2022 => :22 ; :5555 => :5555
 
 top.mci.image_file               = ../sw/buildroot-2016.05/output/images/rootfs.ext2
+
+
+
+trace_script = trace.tcl
 

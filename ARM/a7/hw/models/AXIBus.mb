@@ -11,6 +11,7 @@ add_port "memory" /TLM/protocols/axi master 64 -bind_mode optional
 add_port "lcd" /TLM/protocols/axi master 64 -bind_mode optional
 add_port "peripherals" /TLM/protocols/axi master 64 -bind_mode optional
 add_port "ethernet" /TLM/protocols/axi master 32 -bind_mode mandatory
+add_port "sm" /TLM/protocols/axi master 32 -bind_mode optional
 
 # === parameters ===
 # usage: add_parameter <parameter_name> <default_value> <type:string|unsigned|int>
@@ -57,6 +58,13 @@ set_auto_parameter_default "ethernet_subtract_base_address" 1 uint32 {0 1}
 set_auto_parameter_default "ethernet_secure" 0 uint32 {0 1}
 set_auto_parameter_default "ethernet_additional_ranges" {""} string {}
 set_auto_parameter_default "ethernet_latency" 0 uint32 {}
+set_auto_parameter_default "sm_priority" 0 uint32 {}
+set_auto_parameter_default "sm_base_address" 0 uint64 {}
+set_auto_parameter_default "sm_size" 0 uint64 {}
+set_auto_parameter_default "sm_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "sm_secure" 0 uint32 {0 1}
+set_auto_parameter_default "sm_additional_ranges" {""} string {}
+set_auto_parameter_default "sm_latency" 0 uint32 {}
 
 # === generics ===
 # usage: add_generic <generic_name> <value>
@@ -68,6 +76,7 @@ add_pipeline_policy memory cpu -latency memory_latency -buffer_size 0 -sync 1 -p
 add_pipeline_policy lcd cpu -latency lcd_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy peripherals cpu -latency peripherals_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy ethernet cpu -latency ethernet_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy sm cpu -latency sm_latency -buffer_size 0 -sync 1 -power 0
 
 # === generate options ===
 set_generate_kind "pvt" ;# should be one of: model|pv|pvt
