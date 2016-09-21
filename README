@@ -68,7 +68,7 @@ Create load a ssh key on your machine and store in github
    > git fetch origin master
    > git merge -s recursive -X theirs origin/master
 
- - To cause a tracked file which changes local not to be checked in
+ - To cause a tracked file which changes local not to be checked in (ignore it)
    > git update-index --assume-unchanged path/to/file.txt
    To cause it to be checked in again
    > git update-index --no-assume-unchanged path/to/file.txt
@@ -98,3 +98,12 @@ Create load a ssh key on your machine and store in github
    > git merge <branch-name>
    Assuming no problems, now push the changes
    > git push origin master
+
+For files that will be checked into the repo, but will change locally when we do not
+want the local changes checked in, such as the vista.ini file do the following:
+   > git update-index --assume-unchanged <file-name>
+The file can be checked in later if needed.
+
+To change URL of remote:
+   > git remote set-url origin ssh://jmcdonal@localhost:2022/git-repository/lv2/platforms/<repo>
+
