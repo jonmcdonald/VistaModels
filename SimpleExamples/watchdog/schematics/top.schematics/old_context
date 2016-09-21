@@ -1,0 +1,1 @@
+{add_element cpu -kind component -pointer 1 -associated_unit models:FakeCPU -class FakeCPU_pvt -include ../models/FakeCPU_model.h} {add_element wd -kind component -pointer 1 -associated_unit models:WD -class WD_pvt -include ../models/WD_model.h} { add_bind cpu->cpu_master wd->slave } { add_bind wd->irq cpu->int_source }

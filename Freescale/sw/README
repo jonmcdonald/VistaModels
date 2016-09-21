@@ -1,0 +1,24 @@
+
+$ sudo apt-get install lzop
+$ sudo apt-get install u-boot-tools
+
+
+
+You need ARM cross compilers installed for bare metal and linux, to confirm type:
+
+$ arm-none-eabi-gcc --version
+$ arm-none-linux-gnueabi-gcc --version
+
+
+To build, please type:
+
+$ make clean  : cleans everything
+$ make all    : builds linux and the filesystem
+
+
+Once complete you should expect to find these files:
+
+boot-wrapper/linux-kernel.axf  : linux kernel image
+sdcard/sysroot.ext2    : filesystem image
+
+

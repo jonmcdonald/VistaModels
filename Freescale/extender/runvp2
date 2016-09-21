@@ -1,0 +1,4 @@
+#!/bin/sh
+
+export VISTA_PARAMETERS_FILE=parameters2.txt
+iMX6_Extension/build/D_PRJDIR_/sc_main.exe
