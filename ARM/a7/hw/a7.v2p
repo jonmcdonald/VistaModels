@@ -21,6 +21,7 @@ Files {
 	 {Model Sources} {} 
 }
 Designs {{$PRJDIR/sc_main.cpp}}
+Simulations /ubuntu/home/jon/VistaModels/ARM/a7/hw/a7/sim
 Folders {
 	 Sources {*.c *.cpp *.C *.cxx *.cc} 
 	 {Public Headers} {*.h *.hpp *.H *.hxx *.hh} 
