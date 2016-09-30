@@ -45,6 +45,7 @@ N ?= top
 
 .SUFFIXES: .cpp .cc .o .x .h
 
+
 $(EXE): $(OBJS) $(MBARCHIVE) AES.dgn AEShw.dgn
 	$(CC) $(CFLAGS) $(INCDIR) -o $@ $(OBJS) $(LIBS) 2>&1 | c++filt
 #	if [ ! -n "$$V2_HOME" ] ; \

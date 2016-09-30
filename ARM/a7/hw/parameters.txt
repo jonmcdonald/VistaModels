@@ -6,15 +6,19 @@ physical_io:host_time_sync       = 1
 
 # ~~~~~~~~~~ CPU
 
-#top.cpu.PV.cpu0.core.gdbstub_port     = 2345
+#top.cpu.PV.cpu0.core.gdbstub_port     = 1234
 top.cpu.smp_cluster = A7_X2
 top.cpu.elf_image_file           = ../sw/boot-wrapper/A7/linux-system.axf
+#top.cpu.PV.cpu0.elf_image_file           = ../cbwork/factorial/Debug/factorial
+#top.cpu.PV.cpu1.elf_image_file           = ../cbwork/factorial/Debug/factorial
 
 # ~~~~~~~~~~ AXI MAP
 
 top.axi.memory_base_address      = 0x80000000
+top.axi.memory_base_address      = 0xFFFFFFFFFFFFFFFFULL
 top.axi.memory_size              = 0x80000000
 top.mem.size_in_bytes            = 0x80000000
+top.mem.size_in_bytes            = 0x100000000ULL
 
 top.axi.peripherals_base_address = 0x1C000000
 top.axi.peripherals_size         = 0x20000000
@@ -54,11 +58,12 @@ top.serial1.console.read_from_console_latency_time_unit = MS
 top.serial1.console.console_title                 = UART1
 top.serial1.console.connected                     = 0
 
-vlan:tcp_napt                              = :2022 => :22 ; :5555 => :5555
+#vlan:tcp_napt                              = :2022 => :22 ; :5555 => :5555
 
 top.mci.image_file               = ../sw/buildroot-2016.05/output/images/rootfs.ext2
 
 
 
 trace_script = trace.tcl
+#trace_script = trace_factorial.tcl
 

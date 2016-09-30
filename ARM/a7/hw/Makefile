@@ -17,8 +17,11 @@ all: $(PROJECTEXE)
 $(PROJECTEXE): $(SRCS)
 	vista_build_project $(PROJECT)
 
-run: $(PROJECTEXE)
+runvista: $(PROJECTEXE)
 	vista_simulate $(PROJECT)
+
+run: $(PROJECTEXE)
+	$(PROJECTEXE)
 
 COMMAND = "if {![does_tlm_library_exist $(MODELS)]} \
               {create_tlm_library $(MODELS) $(MODELS)}; \
