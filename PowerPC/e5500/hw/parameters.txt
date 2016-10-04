@@ -1,0 +1,38 @@
+clock = 1 ns
+tlm_timing_model = LT
+endianness = big
+physical_io:host_time_sync = 1
+verbose_parameters = 1
+
+#verbose = WRITE | READ | INSTRUCTIONS
+#verbose_file = log.txt
+
+top.cpu.elf_image_file = ../sw/mybit.elf
+
+top.cpu.tlb1.0 =  0xC0000900 0x0000000A 0x0000003F
+top.cpu.tlb1.1 =  0xC0000900 0x1000000A 0x1000003F
+top.cpu.tlb1.2 =  0xC0000900 0x2000000A 0x2000003F
+top.cpu.tlb1.3 =  0xC0000900 0x3000000A 0x3000003F
+top.cpu.tlb1.4 =  0xC0000900 0x8000000A 0x8000003F
+top.cpu.tlb1.5 =  0xC0000900 0xf000000A 0xf000003F
+
+top.bus.ic_base_address    = 0xFE040000
+top.bus.ic_size            = 0x00030000
+
+top.bus.uart_base_address  = 0xFE11C500
+top.bus.uart_size          = 0x00000100
+
+top.bus.ram_base_address   = 0x00000000
+top.bus.ram_size           = 0x40000000
+top.mem.size_in_bytes      = 0x40000000
+
+top.bus.fpga_base_address  = 0x80000000
+top.bus.fpga_size          = 0x10000000
+
+
+smp_cluster = e5500
+trace_script = trace.tcl
+
+#gdbstub_port_spec = auto
+
+
