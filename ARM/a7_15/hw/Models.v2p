@@ -1,7 +1,6 @@
-ProjectName a7
+ProjectName Models
 Files {
 	 Models {
-		{$PRJDIR/models/DualCortexA7.mb}
 		{$PRJDIR/models/AXIBus.mb}
 		{$PRJDIR/models/RAM.mb}
 		{$PRJDIR/models/APBBus.mb}
@@ -12,16 +11,14 @@ Files {
 		{$PRJDIR/models/supermodel.mb}
 	 } 
 	 Schematics {
-		{$PRJDIR/schematics/top.h}
 		{$PRJDIR/schematics/UARTSubSystem.h}
 	 } 
 	 Sources {
-		{$PRJDIR/sc_main.cpp}
 	 } 
 	 {Model Sources} {} 
+	 {Public Headers} {
+	 } 
 }
-Designs {{$PRJDIR/sc_main.cpp}}
-Simulations /ubuntu/home/jon/VistaModels/ARM/a7/hw/a7/sim
 Folders {
 	 Sources {*.c *.cpp *.C *.cxx *.cc} 
 	 {Public Headers} {*.h *.hpp *.H *.hxx *.hh} 
@@ -31,6 +28,7 @@ Folders {
 	 {Linked Binaries} {*.o *.a *.so} 
 	 {Other Binaries} {*.exe *.x} 
 }
+IncludePaths /usr/include/x86_64-linux-gnu
 PreProcessorDefinitions {
 	 MB_DEBUG_UART 1 
 }

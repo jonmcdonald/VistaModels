@@ -14,14 +14,14 @@
 #pragma once
 
 #include "model_builder.h"
-#include "DualCortexA7_model.h"
+#include "DualCortexA15_model.h"
 
 
-class DualCortexA7_pv : public ::mb::models::arm::cortex_a7mp<64>,
-                      public DualCortexA7_pv_base_parameters {
+class DualCortexA15_pv : public ::mb::models::arm::cortex_a15mp<64>,
+                      public DualCortexA15_pv_base_parameters {
 
  public:
-  typedef ::mb::models::arm::cortex_a7mp<64> base_class;
+  typedef ::mb::models::arm::cortex_a15mp<64> base_class;
   
   mb::tlm20::signal_in_socket<>& n_irq_0;
   mb::tlm20::signal_in_socket<>& n_fiq_0;
@@ -47,6 +47,22 @@ class DualCortexA7_pv : public ::mb::models::arm::cortex_a7mp<64>,
   mb::tlm20::signal_in_socket<>& irq_13;
   mb::tlm20::signal_in_socket<>& irq_14;
   mb::tlm20::signal_in_socket<>& irq_15;
+  mb::tlm20::signal_in_socket<>& irq_16;
+  mb::tlm20::signal_in_socket<>& irq_17;
+  mb::tlm20::signal_in_socket<>& irq_18;
+  mb::tlm20::signal_in_socket<>& irq_19;
+  mb::tlm20::signal_in_socket<>& irq_20;
+  mb::tlm20::signal_in_socket<>& irq_21;
+  mb::tlm20::signal_in_socket<>& irq_22;
+  mb::tlm20::signal_in_socket<>& irq_23;
+  mb::tlm20::signal_in_socket<>& irq_24;
+  mb::tlm20::signal_in_socket<>& irq_25;
+  mb::tlm20::signal_in_socket<>& irq_26;
+  mb::tlm20::signal_in_socket<>& irq_27;
+  mb::tlm20::signal_in_socket<>& irq_28;
+  mb::tlm20::signal_in_socket<>& irq_29;
+  mb::tlm20::signal_in_socket<>& irq_30;
+  mb::tlm20::signal_in_socket<>& irq_31;
   mb::tlm20::signal_out_socket<>& pmu_irq_0;
   mb::tlm20::signal_out_socket<>& standbywfi_0;
   mb::tlm20::signal_out_socket<>& standbywfe_0;
@@ -55,12 +71,12 @@ class DualCortexA7_pv : public ::mb::models::arm::cortex_a7mp<64>,
   mb::tlm20::signal_out_socket<>& standbywfi_1;
   mb::tlm20::signal_out_socket<>& standbywfe_1;
   mb::tlm20::signal_out_socket<>& evento_1;
-  
+
  public:
-  DualCortexA7_pv(sc_module_name module_name) 
-    : ::mb::models::arm::cortex_a7mp<64>(module_name, 2, 16,
-                                                 1, 1, 0),
-    DualCortexA7_pv_base_parameters(this),
+  DualCortexA15_pv(sc_module_name module_name) 
+    : ::mb::models::arm::cortex_a15mp<64>(module_name, 2, 32,
+                                                  1, 1, 0),
+    DualCortexA15_pv_base_parameters(this),
     n_irq_0(n_irq[0]),
     n_fiq_0(n_fiq[0]),
     n_reset_0(n_reset[0]),
@@ -85,6 +101,22 @@ class DualCortexA7_pv : public ::mb::models::arm::cortex_a7mp<64>,
     irq_13(irq[13]),
     irq_14(irq[14]),
     irq_15(irq[15]),
+    irq_16(irq[16]),
+    irq_17(irq[17]),
+    irq_18(irq[18]),
+    irq_19(irq[19]),
+    irq_20(irq[20]),
+    irq_21(irq[21]),
+    irq_22(irq[22]),
+    irq_23(irq[23]),
+    irq_24(irq[24]),
+    irq_25(irq[25]),
+    irq_26(irq[26]),
+    irq_27(irq[27]),
+    irq_28(irq[28]),
+    irq_29(irq[29]),
+    irq_30(irq[30]),
+    irq_31(irq[31]),
     pmu_irq_0(pmu_irq[0]),
     standbywfi_0(standbywfi[0]),
     standbywfe_0(standbywfe[0]),

@@ -2,7 +2,6 @@
 #include "mgc_vista_schematics.h"
 $includes_begin;
 #include <systemc.h>
-#include "../models/DualCortexA7_model.h"
 #include "../models/AXIBus_model.h"
 #include "../models/RAM_model.h"
 #include "../models/APBBus_model.h"
@@ -11,6 +10,7 @@ $includes_begin;
 #include "../models/LAN9118_model.h"
 #include "UARTSubSystem.h"
 #include "../models/supermodel_model.h"
+#include "../models/cpu.h"
 $includes_end;
 
 $module_begin("top");
@@ -54,7 +54,7 @@ $end
 {
     $elaboration_begin;
 $create_component("cpu");
-cpu = new DualCortexA7_pvt("cpu");
+cpu = new CPUTYPE("cpu");
 $end;
 $create_component("axi");
 axi = new AXIBus_pvt("axi");
@@ -172,7 +172,7 @@ $end;
 public:
   $fields_begin;
 $component("cpu");
-DualCortexA7_pvt *cpu;
+CPUTYPE *cpu;
 $end;
 $component("axi");
 AXIBus_pvt *axi;

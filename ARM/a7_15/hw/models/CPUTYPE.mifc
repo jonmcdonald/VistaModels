@@ -1,0 +1,57 @@
+# === Model Interface File ===
+# ============================
+
+class CPUTYPE
+include cpu.h
+port -name master0 -kind initiator_socket -class tlm_initiator_socket<64u,tlm::tlm_base_protocol_types,1,(sc_core::sc_port_policy)0u>
+
+port -name pmu_irq_0      -kind initiator_socket -class tlm_initiator_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name pmu_irq_1      -kind initiator_socket -class tlm_initiator_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name standbywfi_0   -kind initiator_socket -class tlm_initiator_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name standbywfi_1   -kind initiator_socket -class tlm_initiator_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name standbywfe_0   -kind initiator_socket -class tlm_initiator_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name standbywfe_1   -kind initiator_socket -class tlm_initiator_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name evento_0       -kind initiator_socket -class tlm_initiator_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name evento_1       -kind initiator_socket -class tlm_initiator_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+
+port -name n_periph_reset  -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name n_irq_0         -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name n_frq_0         -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name n_irq_1         -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name n_frq_1         -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name n_reset_0       -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name n_reset_1       -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name eventi_0        -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name eventi_1        -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_0  -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_1  -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_2  -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_3  -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_4  -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_5  -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_6  -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_7  -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_8  -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_9  -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_10 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_11 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_12 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_13 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_14 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_15 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_16 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_17 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_18 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_19 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_20 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_21 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_22 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_23 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_24 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_25 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_26 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_27 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_28 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_29 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_30 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>
+port -name irq_31 -kind target_socket -class tlm_target_socket<1u,tlm::tlm_base_protocol_types,1,sc_core::SC_ZERO_OR_MORE_BOUND>

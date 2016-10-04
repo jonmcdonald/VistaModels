@@ -1,0 +1,42 @@
+ProjectName a15
+Files {
+	 Models {
+		{$PRJDIR/models/DualCortexA15.mb}
+	 } 
+	 Schematics {
+		{$PRJDIR/schematics/top.h}
+	 } 
+	 {Public Headers} {
+		{$PRJDIR/schematics/cpu.h}
+	 } 
+	 Sources {
+		{$PRJDIR/sc_main.cpp}
+	 } 
+}
+Designs {{$PRJDIR/sc_main.cpp}}
+Folders {
+	 Sources {*.c *.cpp *.C *.cxx *.cc} 
+	 {Public Headers} {*.h *.hpp *.H *.hxx *.hh} 
+	 Models *.mb 
+	 Schematics {} 
+	 Documentation {*.txt *.TXT *.doc *.DOC *.pdf *.PDF *.html *.HTML *.htm *.HTM *.ps *.PS} 
+	 {Linked Binaries} {*.o *.a *.so} 
+	 {Other Binaries} {*.exe *.x} 
+}
+IncludePaths /usr/include/x86_64-linux-gnu
+PreProcessorDefinitions {
+	 A15 1 
+}
+GeneralCompilationOptions -Wall
+AlwaysCompileInCPPMode 1
+LinkDependencies Models
+LinkPackages {model_builder models_catalogue}
+ProjectLibraryType archive
+ProjectComponentsLibraryPath {$PRJDIR/$PRJFILE_BASENAME/interfaces}
+ProjectWorkingDirectory {$PRJDIR/$PRJFILE_BASENAME/build}
+HasTLMSupport 0
+CompiledWithTLMSupport 0
+IsUsePathVariables 1
+PlatformName a15
+ProjectReadOnly 0
+ProjectBuildMultiPlatform 0

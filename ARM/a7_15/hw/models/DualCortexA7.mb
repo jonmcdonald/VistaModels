@@ -40,6 +40,22 @@ add_port "irq_12" /TLM/protocols/signal slave 1 -bind_mode optional
 add_port "irq_13" /TLM/protocols/signal slave 1 -bind_mode optional
 add_port "irq_14" /TLM/protocols/signal slave 1 -bind_mode optional
 add_port "irq_15" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "irq_16" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "irq_17" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "irq_18" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "irq_19" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "irq_20" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "irq_21" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "irq_22" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "irq_23" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "irq_24" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "irq_25" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "irq_26" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "irq_27" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "irq_28" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "irq_29" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "irq_30" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "irq_31" /TLM/protocols/signal slave 1 -bind_mode optional
 
 # === parameters ===
 add_parameter "dcache_size" 32768 uint32 {16384 32768 65536}
@@ -65,6 +81,7 @@ add_parameter "pmu_num_counters" 6 uint32 {}
 add_parameter "pmu_pmcr_icode" 0x09 uint32 {}
 add_parameter "has_security" 1 boolean {0 1}
 add_parameter "has_lpae" 1 boolean {0 1}
+add_parameter "cpu_type" A7 string {}
 
 # === auto parameters ===
 set_auto_parameter_default "clock" {10 ns} time {}
@@ -104,10 +121,26 @@ set_auto_parameter_default "irq_12_pipeline_length" 2 uint32 {}
 set_auto_parameter_default "irq_13_pipeline_length" 2 uint32 {}
 set_auto_parameter_default "irq_14_pipeline_length" 2 uint32 {}
 set_auto_parameter_default "irq_15_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "irq_16_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "irq_17_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "irq_18_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "irq_19_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "irq_20_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "irq_21_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "irq_22_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "irq_23_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "irq_24_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "irq_25_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "irq_26_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "irq_27_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "irq_28_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "irq_29_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "irq_30_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "irq_31_pipeline_length" 2 uint32 {}
 
 # === generics ===
 add_generic NUM_CPU 2
-add_generic NUM_SPI 16
+add_generic NUM_SPI 32
 add_generic BITNESS 64 -values {32 64 128}
 add_generic HAS_ACP 0 -values {0 1}
 add_generic HAS_GIC 1 -values {0 1}

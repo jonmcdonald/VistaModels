@@ -1,4 +1,5 @@
 #include "top.h"
+#include "models/cpu.h"
 
 int sc_main(int argc, char *argv[]) {
  

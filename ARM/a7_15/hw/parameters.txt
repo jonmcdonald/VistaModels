@@ -7,10 +7,12 @@ physical_io:host_time_sync       = 1
 # ~~~~~~~~~~ CPU
 
 #top.cpu.PV.cpu0.core.gdbstub_port     = 1234
-top.cpu.smp_cluster = A7_X2
-top.cpu.elf_image_file           = ../sw/boot-wrapper/A7/linux-system.axf
-#top.cpu.PV.cpu0.elf_image_file           = ../cbwork/factorial/Debug/factorial
-#top.cpu.PV.cpu1.elf_image_file           = ../cbwork/factorial/Debug/factorial
+#top.cpu.smp_cluster = A7_X2
+#top.cpu.elf_image_file           = ../sw/boot-wrapper/A7/linux-system.axf
+top.cpu.PV.cpu0.elf_image_file           = ../cbwork/factorial/Debug/factorial
+top.cpu.PV.cpu1.elf_image_file           = ../cbwork/factorial/Debug/factorial
+elf_image_file           = ../cbwork/factorial/Debug/factorial
+elf_image_file           = ../cbwork/fact/Debug/fact
 
 # ~~~~~~~~~~ AXI MAP
 
@@ -64,6 +66,6 @@ top.mci.image_file               = ../sw/buildroot-2016.05/output/images/rootfs.
 
 
 
-trace_script = trace.tcl
-#trace_script = trace_factorial.tcl
+#trace_script = trace.tcl
+trace_script = trace_factorial.tcl
 
