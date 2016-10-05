@@ -1,0 +1,27 @@
+The assembly.S file contains minimal startup code which will check the core id and put all cores other than the 
+core 0 into a wfi loop.  This allows a multicore system to run a simple bare-metal program on one core only.
+
+To build the bare-metal factorial project in codebench for this platform perform the following steps:
+
+ - Create a new C project, select ARM EABI and the Factorial C Project
+ - On the Sourcery CodeBench Configuration page
+    - Set the Processor to Cortex-A15 or Cortex-A7
+    - Create a minimal Board by selecting "..." for the Board
+       - Select "Create Board"
+       - Name the board
+       - Select Generic Board with Processor: Cortex-A15 or Cortex-A7
+  - Once the you finish the Project and Board you can select the Memory Map under the *.cs3 source tab
+     - This platform has memory at all locations.  You can declare any memory and size as long as it does
+       not overlap one of the peripheral devices in the platform.  Anything above 0x80000000 should be safe.
+        - Set the ram Start and Size to 0x80000000 and save it.
+  - Create a new source file in the project called assembly.S
+     - Copy the contents of the assembly.S in this directory into the new project file.
+     - The branch on the last line of assembly.S should be to the cs3 reset function which includes
+       the name of the board in the function name.  For example if your name for the board was bare-bones
+       make the following change:
+		b __cs3_reset_base_ram
+       to:
+		b __cs3_reset_bare_bones_ram
+       Notice that - will be changed to _
+
+The project should build and the elf should execute on the platform.

@@ -1,6 +1,6 @@
 
 trace_attribute top.cpu.PV.cpu0.core.core_state
-trace_attribute top.cpu.PV.cpu1.core.core_state
+#trace_attribute top.cpu.PV.cpu1.core.core_state
 
 trace_socket   top.sm.slave
 trace_socket   top.sm.irq
@@ -21,10 +21,10 @@ insert_tracepoint mainExit -at-function-exit main -do-raw {
   request_sim_stop();
 }
 
-select_core "top.cpu.PV.cpu1.core"
-add_default_symbol_file
+#select_core "top.cpu.PV.cpu1.core"
+#add_default_symbol_file
 
-insert_tracepoint mainEntry -at-function-entry wfiLoop -do-raw {
-  printf("Stopping core 1 at %d MS.\n", get_time_stamp()/1000000);
-  request_shutdown();
-}
+#insert_tracepoint mainEntry -at-function-entry wfiLoop -do-raw {
+#  printf("Stopping core 1 at %d MS.\n", get_time_stamp()/1000000);
+#  request_shutdown();
+#}
