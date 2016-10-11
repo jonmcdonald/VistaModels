@@ -1,0 +1,3 @@
+dts:
+  sm name should be sm@5,00000000
+    don't think it matters, but that is the spec.
