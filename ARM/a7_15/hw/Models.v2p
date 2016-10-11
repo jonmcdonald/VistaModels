@@ -4,11 +4,11 @@ Files {
 		{$PRJDIR/models/AXIBus.mb}
 		{$PRJDIR/models/RAM.mb}
 		{$PRJDIR/models/APBBus.mb}
-		{$PRJDIR/models/AXI_APB.mb}
 		{$PRJDIR/models/AXIAPB.mb}
 		{$PRJDIR/models/PL180.mb}
 		{$PRJDIR/models/LAN9118.mb}
 		{$PRJDIR/models/supermodel.mb}
+		{$PRJDIR/models/SystemControl.mb}
 	 } 
 	 Schematics {
 		{$PRJDIR/schematics/UARTSubSystem.h}

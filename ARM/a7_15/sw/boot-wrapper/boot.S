@@ -25,11 +25,14 @@ _start:
 	@
 	@ Secondary CPUs 
 	@
+	ldr	r0, =0x10025000			@ SYSCTRL register
 loop:
-//	ldr	r0, =0x40000000
-//	ldr	r1, [r0]
-	wfi
-	BAL loop
+	wfe
+	ldr	r1, [r0]
+	cmp	r1, #0
+	beq	loop
+	mov	pc, r1				@ branch to the given address
+
 
 
 	@
@@ -64,7 +67,7 @@ atags:
 	.long	(1f - .) >> 2
 	.long	0x54410009
 
-	.asciz	"console=ttyAMA0 root=/dev/mmcblk0 maxcpus=1 rw rootwait mem=512M earlyprintk ignore_loglevel uio_pdrv_genirq.of_id=fpgafabric" 
+	.asciz	"console=ttyAMA0 root=/dev/mmcblk0 rw rootwait mem=512M earlyprintk ignore_loglevel uio_pdrv_genirq.of_id=fpgafabric" 
 
 	.align	2
 1:

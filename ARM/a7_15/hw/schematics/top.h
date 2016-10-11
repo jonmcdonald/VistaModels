@@ -11,6 +11,7 @@ $includes_begin;
 #include "UARTSubSystem.h"
 #include "../models/supermodel_model.h"
 #include "../models/cpu.h"
+#include "../models/SystemControl_model.h"
 $includes_end;
 
 $module_begin("top");
@@ -50,6 +51,9 @@ $end
 $init("sm"),
 sm(0)
 $end
+$init("sysctl"),
+sysctl(0)
+$end
     $initialization_end
 {
     $elaboration_begin;
@@ -82,6 +86,9 @@ serial1 = new UARTSubSystem("serial1");
 $end;
 $create_component("sm");
 sm = new supermodel_pvt("sm");
+$end;
+$create_component("sysctl");
+sysctl = new SystemControl_pvt("sysctl");
 $end;
 $bind("cpu->master0","axi->cpu");
 vista_bind(cpu->master0, axi->cpu);
@@ -128,6 +135,9 @@ $end;
 $bind("axi->sm","sm->slave");
 vista_bind(axi->sm, sm->slave);
 $end;
+$bind("axi->sysctl","sysctl->slave");
+vista_bind(axi->sysctl, sysctl->slave);
+$end;
     $elaboration_end;
   $vlnv_assign_begin;
 m_library = "schematics";
@@ -167,6 +177,9 @@ $end;
 $destruct_component("sm");
 delete sm; sm = 0;
 $end;
+$destruct_component("sysctl");
+delete sysctl; sysctl = 0;
+$end;
     $destructor_end;
   }
 public:
@@ -200,6 +213,9 @@ UARTSubSystem *serial1;
 $end;
 $component("sm");
 supermodel_pvt *sm;
+$end;
+$component("sysctl");
+SystemControl_pvt *sysctl;
 $end;
   $fields_end;
   $vlnv_decl_begin;

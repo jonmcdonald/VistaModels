@@ -18,7 +18,11 @@
 			compatible = "arm,cortex-a7";
 			reg = <0x0>;
 		};
-
+		cpu@1 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a7";
+			reg = <0x1>;
+		};
 	};
 
 	memory@80000000 {
@@ -67,6 +71,10 @@
 		compatible = "arm,cortex-a7-pmu";
 		interrupts = <0 60 4>,
 			     <0 61 4>;
+	};
+
+	scu {
+		compatible = "arm,cortex-a7-scu";
 	};
 
 	smb {
