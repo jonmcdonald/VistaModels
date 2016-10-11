@@ -13,6 +13,9 @@ top.cpu.elf_image_file           = ../sw/boot-wrapper/A7/linux-system.axf
 #top.cpu.PV.cpu1.elf_image_file           = ../cbwork/factorial/Debug/factorial
 #elf_image_file           = ../cbwork/factorial/Debug/factorial
 #elf_image_file           = ../cbwork/fact/Debug/fact
+#elf_image_file           = ../cbwork/factorial/Debug/factorial
+
+#verbose = INSTRUCTIONS | READ | WRITE | IRQ
 
 # ~~~~~~~~~~ AXI MAP
 
