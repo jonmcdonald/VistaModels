@@ -1,0 +1,14 @@
+
+tlm_timing_model                 = LT
+lt_policy_modeling               = DYNAMIC
+
+clock                            = 10 NS
+generic_clock                    = 10 NS
+
+top.process.slave_pipeline_length = 2
+
+top.process.generic_clock        = 3 NS
+top.sink.generic_clock           = 4 NS
+
+top.process.fifo_delay           = 7 NS
+top.process.fifo_bound           = 10

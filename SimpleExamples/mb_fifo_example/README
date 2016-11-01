@@ -1,0 +1,7 @@
+This demonstrates using mb_fifo within a process block as a mechanism to model asynchronous data exchanges between a driver and sink running at different clocks.
+
+The generic protocol is used throughout, but the slave port of the process model has a differnt clock speed parameter than the slave port of the sink model. 
+
+The simulation also works in LT+DYNAMIC timing mode, but the minimal_delay of the mb_fifo will not be taken into consideration.
+
+

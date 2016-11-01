@@ -1,0 +1,51 @@
+# ============================ TLM Model File ============================
+# You can create tlm model by one of the following ways:
+#   - load this file using 'load_model' API function
+#   - compile this file using "Modeling->Load Model File" menu command.
+# ========================================================================
+template "/TLM/Generic_Library/Timer"
+
+# === ports ===
+add_port "host" /TLM/protocols/ahb_slave slave 32 -bind_mode mandatory
+add_port "irq" /TLM/protocols/signal master 1 -bind_mode mandatory
+
+# === parameters ===
+add_parameter "clock_period" 1000 uint32 {}
+
+# === auto parameters ===
+set_auto_parameter_default "clock" {10 ns} time {}
+set_auto_parameter_default "ahb_slave_clock" clock time {}
+set_auto_parameter_default "signal_clock" clock time {}
+set_auto_parameter_default "nominal_voltage" 1 double {}
+set_auto_parameter_default "mb_debug" false boolean {true false}
+set_auto_parameter_default "call_to_default_if" false boolean {true false}
+set_auto_parameter_default "verbose_parameters" true boolean {true false}
+set_auto_parameter_default "dmi_enabled" true boolean {true false}
+set_auto_parameter_default "warning_level" WARNING string {
+      "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
+set_auto_parameter_default "host_pipeline_length" 2 uint32 {}
+
+# === generics ===
+# usage: add_generic <generic_name> <value>
+# example: add_generic "OUT_ACTIVE_VALUE" false
+
+# === machine architecture ===
+declare_register host clear_irq 0x0 {} -rw_access w -is_trigger -width 32
+declare_register host clock_count 0x4 {} -rw_access r/w -width 32
+declare_register host int_count 0x8 {} -rw_access r/w -width 32
+declare_register host restart 0xc {} -rw_access w -is_trigger -width 32
+
+# === generate options ===
+set_generate_kind "pvt" ;# should be one of: model|pv|pvt
+set_include_file ""
+set_external_pv_include ""
+set_pv_kind "template" ;# should be one of: template|external
+set_timing_kind "policies" ;# should be: policies
+set_power_kind "policies" ;# should be: policies
+set_class_name_external_pv ""
+set_max_parameters_of_pv_constructor 5
+set_overwrite 0
+set_generate_ipxact 0
+set_ipxact_vendor "Mentor.com"
+set_ipxact_version 1.0
+

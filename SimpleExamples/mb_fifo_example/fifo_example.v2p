@@ -1,0 +1,36 @@
+ProjectName fifo_example
+Files {
+	 Models {
+		{$PRJDIR/models/Driver.mb}
+		{$PRJDIR/models/Process.mb}
+		{$PRJDIR/models/Sink.mb}
+	 } 
+	 Schematics {
+		{$PRJDIR/schematics/top.h}
+	 } 
+	 Sources {
+		{$PRJDIR/sc_main.cpp}
+	 } 
+}
+Designs {{$PRJDIR/sc_main.cpp}}
+Folders {
+	 Sources {*.c *.cpp *.C *.cxx *.cc} 
+	 {Public Headers} {*.h *.hpp *.H *.hxx *.hh} 
+	 Models *.mb 
+	 Schematics {} 
+	 Documentation {*.txt *.TXT *.doc *.DOC *.pdf *.PDF *.html *.HTML *.htm *.HTM *.ps *.PS} 
+	 {Linked Binaries} {*.o *.a *.so} 
+	 {Other Binaries} {*.exe *.x} 
+}
+GeneralCompilationOptions -Wall
+AlwaysCompileInCPPMode 1
+LinkPackages model_builder
+ProjectLibraryType archive
+ProjectComponentsLibraryPath {$PRJDIR/$PRJFILE_BASENAME/interfaces}
+ProjectWorkingDirectory {$PRJDIR/$PRJFILE_BASENAME/build}
+HasTLMSupport 0
+CompiledWithTLMSupport 0
+IsUsePathVariables 1
+PlatformName fifo_example
+ProjectReadOnly 0
+ProjectBuildMultiPlatform 0
