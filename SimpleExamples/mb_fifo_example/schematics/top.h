@@ -5,6 +5,7 @@ $includes_begin;
 #include "../models/Process_model.h"
 #include "../models/Sink_model.h"
 #include "../models/Driver_model.h"
+#include "../models/PowerCtl_model.h"
 $includes_end;
 
 $module_begin("top");
@@ -23,6 +24,9 @@ $end
 $init("driver"),
 driver(0)
 $end
+$init("powerCtl"),
+powerCtl(0)
+$end
     $initialization_end
 {
     $elaboration_begin;
@@ -34,6 +38,9 @@ sink = new Sink_pvt("sink");
 $end;
 $create_component("driver");
 driver = new Driver_pvt("driver");
+$end;
+$create_component("powerCtl");
+powerCtl = new PowerCtl_pvt("powerCtl");
 $end;
 $bind("driver->master","process->slave");
 vista_bind(driver->master, process->slave);
@@ -59,6 +66,9 @@ $end;
 $destruct_component("driver");
 delete driver; driver = 0;
 $end;
+$destruct_component("powerCtl");
+delete powerCtl; powerCtl = 0;
+$end;
     $destructor_end;
   }
 public:
@@ -71,6 +81,9 @@ Sink_pvt *sink;
 $end;
 $component("driver");
 Driver_pvt *driver;
+$end;
+$component("powerCtl");
+PowerCtl_pvt *powerCtl;
 $end;
   $fields_end;
   $vlnv_decl_begin;

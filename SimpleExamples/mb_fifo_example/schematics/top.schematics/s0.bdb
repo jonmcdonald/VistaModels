@@ -13,7 +13,7 @@
  } 
  page  { w 11000 h 11000 type vhdstd orient portr  } 
 grid 10 
- } #idit - save unit (named untitled00 while saving) on Tue Nov  1 10:20:22 2016
+ } #idit - save unit (named top while saving) on Fri Nov 11 14:52:02 2016
 #SW version: 2008.12 v4.1.1.beta2 build 1. Date: Jun 14 2016. License: 1.1 
 version: 12 
 ipxactvendor Mentor.com 
@@ -63,10 +63,10 @@ angle 0 bcol 'Pale Blue2' pcol 'Black' }
 text { 84 -68 1 driver
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 310 -176 56 16 
+gnrtxt textbox { rect { 310 -176 54 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 312 -173 1 8 nil 
-  "driver"  
+  "driver" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -103,7 +103,7 @@ none @block -
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
-comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 217 -144 49 17 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 216 -188 49 17 
 bcol 'Empty' pcol 'Black' } 
 fmttext { 219 -141 1 8 nil 
 Process 
@@ -113,13 +113,13 @@ angle 0 fn 0 0 0 2 5 0 0 0 0 }
 groupobj { doset { rect { 190 -150 100 80 
 bcol 'Empty' pcol 'Black' } 
  } 
-clshapes { closeShape { lines { line { 190 -150 290 -150 } 
-line { 290 -150 290 -70 } 
-line { 290 -70 190 -70 } 
-line { 190 -70 190 -150 } 
+clshapes { closeShape { lines { line { 190 -70 289 -70 } 
+line { 289 -70 289 -150 } 
+line { 289 -150 388 -150 } 
+line { 190 -150 190 -230 } 
 } 
 arcs { } 
-bcol 'Gold'  } 
+bcol 'Pale Blue2'  } 
  } 
  } 
  } 
@@ -162,7 +162,7 @@ none @block -
 @blist 1 { @cnt 0 } @flags 73 }
 
  } 
-angle 0 bcol 'Gold' pcol 'Black' } 
+angle 0 bcol 'Pale Blue2' pcol 'Black' } 
  } 
 text { 218 -68 1 process
  angle 0
@@ -271,10 +271,10 @@ angle 0 bcol 'Pale Blue2' pcol 'Black' }
 text { 369 -68 1 sink
  angle 0
 fn 0 0 160 2 5 0 0 0 0 }
-gnrtxt textbox { rect { 600 -176 46 16 
+gnrtxt textbox { rect { 600 -176 44 17 
 bcol 'Empty' pcol 'Red' } 
 fmttext { 602 -173 1 8 nil 
-  "sink"  
+  "sink" 
 angle 0 fn 0 0 0 2 5 0 0 0 0 }
  invis }  } 
 @conf
@@ -308,6 +308,53 @@ none @block -
 @sysInt pvt_target_socket<32U,tlm::tlm_base_protocol_types,1,sc_core::SC_ONE_OR_MORE_BOUND>
 @multiport 1 @isTemplate 0
 } @gr DEF @idx -1 } L { @bl -1 @el -1 @il -1 @nvis } !
+0 L { @nvis @ctorsn 1 } !
+@hastemplparam
+{ @cnt 0 } @instanceAs 1 
+comp { compsym { comptype 0 macDesign 0 behav Normal macrodir UpDown scheme SIM flat TRUE initialize FALSE dataWidth 0 addrWidth 0 endianMode 0 macroinit 0 doset { textbox { rect { 198 -340 54 17 
+bcol 'Empty' pcol 'Black' } 
+fmttext { 201 -271 1 8 nil 
+PowerCtl 
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ vis }  { fiv  @kind 9 
+ } 
+groupobj { doset { rect { 190 -280 100 90 
+bcol 'Empty' pcol 'Black' } 
+ } 
+clshapes { closeShape { lines { line { 289 -280 388 -280 } 
+line { 289 -190 289 -280 } 
+line { 190 -190 289 -190 } 
+line { 190 -280 190 -370 } 
+} 
+arcs { } 
+bcol 'Pale Blue2'  } 
+ } 
+ } 
+ } 
+pinset {  } 
+angle 0 bcol 'Pale Blue2' pcol 'Black' } 
+ } 
+text { 216 -189 1 powerCtl
+ angle 0
+fn 0 0 160 2 5 0 0 0 0 }
+gnrtxt textbox { rect { 240 -236 73 16 
+bcol 'Empty' pcol 'Red' } 
+fmttext { 242 -233 1 8 nil 
+  "powerCtl"  
+angle 0 fn 0 0 0 2 5 0 0 0 0 }
+ invis }  } 
+@conf
+- - @symname
+- @cmpattr
+@kwd @innm powerCtl @arch - @usl - @hrnm PowerCtl models @dffs 0 0 @stt hier @gnras @cnt 0
+@templparamas @templparamcnt 0
+@portas @cnt 0
+@portlist 0 
+!
+@procTypeSel 1 @useCtor -1 @freeCtrorAruments 1 %Name%
+L { @nvis } !
+@prtas 0 0 
+L { @bl -1 @el -1 @il -1 @nvis } !
 0 L { @nvis @ctorsn 1 } !
 @hastemplparam
 { @cnt 0 } @instanceAs 1 
@@ -415,9 +462,10 @@ s1
 0 
 !
 
-@@VE@names@@ 5 @obj - sink 36 @obj - process 36 @obj - s0 13 @obj - s1 13 @obj - driver 36 23 1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 3 2 -1 -1 -1 -1 -1 -1 -1 -1 -1 3 !
+@@VE@names@@ 6 @obj - sink 36 @obj - powerCtl 36 @obj - process 36 @obj - s0 13 @obj - s1 13 @obj - driver 36 23 2 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 5 3 -1 -1 -1 -1 -1 -1 -1 -1 -1 5 !
 
 @@VE@obj_u@@ driver Driver models 0 
 process Process models 0 
 sink Sink models 0 
+powerCtl PowerCtl models 0 
 !

@@ -30,7 +30,7 @@
 using namespace tlm;
 
 //This class inherits from the Process_pv_base class
-class Process_pv : public Process_pv_base {
+class Process_pv : public Process_pv_base, mb::sysc::ParameterListener {
  public:
   typedef esl::tlm_types::Address mb_address_type;
  public:
@@ -60,5 +60,9 @@ class Process_pv : public Process_pv_base {
 
  private:
   void thread();
+  void parameter_changed(const std::string& parameter,
+                         const std::string& old_value,
+                         const std::string& new_value);
+
 };
 

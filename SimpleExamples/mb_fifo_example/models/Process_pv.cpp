@@ -20,6 +20,9 @@
 //* 
 //* Model Builder version: 4.2.1
 //* Generated on: Nov. 01, 2016 10:04:38 AM, (user: markca)
+//* Automatically merged on: Nov. 11, 2016 10:36:57 AM, (user: markca)
+//* Automatically merged on: Nov. 11, 2016 10:38:21 AM, (user: markca)
+//* Automatically merged on: Nov. 11, 2016 02:27:34 PM, (user: markca)
 //*>
 
 
@@ -39,22 +42,30 @@ Process_pv::Process_pv(sc_module_name module_name)
   fifo.set_minimal_delay(fifo_delay);
   fifo.nb_bound(fifo_bound);
 
+  add_parameter_listener(this->name(), "enabled", this);
+
   SC_THREAD(thread);
 }      
 
 // Read callback for slave port.
 // Returns true when successful.
 bool Process_pv::slave_callback_read(mb_address_type address, unsigned char* data, unsigned size) {
-  return true;
+  if(enabled) {
+    return true;
+  }
+  return false;
 }
 
 // Write callback for slave port.
 // Returns true when successful.
 bool Process_pv::slave_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
-  unsigned int value = (unsigned int) *data;
-  fifo.put(value);
-  cout << "                        " << "PRO @ " << sc_time_stamp() << " FIFO PUT " << hex << value << endl;
-  return true;
+  if(enabled) {
+    unsigned int value = (unsigned int) *data;
+    cout << "                        " << "PRO @ " << sc_time_stamp() << " FIFO PUTTING " << hex << value << " : " << enabled << endl;
+    fifo.put(value);
+    return true;
+  }
+  return false;
 } 
 
 
@@ -78,8 +89,21 @@ void Process_pv::thread() {
   unsigned int value;
   while(1) {
     value = fifo.peek();
-    cout << "                        " << "PRO @ " << sc_time_stamp() << " WRITE " << hex << value << endl;
-    master_write(0x0, &value, 1);
+    if(enabled) {
+      cout << "                        " << "PRO @ " << sc_time_stamp() << " WRITING " << hex << value << endl;
+      master_write(0x0, &value, 1);
+    }
     fifo.get();
+  }
+}
+
+void Process_pv::parameter_changed(const std::string& parameter,
+                                   const std::string& old_value,
+                                   const std::string& new_value) {
+  if(parameter == "enabled") {
+    int num;
+    num = atoi(new_value.c_str());
+    enabled = (num == 1);
+    cout << "                        " << "PRO @ " << sc_time_stamp() << " " << parameter << " : " << enabled << endl;
   }
 }

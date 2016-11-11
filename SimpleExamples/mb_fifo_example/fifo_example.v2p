@@ -4,6 +4,7 @@ Files {
 		{$PRJDIR/models/Driver.mb}
 		{$PRJDIR/models/Process.mb}
 		{$PRJDIR/models/Sink.mb}
+		{$PRJDIR/models/PowerCtl.mb}
 	 } 
 	 Schematics {
 		{$PRJDIR/schematics/top.h}
