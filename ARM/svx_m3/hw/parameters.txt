@@ -1,0 +1,46 @@
+@tcl source "$env(VISTA_HOME)/generic/tcl/svx/svxparams.tcl"
+
+# ~~~~~~~~~~ GLOBAL OPTIONS
+
+tlm_timing_model                          = LT
+top.m3.clock                              = 10 NS
+#physical_io:host_time_sync                = 1
+RealTimeSeconds = 1000
+RealTimeInterval = 0.1
+RealTimeFactor = 1.0
+
+# ~~~~~~~~~~ CPU
+
+#top.m3.PV.core.gdbstub_port               = 2347
+#top.m3.PV.core.verbose                    = RESET|INSTRUCTIONS|IRQ
+top.m3.PV.core.elf_image_file             = ../sw/image.axf
+
+# ~~~~~~~~~~ BUS MAP
+
+top.bus.rom_base_address                  = 0x00000000
+top.bus.rom_size                          = 0x00080000
+top.rom.size_in_bytes                     = 0x00080000
+
+top.bus.ram_base_address                  = 0x20000000
+top.bus.ram_size                          = 0x00008000
+top.ram.size_in_bytes                     = 0x00008000
+
+top.bus.ext_ram_base_address              = 0x64000000
+top.bus.ext_ram_size                      = 0x00200000
+top.ext_ram.size_in_bytes                 = 0x00200000
+
+top.bus.pwm_base_address                  = 0x40012C00
+top.bus.pwm_size                          = 0x00000400
+
+# ~~~~~~~~~~ PERIPH OPTIONS
+
+top.pwm.High_freq_clock                   = 10 US
+
+# ~~~~~~~~~~ SVX OPTIONS
+
+top.svx.without_svx                          = 0
+top.svx.svx_connector_isApplicationSequencer = 1
+top.svx.svx_generator_prints                 = 1
+top.svx.svx_generator_outfile                = svx_log.txt
+
+

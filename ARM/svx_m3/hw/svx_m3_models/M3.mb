@@ -1,0 +1,87 @@
+# ============================ TLM Model File ============================
+# You can create tlm model by one of the following ways:
+#   - load this file using 'load_model' API function
+#   - compile this file using "Modeling->Load Model File" menu command.
+# ========================================================================
+template "/TLM/Generic_Library/Cores/cortex-m3"
+
+# === ports ===
+add_port "icode" /TLM/protocols/ahb_master master 32 -bind_mode mandatory
+add_port "dcode" /TLM/protocols/ahb_master master 32 -bind_mode mandatory
+add_port "system" /TLM/protocols/ahb_master master 32 -bind_mode mandatory
+add_port "ppb" /TLM/protocols/apb master 32 -bind_mode optional
+add_port "reset_n" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "sysresetreq" /TLM/protocols/signal master 1 -bind_mode optional -reset_value 0
+add_port "nmi" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "irq_0" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "irq_1" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "irq_2" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "irq_3" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "sleeping" /TLM/protocols/signal master 1 -bind_mode optional
+add_port "sleepdeep" /TLM/protocols/signal master 1 -bind_mode optional
+add_port "rxev" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "txev" /TLM/protocols/signal master 1 -bind_mode optional
+
+# === parameters ===
+add_parameter "control_page_address" 0 uint64 {}
+add_parameter "elf_image_file" {} string {}
+add_parameter "gdbstub_port" 0 uint32 {}
+add_parameter "instruction_latency" clock time {}
+add_parameter "instruction_energy" {5 nj} energy {}
+add_parameter "lt_synch_quantum" {50 us} time {}
+add_parameter "pvt_lockstep" SYNC_END string {}
+add_parameter "core_timing" {$MODEL_BUILDER_HOME/include/mb/models/arm/cortex-m3/timing.pl} string {}
+add_parameter "core_power" NONE string {}
+add_parameter "systick_clock" clock time {}
+add_parameter "priority_bits" 8 int32 {}
+add_parameter "mpu_number_regions" 8 uint32 {0 8}
+add_parameter "CPUID" 0x412fc231 uint32 {}
+add_parameter "PID0" 0x0c uint32 {}
+add_parameter "PID1" 0xb0 uint32 {}
+add_parameter "PID2" 0x0b uint32 {}
+add_parameter "PID3" 0x0 uint32 {}
+add_parameter "PID4" 0x4 uint32 {}
+add_parameter "PID5" 0x0 uint32 {}
+add_parameter "PID6" 0x0 uint32 {}
+add_parameter "PID7" 0x0 uint32 {}
+add_parameter "CID0" 0x0d uint32 {}
+add_parameter "CID1" 0xe0 uint32 {}
+add_parameter "CID2" 0x05 uint32 {}
+add_parameter "CID3" 0xb1 uint32 {}
+
+# === auto parameters ===
+set_auto_parameter_default "clock" {10 ns} time {}
+set_auto_parameter_default "signal_clock" clock time {}
+set_auto_parameter_default "ahb_master_clock" clock time {}
+set_auto_parameter_default "apb_clock" clock time {}
+set_auto_parameter_default "nominal_voltage" 1 double {}
+set_auto_parameter_default "mb_debug" false boolean {true false}
+set_auto_parameter_default "verbose_parameters" true boolean {true false}
+set_auto_parameter_default "dmi_enabled" true boolean {true false}
+set_auto_parameter_default "warning_level" WARNING string {
+      "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
+set_auto_parameter_default "reset_n_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "nmi_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "irq_0_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "irq_1_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "irq_2_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "irq_3_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "rxev_pipeline_length" 2 uint32 {}
+
+# === generics ===
+add_generic NUM_IRQ 4
+
+# === generate options ===
+set_generate_kind "pvt" ;# should be one of: model|pv|pvt
+set_include_file ""
+set_external_pv_include ""
+set_pv_kind "template" ;# should be one of: template|external
+set_timing_kind "policies" ;# should be: policies
+set_power_kind "policies" ;# should be: policies
+set_class_name_external_pv ""
+set_max_parameters_of_pv_constructor 5
+set_overwrite 0
+set_generate_ipxact 0
+set_ipxact_vendor "Mentor.com"
+set_ipxact_version 1.0
+

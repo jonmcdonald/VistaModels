@@ -1,0 +1,43 @@
+ProjectName svx_m3
+Files {
+	 Models {
+		{$PRJDIR/svx_m3_models/M3.mb}
+		{$PRJDIR/svx_m3_models/AHB_BUS.mb}
+		{$PRJDIR/svx_m3_models/MEMORY.mb}
+		{$PRJDIR/svx_m3_models/i_mx6_pwm.mb}
+		{$PRJDIR/svx_m3_models/NADA.mb}
+		{$PRJDIR/svx_m3_models/SIGNAL_SVX_BOOL.mb}
+	 } 
+	 Schematics {
+		{$PRJDIR/svx_m3_schematics/top.h}
+	 } 
+	 Sources {
+		{$PRJDIR/sc_main.cpp}
+		{$PRJDIR/RealTimeStall.cpp}
+	 } 
+	 {Public Headers} {
+		{$PRJDIR/RealTimeStall.h}
+	 } 
+}
+Designs {{$PRJDIR/sc_main.cpp}}
+Folders {
+	 Sources {*.c *.cpp *.C *.cxx *.cc} 
+	 {Public Headers} {*.h *.hpp *.H *.hxx *.hh} 
+	 Models *.mb 
+	 Schematics {} 
+	 Documentation {*.txt *.TXT *.doc *.DOC *.pdf *.PDF *.html *.HTML *.htm *.HTM *.ps *.PS} 
+	 {Linked Binaries} {*.o *.a *.so} 
+	 {Other Binaries} {*.exe *.x} 
+}
+GeneralCompilationOptions -Wall
+AlwaysCompileInCPPMode 1
+LinkPackages {model_builder system_of_systems svx_systemc svx_models models_catalogue}
+ProjectLibraryType archive
+ProjectComponentsLibraryPath {$PRJDIR/$PRJFILE_BASENAME/interfaces}
+ProjectWorkingDirectory {$PRJDIR/$PRJFILE_BASENAME/build}
+HasTLMSupport 0
+CompiledWithTLMSupport 0
+IsUsePathVariables 1
+PlatformName svx_m3
+ProjectReadOnly 0
+ProjectBuildMultiPlatform 0

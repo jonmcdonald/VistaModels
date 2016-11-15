@@ -1,0 +1,82 @@
+# ============================ TLM Model File ============================
+# You can create tlm model by one of the following ways:
+#   - load this file using 'load_model' API function
+#   - compile this file using "Modeling->Load Model File" menu command.
+# ========================================================================
+
+# === ports ===
+add_port "SLAVE" /TLM/protocols/ahb_slave slave 32 -bind_mode mandatory
+add_port "IRQ" /TLM/protocols/signal master 1 -bind_mode optional -reset_value 0
+add_port "RST" /TLM/protocols/signal slave 1 -bind_mode optional -reset_value 0
+add_port "PWMO" /TLM/protocols/signal master 1 -bind_mode optional -reset_value 0
+
+# === parameters ===
+add_parameter "Periph_clock" clock time {}
+add_parameter "High_freq_clock" clock time {}
+add_parameter "Low_freq_clock" clock time {}
+add_parameter "Mode" 0 uint32 {}
+
+# === auto parameters ===
+set_auto_parameter_default "clock" {10 ns} time {}
+set_auto_parameter_default "ahb_slave_clock" clock time {}
+set_auto_parameter_default "signal_clock" clock time {}
+set_auto_parameter_default "nominal_voltage" 1 double {}
+set_auto_parameter_default "mb_debug" false boolean {true false}
+set_auto_parameter_default "call_to_default_if" false boolean {true false}
+set_auto_parameter_default "verbose_parameters" true boolean {true false}
+set_auto_parameter_default "dmi_enabled" true boolean {true false}
+set_auto_parameter_default "warning_level" WARNING string {
+      "IGNORE" "WARNING" "ONCE" "ERROR" "FATAL"}
+set_auto_parameter_default "SLAVE_pipeline_length" 2 uint32 {}
+set_auto_parameter_default "RST_pipeline_length" 2 uint32 {}
+
+# === generics ===
+# usage: add_generic <generic_name> <value>
+# example: add_generic "OUT_ACTIVE_VALUE" false
+
+# === machine architecture ===
+declare_register SLAVE PWMCR 0x0 31:0 -rw_access r/w -trigger w -width 32 -reset_value 0x00000000
+declare_register SLAVE PWMCR_FWM 0x0 27:26 -rw_access r/w -width 32 -reset_value 0
+declare_register SLAVE PWMCR_STOPEN 0x0 25:25 -rw_access r/w -width 32 -reset_value 0
+declare_register SLAVE PWMCR_DOZEN 0x0 24:24 -rw_access r/w -width 32 -reset_value 0
+declare_register SLAVE PWMCR_WAITEN 0x0 23:23 -rw_access r/w -width 32 -reset_value 0
+declare_register SLAVE PWMCR_DBGEN 0x0 22:22 -rw_access r/w -width 32 -reset_value 0
+declare_register SLAVE PWMCR_BCTR 0x0 21:21 -rw_access r/w -width 32 -reset_value 0
+declare_register SLAVE PWMCR_HCTR 0x0 20:20 -rw_access r/w -width 32 -reset_value 0
+declare_register SLAVE PWMCR_POUTC 0x0 19:18 -rw_access r/w -width 32 -reset_value 0
+declare_register SLAVE PWMCR_CLKSRC 0x0 17:16 -rw_access r/w -width 32 -reset_value 0
+declare_register SLAVE PWMCR_PRESCALAR 0x0 15:4 -rw_access r/w -width 32 -reset_value 0
+declare_register SLAVE PWMCR_SWR 0x0 3:3 -rw_access r/w -width 32 -reset_value 0
+declare_register SLAVE PWMCR_REPEAT 0x0 2:1 -rw_access r/w -width 32 -reset_value 0
+declare_register SLAVE PWMCR_EN 0x0 0:0 -rw_access r/w -width 32 -reset_value 0
+declare_register SLAVE PWMSR 0x4 31:0 -rw_access r/w -trigger w -width 32 -reset_value 0x00000008
+declare_register SLAVE PWMSR_FWE 0x4 6:6 -rw_access r/w -width 32 -reset_value 0
+declare_register SLAVE PWMSR_CMP 0x4 5:5 -rw_access r/w -width 32 -reset_value 0
+declare_register SLAVE PWMSR_ROV 0x4 4:4 -rw_access r/w -width 32 -reset_value 0
+declare_register SLAVE PWMSR_FE 0x4 3:3 -rw_access r/w -width 32 -reset_value 0
+declare_register SLAVE PWMSR_FIFOAV 0x4 2:0 -rw_access r/w -trigger r -width 32 -reset_value 0
+declare_register SLAVE PWMIR 0x8 31:0 -rw_access r/w -trigger w -width 32 -reset_value 0x00000000
+declare_register SLAVE PWMIR_CIE 0x8 2:2 -rw_access r/w -width 32 -reset_value 0
+declare_register SLAVE PWMIR_RIE 0x8 1:1 -rw_access r/w -width 32 -reset_value 0
+declare_register SLAVE PWMIR_FIE 0x8 0:0 -rw_access r/w -width 32 -reset_value 0
+declare_register SLAVE PWMSAR 0xC 31:0 -rw_access r/w -is_trigger -width 32 -reset_value 0x00000000
+declare_register SLAVE PWMPR 0x10 31:0 -rw_access rw -trigger w -width 32 -reset_value 0x0000FFFE
+declare_register SLAVE PWMCNR 0x14 31:0 -rw_access r -is_trigger -width 32 -reset_value 0x00000000
+set_sync_all 0
+add_delay_policy SLAVE.WRITE 0 -latency 0 -sync 1 -power 0
+set_nominal_clock 100
+
+# === generate options ===
+set_generate_kind "pvt" ;# should be one of: model|pv|pvt
+set_include_file ""
+set_external_pv_include ""
+set_pv_kind "template" ;# should be one of: template|external
+set_timing_kind "policies" ;# should be: policies
+set_power_kind "policies" ;# should be: policies
+set_class_name_external_pv ""
+set_max_parameters_of_pv_constructor 5
+set_overwrite 0
+set_generate_ipxact 0
+set_ipxact_vendor "Mentor.com"
+set_ipxact_version 1.0
+
