@@ -41,7 +41,7 @@ SIGNAL_SVX_BOOL_pv::SIGNAL_SVX_BOOL_pv(sc_module_name module_name)
 // callback for any change in signal: slave of type: sc_in<bool>
 void SIGNAL_SVX_BOOL_pv::slave_callback() {
   pin_out.write((bool) slave);
-  cout<<name()<<" @ "<<sc_time_stamp()<< " : PIN_OUT = "<< (unsigned)pin_out << " : DIFF = " << sc_time_stamp()-last << endl ;
+  cout<<name()<<" @ "<<sc_time_stamp()<< " : PIN_OUT = "<< (unsigned) slave << " : DIFF = " << sc_time_stamp()-last << endl ;
   last = sc_time_stamp();
 }
 

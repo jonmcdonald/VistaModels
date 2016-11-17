@@ -52,7 +52,7 @@ top.pwm.High_freq_clock                   = 10 US
 
 without_svx                               = 1
 svx_connector_isApplicationSequencer      = 1
-svx_generator_prints                      = 0
+svx_generator_prints                      = 1
 svx_connect_pv_prints                     = 0
 
 svx_port                                  = 4445
