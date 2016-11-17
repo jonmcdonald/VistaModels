@@ -1,13 +1,25 @@
-@tcl source "$env(VISTA_HOME)/generic/tcl/svx/svxparams.tcl"
+@begintcl
+set SVX_INVALID_TIME_RANGE 0
+set SVX_ZERO_TIME_RANGE 1
+set SVX_FEMTO_TIME_RANGE 2
+set SVX_PICO_TIME_RANGE 3
+set SVX_NANO_TIME_RANGE 4
+set SVX_MICRO_TIME_RANGE 5
+set SVX_MILLI_TIME_RANGE 6
+set SVX_SECOND_TIME_RANGE 7
+set SVX_KILO_TIME_RANGE 8
+set SVX_MEGA_TIME_RANGE 9
+set SVX_INFINITE_TIME_RANGE 10
+@endtcl
 
 # ~~~~~~~~~~ GLOBAL OPTIONS
 
 tlm_timing_model                          = LT
 top.m3.clock                              = 10 NS
-#physical_io:host_time_sync                = 1
-RealTimeSeconds = 1000
-RealTimeInterval = 0.1
-RealTimeFactor = 1.0
+
+RealTimeSeconds                           = 1000
+RealTimeInterval                          = 0.1
+RealTimeFactor                            = 1.0
 
 # ~~~~~~~~~~ CPU
 
@@ -38,9 +50,23 @@ top.pwm.High_freq_clock                   = 10 US
 
 # ~~~~~~~~~~ SVX OPTIONS
 
-top.svx.without_svx                          = 0
-top.svx.svx_connector_isApplicationSequencer = 1
-top.svx.svx_generator_prints                 = 1
-top.svx.svx_generator_outfile                = svx_log.txt
+without_svx                               = 1
+svx_connector_isApplicationSequencer      = 1
+svx_generator_prints                      = 0
+svx_connect_pv_prints                     = 0
+
+svx_port                                  = 4445
+svx_num_connectors                        = 1
+svx_num_acceptors                         = 0
+
+svx_num_channels                          = 0
+svx_channel_name                          = DEFAULT_CHANNEL
+
+svx_time_range                            = $SVX_MILLI_TIME_RANGE
+svx_min_generation_period                 = 1
+svx_max_generation_period                 = 1
+
+top.svx_pwmo.svx_generator_signal_name    = SVX_SIGNAL_PWMO
+top.svx_pwmo.svx_generator_outfile        = svx_pwmo_log.txt
 
 

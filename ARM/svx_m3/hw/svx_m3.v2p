@@ -20,6 +20,7 @@ Files {
 	 } 
 }
 Designs {{$PRJDIR/sc_main.cpp}}
+VirtualPrototypes win_svx_m3.vppf
 Folders {
 	 Sources {*.c *.cpp *.C *.cxx *.cc} 
 	 {Public Headers} {*.h *.hpp *.H *.hxx *.hh} 

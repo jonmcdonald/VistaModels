@@ -1,7 +1,10 @@
 
 #include "RealTimeStall.h"
 
+#ifndef WIN32
 #include <sys/time.h>
+#endif
+
 #include <iostream>
 #include "model_builder.h"
 
@@ -19,6 +22,7 @@ RealTimeStall::RealTimeStall(sc_module_name name) :
 
 void RealTimeStall::stall()
 {
+#ifndef WIN32
   sc_time simInterval = sc_time(1, SC_MS) * static_cast<int>(RealTimeInterval * 1000.0); 
   double simSeconds, clockSeconds, simLead;
   unsigned usecs;
@@ -52,4 +56,5 @@ void RealTimeStall::stall()
         usleep(usecs);			
      }
   }
+#endif
 }
