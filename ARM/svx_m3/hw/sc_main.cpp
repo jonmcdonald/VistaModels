@@ -28,11 +28,24 @@ int sc_main(int argc, char *argv[]) {
  sigaction(SIGINT, &sigIntHandler, NULL);
 #endif
 
+ int endtime = 0;
+ if(argc > 1) {
+   istringstream ss(argv[1]);
+   if (!(ss >> endtime))
+     cerr << "Invalid end time " << argv[1] << '\n';
+ }
+ 
  RealTimeStall *stall = new RealTimeStall("stall");
 
  top *inst_top = new top("top");
  
- sc_start();
+ if(endtime) {
+   cout << "**** Simulating for " << endtime << " seconds ****" << endl;
+   sc_start(endtime, SC_SEC);
+ }
+ else {
+   sc_start();
+ }
  
  delete inst_top;
 

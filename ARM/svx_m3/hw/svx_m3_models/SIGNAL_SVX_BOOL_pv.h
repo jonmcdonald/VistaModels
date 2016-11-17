@@ -46,6 +46,7 @@ class SIGNAL_SVX_BOOL_pv : public SIGNAL_SVX_BOOL_pv_base {
   //////////////////////////////////////// 
   void slave_callback(); 
 
-  sc_time last;
+  sc_time last_on;
+  sc_time last_off;
 };
 

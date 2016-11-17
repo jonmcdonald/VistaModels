@@ -18,7 +18,7 @@ $(PROJECTEXE): $(SRCS)
 	vista_build_project $(PROJECT)
 
 run: $(PROJECTEXE)
-	rm *_log*.txt
+	rm -f *_log*.txt
 	vista_simulate $(PROJECT) 
 
 run2: $(PROJECTEXE)
@@ -39,4 +39,4 @@ clean:
 	rm -rf vista_* 
 
 cs:
-	rm *_log*.txt
+	rm -f *_log*.txt

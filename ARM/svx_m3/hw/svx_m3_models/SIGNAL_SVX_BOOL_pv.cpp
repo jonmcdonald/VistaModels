@@ -26,6 +26,7 @@
 
 #include "SIGNAL_SVX_BOOL_pv.h"
 #include <iostream>
+#include <iomanip>
 
 using namespace sc_core;
 using namespace sc_dt;
@@ -40,9 +41,24 @@ SIGNAL_SVX_BOOL_pv::SIGNAL_SVX_BOOL_pv(sc_module_name module_name)
 
 // callback for any change in signal: slave of type: sc_in<bool>
 void SIGNAL_SVX_BOOL_pv::slave_callback() {
+  cout<<name()<<" @ "<<sc_time_stamp()<< " : PIN_OUT = "<< (unsigned) slave << endl ;
   pin_out.write((bool) slave);
-  cout<<name()<<" @ "<<sc_time_stamp()<< " : PIN_OUT = "<< (unsigned) slave << " : DIFF = " << sc_time_stamp()-last << endl ;
-  last = sc_time_stamp();
+  if(slave) {
+    sc_time time_off = sc_time_stamp() - last_off;
+    sc_time time_on = last_off - last_on;
+    sc_time total = time_on + time_off;
+
+    double dc = (time_on.to_double() / total.to_double()) * 100;
+
+    std::cout << std::fixed;
+    std::cout << std::setprecision(2);
+    cout << " DUTY CYCLE = " << dc << " % " << endl;  
+
+    last_on = sc_time_stamp();
+  }
+  else {
+    last_off = sc_time_stamp();
+  }
 }
 
 // in order to minimize merging conflicts, we recommend to add your functions after this comment
