@@ -3,7 +3,6 @@
 #include "nvic.h"
 #include "mb/sw/control.h"
 
-#define CMP 0x4000
 
 #define PWMCR       (*((volatile uint32_t *)  0x40012C00))
 #define PWMSR       (*((volatile uint32_t *)  0x40012C04))
@@ -14,6 +13,9 @@
 
 #define CHECK_BIT(var,pos) ((var) & (1<<(pos)))
 
+uint32_t counter = 0;
+uint32_t cmp = 0x0;
+
 void __attribute__ ((interrupt)) __cs3_isr_wwdg(void) {
 	uint32_t msr = PWMSR;
 	PWMSR = 0b111000;
@@ -21,12 +23,20 @@ void __attribute__ ((interrupt)) __cs3_isr_wwdg(void) {
 //		mb_core_message("COMPARE\n");
 	}
 	if(CHECK_BIT(msr, 4)) {
-//		mb_core_message("ROLL-OVER\n");
+//		mb_core_print(msr);
 	}
 	if(CHECK_BIT(msr, 3)) {
 //		mb_core_message("FIFO-EMPTY\n");
 		// push a new compare value
-		PWMSAR = CMP;
+		counter++;
+		if(counter == 250) {        // change speed 4 times a second
+			counter = 0;
+			cmp++;
+			if(cmp == 5) {
+				cmp = 0;
+			}
+		}
+		PWMSAR = (cmp * (99 / 4)) + 1;
 	}
 }
 
@@ -54,7 +64,7 @@ int main () {
 	// even if the PWM is not yet enabled. Do not write a 4th sample because the FIFO will
 	// become full and trigger a FIFO Write Error (FWE). This error will prevent the PWM
 	// from starting once it is enabled.
-	PWMSAR = CMP;
+	PWMSAR = (cmp * (99 / 4)) + 1;
 
 	// 4. Check the FIFO Write Error status bit (FWE), the Compare status bit (CMP) and the
 	// Roll-over status bit (ROV) in the PWM Status Register (PWMx_PWMSR) to make
@@ -65,7 +75,8 @@ int main () {
 	PWMSR = 0b1110000;
 
 	// 5. Write the desired period to the PWM Period Register (PWMx_PWMPR).
-	PWMPR = 0xFFFE;
+	// 1 KHz rollover speed using clock freq of 100KHz
+	PWMPR = 99;
 
 	//6. Enable the PWM by writing a 1 to the PWM Enable bit, PWMx_PWMCR[0], while
 	//maintaining the other register bits in their previously configured state.

@@ -9,8 +9,7 @@ add_port "slave" /TLM/protocols/signal slave 1 -bind_mode optional
 port -name pin_out -kind sc_out -class sc_out<bool>
 
 # === parameters ===
-# usage: add_parameter <parameter_name> <default_value> <type:string|unsigned|int>
-# example: add_parameter "parameter1" 12 unsigned
+add_parameter "debug" 0 uint32 {}
 
 # === auto parameters ===
 set_auto_parameter_default "clock" {10 ns} time {}

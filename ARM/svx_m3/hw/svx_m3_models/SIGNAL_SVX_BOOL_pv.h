@@ -48,5 +48,6 @@ class SIGNAL_SVX_BOOL_pv : public SIGNAL_SVX_BOOL_pv_base {
 
   sc_time last_on;
   sc_time last_off;
+  double dc;
 };
 

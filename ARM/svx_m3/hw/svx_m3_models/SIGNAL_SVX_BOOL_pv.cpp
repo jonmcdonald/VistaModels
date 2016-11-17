@@ -37,22 +37,34 @@ SIGNAL_SVX_BOOL_pv::SIGNAL_SVX_BOOL_pv(sc_module_name module_name)
   : SIGNAL_SVX_BOOL_pv_base(module_name) {
 }      
 
- 
-
 // callback for any change in signal: slave of type: sc_in<bool>
 void SIGNAL_SVX_BOOL_pv::slave_callback() {
-  cout<<name()<<" @ "<<sc_time_stamp()<< " : PIN_OUT = "<< (unsigned) slave << endl ;
+  if(debug > 1) {
+    cout<<name()<<" @ "<<sc_time_stamp()<< " : PIN_OUT = "<< (unsigned) slave << endl ;
+  }
   pin_out.write((bool) slave);
   if(slave) {
     sc_time time_off = sc_time_stamp() - last_off;
     sc_time time_on = last_off - last_on;
     sc_time total = time_on + time_off;
 
-    double dc = (time_on.to_double() / total.to_double()) * 100;
+    double newdc = (time_on.to_double() / total.to_double()) * 100;
+    if(newdc != dc) {
+      dc = newdc;
 
-    std::cout << std::fixed;
-    std::cout << std::setprecision(2);
-    cout << " DUTY CYCLE = " << dc << " % " << endl;  
+      if(debug > 0) {
+        std::cout << std::fixed;
+        std::cout << std::setprecision(2);
+        cout <<name()<<" @ "<<sc_time_stamp()<< " : DUTY CYCLE = " << dc << " % " << endl;  
+      }
+    }
+    else {
+      if(debug > 1) {
+        std::cout << std::fixed;
+        std::cout << std::setprecision(2);
+        cout <<name()<<" @ "<<sc_time_stamp()<< " : DUTY CYCLE = " << dc << " % " << endl;  
+      }
+    }
 
     last_on = sc_time_stamp();
   }

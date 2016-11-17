@@ -46,7 +46,9 @@ top.bus.pwm_size                          = 0x00000400
 
 # ~~~~~~~~~~ PERIPH OPTIONS
 
-top.pwm.High_freq_clock                   = 10 US
+top.pwm.High_freq_clock                   = 10 US  // 100KHz
+
+top.svx_bridge.debug                      = 1
 
 # ~~~~~~~~~~ SVX OPTIONS
 
@@ -59,12 +61,12 @@ svx_port                                  = 4445
 svx_num_connectors                        = 1
 svx_num_acceptors                         = 0
 
-svx_num_channels                          = 0
+svx_num_channels                          = 1
 svx_channel_name                          = DEFAULT_CHANNEL
 
-svx_time_range                            = $SVX_MILLI_TIME_RANGE
-svx_min_generation_period                 = 1
-svx_max_generation_period                 = 1
+svx_time_range                            = $SVX_MICRO_TIME_RANGE
+svx_min_generation_period                 = 10
+svx_max_generation_period                 = 10
 
 top.svx_pwmo.svx_generator_signal_name    = SVX_SIGNAL_PWMO
 top.svx_pwmo.svx_generator_outfile        = svx_pwmo_log.txt
