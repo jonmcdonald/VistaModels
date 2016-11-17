@@ -3,7 +3,7 @@
 #include "nvic.h"
 #include "mb/sw/control.h"
 
-#define CMP 0x3000
+#define CMP 0x4000
 
 #define PWMCR       (*((volatile uint32_t *)  0x40012C00))
 #define PWMSR       (*((volatile uint32_t *)  0x40012C04))
