@@ -1,16 +1,15 @@
-@begintcl
-set SVX_INVALID_TIME_RANGE 0
-set SVX_ZERO_TIME_RANGE 1
-set SVX_FEMTO_TIME_RANGE 2
-set SVX_PICO_TIME_RANGE 3
-set SVX_NANO_TIME_RANGE 4
-set SVX_MICRO_TIME_RANGE 5
-set SVX_MILLI_TIME_RANGE 6
-set SVX_SECOND_TIME_RANGE 7
-set SVX_KILO_TIME_RANGE 8
-set SVX_MEGA_TIME_RANGE 9
-set SVX_INFINITE_TIME_RANGE 10
-@endtcl
+# ~~~~~~~~~~ Timing Reference
+
+#          1 ns =   1 ns =    1 GHz  = 1000000000 Hz   
+#         10 ns =  10 ns =  100 MHz  =  100000000 Hz   
+#        100 ns = 100 ns =   10 MHz  =   10000000 Hz   
+#       1000 ns =   1 us =    1 MHz  =    1000000 Hz   
+#      10000 ns =  10 us =  100 kHz  =     100000 Hz   
+#     100000 ns = 100 us =   10 kHz  =      10000 Hz   
+#    1000000 ns =   1 ms =    1 kHz  =       1000 Hz   
+#   10000000 ns =  10 ms =  100  Hz  =        100 Hz   
+#  100000000 ns = 100 ms =   10  Hz  =         10 Hz   
+# 1000000000 ns =   1  s =    1  Hz  =          1 Hz   
 
 # ~~~~~~~~~~ GLOBAL OPTIONS
 
@@ -48,27 +47,46 @@ top.bus.pwm_size                          = 0x00000400
 
 top.pwm.High_freq_clock                   = 10 US  // 100KHz
 
-top.svx_bridge.debug                      = 1
+top.svx_abstraction.debug                 = 1
 
 # ~~~~~~~~~~ SVX OPTIONS
 
-without_svx                               = 1
-svx_connector_isApplicationSequencer      = 1
-svx_generator_prints                      = 1
-svx_connect_pv_prints                     = 0
+@begintcl
+set SVX_INVALID_TIME_RANGE 0
+set SVX_ZERO_TIME_RANGE 1
+set SVX_FEMTO_TIME_RANGE 2
+set SVX_PICO_TIME_RANGE 3
+set SVX_NANO_TIME_RANGE 4
+set SVX_MICRO_TIME_RANGE 5
+set SVX_MILLI_TIME_RANGE 6
+set SVX_SECOND_TIME_RANGE 7
+set SVX_KILO_TIME_RANGE 8
+set SVX_MEGA_TIME_RANGE 9
+set SVX_INFINITE_TIME_RANGE 10
+@endtcl
 
-svx_port                                  = 4445
-svx_num_connectors                        = 1
-svx_num_acceptors                         = 0
+without_svx                                      = 0
+svx_connector_isApplicationSequencer             = 1
+svx_generator_prints                             = 1
+svx_connect_pv_prints                            = 0
 
-svx_num_channels                          = 1
-svx_channel_name                          = DEFAULT_CHANNEL
+svx_port                                         = 4445
+svx_num_connectors                               = 1
+svx_num_acceptors                                = 0
 
-svx_time_range                            = $SVX_MICRO_TIME_RANGE
-svx_min_generation_period                 = 10
-svx_max_generation_period                 = 10
+svx_num_channels                                 = 1
+svx_channel_name                                 = DEFAULT_CHANNEL
 
-top.svx_pwmo.svx_generator_signal_name    = SVX_SIGNAL_PWMO
-top.svx_pwmo.svx_generator_outfile        = svx_pwmo_log.txt
+svx_time_range                                   = $SVX_MICRO_TIME_RANGE
+svx_min_generation_period                        = 5
+svx_max_generation_period                        = 5
 
+top.svx_pwm_pin.svx_generator_signal_name        = SVX_PWM_PIN
+top.svx_pwm_pin.svx_generator_outfile            = svx_pwm_pin_log.txt
+
+top.svx_pwm_duty_cycle.svx_generator_signal_name = SVX_PWM_DUTY_CYCLE
+top.svx_pwm_duty_cycle.svx_generator_outfile     = svx_pwm_duty_cycle_log.txt
+
+top.svx_pwm_frequency.svx_generator_signal_name  = SVX_PWM_FREQUENCY
+top.svx_pwm_frequency.svx_generator_outfile      = svx_pwm_frequency_log.txt
 

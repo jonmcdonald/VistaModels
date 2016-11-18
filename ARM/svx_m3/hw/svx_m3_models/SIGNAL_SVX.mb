@@ -5,8 +5,10 @@
 # ========================================================================
 
 # === ports ===
-add_port "slave" /TLM/protocols/signal slave 1 -bind_mode optional
+add_port "slave" /TLM/protocols/signal slave 1 -bind_mode mandatory
 port -name pin_out -kind sc_out -class sc_out<bool>
+port -name duty_cycle -kind sc_out -class sc_out<double>
+port -name frequency -kind sc_out -class sc_out<uint32_t>
 
 # === parameters ===
 add_parameter "debug" 0 uint32 {}

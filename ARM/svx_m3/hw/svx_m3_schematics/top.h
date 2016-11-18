@@ -9,7 +9,7 @@ $includes_begin;
 #include "svx_models.h"
 #include "../svx_m3_models/NADA_model.h"
 #include "svx_generator.h"
-#include "../svx_m3_models/SIGNAL_SVX_BOOL_model.h"
+#include "../svx_m3_models/SIGNAL_SVX_model.h"
 $includes_end;
 
 $module_begin("top");
@@ -37,20 +37,32 @@ $end
 $init("m3"),
 m3(0)
 $end
-$init("svx"),
-svx(0)
+$init("svx_target"),
+svx_target(0)
 $end
 $init("nada"),
 nada(0)
 $end
-$init("svx_pwmo"),
-svx_pwmo(0)
+$init("svx_pwm_pin"),
+svx_pwm_pin(0)
 $end
-$init("svx_bridge"),
-svx_bridge(0)
+$init("svx_abstraction"),
+svx_abstraction(0)
+$end
+$init("svx_pwm_duty_cycle"),
+svx_pwm_duty_cycle(0)
+$end
+$init("svx_pwm_frequency"),
+svx_pwm_frequency(0)
 $end
 $init("pin_out"),
 pin_out("pin_out")
+$end
+$init("frequency"),
+frequency("frequency")
+$end
+$init("duty_cycle"),
+duty_cycle("duty_cycle")
 $end
     $initialization_end
 {
@@ -73,17 +85,23 @@ $end;
 $create_component("m3");
 m3 = new M3_pvt("m3");
 $end;
-$create_component("svx");
-svx = new svx_connect_pvt("svx");
+$create_component("svx_target");
+svx_target = new svx_connect_pvt("svx_target");
 $end;
 $create_component("nada");
 nada = new NADA_pvt("nada");
 $end;
-$create_component("svx_pwmo");
-svx_pwmo = new svx_generator_bool("svx_pwmo");
+$create_component("svx_pwm_pin");
+svx_pwm_pin = new svx_generator_bool("svx_pwm_pin");
 $end;
-$create_component("svx_bridge");
-svx_bridge = new SIGNAL_SVX_BOOL_pvt("svx_bridge");
+$create_component("svx_abstraction");
+svx_abstraction = new SIGNAL_SVX_pvt("svx_abstraction");
+$end;
+$create_component("svx_pwm_duty_cycle");
+svx_pwm_duty_cycle = new svx_generator_double("svx_pwm_duty_cycle");
+$end;
+$create_component("svx_pwm_frequency");
+svx_pwm_frequency = new svx_generator_unsigned("svx_pwm_frequency");
 $end;
 $bind("bus->pwm","pwm->SLAVE");
 vista_bind(bus->pwm, pwm->SLAVE);
@@ -109,17 +127,29 @@ $end;
 $bind("m3->icode","bus->icode");
 vista_bind(m3->icode, bus->icode);
 $end;
-$bind("nada->master","svx->config");
-vista_bind(nada->master, svx->config);
+$bind("nada->master","svx_target->config");
+vista_bind(nada->master, svx_target->config);
 $end;
-$bind("pwm->PWMO","svx_bridge->slave");
-vista_bind(pwm->PWMO, svx_bridge->slave);
+$bind("svx_pwm_pin->svx_generator_signal","pin_out");
+vista_bind(svx_pwm_pin->svx_generator_signal, pin_out);
 $end;
-$bind("svx_bridge->pin_out","pin_out");
-vista_bind(svx_bridge->pin_out, pin_out);
+$bind("svx_abstraction->pin_out","pin_out");
+vista_bind(svx_abstraction->pin_out, pin_out);
 $end;
-$bind("svx_pwmo->svx_generator_signal","pin_out");
-vista_bind(svx_pwmo->svx_generator_signal, pin_out);
+$bind("pwm->PWMO","svx_abstraction->slave");
+vista_bind(pwm->PWMO, svx_abstraction->slave);
+$end;
+$bind("svx_pwm_duty_cycle->svx_generator_signal","duty_cycle");
+vista_bind(svx_pwm_duty_cycle->svx_generator_signal, duty_cycle);
+$end;
+$bind("svx_abstraction->frequency","frequency");
+vista_bind(svx_abstraction->frequency, frequency);
+$end;
+$bind("svx_abstraction->duty_cycle","duty_cycle");
+vista_bind(svx_abstraction->duty_cycle, duty_cycle);
+$end;
+$bind("svx_pwm_frequency->svx_generator_signal","frequency");
+vista_bind(svx_pwm_frequency->svx_generator_signal, frequency);
 $end;
     $elaboration_end;
   $vlnv_assign_begin;
@@ -148,17 +178,23 @@ $end;
 $destruct_component("m3");
 delete m3; m3 = 0;
 $end;
-$destruct_component("svx");
-delete svx; svx = 0;
+$destruct_component("svx_target");
+delete svx_target; svx_target = 0;
 $end;
 $destruct_component("nada");
 delete nada; nada = 0;
 $end;
-$destruct_component("svx_pwmo");
-delete svx_pwmo; svx_pwmo = 0;
+$destruct_component("svx_pwm_pin");
+delete svx_pwm_pin; svx_pwm_pin = 0;
 $end;
-$destruct_component("svx_bridge");
-delete svx_bridge; svx_bridge = 0;
+$destruct_component("svx_abstraction");
+delete svx_abstraction; svx_abstraction = 0;
+$end;
+$destruct_component("svx_pwm_duty_cycle");
+delete svx_pwm_duty_cycle; svx_pwm_duty_cycle = 0;
+$end;
+$destruct_component("svx_pwm_frequency");
+delete svx_pwm_frequency; svx_pwm_frequency = 0;
 $end;
     $destructor_end;
   }
@@ -182,20 +218,32 @@ $end;
 $component("m3");
 M3_pvt *m3;
 $end;
-$component("svx");
-svx_connect_pvt *svx;
+$component("svx_target");
+svx_connect_pvt *svx_target;
 $end;
 $component("nada");
 NADA_pvt *nada;
 $end;
-$component("svx_pwmo");
-svx_generator_bool *svx_pwmo;
+$component("svx_pwm_pin");
+svx_generator_bool *svx_pwm_pin;
 $end;
-$component("svx_bridge");
-SIGNAL_SVX_BOOL_pvt *svx_bridge;
+$component("svx_abstraction");
+SIGNAL_SVX_pvt *svx_abstraction;
+$end;
+$component("svx_pwm_duty_cycle");
+svx_generator_double *svx_pwm_duty_cycle;
+$end;
+$component("svx_pwm_frequency");
+svx_generator_unsigned *svx_pwm_frequency;
 $end;
 $channel("pin_out");
 sc_signal< bool, SC_MANY_WRITERS > pin_out;
+$end;
+$channel("frequency");
+sc_signal< uint32_t, SC_MANY_WRITERS > frequency;
+$end;
+$channel("duty_cycle");
+sc_signal< double, SC_MANY_WRITERS > duty_cycle;
 $end;
   $fields_end;
   $vlnv_decl_begin;
