@@ -77,16 +77,22 @@ svx_num_acceptors                                = 0
 svx_num_channels                                 = 1
 svx_channel_name                                 = DEFAULT_CHANNEL
 
-svx_time_range                                   = $SVX_MICRO_TIME_RANGE
-svx_min_generation_period                        = 5
-svx_max_generation_period                        = 5
-
+top.svx_pwm_pin.svx_time_range                   = $SVX_MICRO_TIME_RANGE
+top.svx_pwm_pin.svx_min_generation_period        = 5
+top.svx_pwm_pin.svx_max_generation_period        = 5
 top.svx_pwm_pin.svx_generator_signal_name        = SVX_PWM_PIN
 top.svx_pwm_pin.svx_generator_outfile            = svx_pwm_pin_log.txt
 
+top.svx_pwm_duty_cycle.svx_time_range            = $SVX_MILLI_TIME_RANGE
+top.svx_pwm_duty_cycle.svx_min_generation_period = 1
+top.svx_pwm_duty_cycle.svx_max_generation_period = 1
 top.svx_pwm_duty_cycle.svx_generator_signal_name = SVX_PWM_DUTY_CYCLE
 top.svx_pwm_duty_cycle.svx_generator_outfile     = svx_pwm_duty_cycle_log.txt
 
+top.svx_pwm_frequency.svx_time_range             = $SVX_MILLI_TIME_RANGE
+top.svx_pwm_frequency.svx_min_generation_period  = 1
+top.svx_pwm_frequency.svx_max_generation_period  = 1
 top.svx_pwm_frequency.svx_generator_signal_name  = SVX_PWM_FREQUENCY
 top.svx_pwm_frequency.svx_generator_outfile      = svx_pwm_frequency_log.txt
+
 
