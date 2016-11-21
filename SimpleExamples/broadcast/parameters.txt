@@ -1,0 +1,22 @@
+tlm_timing_model                             = LT
+clock                                        = 10 NS
+generic_clock                                = 10 NS
+
+# ~~~~~~
+
+top.bus.write_broadcast                      = 0x1
+
+top.bus.device1_master_base_address          = 0x1000
+top.bus.device1_master_size                  = 0x100
+top.bus.device1_master_additional_ranges     = 0xA000,0x100
+#top.bus.device1_master_subtract_base_address = 0x0
+
+top.bus.device2_master_base_address          = 0x2000
+top.bus.device2_master_size                  = 0x100
+top.bus.device2_master_additional_ranges     = 0xA000,0x100;0xB000,0x100
+#top.bus.device2_master_subtract_base_address = 0x0
+
+top.bus.device3_master_base_address          = 0x3000
+top.bus.device3_master_size                  = 0x100
+top.bus.device3_master_additional_ranges     = 0xA000,0x100;0xB000,0x100;0xC000,0x100
+#top.bus.device3_master_subtract_base_address = 0x0
