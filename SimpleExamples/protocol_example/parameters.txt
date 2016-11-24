@@ -1,0 +1,18 @@
+tlm_timing_model                  = AT
+
+clock                             = 10 NS
+generic_clock                     = 10 NS
+axi_clock                         = 10 NS
+
+# ~~~~~~ AT mode parameters
+
+top.axi_master.master_outstanding = 2
+top.axi_master.master_read_data_queue_size = 0x0
+top.axi_master.master_write_data_queue_size = 0x0
+
+top.axi_slave.slave_outstanding = 2
+top.axi_slave.slave_pipeline_length = 10
+top.axi_slave.slave_read_data_queue_size = 0x0
+top.axi_slave.slave_write_data_queue_size = 0x0
+
+
