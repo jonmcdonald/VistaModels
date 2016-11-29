@@ -18,7 +18,8 @@ top.m3.clock                              = 10 NS
 
 # ~~~~~~~~~~ CPU
 
-#top.m3.PV.core.gdbstub_port               = 2347
+#top.m3.PV.core.gdbstub_port                = 2347
+trace_script                               = trace.tcl
 #top.m3.PV.core.verbose                    = RESET|INSTRUCTIONS|IRQ
 top.m3.PV.core.elf_image_file             = ../sw/image.axf
 
