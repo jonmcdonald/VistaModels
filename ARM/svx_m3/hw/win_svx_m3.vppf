@@ -1,7 +1,7 @@
 license_type standard
 for_windows 1
 params parameters.txt
-xcopy /home/markca/store/data/vista/VistaModels/ARM/svx_m3/sw ../sw
+copy trace.tcl ./
 project svx_m3
 top {$PRJDIR/sc_main.cpp}
 use_top
