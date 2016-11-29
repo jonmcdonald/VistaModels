@@ -7,13 +7,13 @@ Files {
 		{$PRJDIR/svx_m3_models/i_mx6_pwm.mb}
 		{$PRJDIR/svx_m3_models/NADA.mb}
 		{$PRJDIR/svx_m3_models/SIGNAL_SVX.mb}
+		{$PRJDIR/svx_m3_models/ADC.mb}
 	 } 
 	 Schematics {
 		{$PRJDIR/svx_m3_schematics/top.h}
 	 } 
 	 Sources {
 		{$PRJDIR/sc_main.cpp}
-		{$PRJDIR/RealTimeStall.cpp}
 	 } 
 	 {Public Headers} {
 		{$PRJDIR/RealTimeStall.h}

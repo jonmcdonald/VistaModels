@@ -34,10 +34,13 @@ using namespace std;
 
 //constructor
 SIGNAL_SVX_pv::SIGNAL_SVX_pv(sc_module_name module_name) 
-  : SIGNAL_SVX_pv_base(module_name), dc(0), freq(0) {
+  : SIGNAL_SVX_pv_base(module_name), cycle(false), dc(-1), freq(0) {
 }      
 
- 
+bool double_equals(double a, double b, double epsilon = 0.001)
+{
+    return std::abs(a - b) < epsilon;
+}
 
 // callback for any change in signal: slave of type: sc_in<bool>
 void SIGNAL_SVX_pv::slave_callback() {
@@ -45,41 +48,40 @@ void SIGNAL_SVX_pv::slave_callback() {
     cout<<name()<<" @ "<<sc_time_stamp()<< " : PIN_OUT = "<< (unsigned) slave << endl ;
   }
   pin_out.write((bool) slave);
-
+  
+  // Calculate duty cycle 
+  // Calculate frequency, assumes signal is 0 at rollover of counter
   if(slave) {
-    sc_time time_off = sc_time_stamp() - last_off;
-    sc_time time_on = last_off - last_on;
-    sc_time total = time_on + time_off;
-
-
-    double newdc = (time_on.to_double() / total.to_double()) * 100;
-    if(newdc != dc) {
-      dc = newdc;
-      duty_cycle.write(dc);
-
-      freq = (uint32_t) ((sc_time_stamp().value() - last_on.value()) / 1000);
-      frequency.write(freq);
-
-      if(debug > 0) {
-        std::cout << std::fixed;
-        std::cout << std::setprecision(2);
-        cout << name() << " @ "<<sc_time_stamp()<< " : DUTY CYCLE = " << dc << "% : ";  
-        cout << "FREQUENCY = " << std::dec << freq << " NS" << endl;
-      }
-    }
-    else {
-      if(debug > 1) {
-        std::cout << std::fixed;
-        std::cout << std::setprecision(2);
-        cout <<name()<<" @ "<<sc_time_stamp()<< " : DUTY CYCLE = " << dc << "% " << endl;  
-        cout << "FREQUENCY = " << std::dec << freq << " NS" << endl;
-      }
-    }
-
     last_on = sc_time_stamp();
   }
-  else {
+
+  if(!slave) {
+    if(cycle) {
+      sc_time time_on = sc_time_stamp() - last_on;
+      double newdc = (time_on.to_double() / freq_t.to_double()) * 100.0;
+      if(! double_equals(newdc, dc)) {
+        dc = newdc;
+        duty_cycle.write(dc);
+        cout << name() << " @ "<<sc_time_stamp()<< " : DUTY CYCLE = " << dc << "% " << endl;  
+      }
+    }
+
+    freq_t = sc_time_stamp() - last_off;
     last_off = sc_time_stamp();
+    uint32_t nf = (uint32_t) (freq_t.value() / 1000);
+    if(freq != nf) {
+      if(freq) {
+        freq = nf;      
+        frequency.write(freq);
+        cout << name() << " @ "<<sc_time_stamp()<< " : FREQUENCY = " << freq_t << endl;  
+        cycle = true;
+      }
+      else {
+        freq = nf;      
+      }
+    }
+
+
   }
 }
 

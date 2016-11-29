@@ -13,6 +13,7 @@ add_port "rom" /TLM/protocols/ahb_slave master 32 -bind_mode mandatory
 add_port "ram" /TLM/protocols/ahb_slave master 32 -bind_mode mandatory
 add_port "ext_ram" /TLM/protocols/ahb_slave master 32 -bind_mode mandatory
 add_port "pwm" /TLM/protocols/ahb_slave master 32 -bind_mode mandatory
+add_port "adc" /TLM/protocols/ahb_slave master 32 -bind_mode mandatory
 
 # === parameters ===
 # usage: add_parameter <parameter_name> <default_value> <type:string|unsigned|int>
@@ -60,6 +61,12 @@ set_auto_parameter_default "pwm_subtract_base_address" 1 uint32 {0 1}
 set_auto_parameter_default "pwm_secure" 0 uint32 {0 1}
 set_auto_parameter_default "pwm_additional_ranges" {""} string {}
 set_auto_parameter_default "pwm_latency" 0 uint32 {}
+set_auto_parameter_default "adc_base_address" 0 uint64 {}
+set_auto_parameter_default "adc_size" 0 uint64 {}
+set_auto_parameter_default "adc_subtract_base_address" 1 uint32 {0 1}
+set_auto_parameter_default "adc_secure" 0 uint32 {0 1}
+set_auto_parameter_default "adc_additional_ranges" {""} string {}
+set_auto_parameter_default "adc_latency" 0 uint32 {}
 
 # === generics ===
 # usage: add_generic <generic_name> <value>
@@ -71,16 +78,19 @@ add_pipeline_policy rom icode -latency rom_latency -buffer_size 0 -sync 1 -power
 add_pipeline_policy ram icode -latency ram_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy ext_ram icode -latency ext_ram_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy pwm icode -latency pwm_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy adc icode -latency adc_latency -buffer_size 0 -sync 1 -power 0
 add_delay_policy dcode 0 -latency 0 -sync 1 -power 0
 add_pipeline_policy rom dcode -latency rom_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy ram dcode -latency ram_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy ext_ram dcode -latency ext_ram_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy pwm dcode -latency pwm_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy adc dcode -latency adc_latency -buffer_size 0 -sync 1 -power 0
 add_delay_policy system 0 -latency 0 -sync 1 -power 0
 add_pipeline_policy rom system -latency rom_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy ram system -latency ram_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy ext_ram system -latency ext_ram_latency -buffer_size 0 -sync 1 -power 0
 add_pipeline_policy pwm system -latency pwm_latency -buffer_size 0 -sync 1 -power 0
+add_pipeline_policy adc system -latency adc_latency -buffer_size 0 -sync 1 -power 0
 
 # === generate options ===
 set_generate_kind "pvt" ;# should be one of: model|pv|pvt

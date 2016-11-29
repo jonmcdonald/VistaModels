@@ -38,6 +38,8 @@ class NADA_pv : public NADA_pv_base {
   // Do not add parameters here.
   // To add parameters - use the Model Builder form (under PV->Parameters tab)
   SC_HAS_PROCESS(NADA_pv);
-  NADA_pv(sc_core::sc_module_name module_name);         
+  NADA_pv(sc_core::sc_module_name module_name);    
+
+  void thread();
 };
 

@@ -10,6 +10,8 @@ $includes_begin;
 #include "../svx_m3_models/NADA_model.h"
 #include "svx_generator.h"
 #include "../svx_m3_models/SIGNAL_SVX_model.h"
+#include "../svx_m3_models/ADC_model.h"
+#include "svx_consumer.h"
 $includes_end;
 
 $module_begin("top");
@@ -55,6 +57,12 @@ $end
 $init("svx_pwm_frequency"),
 svx_pwm_frequency(0)
 $end
+$init("adc"),
+adc(0)
+$end
+$init("svx_adc_pin"),
+svx_adc_pin(0)
+$end
 $init("pin_out"),
 pin_out("pin_out")
 $end
@@ -63,6 +71,9 @@ frequency("frequency")
 $end
 $init("duty_cycle"),
 duty_cycle("duty_cycle")
+$end
+$init("svx_consumer_signal"),
+svx_consumer_signal("svx_consumer_signal")
 $end
     $initialization_end
 {
@@ -102,6 +113,12 @@ svx_pwm_duty_cycle = new svx_generator_double("svx_pwm_duty_cycle");
 $end;
 $create_component("svx_pwm_frequency");
 svx_pwm_frequency = new svx_generator_unsigned("svx_pwm_frequency");
+$end;
+$create_component("adc");
+adc = new ADC_pvt("adc");
+$end;
+$create_component("svx_adc_pin");
+svx_adc_pin = new svx_consumer_double("svx_adc_pin");
 $end;
 $bind("bus->pwm","pwm->SLAVE");
 vista_bind(bus->pwm, pwm->SLAVE);
@@ -151,6 +168,18 @@ $end;
 $bind("svx_pwm_frequency->svx_generator_signal","frequency");
 vista_bind(svx_pwm_frequency->svx_generator_signal, frequency);
 $end;
+$bind("bus->adc","adc->slave");
+vista_bind(bus->adc, adc->slave);
+$end;
+$bind("adc->pin_in","svx_consumer_signal");
+vista_bind(adc->pin_in, svx_consumer_signal);
+$end;
+$bind("adc->irq","m3->irq_1");
+vista_bind(adc->irq, m3->irq_1);
+$end;
+$bind("svx_adc_pin->svx_consumer_signal","svx_consumer_signal");
+vista_bind(svx_adc_pin->svx_consumer_signal, svx_consumer_signal);
+$end;
     $elaboration_end;
   $vlnv_assign_begin;
 m_library = "svx_m3_schematics";
@@ -196,6 +225,12 @@ $end;
 $destruct_component("svx_pwm_frequency");
 delete svx_pwm_frequency; svx_pwm_frequency = 0;
 $end;
+$destruct_component("adc");
+delete adc; adc = 0;
+$end;
+$destruct_component("svx_adc_pin");
+delete svx_adc_pin; svx_adc_pin = 0;
+$end;
     $destructor_end;
   }
 public:
@@ -236,6 +271,12 @@ $end;
 $component("svx_pwm_frequency");
 svx_generator_unsigned *svx_pwm_frequency;
 $end;
+$component("adc");
+ADC_pvt *adc;
+$end;
+$component("svx_adc_pin");
+svx_consumer_double *svx_adc_pin;
+$end;
 $channel("pin_out");
 sc_signal< bool, SC_MANY_WRITERS > pin_out;
 $end;
@@ -244,6 +285,9 @@ sc_signal< uint32_t, SC_MANY_WRITERS > frequency;
 $end;
 $channel("duty_cycle");
 sc_signal< double, SC_MANY_WRITERS > duty_cycle;
+$end;
+$channel("svx_consumer_signal");
+sc_signal< double, SC_MANY_WRITERS > svx_consumer_signal;
 $end;
   $fields_end;
   $vlnv_decl_begin;

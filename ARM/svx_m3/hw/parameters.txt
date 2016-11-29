@@ -3,10 +3,10 @@
 #          1 ns =   1 ns =    1 GHz  = 1000000000 Hz   
 #         10 ns =  10 ns =  100 MHz  =  100000000 Hz   
 #        100 ns = 100 ns =   10 MHz  =   10000000 Hz   
-#       1000 ns =   1 us =    1 MHz  =    1000000 Hz   
+#       1000 ns =   1 us =    1 MHz  =    1000000 Hz 
 #      10000 ns =  10 us =  100 kHz  =     100000 Hz   
 #     100000 ns = 100 us =   10 kHz  =      10000 Hz   
-#    1000000 ns =   1 ms =    1 kHz  =       1000 Hz   
+#    1000000 ns =   1 ms =    1 kHz  =       1000 Hz  
 #   10000000 ns =  10 ms =  100  Hz  =        100 Hz   
 #  100000000 ns = 100 ms =   10  Hz  =         10 Hz   
 # 1000000000 ns =   1  s =    1  Hz  =          1 Hz   
@@ -15,10 +15,6 @@
 
 tlm_timing_model                          = LT
 top.m3.clock                              = 10 NS
-
-RealTimeSeconds                           = 1000
-RealTimeInterval                          = 0.1
-RealTimeFactor                            = 1.0
 
 # ~~~~~~~~~~ CPU
 
@@ -43,9 +39,12 @@ top.ext_ram.size_in_bytes                 = 0x00200000
 top.bus.pwm_base_address                  = 0x40012C00
 top.bus.pwm_size                          = 0x00000400
 
+top.bus.adc_base_address                  = 0x40013C00
+top.bus.adc_size                          = 0x00000400
+
 # ~~~~~~~~~~ PERIPH OPTIONS
 
-top.pwm.High_freq_clock                   = 10 US  // 100KHz
+top.pwm.High_freq_clock                   = 100 US  // 10KHz
 
 top.svx_abstraction.debug                 = 1
 
@@ -68,6 +67,7 @@ set SVX_INFINITE_TIME_RANGE 10
 without_svx                                      = 0
 svx_connector_isApplicationSequencer             = 1
 svx_generator_prints                             = 1
+svx_consumer_prints                              = 1
 svx_connect_pv_prints                            = 0
 
 svx_port                                         = 4445
@@ -78,21 +78,28 @@ svx_num_channels                                 = 1
 svx_channel_name                                 = DEFAULT_CHANNEL
 
 top.svx_pwm_pin.svx_time_range                   = $SVX_MICRO_TIME_RANGE
-top.svx_pwm_pin.svx_min_generation_period        = 5
-top.svx_pwm_pin.svx_max_generation_period        = 5
+top.svx_pwm_pin.svx_min_generation_period        = 50
+top.svx_pwm_pin.svx_max_generation_period        = 50
 top.svx_pwm_pin.svx_generator_signal_name        = SVX_PWM_PIN
 top.svx_pwm_pin.svx_generator_outfile            = svx_pwm_pin_log.txt
 
 top.svx_pwm_duty_cycle.svx_time_range            = $SVX_MILLI_TIME_RANGE
-top.svx_pwm_duty_cycle.svx_min_generation_period = 1
-top.svx_pwm_duty_cycle.svx_max_generation_period = 1
+top.svx_pwm_duty_cycle.svx_min_generation_period = 100
+top.svx_pwm_duty_cycle.svx_max_generation_period = 100
 top.svx_pwm_duty_cycle.svx_generator_signal_name = SVX_PWM_DUTY_CYCLE
 top.svx_pwm_duty_cycle.svx_generator_outfile     = svx_pwm_duty_cycle_log.txt
 
 top.svx_pwm_frequency.svx_time_range             = $SVX_MILLI_TIME_RANGE
-top.svx_pwm_frequency.svx_min_generation_period  = 1
-top.svx_pwm_frequency.svx_max_generation_period  = 1
+top.svx_pwm_frequency.svx_min_generation_period  = 100
+top.svx_pwm_frequency.svx_max_generation_period  = 100
 top.svx_pwm_frequency.svx_generator_signal_name  = SVX_PWM_FREQUENCY
 top.svx_pwm_frequency.svx_generator_outfile      = svx_pwm_frequency_log.txt
+
+top.svx_adc_pin.svx_time_range                   = $SVX_MILLI_TIME_RANGE
+top.svx_adc_pin.svx_min_consumption_period       = 0
+top.svx_adc_pin.svx_max_consumption_period       = 999
+top.svx_adc_pin.svx_consumer_signal_name         = SVX_PRESSURE
+top.svx_adc_pin.svx_consumer_outfile             = svx_pressure_log.txt
+
 
 

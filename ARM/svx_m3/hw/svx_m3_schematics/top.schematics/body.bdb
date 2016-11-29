@@ -49,7 +49,14 @@
 @@VE@intfc@@ 0 
 L { @bl -1 @el -1 @il -1 @nvis } !
 
-@@VE@_sigs@@ 3 { { @n pin_out @t bool, SC_MANY_WRITERS @bnd -
+@@VE@_sigs@@ 4 { { @n pin_out @t bool, SC_MANY_WRITERS @bnd -
+@das -
+@nregout @skind
+none @block -
+@ch -
+} @iv -
+@genInc -
+@ctorIdx 0 } { { @n svx_consumer_signal @t double, SC_MANY_WRITERS @bnd -
 @das -
 @nregout @skind
 none @block -

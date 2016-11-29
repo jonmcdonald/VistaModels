@@ -34,8 +34,16 @@ using namespace std;
 //constructor
 NADA_pv::NADA_pv(sc_module_name module_name) 
   : NADA_pv_base(module_name) {
+  //SC_THREAD(thread);
 }      
 
  
 
 // in order to minimize merging conflicts, we recommend to add your functions after this comment
+
+void NADA_pv::thread() {
+  wait(2, SC_SEC);
+  unsigned int data = 0x1;
+  cout << sc_time_stamp() << name() << endl;
+  master_write(0x0, &data, 1);
+}

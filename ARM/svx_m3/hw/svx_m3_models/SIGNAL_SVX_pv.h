@@ -46,8 +46,10 @@ class SIGNAL_SVX_pv : public SIGNAL_SVX_pv_base {
   //////////////////////////////////////// 
   void slave_callback(); 
 
+  bool cycle;
   sc_time last_on;
   sc_time last_off;
+  sc_time freq_t;
   double dc;
   uint32_t freq;
 };
