@@ -15,9 +15,7 @@ Files {
 	 Sources {
 		{$PRJDIR/sc_main.cpp}
 	 } 
-	 {Public Headers} {
-		{$PRJDIR/RealTimeStall.h}
-	 } 
+	 {Public Headers} {} 
 }
 Designs {{$PRJDIR/sc_main.cpp}}
 VirtualPrototypes win_svx_m3.vppf

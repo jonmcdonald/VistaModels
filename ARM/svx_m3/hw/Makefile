@@ -37,6 +37,8 @@ clean:
 	rm -rf vista_work $(PROJECT) sim papoulis_project
 	find . -name "*~" -exec rm {} \;
 	rm -rf vista_* 
+	rm -f *_log*.txt
 
 cs:
 	rm -f *_log*.txt
+

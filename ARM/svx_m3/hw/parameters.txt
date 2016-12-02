@@ -18,8 +18,8 @@ top.m3.clock                              = 10 NS
 
 # ~~~~~~~~~~ CPU
 
-#top.m3.PV.core.gdbstub_port                = 2347
-trace_script                               = trace.tcl
+#top.m3.PV.core.gdbstub_port               = 2347
+#trace_script                              = trace.tcl
 #top.m3.PV.core.verbose                    = RESET|INSTRUCTIONS|IRQ
 top.m3.PV.core.elf_image_file             = ../sw/image.axf
 
@@ -67,8 +67,8 @@ set SVX_INFINITE_TIME_RANGE 10
 
 without_svx                                      = 0
 svx_connector_isApplicationSequencer             = 1
-svx_generator_prints                             = 1
-svx_consumer_prints                              = 1
+svx_generator_prints                             = 0
+svx_consumer_prints                              = 0
 svx_connect_pv_prints                            = 0
 
 svx_port                                         = 4445
