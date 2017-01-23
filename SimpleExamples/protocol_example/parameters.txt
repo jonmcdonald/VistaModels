@@ -9,7 +9,7 @@ axi_clock                         = 10 NS
 
 # ~~~~~~ 
 
-top.axi_master.NUM_OPS     = 160
+top.axi_master.NUM_OPS     = 16
 top.axi_master.LEN_READ    = 4
 top.axi_master.LEN_WRITE   = 4
 
