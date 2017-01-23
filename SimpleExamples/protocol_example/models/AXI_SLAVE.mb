@@ -16,13 +16,6 @@ set_auto_parameter_default "clock" {10 ns} time {}
 set_auto_parameter_default "axi_clock" clock time {}
 set_auto_parameter_default "nominal_voltage" 1 double {}
 set_auto_parameter_default "mb_debug" false boolean {true false}
-set_auto_parameter_default "mb_debug_start_time" {0 ns} time {}
-set_auto_parameter_default "mb_debug_end_time" {0 ns} time {}
-set_auto_parameter_default "mb_debug_address_read" 0x10:0x0 string {
-        "0x10:0x50;0x70:0x80"}
-set_auto_parameter_default "mb_debug_address_write" 0x10:0x0 string {
-        "0x10:0x50;0x70:0x80"}
-set_auto_parameter_default "port_enable" true boolean {true false}
 set_auto_parameter_default "call_to_default_if" false boolean {true false}
 set_auto_parameter_default "verbose_parameters" true boolean {true false}
 set_auto_parameter_default "dmi_enabled" true boolean {true false}
@@ -38,6 +31,9 @@ set_auto_parameter_default "slave_write_data_queue_size" 0 uint32 {}
 # example: add_generic "OUT_ACTIVE_VALUE" false
 
 # === machine architecture ===
+set_sync_all 0
+add_delay_policy slave.READ 1 -latency 0 -sync 1 -power 0
+add_delay_policy slave.WRITE 2 -latency 0 -sync 1 -power 0
 set_nominal_clock 100
 
 # === generate options ===

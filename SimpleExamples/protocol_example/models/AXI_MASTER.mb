@@ -6,23 +6,20 @@
 
 # === ports ===
 add_port "master" /TLM/protocols/axi master 32 -bind_mode mandatory
+add_port "input" /TLM/protocols/generic slave 32 -bind_mode mandatory
 
 # === parameters ===
-# usage: add_parameter <parameter_name> <default_value> <type:string|unsigned|int>
-# example: add_parameter "parameter1" 12 unsigned
+add_parameter "NUM_OPS" 1 uint32 {}
+add_parameter "LEN_WRITE" 1000 uint32 {}
+add_parameter "LEN_READ" 1000 uint32 {}
 
 # === auto parameters ===
 set_auto_parameter_default "clock" {10 ns} time {}
+set_auto_parameter_default "generic_clock" clock time {}
 set_auto_parameter_default "axi_clock" clock time {}
 set_auto_parameter_default "nominal_voltage" 1 double {}
 set_auto_parameter_default "mb_debug" false boolean {true false}
-set_auto_parameter_default "mb_debug_start_time" {0 ns} time {}
-set_auto_parameter_default "mb_debug_end_time" {0 ns} time {}
-set_auto_parameter_default "mb_debug_address_read" 0x10:0x0 string {
-        "0x10:0x50;0x70:0x80"}
-set_auto_parameter_default "mb_debug_address_write" 0x10:0x0 string {
-        "0x10:0x50;0x70:0x80"}
-set_auto_parameter_default "port_enable" true boolean {true false}
+set_auto_parameter_default "call_to_default_if" false boolean {true false}
 set_auto_parameter_default "verbose_parameters" true boolean {true false}
 set_auto_parameter_default "dmi_enabled" true boolean {true false}
 set_auto_parameter_default "warning_level" WARNING string {
@@ -30,12 +27,15 @@ set_auto_parameter_default "warning_level" WARNING string {
 set_auto_parameter_default "master_outstanding" 1 uint32 {}
 set_auto_parameter_default "master_read_data_queue_size" 0 uint32 {}
 set_auto_parameter_default "master_write_data_queue_size" 0 uint32 {}
+set_auto_parameter_default "input_pipeline_length" 2 uint32 {}
 
 # === generics ===
 # usage: add_generic <generic_name> <value>
 # example: add_generic "OUT_ACTIVE_VALUE" false
 
 # === machine architecture ===
+set_sync_all 0
+add_delay_policy input 0 -latency 199 -sync 1 -power 0
 set_nominal_clock 100
 
 # === generate options ===

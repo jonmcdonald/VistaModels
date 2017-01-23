@@ -1,18 +1,27 @@
 tlm_timing_model                  = AT
+#lt_policy_modeling                = DYNAMIC
+
+mb_debug                          = 0
 
 clock                             = 10 NS
 generic_clock                     = 10 NS
 axi_clock                         = 10 NS
 
+# ~~~~~~ 
+
+top.axi_master.NUM_OPS     = 160
+top.axi_master.LEN_READ    = 4
+top.axi_master.LEN_WRITE   = 4
+
+top.apb_master.NUM_OPS     = 16
+top.apb_master.LEN_READ    = 4
+top.apb_master.LEN_WRITE   = 4
+
+
 # ~~~~~~ AT mode parameters
 
 top.axi_master.master_outstanding = 2
-top.axi_master.master_read_data_queue_size = 0x0
-top.axi_master.master_write_data_queue_size = 0x0
-
 top.axi_slave.slave_outstanding = 2
-top.axi_slave.slave_pipeline_length = 10
-top.axi_slave.slave_read_data_queue_size = 0x0
-top.axi_slave.slave_write_data_queue_size = 0x0
 
+top.axi_slave.slave_pipeline_length = 4
 

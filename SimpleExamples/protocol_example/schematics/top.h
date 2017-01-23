@@ -6,6 +6,7 @@ $includes_begin;
 #include "../models/AXI_SLAVE_model.h"
 #include "../models/APB_MASTER_model.h"
 #include "../models/APB_SLAVE_model.h"
+#include "../models/DummyCPU_model.h"
 $includes_end;
 
 $module_begin("top");
@@ -27,6 +28,9 @@ $end
 $init("apb_master"),
 apb_master(0)
 $end
+$init("dummy"),
+dummy(0)
+$end
     $initialization_end
 {
     $elaboration_begin;
@@ -42,11 +46,20 @@ $end;
 $create_component("apb_master");
 apb_master = new APB_MASTER_pvt("apb_master");
 $end;
+$create_component("dummy");
+dummy = new DummyCPU_pvt("dummy");
+$end;
 $bind("axi_master->master","axi_slave->slave");
 vista_bind(axi_master->master, axi_slave->slave);
 $end;
 $bind("apb_master->master","apb_slave->slave");
 vista_bind(apb_master->master, apb_slave->slave);
+$end;
+$bind("dummy->master","apb_master->input");
+vista_bind(dummy->master, apb_master->input);
+$end;
+$bind("dummy->master2","axi_master->input");
+vista_bind(dummy->master2, axi_master->input);
 $end;
     $elaboration_end;
   $vlnv_assign_begin;
@@ -69,6 +82,9 @@ $end;
 $destruct_component("apb_master");
 delete apb_master; apb_master = 0;
 $end;
+$destruct_component("dummy");
+delete dummy; dummy = 0;
+$end;
     $destructor_end;
   }
 public:
@@ -84,6 +100,9 @@ APB_SLAVE_pvt *apb_slave;
 $end;
 $component("apb_master");
 APB_MASTER_pvt *apb_master;
+$end;
+$component("dummy");
+DummyCPU_pvt *dummy;
 $end;
   $fields_end;
   $vlnv_decl_begin;

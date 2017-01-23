@@ -39,7 +39,27 @@ class AXI_MASTER_pv : public AXI_MASTER_pv_base {
   // To add parameters - use the Model Builder form (under PV->Parameters tab)
   SC_HAS_PROCESS(AXI_MASTER_pv);
   AXI_MASTER_pv(sc_core::sc_module_name module_name);         
+  void thread_w1();
+  void thread_r1();
 
-  void thread();
+  ////////////////////////////////////////
+  // target ports read callbacks
+  //////////////////////////////////////// 
+  bool input_callback_read(mb_address_type address, unsigned char* data, unsigned size);
+  
+  unsigned input_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size); 
+
+ protected:
+  ////////////////////////////////////////
+  // target ports write callbacks
+  //////////////////////////////////////// 
+  bool input_callback_write(mb_address_type address, unsigned char* data, unsigned size);
+  
+  unsigned input_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size);  
+  bool input_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData);   
+
+
+  mb::mb_fifo<uint8_t> rFifo;
+  mb::mb_fifo<uint8_t> wFifo;
 };
 

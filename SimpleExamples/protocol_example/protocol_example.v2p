@@ -5,6 +5,7 @@ Files {
 		{$PRJDIR/models/AXI_SLAVE.mb}
 		{$PRJDIR/models/APB_MASTER.mb}
 		{$PRJDIR/models/APB_SLAVE.mb}
+		{$PRJDIR/models/DummyCPU.mb}
 	 } 
 	 Schematics {
 		{$PRJDIR/schematics/top.h}
@@ -30,8 +31,8 @@ LinkPackages model_builder
 ProjectLibraryType archive
 ProjectComponentsLibraryPath {$PRJDIR/$PRJFILE_BASENAME/interfaces}
 ProjectWorkingDirectory {$PRJDIR/$PRJFILE_BASENAME/build}
-HasTLMSupport 0
-CompiledWithTLMSupport 0
+HasTLMSupport 1
+CompiledWithTLMSupport 1
 IsUsePathVariables 1
 PlatformName protocol_example
 ProjectReadOnly 0

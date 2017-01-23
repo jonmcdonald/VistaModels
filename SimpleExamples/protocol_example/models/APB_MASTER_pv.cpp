@@ -26,6 +26,7 @@
 
 #include "APB_MASTER_pv.h"
 #include <iostream>
+#include <bitset>
 
 using namespace sc_core;
 using namespace sc_dt;
@@ -34,21 +35,75 @@ using namespace std;
 //constructor
 APB_MASTER_pv::APB_MASTER_pv(sc_module_name module_name) 
   : APB_MASTER_pv_base(module_name) {
-   SC_THREAD(thread);
+
+  rFifo.set_minimal_delay(sc_time(2, SC_NS));
+  wFifo.set_minimal_delay(sc_time(2, SC_NS));
+
+  SC_THREAD(thread_w1);
+  SC_THREAD(thread_r1);
 } 
 
-// This thread can be used to generate outgoing transactions
-void APB_MASTER_pv::thread() {
-  
-  uint32_t data[20];
-  data[0] = 0xAAAAAAAA;
-  data[1] = 0xBBBBBBBB;
-  data[2] = 0xCCCCCCCC;
-  data[3] = 0xDDDDDDDD;
-  data[4] = 0xEEEEEEEE;
-  data[5] = 0xFFFFFFFF;
-  
-  for(int i = 0; i < 6; i++) {
-    master_write(i*4, &data[i], 1);
-  }
+
+// Read callback for input port.
+// Returns true when successful.
+bool APB_MASTER_pv::input_callback_read(mb_address_type address, unsigned char* data, unsigned size) {
+  cout << name() << " @ " << sc_time_stamp() << " READ from address = " << address << endl;  
+  return true;
 }
+
+// Write callback for input port.
+// Returns true when successful.
+bool APB_MASTER_pv::input_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
+  std::string binary = std::bitset<32>((unsigned int) *data).to_string(); //to binary
+  unsigned int val = (unsigned int) *data;
+  cout << name() << " @ " << sc_time_stamp() << " WRITE to address " << address << " data = " << hex << val << " , " << binary << endl;
+
+  for(uint8_t i = 0; i < NUM_OPS; i++) {
+    wFifo.put(i);
+    rFifo.put(i);
+  }
+
+  return true;
+} 
+
+
+
+
+unsigned APB_MASTER_pv::input_callback_read_dbg(mb_address_type address, unsigned char* data, unsigned size) {
+  return 0;
+} 
+
+unsigned APB_MASTER_pv::input_callback_write_dbg(mb_address_type address, unsigned char* data, unsigned size) {
+  return 0;
+} 
+
+bool APB_MASTER_pv::input_get_direct_memory_ptr(mb_address_type address, tlm::tlm_dmi& dmiData) {
+  return false;
+}
+
+
+
+// This thread can be used to generate outgoing transactions
+void APB_MASTER_pv::thread_w1() { 
+  uint8_t* data = (uint8_t*) malloc(LEN_WRITE * sizeof(uint8_t));
+  while(1) {
+    uint8_t v = wFifo.peek(); // block/wait until start bit is written
+    for(uint32_t i = 0; i < LEN_WRITE; i++) {
+      data[i] = v;
+    }   
+    master_write(0x0, data, LEN_WRITE);
+    wFifo.get();  // release Fifo, Done.
+  }
+  free(data);
+}
+
+void APB_MASTER_pv::thread_r1() { 
+  uint8_t* data = (uint8_t*) malloc(LEN_READ * sizeof(uint8_t));
+  while(1) {
+    rFifo.peek(); // block/wait until start bit is written
+    master_read(0x0, data, LEN_READ);
+    rFifo.get();  // release Fifo, Done.
+  }
+  free(data);
+}
+

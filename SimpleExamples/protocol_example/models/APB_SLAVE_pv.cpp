@@ -26,6 +26,7 @@
 
 #include "APB_SLAVE_pv.h"
 #include <iostream>
+#include <bitset>
 
 using namespace sc_core;
 using namespace sc_dt;
@@ -39,14 +40,16 @@ APB_SLAVE_pv::APB_SLAVE_pv(sc_module_name module_name)
 // Read callback for slave port.
 // Returns true when successful.
 bool APB_SLAVE_pv::slave_callback_read(mb_address_type address, unsigned char* data, unsigned size) {
-  
+  cout << name() << " @ " << sc_time_stamp() << " READ from address = " << address << endl;
   return true;
 }
 
 // Write callback for slave port.
 // Returns true when successful.
 bool APB_SLAVE_pv::slave_callback_write(mb_address_type address, unsigned char* data, unsigned size) {
-  
+  std::string binary = std::bitset<32>((unsigned int) *data).to_string(); //to binary
+  unsigned int val = (unsigned int) *data;
+  cout << name() << " @ " << sc_time_stamp() << " WRITE to address " << address << " data = " << hex << val << " , " << binary << endl;
   return true;
 } 
 
